@@ -17,3 +17,11 @@ export function writePng(path, w, h, rgb) {
   const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(w, 0); ihdr.writeUInt32BE(h, 4); ihdr[8] = 8; ihdr[9] = 2;
   writeFileSync(path, Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', deflateSync(raw, { level: 6 })), chunk('IEND', Buffer.alloc(0))]));
 }
+
+/** u16: Uint16Array(w*h), 16-bit grayscale, big-endian samples */
+export function writePng16(path, w, h, u16) {
+  const stride = w * 2 + 1, raw = Buffer.alloc(stride * h);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) raw.writeUInt16BE(u16[y * w + x], y * stride + 1 + x * 2);
+  const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(w, 0); ihdr.writeUInt32BE(h, 4); ihdr[8] = 16; ihdr[9] = 0;
+  writeFileSync(path, Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', deflateSync(raw, { level: 6 })), chunk('IEND', Buffer.alloc(0))]));
+}

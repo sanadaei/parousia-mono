@@ -96,7 +96,7 @@ export function channelSize(area) {
   return { width: Math.max(1.2, 3.2 * Math.sqrt(Q)), depth: Math.max(0.3, 0.35 * Q ** 0.36) };
 }
 
-export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octaves = 7 } = {}) {
+export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octaves = 7, gullyDepth = 0.16 } = {}) {
   const { W, H, dx, sizeM, height, precip } = R, s0 = hashSeed(seed);
   const rivers = traceRivers(R, minChannelArea, seed);
   const toF = (x, y) => [(x + sizeM / 2) / dx - 0.5, (sizeM / 2 - y) / dx - 0.5];
@@ -120,6 +120,39 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
     return { d: best, area: q, x: bx, y: by };
   }
 
+  const nCluster = createSimplex3(seed + '/gully-cluster');
+  const cluster = (u, w, k) => nCluster(u, w, k * 1.7);
+  /** One gully octave in cell units (cell size 1): trough sum v and dv/d(across). */
+  function gullyOctave(u, w, px, py, k) {
+    const ix = Math.floor(u), iy = Math.floor(w);
+    let v = 0, d = 0;
+    // 5x5 cells cover radius 2 around the query; the window taper reaches zero
+    // there, so features entering or leaving the window leave no seam.
+    for (let j = -2; j <= 2; j++) for (let i = -2; i <= 2; i++) {
+      const cx = ix + i + hash2(ix + i, iy + j, k, s0), cy = iy + j + hash2(ix + i, iy + j, k + 31, s0);
+      const du = u - cx, dw = w - cy, taper = 1 - (du * du + dw * dw) / 4;
+      if (taper <= 0) continue;
+      const al = du * py - dw * px, ac = du * px + dw * py;
+      const hw = 0.3 + 0.45 * hash2(ix + i, iy + j, k + 57, s0); // trough half-width
+      if (ac >= hw || ac <= -hw) continue;
+      // Clustered presence and random length: gullies bunch and gap like real ones.
+      const gx0 = ix + i, gy0 = iy + j;
+      if (hash2(gx0, gy0, k + 71, s0) > 0.45 + 0.5 * cluster(gx0 / 6, gy0 / 6, k)) continue;
+      const len2 = 1 + 3 * hash2(gx0, gy0, k + 13, s0);
+      const a = (0.4 + 1.2 * hash2(gx0, gy0, k + 91, s0)) * taper * taper * Math.exp(-al * al / len2);
+      const q = ac / hw, t = 1 - q * q;
+      v -= a * t * t; d += a * 4 * q * t / hw;
+    }
+    return { v, d };
+  }
+  // Mean of the trough sum (sampled once), removed so each octave is zero-mean
+  // and the near field still averages back to the parent.
+  const gullyMean = (() => {
+    let m = 0; const N = 6000;
+    for (let t = 0; t < N; t++) { const r = hash2(t, 7, 3, s0) * 2 * Math.PI; m += gullyOctave(hash2(t, 1, 2, s0) * 97, hash2(t, 3, 4, s0) * 97, Math.cos(r), Math.sin(r), 0).v; }
+    return m / N;
+  })();
+
   /** Height (m) and surface info at local metres (x east, y north).
    * footprint: sample spacing in metres; octaves finer than 2x it are skipped (no aliasing). */
   return function sample(x, y, footprint = 0) {
@@ -134,34 +167,21 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
     const plain = ch ? Math.max(ch.width * 4, Math.min(dx, 12 * ch.width)) : 0; // floodplain half-width
     const floodW = ch ? Math.max(0, 1 - riv.d / plain) : 0;
 
-    // Gully noise: suppressed on floodplains and flats.
+    // Gully noise: suppressed on floodplains and flats. Each feature point is one
+    // V-shaped trough along the slope (random width and depth), so spacing is
+    // irregular and sharp spurs form where neighbouring troughs meet.
     let s = dx * 0.5; // the parent already resolves its own cell size
     for (let k = 0; k < octaves; k++, s *= 0.5) {
       const slope = Math.hypot(gx, gy);
       if (slope < 1e-4 || s < 2 * footprint) break;
       const px = -gy / slope, py = gx / slope; // across-slope direction
-      const ix = Math.floor(x / s), iy = Math.floor(y / s);
-      let sv = 0, sw = 0, sd = 0;
-      // 5x5 cells cover radius 2s around the query; the kernel tapers to zero
-      // there, so features entering or leaving the window leave no seam.
-      for (let j = -2; j <= 2; j++) for (let i = -2; i <= 2; i++) {
-        const cx = (ix + i + hash2(ix + i, iy + j, k, s0)) * s, cy = (iy + j + hash2(ix + i, iy + j, k + 31, s0)) * s;
-        const dxp = x - cx, dyp = y - cy, taper = 1 - (dxp * dxp + dyp * dyp) / (4 * s * s);
-        if (taper <= 0) continue;
-        // Elongated downslope: gullies are long and narrow, not blobs.
-        const al = dxp * py - dyp * px, ac = dxp * px + dyp * py;
-        const w = Math.exp(-(al * al / (s * s * 6) + ac * ac / (s * s * 0.6))) * taper * taper;
-        const ph = ac * (2 * Math.PI / s); // gully axis passes through the feature point
-        const sn = Math.sin(ph);
-        const wa = w * (0.3 + 1.4 * hash2(ix + i, iy + j, k + 91, s0)); // uneven gully strength
-        sv += wa * (2 * Math.abs(sn) - 4 / Math.PI); // V-shaped gullies, rounded spurs
-        sd += wa * 2 * Math.sign(sn) * Math.cos(ph) * (2 * Math.PI / s);
-        sw += w;
-      }
+      const { v, d } = gullyOctave(x / s, y / s, px, py, k);
       const lod = footprint > 0 ? Math.min(1, Math.max(0, (s / footprint - 2) / 2)) : 1; // fade in, no popping
-      const amp = lod * s * 0.045 * 0.85 ** k * Math.min(1, slope / 0.25) * Math.min(1, slope * 40) * (1 - floodW);
-      h += amp * sv / sw;
-      gx += amp * sd / sw * px; gy += amp * sd / sw * py; // later octaves follow the new slope: branching
+      // Depth follows the parent's slope (not the gullied one, which would feed back),
+      // steeper than linearly: gentle soil-mantled hills stay smooth.
+      const amp = lod * s * gullyDepth * 0.85 ** k * Math.min(1.5, (baseSlope / 0.3) ** 1.5) * Math.min(1, baseSlope * 40) * (1 - floodW);
+      h += amp * (v - gullyMean);
+      gx += amp * d / s * px; gy += amp * d / s * py; // later octaves follow the new slope: branching
     }
 
     let water = 0, waterCover = 0;

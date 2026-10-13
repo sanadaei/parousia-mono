@@ -38,15 +38,20 @@ export function pickCenter(P, { site, lat, lon }) {
     return [Math.cos(la) * Math.sin(lo), Math.sin(la), Math.cos(la) * Math.cos(lo)];
   }
   const { grid, n } = P, { height, land, precip } = P.fields, dirs = grid.dirs;
+  const forest = site === 'forest-mountain';
+  const [lo, hi] = site === 'hills' ? [150, 700] : forest ? [900, 2600] : [800, 3500];
+  const [amin, amax] = forest ? [25, 42] : [30, 52];
   let best = -1, bs = -Infinity;
   for (let c = 0; c < n; c++) {
-    const [lo, hi] = site === 'hills' ? [150, 700] : [800, 3500];
     if (!land[c] || height[c] < lo || height[c] > hi) continue;
+    if (forest && !(precip[c] >= 0.45)) continue;
     const la = Math.asin(dirs[c * 3 + 1]) * 180 / Math.PI;
-    if (Math.abs(la) > 52 || Math.abs(la) < 30) continue;
-    const s = Math.min(precip[c], 1.2) * (site === 'hills' ? 1 + (c % 97) / 970 : Math.min(height[c], 2500));
+    if (Math.abs(la) > amax || Math.abs(la) < amin) continue;
+    const s = forest ? Math.min(precip[c], 1.5) * Math.min(height[c], 2200)
+      : Math.min(precip[c], 1.2) * (site === 'hills' ? 1 + (c % 97) / 970 : Math.min(height[c], 2500));
     if (s > bs) { bs = s; best = c; }
   }
+  if (best < 0) throw new Error(`pickCenter: no candidate found for site '${site}'`);
   return [dirs[best * 3], dirs[best * 3 + 1], dirs[best * 3 + 2]];
 }
 

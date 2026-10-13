@@ -191,7 +191,7 @@ const PRESETS = [
   { label: 'L2', level: 1, dist: 0.75, pitch: 26, yaw: 15 },
   { label: 'L3', level: 2, dist: 0.8, pitch: 24, yaw: 15 },
   { label: 'L4', level: 3, dist: 0.8, pitch: 24, yaw: 15 },
-  { label: 'L3 low', level: 2, dist: 0.45, pitch: 8, yaw: 15 },
+  { label: 'L3 low', level: 2, dist: 0.6, pitch: 12, yaw: 15 },
   { label: 'ground', level: 3, dist: 0.15, pitch: 4, yaw: 15 },
 ];
 function applyPreset(p) {
