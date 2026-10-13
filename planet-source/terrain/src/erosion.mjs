@@ -23,7 +23,9 @@ export function createErosionState(n) {
 
 /** Priority-flood from fixed cells. Fills order (ascending filled height),
  * receivers (steepest descent on the filled surface) and filled heights. */
-export function routeFlow(h, fixed, nbh, distScale, st, eps = Math.max(2e-3, 2e-5 * distScale)) {
+// epsSlope: gradient imposed across flats (per metre of edge length), floored at
+// 2 mm per step so it stays above float32 resolution at mountain heights.
+export function routeFlow(h, fixed, nbh, distScale, st, epsSlope = 2e-5) {
   const { nb, dist } = nbh, n = h.length;
   const { filled, order, rec, recDist, heap, visited } = st;
   visited.fill(0); heap.size = 0; st.orderLen = 0;
@@ -47,6 +49,7 @@ export function routeFlow(h, fixed, nbh, distScale, st, eps = Math.max(2e-3, 2e-
       visited[m] = 1;
       // Jittered epsilon: flats drain along irregular paths instead of grid lines.
       const r = (Math.imul(m ^ 0x9E3779B9, 0x85EBCA6B) >>> 0) / 4294967296;
+      const eps = Math.max(2e-3, epsSlope * dist[c * 8 + q] * distScale);
       filled[m] = Math.max(h[m], fc + eps * (0.2 + 1.6 * r));
       if (filled[m] <= fc) filled[m] = fc + Math.max(eps, Math.abs(fc) * 2.4e-7); // float32 resolution
       rec[m] = c; recDist[m] = dist[c * 8 + q] * distScale; // fallback receiver: flood parent

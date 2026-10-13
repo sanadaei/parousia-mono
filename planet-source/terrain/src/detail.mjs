@@ -142,12 +142,15 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
       const px = -gy / slope, py = gx / slope; // across-slope direction
       const ix = Math.floor(x / s), iy = Math.floor(y / s);
       let sv = 0, sw = 0, sd = 0;
-      for (let j = -1; j <= 1; j++) for (let i = -1; i <= 1; i++) {
+      // 5x5 cells cover radius 2s around the query; the kernel tapers to zero
+      // there, so features entering or leaving the window leave no seam.
+      for (let j = -2; j <= 2; j++) for (let i = -2; i <= 2; i++) {
         const cx = (ix + i + hash2(ix + i, iy + j, k, s0)) * s, cy = (iy + j + hash2(ix + i, iy + j, k + 31, s0)) * s;
-        const dxp = x - cx, dyp = y - cy;
+        const dxp = x - cx, dyp = y - cy, taper = 1 - (dxp * dxp + dyp * dyp) / (4 * s * s);
+        if (taper <= 0) continue;
         // Elongated downslope: gullies are long and narrow, not blobs.
         const al = dxp * py - dyp * px, ac = dxp * px + dyp * py;
-        const w = Math.exp(-(al * al / (s * s * 6) + ac * ac / (s * s * 0.6)));
+        const w = Math.exp(-(al * al / (s * s * 6) + ac * ac / (s * s * 0.6))) * taper * taper;
         const ph = ac * (2 * Math.PI / s); // gully axis passes through the feature point
         const sn = Math.sin(ph);
         const wa = w * (0.3 + 1.4 * hash2(ix + i, iy + j, k + 91, s0)); // uneven gully strength
@@ -161,20 +164,23 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
       gx += amp * sd / sw * px; gy += amp * sd / sw * py; // later octaves follow the new slope: branching
     }
 
-    let water = 0;
+    let water = 0, waterCover = 0;
     if (ch) {
       // Floodplain: relax towards the bank height; channel: trapezoid below it.
       const bank = base(riv.x, riv.y);
       h = h + (bank + 0.4 - h) * Math.min(1, floodW * 1.6) ** 2 * (h > bank ? 1 : 0.5);
-      const half = ch.width / 2;
+      // A channel narrower than the sampling would alias into beads: widen it to
+      // three footprints and keep its cross-section area (shallower).
+      const w = Math.max(ch.width, 3 * footprint), depth = ch.depth * ch.width / w, half = w / 2;
       if (riv.d < half * 1.6) {
         const t = Math.max(0, Math.min(1, (riv.d - half * 0.6) / (half)));
-        const bed = bank - ch.depth * (1 - t * t);
+        const bed = bank - depth * (1 - t * t);
         if (bed < h) h = bed;
-        if (riv.d < half) water = bank - 0.15 * ch.depth;
+        if (riv.d < half) { water = bank - 0.15 * depth; waterCover = ch.width / w; }
       }
     }
-    return { h, water: water > h ? water : null, slope: Math.hypot(gx, gy), baseSlope, riverDist: riv.d, precip: precipAt(x, y) };
+    // waterCover: fraction of the (widened) channel that is really water, for colouring.
+    return { h, water: water > h ? water : null, waterCover: water > h ? waterCover : 0, slope: Math.hypot(gx, gy), baseSlope, riverDist: riv.d, precip: precipAt(x, y) };
   };
 
   function precipAt(x, y) { const [fx, fy] = toF(x, y); return precip[Math.min(H - 1, Math.max(0, Math.round(fy))) * W + Math.min(W - 1, Math.max(0, Math.round(fx)))]; }
