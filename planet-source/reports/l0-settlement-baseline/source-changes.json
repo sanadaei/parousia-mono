@@ -1,0 +1,106 @@
+{
+  "modified": [
+    {
+      "path": "README.md",
+      "beforeSha256": "bbd2fc0052e4c220c46991d8140bd6f3b66e968622235da3c54731796851a3ba",
+      "afterSha256": "adfdfa45d1b9c4d58d6556f6b53ab06c9af8a52d41340fd4325a906c218265a8"
+    },
+    {
+      "path": "docs/L0_REVIEW.md",
+      "beforeSha256": "8ece44263a2e6e7fc0dea18d37fa563dda8ac85c922f7ca34c52b72921389d66",
+      "afterSha256": "5521fdb34ab19583bbd9009afa397043045214645d9034fa288c8a66c7de9e1d"
+    },
+    {
+      "path": "docs/WORKING_BASELINE_ROADMAP.md",
+      "beforeSha256": "e87a84e74a367190dd24f26a0636b1dc158e593e90ade6fcb58cea4522bafd1f",
+      "afterSha256": "c87c297de6896b3f6458a550a7a32b2f91401dbcf5cb922f6e1bf97943da5050"
+    },
+    {
+      "path": "package.json",
+      "beforeSha256": "d53939f5f9560adf4f33c08f1e286699df9e24f71f73483f509e3d53ee1b7367",
+      "afterSha256": "d790ec80dbae21b09be8d8b18999908a6767c0185117a067a85d56ea5c9158cd"
+    },
+    {
+      "path": "scripts/audit-l0.mjs",
+      "beforeSha256": "80670f38db4745d77f414dbe3bba2ddd3124e173ba9134643bedfaa3cdc5dcfa",
+      "afterSha256": "913035f95dce5e9e3a4c754d6690da4fbfa40c194b3869c98caca97b6469698c"
+    },
+    {
+      "path": "scripts/experiments/build-l1-broad-region.mjs",
+      "beforeSha256": "684e4f2fab7ab25b6ca27df2cccf0381660b36b624bd9f3b47250ab73bf23a95",
+      "afterSha256": "f8a35604b165c3fff17b7c20c4ce91e137b044fdec0d7bc0e6c92366923a8492"
+    },
+    {
+      "path": "scripts/planet-generation-api.mjs",
+      "beforeSha256": "86463079b5e2d1ad23bf4dfe37ed143db9d532c203ed7a1c5176445fe5fecc60",
+      "afterSha256": "bc7f602bbbfd26f8daeccf7592c7472cf90022d388eb024007179ae7a982351e"
+    },
+    {
+      "path": "src/core/index.mjs",
+      "beforeSha256": "82d9058ee0b6b9fd458cfcf95517774aa4046f62fe3dad59e40d4f7cb1cb2f10",
+      "afterSha256": "4a09ac9e5a221caafe53ffad8172a5239b78f4d1c348f60c3d8df2697d2e96c6"
+    },
+    {
+      "path": "src/core/l1-broad-region.mjs",
+      "beforeSha256": "e551ea2df0c2ea89e3ee06d1b18cb2891d9794789d7a2c6dd5313f4dde856471",
+      "afterSha256": "75bbb9939eace74e797059e42e651810264a68ee91b4ae54500aa5b2d135ea3e"
+    },
+    {
+      "path": "src/core/planet-generation.mjs",
+      "beforeSha256": "b80ffc56453916f6b9efb1999a2c8ef4d2556e11845e45e4cd9f2ffd375d3cb2",
+      "afterSha256": "05a04a1ca6d2d22e6606d097653bcf44ab91b4b6291e85be01485f9cbbeef11a"
+    },
+    {
+      "path": "src/core/planet-macro.mjs",
+      "beforeSha256": "39e11aceb5b031305520219bde2f66a9d7d17729de3cfe1f235f31c583a5aafb",
+      "afterSha256": "6dcdd067a65733211fd77afbe0ba95ea38db5b33a597fd8fb33068cd5f1eba36"
+    },
+    {
+      "path": "src/core/planet-world.mjs",
+      "beforeSha256": "db1f04f454d4b92b1616749c8b98211ee16e61bbd7ee843e6924d105e8346b9d",
+      "afterSha256": "281122a89de19fd454c7d65bb94a93aef4448f883db2ef556d05baa88747c1c6"
+    },
+    {
+      "path": "src/globe/index.html",
+      "beforeSha256": "e0591a896666ab729a27a416b134f04fb9a69264da3b35e26d9664d561c3ee80",
+      "afterSha256": "53206cdc589a8b50bfcb9b85a86faa1dea98f3aa1f9e5d19ddcb3cc8959d3509"
+    },
+    {
+      "path": "test/road-material-overlay.test.mjs",
+      "beforeSha256": "48b061da48012929f98d5c3ebb3d7602bc3154efcdc06a5c933e6f544f419ada",
+      "afterSha256": "bd3b1f40ddebf477258f3dc3a48af28984a91614fab05e27d6aa4aeae55068c3"
+    },
+    {
+      "path": "test/shape-first-region-pyramid.test.mjs",
+      "beforeSha256": "230ec2e7320d25c9ea720997797a0f090e03a82488422c7aa0c3153c3fa36223",
+      "afterSha256": "f597c0415a25855b845cad91743323e31c6cf45f1306456881294e6cf7c49dcd"
+    }
+  ],
+  "new": [
+    {
+      "path": "src/core/settlement-distribution.mjs",
+      "sha256": "898409a00d0e5f8d534411333e4154a83dbaa348b23e2550c56767a961ff6035"
+    },
+    {
+      "path": "scripts/build-l0-settlement-baseline.mjs",
+      "sha256": "298dc7767100028039eff7707c0cdeb154ecb69f481c95b79e0c3203f17dd209"
+    },
+    {
+      "path": "scripts/build-settlement-distribution-review.mjs",
+      "sha256": "b80fef371404e8f0b3ce906b9067f9c3ecf11b70efaaefca52b86dcc488eed99"
+    },
+    {
+      "path": "test/settlement-distribution.test.mjs",
+      "sha256": "1b904e8c969962ded45fff4d9beb2f61dff46ac27b19e65dca60ed8f981c9e05"
+    },
+    {
+      "path": "test/settlement-distribution-world.test.mjs",
+      "sha256": "8a0fa14ad77e6f9644e1dca2695fc3d29dfd5c7ebe8c566436ae2c2c100980ca"
+    },
+    {
+      "path": "test/settlement-distribution-review.test.mjs",
+      "sha256": "ff6aa43ebe8f99373650abb5834059fc7f16aa23cce8d1d41d44f85ab6e37e89"
+    }
+  ],
+  "missingOriginalBackup": []
+}

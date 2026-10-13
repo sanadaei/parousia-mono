@@ -1,0 +1,1062 @@
+{
+  "worldId": "sha256:6c5dc7d74ff3b0c0b0fee1b8e718e6a13eced9ceab62410bfee26e8ec520bf77",
+  "sites": 1,
+  "districts": 105,
+  "homes": 9818,
+  "disconnectedDistricts": 0,
+  "inaccessibleBuildings": 0,
+  "cityDistrictComponents": 1,
+  "scope": "One city, all districts, proposed runtime15 service policy on fixed runtime14 terrain/site. Counterfactual recipe audit, not old-world mutation. Street centerline intersection graph; straight exterior-door-to-street paths up to 60 m, 2 m dry-ground samples and maximum 30% pedestrian grade, excluding other building footprints. Not all-world internal access, wheelchair/vehicle accessibility, sub-sample obstacles or street grade certification.",
+  "results": [
+    {
+      "siteId": "pop:3841:0",
+      "district": 0,
+      "roads": 49,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 1,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 2,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 3,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 4,
+      "roads": 45,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 5,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 6,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 7,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 8,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 9,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 10,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 11,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 12,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 13,
+      "roads": 40,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 14,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 15,
+      "roads": 40,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 16,
+      "roads": 45,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 17,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 18,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 19,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 20,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 21,
+      "roads": 40,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 22,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 94,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 23,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 92,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 24,
+      "roads": 45,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 25,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 26,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 87,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 27,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 28,
+      "roads": 45,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 29,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 30,
+      "roads": 40,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 31,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 32,
+      "roads": 45,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 33,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 34,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 35,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 36,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 37,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 38,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 39,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 40,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 41,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 42,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 43,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 44,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 45,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 46,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 47,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 48,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 49,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 80,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 50,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 75,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 51,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 67,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 52,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 53,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 54,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 55,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 56,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 57,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 58,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 59,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 60,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 61,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 55,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 62,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 63,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 64,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 65,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 66,
+      "roads": 40,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 67,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 68,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 69,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 70,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 71,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 72,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 73,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 74,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 75,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 76,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 77,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 78,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 79,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 80,
+      "roads": 44,
+      "streetComponents": 1,
+      "homes": 94,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 81,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 82,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 83,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 84,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 85,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 86,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 87,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 88,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 89,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 90,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 59,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 91,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 92,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 93,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 94,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 95,
+      "roads": 40,
+      "streetComponents": 1,
+      "homes": 95,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 96,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 97,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 98,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 99,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 76,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 100,
+      "roads": 45,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 101,
+      "roads": 43,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 102,
+      "roads": 41,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 103,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 96,
+      "requestedHomes": 96,
+      "inaccessible": [],
+      "blockedGates": []
+    },
+    {
+      "siteId": "pop:3841:0",
+      "district": 104,
+      "roads": 42,
+      "streetComponents": 1,
+      "homes": 16,
+      "requestedHomes": 16,
+      "inaccessible": [],
+      "blockedGates": []
+    }
+  ]
+}

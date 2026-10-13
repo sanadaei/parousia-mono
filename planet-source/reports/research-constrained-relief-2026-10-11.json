@@ -1,0 +1,207 @@
+{
+  "status": "UNADOPTED RESEARCH; PRODUCTION UNCHANGED",
+  "worldId": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e",
+  "scriptHashes": {
+    "constrained-valley-relief.mjs": "72906cab5378e4ee5c988e4a7b156902e067a750f691f432f682c38a18c33ec8",
+    "planet-parent-relief.mjs": "b0a368bccbcf2eafad1257032f1e2521da8806929afcc61edb820b40c67be183",
+    "drainage-led-relief.mjs": "028f5854316aab1443be8f061d928172b69342238d10c444f385f7bbb6c4d0b2",
+    "run-constrained-comparison.mjs": "b70e46437921bc2e68f0e87c526e2b2817c3650d6c40a4695a98cb4e4828fb27"
+  },
+  "reports": [
+    {
+      "source": {
+        "worldId": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e",
+        "profileId": "river:2156:2285",
+        "center": {
+          "bankWidthM": 330.02225399702775,
+          "depthM": 3.2801494418053854,
+          "halfWidthM": 51.92301994298868,
+          "latDeg": 42.1960838287715,
+          "lonDeg": -53.40620525529806,
+          "waterLevelElevationM": 529.0327529310614
+        },
+        "scope": "Clipped existing river bed profile; no invented receiving water or new world committed"
+      },
+      "acceptedValleys": 0,
+      "rejected": {
+        "no-upstream-relief": 11,
+        "boundary-reservation": 4,
+        "infeasible-source-interval": 3,
+        "parent-not-accepted": 119,
+        "inside-existing-river-corridor": 10
+      },
+      "edgeChangeM": 0,
+      "parentChangeM": 0,
+      "corridorChangeM": 0,
+      "maximumCutM": 0,
+      "maximumFillM": 0,
+      "uphillSteps": 0,
+      "connectorUphillSteps": 0,
+      "maximumBedErrorM": 0,
+      "parameters": {
+        "extentM": 8192,
+        "maxIncisionM": 80,
+        "maxFillM": 0.1,
+        "guardM": 512,
+        "maxWidthM": 256,
+        "sampleStepM": 8
+      },
+      "limitations": [
+        "Finite profile/parent checks, not continuous geometric proofs",
+        "Compact support preserves a boundary collar but does not generate cross-region tributaries",
+        "No flow, sediment, water surface or ecological output",
+        "Curve continuity between sampled original heights still requires verification",
+        "Not installed in canonical production sampler"
+      ],
+      "originalReliefM": 123.48833532711137,
+      "runtimeMs": 812.779243,
+      "status": "NO-OP: no admissible valleys; not an acceptance pass"
+    },
+    {
+      "source": {
+        "worldId": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e",
+        "profileId": "river:3670:3541",
+        "center": {
+          "bankWidthM": 17.08800749063506,
+          "depthM": 2.506422782621459,
+          "halfWidthM": 17.08800749063506,
+          "latDeg": 11.253302750653372,
+          "lonDeg": -118.11813186761412,
+          "waterLevelElevationM": 1022.168448224237
+        },
+        "scope": "Clipped existing river bed profile; no invented receiving water or new world committed"
+      },
+      "acceptedValleys": 4,
+      "rejected": {
+        "infeasible-source-interval": 8,
+        "no-upstream-relief": 14,
+        "boundary-reservation": 5,
+        "parent-not-accepted": 113
+      },
+      "edgeChangeM": 0,
+      "parentChangeM": 0,
+      "corridorChangeM": 0,
+      "maximumCutM": 5.301704909629507,
+      "maximumFillM": 0.09996629854924777,
+      "uphillSteps": 0,
+      "connectorUphillSteps": 0,
+      "maximumBedErrorM": 1.1368683772161603e-13,
+      "parameters": {
+        "extentM": 8192,
+        "maxIncisionM": 80,
+        "maxFillM": 0.1,
+        "guardM": 512,
+        "maxWidthM": 256,
+        "sampleStepM": 8
+      },
+      "limitations": [
+        "Finite profile/parent checks, not continuous geometric proofs",
+        "Compact support preserves a boundary collar but does not generate cross-region tributaries",
+        "No flow, sediment, water surface or ecological output",
+        "Curve continuity between sampled original heights still requires verification",
+        "Not installed in canonical production sampler"
+      ],
+      "originalReliefM": 65.55658382057402,
+      "runtimeMs": 697.1303370000005,
+      "status": "UNADOPTED: constrained dry valley prototype"
+    },
+    {
+      "source": {
+        "worldId": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e",
+        "profileId": "river:3552:3424",
+        "center": {
+          "bankWidthM": 9.38083151964686,
+          "depthM": 2.0974229755752023,
+          "halfWidthM": 9.38083151964686,
+          "latDeg": 14.08482142857143,
+          "lonDeg": -88.59375,
+          "waterLevelElevationM": 1181.5673057132883
+        },
+        "scope": "Clipped existing river bed profile; no invented receiving water or new world committed"
+      },
+      "acceptedValleys": 11,
+      "rejected": {
+        "infeasible-source-interval": 8,
+        "no-upstream-relief": 14,
+        "boundary-reservation": 5,
+        "parent-not-accepted": 111
+      },
+      "edgeChangeM": 0,
+      "parentChangeM": 0,
+      "corridorChangeM": 0,
+      "maximumCutM": 11.37370241617782,
+      "maximumFillM": 0.09998287951816565,
+      "uphillSteps": 0,
+      "connectorUphillSteps": 0,
+      "maximumBedErrorM": 1.7053025658242404e-13,
+      "parameters": {
+        "extentM": 8192,
+        "maxIncisionM": 80,
+        "maxFillM": 0.1,
+        "guardM": 512,
+        "maxWidthM": 256,
+        "sampleStepM": 8
+      },
+      "limitations": [
+        "Finite profile/parent checks, not continuous geometric proofs",
+        "Compact support preserves a boundary collar but does not generate cross-region tributaries",
+        "No flow, sediment, water surface or ecological output",
+        "Curve continuity between sampled original heights still requires verification",
+        "Not installed in canonical production sampler"
+      ],
+      "originalReliefM": 129.96872938258707,
+      "runtimeMs": 717.8581480000012,
+      "status": "UNADOPTED: constrained dry valley prototype"
+    },
+    {
+      "source": {
+        "worldId": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e",
+        "profileId": "river:3926:3798",
+        "center": {
+          "bankWidthM": 14.560219778561036,
+          "depthM": 2.396144416297496,
+          "halfWidthM": 14.560219778561036,
+          "latDeg": 5.647321428571429,
+          "lonDeg": -116.71875,
+          "waterLevelElevationM": 1290.2144289204014
+        },
+        "scope": "Clipped existing river bed profile; no invented receiving water or new world committed"
+      },
+      "acceptedValleys": 1,
+      "rejected": {
+        "no-upstream-relief": 14,
+        "existing-bank-connector-uphill": 2,
+        "infeasible-source-interval": 2,
+        "boundary-reservation": 3,
+        "parent-not-accepted": 103
+      },
+      "edgeChangeM": 0,
+      "parentChangeM": 0,
+      "corridorChangeM": 0,
+      "maximumCutM": 0.7105914474743713,
+      "maximumFillM": 0.0017374948902215692,
+      "uphillSteps": 0,
+      "connectorUphillSteps": 0,
+      "maximumBedErrorM": 1.1368683772161603e-13,
+      "parameters": {
+        "extentM": 8192,
+        "maxIncisionM": 80,
+        "maxFillM": 0.1,
+        "guardM": 512,
+        "maxWidthM": 256,
+        "sampleStepM": 8
+      },
+      "limitations": [
+        "Finite profile/parent checks, not continuous geometric proofs",
+        "Compact support preserves a boundary collar but does not generate cross-region tributaries",
+        "No flow, sediment, water surface or ecological output",
+        "Curve continuity between sampled original heights still requires verification",
+        "Not installed in canonical production sampler"
+      ],
+      "originalReliefM": 13.074762981794038,
+      "runtimeMs": 963.8837860000003,
+      "status": "UNADOPTED: constrained dry valley prototype"
+    }
+  ],
+  "decision": "The compact-support revision removes the observed boundary displacement and protects the existing river corridor. Some existing-bank connections require uphill travel and are rejected. Four selected sites in one seed are not planet-wide validation. No-op preservation is not generation success. The current straight hierarchical proposals are still too terrain-agnostic; no rainfall, natural lake generation, viewer integration, cross-region catchment solution or medieval settlement improvement is claimed."
+}

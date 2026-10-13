@@ -1,0 +1,49 @@
+{
+  "baselineCommit": "3bf9f959636c42979c8724337e0d42106bef50c8",
+  "center": {
+    "latDeg": 9.120589799055045,
+    "lonDeg": 170.8704167956355
+  },
+  "extentM": 20000,
+  "grid": 129,
+  "counts": {
+    "woodland": 15162,
+    "wet_meadow": 294,
+    "water": 865,
+    "arable": 213,
+    "pasture": 80,
+    "settlement": 27
+  },
+  "neighboringSites": 7,
+  "diagnosticDrainage": {
+    "outside-survey-drainage": 6585,
+    "water": 865,
+    "connected": 485,
+    "boundary-uncertain": 6238,
+    "depression-uncertain": 2468
+  },
+  "browserEarth": "WebGL unsupported",
+  "worldModified": false,
+  "scope": "Same production physical water and landscape classifier; 156.25 m sample spacing. Settlement envelopes and farm hinterlands, not all local field parcels. No independently drawn decorative terrain.",
+  "roadLayerIncluded": false,
+  "referenceLimitations": [
+    "Supplied Earth crop scale approximate",
+    "GSI is different climate and modern land use",
+    "Photographic mosaic seams excluded from landscape interpretation"
+  ],
+  "samplerVerification": {
+    "realSamplesExact": 16641,
+    "fieldsCompared": [
+      "kind",
+      "color",
+      "elevationM",
+      "waterDepthM"
+    ],
+    "existingOutputPreserved": true,
+    "invalidLatitudeRejected": true,
+    "usageChecked": true,
+    "runtimeChanged": false,
+    "fullSuiteRerun": false,
+    "baselineFullSuitePass": 1127
+  }
+}

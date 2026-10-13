@@ -1,0 +1,32 @@
+{
+  "scope": "Finite designed channel query samples; not hydraulic validation or browser evidence",
+  "results": [
+    {
+      "seed": "qa-region-20261013",
+      "samples": 20097,
+      "dryCenters": 0,
+      "maxDepth": 0.8670638608498962,
+      "badFinite": 0,
+      "badDepth": 0,
+      "elapsedMs": 64.85377600000004
+    },
+    {
+      "seed": "another-region",
+      "samples": 24402,
+      "dryCenters": 0,
+      "maxDepth": 0.8670638608498962,
+      "badFinite": 0,
+      "badDepth": 0,
+      "elapsedMs": 97.7164670000002
+    },
+    {
+      "seed": "42",
+      "samples": 24192,
+      "dryCenters": 0,
+      "maxDepth": 0.867063860849882,
+      "badFinite": 0,
+      "badDepth": 0,
+      "elapsedMs": 94.14809200000036
+    }
+  ]
+}

@@ -1,0 +1,3051 @@
+{
+  "meaning": "Historical base files omitted from this runnable source snapshot; preserve these in any complete checkout. Absence is not deletion.",
+  "baseCommit": "43d0afaa9e18aff36ca8605cc77ab3881f59276b",
+  "files": [
+    {
+      "path": "examples/audit-0.3.3/0.3.4/audit-a.witnesses.json",
+      "mode": "100644",
+      "sha": "c40bc09461b681abd832544d55c94dcd3260afd9"
+    },
+    {
+      "path": "examples/audit-0.3.3/0.3.4/audit-b.witnesses.json",
+      "mode": "100644",
+      "sha": "8be2b5d313ff6a0419c7e0812cf498345f98393c"
+    },
+    {
+      "path": "examples/audit-0.3.3/0.3.5/audit-a.witnesses.json",
+      "mode": "100644",
+      "sha": "c40bc09461b681abd832544d55c94dcd3260afd9"
+    },
+    {
+      "path": "examples/audit-0.3.3/0.3.5/audit-b.witnesses.json",
+      "mode": "100644",
+      "sha": "8be2b5d313ff6a0419c7e0812cf498345f98393c"
+    },
+    {
+      "path": "examples/audit-0.3.3/0.4.0/audit-a.witnesses.json",
+      "mode": "100644",
+      "sha": "c40bc09461b681abd832544d55c94dcd3260afd9"
+    },
+    {
+      "path": "examples/audit-0.3.3/0.4.0/audit-b.witnesses.json",
+      "mode": "100644",
+      "sha": "8be2b5d313ff6a0419c7e0812cf498345f98393c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/13-3.bin",
+      "mode": "100644",
+      "sha": "2a3b551a5464d31166b787ca6f254333980e0b5a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/13-4.bin",
+      "mode": "100644",
+      "sha": "2958eb9ba6a36e0bfbd8849773326d9c9c20e23a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/13-5.bin",
+      "mode": "100644",
+      "sha": "e6b1031de946be253609154ea5a902a3dc2bd6b8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/13-6.bin",
+      "mode": "100644",
+      "sha": "c5a59e7c46c05d813ccfe25aada60bb715673ea1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/13-8.bin",
+      "mode": "100644",
+      "sha": "c62944625df66df804bf95904c87c63382edd196"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/13-9.bin",
+      "mode": "100644",
+      "sha": "7bc3e68d944509d4b7d0d7639a74083c8eb44d42"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-0.bin",
+      "mode": "100644",
+      "sha": "c99b9b995cfc7794de99d31c0cc16e12c85c6332"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-1.bin",
+      "mode": "100644",
+      "sha": "d2be99ad8f4ac6e403617d30d5736499fe3ae31e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-10.bin",
+      "mode": "100644",
+      "sha": "654a3cb03fc943fbb6d7000fc6953a338f0d65b5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-11.bin",
+      "mode": "100644",
+      "sha": "cf78561b7dc14fb13cd1ef686a9f72f1fca039b6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-12.bin",
+      "mode": "100644",
+      "sha": "a90c7ff2eedd6b2c6b8b914a42bc8930f1a0b027"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-13.bin",
+      "mode": "100644",
+      "sha": "a597d2e69d47bab722457ee8e5c84196b5c76cd9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-14.bin",
+      "mode": "100644",
+      "sha": "3c25b3c9558f763e5f1dacc1242cc46dee2dc949"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-15.bin",
+      "mode": "100644",
+      "sha": "c80f5a649c982488cd0429cbc6e89c8ab7db7f2c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-2.bin",
+      "mode": "100644",
+      "sha": "f595e97b4d0fd2ed2e65ff61113a7d8adae2cd62"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-3.bin",
+      "mode": "100644",
+      "sha": "fd447af2b1463ecc5a69682f8d8c525eda21baae"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-4.bin",
+      "mode": "100644",
+      "sha": "9371a8b4fe49237db73717154c5eb673003db711"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-5.bin",
+      "mode": "100644",
+      "sha": "0638e60cd7bdee0ec665e7db1c17eab0605f9f08"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-6.bin",
+      "mode": "100644",
+      "sha": "c876e8eb63a7161183b88a19d94185b1c28d0c47"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-7.bin",
+      "mode": "100644",
+      "sha": "06e851d56abc7263685fb431d160682bcd924491"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-8.bin",
+      "mode": "100644",
+      "sha": "ed7e0e207b704cb44d18d0bfed04db730363343c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/14-9.bin",
+      "mode": "100644",
+      "sha": "cdf35a99e067159e50eba4370f01b5be3e8500ff"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-0.bin",
+      "mode": "100644",
+      "sha": "09fcc3ea99f63684beb458b2e119d1d76ce3bcb4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-1.bin",
+      "mode": "100644",
+      "sha": "0dde054ddc9be2027b19718ffafd385066a730ee"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-10.bin",
+      "mode": "100644",
+      "sha": "055aea52060779357ff0a674e9c263ddc9e958fa"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-11.bin",
+      "mode": "100644",
+      "sha": "c365b0388118278e798a65bf15cd23bfdb24fad0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-13.bin",
+      "mode": "100644",
+      "sha": "5ea480c2ad3c5b4974877f6a73de7904ae373f18"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-14.bin",
+      "mode": "100644",
+      "sha": "67f87561cf1296413734be23ca3c48327bd5d426"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-15.bin",
+      "mode": "100644",
+      "sha": "6b5529ac276d3a0b45251789ef453fd69e559af1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-2.bin",
+      "mode": "100644",
+      "sha": "5e44c0dabdebce4a0e676acf1641429a146b5344"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-3.bin",
+      "mode": "100644",
+      "sha": "667d7b3e470c373d637cd7d2cfebb9bd6a8e602c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-4.bin",
+      "mode": "100644",
+      "sha": "56afc5a5cc87e968bd278b8eb958b32a99b86547"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-6.bin",
+      "mode": "100644",
+      "sha": "ae67e894bc4290f36e5744c307fba732b6b9edb0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-7.bin",
+      "mode": "100644",
+      "sha": "3c10a242f3b622de34b419e66f7a512525042bf7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-8.bin",
+      "mode": "100644",
+      "sha": "9d5c4d10fb9f6473b5c4d4e0dce8ff3bbc012a34"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/15-9.bin",
+      "mode": "100644",
+      "sha": "41e7f238e58f15e830a5bad2de1e1a31ade60a6f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-0.bin",
+      "mode": "100644",
+      "sha": "7749ef7ec5a041673a910bbb6f98a3e991337577"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-10.bin",
+      "mode": "100644",
+      "sha": "cee41e29703acb205308573be9620da0f5ef0466"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-11.bin",
+      "mode": "100644",
+      "sha": "cecaf34a6964d62d23957253cb4d96218cabb0f3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-12.bin",
+      "mode": "100644",
+      "sha": "ff5cf61154ccaa9a278ffaaf9db56015c101dfd4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-13.bin",
+      "mode": "100644",
+      "sha": "18711ff3917a5da4f3db3b659129dd5adec7c7c9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-14.bin",
+      "mode": "100644",
+      "sha": "9e29bfb20d8d5295e02031c9b93a620b7919592c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-15.bin",
+      "mode": "100644",
+      "sha": "80796eb124b3fad9fee14d71eb61a736483984d3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-2.bin",
+      "mode": "100644",
+      "sha": "d27ae54f8a0149c51107c05c422549abefd88dda"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-3.bin",
+      "mode": "100644",
+      "sha": "d161e2d74af75603a931b8426173a3a31b614c24"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-4.bin",
+      "mode": "100644",
+      "sha": "0651b0c6baa60023d7e12e4256ad90f6d77916d3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-5.bin",
+      "mode": "100644",
+      "sha": "4fbd57ba711b96db4006c30c69dff0f9eb04191d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-6.bin",
+      "mode": "100644",
+      "sha": "986410e5cce9f44adbf26eb163fe5ac42f313f76"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-7.bin",
+      "mode": "100644",
+      "sha": "d2148b25d42c89911d6f48a04635ab3c641604d2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-8.bin",
+      "mode": "100644",
+      "sha": "70aed338389278d31d9443bd4335804a22aaf307"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/16-9.bin",
+      "mode": "100644",
+      "sha": "b8c01ebdeb95930f6082a80a3e360c083bbf8f9f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-0.bin",
+      "mode": "100644",
+      "sha": "c7e77af280731324204601ea754ff3511e3a5df6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-1.bin",
+      "mode": "100644",
+      "sha": "119e56ab361097bbadb8582a4dd7ca67110db1e5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-10.bin",
+      "mode": "100644",
+      "sha": "c303170c0df47e90ccd752be0494da945e42f0f2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-11.bin",
+      "mode": "100644",
+      "sha": "c3969fa312149b0a0cb43e4970a820280abd0565"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-12.bin",
+      "mode": "100644",
+      "sha": "0a76374d88978ee3307a591cea504b0c995fddc6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-13.bin",
+      "mode": "100644",
+      "sha": "91483bef6f7f38054435e13672b8e588246c69c3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-14.bin",
+      "mode": "100644",
+      "sha": "4ab4423a3cd43a5010298bc23fbb14f0fd125ff8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-15.bin",
+      "mode": "100644",
+      "sha": "ecf7215fc01853089b50ba9204a27b8e350b6d39"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-2.bin",
+      "mode": "100644",
+      "sha": "2f4e93bf62b07f95a889b884097b92577bce0c52"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-3.bin",
+      "mode": "100644",
+      "sha": "3c2558ab781618adde606782b0815f9f17930117"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-4.bin",
+      "mode": "100644",
+      "sha": "80f594340e71a7e44abb444624b0b1bf4b628cd3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-5.bin",
+      "mode": "100644",
+      "sha": "6d014ebe2fd0e1c9bb6a100b08f663754f6e3af5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-6.bin",
+      "mode": "100644",
+      "sha": "1ebaef65d7360c4a9d0d75c2b6a05d16520dda72"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-7.bin",
+      "mode": "100644",
+      "sha": "7852946e2a6724e0446da1802c42549575a5e08c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-8.bin",
+      "mode": "100644",
+      "sha": "ad7a68eb42902974ce4691517149933a1bad5c21"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/17-9.bin",
+      "mode": "100644",
+      "sha": "fd7392a43ba81aa3bb1c8f583b25516abf3247f7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-0.bin",
+      "mode": "100644",
+      "sha": "cf17c7d646b44778b4f3ab45d645de794d80e07f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-1.bin",
+      "mode": "100644",
+      "sha": "a23cc5fa7c558fbc2409bf7eb88d045449a0aa62"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-10.bin",
+      "mode": "100644",
+      "sha": "7b1dcb47dd85585d7e46815a2775f5e16465a53e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-11.bin",
+      "mode": "100644",
+      "sha": "2c6550caeb732b04e85d63c5ae6cf619de4706f2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-12.bin",
+      "mode": "100644",
+      "sha": "a66c631c2634d701efa00d440034eaafa99d0aab"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-14.bin",
+      "mode": "100644",
+      "sha": "9c108a6db974781b96b00c60fcedc543d3a5db07"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-15.bin",
+      "mode": "100644",
+      "sha": "41f3b29381f0eafaf6df71a6909bacc5e0e7d8f1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-2.bin",
+      "mode": "100644",
+      "sha": "362a2a29978395a94bd7a1479bc86ba726c524c4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-3.bin",
+      "mode": "100644",
+      "sha": "82d9bf006feca80408e558cebe47ebd067e1a969"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-4.bin",
+      "mode": "100644",
+      "sha": "ab24c75a9502d9751603461a31426b6fd71cc683"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-5.bin",
+      "mode": "100644",
+      "sha": "b92679bd70e7d978fc966ac026ec6eab2e021089"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-6.bin",
+      "mode": "100644",
+      "sha": "eeb3cdfb4f949d062a833458c433022bf89700d7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-7.bin",
+      "mode": "100644",
+      "sha": "43a8b005bc172102271e287b2d97d17bfa060bd5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-8.bin",
+      "mode": "100644",
+      "sha": "46709b7b08b78b5a74f315d59eb65ba7560a277c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/18-9.bin",
+      "mode": "100644",
+      "sha": "8c8869e325f9527e1a403a66928d586471b4755c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-0.bin",
+      "mode": "100644",
+      "sha": "fc5994e70ba1d11c5fc2b231a0b99c2228faf62f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-1.bin",
+      "mode": "100644",
+      "sha": "d59613ec71c1db3819756b1e3a99bd40532c3fba"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-10.bin",
+      "mode": "100644",
+      "sha": "65c0240462d12b92680082b5c1384af281ad0102"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-11.bin",
+      "mode": "100644",
+      "sha": "0bd0305676fa3130484b45d627e0026981d9ef87"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-12.bin",
+      "mode": "100644",
+      "sha": "44bdc96e7a8b138cda85700f2a9931a848e3621d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-13.bin",
+      "mode": "100644",
+      "sha": "1e74df83a6871ee1fb13a062c72e7a6947d06c5e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-14.bin",
+      "mode": "100644",
+      "sha": "8d93d3a88cd2e55032fde5b5ed1f3bd7c5d9fbb4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-15.bin",
+      "mode": "100644",
+      "sha": "374f855f0b77b9722adf1cff60b790cff0f2a0c4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-2.bin",
+      "mode": "100644",
+      "sha": "3a6edac864f0bc24d71bba98098b724837202ee8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-3.bin",
+      "mode": "100644",
+      "sha": "2a5fca788983de85e251c60f592e8cc7ea38c923"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-4.bin",
+      "mode": "100644",
+      "sha": "b78fc6e6ab14510abd643e2eeb43984a9d1cb9e3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-5.bin",
+      "mode": "100644",
+      "sha": "71b2d16659f1136321ec107b8747452277966dfc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-6.bin",
+      "mode": "100644",
+      "sha": "0036434de8b2d61e1ea6f2777e74d8724530d31f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-7.bin",
+      "mode": "100644",
+      "sha": "19e102bafe0b31a4f56722f061442d237acccfef"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-8.bin",
+      "mode": "100644",
+      "sha": "afc4338233c450b84869850ed9ac7924e35814fb"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/19-9.bin",
+      "mode": "100644",
+      "sha": "5372dfcec141099bdd73b0427050cbc3006deae9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-0.bin",
+      "mode": "100644",
+      "sha": "984f10a2e589628629f731c627a3bdc394e84866"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-10.bin",
+      "mode": "100644",
+      "sha": "190c15f388b766db878f11e9c697ca5bf75c487c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-11.bin",
+      "mode": "100644",
+      "sha": "af2e82bdde87967d53d3d795bef09cbfe1cfb62f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-12.bin",
+      "mode": "100644",
+      "sha": "3f25501575aa5ad5b808782c640aa11c9fb1168f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-13.bin",
+      "mode": "100644",
+      "sha": "d7a8c1b4bba0ecdd4a50f654444bb0a244bffe00"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-14.bin",
+      "mode": "100644",
+      "sha": "020658deca7f0eda27f453626ff4d13eca9188b9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-2.bin",
+      "mode": "100644",
+      "sha": "ddcd63f42ad105bac257713a0fe1aa7aca065604"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-3.bin",
+      "mode": "100644",
+      "sha": "1bcef386a74aa92773184b6060e87eaed73b12a6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-5.bin",
+      "mode": "100644",
+      "sha": "04270d3413074938c6e12dafb3af9210fde9ff26"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-6.bin",
+      "mode": "100644",
+      "sha": "4e9dec94c7248c317bc5ccb242e9876f6549cdd6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-7.bin",
+      "mode": "100644",
+      "sha": "18d5d764e8699b3b6e7756cb422532abbdb3e788"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-8.bin",
+      "mode": "100644",
+      "sha": "c4bea852da202b5382df536f67a95e399a5b5572"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/2-9.bin",
+      "mode": "100644",
+      "sha": "c008e2bbadee2b66756ed81d7603f338b4a6bb98"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-0.bin",
+      "mode": "100644",
+      "sha": "d99ef021de98e3b05d12d7730b46fea462c66cb0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-1.bin",
+      "mode": "100644",
+      "sha": "c675817b34e678e7683e5086bdaee8f3935c2e0e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-10.bin",
+      "mode": "100644",
+      "sha": "b0aa6b1a89f018194e083447b3c4fdae866b4d25"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-11.bin",
+      "mode": "100644",
+      "sha": "80b96ffb1131dad048f920595853130e4bff5ce6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-12.bin",
+      "mode": "100644",
+      "sha": "b437311157a2f8e1994ad4f6e260868cc4e4adc4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-13.bin",
+      "mode": "100644",
+      "sha": "0c481b859a5a7a2f8ea2ddb60fabf42abff0191a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-14.bin",
+      "mode": "100644",
+      "sha": "80676793349f8c30e8c64ed661b4f775fc1931ab"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-15.bin",
+      "mode": "100644",
+      "sha": "e760c8b75048a9f1b8fa9791411e72a1d453d28d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-2.bin",
+      "mode": "100644",
+      "sha": "006019e73a9c3a96b5b302cb6d412a7272f850bc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-3.bin",
+      "mode": "100644",
+      "sha": "759f869f319dc925cf76fa866d26e3cc827869e1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-4.bin",
+      "mode": "100644",
+      "sha": "e3ff584f54032f94d1c5335dca4cd160c406a5ac"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-5.bin",
+      "mode": "100644",
+      "sha": "f43832f02b0ef48bf3135ebf31b78659e8b49b7d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-6.bin",
+      "mode": "100644",
+      "sha": "253b7770a187cfba7d738f5c54442f95ef485602"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-7.bin",
+      "mode": "100644",
+      "sha": "1dfd117966104775f46b334f5406155d44597eba"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-8.bin",
+      "mode": "100644",
+      "sha": "08ba13cb29696a729097d5bbbac96b7b4950d847"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/20-9.bin",
+      "mode": "100644",
+      "sha": "c77c0d1b17392232f4ab0cf0f2fda71871253115"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-1.bin",
+      "mode": "100644",
+      "sha": "17226ffdae9fbbf84469f81bc0c586b695bfb5e6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-10.bin",
+      "mode": "100644",
+      "sha": "81a29a8737a38aceaf6bfb69cd8cedec98a47c36"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-11.bin",
+      "mode": "100644",
+      "sha": "ae366bf2de574bcb8628ec583482ff203af4607d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-12.bin",
+      "mode": "100644",
+      "sha": "2097a7f0577bbf37bac3b7a89beb7b6f10fd47b6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-13.bin",
+      "mode": "100644",
+      "sha": "40a6c35c7b0090cd528ad8660337f82b9483b554"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-14.bin",
+      "mode": "100644",
+      "sha": "54b9548c1863a7bb98cbdf8f59bf0cd43a47c40c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-15.bin",
+      "mode": "100644",
+      "sha": "a379f6faeea6e8ba440485006f7bfaaf82c219ca"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-2.bin",
+      "mode": "100644",
+      "sha": "cbff5cfacb79486d251e9845ada212e72cc4f9dc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-3.bin",
+      "mode": "100644",
+      "sha": "dff92e86dfcb510bf71d54743a8c7b71edb60ece"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-4.bin",
+      "mode": "100644",
+      "sha": "16a82b084558b9984f47c31fbd3abb386b255c74"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-5.bin",
+      "mode": "100644",
+      "sha": "adfc58791b0de624b94d4092e645f400c30808c1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-6.bin",
+      "mode": "100644",
+      "sha": "3523d15169af9321b0f9c11b7c00fe27f5f1abff"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/21-8.bin",
+      "mode": "100644",
+      "sha": "dbcb0ea946bd5ae851de56c74df5bb07de072e03"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-0.bin",
+      "mode": "100644",
+      "sha": "8e61c1c79b9cf58a7dfb5eca8d9942fdf227271e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-1.bin",
+      "mode": "100644",
+      "sha": "2cecf647858c373057b6e64965679a1cdec0ca9a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-10.bin",
+      "mode": "100644",
+      "sha": "4ea7f40822cd97f1b3494691f4ca057c7f36b0bd"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-11.bin",
+      "mode": "100644",
+      "sha": "51301ffbd05cc8c7016281e69c5ea504cff73ca0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-12.bin",
+      "mode": "100644",
+      "sha": "9ca30e4265fa03fcda723300863ea4f332bfe4e8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-13.bin",
+      "mode": "100644",
+      "sha": "62b4a3f9e7d8a6d2d601a582c6012b7fc8fa7610"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-15.bin",
+      "mode": "100644",
+      "sha": "d99fd19ae202fe7cc535969e4803d8648cade9b7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-2.bin",
+      "mode": "100644",
+      "sha": "6949e6f90a7670e5eeeb205d0bf457ddda4addbc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-3.bin",
+      "mode": "100644",
+      "sha": "14f0be43ed3c6ca248531b9c7462187267cc8b28"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-4.bin",
+      "mode": "100644",
+      "sha": "e389869044001b5495eda62e34f33a37319ac2af"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-5.bin",
+      "mode": "100644",
+      "sha": "dbdabce20aac03d90f209937849650c44a7cf006"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-6.bin",
+      "mode": "100644",
+      "sha": "1d1b2feffdcdc9d495dd272ef6271e80cd97f304"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/22-8.bin",
+      "mode": "100644",
+      "sha": "e453fd8d56221b326cf690d0f88db729f0939a03"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-0.bin",
+      "mode": "100644",
+      "sha": "822f86c18d73edb28f1fd0074e1b3184d83b0c97"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-1.bin",
+      "mode": "100644",
+      "sha": "c520b51c1b52c5af186af5c8528cb3ec76e8461f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-10.bin",
+      "mode": "100644",
+      "sha": "870ae3c96b6617fc6d6fc3ec442a7a936e18ed08"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-11.bin",
+      "mode": "100644",
+      "sha": "36cac94c3cc20659e1f73b50051b3bb39aaccb0d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-12.bin",
+      "mode": "100644",
+      "sha": "19031908f3d81aabde3c421489d47647363e494d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-13.bin",
+      "mode": "100644",
+      "sha": "38abbee6650140def978580e541b1d872360fafb"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-14.bin",
+      "mode": "100644",
+      "sha": "4e4ed5ba6a4ec0a2bc8c67701b7d07e09a415233"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-15.bin",
+      "mode": "100644",
+      "sha": "411d9480e39f330e8d03f41ffb8d7ead97e87693"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-2.bin",
+      "mode": "100644",
+      "sha": "47f2892376d4c80478c6f51185f3d30c548d60e8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-4.bin",
+      "mode": "100644",
+      "sha": "99a75e3f93177916f9927344c49d6c3965aec4dc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-6.bin",
+      "mode": "100644",
+      "sha": "9de895c4a4e9f96a97630fdfa7fe1f7a486294c6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-7.bin",
+      "mode": "100644",
+      "sha": "37bca17abeff8a6c8b49b4edc40f4815656a6339"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-8.bin",
+      "mode": "100644",
+      "sha": "56e408eaedc7f7ffc2bdc7efbb53ceed0e3ed8f3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/23-9.bin",
+      "mode": "100644",
+      "sha": "df55e936afa7c85d38fe52648a5d6ec18823908a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-0.bin",
+      "mode": "100644",
+      "sha": "0d4f6e8592eb78227f89ade4d8d63192db5ba8de"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-1.bin",
+      "mode": "100644",
+      "sha": "ef6259e7e0d6631e11d494838e08f8a334b6501c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-10.bin",
+      "mode": "100644",
+      "sha": "a3346bc829ce30f99128b78365394b273cbce42c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-11.bin",
+      "mode": "100644",
+      "sha": "c2dab691c657b7b3b2b9fb79f3e2fbf5d22d9cfa"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-12.bin",
+      "mode": "100644",
+      "sha": "2641bdfd4cb83709112848eecb69dc7107a4ab1f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-13.bin",
+      "mode": "100644",
+      "sha": "deaa482e97d74c6734f4674fed53afd97f4a53eb"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-14.bin",
+      "mode": "100644",
+      "sha": "a4a6e35ca49f0a98111d9d7e35765a64c5424730"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-15.bin",
+      "mode": "100644",
+      "sha": "f1d49695625244981502e9b1d98c53c5361fe7e8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-2.bin",
+      "mode": "100644",
+      "sha": "013aa80406e675b89c63b03dcbf91eee525022b5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-4.bin",
+      "mode": "100644",
+      "sha": "62f2ac380fed48c010efb9d5ccfb3c437ca7ee79"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-5.bin",
+      "mode": "100644",
+      "sha": "5b1136b85e47af920c3e7d0f473becc0d45063d9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-6.bin",
+      "mode": "100644",
+      "sha": "b75ee4e0cc914420214e226c5fb3f739f85fe798"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-7.bin",
+      "mode": "100644",
+      "sha": "2a5db905cbf2dc8383397505c2abb77b9b29a713"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-8.bin",
+      "mode": "100644",
+      "sha": "3343ad34b1c06b30ba805eabaa97505e04440ef1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/24-9.bin",
+      "mode": "100644",
+      "sha": "08cd8ea8bdeff53b8161e5fac4e13b1a716d0dd5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-0.bin",
+      "mode": "100644",
+      "sha": "0414e307360fa4ce4349bdc1998719366dbca46b"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-10.bin",
+      "mode": "100644",
+      "sha": "58a51c681fa1fe71c5da74fd736b13f5a0cbb9ff"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-11.bin",
+      "mode": "100644",
+      "sha": "21352b684fb256b91ca5da60d69cc892a8f32ff5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-12.bin",
+      "mode": "100644",
+      "sha": "1092992879c4773231aa9f4a5014036fe5d0a1f0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-13.bin",
+      "mode": "100644",
+      "sha": "856de5c690d743a287926d68c2b96877ee7c66a3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-14.bin",
+      "mode": "100644",
+      "sha": "261050fb838c8b0e5547e2254b0600be2112ee4d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-2.bin",
+      "mode": "100644",
+      "sha": "62a745f06836af2aec38f60de43270b7b5930c0f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-3.bin",
+      "mode": "100644",
+      "sha": "e5ac6d3350408cbc033f6edcd261bfa0736df782"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-4.bin",
+      "mode": "100644",
+      "sha": "4c9dbc88a0a0ab12ec4062834d0d6269d0b72a7e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-5.bin",
+      "mode": "100644",
+      "sha": "015c0d42bf9492ba494390cbda574528962a99e5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-6.bin",
+      "mode": "100644",
+      "sha": "dffe209eebd6111d42e0547acfbf8aea567ac553"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-7.bin",
+      "mode": "100644",
+      "sha": "ad5c0d541b1e6577f651d37c9bfe445ffd063f29"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-8.bin",
+      "mode": "100644",
+      "sha": "15c937c7d140a3dadb76ea55ebe9729cea7d773e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/25-9.bin",
+      "mode": "100644",
+      "sha": "e71c5b737b6af79ad28ead813262c898373e5bb4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-0.bin",
+      "mode": "100644",
+      "sha": "a813b667da407133e5b4a94b515f0051872a4395"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-1.bin",
+      "mode": "100644",
+      "sha": "8986b73737214d4e9d5294b0d910092692fa8d2c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-10.bin",
+      "mode": "100644",
+      "sha": "3f8334fae8b763221ae0c5d39fa9573bc2e33cda"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-11.bin",
+      "mode": "100644",
+      "sha": "b4572c1d76222d0052f651e1af968bc250a9fcaa"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-12.bin",
+      "mode": "100644",
+      "sha": "67e7b1c6524147719f17373450c14bee4ca5ed42"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-13.bin",
+      "mode": "100644",
+      "sha": "453d5c469069c46006726834ceed02caf4907d85"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-14.bin",
+      "mode": "100644",
+      "sha": "019439bcd26b1e152c7b7c032ce55d3a93c2154f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-2.bin",
+      "mode": "100644",
+      "sha": "1746e8b2a24e240e743b5e8d3630b377785354fc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-3.bin",
+      "mode": "100644",
+      "sha": "ba07cbf92f28b4cc492117831d39289c52ecc7c0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-4.bin",
+      "mode": "100644",
+      "sha": "f5cba2db7d6c892516b8f5ad751a368ef13ca87e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-5.bin",
+      "mode": "100644",
+      "sha": "c32388346dffd2eaea4edb728fbab1845125c148"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-6.bin",
+      "mode": "100644",
+      "sha": "36093c46543c45eadf6083930cba32642a988976"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-7.bin",
+      "mode": "100644",
+      "sha": "de02ab57b7faa05629acaef94a22e70ef0687148"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-8.bin",
+      "mode": "100644",
+      "sha": "b5307cd2c7e0a9fcffdf07ec4bb1cae420430c99"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/26-9.bin",
+      "mode": "100644",
+      "sha": "3d03f3fea7c93f032f114c18f0a3d3a40fcfa575"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-0.bin",
+      "mode": "100644",
+      "sha": "7f9ca7ee8cb2cf8896a00eab9c53a0bd9a968eb9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-1.bin",
+      "mode": "100644",
+      "sha": "1826e744032d630bfedb24e23810524721f252d8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-10.bin",
+      "mode": "100644",
+      "sha": "a734b0fcf161deb8dda200021926c6906896d5ab"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-11.bin",
+      "mode": "100644",
+      "sha": "6fa659d59b6afce1618855c066e1f0765c2153da"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-12.bin",
+      "mode": "100644",
+      "sha": "b97862df5d51297ec00a6441ec7297026f4a9dfe"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-13.bin",
+      "mode": "100644",
+      "sha": "1bd685315d21856a30a4e70f0fc00ce5c4daa0bf"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-14.bin",
+      "mode": "100644",
+      "sha": "607b3fe84814cb0387253eafb59af6f5a63ea1e4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-15.bin",
+      "mode": "100644",
+      "sha": "d83e71883337070829e2dfc059c9163010afc324"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-2.bin",
+      "mode": "100644",
+      "sha": "a15f8e2962cd7a302a629adcd0a93033c1b1e005"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-3.bin",
+      "mode": "100644",
+      "sha": "6ea986c5fa828a7d7fd0d46ec4fba0347015460a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-4.bin",
+      "mode": "100644",
+      "sha": "c2eab895c9539519d1920734e8872e9cca6c3c90"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-5.bin",
+      "mode": "100644",
+      "sha": "c3c315e2a36301a1abfdde2e9008896007c1dd17"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-6.bin",
+      "mode": "100644",
+      "sha": "8773acffe33d61ff28eb605a7603cd8a6c47374c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-7.bin",
+      "mode": "100644",
+      "sha": "57ce4a22d3993b6938b28b55eed68a6ff4431a62"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-8.bin",
+      "mode": "100644",
+      "sha": "91d9b7c40ad842ccbe7b100fb03e6f37b8207693"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/27-9.bin",
+      "mode": "100644",
+      "sha": "1d1ee9c17ec3e17222bf9d856f13654b91716d8b"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-0.bin",
+      "mode": "100644",
+      "sha": "5e8fdf69f5c5157ef411f2e769898a82818b7143"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-1.bin",
+      "mode": "100644",
+      "sha": "bd6094ec80ccde9e0db74ca3a03ad45aa3c0cecc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-10.bin",
+      "mode": "100644",
+      "sha": "a75ed289b01dc372a88480eff224a449318c5b49"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-11.bin",
+      "mode": "100644",
+      "sha": "e1d184ab8439f86ebaca3e330b7b19c9f4034b46"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-12.bin",
+      "mode": "100644",
+      "sha": "c557f2531f6dd1fe5a203a933613284ca9f29128"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-13.bin",
+      "mode": "100644",
+      "sha": "c7b7a5715176685788efae11e2fc790b1afeb802"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-14.bin",
+      "mode": "100644",
+      "sha": "e9ae5c12596993dd79e585fcc67bca99d585db0f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-15.bin",
+      "mode": "100644",
+      "sha": "26807a21e1d0b8058aee651210c3b71f10f1fdbd"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-2.bin",
+      "mode": "100644",
+      "sha": "599a2f07f5b8afa9dce1c0a338a505c95ff7149a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-3.bin",
+      "mode": "100644",
+      "sha": "884de9e3732e35ecc5b594b8c4ea5c797b973571"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-4.bin",
+      "mode": "100644",
+      "sha": "6f0e1e16643fd149f33190ce641afdfea2343e0b"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-5.bin",
+      "mode": "100644",
+      "sha": "8328a262bd48195499d17124ae207ecff891a128"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-6.bin",
+      "mode": "100644",
+      "sha": "368f0dbe7723969b390700ff73040e75c22015f2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-7.bin",
+      "mode": "100644",
+      "sha": "914f6445f0c0781c00138bd58384c50640cf709d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-8.bin",
+      "mode": "100644",
+      "sha": "54aef9e1bbd1bfacbb787ba411aa1f7fb30f5022"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/28-9.bin",
+      "mode": "100644",
+      "sha": "c4df09ddf9252d3d8291e8f9f95d05a35c77d7be"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-0.bin",
+      "mode": "100644",
+      "sha": "e3016011f44519b2debf7bf9c858f96126fdb3c8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-1.bin",
+      "mode": "100644",
+      "sha": "2857a4e9d56995f714812f97740145b01e39429b"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-10.bin",
+      "mode": "100644",
+      "sha": "743272a37b9102f97e1c9540fba94b6be0275ad9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-11.bin",
+      "mode": "100644",
+      "sha": "4445bc754e24a8cdeecb5698a8148372eda9abd2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-12.bin",
+      "mode": "100644",
+      "sha": "83aad577bee1d8163388462246c100395825d277"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-13.bin",
+      "mode": "100644",
+      "sha": "405474b958f185114f44d54a9dcf26c51afc1f03"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-14.bin",
+      "mode": "100644",
+      "sha": "2a40d714904b34f77046b5b65b1855846436e64d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-15.bin",
+      "mode": "100644",
+      "sha": "75c727fb132a4d49235e6ec85a35e2bb69a59be3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-2.bin",
+      "mode": "100644",
+      "sha": "5def461a150e7fff80826dd42fc06f52de71e59e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-3.bin",
+      "mode": "100644",
+      "sha": "9ec83f9c01c9e33a0f8ba3be9c9c09fe91238482"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-4.bin",
+      "mode": "100644",
+      "sha": "3fece16c7f4c6561a971db5a2c8dec375c5eee99"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-5.bin",
+      "mode": "100644",
+      "sha": "ab7788e56a88e0c5a401fe127f1213da10fb6743"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-6.bin",
+      "mode": "100644",
+      "sha": "0e7f7d519f01a0d8240cf7d5e3d327d035a65d7a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-7.bin",
+      "mode": "100644",
+      "sha": "ea3f49aaba7441cf382118b97d4f338c8ba0e0b4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-8.bin",
+      "mode": "100644",
+      "sha": "d4a701bd8f0c0eb103229a074cb3688755bf88f8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/29-9.bin",
+      "mode": "100644",
+      "sha": "92cb30702dd53279eb9288485294233f74caf633"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-0.bin",
+      "mode": "100644",
+      "sha": "3307249be733f613e315b1a172c995fb454e412f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-1.bin",
+      "mode": "100644",
+      "sha": "d440db5cd38d5f8615f4745c5a23e2bb3fe2b0f4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-10.bin",
+      "mode": "100644",
+      "sha": "b2755f65f65f1317a4a1a323da69347365b89832"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-12.bin",
+      "mode": "100644",
+      "sha": "2f74faea1c333c41c2df4a8bc494954d7638f963"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-14.bin",
+      "mode": "100644",
+      "sha": "0c296e019ad6e904e49654ebc3a2487bdbb2f012"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-15.bin",
+      "mode": "100644",
+      "sha": "7ac392ec4d3dccf971b58276288d4091159ceff7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-2.bin",
+      "mode": "100644",
+      "sha": "958610dd3dd31cb8455f8437e1180508a02f8ac7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-3.bin",
+      "mode": "100644",
+      "sha": "590d4d87c9f4a65c6fc084ce8536282da26c53ca"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-5.bin",
+      "mode": "100644",
+      "sha": "80d9c7f0e5beba66159b3c111e31f453f39ee4b4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-6.bin",
+      "mode": "100644",
+      "sha": "ce53b4f3d61e55a97a1749fe61465221bfff87f9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-7.bin",
+      "mode": "100644",
+      "sha": "5fb939367439a527766f10d40ae19208aba9653e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-8.bin",
+      "mode": "100644",
+      "sha": "981f61ce21f3217c6ddf0ec5ba36617329540948"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/3-9.bin",
+      "mode": "100644",
+      "sha": "ef2eb9ebdbb061dfdae7ccc75f7c728262a9d7e7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-0.bin",
+      "mode": "100644",
+      "sha": "897d147bb93d0170125b7072a810308869a61794"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-1.bin",
+      "mode": "100644",
+      "sha": "56c49c4a5be1127742d51241e41c197113738d97"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-10.bin",
+      "mode": "100644",
+      "sha": "8272c06bac27a056658618ed908b3880da40d323"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-11.bin",
+      "mode": "100644",
+      "sha": "7ad08ca73c5f507683b9fdadd1119a5e22961a91"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-12.bin",
+      "mode": "100644",
+      "sha": "380a29bf20af8e09ef1b7369251acf29928992a4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-13.bin",
+      "mode": "100644",
+      "sha": "46032431c3c2378a738945e6d5996350fbf52324"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-14.bin",
+      "mode": "100644",
+      "sha": "1b2a5d7b46604b0863b32911917a32f4cc620c9a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-15.bin",
+      "mode": "100644",
+      "sha": "f0cda8674b1e99820357a83b2aca4e90d6c2320b"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-2.bin",
+      "mode": "100644",
+      "sha": "5c2a452d2bec1a154d1f24ff6782624d46da005c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-3.bin",
+      "mode": "100644",
+      "sha": "16e09b9cb350d8eb05f74df054d2f0dc2e23a95a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-4.bin",
+      "mode": "100644",
+      "sha": "d3d28dce6e6aaf56aba8df58752fd268d1b07d86"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-5.bin",
+      "mode": "100644",
+      "sha": "acb20267b9a54c281f4af7f828aa04101faeb5ff"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-6.bin",
+      "mode": "100644",
+      "sha": "8f47d7e3a6491bae1056e375362106d819fefc83"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-8.bin",
+      "mode": "100644",
+      "sha": "0eb89eed724a4de101b9bffa3a6e07987dea725c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/30-9.bin",
+      "mode": "100644",
+      "sha": "64005db9418caada8f0c0957aaef04773f7cb4e3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-0.bin",
+      "mode": "100644",
+      "sha": "d59f83fd50b3a884aacb4d79042b89427d0fa951"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-1.bin",
+      "mode": "100644",
+      "sha": "984405a4808ed4abd574c4076e8212fe2063c131"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-10.bin",
+      "mode": "100644",
+      "sha": "a1a0a70a412337d0ef89fc674325ec94d6012060"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-11.bin",
+      "mode": "100644",
+      "sha": "3ee86361270497c9fcd345b4f7e48f8326a68c62"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-13.bin",
+      "mode": "100644",
+      "sha": "54b62dbe22a5597a1c4f5f5e52f75ebaec82bc02"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-14.bin",
+      "mode": "100644",
+      "sha": "3f6ebbe9e7691c6c4483ff7f1ce1adef913ac048"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-15.bin",
+      "mode": "100644",
+      "sha": "12a7b14a7736e269aa7fa45198ee8ca88f719562"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-2.bin",
+      "mode": "100644",
+      "sha": "c77cbfc3f9523de0cac96033dcc5376e2c953723"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-3.bin",
+      "mode": "100644",
+      "sha": "1bd0df1d7d67bae13f142d044e1af6dbc4738cfb"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-4.bin",
+      "mode": "100644",
+      "sha": "a7e016186c1fb88fa397e6fd1e7a3132a782608e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-6.bin",
+      "mode": "100644",
+      "sha": "3ae1aced8fd85a46c5f5b93596fb57e4afb74fac"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-7.bin",
+      "mode": "100644",
+      "sha": "fd04984169dfeb0c022e706bb854545a4bd0d1c4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-8.bin",
+      "mode": "100644",
+      "sha": "ff4ea2277047d5a2b91a2e30659fbb20dc2fa5f5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/31-9.bin",
+      "mode": "100644",
+      "sha": "6fe343b8e4c1b0c1284fa49dd568adc594c9c730"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-0.bin",
+      "mode": "100644",
+      "sha": "808ba23fc468f48fdd7420752b8fc15a44f2caaa"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-1.bin",
+      "mode": "100644",
+      "sha": "5db49971fd379c58411b004fcedd6989e9506edb"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-10.bin",
+      "mode": "100644",
+      "sha": "23b9eb6b46fc2dc86d95bcc74edd954de8cd9596"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-11.bin",
+      "mode": "100644",
+      "sha": "83036b225a4d1d6247e472649ea3922923d32ec7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-12.bin",
+      "mode": "100644",
+      "sha": "ec2a621b2cac308e2bfc2626904535b8af2b2ccb"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-13.bin",
+      "mode": "100644",
+      "sha": "c4c280eb7dc18615c981c508d18d8323d7c49017"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-14.bin",
+      "mode": "100644",
+      "sha": "a5dcdfb0947416266f39bf46c79e9180998ffdc1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-15.bin",
+      "mode": "100644",
+      "sha": "0250fa37ca9e205e4eec88b3e3af3f7b5c6657e3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-3.bin",
+      "mode": "100644",
+      "sha": "a9e893904c140151831776ffd2ed30095e7f86d4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-4.bin",
+      "mode": "100644",
+      "sha": "79f2b9fba7737d3759975c146bbd31eec5d3ef0d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-5.bin",
+      "mode": "100644",
+      "sha": "f0df12a296953efd8916530d1e5c4bbc8f45a435"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-6.bin",
+      "mode": "100644",
+      "sha": "160895c2b82c8cfece34ecc8f1404799556b0f3f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-7.bin",
+      "mode": "100644",
+      "sha": "49a4902f4b8c6d7111cc781c12ec0c74a0d06314"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-8.bin",
+      "mode": "100644",
+      "sha": "453d4e68bf8fa7425cec4c01d55f008c81936e35"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/4-9.bin",
+      "mode": "100644",
+      "sha": "eaf435bce332fa2a3d2b361bd7aaee89f8b6684d"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-1.bin",
+      "mode": "100644",
+      "sha": "698d9b454f03f3ead7f0a0d6e973ab7492bbe58c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-10.bin",
+      "mode": "100644",
+      "sha": "4d32ecc89d271cf077be130f989e4930d85dc9b8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-11.bin",
+      "mode": "100644",
+      "sha": "193338920b1077d4f7c8eaf0cafb724be9a359d3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-12.bin",
+      "mode": "100644",
+      "sha": "7c2971f96c5bb893a9a344ed36ebc7395c4cd4e5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-13.bin",
+      "mode": "100644",
+      "sha": "9009bce6a9a345d48a6cb583b4a61b8eb9c8de92"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-14.bin",
+      "mode": "100644",
+      "sha": "08cb20a0debf3e82951aef78145a450d4c51964a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-15.bin",
+      "mode": "100644",
+      "sha": "93388c5153276c099f41f2af2515edb7ff8f85f5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-3.bin",
+      "mode": "100644",
+      "sha": "2e1f30572c5708e35617a5c5793ec1b26b30261f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-4.bin",
+      "mode": "100644",
+      "sha": "b8d32ba6915a71d8a2ef80857c79138fcab9faab"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-5.bin",
+      "mode": "100644",
+      "sha": "4b528ae32e8d507998beaa80267a84d959100c29"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-6.bin",
+      "mode": "100644",
+      "sha": "752531ab11920b5a2aff4c4cf57d804bf71be0e3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-7.bin",
+      "mode": "100644",
+      "sha": "9d9ef96c9166800c48047b4ae1432ce6097a85dc"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-8.bin",
+      "mode": "100644",
+      "sha": "8e44cf7fb2ef12f4430aa08c2dfdb6bb5863d806"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/5-9.bin",
+      "mode": "100644",
+      "sha": "01a6c4d1e69bcecd6e49cf69ae6b0eb1539fbfd0"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-0.bin",
+      "mode": "100644",
+      "sha": "c432c7a9652e4a7336e29ffb96ab59c33911a8e7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-1.bin",
+      "mode": "100644",
+      "sha": "647640cd36af9111e514c40f237bcd8c1c0037ef"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-10.bin",
+      "mode": "100644",
+      "sha": "ca29ebafd88523a2ae664cc86da90c8a2e0b8ae5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-11.bin",
+      "mode": "100644",
+      "sha": "4ddd9c0145016ec6037c8628b302c6e17030c2c3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-12.bin",
+      "mode": "100644",
+      "sha": "4462cfee65aa58afbbeaab09ac440703d1cc96ed"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-13.bin",
+      "mode": "100644",
+      "sha": "f2015e06ac0ac26efd3e1571896eb03a6b00ea41"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-14.bin",
+      "mode": "100644",
+      "sha": "359eaf11f8fb79468c010ce576d8ba1f32a13113"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-15.bin",
+      "mode": "100644",
+      "sha": "0a82de3cda37b15661e6f9c2bd78e8383f4532d6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-2.bin",
+      "mode": "100644",
+      "sha": "d5f44a1d6b4ddb00487ceacdfab67c2ec79ff040"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-3.bin",
+      "mode": "100644",
+      "sha": "9b0e5d9326961123128870b79388c9bb1d4922ee"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-4.bin",
+      "mode": "100644",
+      "sha": "8c57d1bc959d6780f8e296e36b93513f48a2ef2f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-5.bin",
+      "mode": "100644",
+      "sha": "1e7dcaf5296bccec88132db9c6441098a3aebb32"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-6.bin",
+      "mode": "100644",
+      "sha": "f05539ad93dbc1904b2dd7dd851f2d8e91eecaff"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-7.bin",
+      "mode": "100644",
+      "sha": "f43a3d164ee0b8cd11f6bed15060f56eb2ac45f7"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-8.bin",
+      "mode": "100644",
+      "sha": "a39e5c86d17c32cf3e78a1cd11c30b67a7fca289"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/6-9.bin",
+      "mode": "100644",
+      "sha": "fe20df1dd7a3df372348c4de4bdcf41fcb3bec83"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-0.bin",
+      "mode": "100644",
+      "sha": "1b2877b743639d7858029bc63eb4bd5ae535f881"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-1.bin",
+      "mode": "100644",
+      "sha": "4d6423a5c000fed20def49be1027f22ac938d460"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-10.bin",
+      "mode": "100644",
+      "sha": "b71dd8e620a4f5f496efd4dd632c2fe1c02bdab6"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-11.bin",
+      "mode": "100644",
+      "sha": "dcd95042ce193ee5b9ddf1a2cc5547d1c6842472"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-12.bin",
+      "mode": "100644",
+      "sha": "061dafc86b888d6726162fab371ef6bc617b75a3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-13.bin",
+      "mode": "100644",
+      "sha": "ce38e3746bea0e2fe1c8ce63ac25bf87b1a45c13"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-14.bin",
+      "mode": "100644",
+      "sha": "e30f7c01158cac4eefb56973eb209f08db7805d3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-15.bin",
+      "mode": "100644",
+      "sha": "ee07d9e5fd8ee0520226927663cad54165ea11a1"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-2.bin",
+      "mode": "100644",
+      "sha": "b8e30c18df8c42d6f8fff84ba58a9dc2633ae244"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-3.bin",
+      "mode": "100644",
+      "sha": "d8278725039b28c288395e86d34d1c17f767ccb8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-4.bin",
+      "mode": "100644",
+      "sha": "60181ec855ad0232bccbaec5733833d27dd17020"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-5.bin",
+      "mode": "100644",
+      "sha": "0326a51864d939c27affe60d42368debcac62336"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-6.bin",
+      "mode": "100644",
+      "sha": "751613f939a7a24ce57d3e7c2dc78f1d73f9ff35"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-7.bin",
+      "mode": "100644",
+      "sha": "8690520d1aa70dec48dd0a7a1e8c99aa3e7026ef"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-8.bin",
+      "mode": "100644",
+      "sha": "bb6b788bd2e18d4b183e04187f46c0b2dd5f0f39"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/7-9.bin",
+      "mode": "100644",
+      "sha": "1b586384bdad52fa80d874ead1c6a4970de3d7c3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-0.bin",
+      "mode": "100644",
+      "sha": "ed8c773d1c661ec7c7bc74f6d2ad15571408dad5"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-10.bin",
+      "mode": "100644",
+      "sha": "51cb05e502d984a2a86ccfd8a3d634dd3cdcc783"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-11.bin",
+      "mode": "100644",
+      "sha": "48f5bf2a0267669cb1fac47e5ff0f0cd9979d49a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-12.bin",
+      "mode": "100644",
+      "sha": "542293f31fd19e31676062fbbc9d1b1ee328f5d8"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-13.bin",
+      "mode": "100644",
+      "sha": "d6235fd8f826fbfedd124047946d338c5483c7a4"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-14.bin",
+      "mode": "100644",
+      "sha": "d18dc63af5a117f62e65c0152d5746a79b3d8824"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-15.bin",
+      "mode": "100644",
+      "sha": "6777ebb702c6c8dab6b77bccde1917f7f6cd9a0f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-2.bin",
+      "mode": "100644",
+      "sha": "df3f8886de54339dfbf04f3e9fb4fabc6f4b6997"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-3.bin",
+      "mode": "100644",
+      "sha": "8b1af48e3ab94a738f1d72909485b4962aa20c96"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-4.bin",
+      "mode": "100644",
+      "sha": "e1d0ddbaa86a12bf00a1dcd6af1acce64fc91d02"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-5.bin",
+      "mode": "100644",
+      "sha": "8f4cd5c9a620ddcd22bf8283c851b80746953607"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-6.bin",
+      "mode": "100644",
+      "sha": "966c34ca5b77fe72e2ab0be459e5068a10f72a60"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-7.bin",
+      "mode": "100644",
+      "sha": "f1ca2dbed5840be58d5eb3f20a7e2f6fc94b9c2c"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-8.bin",
+      "mode": "100644",
+      "sha": "7644fde79c294c4200785eec49b406b42031c58e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/8-9.bin",
+      "mode": "100644",
+      "sha": "e42dfef488e08cb194832e88fd53c4ce7083acd3"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-0.bin",
+      "mode": "100644",
+      "sha": "6e87522e084a5f6a52bff79467126f46501efe3e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-1.bin",
+      "mode": "100644",
+      "sha": "f6d03de452360334b580a8d59f4e00b50d79dac9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-10.bin",
+      "mode": "100644",
+      "sha": "37c3fb9558585f051015c0699f1de95dd3751c14"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-11.bin",
+      "mode": "100644",
+      "sha": "a2d6a9cb00c5e4d0fa56b123baed3bb47a47968a"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-12.bin",
+      "mode": "100644",
+      "sha": "08ddcd7357a3b67eb3bf3691a5c029c90e3b28c9"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-13.bin",
+      "mode": "100644",
+      "sha": "2b8f621da45fed508953e8de9094d7b3679ced3e"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-14.bin",
+      "mode": "100644",
+      "sha": "d87e5d3e3ae42e91ce278ea7e8a5df84ca213b2b"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-2.bin",
+      "mode": "100644",
+      "sha": "a30e311479fac903a452da7e4c0b5830733dcfe2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-3.bin",
+      "mode": "100644",
+      "sha": "08e1f9d797086f0d7a89771910a1867ba29e42ce"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-4.bin",
+      "mode": "100644",
+      "sha": "a2ddda652e37ced29e62e2daa9d8df705894c8d2"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-5.bin",
+      "mode": "100644",
+      "sha": "2997c934ee839dfadfc4c421cc7321a532b8cd77"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-6.bin",
+      "mode": "100644",
+      "sha": "9ca02bcbcdaa187f9a356c9a51a46b6ef40da36f"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-7.bin",
+      "mode": "100644",
+      "sha": "c48196989aad288db9a6c2998481017693f69bda"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-8.bin",
+      "mode": "100644",
+      "sha": "b4dc2cfefb3cc6d5452657a3d04ee6070e698227"
+    },
+    {
+      "path": "examples/globe/c1/demo/fields/9-9.bin",
+      "mode": "100644",
+      "sha": "0d0a0ed20dd06a2f12aa003d44e91d6cfe5b043e"
+    },
+    {
+      "path": "examples/globe/c1/demo/manifest.json",
+      "mode": "100644",
+      "sha": "2195a757286222488f50b5d68fcda3dead65d984"
+    },
+    {
+      "path": "examples/globe/c1/demo/reference.snapshot.json",
+      "mode": "100644",
+      "sha": "302aff296f85249ff352e8749b2c9738b6b2168b"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/build.log",
+      "mode": "100644",
+      "sha": "3e6620954d413e5396e7e18ce9f5fe5aa439727a"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/globe-local-30m.jpg",
+      "mode": "100644",
+      "sha": "a3616436fa7a676772ca29c4c4b48098e5636a89"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/globe-meter.jpg",
+      "mode": "100644",
+      "sha": "9d0abad784517a7979fa101a7909b9cd5215e4a5"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/globe-space.jpg",
+      "mode": "100644",
+      "sha": "fe6aac91c73162b0603a511135739a17dbd7fdd7"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/runtime-final-120s.json",
+      "mode": "100644",
+      "sha": "d29f475dfffc9f966d77746d0b1c5be39c6c799e"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/runtime-initial-120s.json",
+      "mode": "100644",
+      "sha": "1f9f3a7047caca1061edc9d9096fe6d4f4194760"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/settled-coverage.json",
+      "mode": "100644",
+      "sha": "3155f8e712291693531d52e9962198bd9de27c39"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/unit-tests.log",
+      "mode": "100644",
+      "sha": "2145c0770adf253d94429ab6036ed6435b777bea"
+    },
+    {
+      "path": "examples/globe/lod-quality-2026-10-10/verification.json",
+      "mode": "100644",
+      "sha": "0735d2a38c3f11c6623f878e290e87bc88da59bf"
+    },
+    {
+      "path": "examples/handoff/2026-10-10/integrity.json",
+      "mode": "100644",
+      "sha": "d9ec1a195ad2be3c30c86bcb5ff7512c44076919"
+    },
+    {
+      "path": "examples/handoff/2026-10-10/unit-tests.log",
+      "mode": "100644",
+      "sha": "0c07a1f51dd42c494ac39b348305cdc4a1231088"
+    },
+    {
+      "path": "examples/handoff/2026-10-10/verification.json",
+      "mode": "100644",
+      "sha": "a65361b6f44e95db87cc31eada706bba2620c01d"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/manifest.json",
+      "mode": "100644",
+      "sha": "39a439c0da5565037eb1fec90257bfcb0873a3c2"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/world.snapshot.json",
+      "mode": "100644",
+      "sha": "65bbdcebd02a39f4b891ce3547bffda5efa4ca67"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-0.json",
+      "mode": "100644",
+      "sha": "aac025661f6dcdb1f34e8fb84f55fa9c69a77d1b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-1.json",
+      "mode": "100644",
+      "sha": "9db8a9ba3710b7c7eb16f9dbc2039f20685eb63e"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-2.json",
+      "mode": "100644",
+      "sha": "fd68532943a21208b5d9b39140c174b023f48e99"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-3.json",
+      "mode": "100644",
+      "sha": "08b6c2ad9b2015babbda219de4bf6c8ecd3e525b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-4.json",
+      "mode": "100644",
+      "sha": "4e4d21392a29c1bf7e24b9438a69e4f22009cecc"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-5.json",
+      "mode": "100644",
+      "sha": "0e688b017e2498a23fb53ce14db91c92d51b2b74"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-6.json",
+      "mode": "100644",
+      "sha": "5ce4d4d0bfeb668528a5b83e5fce2ac9f8398c4a"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/features-7.json",
+      "mode": "100644",
+      "sha": "881ffb84e7c3b54af646ad4cd7e48ff52ccda347"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/manifest.json",
+      "mode": "100644",
+      "sha": "923b73cfa8ef76698e715a5113cbff9e9b813150"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/30817fecfed8be2b311f0213e4e669cb73e9087c24d423086b0fad32f1e7ca28/world.snapshot.json",
+      "mode": "100644",
+      "sha": "353db7306a1b0b1bf99d2e6b00cabcb255fde8d8"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/features-0.json",
+      "mode": "100644",
+      "sha": "59379576a18786f0283599c2c27c7b99b3bc6673"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/features-1.json",
+      "mode": "100644",
+      "sha": "70c80467edff788acc32cbe99dace0daa98cf001"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/features-2.json",
+      "mode": "100644",
+      "sha": "c1aedeae03230eed919f57ba190563f23d2aa9e5"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/features-3.json",
+      "mode": "100644",
+      "sha": "7224fbc0a7586f6c778eca4a289129169e518252"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/features-4.json",
+      "mode": "100644",
+      "sha": "8a339c314eafe6b4274b317d25641045dbd28ab9"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/features-7.json",
+      "mode": "100644",
+      "sha": "e4d309b3a4abe0cb14e208a6ed46d287d1e139b5"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/manifest.json",
+      "mode": "100644",
+      "sha": "dd3fee37117342bafca537f911fa8d1b2056db2a"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/54421cdf1524408d7b2b01eaea2756078e0a53a8e1f31f2307421d8aa4f00718/world.snapshot.json",
+      "mode": "100644",
+      "sha": "65bbdcebd02a39f4b891ce3547bffda5efa4ca67"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-0.json",
+      "mode": "100644",
+      "sha": "b187e6af6eec05bfd9a33ae469d32b54280835f8"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-1.json",
+      "mode": "100644",
+      "sha": "4c9b7ed1fd3712126cc82d49f3c69fc95014859b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-2.json",
+      "mode": "100644",
+      "sha": "d772a94ed3c8dfb4260f8ded90605c1c76d0bf68"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-3.json",
+      "mode": "100644",
+      "sha": "ce1ba2390d7417fb32005ffb30796d53ae49b666"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-4.json",
+      "mode": "100644",
+      "sha": "7d242c844828db3a5622a5baa03df16ec6aa7b57"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-5.json",
+      "mode": "100644",
+      "sha": "cb6b43b0358f5b8eb9601461120d06726cd9f3dd"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-6.json",
+      "mode": "100644",
+      "sha": "4542bafcd83a82ae3b2bdf19c395bc8ce06411c7"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/features-7.json",
+      "mode": "100644",
+      "sha": "d7c7755cc369e95d691b2b0bcd1167a9d1f75921"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/manifest.json",
+      "mode": "100644",
+      "sha": "a169039e46f7189c29afe7624fcfeb7a36652d7f"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/562657a0ce7d1e4398e907aa09f95f365812c588ea09dfd962d8ffbf849c054e/world.snapshot.json",
+      "mode": "100644",
+      "sha": "254bfdb5c8550e92fdb7d4a6a470c8c88ef5004f"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-0.json",
+      "mode": "100644",
+      "sha": "e5e8cdd016bd66657279887393c743ec8e0140de"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-1.json",
+      "mode": "100644",
+      "sha": "eb6e5290dbfc36c947d8bcb64e8beede72790d7b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-2.json",
+      "mode": "100644",
+      "sha": "e7d48e1aa5f1b495be141908dfad021cb142a157"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-3.json",
+      "mode": "100644",
+      "sha": "08b6c2ad9b2015babbda219de4bf6c8ecd3e525b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-4.json",
+      "mode": "100644",
+      "sha": "4e4d21392a29c1bf7e24b9438a69e4f22009cecc"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-5.json",
+      "mode": "100644",
+      "sha": "0e688b017e2498a23fb53ce14db91c92d51b2b74"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-6.json",
+      "mode": "100644",
+      "sha": "5ce4d4d0bfeb668528a5b83e5fce2ac9f8398c4a"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/features-7.json",
+      "mode": "100644",
+      "sha": "881ffb84e7c3b54af646ad4cd7e48ff52ccda347"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/manifest.json",
+      "mode": "100644",
+      "sha": "06eb41c10023456dd11c65ace91bbd7e2a05c082"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/582fcac431084ca3c37a3053417cbed93903dab819c8423641c64912105c42ec/world.snapshot.json",
+      "mode": "100644",
+      "sha": "50580651b7726b117f8475596cf9351ec297a097"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-0.json",
+      "mode": "100644",
+      "sha": "b187e6af6eec05bfd9a33ae469d32b54280835f8"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-1.json",
+      "mode": "100644",
+      "sha": "4c9b7ed1fd3712126cc82d49f3c69fc95014859b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-2.json",
+      "mode": "100644",
+      "sha": "d772a94ed3c8dfb4260f8ded90605c1c76d0bf68"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-3.json",
+      "mode": "100644",
+      "sha": "ce1ba2390d7417fb32005ffb30796d53ae49b666"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-4.json",
+      "mode": "100644",
+      "sha": "7d242c844828db3a5622a5baa03df16ec6aa7b57"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-5.json",
+      "mode": "100644",
+      "sha": "cb6b43b0358f5b8eb9601461120d06726cd9f3dd"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-6.json",
+      "mode": "100644",
+      "sha": "4542bafcd83a82ae3b2bdf19c395bc8ce06411c7"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/features-7.json",
+      "mode": "100644",
+      "sha": "d7c7755cc369e95d691b2b0bcd1167a9d1f75921"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/manifest.json",
+      "mode": "100644",
+      "sha": "5b9b1cdeb8869d06d857c89983679318291a127b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/5ec4354ac6cb10e3fc6d6cc2faf32480674074f09a91cc3259c6d00bf80da384/world.snapshot.json",
+      "mode": "100644",
+      "sha": "254bfdb5c8550e92fdb7d4a6a470c8c88ef5004f"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-0.json",
+      "mode": "100644",
+      "sha": "1f211ce477683d5cb13ff8d6e2baa90da16b8536"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-1.json",
+      "mode": "100644",
+      "sha": "33b6ed2ea23bcbbc292c328b7d1ff0589ca1d0ab"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-2.json",
+      "mode": "100644",
+      "sha": "cadf3263dbba07e3ba64cd2cea0c64899444f0ed"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-3.json",
+      "mode": "100644",
+      "sha": "ab039fd676d98e8724c276e14f4a460b9488b219"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-4.json",
+      "mode": "100644",
+      "sha": "521f2b727e63f0ce71b7e887774defc0c68418bc"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-5.json",
+      "mode": "100644",
+      "sha": "b549616730c7b76e6f90332f0c5dca21f5229467"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-6.json",
+      "mode": "100644",
+      "sha": "897f52e41be7a631262c950f4001edcf2c865747"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/features-7.json",
+      "mode": "100644",
+      "sha": "fd8013b6679206f5cab7b9a36ec1faf5fd9fbc7b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/manifest.json",
+      "mode": "100644",
+      "sha": "9a0324f6668d400ecd417a3db0e3484eb731335b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/688a0fb044b17e85e9d1b3d6613a3c55321e8779a21aac9121465cf03633de0e/world.snapshot.json",
+      "mode": "100644",
+      "sha": "07de42e48344ec0a238d27cb1b795137b637697c"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-0.json",
+      "mode": "100644",
+      "sha": "eaf95c2e08866406eb524e805eef153054549b40"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-1.json",
+      "mode": "100644",
+      "sha": "0d98b60a2e6b31e47f76a73b0d50cc1dc3631004"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-2.json",
+      "mode": "100644",
+      "sha": "6c848707a79d9d637cd3812ac98a173b4034cdd0"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-3.json",
+      "mode": "100644",
+      "sha": "a55cbc850f5914134f267c7f6594067b006df5ce"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-4.json",
+      "mode": "100644",
+      "sha": "aee029f3585b6c75236d7be00e6b00a310e9f4c8"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-5.json",
+      "mode": "100644",
+      "sha": "67b1c59fde186074484dc206536541250484cc2f"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-6.json",
+      "mode": "100644",
+      "sha": "b1263334228ef319270c5fb7a065cdcc82898192"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/features-7.json",
+      "mode": "100644",
+      "sha": "a30bc108e6a458a417bedb98e0ac43df91a539fa"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/manifest.json",
+      "mode": "100644",
+      "sha": "498958f8ebe8cf1baec586aec3af76b226918f9f"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/861c161e7bcd620feed0d7a7a1fb546cdaf77b5ced001da0f86177a635db39e8/world.snapshot.json",
+      "mode": "100644",
+      "sha": "871ffce6fbd353ed1a768e8c2de794215f8c4550"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-0.json",
+      "mode": "100644",
+      "sha": "e5e8cdd016bd66657279887393c743ec8e0140de"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-1.json",
+      "mode": "100644",
+      "sha": "eb6e5290dbfc36c947d8bcb64e8beede72790d7b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-2.json",
+      "mode": "100644",
+      "sha": "e7d48e1aa5f1b495be141908dfad021cb142a157"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-3.json",
+      "mode": "100644",
+      "sha": "08b6c2ad9b2015babbda219de4bf6c8ecd3e525b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-4.json",
+      "mode": "100644",
+      "sha": "4e4d21392a29c1bf7e24b9438a69e4f22009cecc"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-5.json",
+      "mode": "100644",
+      "sha": "0e688b017e2498a23fb53ce14db91c92d51b2b74"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-6.json",
+      "mode": "100644",
+      "sha": "5ce4d4d0bfeb668528a5b83e5fce2ac9f8398c4a"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/features-7.json",
+      "mode": "100644",
+      "sha": "881ffb84e7c3b54af646ad4cd7e48ff52ccda347"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/manifest.json",
+      "mode": "100644",
+      "sha": "a69d7f087e3d937b4b68a5086d320b59c6a158c2"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/de723b7a8ecef1704c818b271990709e5f988a386fd506e96750efce2c8e72f2/world.snapshot.json",
+      "mode": "100644",
+      "sha": "536592aca8b20c3221e885807bc7e68da19c2429"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-0.json",
+      "mode": "100644",
+      "sha": "b187e6af6eec05bfd9a33ae469d32b54280835f8"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-1.json",
+      "mode": "100644",
+      "sha": "4c9b7ed1fd3712126cc82d49f3c69fc95014859b"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-2.json",
+      "mode": "100644",
+      "sha": "d772a94ed3c8dfb4260f8ded90605c1c76d0bf68"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-3.json",
+      "mode": "100644",
+      "sha": "ce1ba2390d7417fb32005ffb30796d53ae49b666"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-4.json",
+      "mode": "100644",
+      "sha": "7d242c844828db3a5622a5baa03df16ec6aa7b57"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-5.json",
+      "mode": "100644",
+      "sha": "cb6b43b0358f5b8eb9601461120d06726cd9f3dd"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-6.json",
+      "mode": "100644",
+      "sha": "4542bafcd83a82ae3b2bdf19c395bc8ce06411c7"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/features-7.json",
+      "mode": "100644",
+      "sha": "d7c7755cc369e95d691b2b0bcd1167a9d1f75921"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/manifest.json",
+      "mode": "100644",
+      "sha": "3a0acf5bfda68217c9a20c180d38528c84f85c61"
+    },
+    {
+      "path": "examples/planet/below-sea-basin/worlds/eb5bbb5450aafa2d813b8562ba48af8614b7ce810f99cad4fe7b02895e390d2b/world.snapshot.json",
+      "mode": "100644",
+      "sha": "34e628d771e0079bc8c24eec6ee95827d95c8a92"
+    },
+    {
+      "path": "examples/planet/catalog.json",
+      "mode": "100644",
+      "sha": "548fec62747edc9166962f71f0f3047e1cb74e85"
+    },
+    {
+      "path": "examples/planet/culvert-design/manifest.json",
+      "mode": "100644",
+      "sha": "36aabcdd323e4529e7a9d3fa63f5c005d55a9977"
+    },
+    {
+      "path": "examples/planet/culvert-design/world.snapshot.json",
+      "mode": "100644",
+      "sha": "da271111c0d72d91c13b8824de1a765b736935c2"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/1204cfeb707e8342d80e9e3be13ec0a4fc81b680a5799e357c0b145ff6cc3455/features.json",
+      "mode": "100644",
+      "sha": "b926108082a4c06860775fcac6b12e2641a703eb"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/1204cfeb707e8342d80e9e3be13ec0a4fc81b680a5799e357c0b145ff6cc3455/manifest.json",
+      "mode": "100644",
+      "sha": "04a6fa3645d126325a3730a9a665e47de4ad1155"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/1204cfeb707e8342d80e9e3be13ec0a4fc81b680a5799e357c0b145ff6cc3455/world.snapshot.json",
+      "mode": "100644",
+      "sha": "da271111c0d72d91c13b8824de1a765b736935c2"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/7ee96c206bbf5031cd0b9bf61208967374fe7288f31183788932b428e7d00ccf/features.json",
+      "mode": "100644",
+      "sha": "0ebc7bcde0bfbbd36ee8caeb0b76786091324da5"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/7ee96c206bbf5031cd0b9bf61208967374fe7288f31183788932b428e7d00ccf/manifest.json",
+      "mode": "100644",
+      "sha": "ea1ed498a3b8b251bab9f0bb9f2c3aff1c977a27"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/7ee96c206bbf5031cd0b9bf61208967374fe7288f31183788932b428e7d00ccf/world.snapshot.json",
+      "mode": "100644",
+      "sha": "a46a04d577621247c7050854a3df1d2e43064cdc"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/a8bfcf83b2f09fa793b33299f698743429ebdaa827b6200a27e69f449de4cb9e/features.json",
+      "mode": "100644",
+      "sha": "1c943b5a259bc10d49d984045b47976d23dfe451"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/a8bfcf83b2f09fa793b33299f698743429ebdaa827b6200a27e69f449de4cb9e/manifest.json",
+      "mode": "100644",
+      "sha": "fdb8cae70310938485c65a5b41e1e4b64d7b3da2"
+    },
+    {
+      "path": "examples/planet/culvert-design/worlds/a8bfcf83b2f09fa793b33299f698743429ebdaa827b6200a27e69f449de4cb9e/world.snapshot.json",
+      "mode": "100644",
+      "sha": "2c467e4217c135053c7b8eae9392d1a19ac16ee8"
+    },
+    {
+      "path": "examples/planet/generated/browser-below-sea-lake1-30m-audit.json",
+      "mode": "100644",
+      "sha": "54c6631c3582edb84f6b0941e4036b4becb99777"
+    },
+    {
+      "path": "examples/planet/generated/browser-below-sea-lake1-30m.json",
+      "mode": "100644",
+      "sha": "cab8a582cdefa5cec286903a9f370339ef1dca42"
+    },
+    {
+      "path": "examples/planet/generated/browser-lake-oblique-water-fix.png",
+      "mode": "100644",
+      "sha": "32aa1fee07466ab2b99bfbf5ccf675be984b7d9a"
+    },
+    {
+      "path": "examples/planet/generated/browser-lake-reservoir-64mib-audit.json",
+      "mode": "100644",
+      "sha": "fed16acec5dd83537f1fa8f42930279e8abc04c2"
+    },
+    {
+      "path": "examples/planet/generated/browser-lake-reservoir-64mib.json",
+      "mode": "100644",
+      "sha": "dfddc90239c741c739822e699f301f3190de2965"
+    },
+    {
+      "path": "examples/planet/generated/browser-lake-reservoir-64mib.png",
+      "mode": "100644",
+      "sha": "9aeace40181551777a8b41b72f342962d6e79c41"
+    },
+    {
+      "path": "examples/planet/generated/browser-reference-memo-120s-audit.json",
+      "mode": "100644",
+      "sha": "94ec79cd1042dab124df85df442e29d33ea2e986"
+    },
+    {
+      "path": "examples/planet/generated/browser-reference-memo-120s.json",
+      "mode": "100644",
+      "sha": "3c19a307976bcffb94dec93cb5fb494b390e67f8"
+    },
+    {
+      "path": "examples/planet/generated/browser-reservoir-120s-audit.json",
+      "mode": "100644",
+      "sha": "cc4c13e02bd49fff0aa5713478a98140eabf902f"
+    },
+    {
+      "path": "examples/planet/generated/browser-reservoir-120s.json",
+      "mode": "100644",
+      "sha": "4c9321a1a6b1d3bca419eff5e43ed93c7543b29b"
+    },
+    {
+      "path": "examples/planet/generated/browser-reservoir-memory-after-tour.png",
+      "mode": "100644",
+      "sha": "0422a2d09d14a0403692bfbf5416168a8a0244ab"
+    },
+    {
+      "path": "examples/planet/generated/browser-tile-memo-lake-audit.json",
+      "mode": "100644",
+      "sha": "1bfc36900408461a445b35cafb414cebea697f98"
+    },
+    {
+      "path": "examples/planet/generated/browser-tile-memo-lake.json",
+      "mode": "100644",
+      "sha": "b71ebf23d06c139df66a23abe5906bbd4a3e3378"
+    },
+    {
+      "path": "examples/planet/generated/browser-world-a-village3-audit.json",
+      "mode": "100644",
+      "sha": "f4a55a66ba72bc3de1c91b4a963d0e916ca00104"
+    },
+    {
+      "path": "examples/planet/generated/browser-world-a-village3.json",
+      "mode": "100644",
+      "sha": "8c78be032b7acc9057e8e19c42f6a6079dc5daae"
+    },
+    {
+      "path": "examples/planet/generated/browser-world-b-village2-audit.json",
+      "mode": "100644",
+      "sha": "6a0f33d0c26a7c3aa064cee7900fa3d046853ef3"
+    },
+    {
+      "path": "examples/planet/generated/browser-world-b-village2.json",
+      "mode": "100644",
+      "sha": "19c11936f2396a8bd1e698e095cc04d35b584129"
+    },
+    {
+      "path": "examples/planet/generated/features-0.json",
+      "mode": "100644",
+      "sha": "d772a94ed3c8dfb4260f8ded90605c1c76d0bf68"
+    },
+    {
+      "path": "examples/planet/generated/features-1.json",
+      "mode": "100644",
+      "sha": "639790901da5225c4ca52ae5c7323fdcae1f9b03"
+    },
+    {
+      "path": "examples/planet/generated/features-2.json",
+      "mode": "100644",
+      "sha": "ea84a2a8703f6bae9bde7c6abc9a1df7ef1a723c"
+    },
+    {
+      "path": "examples/planet/generated/features-3.json",
+      "mode": "100644",
+      "sha": "8b1c028b9c8bdfbea031c0cbe7d419fdc4693f30"
+    },
+    {
+      "path": "examples/planet/generated/features-4.json",
+      "mode": "100644",
+      "sha": "cb6b43b0358f5b8eb9601461120d06726cd9f3dd"
+    },
+    {
+      "path": "examples/planet/generated/features-5.json",
+      "mode": "100644",
+      "sha": "d7c7755cc369e95d691b2b0bcd1167a9d1f75921"
+    },
+    {
+      "path": "examples/planet/generated/features-6.json",
+      "mode": "100644",
+      "sha": "fd37a02ca43aca8c5643ad2c626258480e7f8555"
+    },
+    {
+      "path": "examples/planet/generated/features-7.json",
+      "mode": "100644",
+      "sha": "de45968e7c6c0b3103a94908a49e73220bcffd00"
+    },
+    {
+      "path": "examples/planet/verification/bridge-abutment-discontinuity.json",
+      "mode": "100644",
+      "sha": "7dd255f22f5d4c0fa62048ef50218ec3c61c242b"
+    },
+    {
+      "path": "examples/planet/verification/bridge-adjacent-hull.json",
+      "mode": "100644",
+      "sha": "96785124e27adec210c73ffc9a61b57b44cb8bef"
+    },
+    {
+      "path": "examples/planet/verification/bridge-breakline-mesh.json",
+      "mode": "100644",
+      "sha": "d011e4bd9ff9e8b612df3d34785e5d4c687fed5a"
+    },
+    {
+      "path": "examples/planet/verification/browser-64mib-memory-after-tour.png",
+      "mode": "100644",
+      "sha": "c5dc39df6c6ea6c8808dc37d012a58c5678e4fed"
+    },
+    {
+      "path": "examples/planet/verification/browser-hull-120s-audit.json",
+      "mode": "100644",
+      "sha": "7dd5ffb2ba524d253b962277ca4710e7877c8ade"
+    },
+    {
+      "path": "examples/planet/verification/browser-hull-120s.json",
+      "mode": "100644",
+      "sha": "22bfeb3fe078c32569377a5c442df4c98d381412"
+    },
+    {
+      "path": "examples/planet/verification/browser-hull-memory-after-tour.jpg",
+      "mode": "100644",
+      "sha": "7be16bf7b0df1e5d6db05bb2d0276e26b7318f5f"
+    },
+    {
+      "path": "examples/planet/verification/browser-progressive-120s-audit.json",
+      "mode": "100644",
+      "sha": "90069e73765f021faaa7662286ca1023e551981c"
+    },
+    {
+      "path": "examples/planet/verification/browser-progressive-120s.json",
+      "mode": "100644",
+      "sha": "1d733112c701348d6fbb7ea936a0596d7eea97ec"
+    },
+    {
+      "path": "examples/planet/verification/browser-village-hull-64mib-audit.json",
+      "mode": "100644",
+      "sha": "39b3c2a14fbbbc3ec2bdda0f713ce15f66b0e8ba"
+    },
+    {
+      "path": "examples/planet/verification/browser-village-hull-64mib.json",
+      "mode": "100644",
+      "sha": "25636fecab83fd1b8342d612db274a289aac15b4"
+    },
+    {
+      "path": "examples/planet/verification/browser-village2-hull-64mib-audit.json",
+      "mode": "100644",
+      "sha": "06fdbd57e3bdc5a47fa61f44a4374a82794e4db4"
+    },
+    {
+      "path": "examples/planet/verification/browser-village2-hull-64mib.json",
+      "mode": "100644",
+      "sha": "fa5670c811b957cbc59bb52b932d65ef2fd52612"
+    },
+    {
+      "path": "examples/planet/verification/browser-village3-hull-64mib-audit.json",
+      "mode": "100644",
+      "sha": "dc7690ed16c8fc924b2cbe54ad1d0274c4957897"
+    },
+    {
+      "path": "examples/planet/verification/browser-village3-hull-64mib.json",
+      "mode": "100644",
+      "sha": "564b32d5aa08671d1c2a4f0c9c5ba8c0cc8ccb09"
+    },
+    {
+      "path": "examples/planet/verification/ground-hulls.json",
+      "mode": "100644",
+      "sha": "d193e8d9a11376467415f155760abd938118c777"
+    },
+    {
+      "path": "examples/planet/verification/ground-mesh-errors.json",
+      "mode": "100644",
+      "sha": "dde05caf489c5844b7e3c79f1928e8b819f10894"
+    },
+    {
+      "path": "examples/planet/verification/lod-priority-queue.json",
+      "mode": "100644",
+      "sha": "cb4a45ca9c4f1600e5fbd5fe71a582bf9d7c5d06"
+    },
+    {
+      "path": "examples/planet/verification/mesh-normal-memo.json",
+      "mode": "100644",
+      "sha": "f8cca85faad94a0fe480f722383ad9241e6fd521"
+    },
+    {
+      "path": "examples/planet/verification/road-nearest-winner.json",
+      "mode": "100644",
+      "sha": "3eca28ba5b1df3e10e685bd65020eaa0febcb7f1"
+    },
+    {
+      "path": "examples/planet/verification/road-segment-index.json",
+      "mode": "100644",
+      "sha": "fbc6cf326fb7af6000e44a9ee527dc559d491084"
+    },
+    {
+      "path": "examples/planet/verification/viewport-cpu-profile-summary.json",
+      "mode": "100644",
+      "sha": "98e3fd1a0efbf963ad39dd8a0bee059470e3fc5a"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-before-breaklines.json",
+      "mode": "100644",
+      "sha": "908d0e9b45d2ada7ff7561edd881d4993a946e5c"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-before-reservoir.json",
+      "mode": "100644",
+      "sha": "b1e8dff52a7f99b5ad0a38c94deb7e4f984cd5a4"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-concurrent.json",
+      "mode": "100644",
+      "sha": "2df7f0794968a4cd6e79b0a4781dd20fc794cd17"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-isolated-profiled.json",
+      "mode": "100644",
+      "sha": "49c2114ae1528879649ec65c80df4c736c37ed44"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-progressive-baseline.json",
+      "mode": "100644",
+      "sha": "afcf8b11ea62a7368806bbe0c3fbd520168571b5"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-reference-memo.json",
+      "mode": "100644",
+      "sha": "d2f77f60f070697f3d7abd56fa23bae8a1e98ebc"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-tile-memo-profiled.json",
+      "mode": "100644",
+      "sha": "77934e575929f41129abc12bdf531a46d7a5943e"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib-tile-memo.json",
+      "mode": "100644",
+      "sha": "c60bbc72157c70abf04291d80f56aa6de954ab26"
+    },
+    {
+      "path": "examples/planet/verification/viewport-lod-30m-128mib.json",
+      "mode": "100644",
+      "sha": "d2f77f60f070697f3d7abd56fa23bae8a1e98ebc"
+    },
+    {
+      "path": "examples/refinement/unit-tests.log",
+      "mode": "100644",
+      "sha": "4cc6732e1700b28d7106905086adfd2a33ab6778"
+    },
+    {
+      "path": "examples/refinement/verification.json",
+      "mode": "100644",
+      "sha": "e04b146942a958fb0149404aeefa31a11583d1ad"
+    },
+    {
+      "path": "examples/refinement/world-a.snapshot.json",
+      "mode": "100644",
+      "sha": "4709f54bc7811c5608d79fbbf59be1b370b1834c"
+    },
+    {
+      "path": "examples/refinement/world-a.witnesses.json",
+      "mode": "100644",
+      "sha": "4298aa0db6e9a71bbe1ad2c98812f7be7d64fd55"
+    },
+    {
+      "path": "examples/refinement/world-b.snapshot.json",
+      "mode": "100644",
+      "sha": "365b8880ecb218477374a926e3baba55c293b33c"
+    },
+    {
+      "path": "examples/refinement/world-b.witnesses.json",
+      "mode": "100644",
+      "sha": "9bb3c1fe7b2a19c4e6e03630dbe812b62c74e8d8"
+    },
+    {
+      "path": "examples/settlement-planning/actual-village-recipe.json",
+      "mode": "100644",
+      "sha": "2dabca0eceff27c1ca7ff9f13aada2669b6d4953"
+    },
+    {
+      "path": "examples/settlement-planning/actual-village-result.json",
+      "mode": "100644",
+      "sha": "8ce00a7d2a926d1f7465285604d7d32f577dd8a2"
+    },
+    {
+      "path": "examples/settlement-planning/verification/build.log",
+      "mode": "100644",
+      "sha": "074e22524734c8c8ecd2180a6a54b164e755387c"
+    },
+    {
+      "path": "examples/settlement-planning/verification/tests.log",
+      "mode": "100644",
+      "sha": "56376906ca7bfa56173e3ce8318fe02868b9ec28"
+    },
+    {
+      "path": "examples/settlement-planning/village-profile.json",
+      "mode": "100644",
+      "sha": "c7713702cf150c8c84cf06b13eaadaae02a4e7db"
+    },
+    {
+      "path": "examples/surface-water/combined-groundwater-fixture.snapshot.json",
+      "mode": "100644",
+      "sha": "8d45179403dc33cce84f4fbcf2794ebbc6d1dbd9"
+    },
+    {
+      "path": "examples/surface-water/combined-groundwater-fixture.witnesses.json",
+      "mode": "100644",
+      "sha": "b52d9ec35cc513335d9f1247555b9a1af53b3c23"
+    },
+    {
+      "path": "examples/surface-water/combined-surface-fixture.snapshot.json",
+      "mode": "100644",
+      "sha": "a3c438b98d56e05ae40a0d4384c27157afb5c397"
+    },
+    {
+      "path": "examples/surface-water/combined-surface-fixture.witnesses.json",
+      "mode": "100644",
+      "sha": "cd0d7e5d2197cad3ce3f37bf99f9527a9fc912b3"
+    },
+    {
+      "path": "examples/surface-water/concave-body-fixture.snapshot.json",
+      "mode": "100644",
+      "sha": "1bd11ad8250dd88f620a07a99dd72feadff76531"
+    },
+    {
+      "path": "examples/surface-water/concave-body-fixture.witnesses.json",
+      "mode": "100644",
+      "sha": "fd3b4090657a4ed0c94e20c701fdae9be450bd44"
+    },
+    {
+      "path": "examples/surface-water/lake-ocean-fixture.snapshot.json",
+      "mode": "100644",
+      "sha": "692b80290da87baefc0c4ff01f90728529cabba0"
+    },
+    {
+      "path": "examples/surface-water/lake-ocean-fixture.witnesses.json",
+      "mode": "100644",
+      "sha": "13747b83539a20e1640087c4a44feeba60ef3480"
+    },
+    {
+      "path": "examples/surface-water/unit-tests.log",
+      "mode": "100644",
+      "sha": "03f0271ed4a3d7510dbb7e4488879a8a58f15981"
+    },
+    {
+      "path": "examples/surface-water/verification-v0.2.json",
+      "mode": "100644",
+      "sha": "f0e7048606eafe07856a3f8188c98c08d128fdc5"
+    },
+    {
+      "path": "examples/surface-water/verification.json",
+      "mode": "100644",
+      "sha": "5723bef062c5dc841e55ad65e6f3436fe91e1b8d"
+    },
+    {
+      "path": "examples/surface-water/world-a-c1.snapshot.json",
+      "mode": "100644",
+      "sha": "bf9748de596d9f5b1f003285ef084503f5cf9554"
+    },
+    {
+      "path": "examples/surface-water/world-a-c1.witnesses.json",
+      "mode": "100644",
+      "sha": "c05b3e5f133508404d20b2435ed6d801d00fc4d3"
+    },
+    {
+      "path": "examples/surface-water/world-a-strahler.snapshot.json",
+      "mode": "100644",
+      "sha": "63aa9b8aa78e169f7ae6c7d3753f68c72f2ea18c"
+    },
+    {
+      "path": "examples/surface-water/world-a-strahler.witnesses.json",
+      "mode": "100644",
+      "sha": "9a5d0d63f7896b6e5610568791ffabc08aace791"
+    },
+    {
+      "path": "examples/surface-water/world-a.snapshot.json",
+      "mode": "100644",
+      "sha": "c0e154740201644632261399a9d834bb5ecf0a26"
+    },
+    {
+      "path": "examples/surface-water/world-a.witnesses.json",
+      "mode": "100644",
+      "sha": "520ce93e1b6410534f822fb67efe1cf4e8931768"
+    },
+    {
+      "path": "examples/surface-water/world-b-c1.snapshot.json",
+      "mode": "100644",
+      "sha": "d66e5bf3b421065338848caf3d67086217825e85"
+    },
+    {
+      "path": "examples/surface-water/world-b-c1.witnesses.json",
+      "mode": "100644",
+      "sha": "e671146f08dd21f030b73fdb3227f2aa745e6e03"
+    },
+    {
+      "path": "examples/surface-water/world-b-strahler.snapshot.json",
+      "mode": "100644",
+      "sha": "2553f572c5cc785bdbbbc2dea9200993332cfddf"
+    },
+    {
+      "path": "examples/surface-water/world-b-strahler.witnesses.json",
+      "mode": "100644",
+      "sha": "299f92fffebf7e4dda9204cc5a5662c30a47b608"
+    },
+    {
+      "path": "examples/surface-water/world-b.snapshot.json",
+      "mode": "100644",
+      "sha": "7d47b06527e4c06379cc19b95ec50d70c45fe0c2"
+    },
+    {
+      "path": "examples/surface-water/world-b.witnesses.json",
+      "mode": "100644",
+      "sha": "7d8b9ee5d13f2a31a4f6689dcffc2b64d0e447e0"
+    },
+    {
+      "path": "examples/unit-tests.log",
+      "mode": "100644",
+      "sha": "7e6a69c3cd42d91f667ce043157fa0583411f105"
+    },
+    {
+      "path": "examples/verification.json",
+      "mode": "100644",
+      "sha": "ea0424410e4e04871b97c7e31d52fbdc2f8ed31d"
+    },
+    {
+      "path": "examples/world-a.snapshot.json",
+      "mode": "100644",
+      "sha": "951096434d7b12effe8a34882f9c006b95aa945d"
+    },
+    {
+      "path": "examples/world-a.witnesses.json",
+      "mode": "100644",
+      "sha": "fdbc6c4988f666b7710b938c2342835589478bb5"
+    },
+    {
+      "path": "reports/planet-progress-2026-10-10.html",
+      "mode": "100644",
+      "sha": "440735c41be218d013ba6d0b6424dca3ace09fa2"
+    }
+  ]
+}

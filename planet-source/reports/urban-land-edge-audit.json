@@ -1,0 +1,132 @@
+{
+  "kind": "bounded-urban-land-clearance-audit",
+  "policy": "planned-block-boundaries@1",
+  "largeWorldExplicitOverride": {
+    "sourceWorld": "sha256:17833a44f7b0875986b31dc3605e9b94b92144fcaad51d8bd3c08450364312dd",
+    "scope": "Actual35a town with explicit proposed landscape-policy override, not a rewritten saved world; finite20m cover samples and actual7district feature checks.",
+    "site": "pop:4174:0",
+    "counts": {
+      "before": {
+        "woodland": 2402,
+        "water": 6,
+        "settlement": 1313
+      },
+      "after": {
+        "woodland": 2564,
+        "water": 6,
+        "settlement": 1151
+      }
+    },
+    "changes": {
+      "settlement→woodland": 162
+    },
+    "examples": [
+      {
+        "x": -380,
+        "y": -400,
+        "before": "settlement",
+        "after": "woodland"
+      },
+      {
+        "x": -320,
+        "y": -400,
+        "before": "settlement",
+        "after": "woodland"
+      },
+      {
+        "x": -160,
+        "y": -400,
+        "before": "settlement",
+        "after": "woodland"
+      },
+      {
+        "x": -140,
+        "y": -400,
+        "before": "settlement",
+        "after": "woodland"
+      },
+      {
+        "x": -100,
+        "y": -400,
+        "before": "settlement",
+        "after": "woodland"
+      }
+    ],
+    "roadSamples": 5003,
+    "unreservedRoadSamples": 0,
+    "buildingCenters": 658,
+    "unreservedBuildings": 0,
+    "parcelSamples": 8727,
+    "unreservedParcels": 0,
+    "elapsedMs": 3963.599941
+  },
+  "newSmallPublishedWorld": {
+    "sourceWorld": "sha256:2d74c1c49dab6bc9128cf2982927aa39ee0ce439e48548e26e6a7f8a6d53a187",
+    "scope": "Actual newly generated and published 32x16 source-grid world; no policy override. Finite 20m land-cover grid and all districts of largest town. Small world validates package propagation, not full-resolution global landscape.",
+    "site": "pop:225:0",
+    "population": 346,
+    "districts": 1,
+    "counts": {
+      "before": {
+        "meadow": 1625,
+        "woodland": 1845,
+        "settlement": 251
+      },
+      "after": {
+        "meadow": 1664,
+        "woodland": 1856,
+        "settlement": 201
+      }
+    },
+    "changes": {
+      "settlement→meadow": 39,
+      "settlement→woodland": 11
+    },
+    "examples": [
+      {
+        "x": -40,
+        "y": -160,
+        "before": "settlement",
+        "after": "meadow"
+      },
+      {
+        "x": 0,
+        "y": -160,
+        "before": "settlement",
+        "after": "meadow"
+      },
+      {
+        "x": 40,
+        "y": -160,
+        "before": "settlement",
+        "after": "meadow"
+      },
+      {
+        "x": -160,
+        "y": -140,
+        "before": "settlement",
+        "after": "meadow"
+      },
+      {
+        "x": -140,
+        "y": -140,
+        "before": "settlement",
+        "after": "meadow"
+      }
+    ],
+    "roadSamples": 811,
+    "unreservedRoadSamples": 0,
+    "buildingCenters": 76,
+    "unreservedBuildings": 0,
+    "parcelSamples": 995,
+    "unreservedParcels": 0,
+    "elapsedMs": 413.63407399999994
+  },
+  "limitations": [
+    "Reserves planned urban blocks with a conservative 20 m gate/plot margin, not surveyed historic urban land use.",
+    "Finite 20 m samples and building centres do not prove every continuous footprint is clear.",
+    "At most eight nearby towns; block cache capped at 128 and planner seed cache at 512; no whole-city household generation for cover.",
+    "Old worlds without the opt-in policy retain their prior cover.",
+    "No whole-scene visual, GPU-device, historic-growth or agricultural-capacity acceptance is claimed."
+  ]
+}

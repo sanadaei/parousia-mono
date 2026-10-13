@@ -1,0 +1,34 @@
+✔ software rendering preserves near clipping, morph and depth raster witnesses (120.469654ms)
+✔ software framebuffer is reused, resized and released (0.856008ms)
+✔ benchmark summary never labels scheduler callbacks as rasterized fps (0.575165ms)
+✔ smooth raster lighting and color are perspective-correct rather than first-vertex flat (4.030194ms)
+✔ smooth interpolation is unchanged by triangulation and near clipping (48.547944ms)
+✔ software projection scratch is reused across frames and released (4.849206ms)
+✔ benchmark waits for real geometry and all root fallbacks, and refuses a second run (0.529797ms)
+✔ hidden and extreme portrait viewports cannot allocate an unbounded CPU framebuffer (0.497289ms)
+✔ static framebuffer reuse invalidates camera, morph, stitch and geometry changes (1.046465ms)
+✔ independent tile roundoff cannot leave a black pixel seam, but visible gaps stay visible (8.98577ms)
+✔ CPU draw cadence permits responsive motion while yielding proportional to measured work (0.634004ms)
+✔ diagnostic LOD uses exactly the drawn framebuffer size rather than the enlarged CSS image (1.653859ms)
+✔ explicit diagnostic export resolution is bounded while interactive defaults stay unchanged (0.452541ms)
+✔ explicit sphere draft has stable separate persisted identity and original untouched (61.614382ms)
+✔ sphere queries and camera ground follow original native shape at geographic placement (22.063606ms)
+✔ exterior collar joins the saved planet without moving native rectangle (48.189584ms)
+✔ normal globe mesh uses selected heights and draped design river symbols (215.764411ms)
+✔ recorded vertical placement preserves all native relative heights and reloads (35.815306ms)
+✔ seed-generated shape uses the same sphere field contract (1116.78517ms)
+✔ post-shape channel water, bed, camera and exact-width strips share one field (472.610192ms)
+✔ explicit below-sea placement is consistently wet rather than dry hidden ocean (33.599433ms)
+✔ automatic outlet placement reaches a verified saved river with wet bed continuity (128.018342ms)
+✔ shape draft palette reveals local relief independently of geographic vertical offset (1.520788ms)
+✔ terrain appearance is display-only and blends continuously into saved terrain (0.37245ms)
+✔ measured steep banks receive mineral tone without invented surface texture (0.323617ms)
+✔ regional overview scales with draft extent and keeps physical heights unchanged (0.196285ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2398.518884

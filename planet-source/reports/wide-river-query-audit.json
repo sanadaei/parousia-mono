@@ -1,0 +1,47 @@
+{
+  "method": "Filter conservative occupied-cell boxes for wide river-index queries",
+  "scope": "Sequential isolated coarse mesh benchmark on actual generated world99af79f. Not browser timing or all-world performance acceptance.",
+  "tile": {
+    "face": 3,
+    "level": 5,
+    "x": 0,
+    "y": 16
+  },
+  "before": [
+    {
+      "context": false,
+      "ms": 1093.3800390000001,
+      "queries": 308,
+      "requests": 4,
+      "vertexHash": "ac6e7864d81438db7ee58bb96c0acace34cf0e7d2127ed7b61fdbb2150e515a8",
+      "indexHash": "9875d5396db922257d6a91644d10bd0bc8a0eb92d1648bbc638818e933f96126"
+    },
+    {
+      "context": true,
+      "ms": 2677.686384,
+      "queries": 308,
+      "requests": 4,
+      "vertexHash": "ac6e7864d81438db7ee58bb96c0acace34cf0e7d2127ed7b61fdbb2150e515a8",
+      "indexHash": "7799e1a915ba3ad7d16f9da584c261fb6d14825e5dbda400ec99e64bd3197803"
+    }
+  ],
+  "after": [
+    {
+      "context": false,
+      "ms": 80.31027500000005,
+      "queries": 308,
+      "requests": 4,
+      "vertexHash": "ac6e7864d81438db7ee58bb96c0acace34cf0e7d2127ed7b61fdbb2150e515a8",
+      "indexHash": "9875d5396db922257d6a91644d10bd0bc8a0eb92d1648bbc638818e933f96126"
+    },
+    {
+      "context": true,
+      "ms": 1949.686218,
+      "queries": 308,
+      "requests": 4,
+      "vertexHash": "ac6e7864d81438db7ee58bb96c0acace34cf0e7d2127ed7b61fdbb2150e515a8",
+      "indexHash": "7799e1a915ba3ad7d16f9da584c261fb6d14825e5dbda400ec99e64bd3197803"
+    }
+  ],
+  "identicalGeometry": true
+}

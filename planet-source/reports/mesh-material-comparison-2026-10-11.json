@@ -1,0 +1,341 @@
+{
+  "status": "UNADOPTED controlled synthetic comparison",
+  "reference": "https://doi.org/10.5194/gmd-12-1267-2019",
+  "method": "Independent sharp-contact material columns; not a reproduction of Terrainbento smooth contact law",
+  "cases": [
+    {
+      "name": "uniform",
+      "resolutions": [
+        {
+          "name": "uniform",
+          "worldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "elapsedMs": 2940.5409020000006,
+          "nodes": 16641,
+          "heightRangeM": [
+            6.821210263296962e-14,
+            770.4722835854271
+          ],
+          "triangleSlopeMedianDeg": 9.913480771997644,
+          "triangleSlopeP95Deg": 19.58669224036781,
+          "status": "UNADOPTED mesh research solver",
+          "meshId": "sha256:fd00339494f40580fcc9fd47167559f891bd07ddff745ef0e9c519c5051696c8",
+          "areaMethod": "triangle-area/3 lumped planar area",
+          "steps": 80,
+          "dtYears": 5000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.001,
+          "outlets": [
+            64
+          ],
+          "basins": 1,
+          "externalBasins": 1,
+          "selectedPasses": 0,
+          "reversedEdges": 0,
+          "uphillRoutingEdges": 0,
+          "method": "basin-graph-kruskal-path-reversal-research@1",
+          "limitations": [
+            "Triangulation supplied externally; no all-pairs overlap proof",
+            "Lumped areas differ from a Voronoi discretization",
+            "No diffusion, deposition or physically resolved lake overflow",
+            "No raster export or planetary integration implied"
+          ],
+          "maximumUphillRiseM": 0,
+          "uphillAboveTolerance": 0,
+          "routingToleranceM": 1e-8,
+          "visualAcceptance": false,
+          "planetAdoption": false
+        },
+        {
+          "name": "uniform",
+          "worldId": "sha256:cfe39df936a3c68f04955d50aa898eb432982e7edd96a03929649170178da542",
+          "elapsedMs": 8551.668880000001,
+          "nodes": 37249,
+          "heightRangeM": [
+            6.821210263296962e-14,
+            936.7018332193838
+          ],
+          "triangleSlopeMedianDeg": 13.67790065287931,
+          "triangleSlopeP95Deg": 26.944501369751283,
+          "status": "UNADOPTED mesh research solver",
+          "meshId": "sha256:bb6dd28c0d8ba5324d11ad294855a85afa7d82322c3725bc4479e338a7b12b27",
+          "areaMethod": "triangle-area/3 lumped planar area",
+          "steps": 80,
+          "dtYears": 5000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.001,
+          "outlets": [
+            96
+          ],
+          "basins": 1,
+          "externalBasins": 1,
+          "selectedPasses": 0,
+          "reversedEdges": 0,
+          "uphillRoutingEdges": 0,
+          "method": "basin-graph-kruskal-path-reversal-research@1",
+          "limitations": [
+            "Triangulation supplied externally; no all-pairs overlap proof",
+            "Lumped areas differ from a Voronoi discretization",
+            "No diffusion, deposition or physically resolved lake overflow",
+            "No raster export or planetary integration implied"
+          ],
+          "maximumUphillRiseM": 0,
+          "uphillAboveTolerance": 0,
+          "routingToleranceM": 1e-8,
+          "visualAcceptance": false,
+          "planetAdoption": false
+        }
+      ],
+      "comparison": {
+        "commonSamples": 4225,
+        "meanAbsoluteHeightDifferenceM": 20.37650923699067,
+        "p95AbsoluteHeightDifferenceM": 56.51684992539953,
+        "maximumAbsoluteHeightDifferenceM": 217.67803791175118,
+        "interpretation": "Not converged; independently jittered meshes and drainage discretization both change with resolution"
+      }
+    },
+    {
+      "name": "resistant-cap",
+      "resolutions": [
+        {
+          "name": "resistant-cap",
+          "worldId": "sha256:1294e36cd579f3a38fdd5bb70c6ac73d15ed7f9586f226bc53604cd144d9f84a",
+          "elapsedMs": 1854.562121,
+          "nodes": 16641,
+          "heightRangeM": [
+            6.821210263296962e-14,
+            2670.9487315130436
+          ],
+          "triangleSlopeMedianDeg": 21.305107592308726,
+          "triangleSlopeP95Deg": 66.82801707769934,
+          "status": "UNADOPTED mesh research solver",
+          "meshId": "sha256:fd00339494f40580fcc9fd47167559f891bd07ddff745ef0e9c519c5051696c8",
+          "areaMethod": "triangle-area/3 lumped planar area",
+          "steps": 80,
+          "dtYears": 5000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.001,
+          "lithology": {
+            "boundariesM": [
+              150
+            ],
+            "multipliers": [
+              1,
+              0.05
+            ],
+            "coordinate": "initial material height; contacts advect with uplift",
+            "integration": "sharp-contact piecewise implicit; downstream endpoint held fixed",
+            "contactsCrossed": 1344
+          },
+          "outlets": [
+            64
+          ],
+          "basins": 1,
+          "externalBasins": 1,
+          "selectedPasses": 0,
+          "reversedEdges": 0,
+          "uphillRoutingEdges": 0,
+          "method": "basin-graph-kruskal-path-reversal-research@1",
+          "limitations": [
+            "Triangulation supplied externally; no all-pairs overlap proof",
+            "Lumped areas differ from a Voronoi discretization",
+            "No diffusion, deposition or physically resolved lake overflow",
+            "No raster export or planetary integration implied"
+          ],
+          "maximumUphillRiseM": 0,
+          "uphillAboveTolerance": 0,
+          "routingToleranceM": 1e-8,
+          "visualAcceptance": false,
+          "planetAdoption": false
+        },
+        {
+          "name": "resistant-cap",
+          "worldId": "sha256:89e5a3989c172e4d56a8887d950feb4c4085526b7a4d290a77967833e2ad086c",
+          "elapsedMs": 7389.683337999999,
+          "nodes": 37249,
+          "heightRangeM": [
+            6.821210263296962e-14,
+            2680.4786455618664
+          ],
+          "triangleSlopeMedianDeg": 23.31854887564992,
+          "triangleSlopeP95Deg": 69.16572268707137,
+          "status": "UNADOPTED mesh research solver",
+          "meshId": "sha256:bb6dd28c0d8ba5324d11ad294855a85afa7d82322c3725bc4479e338a7b12b27",
+          "areaMethod": "triangle-area/3 lumped planar area",
+          "steps": 80,
+          "dtYears": 5000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.001,
+          "lithology": {
+            "boundariesM": [
+              150
+            ],
+            "multipliers": [
+              1,
+              0.05
+            ],
+            "coordinate": "initial material height; contacts advect with uplift",
+            "integration": "sharp-contact piecewise implicit; downstream endpoint held fixed",
+            "contactsCrossed": 2843
+          },
+          "outlets": [
+            96
+          ],
+          "basins": 1,
+          "externalBasins": 1,
+          "selectedPasses": 0,
+          "reversedEdges": 0,
+          "uphillRoutingEdges": 0,
+          "method": "basin-graph-kruskal-path-reversal-research@1",
+          "limitations": [
+            "Triangulation supplied externally; no all-pairs overlap proof",
+            "Lumped areas differ from a Voronoi discretization",
+            "No diffusion, deposition or physically resolved lake overflow",
+            "No raster export or planetary integration implied"
+          ],
+          "maximumUphillRiseM": 0,
+          "uphillAboveTolerance": 0,
+          "routingToleranceM": 1e-8,
+          "visualAcceptance": false,
+          "planetAdoption": false
+        }
+      ],
+      "comparison": {
+        "commonSamples": 4225,
+        "meanAbsoluteHeightDifferenceM": 33.14878941542227,
+        "p95AbsoluteHeightDifferenceM": 109.175753749112,
+        "maximumAbsoluteHeightDifferenceM": 702.7159966953316,
+        "interpretation": "Not converged; independently jittered meshes and drainage discretization both change with resolution"
+      }
+    },
+    {
+      "name": "resistant-band",
+      "resolutions": [
+        {
+          "name": "resistant-band",
+          "worldId": "sha256:53d244c98aae5680f7d29f7ca297cc179e6df3652a226e4a3b39e26962f15554",
+          "elapsedMs": 2302.1800440000006,
+          "nodes": 16641,
+          "heightRangeM": [
+            6.821210263296962e-14,
+            807.9944146763531
+          ],
+          "triangleSlopeMedianDeg": 0.1574321771551019,
+          "triangleSlopeP95Deg": 55.7988534062251,
+          "status": "UNADOPTED mesh research solver",
+          "meshId": "sha256:fd00339494f40580fcc9fd47167559f891bd07ddff745ef0e9c519c5051696c8",
+          "areaMethod": "triangle-area/3 lumped planar area",
+          "steps": 80,
+          "dtYears": 5000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.001,
+          "lithology": {
+            "boundariesM": [
+              50,
+              150
+            ],
+            "multipliers": [
+              1,
+              0.05,
+              1
+            ],
+            "coordinate": "initial material height; contacts advect with uplift",
+            "integration": "sharp-contact piecewise implicit; downstream endpoint held fixed",
+            "contactsCrossed": 4755
+          },
+          "outlets": [
+            64
+          ],
+          "basins": 101,
+          "externalBasins": 1,
+          "selectedPasses": 100,
+          "reversedEdges": 103,
+          "uphillRoutingEdges": 4,
+          "method": "basin-graph-kruskal-path-reversal-research@1",
+          "limitations": [
+            "Triangulation supplied externally; no all-pairs overlap proof",
+            "Lumped areas differ from a Voronoi discretization",
+            "No diffusion, deposition or physically resolved lake overflow",
+            "No raster export or planetary integration implied"
+          ],
+          "maximumUphillRiseM": 1.1368683772161603e-13,
+          "uphillAboveTolerance": 0,
+          "routingToleranceM": 1e-8,
+          "visualAcceptance": false,
+          "planetAdoption": false
+        },
+        {
+          "name": "resistant-band",
+          "worldId": "sha256:0d3a546bb8b6d84daf7359082592eb3619e05768bff3ff5ca297edcdc9c54468",
+          "elapsedMs": 6303.188156,
+          "nodes": 37249,
+          "heightRangeM": [
+            6.821210263296962e-14,
+            949.2924538487894
+          ],
+          "triangleSlopeMedianDeg": 0.15595521079040456,
+          "triangleSlopeP95Deg": 57.07048802310056,
+          "status": "UNADOPTED mesh research solver",
+          "meshId": "sha256:bb6dd28c0d8ba5324d11ad294855a85afa7d82322c3725bc4479e338a7b12b27",
+          "areaMethod": "triangle-area/3 lumped planar area",
+          "steps": 80,
+          "dtYears": 5000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.001,
+          "lithology": {
+            "boundariesM": [
+              50,
+              150
+            ],
+            "multipliers": [
+              1,
+              0.05,
+              1
+            ],
+            "coordinate": "initial material height; contacts advect with uplift",
+            "integration": "sharp-contact piecewise implicit; downstream endpoint held fixed",
+            "contactsCrossed": 9623
+          },
+          "outlets": [
+            96
+          ],
+          "basins": 273,
+          "externalBasins": 1,
+          "selectedPasses": 272,
+          "reversedEdges": 277,
+          "uphillRoutingEdges": 5,
+          "method": "basin-graph-kruskal-path-reversal-research@1",
+          "limitations": [
+            "Triangulation supplied externally; no all-pairs overlap proof",
+            "Lumped areas differ from a Voronoi discretization",
+            "No diffusion, deposition or physically resolved lake overflow",
+            "No raster export or planetary integration implied"
+          ],
+          "maximumUphillRiseM": 1.1368683772161603e-13,
+          "uphillAboveTolerance": 0,
+          "routingToleranceM": 1e-8,
+          "visualAcceptance": false,
+          "planetAdoption": false
+        }
+      ],
+      "comparison": {
+        "commonSamples": 4225,
+        "meanAbsoluteHeightDifferenceM": 14.945807997885987,
+        "p95AbsoluteHeightDifferenceM": 85.11445680600332,
+        "maximumAbsoluteHeightDifferenceM": 461.78190625435656,
+        "interpretation": "Not converged; independently jittered meshes and drainage discretization both change with resolution"
+      }
+    }
+  ],
+  "scalarBaselineIdentical": true,
+  "limits": [
+    "No hillslope diffusion or rockfall; very flat benches and steep narrow walls are not yet accepted as realistic",
+    "No hydraulic lakes, fluvial sediment or deposition",
+    "No planetary adoption; shared catchment boundaries and mixed LOD remain separate gates"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "first-reference-water-audit@1",
+  "dateUTC": "2026-10-11",
+  "sourceSnapshot": "world-nested.json (saved audit input, not regenerated)",
+  "planGeneration": {
+    "id": "water-plan:river:926:861/point:332",
+    "parentId": "river:926:861",
+    "pointIndex": 332,
+    "status": "awaiting-terrain-installation",
+    "profiles": 2,
+    "points": 61,
+    "installed": false,
+    "firstMs": 2227,
+    "reopenMs": 163,
+    "same": true,
+    "worldUnchanged": true,
+    "region": {
+      "cellSizeM": 64,
+      "center": {
+        "latDeg": 9.006447147038216,
+        "lonDeg": 171.01340569040906
+      },
+      "compilation": {
+        "acceptedProfiles": 2,
+        "maxIncisionM": 2,
+        "pathPolicy": "rounded-survey-path@1",
+        "pointCount": 61,
+        "profileStepM": 8,
+        "rejected": [],
+        "scope": "Trial local tributaries; widths/depths are a declared small-stream scenario, no discharge or global integration"
+      },
+      "drainage": {
+        "boundaryTruncatedBasins": 174,
+        "candidateCells": 6,
+        "cells": 16641,
+        "depressionDependentBasins": 13,
+        "receivingWaterSeeds": 2196
+      },
+      "gridSize": 129,
+      "id": "tributary-region@4/referenced/river:926:861/point:332",
+      "parentId": "river:926:861",
+      "supportRadiusM": 5824.618751480198
+    }
+  },
+  "physicalView": {
+    "sourceWorldId": "sha256:2198794e7ae51885d172d11d217095b977b5db516fb1e5b8d5a5e81f693510b5",
+    "planId": "water-plan:river:926:861/point:332",
+    "points": 61,
+    "wet": 61,
+    "lowered": 61,
+    "maxCut": 0.29999999999999716,
+    "consistentGround": true,
+    "scope": "Read-only local physical view, not installed in globe or saved land use"
+  },
+  "settlementPlanning": {
+    "status": "physical-water-to-settlement-planner",
+    "zone": "population-zone:926/0/3/3/0/0",
+    "population": 600,
+    "beforeSites": 2,
+    "afterSites": 2,
+    "wetSites": 0,
+    "changedSites": true,
+    "survey": {
+      "method": "river-access-siting@2",
+      "water": {
+        "proposed": 7,
+        "accepted": 1,
+        "rejected": 5,
+        "approachSamples": 176,
+        "maxRelocationM": 20000,
+        "maxCandidateSurveys": 4
+      },
+      "maxCandidateSurveys": 8,
+      "candidateSurveys": 7,
+      "relocatedSites": 2,
+      "maxSearchRadiusM": 1200
+    },
+    "scope": "Separate audited planning result. Existing saved region and globe runtime are unchanged."
+  },
+  "limitations": [
+    "Local physical view and separate siting audit only; not automatically installed into the globe",
+    "Original saved settlement positions were not replaced by the alternate siting result",
+    "Region ownership and a shared saved water-plus-land dependency remain to be connected",
+    "2 short tributaries do not constitute a complete regional watershed",
+    "Browser/WebGL and IndexedDB restart acceptance remain unverified"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "visits": [
+    {
+      "point": {
+        "latDeg": 9.006447147038216,
+        "lonDeg": 171.01340569040906
+      },
+      "plans": 2,
+      "points": 354,
+      "wet": 354,
+      "elapsedMs": 3198,
+      "heapMiB": 180.9279327392578
+    },
+    {
+      "point": {
+        "latDeg": 10,
+        "lonDeg": 171
+      },
+      "plans": 0,
+      "points": 0,
+      "wet": 0,
+      "elapsedMs": 336,
+      "heapMiB": 169.1823501586914
+    },
+    {
+      "point": {
+        "latDeg": 8,
+        "lonDeg": 171
+      },
+      "plans": 0,
+      "points": 0,
+      "wet": 0,
+      "elapsedMs": 3104,
+      "heapMiB": 181.19976806640625
+    },
+    {
+      "point": {
+        "latDeg": 9.006447147038216,
+        "lonDeg": 171.01340569040906
+      },
+      "plans": 2,
+      "points": 354,
+      "wet": 354,
+      "elapsedMs": 315,
+      "heapMiB": 181.88875579833984
+    }
+  ],
+  "revisitIdentical": true,
+  "priorSavedRecordsUnchanged": true,
+  "recordsBefore": 31,
+  "recordsAfter": 43,
+  "scope": "Actual PagedSource A-B-C-A under 256 MiB; not browser acceptance",
+  "syntheticTravel": {
+    "regions": 80,
+    "maxResidentPlans": 1,
+    "returnSampleIdentical": true,
+    "note": "Fixture plans exercise residency, not 80 generated terrain regions."
+  }
+}

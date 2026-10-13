@@ -1,0 +1,133 @@
+{
+  "schema": "l2-settlement-materialization-baseline@1",
+  "platform": "PC",
+  "inputDir": "reports/l2-settlement-baseline",
+  "sourceLayerId": "sha256:91e23026b49c207bebfae6dcc1aba9d6fc86c72b39475d39026a614e2c84dc53",
+  "examples": [
+    {
+      "label": "都市を含む地域",
+      "cellIndex": 15826,
+      "slot": 0,
+      "file": "cell-15826-slot-0.json",
+      "candidateId": "sha256:4851dd9a7e2186d52d353661b9a8c8d5f6fc85b9619524702b4377d364b41b79/slot:0",
+      "nativeSurfaceId": "sha256:ad5c90b4c2ff32b0883450a96013e0a97cb081c9c8799ab14a8804b390a06141",
+      "origin": {
+        "latDeg": 2.916329111631739,
+        "lonDeg": -64.62424378287841
+      },
+      "population": 74465,
+      "housing": {
+        "districtCount": 156,
+        "districtIndex": 0,
+        "placedDwellings": 0,
+        "representedPopulation": 0,
+        "requestedDwellings": 96,
+        "requestedPopulation": 480,
+        "totalPopulation": 74465,
+        "unresolvedPopulation": 480,
+        "unvisitedPopulation": 73985
+      },
+      "fields": {
+        "accepted": 0,
+        "limit": 16,
+        "offset": 0,
+        "outsidePageM2": 423096591,
+        "rejected": 0,
+        "requestedM2": 0,
+        "status": "regional-supply-unresolved",
+        "surveyedM2": 0,
+        "totalDemandM2": 423096591,
+        "totalPlots": 0,
+        "unresolvedM2": 0
+      },
+      "accessStatus": "not-generated"
+    },
+    {
+      "label": "村が多い地域",
+      "cellIndex": 16830,
+      "slot": 2,
+      "file": "cell-16830-slot-2.json",
+      "candidateId": "sha256:1a04dc9291f5c14883e182763c16550a8b7d962bc89499dc74f30f3f72c385f1/slot:2",
+      "nativeSurfaceId": "sha256:0e833d215484db81bdbfa960122ce15d3dc6d4b3a5ab3c291e6d8159eaa2d8ec",
+      "origin": {
+        "latDeg": -2.768378528830875,
+        "lonDeg": -92.62599687649526
+      },
+      "population": 260,
+      "housing": {
+        "districtCount": 1,
+        "districtIndex": 0,
+        "placedDwellings": 0,
+        "representedPopulation": 0,
+        "requestedDwellings": 52,
+        "requestedPopulation": 260,
+        "totalPopulation": 260,
+        "unresolvedPopulation": 260,
+        "unvisitedPopulation": 0
+      },
+      "fields": {
+        "accepted": 0,
+        "limit": 16,
+        "offset": 0,
+        "outsidePageM2": 1087086,
+        "rejected": 0,
+        "requestedM2": 640000,
+        "status": "local-field-page",
+        "surveyedM2": 0,
+        "totalDemandM2": 1727086,
+        "totalPlots": 44,
+        "unresolvedM2": 640000
+      },
+      "accessStatus": "not-generated"
+    },
+    {
+      "label": "起伏が大きい地域",
+      "cellIndex": 12669,
+      "slot": 0,
+      "file": "cell-12669-slot-0.json",
+      "candidateId": "sha256:aa5114cc742de8d404b74dec1645bcbb816a50626a51dc45cc5752e2298ecb90/slot:0",
+      "nativeSurfaceId": "sha256:6b088a90dd9a63d81fe5bee8d1b7672a5961a2da9650755ca04607468b7090b5",
+      "origin": {
+        "latDeg": 19.806063131678666,
+        "lonDeg": 175.90167377128637
+      },
+      "population": 284,
+      "housing": {
+        "districtCount": 1,
+        "districtIndex": 0,
+        "placedDwellings": 28,
+        "representedPopulation": 140,
+        "requestedDwellings": 57,
+        "requestedPopulation": 284,
+        "totalPopulation": 284,
+        "unresolvedPopulation": 144,
+        "unvisitedPopulation": 0
+      },
+      "fields": {
+        "accepted": 15,
+        "limit": 16,
+        "offset": 0,
+        "outsidePageM2": 3791714,
+        "rejected": 1,
+        "requestedM2": 640000,
+        "status": "local-field-page",
+        "surveyedM2": 600000,
+        "totalDemandM2": 4431714,
+        "totalPlots": 111,
+        "unresolvedM2": 40000
+      },
+      "accessStatus": "blocked-invalid-profile"
+    }
+  ],
+  "checks": {
+    "populationAndAreaConserved": true,
+    "reopenedWithoutRegeneration": true
+  },
+  "limitations": [
+    "Only fixed representative candidates and bounded district/field pages were generated",
+    "Local native designs are not adopted into the global terrain renderer; adjacent patches remain unjoined",
+    "Surveyed fields do not establish food yield, rights or complete agricultural access",
+    "A local road to a survey portal does not establish a neighbouring road connection",
+    "Designed river water is not certified drinking water, global water balance or flood safety"
+  ]
+}

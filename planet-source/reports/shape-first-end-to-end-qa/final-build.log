@@ -1,0 +1,14 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> minimal-world-continuous-terrain-adapter@0.4.0 build
+> node --max-old-space-size=256 scripts/build.mjs
+
+=== Continuous Terrain Adapter: Build Verification ===
+1. Checking src/core modules...
+   Found 154 core modules in src/core
+   All src/core modules imported successfully.
+   30 legacy entry points share the exact core exports.
+2. Checking src/ui modules...
+   src/ui/index.mjs imported successfully.
+3. 72 globe modules passed syntax checks.
+=== Build Verification Completed Successfully ===

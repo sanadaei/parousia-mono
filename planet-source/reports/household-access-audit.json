@@ -1,0 +1,674 @@
+{
+  "sourceWorld": "sha256:e452133815a5f3190bde7431557b73901c80a2b531b55cc8dbcbb170a2632f55",
+  "scope": "Actual saved32a sites with explicit opt-in policy added for comparative audit; immutable32a is not overwritten.",
+  "results": [
+    {
+      "id": "pop:4048:65",
+      "afterMs": 5750.81143,
+      "before": {
+        "requested": 60,
+        "placed": 60,
+        "bends": 49,
+        "lengthM": 1700.6108018014666,
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "connections": [
+          {
+            "gate": "east",
+            "status": "connected"
+          },
+          {
+            "gate": "north",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:954",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:849",
+            "status": "connected"
+          }
+        ],
+        "endpoints": [
+          [
+            "pop:4048:65/district:0/terrain-street:0:east",
+            [
+              0,
+              0
+            ],
+            [
+              200,
+              60
+            ]
+          ],
+          [
+            "pop:4048:65/district:0/terrain-street:0:north",
+            [
+              170,
+              60
+            ],
+            [
+              0,
+              230
+            ]
+          ],
+          [
+            "pop:4048:65/district:0/terrain-street:0:residential:954",
+            [
+              0,
+              0
+            ],
+            [
+              -90,
+              0
+            ]
+          ],
+          [
+            "pop:4048:65/district:0/terrain-street:0:residential:849",
+            [
+              30,
+              30
+            ],
+            [
+              90,
+              -30
+            ]
+          ]
+        ]
+      },
+      "after": {
+        "requested": 60,
+        "placed": 60,
+        "bends": 15,
+        "lengthM": 1492.5634128098611,
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "connections": [
+          {
+            "gate": "east",
+            "status": "connected"
+          },
+          {
+            "gate": "north",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:954",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:849",
+            "status": "connected"
+          }
+        ],
+        "endpoints": [
+          [
+            "pop:4048:65/district:0/terrain-street:0:east",
+            [
+              0,
+              0
+            ],
+            [
+              200,
+              60
+            ]
+          ],
+          [
+            "pop:4048:65/district:0/terrain-street:0:north",
+            [
+              170,
+              60
+            ],
+            [
+              0,
+              230
+            ]
+          ],
+          [
+            "pop:4048:65/district:0/terrain-street:0:residential:954",
+            [
+              0,
+              0
+            ],
+            [
+              -90,
+              0
+            ]
+          ],
+          [
+            "pop:4048:65/district:0/terrain-street:0:residential:849",
+            [
+              30,
+              30
+            ],
+            [
+              90,
+              -30
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pop:4048:78",
+      "afterMs": 5615.498226999998,
+      "before": {
+        "requested": 60,
+        "placed": 60,
+        "bends": 48,
+        "lengthM": 1527.2641888189744,
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "connections": [
+          {
+            "gate": "east",
+            "status": "connected"
+          },
+          {
+            "gate": "south",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1332",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1077",
+            "status": "connected"
+          }
+        ],
+        "endpoints": [
+          [
+            "pop:4048:78/district:0/terrain-street:0:east",
+            [
+              0,
+              0
+            ],
+            [
+              200,
+              -10
+            ]
+          ],
+          [
+            "pop:4048:78/district:0/terrain-street:0:south",
+            [
+              0,
+              0
+            ],
+            [
+              -120,
+              -230
+            ]
+          ],
+          [
+            "pop:4048:78/district:0/terrain-street:0:residential:1332",
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              90
+            ]
+          ],
+          [
+            "pop:4048:78/district:0/terrain-street:0:residential:1077",
+            [
+              -30,
+              -30
+            ],
+            [
+              -90,
+              30
+            ]
+          ]
+        ]
+      },
+      "after": {
+        "requested": 60,
+        "placed": 60,
+        "bends": 16,
+        "lengthM": 1512.7197888796934,
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "connections": [
+          {
+            "gate": "east",
+            "status": "connected"
+          },
+          {
+            "gate": "south",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1332",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1077",
+            "status": "connected"
+          }
+        ],
+        "endpoints": [
+          [
+            "pop:4048:78/district:0/terrain-street:0:east",
+            [
+              0,
+              0
+            ],
+            [
+              200,
+              -10
+            ]
+          ],
+          [
+            "pop:4048:78/district:0/terrain-street:0:south",
+            [
+              0,
+              0
+            ],
+            [
+              -120,
+              -230
+            ]
+          ],
+          [
+            "pop:4048:78/district:0/terrain-street:0:residential:1332",
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              90
+            ]
+          ],
+          [
+            "pop:4048:78/district:0/terrain-street:0:residential:1077",
+            [
+              -30,
+              -30
+            ],
+            [
+              -90,
+              30
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "pop:4048:2",
+      "afterMs": 4456.738863999999,
+      "before": {
+        "requested": 60,
+        "placed": 60,
+        "bends": 31,
+        "lengthM": 1103.8793513395726,
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "connections": [
+          {
+            "gate": "west",
+            "status": "connected"
+          },
+          {
+            "gate": "east",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1098",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1335",
+            "status": "connected"
+          }
+        ],
+        "endpoints": [
+          [
+            "pop:4048:2/district:0/terrain-street:0:west",
+            [
+              0,
+              0
+            ],
+            [
+              -200,
+              -10
+            ]
+          ],
+          [
+            "pop:4048:2/district:0/terrain-street:0:east",
+            [
+              0,
+              0
+            ],
+            [
+              200,
+              -60
+            ]
+          ],
+          [
+            "pop:4048:2/district:0/terrain-street:0:residential:1098",
+            [
+              60,
+              -30
+            ],
+            [
+              120,
+              30
+            ]
+          ],
+          [
+            "pop:4048:2/district:0/terrain-street:0:residential:1335",
+            [
+              30,
+              0
+            ],
+            [
+              30,
+              90
+            ]
+          ]
+        ]
+      },
+      "after": {
+        "requested": 60,
+        "placed": 60,
+        "bends": 13,
+        "lengthM": 1064.8403649912232,
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "connections": [
+          {
+            "gate": "west",
+            "status": "connected"
+          },
+          {
+            "gate": "east",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1098",
+            "status": "connected"
+          },
+          {
+            "gate": "residential:1335",
+            "status": "connected"
+          }
+        ],
+        "endpoints": [
+          [
+            "pop:4048:2/district:0/terrain-street:0:west",
+            [
+              0,
+              0
+            ],
+            [
+              -200,
+              -10
+            ]
+          ],
+          [
+            "pop:4048:2/district:0/terrain-street:0:east",
+            [
+              0,
+              0
+            ],
+            [
+              200,
+              -60
+            ]
+          ],
+          [
+            "pop:4048:2/district:0/terrain-street:0:residential:1098",
+            [
+              60,
+              -30
+            ],
+            [
+              120,
+              30
+            ]
+          ],
+          [
+            "pop:4048:2/district:0/terrain-street:0:residential:1335",
+            [
+              30,
+              0
+            ],
+            [
+              30,
+              90
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "generatedWorldCheck": {
+    "canonicalWorldId": "sha256:fc8c6f272008ebf2cfb1ef26881f7827909ba9f4fb6093059bb3d04ac2a07ff3",
+    "baseUnchanged": true,
+    "region": 4048,
+    "siteCount": 154,
+    "sitesWithPortals": 152,
+    "movedSiteCenters": 0,
+    "results": [
+      {
+        "site": "pop:4048:65",
+        "latDeg": 1.4837422457337206,
+        "lonDeg": -134.86210896272718,
+        "requested": 60,
+        "placed": 60,
+        "portals": [
+          {
+            "name": "east",
+            "xM": 200,
+            "yM": 60,
+            "status": "connected",
+            "endpointErrorM": 0
+          },
+          {
+            "name": "north",
+            "xM": 0,
+            "yM": 230,
+            "status": "connected",
+            "endpointErrorM": 0
+          }
+        ],
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "cornerSamples": 264,
+        "wetCorners": 0
+      },
+      {
+        "site": "pop:4048:78",
+        "latDeg": 1.2401925893048824,
+        "lonDeg": -134.84137501835693,
+        "requested": 60,
+        "placed": 60,
+        "portals": [
+          {
+            "name": "east",
+            "xM": 200,
+            "yM": -10,
+            "status": "connected",
+            "endpointErrorM": 0
+          },
+          {
+            "name": "south",
+            "xM": -120,
+            "yM": -230,
+            "status": "connected",
+            "endpointErrorM": 0
+          }
+        ],
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "cornerSamples": 264,
+        "wetCorners": 0
+      },
+      {
+        "site": "pop:4048:2",
+        "latDeg": 2.728970727760417,
+        "lonDeg": -134.41113297448635,
+        "requested": 60,
+        "placed": 60,
+        "portals": [
+          {
+            "name": "west",
+            "xM": -200,
+            "yM": -10,
+            "status": "connected",
+            "endpointErrorM": 0
+          },
+          {
+            "name": "east",
+            "xM": 200,
+            "yM": -60,
+            "status": "connected",
+            "endpointErrorM": 0
+          }
+        ],
+        "publicAccess": [
+          "connected",
+          "connected"
+        ],
+        "cornerSamples": 264,
+        "wetCorners": 0
+      }
+    ],
+    "scope": "Three actual village layouts, exact saved gate endpoints and finite base-water building corners. Not every regional road or full-world traversability; old31a remains immutable."
+  },
+  "limitations": [
+    "Three actual villages only. Full town morphology and scene quality are unfinished.",
+    "Base-water corner sampling is not full-footprint or local-pond certification.",
+    "Lattice refinement alone changed sampled street lengths by only 0/1.78/1.78m; most measured improvement comes from household approaches.",
+    "Household approaches keep fixed candidate lots and conservative foundation clearances; they are not complete doorstep or pedestrian simulation."
+  ],
+  "townDistrictCheck": {
+    "sourceWorld": "sha256:fc8c6f272008ebf2cfb1ef26881f7827909ba9f4fb6093059bb3d04ac2a07ff3",
+    "scope": "Actual34a town districts compared with the two new policies omitted; original saves are not overwritten.",
+    "results": [
+      {
+        "id": "pop:4174:0",
+        "districtIndex": 0,
+        "afterMs": 639.966983,
+        "before": {
+          "requested": 96,
+          "placed": 96,
+          "bends": 0,
+          "lengthM": 2057.9203790539455,
+          "publicAccess": [
+            "connected"
+          ],
+          "connections": [
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            }
+          ],
+          "endpoints": []
+        },
+        "after": {
+          "requested": 96,
+          "placed": 96,
+          "bends": 0,
+          "lengthM": 2057.9203790539455,
+          "publicAccess": [
+            "connected"
+          ],
+          "connections": [
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            }
+          ],
+          "endpoints": []
+        }
+      },
+      {
+        "id": "pop:4174:0",
+        "districtIndex": 6,
+        "afterMs": 518.150823,
+        "before": {
+          "requested": 74,
+          "placed": 74,
+          "bends": 0,
+          "lengthM": 1924.8666382263123,
+          "publicAccess": [],
+          "connections": [
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            }
+          ],
+          "endpoints": []
+        },
+        "after": {
+          "requested": 74,
+          "placed": 74,
+          "bends": 0,
+          "lengthM": 1924.8666382263123,
+          "publicAccess": [],
+          "connections": [
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            },
+            {
+              "status": "connected"
+            }
+          ],
+          "endpoints": []
+        }
+      }
+    ]
+  }
+}

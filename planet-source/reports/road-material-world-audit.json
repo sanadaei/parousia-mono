@@ -1,0 +1,36 @@
+{
+  "canonicalWorldId": "sha256:17833a44f7b0875986b31dc3605e9b94b92144fcaad51d8bd3c08450364312dd",
+  "site": "pop:4048:78",
+  "road": "pop:4048:78/district:0/terrain-street:0:east",
+  "point": {
+    "latDeg": 1.240192589136425,
+    "lonDeg": -134.84043050941625
+  },
+  "tile": {
+    "face": 3,
+    "level": 21,
+    "x": 5824,
+    "y": 1080590
+  },
+  "results": [
+    {
+      "material": false,
+      "hits": 431,
+      "surfaceQueries": 605,
+      "vertices": 353,
+      "overlayVertices": 288
+    },
+    {
+      "material": true,
+      "hits": 431,
+      "surfaceQueries": 605,
+      "vertices": 353,
+      "overlayVertices": 288
+    }
+  ],
+  "geometryDifferences": 0,
+  "colorDifferences": 864,
+  "groundIdentical": true,
+  "indicesIdentical": true,
+  "scope": "One actual road tile, comparison against same sampler with material metadata omitted. Not whole-scene or GPU acceptance."
+}

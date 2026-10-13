@@ -1,0 +1,109 @@
+{
+  "scope": "Actual generated village edge tiles, canonical recipe clearance versus conservative envelope. Timing is a local CPU observation, not a performance guarantee.",
+  "results": [
+    {
+      "worldId": "sha256:3d90e6d128d92d0cce4c5d4437433c2ac75e60b24b902c110f4ace73b760877d",
+      "name": "local-landscape-18h",
+      "siteId": "pop:2706:508",
+      "x": 160,
+      "y": 160,
+      "tileId": "landscape:26854:88420",
+      "fields": 0,
+      "trees": 0,
+      "ms": 74.29553899999999,
+      "landCacheBytes": 0,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:3d90e6d128d92d0cce4c5d4437433c2ac75e60b24b902c110f4ace73b760877d",
+      "name": "local-landscape-18h",
+      "siteId": "pop:2706:508",
+      "x": -160,
+      "y": 160,
+      "tileId": "landscape:26854:88419",
+      "fields": 3,
+      "trees": 0,
+      "ms": 5007.228631,
+      "landCacheBytes": 0,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:3d90e6d128d92d0cce4c5d4437433c2ac75e60b24b902c110f4ace73b760877d",
+      "name": "local-landscape-18h",
+      "siteId": "pop:2706:508",
+      "x": 160,
+      "y": -160,
+      "tileId": "landscape:26856:88424",
+      "fields": 0,
+      "trees": 0,
+      "ms": 8.903159000000414,
+      "landCacheBytes": 0,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:3d90e6d128d92d0cce4c5d4437433c2ac75e60b24b902c110f4ace73b760877d",
+      "name": "local-landscape-18h",
+      "siteId": "pop:2706:508",
+      "x": -160,
+      "y": -160,
+      "tileId": "landscape:26856:88423",
+      "fields": 0,
+      "trees": 0,
+      "ms": 7.912461999999323,
+      "landCacheBytes": 0,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:32bfdeb988d46663c006ff604ec95e9ed3b9da7d012620503f53bf0758a28fb3",
+      "name": "local-landscape-18i",
+      "siteId": "pop:2706:508",
+      "x": 160,
+      "y": 160,
+      "tileId": "landscape:26854:88420",
+      "fields": 6,
+      "trees": 0,
+      "ms": 7255.7673159999995,
+      "landCacheBytes": 21060,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:32bfdeb988d46663c006ff604ec95e9ed3b9da7d012620503f53bf0758a28fb3",
+      "name": "local-landscape-18i",
+      "siteId": "pop:2706:508",
+      "x": -160,
+      "y": 160,
+      "tileId": "landscape:26854:88419",
+      "fields": 10,
+      "trees": 0,
+      "ms": 295.76511200000095,
+      "landCacheBytes": 21060,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:32bfdeb988d46663c006ff604ec95e9ed3b9da7d012620503f53bf0758a28fb3",
+      "name": "local-landscape-18i",
+      "siteId": "pop:2706:508",
+      "x": 160,
+      "y": -160,
+      "tileId": "landscape:26856:88424",
+      "fields": 10,
+      "trees": 0,
+      "ms": 220.37069299999894,
+      "landCacheBytes": 21060,
+      "landCacheLimitBytes": 8388608
+    },
+    {
+      "worldId": "sha256:32bfdeb988d46663c006ff604ec95e9ed3b9da7d012620503f53bf0758a28fb3",
+      "name": "local-landscape-18i",
+      "siteId": "pop:2706:508",
+      "x": -160,
+      "y": -160,
+      "tileId": "landscape:26856:88423",
+      "fields": 10,
+      "trees": 0,
+      "ms": 162.61565900000096,
+      "landCacheBytes": 21060,
+      "landCacheLimitBytes": 8388608
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "oldWorldId": "sha256:36dc278278b024ec96f6ef75852be85089302f0e531178aa542efc02e191e374",
+  "newWorldId": "sha256:6de3521667bae499e278dcf1629ca080285de4c514feab9d8450c43c6b682d54",
+  "scope": "Finite centerline samples of extra excavation relative to the old main-river ground; not bank-wide proof",
+  "result": {
+    "samples": 3611,
+    "raised": 0,
+    "overTwoMeters": 0,
+    "maxExtraIncisionM": 1.7150066302997402,
+    "minExtraIncisionM": 0
+  }
+}

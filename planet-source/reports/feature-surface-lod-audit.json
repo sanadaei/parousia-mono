@@ -1,0 +1,81 @@
+{
+  "siteId": "pop:4048:78",
+  "source": "Saved22c site; current household and public-green policies, fixed coordinates",
+  "scope": "Direct feature-mesh benchmark; wall/roof vertices unchanged, road/yard reductions bounded by existing0.1m certificates. Timings are isolated, not browser FPS.",
+  "measurements": [
+    {
+      "name": "full",
+      "coarseSurfaces": false,
+      "vertices": 9792,
+      "indices": 9792,
+      "bytes": 489600,
+      "ms": 37.53006099999993,
+      "bytesIncludingHeightLifts": 724608
+    },
+    {
+      "name": "full",
+      "coarseSurfaces": true,
+      "vertices": 3882,
+      "indices": 3882,
+      "bytes": 194100,
+      "ms": 17.657928999999967,
+      "bytesIncludingHeightLifts": 287268
+    },
+    {
+      "name": "houses",
+      "coarseSurfaces": false,
+      "vertices": 2772,
+      "indices": 2772,
+      "bytes": 138600,
+      "ms": 7.540935999999874,
+      "bytesIncludingHeightLifts": 205128
+    },
+    {
+      "name": "houses",
+      "coarseSurfaces": true,
+      "vertices": 2772,
+      "indices": 2772,
+      "bytes": 138600,
+      "ms": 5.104401000000053,
+      "bytesIncludingHeightLifts": 205128
+    },
+    {
+      "name": "parcels",
+      "coarseSurfaces": false,
+      "vertices": 4440,
+      "indices": 4440,
+      "bytes": 222000,
+      "ms": 10.086926999999832,
+      "bytesIncludingHeightLifts": 328560
+    },
+    {
+      "name": "parcels",
+      "coarseSurfaces": true,
+      "vertices": 630,
+      "indices": 630,
+      "bytes": 31500,
+      "ms": 1.0488259999997354,
+      "bytesIncludingHeightLifts": 46620
+    },
+    {
+      "name": "roads",
+      "coarseSurfaces": false,
+      "vertices": 2580,
+      "indices": 2580,
+      "bytes": 129000,
+      "ms": 8.206548999999995,
+      "bytesIncludingHeightLifts": 190920
+    },
+    {
+      "name": "roads",
+      "coarseSurfaces": true,
+      "vertices": 480,
+      "indices": 480,
+      "bytes": 24000,
+      "ms": 2.452078999999685,
+      "bytesIncludingHeightLifts": 35520
+    }
+  ],
+  "memoryPolicy": "16MiB uploaded feature geometry and16MiB retained mesh cache unchanged. Budget-deferred candidates wait for sufficient capacity or a changed view instead of retrying every10seconds.",
+  "failedTestCorrection": "Initial new lifecycle test undercounted height-lift buffers as4 rather than24bytes per vertex; fixed expected memory accounting before all15focused tests passed."
+}

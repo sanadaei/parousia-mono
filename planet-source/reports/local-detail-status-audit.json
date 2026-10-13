@@ -1,0 +1,40 @@
+{
+  "worldId": "sha256:2d74c1c49dab6bc9128cf2982927aa39ee0ce439e48548e26e6a7f8a6d53a187",
+  "siteId": "pop:266:0",
+  "view": {
+    "altitudeM": 350,
+    "tiltDeg": 55,
+    "heightScale": 1,
+    "lighting": "local noon"
+  },
+  "renderer": "cloud CPU diagnostics, not WebGL acceptance",
+  "before": {
+    "meshBudgetMiB": 64,
+    "reportedMessage": "近くの地面を細かく読み込んでいます",
+    "budgetLimited": true,
+    "activeMeshWorkersAtSnapshot": 0,
+    "targetPixels": 2,
+    "overTargetGroundTiles": 121,
+    "maxGroundErrorPixels": 17.533258042666905,
+    "nearbyLevel": 17
+  },
+  "fix": "Keep budget limitation visible even while a planning request or remaining upload exists. Shape chunks include vegetation and roads, not a count of town districts.",
+  "afterVisibleMessage": "地面：現在の表示予算では細部を表示しきれていません（予算内の地形は読み込み中）",
+  "comparison": {
+    "meshBudgetMiB": 128,
+    "nearbyLevelAtIntermediateSnapshot": 19,
+    "maxRenderedLevelAtIntermediateSnapshot": 20,
+    "loadedFeatureChunks": 63,
+    "featureBytesMiB": 8.6,
+    "status": "Reached an idle, budget-limited state in cloud CPU diagnostics; no mesh worker failures or active mesh jobs. Not a user-device performance test.",
+    "finalNearbyLevel": 19,
+    "finalMaximumGroundErrorPixels": 2.892951399506454,
+    "finalGroundTilesAboveTarget": 279,
+    "targetPixels": 2
+  },
+  "limitations": [
+    "No automatic budget increase:128MiB was explicitly selected for this cloud-only comparison.",
+    "The current-town scene still shows oversized empty block interiors and repeated housing form; no scene acceptance.",
+    "GPU2 was unavailable in the cloud environment; no user-device performance assertion."
+  ]
+}

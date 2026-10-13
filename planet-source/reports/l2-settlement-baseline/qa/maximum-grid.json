@@ -1,0 +1,12 @@
+{
+  "grid": {
+    "columns": 512,
+    "rows": 256
+  },
+  "jsonBytes": 19666179,
+  "recordBytes": 19666546,
+  "maxRecordBytes": 25165824,
+  "withinLimit": true,
+  "sizePolicySaved": true,
+  "sevenBudgetsConserved": true
+}

@@ -1,0 +1,189 @@
+{
+  "schema": "shape-first-neighbors-verification@1",
+  "sourceSha256": "09cf1e8886ecb6b30fe7cf9cc1b0dbeb797c9488d73beb71a651a5cb14d8267f",
+  "tiles": [
+    {
+      "id": "tile-0-0",
+      "nativeGrid": {
+        "columns": 81,
+        "rows": 129,
+        "cellSizeM": 55.2973488885434,
+        "cellSizeYM": 76.35149687202671,
+        "row0": "north",
+        "yDirection": "south"
+      },
+      "originM": {
+        "xM": 0,
+        "yM": 0
+      },
+      "extent": {
+        "widthM": 4423.787911083472,
+        "heightM": 9772.99159961942
+      },
+      "levels": [
+        [
+          6,
+          9
+        ],
+        [
+          11,
+          17
+        ],
+        [
+          21,
+          33
+        ],
+        [
+          41,
+          65
+        ],
+        [
+          81,
+          129
+        ]
+      ]
+    },
+    {
+      "id": "tile-1-0",
+      "nativeGrid": {
+        "columns": 81,
+        "rows": 129,
+        "cellSizeM": 55.2973488885434,
+        "cellSizeYM": 76.35149687202671,
+        "row0": "north",
+        "yDirection": "south"
+      },
+      "originM": {
+        "xM": 4423.787911083472,
+        "yM": 0
+      },
+      "extent": {
+        "widthM": 4423.787911083472,
+        "heightM": 9772.99159961942
+      },
+      "levels": [
+        [
+          6,
+          9
+        ],
+        [
+          11,
+          17
+        ],
+        [
+          21,
+          33
+        ],
+        [
+          41,
+          65
+        ],
+        [
+          81,
+          129
+        ]
+      ]
+    }
+  ],
+  "sharedNodeCount": 129,
+  "crossingCount": 6,
+  "maxSharedElevationDifferenceM": 0,
+  "saveReloadExact": true,
+  "waterStatus": "PROVISIONAL SYNTHETIC DEMONSTRATION; NOT A VALIDATED WATERSHED",
+  "waterSupplyAddedByPartition": 0,
+  "sourceWaterAccounting": {
+    "areaM2": 86467284.18703341,
+    "assignedCellCount": 20480,
+    "runoffM3PerSecond": 1.0959931577437245,
+    "externalM3PerSecond": 0,
+    "outletM3PerSecond": 1.0959931577437232,
+    "residualM3PerSecond": -1.3322676295501878e-15,
+    "closed": true
+  },
+  "ports": [
+    {
+      "id": "tile-0-0/tile-1-0:main:282",
+      "riverId": "main",
+      "sourceRiverIndex": 0,
+      "sourceSegmentIndex": 282,
+      "sourceT": 0.1453417287843545,
+      "point": {
+        "xM": 4423.787911083472,
+        "yM": 4422.874533103743
+      },
+      "flowM3PerSecond": 0.4190247277897149,
+      "fromTile": "tile-0-0",
+      "toTile": "tile-1-0"
+    },
+    {
+      "id": "tile-0-0/tile-1-0:western_fork:16",
+      "riverId": "western_fork",
+      "sourceRiverIndex": 1,
+      "sourceSegmentIndex": 16,
+      "sourceT": 0.22920198300780148,
+      "point": {
+        "xM": 4423.787911083472,
+        "yM": 5998.65016887827
+      },
+      "flowM3PerSecond": 0.23113254142066128,
+      "fromTile": "tile-0-0",
+      "toTile": "tile-1-0"
+    },
+    {
+      "id": "tile-0-0/tile-1-0:northeast_fork:5",
+      "riverId": "northeast_fork",
+      "sourceRiverIndex": 2,
+      "sourceSegmentIndex": 5,
+      "sourceT": 0.38218155892767053,
+      "point": {
+        "xM": 4423.787911083472,
+        "yM": 4087.8919997909115
+      },
+      "flowM3PerSecond": 0.1825941725694132,
+      "fromTile": "tile-1-0",
+      "toTile": "tile-0-0"
+    },
+    {
+      "id": "tile-0-0/tile-1-0:southwest_fork:127",
+      "riverId": "southwest_fork",
+      "sourceRiverIndex": 3,
+      "sourceSegmentIndex": 127,
+      "sourceT": 0.35131274349486374,
+      "point": {
+        "xM": 4423.787911083472,
+        "yM": 8295.09469509348
+      },
+      "flowM3PerSecond": 0.10649542890185634,
+      "fromTile": "tile-0-0",
+      "toTile": "tile-1-0"
+    },
+    {
+      "id": "tile-0-0/tile-1-0:side_15:54",
+      "riverId": "side_15",
+      "sourceRiverIndex": 23,
+      "sourceSegmentIndex": 54,
+      "sourceT": 0.2903859456653654,
+      "point": {
+        "xM": 4423.787911083472,
+        "yM": 1119.562731606717
+      },
+      "flowM3PerSecond": 0.019800657635018492,
+      "fromTile": "tile-1-0",
+      "toTile": "tile-0-0"
+    },
+    {
+      "id": "tile-0-0/tile-1-0:side_16:55",
+      "riverId": "side_16",
+      "sourceRiverIndex": 24,
+      "sourceSegmentIndex": 55,
+      "sourceT": 0.9462778871047945,
+      "point": {
+        "xM": 4423.787911083472,
+        "yM": 2773.6287580332482
+      },
+      "flowM3PerSecond": 0.005458559672356442,
+      "fromTile": "tile-1-0",
+      "toTile": "tile-0-0"
+    }
+  ]
+}

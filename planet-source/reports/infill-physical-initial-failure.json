@@ -1,0 +1,56 @@
+{
+  "stage": "initial infill before retaining-batter clearance",
+  "worldId": "sha256:ca13650ec47456e6d394b5698cf60d8ad533708f977215aa68a9f444f2dabedb",
+  "siteId": "pop:2990:577",
+  "before": 17,
+  "after": 60,
+  "physicalPathSamples": 1109,
+  "failureCount": 28,
+  "sampleFailures": [
+    {
+      "road": "pop:2990:577/district:0/infill-access:19",
+      "p": {
+        "xM": 132,
+        "yM": -152,
+        "distanceM": 0,
+        "roadElevationM": 1016.6964446225189,
+        "structureKind": "fill",
+        "segmentKind": "fill"
+      },
+      "s": {
+        "groundElevationM": 1016.6970104792348,
+        "waterLevelElevationM": null,
+        "waterDepthM": 0,
+        "roadSurface": null,
+        "waterSourceIds": [],
+        "xM": 131.99999999830635,
+        "yM": -151.9999999999681,
+        "buildingId": "pop:2990:577/district:0/house:19",
+        "structureKind": "retaining-batter"
+      }
+    },
+    {
+      "road": "pop:2990:577/district:0/infill-access:20",
+      "p": {
+        "xM": -108,
+        "yM": 136,
+        "distanceM": 0,
+        "roadElevationM": 1034.1672572044674,
+        "structureKind": "fill",
+        "segmentKind": "fill"
+      },
+      "s": {
+        "groundElevationM": 1034.1933281672282,
+        "waterLevelElevationM": null,
+        "waterDepthM": 0,
+        "roadSurface": null,
+        "waterSourceIds": [],
+        "xM": -108.0000000025365,
+        "yM": 135.99999999935622,
+        "buildingId": "pop:2990:577/district:0/house:20",
+        "structureKind": "retaining-batter"
+      }
+    }
+  ],
+  "conclusion": "This initial 60-house count was not physical acceptance. Later clearance repair and denser bounded candidate search are reported separately in infill-physical-width.json."
+}

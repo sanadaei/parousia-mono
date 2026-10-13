@@ -1,0 +1,71 @@
+{
+  "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+  "results": [
+    {
+      "id": "pop:4048:78",
+      "latDeg": 1.2401925893048824,
+      "lonDeg": -134.84137501835693,
+      "points": 277,
+      "durationMs": 6615.916993000001,
+      "previous": {
+        "settlement": 277
+      },
+      "counts": {
+        "arable": 217,
+        "settlement": 57,
+        "pasture": 3
+      },
+      "changedAfterCacheEviction": 0,
+      "compactBytes": 67208
+    },
+    {
+      "id": "pop:4048:65",
+      "latDeg": 1.4837422457337206,
+      "lonDeg": -134.86210896272718,
+      "points": 277,
+      "durationMs": 6375.288406,
+      "previous": {
+        "settlement": 277
+      },
+      "counts": {
+        "pasture": 52,
+        "woodland": 15,
+        "arable": 156,
+        "settlement": 54
+      },
+      "changedAfterCacheEviction": 0,
+      "compactBytes": 46682
+    },
+    {
+      "id": "pop:4174:0",
+      "latDeg": -0.07125257985968325,
+      "lonDeg": -140.54391591010926,
+      "points": 277,
+      "durationMs": 277.16749600000185,
+      "previous": {
+        "settlement": 256,
+        "woodland": 21
+      },
+      "counts": {
+        "settlement": 256,
+        "woodland": 21
+      },
+      "changedAfterCacheEviction": 0,
+      "compactBytes": 0
+    }
+  ],
+  "scope": "277 dry-grid positions per site within250m. Two villages and one town control; same canonical recipes reused. No geometry or object positions changed. Not all edges or all settlements.",
+  "limitations": [
+    "Only village-footprints@1 policy with eligible villages and at most16 districts; towns retain conservative envelope.",
+    "At terrain tile radius above300m use envelope approximation; close-range colour can refine with LOD.",
+    "Cold village preparation measured6.4\u20136.6seconds, not a performance acceptance.",
+    "No irrigation, land tenure or productive capacity proof."
+  ],
+  "verification": {
+    "testsPass": 852,
+    "testsFail": 0,
+    "build": "passed",
+    "durationMs": 123105.363113,
+    "heapLimitMiB": 256
+  }
+}

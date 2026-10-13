@@ -1,0 +1,26 @@
+- generic "全球から地表まで連続する3D地形"
+- banner:
+  - link "Minimal World":
+    - /url: ../ui/index.html
+  - generic: 全球 → 地表
+  - generic: Paged globe · river, bridge & pad
+- complementary:
+  - heading "Paged Globe" [level=1]
+  - paragraph: ホイールで連続ズーム。ドラッグで地表を移動。Shift＋ドラッグで視点を傾けます。
+  - button "宇宙へ"
+  - button "地表へ"
+  - button "連続ツアー"
+  - text: 視点の高さ
+  - status "視点の高さ 1000": 208.7 m
+  - slider "視点の高さ": "270"
+  - text: 傾き
+  - slider "視点の傾き" [active]: "21"
+  - button "中心点を照合"
+  - button "120秒の動作測定"
+  - status: 測定終了 · 平均 143.9 fps · p95 7.0 ms
+  - generic: 35.0000000°, 135.0000000° 地盤 597.338107 m 水深 2.000000 m 道路面 603.699148 m 勾配 0.000411 bridge-deck
+  - generic "動作検証記録"
+- contentinfo:
+  - generic: 35.000000°, 135.000000° · 高さ 208.7 m
+  - generic: 144 fps · 141 tiles · L17 · GPU 64.0 MiB · 読込 0/2
+  - generic: 地形の強調倍率 1× · 球面Core

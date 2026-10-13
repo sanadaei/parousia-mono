@@ -1,0 +1,116 @@
+TAP version 13
+# Subtest: flat detailed fixture materializes a village district and field page as finite JSON
+ok 1 - flat detailed fixture materializes a village district and field page as finite JSON
+  ---
+  duration_ms: 77.9583
+  type: 'test'
+  ...
+# Subtest: district and field pages keep stable ids and positions
+ok 2 - district and field pages keep stable ids and positions
+  ---
+  duration_ms: 149.3251
+  type: 'test'
+  ...
+# Subtest: save commits once and reloads without regenerating
+ok 3 - save commits once and reloads without regenerating
+  ---
+  duration_ms: 113.0646
+  type: 'test'
+  ...
+# Subtest: a changed surface is rejected by the committed store
+ok 4 - a changed surface is rejected by the committed store
+  ---
+  duration_ms: 70.8659
+  type: 'test'
+  ...
+# Subtest: wet candidate is held with a reason and its requirement
+ok 5 - wet candidate is held with a reason and its requirement
+  ---
+  duration_ms: 1.4193
+  type: 'test'
+  ...
+# Subtest: steep candidate is held with a reason and its requirement
+not ok 6 - steep candidate is held with a reason and its requirement
+  ---
+  duration_ms: 1.5084
+  type: 'test'
+  location: 'G:\\_ProjectSoftwares\\planet-source\\test\\l2-settlement-materialization.test.mjs:153:3'
+  failureType: 'testCodeFailure'
+  error: 'expected slope in ["siting-unresolved:wet"]'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///G:/_ProjectSoftwares/planet-source/test/l2-settlement-materialization.test.mjs:156:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: unknown candidate is held with a reason and its requirement
+ok 7 - unknown candidate is held with a reason and its requirement
+  ---
+  duration_ms: 1.3265
+  type: 'test'
+  ...
+# Subtest: detail boundary never materializes houses or fields outside it
+ok 8 - detail boundary never materializes houses or fields outside it
+  ---
+  duration_ms: 29.6859
+  type: 'test'
+  ...
+# Subtest: an access target routes through the existing local road survey and stays unresolved
+ok 9 - an access target routes through the existing local road survey and stays unresolved
+  ---
+  duration_ms: 39.5549
+  type: 'test'
+  ...
+# Subtest: a target beyond the local survey budget leaves an empty invalid profile
+ok 10 - a target beyond the local survey budget leaves an empty invalid profile
+  ---
+  duration_ms: 30.3433
+  type: 'test'
+  ...
+# Subtest: a town keeps its demand explicit without inventing local fields
+ok 11 - a town keeps its demand explicit without inventing local fields
+  ---
+  duration_ms: 14.5066
+  type: 'test'
+  ...
+# Subtest: surface contract mismatches are rejected before generation
+ok 12 - surface contract mismatches are rejected before generation
+  ---
+  duration_ms: 6.4237
+  type: 'test'
+  ...
+# Subtest: options are strictly validated
+ok 13 - options are strictly validated
+  ---
+  duration_ms: 2.5621
+  type: 'test'
+  ...
+# Subtest: saved native L2 terrain is shared and never falls back outside its domain
+ok 14 - saved native L2 terrain is shared and never falls back outside its domain
+  ---
+  duration_ms: 49.4155
+  type: 'test'
+  ...
+# Subtest: native-grid, content identity, handoff and water-geometry mismatches fail closed
+ok 15 - native-grid, content identity, handoff and water-geometry mismatches fail closed
+  ---
+  duration_ms: 33.0761
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 14
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2206.941

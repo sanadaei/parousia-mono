@@ -1,0 +1,55 @@
+{
+  "schema": "inter-zone-road-audit@1",
+  "dateUTC": "2026-10-11",
+  "inputWorldId": "sha256:2198794e7ae51885d172d11d217095b977b5db516fb1e5b8d5a5e81f693510b5",
+  "publishedWorldId": "sha256:815cea9befac49999699e3bb9275c8789190f1c60d0eab1a9be580ae27b99da3",
+  "scope": "Actual saved neighbouring-zone proposals and one existing PagedSource road recipe; not browser acceptance or global road connectivity",
+  "firstQuery": {
+    "savedInfluencingProposals": 10,
+    "milliseconds": 12570,
+    "reopenedSame": true
+  },
+  "surveyedRoad": {
+    "id": "zone-road:population-zone:795/0/1/1/2/1|population-zone:795/0/1/1/3/0",
+    "status": "surveyed-local-route",
+    "straightDistanceM": 9115.930197327127,
+    "lengthM": 9906.46351610218,
+    "probes": 30835,
+    "survey": {
+      "cells": 65,
+      "columns": 65,
+      "environmentRouting": "sampled-cover-resistance@1",
+      "extendedDirections": false,
+      "limitations": [
+        "Sub-probe obstacles unresolved",
+        "Bounded inland-water bridges; foundations and drainage unresolved"
+      ],
+      "marginM": 500,
+      "maxGrade": 0.12,
+      "probeSpacingM": 20,
+      "rows": 21
+    },
+    "recipeSHA256": "72835df791c69bf0e5faf8e679fb7610cd7f9c44793184c709c4e9eb0a442405",
+    "singleSourceProcessMilliseconds": 15066,
+    "heapUsedMiBAtResult": 180.23512268066406
+  },
+  "diagnosticMap": {
+    "widthKm": 20,
+    "sampleSpacingM": 200,
+    "contourSpacingM": 20,
+    "productionData": true,
+    "browserScreenshot": false
+  },
+  "failedAttempt": {
+    "cause": "One audit retained the restored world and two independent deferred-world page instances before constructing a third PagedSource",
+    "heapLimitMiB": 256,
+    "result": "Out of memory",
+    "correction": "Separate processes for catalogue-reopen and the single production source; heap limit unchanged"
+  },
+  "limits": [
+    "Roads remain angular from the existing grid route search",
+    "Empty/long-distance/blocked adjacent zones are not globally connected",
+    "Population demand is not a proof of local agricultural capacity",
+    "Browser IndexedDB reload and WebGL acceptance are still unverified"
+  ]
+}

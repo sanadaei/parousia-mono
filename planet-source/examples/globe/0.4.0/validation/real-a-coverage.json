@@ -1,0 +1,86 @@
+[
+  {
+    "tile": {
+      "face": 1,
+      "level": 16,
+      "x": 32767,
+      "y": 32767
+    },
+    "morph": 1,
+    "overlays": 5376,
+    "witness": {
+      "latDeg": -0.0008742642135920025,
+      "lonDeg": 179.99912573578632,
+      "groundElevationM": -812.0087873210072,
+      "waterLevelElevationM": null,
+      "waterDepthM": 0,
+      "roadSurface": null,
+      "buildingId": null,
+      "waterSourceIds": [],
+      "vertexGroundElevationM": -812.0087873210072,
+      "normalECEF": [
+        -0.9999999728677162,
+        0.000006603393575745202,
+        -0.00023285394998769768
+      ],
+      "maxVertexFloat32ErrorM": 0.000005280459971068148,
+      "float32PositionErrorM": 0
+    }
+  },
+  {
+    "tile": {
+      "face": 1,
+      "level": 16,
+      "x": 32768,
+      "y": 32767
+    },
+    "morph": 0.5,
+    "overlays": 5376,
+    "witness": {
+      "latDeg": -0.0008742642135920025,
+      "lonDeg": -179.99912573578632,
+      "groundElevationM": -812.0035883267692,
+      "waterLevelElevationM": null,
+      "waterDepthM": 0,
+      "roadSurface": null,
+      "buildingId": null,
+      "waterSourceIds": [],
+      "vertexGroundElevationM": -812.0035883267692,
+      "normalECEF": [
+        -0.9999999720428426,
+        0.00004118761862239995,
+        -0.00023284736136002882
+      ],
+      "maxVertexFloat32ErrorM": 0.000005338928448638607,
+      "float32PositionErrorM": 0
+    }
+  },
+  {
+    "tile": {
+      "face": 1,
+      "level": 16,
+      "x": 32767,
+      "y": 32768
+    },
+    "morph": 0.125,
+    "overlays": 5376,
+    "witness": {
+      "latDeg": 0.0008742642135920025,
+      "lonDeg": 179.99912573578632,
+      "groundElevationM": -811.9708163562368,
+      "waterLevelElevationM": null,
+      "waterDepthM": 0,
+      "roadSurface": null,
+      "buildingId": null,
+      "waterSourceIds": [],
+      "vertexGroundElevationM": -811.9708163562368,
+      "normalECEF": [
+        -0.9999999831249032,
+        0.00000667640207681661,
+        -0.00018359090084242723
+      ],
+      "maxVertexFloat32ErrorM": 0.000005311388589364901,
+      "float32PositionErrorM": 0
+    }
+  }
+]

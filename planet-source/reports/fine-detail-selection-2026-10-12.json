@@ -1,0 +1,57 @@
+{
+  "selectedMethod": "quarter-strength",
+  "methodVersion": "bounded-flow-aware-residual@1",
+  "reason": "Lowest max and P95 routing-head correction and lowest imported/main-channel uphill fraction among exactly three tested methods. Keeps nonzero detail rather than zeroing terrain.",
+  "sameSource": true,
+  "physicalGate": "NOT CERTIFIED: parent ground already obstructed; selected fine still requires 8.76m correction and has 35.27% uphill imported-path edges.",
+  "cumulativeDetailRMSM": {
+    "baseline": 12.040053038295301,
+    "quarter-strength": 3.010013259573826,
+    "flow-aware-positive": 8.581862200684098
+  },
+  "nonzeroCumulativeDetailCells": 20670,
+  "totalFineCells": 20769,
+  "alternatives": [
+    {
+      "method": "baseline",
+      "maxCorrectionM": 35.30004940940927,
+      "p95CorrectionM": 23.70758383374814,
+      "importedUphillFraction": 0.4175209692451072,
+      "mainChannelUphillFraction": 0.3798767967145791,
+      "recordBytes": [
+        7979465
+      ],
+      "contentHash": "sha256:be9bde86ee346f63d187dbbd212135c47b01ee718e866155d3c3ebfc04b17674"
+    },
+    {
+      "method": "quarter-strength",
+      "maxCorrectionM": 8.755286299674275,
+      "p95CorrectionM": 5.657367594149797,
+      "importedUphillFraction": 0.35266604303086996,
+      "mainChannelUphillFraction": 0.30597014925373134,
+      "recordBytes": [
+        7912954
+      ],
+      "contentHash": "sha256:f76ee9e35ad95c9cb82bea69b8bcd8c843c0daf848d23c73067a6d9400242cf9"
+    },
+    {
+      "method": "flow-aware-positive",
+      "maxCorrectionM": 34.31043776496404,
+      "p95CorrectionM": 13.679387533761158,
+      "importedUphillFraction": 0.3994280266920877,
+      "mainChannelUphillFraction": 0.36608066184074456,
+      "recordBytes": [
+        7964963
+      ],
+      "contentHash": "sha256:96059cf7a0acdcd08809d5afe27613b5f8bf28058c6337abe68546d6c281b8ff"
+    }
+  ],
+  "limits": [
+    "This is bounded shape-prior amplitude selection, not a physical river solution or measured terrain.",
+    "Positive-only flow attenuation cannot repair negative residual depressions; it lost to global quarter-strength in this fixed trial.",
+    "Flow corridors are rebuilt each stage with one current-parent cell diagonal radius; they are not fixed centerline protection.",
+    "Parent anchors and imported source ownership preserved; cell means and sediment volumes are not conserved.",
+    "Single adopted outlet preserved within floating-point budget tolerance; no invented supply and no post-hoc excavation.",
+    "All common-scale images use equal bounds, ground colors, residual colors and flow threshold."
+  ]
+}

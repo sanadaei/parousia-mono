@@ -1,0 +1,101 @@
+{
+  "worldId": "sha256:975c8fdf94dcb239a8b0594f5aa9680591e0b8a5eb7726f3dfdd9a15b49a7caa",
+  "scope": "19 failed sections from the initial partial all-world pass; not all routes",
+  "results": [
+    {
+      "id": "road:pop:2608:17|pop:2608:18/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:2888:107|pop:2888:97/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:2888:71|pop:2888:72/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:2888:73|pop:2888:84/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:2888:84|pop:2888:85/segment:1",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:2888:58|pop:2888:59/segment:1",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:2935:16|pop:2935:20/segment:3",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3018:54|pop:3018:65/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3018:63|pop:3018:64",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3018:61|pop:3018:62/segment:1",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3018:58|pop:3018:59/segment:1",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3189:21|pop:3189:27/segment:2",
+      "status": "surveyed-local-route",
+      "bridges": 0
+    },
+    {
+      "id": "road:pop:3189:21|pop:3189:27/segment:3",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3189:28|pop:3189:29/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3189:4|pop:3189:5/segment:2",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3189:15|pop:3189:9/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3392:100|pop:3392:102/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3392:101|pop:3392:102",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    },
+    {
+      "id": "road:pop:3401:82|pop:3401:97",
+      "status": "surveyed-local-route",
+      "bridges": 1
+    }
+  ]
+}

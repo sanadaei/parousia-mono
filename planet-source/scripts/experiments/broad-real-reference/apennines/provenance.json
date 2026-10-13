@@ -1,0 +1,57 @@
+{
+  "predeterminedCenterLatitude": 43.6,
+  "predeterminedCenterLongitude": 12.0,
+  "requestedBboxDegrees": [
+    10.95,
+    42.85,
+    13.05,
+    44.35
+  ],
+  "query": "z[(42.85):3:(44.35)][(10.95):3:(13.05)]",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2842.85%29%3A3%3A%2844.35%29%5D%5B%2810.95%29%3A3%3A%2813.05%29%5D",
+  "source": "NOAA NCEI ETOPO2022 via NOAA CoastWatch ERDDAP",
+  "doi": "10.25921/fd45-gt74",
+  "nativeSpacingArcsec": 15,
+  "queryStride": 3,
+  "querySpacingArcsec": 45,
+  "selection": "Fixed prior to acquisition or rendering; bbox is not selected on outcome.",
+  "bytes": 954739,
+  "sha256": "b9fc923486c9a2b0dd475d01c6e21d44f321fe8424cdfb38861480e0c8074dc7",
+  "acquiredUTC": "2026-10-12T18:49:59Z",
+  "returnedBboxDegrees": [
+    10.952083333333333,
+    42.85208333333333,
+    13.052083333333334,
+    44.35208333333333
+  ],
+  "metricMethod": "Local spherical tangent coordinates R=6371000 m; x=R*cos(43.6deg)*(lon-12.0deg), y=R*(lat-43.6deg), radians. No fitted scaling or vertical change.",
+  "metricCropCenter": {
+    "latitude": 43.6,
+    "longitude": 12.0
+  },
+  "metricCropSizeM": [
+    113908.42189555817,
+    156367.8655939107
+  ],
+  "metricCropBboxDegrees": [
+    11.292707226269192,
+    42.896875,
+    12.707292773730808,
+    44.303125
+  ],
+  "queriedSpacingM": [
+    1006.5529626324102,
+    1389.9365830569843
+  ],
+  "nativeNominalSpacingM": [
+    335.5176542108034,
+    463.3121943523281
+  ],
+  "sourceShape": [
+    121,
+    169
+  ],
+  "sourceHasNegativeElevation": true,
+  "generatedSourceSha256": "84543e06bf60dc046ca9c031e4473ec87c3cde290bdd62839671a028a61c9804",
+  "generatedSourceFile": "generated-bridge.json"
+}

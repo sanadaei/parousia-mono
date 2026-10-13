@@ -1,0 +1,5 @@
+{
+  "fullCandidateSHA256": "69b0b5cebe34a7a9a3170bd6b08262b66e4ebc54efa9f7ff7c8fe6db48b3f05d",
+  "retainedInputSHA256": "800f0c7b3d20405639883d39c2f558868b424e5326426405c525bec3d4111fdc",
+  "extraction": "Only actual grid/elevation arrays at the parent cut and all four refinement stages; no numerical transformation. Full candidate metadata omitted."
+}

@@ -1,0 +1,16 @@
+{
+  "manifestWorldId": "sha256:889a63f2059ed60e1d967baaff75808ecd9c6d9a2157df9f59e0948817bccad8",
+  "siteId": "pop:3841:0",
+  "boundRadiusM": 12000,
+  "descriptorCount": 143,
+  "result": {
+    "loaded": 0,
+    "deferred": 139
+  },
+  "ms": 0.4648130000000492,
+  "physicalBytes": 0,
+  "budget": 8388608,
+  "requests": [],
+  "canonicalWorldId": "sha256:3cdee46fd793325f9fd24b8636be30e3bbc57be11caa73bb912b473fa900e14d",
+  "scope": "Display-only coarse admission check, not a completed terrain mesh. Full physical point queries unchanged. Unknown charts remain deferred and their height uncertainty retained."
+}

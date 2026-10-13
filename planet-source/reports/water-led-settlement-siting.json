@@ -1,0 +1,871 @@
+{
+  "baseWorldId": "sha256:9cb5aa8e0133375f75a69d54dcd200c210428db6da5989a2a4f6263552c66a11",
+  "index": {
+    "stations": 4056,
+    "candidates": 24336,
+    "withheld": 0,
+    "maxCandidates": 32768,
+    "spacingM": 500
+  },
+  "stats": {
+    "regions": 23,
+    "proposed": 784,
+    "accepted": 84,
+    "rejected": 518,
+    "approachSamples": 3878,
+    "beforeSites": 6962,
+    "afterSites": 6962,
+    "beforePopulation": 2281173,
+    "afterPopulation": 2281173
+  },
+  "examples": [
+    {
+      "id": "pop:2699:12",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 28.401107397300226,
+      "lonDeg": 31.185819683992918,
+      "sourceId": "river:2699:2826",
+      "approachM": 202.64155471448782,
+      "maxSampledGrade": 0.09894037891641966
+    },
+    {
+      "id": "pop:2826:18",
+      "kind": "village",
+      "population": 294,
+      "latDeg": 27.192695288963094,
+      "lonDeg": 29.98825450036111,
+      "sourceId": "river:2699:2826",
+      "approachM": 202.64155471741054,
+      "maxSampledGrade": 0.07573070816688654
+    },
+    {
+      "id": "pop:2826:19",
+      "kind": "village",
+      "population": 294,
+      "latDeg": 27.358570215023025,
+      "lonDeg": 30.15632809711076,
+      "sourceId": "river:2699:2826",
+      "approachM": 202.64155471615078,
+      "maxSampledGrade": 0.04912519970690423
+    },
+    {
+      "id": "pop:2826:36",
+      "kind": "village",
+      "population": 294,
+      "latDeg": 26.060537610749215,
+      "lonDeg": 28.85918086512595,
+      "sourceId": "river:2826:2953",
+      "approachM": 202.76839915097824,
+      "maxSampledGrade": 0.047379677686135865
+    },
+    {
+      "id": "pop:2826:42",
+      "kind": "village",
+      "population": 294,
+      "latDeg": 25.73356733738158,
+      "lonDeg": 28.52196210207842,
+      "sourceId": "river:2826:2953",
+      "approachM": 202.768399148227,
+      "maxSampledGrade": 0.013345070482649496
+    },
+    {
+      "id": "pop:2826:49",
+      "kind": "village",
+      "population": 294,
+      "latDeg": 25.49975220007136,
+      "lonDeg": 28.292483428752803,
+      "sourceId": "river:2826:2953",
+      "approachM": 202.7683991486486,
+      "maxSampledGrade": 0.025827250979537666
+    },
+    {
+      "id": "pop:2953:9",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 25.072079791458513,
+      "lonDeg": 27.859479894109086,
+      "sourceId": "river:2826:2953",
+      "approachM": 202.76839915363368,
+      "maxSampledGrade": 0.05389680110528815
+    },
+    {
+      "id": "pop:2953:10",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 25.20463003259783,
+      "lonDeg": 27.99137738829927,
+      "sourceId": "river:2826:2953",
+      "approachM": 205.46745371579587,
+      "maxSampledGrade": 0.20935968676351585
+    },
+    {
+      "id": "pop:2953:40",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 24.407716110981834,
+      "lonDeg": 27.20409167150683,
+      "sourceId": "river:2826:2953",
+      "approachM": 208.1150093716373,
+      "maxSampledGrade": 0.21342297082308997
+    },
+    {
+      "id": "pop:2953:50",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 24.13853398174007,
+      "lonDeg": 26.947141899634858,
+      "sourceId": "river:2826:2953",
+      "approachM": 202.76839915428116,
+      "maxSampledGrade": 0.1425362049417189
+    },
+    {
+      "id": "pop:2953:60",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 23.90481633228535,
+      "lonDeg": 26.7204152026502,
+      "sourceId": "river:2953:3080",
+      "approachM": 217.26366069773684,
+      "maxSampledGrade": 0.18117662024441492
+    },
+    {
+      "id": "pop:2953:70",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 23.612917958981523,
+      "lonDeg": 26.42050439252955,
+      "sourceId": "river:2953:3080",
+      "approachM": 202.8945408361254,
+      "maxSampledGrade": 0.07702931428411978
+    },
+    {
+      "id": "pop:2953:80",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 23.417941071138095,
+      "lonDeg": 26.22137528245753,
+      "sourceId": "river:2953:3080",
+      "approachM": 202.89454083270954,
+      "maxSampledGrade": 0.05491451175161762
+    },
+    {
+      "id": "pop:2953:90",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 23.092421822290902,
+      "lonDeg": 25.8907936533069,
+      "sourceId": "river:2953:3080",
+      "approachM": 202.89454082779122,
+      "maxSampledGrade": 0.033347397494003214
+    },
+    {
+      "id": "pop:2953:99",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 22.768885465681272,
+      "lonDeg": 25.558690966649692,
+      "sourceId": "river:2953:3080",
+      "approachM": 202.89454082919042,
+      "maxSampledGrade": 0.02747465728550727
+    },
+    {
+      "id": "pop:2953:100",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 22.864149989897424,
+      "lonDeg": 25.660339991462706,
+      "sourceId": "river:2953:3080",
+      "approachM": 202.89454083408472,
+      "maxSampledGrade": 0.018157649502295328
+    },
+    {
+      "id": "pop:2953:110",
+      "kind": "village",
+      "population": 298,
+      "latDeg": 22.668224962426898,
+      "lonDeg": 25.46342441600973,
+      "sourceId": "river:2953:3080",
+      "approachM": 202.8945408373385,
+      "maxSampledGrade": 0.061719629806892135
+    },
+    {
+      "id": "pop:3396:0",
+      "kind": "town",
+      "population": 2715,
+      "latDeg": 16.796642070189602,
+      "lonDeg": -168.6612843304108,
+      "sourceId": "river:3396:3267",
+      "approachM": 362.9243955348263,
+      "maxSampledGrade": 0.0261530486131304
+    },
+    {
+      "id": "pop:3396:19",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.668282924393537,
+      "lonDeg": -168.53104838472825,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439553489015,
+      "maxSampledGrade": 0.03195080995809353
+    },
+    {
+      "id": "pop:3396:20",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.573670305306074,
+      "lonDeg": -168.43161455469465,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439554153933,
+      "maxSampledGrade": 0.05120554802742253
+    },
+    {
+      "id": "pop:3396:38",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.506401617002062,
+      "lonDeg": -168.36994201355583,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439553787523,
+      "maxSampledGrade": 0.019887774380718967
+    },
+    {
+      "id": "pop:3396:39",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.41171280133723,
+      "lonDeg": -168.2706705680764,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439553778723,
+      "maxSampledGrade": 0.09095328797870293
+    },
+    {
+      "id": "pop:3396:57",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.311981532214244,
+      "lonDeg": -168.17697006732533,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439553614275,
+      "maxSampledGrade": 0.029914045599694895
+    },
+    {
+      "id": "pop:3396:76",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.184767153190233,
+      "lonDeg": -168.04579829721507,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.9243955357412,
+      "maxSampledGrade": 0.03430407165357504
+    },
+    {
+      "id": "pop:3396:95",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 16.019934490135537,
+      "lonDeg": -167.88832732906906,
+      "sourceId": "river:3396:3267",
+      "approachM": 207.4391396341629,
+      "maxSampledGrade": 0.19465199008915124
+    },
+    {
+      "id": "pop:3396:114",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 15.827663667191489,
+      "lonDeg": -167.69346828081143,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.9243955369171,
+      "maxSampledGrade": 0.03737797185585481
+    },
+    {
+      "id": "pop:3396:133",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 15.695176327068568,
+      "lonDeg": -167.56839458692593,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439554001473,
+      "maxSampledGrade": 0.043097555222702366
+    },
+    {
+      "id": "pop:3396:152",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 15.567595390253674,
+      "lonDeg": -167.43801130106044,
+      "sourceId": "river:3396:3267",
+      "approachM": 192.92439553548328,
+      "maxSampledGrade": 0.02259028011098808
+    },
+    {
+      "id": "pop:3964:0",
+      "kind": "city",
+      "population": 50000,
+      "latDeg": 5.552927266447314,
+      "lonDeg": -11.162309590015866,
+      "sourceId": "river:3964:3835",
+      "approachM": 817.6363261539626,
+      "maxSampledGrade": 0.014718836722504257
+    },
+    {
+      "id": "pop:3964:24",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 5.42254760254502,
+      "lonDeg": -11.0399641274646,
+      "sourceId": "river:3964:3835",
+      "approachM": 197.63632614765663,
+      "maxSampledGrade": 0.015001861391090034
+    },
+    {
+      "id": "pop:3964:48",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 5.2960735426301015,
+      "lonDeg": -10.913699390372244,
+      "sourceId": "river:3964:3835",
+      "approachM": 197.63632614655057,
+      "maxSampledGrade": 0.01482639993812001
+    },
+    {
+      "id": "pop:3964:72",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 5.1985405561231754,
+      "lonDeg": -10.82172423759971,
+      "sourceId": "river:3964:3835",
+      "approachM": 198.63917265578306,
+      "maxSampledGrade": 0.14250592973983534
+    },
+    {
+      "id": "pop:3964:96",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 5.103607060069825,
+      "lonDeg": -10.7271361267683,
+      "sourceId": "river:3964:3835",
+      "approachM": 206.12453946476592,
+      "maxSampledGrade": 0.21642418085345205
+    },
+    {
+      "id": "pop:3964:120",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.94823325499578,
+      "lonDeg": -10.56663965246787,
+      "sourceId": "river:3964:3835",
+      "approachM": 212.3541938451363,
+      "maxSampledGrade": 0.22420964264545928
+    },
+    {
+      "id": "pop:3964:144",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.818827431370503,
+      "lonDeg": -10.443433666157262,
+      "sourceId": "river:3964:3835",
+      "approachM": 212.3444235667356,
+      "maxSampledGrade": 0.22419980471998194
+    },
+    {
+      "id": "pop:3964:168",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.6922587819664106,
+      "lonDeg": -10.3173821776561,
+      "sourceId": "river:3964:3835",
+      "approachM": 209.0722856146267,
+      "maxSampledGrade": 0.22179922875022476
+    },
+    {
+      "id": "pop:3964:192",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.597326562495074,
+      "lonDeg": -10.222864383701221,
+      "sourceId": "river:3964:3835",
+      "approachM": 205.17442246074975,
+      "maxSampledGrade": 0.21279044975279807
+    },
+    {
+      "id": "pop:3964:216",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.470735884821243,
+      "lonDeg": -10.096874741354554,
+      "sourceId": "river:3964:3835",
+      "approachM": 199.19479686474025,
+      "maxSampledGrade": 0.15145283324683526
+    },
+    {
+      "id": "pop:3964:240",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.34409568521927,
+      "lonDeg": -9.97095696155327,
+      "sourceId": "river:3964:3835",
+      "approachM": 197.63632615200953,
+      "maxSampledGrade": 0.06048617665388189
+    },
+    {
+      "id": "pop:3964:264",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 4.220075336286785,
+      "lonDeg": -9.842408589550132,
+      "sourceId": "river:3964:3835",
+      "approachM": 197.63632614735732,
+      "maxSampledGrade": 3.644025543928866e-05
+    },
+    {
+      "id": "pop:4045:325",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 1.373393605019615,
+      "lonDeg": -142.000897994556,
+      "sourceId": "river:4045:4174",
+      "approachM": 190.99818167135007,
+      "maxSampledGrade": 0.0805951068848413
+    },
+    {
+      "id": "pop:4045:352",
+      "kind": "village",
+      "population": 300,
+      "latDeg": 1.2811289245483752,
+      "lonDeg": -141.90353998209616,
+      "sourceId": "river:4045:4174",
+      "approachM": 190.99818166725117,
+      "maxSampledGrade": 0.11480931083058757
+    },
+    {
+      "id": "pop:4047:189",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.3443413746271948,
+      "lonDeg": -136.47075778908902,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955377648,
+      "maxSampledGrade": 0.10035408697942075
+    },
+    {
+      "id": "pop:4047:191",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.408311508894072,
+      "lonDeg": -136.13839387578423,
+      "sourceId": "river:4047:4048",
+      "approachM": 201.68549930284635,
+      "maxSampledGrade": 0.1868329733858251
+    },
+    {
+      "id": "pop:4047:192",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.4045441558005074,
+      "lonDeg": -136.09374913843737,
+      "sourceId": "river:4047:4048",
+      "approachM": 196.9705627484045,
+      "maxSampledGrade": 0.040980731272385246
+    },
+    {
+      "id": "pop:4047:193",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.4046380520681072,
+      "lonDeg": -135.8705350445748,
+      "sourceId": "river:4047:4048",
+      "approachM": 196.97056274853824,
+      "maxSampledGrade": 0.009881901738707483
+    },
+    {
+      "id": "pop:4047:194",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.408430438061188,
+      "lonDeg": -135.73660783469353,
+      "sourceId": "river:4047:4048",
+      "approachM": 196.97056274849376,
+      "maxSampledGrade": 0.037186104598201944
+    },
+    {
+      "id": "pop:4047:196",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.4084901920763835,
+      "lonDeg": -135.51339335896364,
+      "sourceId": "river:4047:4048",
+      "approachM": 196.97056274847512,
+      "maxSampledGrade": 0.061625769235611944
+    },
+    {
+      "id": "pop:4047:197",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.4046616844894957,
+      "lonDeg": -135.37946396821513,
+      "sourceId": "river:4047:4048",
+      "approachM": 208.96025223936974,
+      "maxSampledGrade": 0.20872087678377427
+    },
+    {
+      "id": "pop:4047:209",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.278585827914836,
+      "lonDeg": -136.531416789986,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439553837212,
+      "maxSampledGrade": 0.04398299865578573
+    },
+    {
+      "id": "pop:4047:227",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.0915640886062283,
+      "lonDeg": -136.72363042458107,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439553415235,
+      "maxSampledGrade": 0.02315711675128293
+    },
+    {
+      "id": "pop:4047:246",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 0.9335672047270881,
+      "lonDeg": -136.88165363380597,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955411851,
+      "maxSampledGrade": 0.02958100820779242
+    },
+    {
+      "id": "pop:4047:265",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 0.7756767199204859,
+      "lonDeg": -137.03977616584268,
+      "sourceId": "river:4174:4047",
+      "approachM": 210.77055384948335,
+      "maxSampledGrade": 0.14044553190814374
+    },
+    {
+      "id": "pop:4047:266",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 0.8703664014495096,
+      "lonDeg": -136.94485881193032,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955371097,
+      "maxSampledGrade": 0.01600856261000086
+    },
+    {
+      "id": "pop:4047:303",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 0.4911421016361295,
+      "lonDeg": -137.32405084673564,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955354416,
+      "maxSampledGrade": 0.05184137876235088
+    },
+    {
+      "id": "pop:4047:304",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 0.5833878378095432,
+      "lonDeg": -137.22669449897967,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439554090845,
+      "maxSampledGrade": 0.03269776657622333
+    },
+    {
+      "id": "pop:4047:322",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 0.36472842673320355,
+      "lonDeg": -137.45043701404148,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439554000032,
+      "maxSampledGrade": 0.038443059447932665
+    },
+    {
+      "id": "pop:4048:65",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.4089754043008034,
+      "lonDeg": -134.94380254389114,
+      "sourceId": "tributary-region@2/river:4047:4048/channel:8892:8374",
+      "approachM": 181.06063874384395,
+      "maxSampledGrade": 0.08909111204288286
+    },
+    {
+      "id": "pop:4048:78",
+      "kind": "village",
+      "population": 299,
+      "latDeg": 1.4021613611664396,
+      "lonDeg": -134.9955264535966,
+      "sourceId": "tributary-region@2/river:4047:4048/channel:7644:8293",
+      "approachM": 181.06135806568653,
+      "maxSampledGrade": 0.015279270775569629
+    },
+    {
+      "id": "pop:4174:0",
+      "kind": "town",
+      "population": 3249,
+      "latDeg": -0.038249211382031474,
+      "lonDeg": -140.57783657950608,
+      "sourceId": "tributary-region@2/river:4045:4174/channel:3338:2560",
+      "approachM": 351.06857258725665,
+      "maxSampledGrade": 0.03049941938867605
+    },
+    {
+      "id": "pop:4174:22",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.04868787690816473,
+      "lonDeg": -137.85861035453837,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955350746,
+      "maxSampledGrade": 0.1039224598354657
+    },
+    {
+      "id": "pop:4174:66",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.2989579803191466,
+      "lonDeg": -138.1139349517536,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955367032,
+      "maxSampledGrade": 0.08708534175502242
+    },
+    {
+      "id": "pop:4174:96",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.5860165056570964,
+      "lonDeg": -140.04182385077831,
+      "sourceId": "river:4045:4174",
+      "approachM": 204.53712020144167,
+      "maxSampledGrade": 0.23246864862147418
+    },
+    {
+      "id": "pop:4174:110",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.5832489189067492,
+      "lonDeg": -138.3984444239839,
+      "sourceId": "river:4174:4047",
+      "approachM": 214.7696146997644,
+      "maxSampledGrade": 0.2106585917594866
+    },
+    {
+      "id": "pop:4174:131",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.7413986144459462,
+      "lonDeg": -138.55630066952358,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955368093,
+      "maxSampledGrade": 0.07887042703810153
+    },
+    {
+      "id": "pop:4174:153",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.867803232054943,
+      "lonDeg": -138.68270483405558,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439553344587,
+      "maxSampledGrade": 0.029584765312379396
+    },
+    {
+      "id": "pop:4174:168",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.9335467901038074,
+      "lonDeg": -139.69413321535222,
+      "sourceId": "river:4045:4174",
+      "approachM": 190.99818166741113,
+      "maxSampledGrade": 0.061738186166352876
+    },
+    {
+      "id": "pop:4174:175",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.9942036137990191,
+      "lonDeg": -138.8091174593991,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.9243955391039,
+      "maxSampledGrade": 0.04120353444817762
+    },
+    {
+      "id": "pop:4174:176",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.9310039908829969,
+      "lonDeg": -138.7459100121846,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439553769526,
+      "maxSampledGrade": 0.0233776580498761
+    },
+    {
+      "id": "pop:4174:217",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.2495322732143073,
+      "lonDeg": -139.37807021022195,
+      "sourceId": "river:4045:4174",
+      "approachM": 190.99818166851205,
+      "maxSampledGrade": 0.06645135611399448
+    },
+    {
+      "id": "pop:4174:220",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.18379489744542,
+      "lonDeg": -138.99875495457366,
+      "sourceId": "river:4174:4047",
+      "approachM": 192.92439553523607,
+      "maxSampledGrade": 0.02429550169455021
+    },
+    {
+      "id": "pop:4174:240",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.31272512466566,
+      "lonDeg": -139.31484910885598,
+      "sourceId": "river:4045:4174",
+      "approachM": 190.99818166644613,
+      "maxSampledGrade": 0.03401545968789237
+    },
+    {
+      "id": "pop:4223:96",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.5227219638277699,
+      "lonDeg": -2.292430367278712,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.73312629978804,
+      "maxSampledGrade": 0.014888134447391673
+    },
+    {
+      "id": "pop:4223:120",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.649132573550338,
+      "lonDeg": -2.166038044180482,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.7331262974591,
+      "maxSampledGrade": 0.01662250832553041
+    },
+    {
+      "id": "pop:4223:144",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.8071413388361498,
+      "lonDeg": -2.0080386272364876,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.7331262938378,
+      "maxSampledGrade": 0.015329857440481577
+    },
+    {
+      "id": "pop:4223:168",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -0.9019437381335491,
+      "lonDeg": -1.913233246948721,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.73312629978108,
+      "maxSampledGrade": 0.01542784482250525
+    },
+    {
+      "id": "pop:4223:192",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.028343062094786,
+      "lonDeg": -1.7868183109524125,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.73312629055283,
+      "maxSampledGrade": 0.015805109328059536
+    },
+    {
+      "id": "pop:4223:216",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.1863351233990524,
+      "lonDeg": -1.6287854344916468,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.73312629407795,
+      "maxSampledGrade": 0.015518635476253864
+    },
+    {
+      "id": "pop:4223:240",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.281126115019236,
+      "lonDeg": -1.5339572082953055,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.73312629392953,
+      "maxSampledGrade": 0.01560779352787701
+    },
+    {
+      "id": "pop:4223:264",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -1.4075085948949286,
+      "lonDeg": -1.4075085959131002,
+      "sourceId": "river:4223:4094",
+      "approachM": 190.73312629580266,
+      "maxSampledGrade": 1.9792409927849782e-07
+    },
+    {
+      "id": "pop:4653:298",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -12.591219639680755,
+      "lonDeg": 127.90565881521604,
+      "sourceId": "river:4653:4524",
+      "approachM": 210.5249283084356,
+      "maxSampledGrade": 0.21396085228826464
+    },
+    {
+      "id": "pop:4653:324",
+      "kind": "village",
+      "population": 300,
+      "latDeg": -12.6257963065915,
+      "lonDeg": 127.9350695409064,
+      "sourceId": "river:4653:4524",
+      "approachM": 200.2390260912925,
+      "maxSampledGrade": 0.1662568835695788
+    },
+    {
+      "id": "pop:5240:97",
+      "kind": "village",
+      "population": 298,
+      "latDeg": -23.907535003561,
+      "lonDeg": -21.092162378127796,
+      "sourceId": "river:5240:5367",
+      "approachM": 201.33166660185583,
+      "maxSampledGrade": 0.000898920935303202
+    },
+    {
+      "id": "pop:5368:0",
+      "kind": "town",
+      "population": 3242,
+      "latDeg": -25.319663863322134,
+      "lonDeg": -22.47545098638045,
+      "sourceId": "tributary-region@2/river:5240:5367/channel:11451:12347",
+      "approachM": 351.00776950228044,
+      "maxSampledGrade": 0.0028638761861843076
+    }
+  ],
+  "scope": "Same saved 21a physical geography, new opt-in river-access-siting@1 policy; 23 regions containing indexed river-bank candidates. This is finite approach sampling, not potable supply or flooding acceptance.",
+  "initialRegression": {
+    "beforeSites": 6962,
+    "initialAfterSites": 6960,
+    "problem": "Water proposals consumed original fallback attempts; two otherwise placeable villages were lost.",
+    "fix": "Separate maximum four water proposals from the original maximum eight local fallback attempts.",
+    "finalAfterSites": 6962
+  }
+}

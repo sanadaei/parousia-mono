@@ -1,0 +1,26 @@
+{
+  "updatedAt": "2026-10-10T17:47:56.345267+00:00",
+  "complete": false,
+  "currentWorldId": "sha256:fcafb9c95bb87d9eb61243834fd4ac6cf599ee4b82120b7dc5f235c1873829f7",
+  "baselineWorldId": "sha256:b29f598660e043689774d6bd9455daf7b59db8bb9c3c5bfe7bb08be599c6f811",
+  "baselineRegions": 637,
+  "totalRegions": 765,
+  "baselineLinksInspected": 255398,
+  "baselineUnresolvedBeforeRepairs": 25,
+  "currentRegionalAcceptance": {
+    "regions": 620,
+    "regionsTotal": 765,
+    "reused": 252344,
+    "executed": 25,
+    "failed": 0,
+    "unchangedSitesHash": "d7b991feff9d43e678b23bde5fb5074b6eb17878da21f74c2eb1eaf31c22302d"
+  },
+  "currentTrunkAcceptance": {
+    "completed": 244,
+    "total": 766,
+    "unresolved": 0,
+    "elapsedMs": 460549,
+    "heapUsedMiB": 42.34180450439453
+  },
+  "scope": "Partial audit. Reused counts are unchanged accepted baseline inputs under failure-only routing extensions, not freshly rerun tests. Changed and failed routes use current PagedSource. No full-world completion claim."
+}

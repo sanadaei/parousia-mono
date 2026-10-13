@@ -1,0 +1,20 @@
+{
+  "benchmark.mjs": "2e1c70ea496de5d1017cfad13a6e81ab108ca964fb1087ed8694510ab2f41f8c",
+  "data/tuscany.csv": "eb3784fb884aeeddee74fd3f46abfeddf2c355db3c7c894d003b0d753e6a5dd1",
+  "prepare.py": "6e770f33c1f31ac4e139dd499d7dfe8ede8567179a8f02f5f304c6e616ae1227",
+  "provisional-boundary.mjs": "d79c3331b0dc9c8ce9f3dfc8ba85e692a688cc5f1fa2d53d1b4cd9635d5ac26e",
+  "report.py": "d8065ea8fe88642500b0e390af177bd8a402aa13bcbaf4b48fedc055fdf43e1c",
+  "sequential.mjs": "9caa06ef6bea5ac766162fdfe98e495d65ec616b93bcdfe47dd5018a229469e5",
+  "src/candidate/json-contract.mjs": "6f785d1afc0dd5680b41e745edbd6cf705868edd5d98a1e25e88d4a1fd996eae",
+  "src/candidate/refine-water-candidates.mjs": "264a00740be1e961d7e3275b6cf0ad397ad9a2565501cf9ccb4b739cf4fad68b",
+  "src/candidate/regional-drainage.mjs": "efb772c69bca3cb25363445cf462a27378047ad5718415b6b5072a879914f067",
+  "src/candidate/regional-water-context.mjs": "8d1c56c38001923771e748936f23b3ce92b45f17365f94545676ce73c3295650",
+  "src/candidate/sha256.mjs": "7edd7c80fdaf2d92ec4592e021c9da5459f12a45d04aa0db085354ad515e0f61",
+  "src/core/json-contract.mjs": "6f785d1afc0dd5680b41e745edbd6cf705868edd5d98a1e25e88d4a1fd996eae",
+  "src/core/refine-regional-water-gap8.mjs": "8772d4578c779c2a29294cdd56b1e0516fcb4b8a98f1f703e53338d280d0189f",
+  "src/core/refine-regional-water.mjs": "bd09df68c95d3c48f58b1ac892de83191299ea839d927d3c0297b4e7d7b17e53",
+  "src/core/regional-drainage.mjs": "711a7d37aec39eea64ec75fb49b8ee80c7f59aad5b52792f844cbdcbca3e9642",
+  "src/core/regional-water-context.mjs": "eff1262b7f91e43c9edc91df4eb27c69f802b3bdfd632558769d0a16a48b4c43",
+  "src/core/sha256.mjs": "7edd7c80fdaf2d92ec4592e021c9da5459f12a45d04aa0db085354ad515e0f61",
+  "validate.py": "7b209588783773d48e3a42378b8a815141dcc2ca9afda8f8b9ea4b1ad1c011d7"
+}

@@ -1,0 +1,381 @@
+{
+  "sourceWorld": "sha256:17833a44f7b0875986b31dc3605e9b94b92144fcaad51d8bd3c08450364312dd",
+  "scope": "Actual generated35a entire seven-district town compared with urbanBlockSeedPolicy omitted; original saves are not overwritten.",
+  "results": [
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 0,
+      "afterMs": 625.275617,
+      "before": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 2057.9203790539455,
+        "publicAccess": [
+          "connected"
+        ],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1964.5891692453733,
+        "publicAccess": [
+          "connected"
+        ],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    },
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 1,
+      "afterMs": 414.3788300000001,
+      "before": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1918.7466035682594,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1970.4743611011509,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    },
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 2,
+      "afterMs": 424.3512910000004,
+      "before": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1947.2374453847503,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1894.5695653335383,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    },
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 3,
+      "afterMs": 364.0091939999993,
+      "before": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1923.4701567287896,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1927.741244647964,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    },
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 4,
+      "afterMs": 377.3323469999996,
+      "before": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1907.5477870398388,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1876.2023264874465,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    },
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 5,
+      "afterMs": 459.2133380000005,
+      "before": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1922.752689854054,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 96,
+        "placed": 96,
+        "bends": 0,
+        "lengthM": 1948.0240159554776,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    },
+    {
+      "id": "pop:4174:0",
+      "districtIndex": 6,
+      "afterMs": 397.0953749999999,
+      "before": {
+        "requested": 74,
+        "placed": 74,
+        "bends": 0,
+        "lengthM": 1924.8666382263123,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      },
+      "after": {
+        "requested": 74,
+        "placed": 74,
+        "bends": 0,
+        "lengthM": 1886.0529998629902,
+        "publicAccess": [],
+        "connections": [
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          },
+          {
+            "status": "connected"
+          }
+        ],
+        "endpoints": []
+      }
+    }
+  ],
+  "proposalDiagnosis": {
+    "fixtureTownIds": [
+      "pop:4174:0",
+      "pop:3843:0",
+      "town-a"
+    ],
+    "flatSurveyCellsPerTown": 80,
+    "oldNearlyEqualXYOffsetsPerTown": [
+      80,
+      80,
+      80
+    ],
+    "nearlyEqualThresholdM": 1,
+    "newRegressionMaximum": 19,
+    "candidateOffsetBoundsM": [
+      -15,
+      15
+    ],
+    "note": "Same candidate count, displacement bounds and terrain scoring; corrected coordinate hash correlation, not simulated historical growth."
+  },
+  "cloudInspector": {
+    "site": "pop:4174:0",
+    "district": 0,
+    "buildings": 103,
+    "landWaterEntries": 42,
+    "timeUTC": "2026-10-11T03:57:00Z",
+    "scope": "Actual35a on-demand SVG layout only; full-scene/GPU acceptance remains open."
+  }
+}

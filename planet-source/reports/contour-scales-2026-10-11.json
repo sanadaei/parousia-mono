@@ -1,0 +1,41 @@
+{
+  "worldId": "sha256:7b193113023af6d5d180524ac716c324151af2c07848b3506a770812716e35a3",
+  "siteId": "pop:2117:1",
+  "scales": [
+    {
+      "widthM": 500000,
+      "intervalM": 500,
+      "sampleStepM": 5000.0,
+      "minElevationM": -607.1436245334462,
+      "maxElevationM": 1766.3934147766008
+    },
+    {
+      "widthM": 100000,
+      "intervalM": 100,
+      "sampleStepM": 1000.0,
+      "minElevationM": 434.4029476827035,
+      "maxElevationM": 872.933227146052
+    },
+    {
+      "widthM": 10000,
+      "intervalM": 20,
+      "sampleStepM": 100.0,
+      "minElevationM": 593.4132194474361,
+      "maxElevationM": 705.9048771696889
+    },
+    {
+      "widthM": 2000,
+      "intervalM": 10,
+      "sampleStepM": 20.0,
+      "minElevationM": 606.0536907635983,
+      "maxElevationM": 689.9500659982338
+    },
+    {
+      "widthM": 500,
+      "intervalM": 2,
+      "sampleStepM": 5.0,
+      "minElevationM": 627.5236129756453,
+      "maxElevationM": 657.0788613054698
+    }
+  ]
+}

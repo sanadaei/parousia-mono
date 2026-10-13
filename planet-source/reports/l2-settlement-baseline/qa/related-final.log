@@ -1,0 +1,388 @@
+TAP version 13
+# Subtest: L1 screening uses saved heights and masks and identifies the exact surface
+ok 1 - L1 screening uses saved heights and masks and identifies the exact surface
+  ---
+  duration_ms: 4.2597
+  type: 'test'
+  ...
+# Subtest: L1 screening rejects incomplete fields and invalid coordinates
+ok 2 - L1 screening rejects incomplete fields and invalid coordinates
+  ---
+  duration_ms: 0.659
+  type: 'test'
+  ...
+# Subtest: the population authority saves a canonical top-level size policy and keeps population = its parts
+ok 3 - the population authority saves a canonical top-level size policy and keeps population = its parts
+  ---
+  duration_ms: 33.5192
+  type: 'test'
+  ...
+# Subtest: the size policy propagates from the population authority to L0 and L1
+ok 4 - the size policy propagates from the population authority to L0 and L1
+  ---
+  duration_ms: 9.7266
+  type: 'test'
+  ...
+# Subtest: the L0 to L1 refinement keeps parents = children + unallocated and preserves town means
+ok 5 - the L0 to L1 refinement keeps parents = children + unallocated and preserves town means
+  ---
+  duration_ms: 8.6459
+  type: 'test'
+  ...
+# Subtest: createL2SettlementHandoff is pure, L1-only and identity stable under key reordering
+ok 6 - createL2SettlementHandoff is pure, L1-only and identity stable under key reordering
+  ---
+  duration_ms: 12.4931
+  type: 'test'
+  ...
+# Subtest: create rejects a tampered population that kept the same id
+ok 7 - create rejects a tampered population that kept the same id
+  ---
+  duration_ms: 10.0634
+  type: 'test'
+  ...
+# Subtest: create rejects mismatched region world, layer, grid and climate identities
+ok 8 - create rejects mismatched region world, layer, grid and climate identities
+  ---
+  duration_ms: 13.3664
+  type: 'test'
+  ...
+# Subtest: a tampered parent mapping, bounds, granularity or policy is rejected even after rehashing
+ok 9 - a tampered parent mapping, bounds, granularity or policy is rejected even after rehashing
+  ---
+  duration_ms: 10.0411
+  type: 'test'
+  ...
+# Subtest: a zero-population, zero-yield cell yields zero farmland demand without NaN
+ok 10 - a zero-population, zero-yield cell yields zero farmland demand without NaN
+  ---
+  duration_ms: 9.933
+  type: 'test'
+  ...
+# Subtest: a positive population with a zero scenario yield keeps the explicit unresolved flag
+ok 11 - a positive population with a zero scenario yield keeps the explicit unresolved flag
+  ---
+  duration_ms: 13.0326
+  type: 'test'
+  ...
+# Subtest: a non-finite or negative parent agricultural value is rejected, not silently zeroed
+ok 12 - a non-finite or negative parent agricultural value is rejected, not silently zeroed
+  ---
+  duration_ms: 21.543
+  type: 'test'
+  ...
+# Subtest: pages are bounded, ordered city then town then village, and stable on revisit
+ok 13 - pages are bounded, ordered city then town then village, and stable on revisit
+  ---
+  duration_ms: 53.6398
+  type: 'test'
+  ...
+# Subtest: page candidates keep their population, id and a unique shared-stratum coordinate
+ok 14 - page candidates keep their population, id and a unique shared-stratum coordinate
+  ---
+  duration_ms: 13.8599
+  type: 'test'
+  ...
+# Subtest: farmland demand is an integer, matches the page and slices exactly across pages
+ok 15 - farmland demand is an integer, matches the page and slices exactly across pages
+  ---
+  duration_ms: 51.5904
+  type: 'test'
+  ...
+# Subtest: survey adopts real sites and partitions the seven budgets and farmland exactly
+ok 16 - survey adopts real sites and partitions the seven budgets and farmland exactly
+  ---
+  duration_ms: 36.4065
+  type: 'test'
+  ...
+# Subtest: wet, steep and invalid candidates become siting-unresolved candidates with reasons
+ok 17 - wet, steep and invalid candidates become siting-unresolved candidates with reasons
+  ---
+  duration_ms: 33.2573
+  type: 'test'
+  ...
+# Subtest: survey rejects a mismatched sampling layer and records its sampling source
+ok 18 - survey rejects a mismatched sampling layer and records its sampling source
+  ---
+  duration_ms: 15.1644
+  type: 'test'
+  ...
+# Subtest: a small page leaves the rest of the cell budget explicitly unvisited
+ok 19 - a small page leaves the rest of the cell budget explicitly unvisited
+  ---
+  duration_ms: 12.0462
+  type: 'test'
+  ...
+# Subtest: population deterministic conservative bounded regional representation
+ok 20 - population deterministic conservative bounded regional representation
+  ---
+  duration_ms: 115.626
+  type: 'test'
+  ...
+# Subtest: cold and dry climate cannot support rainfed cereal or hide shortage
+ok 21 - cold and dry climate cannot support rainfed cereal or hide shortage
+  ---
+  duration_ms: 35.068
+  type: 'test'
+  ...
+# Subtest: food assumptions affect capacity; invalid alignment rejected
+ok 22 - food assumptions affect capacity; invalid alignment rejected
+  ---
+  duration_ms: 23.8338
+  type: 'test'
+  ...
+# Subtest: thematic fields stable across world seam, temperature month, contours explicit
+ok 23 - thematic fields stable across world seam, temperature month, contours explicit
+  ---
+  duration_ms: 22.1176
+  type: 'test'
+  ...
+# Subtest: connected world selects habitable populated sites and restores same identities
+ok 24 - connected world selects habitable populated sites and restores same identities
+  ---
+  duration_ms: 675.6563
+  type: 'test'
+  ...
+# Subtest: population classes add exactly and variable city centres respect the saved size policy
+ok 25 - population classes add exactly and variable city centres respect the saved size policy
+  ---
+  duration_ms: 41.2547
+  type: 'test'
+  ...
+# Subtest: regional catalogue fixes more than32 positions without allocating houses
+ok 26 - regional catalogue fixes more than32 positions without allocating houses
+  ---
+  duration_ms: 13.005
+  type: 'test'
+  ...
+# Subtest: rejection preserves other slot identities and explicitly unplaced population
+ok 27 - rejection preserves other slot identities and explicitly unplaced population
+  ---
+  duration_ms: 6.5377
+  type: 'test'
+  ...
+# Subtest: bounded work reports unplaced slots rather than creating unlimited objects
+ok 28 - bounded work reports unplaced slots rather than creating unlimited objects
+  ---
+  duration_ms: 0.7204
+  type: 'test'
+  ...
+# Subtest: residential layout shares canonical collision and rendering, stable on revisit
+ok 29 - residential layout shares canonical collision and rendering, stable on revisit
+  ---
+  duration_ms: 80.3379
+  type: 'test'
+  ...
+# Subtest: large-city layout is explicitly incomplete, wet sites never grow invented bridges
+ok 30 - large-city layout is explicitly incomplete, wet sites never grow invented bridges
+  ---
+  duration_ms: 18.5687
+  type: 'test'
+  ...
+# Subtest: regional sphere bounds support dateline and pole-safe filtering
+ok 31 - regional sphere bounds support dateline and pole-safe filtering
+  ---
+  duration_ms: 0.3823
+  type: 'test'
+  ...
+# Subtest: published regional pages restore identity, demand recipes match Core and revisit unchanged
+ok 32 - published regional pages restore identity, demand recipes match Core and revisit unchanged
+  ---
+  duration_ms: 2326.6628
+  type: 'test'
+  ...
+# Subtest: existing-world upgrade rejects external paths and symlink escapes
+ok 33 - existing-world upgrade rejects external paths and symlink escapes
+  ---
+  duration_ms: 2.7809
+  type: 'test'
+  ...
+# Subtest: bounded alternative siting finds nearby dry land without shifting other slots
+ok 34 - bounded alternative siting finds nearby dry land without shifting other slots
+  ---
+  duration_ms: 2.271
+  type: 'test'
+  ...
+# Subtest: siting cannot spend an unbounded survey budget or relax the slope threshold
+ok 35 - siting cannot spend an unbounded survey budget or relax the slope threshold
+  ---
+  duration_ms: 2.663
+  type: 'test'
+  ...
+# Subtest: balanced water policy survives packaging and restoration without an alternate inspection planner
+ok 36 - balanced water policy survives packaging and restoration without an alternate inspection planner
+  ---
+  duration_ms: 1959.3107
+  type: 'test'
+  ...
+# Subtest: production L0 generation saves a worldwide census without constructing settlements
+ok 37 - production L0 generation saves a worldwide census without constructing settlements
+  ---
+  duration_ms: 48.2238
+  type: 'test'
+  ...
+# Subtest: distribution identity survives the canonical key ordering used by world saves
+ok 38 - distribution identity survives the canonical key ordering used by world saves
+  ---
+  duration_ms: 1.6739
+  type: 'test'
+  ...
+# Subtest: an explicitly broken distribution cannot be silently omitted while saving
+ok 39 - an explicitly broken distribution cannot be silently omitted while saving
+  ---
+  duration_ms: 1.0269
+  type: 'test'
+  ...
+# Subtest: a freshly rehashed world still rejects a distribution contradicting its census
+ok 40 - a freshly rehashed world still rejects a distribution contradicting its census
+  ---
+  duration_ms: 24.5567
+  type: 'test'
+  ...
+# Subtest: L0 distribution inherits the census, ignores water cells and survives reload
+ok 41 - L0 distribution inherits the census, ignores water cells and survives reload
+  ---
+  duration_ms: 12.7421
+  type: 'test'
+  ...
+# Subtest: validation rejects a tampered id, water allocation and mismatched inputs
+ok 42 - validation rejects a tampered id, water allocation and mismatched inputs
+  ---
+  duration_ms: 7.2688
+  type: 'test'
+  ...
+# Subtest: re-hashed totals, populated-cell counts and summaries are rejected as inconsistent aggregates
+ok 43 - re-hashed totals, populated-cell counts and summaries are rejected as inconsistent aggregates
+  ---
+  duration_ms: 7.2936
+  type: 'test'
+  ...
+# Subtest: L1 unallocated totals, false empty aggregates and L1 re-refinement are rejected
+ok 44 - L1 unallocated totals, false empty aggregates and L1 re-refinement are rejected
+  ---
+  duration_ms: 6.5672
+  type: 'test'
+  ...
+# Subtest: describe aggregates budgets and describeL0Region attaches them as settlementBudget
+ok 45 - describe aggregates budgets and describeL0Region attaches them as settlementBudget
+  ---
+  duration_ms: 2.1258
+  type: 'test'
+  ...
+# Subtest: refine conserves every budget, binds people to counts and never touches the parent
+ok 46 - refine conserves every budget, binds people to counts and never touches the parent
+  ---
+  duration_ms: 3.0721
+  type: 'test'
+  ...
+# Subtest: a parent with no habitable child keeps its budgets as explicit unallocated
+ok 47 - a parent with no habitable child keeps its budgets as explicit unallocated
+  ---
+  duration_ms: 2.619
+  type: 'test'
+  ...
+# Subtest: refine rejects a different world, grid, parent cell or malformed area
+ok 48 - refine rejects a different world, grid, parent cell or malformed area
+  ---
+  duration_ms: 1.2338
+  type: 'test'
+  ...
+# Subtest: L1 broad region refines the parent distribution and leaves terrain and climate numbers identical
+ok 49 - L1 broad region refines the parent distribution and leaves terrain and climate numbers identical
+  ---
+  duration_ms: 450.9654
+  type: 'test'
+  ...
+# Subtest: baseline CLI validates options, conserves budgets and reloads identically
+ok 50 - baseline CLI validates options, conserves budgets and reloads identically
+  ---
+  duration_ms: 264.614
+  type: 'test'
+  ...
+# Subtest: size policy derives and re-derives the default integer bounds
+ok 51 - size policy derives and re-derives the default integer bounds
+  ---
+  duration_ms: 2.3364
+  type: 'test'
+  ...
+# Subtest: size policy converts custom integer means and rejects abnormal means
+ok 52 - size policy converts custom integer means and rejects abnormal means
+  ---
+  duration_ms: 0.8123
+  type: 'test'
+  ...
+# Subtest: a re-hashed contradictory policy is rejected by self-consistency
+ok 53 - a re-hashed contradictory policy is rejected by self-consistency
+  ---
+  duration_ms: 0.316
+  type: 'test'
+  ...
+# Subtest: town and city counts keep the mean inside the policy bounds
+ok 54 - town and city counts keep the mean inside the policy bounds
+  ---
+  duration_ms: 0.3928
+  type: 'test'
+  ...
+# Subtest: slot populations conserve the type budget and respect min/max
+ok 55 - slot populations conserve the type budget and respect min/max
+  ---
+  duration_ms: 44.0691
+  type: 'test'
+  ...
+# Subtest: an odd trailing slot is left unvaried so the sum is exact
+ok 56 - an odd trailing slot is left unvaried so the sum is exact
+  ---
+  duration_ms: 0.3579
+  type: 'test'
+  ...
+# Subtest: a village slot is never below one person
+ok 57 - a village slot is never below one person
+  ---
+  duration_ms: 0.5842
+  type: 'test'
+  ...
+# Subtest: prefix population at billions of people is exact without a slot array
+ok 58 - prefix population at billions of people is exact without a slot array
+  ---
+  duration_ms: 0.198
+  type: 'test'
+  ...
+# Subtest: apportionment validation rejects impossible people/count pairs
+ok 59 - apportionment validation rejects impossible people/count pairs
+  ---
+  duration_ms: 0.6771
+  type: 'test'
+  ...
+# Subtest: a zero jitter amplitude produces no variation at all
+ok 60 - a zero jitter amplitude produces no variation at all
+  ---
+  duration_ms: 6.1256
+  type: 'test'
+  ...
+# Subtest: a small integer town mean still yields a positive derived town minimum
+ok 61 - a small integer town mean still yields a positive derived town minimum
+  ---
+  duration_ms: 0.3172
+  type: 'test'
+  ...
+# Subtest: slot and prefix APIs reject an impossible people/count apportionment
+ok 62 - slot and prefix APIs reject an impossible people/count apportionment
+  ---
+  duration_ms: 0.4817
+  type: 'test'
+  ...
+# Subtest: villages under 100 people are shown as hamlets
+ok 63 - villages under 100 people are shown as hamlets
+  ---
+  duration_ms: 0.1258
+  type: 'test'
+  ...
+1..63
+# tests 63
+# suites 0
+# pass 63
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4749.3238

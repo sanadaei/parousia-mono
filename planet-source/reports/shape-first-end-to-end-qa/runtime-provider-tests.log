@@ -1,0 +1,67 @@
+✔ explicit sphere draft has stable separate persisted identity and original untouched (66.721712ms)
+✖ sphere queries and camera ground follow original native shape at geographic placement (23.840742ms)
+✔ exterior collar joins the saved planet without moving native rectangle (44.566718ms)
+✔ normal globe mesh uses selected heights and draped design river symbols (239.510376ms)
+✖ recorded vertical placement preserves all native relative heights and reloads (48.757763ms)
+✔ seed-generated shape uses the same sphere field contract (1183.698478ms)
+✔ runtime loads the actual chosen A source and annotations with five unchanged levels (25.354379ms)
+✔ runtime rejects detached/tampered pyramid and water sources (88.626896ms)
+✔ runtime rejects malformed display contracts (106.474446ms)
+✔ bilinear sampler is exact at nodes and clamps to a finite boundary (0.633033ms)
+✔ LOD adapts to zoom but stops at native resolution (0.29906ms)
+✔ pan/zoom coordinates round trip and river selection reports the right segment (2.182914ms)
+✔ actual runtime raster is deterministic, finite, level-sensitive and source-preserving (12.582421ms)
+✔ entry point offers shape mode without replacing saved-world runtime (0.738031ms)
+✔ runtime rejects tampered water arithmetic and cyclic parent labels (62.859977ms)
+✔ shared source controls preserve selected view and safely round-trip seeds (4.265137ms)
+✔ shared loader produces validated deterministic multi-seed native shapes (2070.152459ms)
+✔ draft records persist exact data, round-trip and refuse same-seed conflicts (1137.178676ms)
+✔ draft export/import preserves selected world and exact geographic placement (1.417953ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 17
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3710.813459
+
+✖ failing tests:
+
+test at test/shape-first-planet.test.mjs:22:1
+✖ sphere queries and camera ground follow original native shape at geographic placement (23.840742ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== null
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3cbeb2a18b00/planet-active/test/shape-first-planet.test.mjs:26:176)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/shape-first-planet.test.mjs:40:1
+✖ recorded vertical placement preserves all native relative heights and reloads (48.757763ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(region.height(q)-model.candidate.elevation[y*g.columns+x]-1234.5)<1e-5)
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3cbeb2a18b00/planet-active/test/shape-first-planet.test.mjs:43:155)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

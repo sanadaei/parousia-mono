@@ -1,0 +1,34 @@
+{
+  "scope": "65 points per side, original chart versus explicit compact outer apron; not universal visual acceptance",
+  "before": {
+    "siteId": "pop:5010:26",
+    "hits": [
+      {
+        "edge": "south",
+        "x": 18.75,
+        "y": -230,
+        "delta": 0.029314417207956467,
+        "road": "pop:5010:26/district:0/terrain-street:0:south",
+        "building": null
+      },
+      {
+        "edge": "west",
+        "x": -200,
+        "y": 35.9375,
+        "delta": -0.0007261807919576313,
+        "building": null
+      },
+      {
+        "edge": "west",
+        "x": -200,
+        "y": 43.125,
+        "delta": 0.13408296234302952,
+        "building": null
+      }
+    ]
+  },
+  "after": {
+    "siteId": "pop:5010:26",
+    "hits": []
+  }
+}

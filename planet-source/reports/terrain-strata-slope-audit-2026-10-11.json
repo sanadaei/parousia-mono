@@ -1,0 +1,131 @@
+{
+  "worldId": "sha256:376a6a5649c47a0f9be657d63ae120a23a49ac0c4238165c23130728e150beb2",
+  "method": "four-fixed-subcell-samples; central-derivative-5m@1",
+  "samples": 13930,
+  "wetSamplesExcluded": 3846,
+  "bins": [
+    {
+      "upperDeg": 5,
+      "samples": 8266,
+      "areaWeight": 4488.90927861473,
+      "estimatedAreaFraction": 0.521901335509432
+    },
+    {
+      "upperDeg": 15,
+      "samples": 3541,
+      "areaWeight": 2440.0607868190823,
+      "estimatedAreaFraction": 0.2836927423398642
+    },
+    {
+      "upperDeg": 30,
+      "samples": 1532,
+      "areaWeight": 1194.4486618276123,
+      "estimatedAreaFraction": 0.1388721208457258
+    },
+    {
+      "upperDeg": 45,
+      "samples": 329,
+      "areaWeight": 262.9310191680144,
+      "estimatedAreaFraction": 0.030569575265060798
+    },
+    {
+      "upperDeg": 60,
+      "samples": 174,
+      "areaWeight": 140.31945303026222,
+      "estimatedAreaFraction": 0.016314188010733515
+    },
+    {
+      "upperDeg": 90,
+      "samples": 88,
+      "areaWeight": 74.39957196416965,
+      "estimatedAreaFraction": 0.008650038029151898
+    }
+  ],
+  "steepestSamples": [
+    {
+      "latDeg": -10.546875,
+      "lonDeg": 341.015625,
+      "angleDeg": 75.96199648213386,
+      "grade": 3.999477846829639,
+      "elevationM": 2858.691512028786
+    },
+    {
+      "latDeg": 23.203125,
+      "lonDeg": 210.234375,
+      "angleDeg": 73.32584831484562,
+      "grade": 3.33864511993692,
+      "elevationM": 4352.567987080246
+    },
+    {
+      "latDeg": 2.109375,
+      "lonDeg": 343.828125,
+      "angleDeg": 73.21535202902199,
+      "grade": 3.3153700358073177,
+      "elevationM": 5133.103356992958
+    },
+    {
+      "latDeg": -21.796875,
+      "lonDeg": 153.984375,
+      "angleDeg": 72.77723671836127,
+      "grade": 3.225940412269144,
+      "elevationM": 4783.077341688253
+    },
+    {
+      "latDeg": -23.203125,
+      "lonDeg": 243.984375,
+      "angleDeg": 72.52309534036233,
+      "grade": 3.176058283701358,
+      "elevationM": 5899.196494994134
+    },
+    {
+      "latDeg": 45.703125,
+      "lonDeg": 206.015625,
+      "angleDeg": 72.50044686778442,
+      "grade": 3.1716810572181195,
+      "elevationM": 3306.458701250103
+    },
+    {
+      "latDeg": 45.703125,
+      "lonDeg": 47.109375,
+      "angleDeg": 72.28810393416559,
+      "grade": 3.1311694127371577,
+      "elevationM": 3125.674153518144
+    },
+    {
+      "latDeg": -27.421875,
+      "lonDeg": 159.609375,
+      "angleDeg": 72.1655879079218,
+      "grade": 3.108220276928939,
+      "elevationM": 3903.770418590129
+    },
+    {
+      "latDeg": 21.796875,
+      "lonDeg": 296.015625,
+      "angleDeg": 71.13408492913618,
+      "grade": 2.926440703357251,
+      "elevationM": 6115.789491847197
+    },
+    {
+      "latDeg": -21.796875,
+      "lonDeg": 87.890625,
+      "angleDeg": 70.60306625164866,
+      "grade": 2.840139038017013,
+      "elevationM": 3050.9504953542146
+    },
+    {
+      "latDeg": 63.984375,
+      "lonDeg": 269.296875,
+      "angleDeg": 70.55654895618072,
+      "grade": 2.832795150124366,
+      "elevationM": 3479.3217647863726
+    },
+    {
+      "latDeg": 62.578125,
+      "lonDeg": 272.109375,
+      "angleDeg": 70.33111351109083,
+      "grade": 2.7976777704504587,
+      "elevationM": 3166.92719167085
+    }
+  ],
+  "scope": "Finite stratified sample of source land cells, weighted by latitude. Narrow cliffs can be missed; not a proof of their absence, geomorphological validity, or renderer quality."
+}

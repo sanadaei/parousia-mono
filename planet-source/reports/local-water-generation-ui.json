@@ -1,0 +1,44 @@
+{
+  "observedAt": "2026-10-11T01:11:39Z",
+  "input": {
+    "seed": "landscape-second-1",
+    "population": 100000000,
+    "sites": 128,
+    "settlements": 4,
+    "localTributaries": true
+  },
+  "route": "Actual cloud browser form POST, then generated-world link",
+  "canonicalWorldId": "sha256:99af79f142afbc69e05004bb4fbfebeeda39e5f7a400f222dc83777dfd99425b",
+  "policies": {
+    "profile": "medieval-regional-landscape@1",
+    "publicGreenPolicy": "surveyed-sloping-commons@1",
+    "fieldPattern": "surveyed-furlongs@2",
+    "landUseMosaic": "mixed-rainfed-hinterland@1",
+    "roadPadClearance": "surveyed-frontage-pads@1",
+    "settlementSiting": "river-access-siting@1",
+    "parcelTransition": "village-footprints@1",
+    "roadParcelClipping": "surveyed-corridors@1",
+    "fieldSurvey": "local-triangle-clearance@1",
+    "seed": "landscape-second-1"
+  },
+  "localWater": {
+    "regions": 39,
+    "acceptedProfiles": 237
+  },
+  "population": {
+    "requested": 302871,
+    "placed": 259952,
+    "unplaced": 42919,
+    "placedPopulation": 85503702,
+    "unplacedPopulation": 14496298,
+    "bytes": 479177595
+  },
+  "waterAccess": {
+    "accepted": 84,
+    "proposed": 784,
+    "rejected": 518,
+    "approachSamples": 3878,
+    "scope": "Bounded sampled river approaches only; unlisted settlements have no established water-access claim. Wells, springs and lake access not surveyed."
+  },
+  "scope": "Actual new generation completed within 180-second job deadline. Not landscape acceptance. Existing saved worlds were not changed."
+}

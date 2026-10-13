@@ -1,0 +1,3389 @@
+{
+  "schema": "shape-first-designed-channels@2",
+  "status": "Designed channel geometry and water datum; provisional supply scaling, not hydraulic certification",
+  "method": "Bounded supply-scaled width/depth; parent-first matching confluences; upstream-monotone water levels; parabolic wet section and compact smooth bank blend",
+  "sourceSeed": 271828,
+  "riverCount": 40,
+  "pointCount": 3478,
+  "confluences": [
+    {
+      "childId": "western_fork",
+      "parentId": "main",
+      "parentSegment": 225,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 102.524
+    },
+    {
+      "childId": "northeast_fork",
+      "parentId": "main",
+      "parentSegment": 297,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 113.586
+    },
+    {
+      "childId": "southwest_fork",
+      "parentId": "main",
+      "parentSegment": 102,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 85.723
+    },
+    {
+      "childId": "east_fork",
+      "parentId": "main",
+      "parentSegment": 174,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 95.11699999999999
+    },
+    {
+      "childId": "upper_west",
+      "parentId": "main",
+      "parentSegment": 405,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 132.14
+    },
+    {
+      "childId": "upper_east",
+      "parentId": "main",
+      "parentSegment": 462,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 142.21
+    },
+    {
+      "childId": "lower_south",
+      "parentId": "main",
+      "parentSegment": 35,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 77.824
+    },
+    {
+      "childId": "side_00",
+      "parentId": "western_fork",
+      "parentSegment": 65,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 114.336
+    },
+    {
+      "childId": "side_01",
+      "parentId": "western_fork",
+      "parentSegment": 135,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 128.969
+    },
+    {
+      "childId": "side_02",
+      "parentId": "western_fork",
+      "parentSegment": 183,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 140.942
+    },
+    {
+      "childId": "side_03",
+      "parentId": "western_fork",
+      "parentSegment": 75,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 116.091
+    },
+    {
+      "childId": "side_04",
+      "parentId": "western_fork",
+      "parentSegment": 214,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 148.99699999999999
+    },
+    {
+      "childId": "side_05",
+      "parentId": "northeast_fork",
+      "parentSegment": 56,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 123.76899999999999
+    },
+    {
+      "childId": "side_06",
+      "parentId": "northeast_fork",
+      "parentSegment": 118,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 137.325
+    },
+    {
+      "childId": "side_07",
+      "parentId": "northeast_fork",
+      "parentSegment": 178,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 152.483
+    },
+    {
+      "childId": "side_08",
+      "parentId": "northeast_fork",
+      "parentSegment": 213,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 162.016
+    },
+    {
+      "childId": "side_09",
+      "parentId": "southwest_fork",
+      "parentSegment": 62,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 97.68199999999999
+    },
+    {
+      "childId": "side_10",
+      "parentId": "southwest_fork",
+      "parentSegment": 150,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 118.975
+    },
+    {
+      "childId": "side_11",
+      "parentId": "east_fork",
+      "parentSegment": 78,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 114.31099999999999
+    },
+    {
+      "childId": "side_12",
+      "parentId": "east_fork",
+      "parentSegment": 126,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 129.06
+    },
+    {
+      "childId": "side_13",
+      "parentId": "upper_west",
+      "parentSegment": 68,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 146.482
+    },
+    {
+      "childId": "side_14",
+      "parentId": "upper_west",
+      "parentSegment": 113,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 158.91899999999998
+    },
+    {
+      "childId": "side_15",
+      "parentId": "upper_east",
+      "parentSegment": 34,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 150.307
+    },
+    {
+      "childId": "side_16",
+      "parentId": "main",
+      "parentSegment": 354,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 123.139
+    },
+    {
+      "childId": "side_17",
+      "parentId": "main",
+      "parentSegment": 50,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 79.479
+    },
+    {
+      "childId": "twig_side_00",
+      "parentId": "side_00",
+      "parentSegment": 51,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 136.303
+    },
+    {
+      "childId": "twig_side_01",
+      "parentId": "side_01",
+      "parentSegment": 49,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 147.832
+    },
+    {
+      "childId": "twig_side_05",
+      "parentId": "side_05",
+      "parentSegment": 34,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 137.262
+    },
+    {
+      "childId": "twig_side_06",
+      "parentId": "side_06",
+      "parentSegment": 53,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 158.635
+    },
+    {
+      "childId": "twig_side_07",
+      "parentId": "side_07",
+      "parentSegment": 46,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 168.90699999999998
+    },
+    {
+      "childId": "twig_side_09",
+      "parentId": "side_09",
+      "parentSegment": 57,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 121.45599999999999
+    },
+    {
+      "childId": "twig_side_10",
+      "parentId": "side_10",
+      "parentSegment": 49,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 140.894
+    },
+    {
+      "childId": "twig_side_11",
+      "parentId": "side_11",
+      "parentSegment": 33,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 128.55599999999998
+    },
+    {
+      "childId": "twig_side_12",
+      "parentId": "side_12",
+      "parentSegment": 70,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 157.75799999999998
+    },
+    {
+      "childId": "twig_side_13",
+      "parentId": "side_13",
+      "parentSegment": 40,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 164.41899999999998
+    },
+    {
+      "childId": "twig_side_14",
+      "parentId": "side_14",
+      "parentSegment": 42,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 175.426
+    },
+    {
+      "childId": "twig_side_15",
+      "parentId": "side_15",
+      "parentSegment": 56,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 177.398
+    },
+    {
+      "childId": "twig_side_16",
+      "parentId": "side_16",
+      "parentSegment": 25,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 138.12199999999999
+    },
+    {
+      "childId": "twig_side_17",
+      "parentId": "side_17",
+      "parentSegment": 33,
+      "parentT": 1,
+      "gapM": 0,
+      "waterLevelM": 95.083
+    }
+  ],
+  "designBounds": {
+    "minWidthM": 3,
+    "maxWidthM": 42,
+    "minDepthM": 0.3,
+    "maxDepthM": 3,
+    "bankRadiusFactor": 2
+  },
+  "crossSection": {
+    "riverId": "main",
+    "pointIndex": 247,
+    "center": {
+      "xM": 4626.052,
+      "yM": 5188.691
+    },
+    "samples": [
+      {
+        "distanceM": -16.465042584124618,
+        "groundElevationM": 105.85150912833565,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -16.36213606797384,
+        "groundElevationM": 105.85026590884385,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -16.25922955182306,
+        "groundElevationM": 105.84902492212017,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -16.15632303567228,
+        "groundElevationM": 105.84778616816462,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -16.0534165195215,
+        "groundElevationM": 105.8465496469772,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.950510003370724,
+        "groundElevationM": 105.84531535855791,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.847603487219946,
+        "groundElevationM": 105.84408330290677,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.744696971069166,
+        "groundElevationM": 105.84285348002375,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.641790454918388,
+        "groundElevationM": 105.84162588990885,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.538883938767608,
+        "groundElevationM": 105.8404005325621,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.43597742261683,
+        "groundElevationM": 105.83917740798348,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.333070906466052,
+        "groundElevationM": 105.837956516173,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.230164390315272,
+        "groundElevationM": 105.83673785713063,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.127257874164494,
+        "groundElevationM": 105.83552143085642,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -15.024351358013714,
+        "groundElevationM": 105.83430723735032,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.921444841862936,
+        "groundElevationM": 105.83309527661237,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.818538325712154,
+        "groundElevationM": 105.83188554864253,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.715631809561376,
+        "groundElevationM": 105.83067805344085,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.612725293410596,
+        "groundElevationM": 105.82947279100728,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.509818777259818,
+        "groundElevationM": 105.82826976134186,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.406912261109039,
+        "groundElevationM": 105.82706896444456,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.30400574495826,
+        "groundElevationM": 105.8258704003154,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.201099228807482,
+        "groundElevationM": 105.82467406895438,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -14.098192712656703,
+        "groundElevationM": 105.82347997036146,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.995286196505925,
+        "groundElevationM": 105.8222881045367,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.892379680355145,
+        "groundElevationM": 105.82109847148008,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.789473164204367,
+        "groundElevationM": 105.81991107119157,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.686566648053589,
+        "groundElevationM": 105.81872590367121,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.583660131902809,
+        "groundElevationM": 105.81754296891897,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.48075361575203,
+        "groundElevationM": 105.81636226693486,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.37784709960125,
+        "groundElevationM": 105.81518379771889,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.274940583450473,
+        "groundElevationM": 105.81400756127105,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.172034067299695,
+        "groundElevationM": 105.81283355759135,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -13.069127551148915,
+        "groundElevationM": 105.81166178667979,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.966221034998137,
+        "groundElevationM": 105.81049224853635,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.863314518847357,
+        "groundElevationM": 105.80932494316104,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.760408002696579,
+        "groundElevationM": 105.80815987055385,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.6575014865458,
+        "groundElevationM": 105.80699703071483,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.554594970395021,
+        "groundElevationM": 105.80583642364391,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.451688454244243,
+        "groundElevationM": 105.80467804934113,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.348781938093463,
+        "groundElevationM": 105.80352190780648,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.245875421942683,
+        "groundElevationM": 105.80236799903997,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.142968905791905,
+        "groundElevationM": 105.8012163230416,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -12.040062389641125,
+        "groundElevationM": 105.80006687981135,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.937155873490347,
+        "groundElevationM": 105.79891966934925,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.83424935733957,
+        "groundElevationM": 105.79777469165526,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.73134284118879,
+        "groundElevationM": 105.79663194672942,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.628436325038011,
+        "groundElevationM": 105.7954914345717,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.525529808887232,
+        "groundElevationM": 105.79435315518212,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.422623292736453,
+        "groundElevationM": 105.79321710856065,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.319716776585675,
+        "groundElevationM": 105.79208329470734,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.216810260434896,
+        "groundElevationM": 105.79095171362216,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.113903744284118,
+        "groundElevationM": 105.78982236530511,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -11.010997228133338,
+        "groundElevationM": 105.78869524975619,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.90809071198256,
+        "groundElevationM": 105.78757036697539,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.805184195831782,
+        "groundElevationM": 105.78644771696275,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.702277679681,
+        "groundElevationM": 105.78532729971822,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.599371163530222,
+        "groundElevationM": 105.78420911524184,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.496464647379444,
+        "groundElevationM": 105.78309316353358,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.393558131228664,
+        "groundElevationM": 105.78197944459345,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.290651615077886,
+        "groundElevationM": 105.78086795842147,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.187745098927106,
+        "groundElevationM": 105.77975870501761,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -10.084838582776328,
+        "groundElevationM": 105.77865168438187,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.98193206662555,
+        "groundElevationM": 105.77754689651428,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.87902555047477,
+        "groundElevationM": 105.77644434141482,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.776119034323992,
+        "groundElevationM": 105.77534401908349,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.673212518173212,
+        "groundElevationM": 105.7742459295203,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.570306002022434,
+        "groundElevationM": 105.77315007272523,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.467399485871656,
+        "groundElevationM": 105.7720564486983,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.364492969720876,
+        "groundElevationM": 105.77096505743951,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.261586453570098,
+        "groundElevationM": 105.76987589894884,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.158679937419318,
+        "groundElevationM": 105.76878897322631,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -9.05577342126854,
+        "groundElevationM": 105.7677042802719,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.95286690511776,
+        "groundElevationM": 105.76662182008563,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.84996038896698,
+        "groundElevationM": 105.76554159266752,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.747053872816203,
+        "groundElevationM": 105.76446359801749,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.644147356665425,
+        "groundElevationM": 105.76338783613562,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.541240840514645,
+        "groundElevationM": 105.76231430702188,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.438334324363867,
+        "groundElevationM": 105.76139406406537,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.335427808213087,
+        "groundElevationM": 105.76068740523856,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": -8.232521292062309,
+        "groundElevationM": 105.75998346241751,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0
+      },
+      {
+        "distanceM": -8.12961477591153,
+        "groundElevationM": 105.76299184150656,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.0018437499999975904
+      },
+      {
+        "distanceM": -8.02670825976075,
+        "groundElevationM": 105.77266746924829,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.007250000000038281
+      },
+      {
+        "distanceM": -7.923801743609973,
+        "groundElevationM": 105.78793163957975,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.016031249999998942
+      },
+      {
+        "distanceM": -7.820895227459194,
+        "groundElevationM": 105.80777539454355,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.027999999999969605
+      },
+      {
+        "distanceM": -7.717988711308415,
+        "groundElevationM": 105.83125785495189,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.04296875000006217
+      },
+      {
+        "distanceM": -7.615082195157636,
+        "groundElevationM": 105.85750455105067,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.06074999999996755
+      },
+      {
+        "distanceM": -7.512175679006857,
+        "groundElevationM": 105.88570575318575,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.08115624999991677
+      },
+      {
+        "distanceM": -7.409269162856077,
+        "groundElevationM": 105.9151148024665,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.1040000000000525
+      },
+      {
+        "distanceM": -7.306362646705298,
+        "groundElevationM": 105.94504644143,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.12909374999991374
+      },
+      {
+        "distanceM": -7.203456130554519,
+        "groundElevationM": 105.9748751447077,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.15625000000007694
+      },
+      {
+        "distanceM": -7.100549614403741,
+        "groundElevationM": 106.00403344968757,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.18528125000001827
+      },
+      {
+        "distanceM": -6.997643098252962,
+        "groundElevationM": 106.03201028718078,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.21599999999984587
+      },
+      {
+        "distanceM": -6.894736582102183,
+        "groundElevationM": 106.05834931208598,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.24821875000003768
+      },
+      {
+        "distanceM": -6.791830065951404,
+        "groundElevationM": 106.08264723405267,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.28174999999996553
+      },
+      {
+        "distanceM": -6.688923549800625,
+        "groundElevationM": 106.10455214814775,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.3164062500000596
+      },
+      {
+        "distanceM": -6.586017033649847,
+        "groundElevationM": 106.1237618655188,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.35199999999998355
+      },
+      {
+        "distanceM": -6.483110517499068,
+        "groundElevationM": 106.1400222440597,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.38834374999990506
+      },
+      {
+        "distanceM": -6.3802040013482895,
+        "groundElevationM": 106.1531255190747,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.4252500000000039
+      },
+      {
+        "distanceM": -6.2772974851975105,
+        "groundElevationM": 106.16290863394326,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.46253124999992346
+      },
+      {
+        "distanceM": -6.174390969046732,
+        "groundElevationM": 106.169251570785,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.5000000000001495
+      },
+      {
+        "distanceM": -6.071484452895953,
+        "groundElevationM": 106.17207568112393,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.5374687500000692
+      },
+      {
+        "distanceM": -5.968577936745174,
+        "groundElevationM": 106.1713420165536,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.5747499999998649
+      },
+      {
+        "distanceM": -5.865671420594395,
+        "groundElevationM": 106.16704965940141,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.6116562500000885
+      },
+      {
+        "distanceM": -5.762764904443616,
+        "groundElevationM": 106.15923405339359,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.648000000000009
+      },
+      {
+        "distanceM": -5.659858388292838,
+        "groundElevationM": 106.14796533431952,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.6835937500001037
+      },
+      {
+        "distanceM": -5.556951872142059,
+        "groundElevationM": 106.13334666069694,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.7182500000000275
+      },
+      {
+        "distanceM": -5.45404535599128,
+        "groundElevationM": 106.11551254443606,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.7517812499999562
+      },
+      {
+        "distanceM": -5.3511388398405,
+        "groundElevationM": 106.09462718150455,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.784000000000043
+      },
+      {
+        "distanceM": -5.248232323689722,
+        "groundElevationM": 106.07088278259242,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.8147187499999764
+      },
+      {
+        "distanceM": -5.145325807538943,
+        "groundElevationM": 106.04449790377623,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.8437499999999178
+      },
+      {
+        "distanceM": -5.042419291388164,
+        "groundElevationM": 106.01571577718393,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.8709062499999937
+      },
+      {
+        "distanceM": -4.939512775237385,
+        "groundElevationM": 105.98480264166005,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.895999999999943
+      },
+      {
+        "distanceM": -4.836606259086606,
+        "groundElevationM": 105.9520460734293,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9188437500000792
+      },
+      {
+        "distanceM": -4.733699742935828,
+        "groundElevationM": 105.91775331676295,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9392499999999651
+      },
+      {
+        "distanceM": -4.630793226785049,
+        "groundElevationM": 105.88224961464135,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9570312499999348
+      },
+      {
+        "distanceM": -4.52788671063427,
+        "groundElevationM": 105.84587653942003,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9720000000000277
+      },
+      {
+        "distanceM": -4.42498019448349,
+        "groundElevationM": 105.80899032349495,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9839687499999992
+      },
+      {
+        "distanceM": -4.322073678332712,
+        "groundElevationM": 105.77196018996516,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9927500000000186
+      },
+      {
+        "distanceM": -4.219167162181933,
+        "groundElevationM": 105.73516668329955,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 0.9981562500000017
+      },
+      {
+        "distanceM": -4.116260646031154,
+        "groundElevationM": 105.69900000000007,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -4.013354129880375,
+        "groundElevationM": 105.66372538711273,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.035274612887263856,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.910447613729597,
+        "groundElevationM": 105.62934380239994,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.06965619760005382,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.807541097578818,
+        "groundElevationM": 105.59585524586123,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.10314475413876778,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.7046345814280386,
+        "groundElevationM": 105.56325971749726,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.13574028250273784,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.6017280652772596,
+        "groundElevationM": 105.53155721730754,
+        "waterLevelM": 105.69899999999998,
+        "waterDepthM": 0.16744278269244717,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.498821549126481,
+        "groundElevationM": 105.50074774529192,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.1982522547080805,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.395915032975702,
+        "groundElevationM": 105.47083130145101,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.22816869854898414,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.2930085168249237,
+        "groundElevationM": 105.44180788578413,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.25719211421586863,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.1901020006741447,
+        "groundElevationM": 105.41367749829185,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.2853225017081513,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -3.087195484523366,
+        "groundElevationM": 105.38644013897402,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.31255986102597433,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.984288968372587,
+        "groundElevationM": 105.36009580783022,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.3389041921697782,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.881382452221808,
+        "groundElevationM": 105.33464450486102,
+        "waterLevelM": 105.69899999999998,
+        "waterDepthM": 0.36435549513896603,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.7784759360710294,
+        "groundElevationM": 105.31008623006623,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.38891376993376525,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.67556941992025,
+        "groundElevationM": 105.28642098344554,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.41257901655446005,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.5726629037694715,
+        "groundElevationM": 105.2636487649994,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.4353512350005957,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.4697563876186925,
+        "groundElevationM": 105.24176957472743,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.4572304252725701,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.366849871467914,
+        "groundElevationM": 105.2207834126301,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.4782165873699,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.263943355317135,
+        "groundElevationM": 105.20069027870703,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.49830972129296924,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.161036839166356,
+        "groundElevationM": 105.18149017295818,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.5175098270418204,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -2.058130323015577,
+        "groundElevationM": 105.16318309538389,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.5358169046161123,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.9552238068647985,
+        "groundElevationM": 105.14576904598376,
+        "waterLevelM": 105.69900000000001,
+        "waterDepthM": 0.5532309540162572,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.8523172907140193,
+        "groundElevationM": 105.12924802475813,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.5697519752418714,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.7494107745632406,
+        "groundElevationM": 105.1136200317069,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.5853799682930969,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.6465042584124618,
+        "groundElevationM": 105.09888506682988,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6001149331701185,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.543597742261683,
+        "groundElevationM": 105.08504313012732,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6139568698726805,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.440691226110904,
+        "groundElevationM": 105.07209422159906,
+        "waterLevelM": 105.69900000000001,
+        "waterDepthM": 0.6269057784009533,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.337784709960125,
+        "groundElevationM": 105.06003834124523,
+        "waterLevelM": 105.69900000000001,
+        "waterDepthM": 0.6389616587547806,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.2348781938093463,
+        "groundElevationM": 105.04887548906575,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6501245109342477,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.1319716776585675,
+        "groundElevationM": 105.03860566506057,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6603943349394257,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -1.0290651615077886,
+        "groundElevationM": 105.02922886922983,
+        "waterLevelM": 105.69899999999998,
+        "waterDepthM": 0.6697711307701582,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.9261586453570096,
+        "groundElevationM": 105.02074510157341,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6782548984265873,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.8232521292062309,
+        "groundElevationM": 105.0131543620913,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6858456379086988,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.720345613055452,
+        "groundElevationM": 105.00645665078363,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6925433492163648,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.6174390969046731,
+        "groundElevationM": 105.00065196765026,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.6983480323497417,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.5145325807538943,
+        "groundElevationM": 104.99574031269128,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.7032596873087158,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.41162606460311546,
+        "groundElevationM": 104.9917216859067,
+        "waterLevelM": 105.69900000000001,
+        "waterDepthM": 0.7072783140933154,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.30871954845233657,
+        "groundElevationM": 104.9885960872964,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.7104039127035975,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.20581303230155773,
+        "groundElevationM": 104.9863635168605,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.7126364831395051,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": -0.10290651615077887,
+        "groundElevationM": 104.98502397459896,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.7139760254010383,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0,
+        "groundElevationM": 104.98457746051179,
+        "waterLevelM": 105.699,
+        "waterDepthM": 0.7144225394882113,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521292062309,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.10290651615077887,
+        "groundElevationM": 104.98503277924252,
+        "waterLevelM": 105.69900887477296,
+        "waterDepthM": 0.7139760955304411,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521217097618,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.20581303230155773,
+        "groundElevationM": 104.98638097799468,
+        "waterLevelM": 105.6990177495459,
+        "waterDepthM": 0.7126367715512174,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.23252114213293,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.30871954845233657,
+        "groundElevationM": 104.98862205680224,
+        "waterLevelM": 105.69902662431888,
+        "waterDepthM": 0.7104045675166333,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232521067168241,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.41162606460311546,
+        "groundElevationM": 104.99175601569917,
+        "waterLevelM": 105.69903549909183,
+        "waterDepthM": 0.7072794833926679,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.23252099220355,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.5145325807538943,
+        "groundElevationM": 104.99578285471932,
+        "waterLevelM": 105.69904437386478,
+        "waterDepthM": 0.7032615191454568,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520917238862,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.6174390969046731,
+        "groundElevationM": 105.00070257389669,
+        "waterLevelM": 105.69905324863774,
+        "waterDepthM": 0.6983506747410502,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520842274171,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.720345613055452,
+        "groundElevationM": 105.00651517326524,
+        "waterLevelM": 105.69906212341068,
+        "waterDepthM": 0.6925469501454415,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520767309483,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.8232521292062309,
+        "groundElevationM": 105.01322065285885,
+        "waterLevelM": 105.69907099818364,
+        "waterDepthM": 0.6858503453247948,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520692344792,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 0.9261586453570096,
+        "groundElevationM": 105.02081901271156,
+        "waterLevelM": 105.6990798729566,
+        "waterDepthM": 0.6782608602450466,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520617380104,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.0290651615077886,
+        "groundElevationM": 105.02931025285719,
+        "waterLevelM": 105.69908874772956,
+        "waterDepthM": 0.6697784948723751,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520542415413,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.1319716776585675,
+        "groundElevationM": 105.03869437332972,
+        "waterLevelM": 105.6990976225025,
+        "waterDepthM": 0.6604032491727878,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520467450724,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.2348781938093463,
+        "groundElevationM": 105.04897137416319,
+        "waterLevelM": 105.69910649727547,
+        "waterDepthM": 0.6501351231122783,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520392486034,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.337784709960125,
+        "groundElevationM": 105.0601412553914,
+        "waterLevelM": 105.69911537204841,
+        "waterDepthM": 0.6389741166570104,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520317521345,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.440691226110904,
+        "groundElevationM": 105.07220401704836,
+        "waterLevelM": 105.6991242468214,
+        "waterDepthM": 0.6269202297730345,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520242556655,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.543597742261683,
+        "groundElevationM": 105.08515965916803,
+        "waterLevelM": 105.69913312159433,
+        "waterDepthM": 0.6139734624263014,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520167591966,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.6465042584124618,
+        "groundElevationM": 105.0990081817843,
+        "waterLevelM": 105.69914199636729,
+        "waterDepthM": 0.6001338145829891,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520092627276,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.7494107745632406,
+        "groundElevationM": 105.11374958493126,
+        "waterLevelM": 105.69915087114025,
+        "waterDepthM": 0.5854012862089917,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232520017662587,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.8523172907140193,
+        "groundElevationM": 105.12938386864255,
+        "waterLevelM": 105.69915974591319,
+        "waterDepthM": 0.5697758772706436,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519942697897,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 1.9552238068647985,
+        "groundElevationM": 105.14591103295231,
+        "waterLevelM": 105.69916862068615,
+        "waterDepthM": 0.5532575877338388,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519867733208,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.058130323015577,
+        "groundElevationM": 105.16333107789465,
+        "waterLevelM": 105.69917749545911,
+        "waterDepthM": 0.5358464175644571,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519792768517,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.161036839166356,
+        "groundElevationM": 105.18164400350311,
+        "waterLevelM": 105.69918637023207,
+        "waterDepthM": 0.5175423667289607,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519717803829,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.263943355317135,
+        "groundElevationM": 105.20084980981206,
+        "waterLevelM": 105.69919524500501,
+        "waterDepthM": 0.4983454351929595,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519642839138,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.366849871467914,
+        "groundElevationM": 105.22094849685506,
+        "waterLevelM": 105.69920411977797,
+        "waterDepthM": 0.4782556229229158,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.23251956787445,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.4697563876186925,
+        "groundElevationM": 105.24194006466618,
+        "waterLevelM": 105.69921299455092,
+        "waterDepthM": 0.4572729298847378,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.23251949290976,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.5726629037694715,
+        "groundElevationM": 105.26382451327963,
+        "waterLevelM": 105.69922186932389,
+        "waterDepthM": 0.43539735604426255,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.23251941794507,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.67556941992025,
+        "groundElevationM": 105.28660184272894,
+        "waterLevelM": 105.69923074409685,
+        "waterDepthM": 0.41262890136790986,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.23251934298038,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.7784759360710294,
+        "groundElevationM": 105.31027205304842,
+        "waterLevelM": 105.6992396188698,
+        "waterDepthM": 0.3889675658213747,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519268015691,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.881382452221808,
+        "groundElevationM": 105.33483514427158,
+        "waterLevelM": 105.69924849364276,
+        "waterDepthM": 0.3644133493711763,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519193051,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 2.984288968372587,
+        "groundElevationM": 105.36029111643268,
+        "waterLevelM": 105.6992573684157,
+        "waterDepthM": 0.3389662519830239,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519118086312,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.087195484523366,
+        "groundElevationM": 105.38663996956579,
+        "waterLevelM": 105.69926624318867,
+        "waterDepthM": 0.3126262736228824,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232519043121622,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.1901020006741447,
+        "groundElevationM": 105.41388170370433,
+        "waterLevelM": 105.69927511796162,
+        "waterDepthM": 0.28539341425728537,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518968156933,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.2930085168249237,
+        "groundElevationM": 105.4420163188827,
+        "waterLevelM": 105.69928399273458,
+        "waterDepthM": 0.2572676738518851,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518893192243,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.395915032975702,
+        "groundElevationM": 105.4710438151349,
+        "waterLevelM": 105.69929286750754,
+        "waterDepthM": 0.22824905237263238,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518818227554,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.498821549126481,
+        "groundElevationM": 105.50096419249434,
+        "waterLevelM": 105.69930174228048,
+        "waterDepthM": 0.19833754978614593,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518743262863,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.6017280652772596,
+        "groundElevationM": 105.53177745099566,
+        "waterLevelM": 105.69931061705344,
+        "waterDepthM": 0.16753316605777968,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518668298175,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.7046345814280386,
+        "groundElevationM": 105.5634835906722,
+        "waterLevelM": 105.69931949182639,
+        "waterDepthM": 0.13583590115418076,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518593333484,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.807541097578818,
+        "groundElevationM": 105.59608261155802,
+        "waterLevelM": 105.69932836659936,
+        "waterDepthM": 0.10324575504134259,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518518368796,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 3.910447613729597,
+        "groundElevationM": 105.62957451368754,
+        "waterLevelM": 105.6993372413723,
+        "waterDepthM": 0.06976272768476122,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518443404105,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 4.013354129880375,
+        "groundElevationM": 105.6639592970941,
+        "waterLevelM": 105.69934611614526,
+        "waterDepthM": 0.03538681905116903,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518368439417,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 4.116260646031154,
+        "groundElevationM": 105.69923696181206,
+        "waterLevelM": 105.69935499091822,
+        "waterDepthM": 0.0001180291061615435,
+        "wet": true,
+        "riverId": "main",
+        "channelWidthM": 8.232518293474726,
+        "bankInfluence": 1
+      },
+      {
+        "distanceM": 4.219167162181933,
+        "groundElevationM": 105.73533323722442,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232518218510037,
+        "bankInfluence": 0.9981686116578665
+      },
+      {
+        "distanceM": 4.322073678332712,
+        "groundElevationM": 105.77190743154635,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232518143545347,
+        "bankInfluence": 0.992774694683073
+      },
+      {
+        "distanceM": 4.42498019448349,
+        "groundElevationM": 105.80856684128312,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232518068580658,
+        "bankInfluence": 0.9840056821697261
+      },
+      {
+        "distanceM": 4.52788671063427,
+        "groundElevationM": 105.84492914045354,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517993615968,
+        "bankInfluence": 0.972049027705919
+      },
+      {
+        "distanceM": 4.630793226785049,
+        "groundElevationM": 105.88062404915911,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251791865128,
+        "bankInfluence": 0.95709218489997
+      },
+      {
+        "distanceM": 4.733699742935828,
+        "groundElevationM": 105.91529500223231,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517843686589,
+        "bankInfluence": 0.9393226073810974
+      },
+      {
+        "distanceM": 4.836606259086606,
+        "groundElevationM": 105.94860081788919,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.2325177687219,
+        "bankInfluence": 0.918927748798716
+      },
+      {
+        "distanceM": 4.939512775237385,
+        "groundElevationM": 105.9802173663798,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251769375721,
+        "bankInfluence": 0.8960950628224331
+      },
+      {
+        "distanceM": 5.042419291388164,
+        "groundElevationM": 106.00983923863836,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251761879252,
+        "bankInfluence": 0.8710120031431097
+      },
+      {
+        "distanceM": 5.145325807538943,
+        "groundElevationM": 106.0371814149371,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251754382783,
+        "bankInfluence": 0.8438660234713312
+      },
+      {
+        "distanceM": 5.248232323689722,
+        "groundElevationM": 106.06198093353693,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517468863142,
+        "bankInfluence": 0.8148445775387582
+      },
+      {
+        "distanceM": 5.3511388398405,
+        "groundElevationM": 106.08399855934111,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517393898451,
+        "bankInfluence": 0.7841351190971304
+      },
+      {
+        "distanceM": 5.45404535599128,
+        "groundElevationM": 106.10302045254781,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517318933763,
+        "bankInfluence": 0.7519251019186391
+      },
+      {
+        "distanceM": 5.556951872142059,
+        "groundElevationM": 106.11885983730336,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517243969072,
+        "bankInfluence": 0.7184019797964436
+      },
+      {
+        "distanceM": 5.659858388292838,
+        "groundElevationM": 106.1313586703567,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517169004383,
+        "bankInfluence": 0.683753206543709
+      },
+      {
+        "distanceM": 5.762764904443616,
+        "groundElevationM": 106.14038930971316,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517094039693,
+        "bankInfluence": 0.6481662359940585
+      },
+      {
+        "distanceM": 5.865671420594395,
+        "groundElevationM": 106.14585618328914,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232517019075004,
+        "bankInfluence": 0.6118285220021367
+      },
+      {
+        "distanceM": 5.968577936745174,
+        "groundElevationM": 106.14769745756742,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516944110314,
+        "bankInfluence": 0.5749275184422336
+      },
+      {
+        "distanceM": 6.071484452895953,
+        "groundElevationM": 106.14588670625236,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516869145625,
+        "bankInfluence": 0.5376506792103332
+      },
+      {
+        "distanceM": 6.174390969046732,
+        "groundElevationM": 106.14043457892589,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516794180935,
+        "bankInfluence": 0.5001854582216285
+      },
+      {
+        "distanceM": 6.2772974851975105,
+        "groundElevationM": 106.1313904697036,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516719216246,
+        "bankInfluence": 0.4627193094121542
+      },
+      {
+        "distanceM": 6.3802040013482895,
+        "groundElevationM": 106.11884418589167,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516644251556,
+        "bankInfluence": 0.42543968673923116
+      },
+      {
+        "distanceM": 6.483110517499068,
+        "groundElevationM": 106.10292761664357,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516569286867,
+        "bankInfluence": 0.38853404417955684
+      },
+      {
+        "distanceM": 6.586017033649847,
+        "groundElevationM": 106.08381640161792,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516494322176,
+        "bankInfluence": 0.35218983573116924
+      },
+      {
+        "distanceM": 6.688923549800625,
+        "groundElevationM": 106.06173159963592,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516419357488,
+        "bankInfluence": 0.316594515412039
+      },
+      {
+        "distanceM": 6.791830065951404,
+        "groundElevationM": 106.03694135733969,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516344392797,
+        "bankInfluence": 0.2819355372606318
+      },
+      {
+        "distanceM": 6.894736582102183,
+        "groundElevationM": 106.00976257785153,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516269428109,
+        "bankInfluence": 0.24840035533641547
+      },
+      {
+        "distanceM": 6.997643098252962,
+        "groundElevationM": 105.98056258943173,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232516194463418,
+        "bankInfluence": 0.21617642371855972
+      },
+      {
+        "distanceM": 7.100549614403741,
+        "groundElevationM": 105.94976081413981,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251611949873,
+        "bankInfluence": 0.18545119650777986
+      },
+      {
+        "distanceM": 7.203456130554519,
+        "groundElevationM": 105.91783043649234,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251604453404,
+        "bankInfluence": 0.15641212782417624
+      },
+      {
+        "distanceM": 7.306362646705298,
+        "groundElevationM": 105.88530007212441,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.23251596956935,
+        "bankInfluence": 0.12924667180868965
+      },
+      {
+        "distanceM": 7.409269162856077,
+        "groundElevationM": 105.8527554364509,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515894604662,
+        "bankInfluence": 0.10414228262338299
+      },
+      {
+        "distanceM": 7.512175679006857,
+        "groundElevationM": 105.82084101332545,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515819639971,
+        "bankInfluence": 0.08128641444970486
+      },
+      {
+        "distanceM": 7.615082195157636,
+        "groundElevationM": 105.79026172370442,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515744675283,
+        "bankInfluence": 0.06086652149062066
+      },
+      {
+        "distanceM": 7.717988711308415,
+        "groundElevationM": 105.76178459430677,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515669710592,
+        "bankInfluence": 0.04307005796897312
+      },
+      {
+        "distanceM": 7.820895227459194,
+        "groundElevationM": 105.73624042627694,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515594745903,
+        "bankInfluence": 0.02808447812800663
+      },
+      {
+        "distanceM": 7.923801743609973,
+        "groundElevationM": 105.71452546384836,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515519781213,
+        "bankInfluence": 0.016097236231984002
+      },
+      {
+        "distanceM": 8.02670825976075,
+        "groundElevationM": 105.69760306300532,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515444816524,
+        "bankInfluence": 0.0072957865652309994
+      },
+      {
+        "distanceM": 8.12961477591153,
+        "groundElevationM": 105.68650536014682,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515369851834,
+        "bankInfluence": 0.001867583432580422
+      },
+      {
+        "distanceM": 8.232521292062309,
+        "groundElevationM": 105.68233494075096,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": "main",
+        "channelWidthM": 8.232515294887145,
+        "bankInfluence": 8.115956029453031e-8
+      },
+      {
+        "distanceM": 8.335427808213087,
+        "groundElevationM": 105.68206809954107,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 8.438334324363867,
+        "groundElevationM": 105.68180414965556,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 8.541240840514645,
+        "groundElevationM": 105.68154291577582,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 8.644147356665425,
+        "groundElevationM": 105.68128439790185,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 8.747053872816203,
+        "groundElevationM": 105.68102859603368,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 8.84996038896698,
+        "groundElevationM": 105.68077551017127,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 8.95286690511776,
+        "groundElevationM": 105.68052514031463,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.05577342126854,
+        "groundElevationM": 105.68027748646375,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.158679937419318,
+        "groundElevationM": 105.68003254861868,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.261586453570098,
+        "groundElevationM": 105.67979032677938,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.364492969720876,
+        "groundElevationM": 105.67955082094582,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.467399485871656,
+        "groundElevationM": 105.67931403111805,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.570306002022434,
+        "groundElevationM": 105.67907995729608,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.673212518173212,
+        "groundElevationM": 105.67884859947986,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.776119034323992,
+        "groundElevationM": 105.67861995766943,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.87902555047477,
+        "groundElevationM": 105.67839403186477,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 9.98193206662555,
+        "groundElevationM": 105.67817082206585,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.084838582776328,
+        "groundElevationM": 105.67795032827274,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.187745098927106,
+        "groundElevationM": 105.67773255048542,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.290651615077886,
+        "groundElevationM": 105.67751748870387,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.393558131228664,
+        "groundElevationM": 105.67730514292806,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.496464647379444,
+        "groundElevationM": 105.67709551315805,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.599371163530222,
+        "groundElevationM": 105.6768885993938,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.702277679681,
+        "groundElevationM": 105.67668440163534,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.805184195831782,
+        "groundElevationM": 105.67648291988266,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 10.90809071198256,
+        "groundElevationM": 105.67628415413574,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.010997228133338,
+        "groundElevationM": 105.67608810439458,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.113903744284118,
+        "groundElevationM": 105.67589477065923,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.216810260434896,
+        "groundElevationM": 105.67570415292965,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.319716776585675,
+        "groundElevationM": 105.6755162512058,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.422623292736453,
+        "groundElevationM": 105.67533106548778,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.525529808887232,
+        "groundElevationM": 105.67514859577551,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.628436325038011,
+        "groundElevationM": 105.67496884206902,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.73134284118879,
+        "groundElevationM": 105.67479180436831,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.83424935733957,
+        "groundElevationM": 105.67461748267337,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 11.937155873490347,
+        "groundElevationM": 105.67444587698421,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.040062389641125,
+        "groundElevationM": 105.67427698730079,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.142968905791905,
+        "groundElevationM": 105.6741108136232,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.245875421942683,
+        "groundElevationM": 105.67394735595136,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.348781938093463,
+        "groundElevationM": 105.67378661428526,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.451688454244243,
+        "groundElevationM": 105.67362858862498,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.554594970395021,
+        "groundElevationM": 105.67347327897046,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.6575014865458,
+        "groundElevationM": 105.67332068532171,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.760408002696579,
+        "groundElevationM": 105.67317080767874,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.863314518847357,
+        "groundElevationM": 105.67302364604156,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 12.966221034998137,
+        "groundElevationM": 105.67287920041012,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.069127551148915,
+        "groundElevationM": 105.67273747078448,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.172034067299695,
+        "groundElevationM": 105.67259845716463,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.274940583450473,
+        "groundElevationM": 105.67246215955052,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.37784709960125,
+        "groundElevationM": 105.6723285779422,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.48075361575203,
+        "groundElevationM": 105.67219771233965,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.583660131902809,
+        "groundElevationM": 105.67206956274289,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.686566648053589,
+        "groundElevationM": 105.67194412915188,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.789473164204367,
+        "groundElevationM": 105.67182141156668,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.892379680355145,
+        "groundElevationM": 105.67170140998724,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 13.995286196505925,
+        "groundElevationM": 105.67158412441354,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.098192712656703,
+        "groundElevationM": 105.67146955484564,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.201099228807482,
+        "groundElevationM": 105.67135770128354,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.30400574495826,
+        "groundElevationM": 105.67124856372718,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.406912261109039,
+        "groundElevationM": 105.6711421421766,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.509818777259818,
+        "groundElevationM": 105.67103843663182,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.612725293410596,
+        "groundElevationM": 105.6709374470928,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.715631809561376,
+        "groundElevationM": 105.67083917355954,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.818538325712154,
+        "groundElevationM": 105.67074361603208,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 14.921444841862936,
+        "groundElevationM": 105.67065077451035,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.024351358013714,
+        "groundElevationM": 105.67056064899444,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.127257874164494,
+        "groundElevationM": 105.67047323948431,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.230164390315272,
+        "groundElevationM": 105.67038854597992,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.333070906466052,
+        "groundElevationM": 105.67030656848134,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.43597742261683,
+        "groundElevationM": 105.6702273069885,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.538883938767608,
+        "groundElevationM": 105.67015076150145,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.641790454918388,
+        "groundElevationM": 105.67007693202018,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.744696971069166,
+        "groundElevationM": 105.67000581854468,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.847603487219946,
+        "groundElevationM": 105.66993742107496,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 15.950510003370724,
+        "groundElevationM": 105.66987173961098,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 16.0534165195215,
+        "groundElevationM": 105.66980877415283,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 16.15632303567228,
+        "groundElevationM": 105.66974852470044,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 16.25922955182306,
+        "groundElevationM": 105.66969099125379,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 16.36213606797384,
+        "groundElevationM": 105.66963617381295,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      },
+      {
+        "distanceM": 16.465042584124618,
+        "groundElevationM": 105.66958407237787,
+        "waterLevelM": null,
+        "waterDepthM": 0,
+        "wet": false,
+        "riverId": null,
+        "channelWidthM": 0
+      }
+    ]
+  }
+}

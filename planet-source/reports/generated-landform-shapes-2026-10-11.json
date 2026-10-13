@@ -1,0 +1,1225 @@
+{
+  "worldId": "sha256:7b193113023af6d5d180524ac716c324151af2c07848b3506a770812716e35a3",
+  "elapsedMs": 460.18778299999985,
+  "schema": "planet-landform-inspection@1",
+  "method": "bounded-dry-surface-samples",
+  "perKind": 3,
+  "candidateBudget": 64,
+  "sampleCount": 363,
+  "shapeSampleCount": 2310,
+  "targets": [
+    {
+      "id": "hill:7692",
+      "kind": "hill",
+      "name": "丘陵の起伏 1",
+      "sourceCell": 7692,
+      "latDeg": -80.1562459324148,
+      "lonDeg": 35.103646383653654,
+      "surveyCenter": {
+        "latDeg": -80.15625,
+        "lonDeg": 35.15625
+      },
+      "surveyRadiusM": 1000,
+      "drySamples": 32,
+      "totalSamples": 33,
+      "minElevationM": 385.5859332462888,
+      "maxElevationM": 419.02529640435444,
+      "reliefM": 33.439363158065646,
+      "viewAltitudeM": 800,
+      "shapeContext": {
+        "method": "finite-eight-ray-ground-shape@1",
+        "flatThresholdDeg": 1,
+        "stepsPerRay": 16,
+        "sampleCount": 385,
+        "scales": [
+          {
+            "radiusM": 250,
+            "stepM": 15.625,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 11.609848230777402,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -1.6107553560445524,
+                "maxAngleDeg": 1.6079905225548177,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -1.5808545403725494,
+                "maxAngleDeg": 0.949463152065281,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -2.16353519420734,
+                "maxAngleDeg": -0.23563577141962874,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -2.318083408004239,
+                "maxAngleDeg": -1.3356725608082258,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -1.9191744834530113,
+                "maxAngleDeg": -1.0179484868498008,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -1.8462261310417518,
+                "maxAngleDeg": -0.3058232313795506,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -1.3595865621900933,
+                "maxAngleDeg": -0.15876402732220787,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -0.7373842862242782,
+                "maxAngleDeg": 1.2393879927221159,
+                "sign": 0
+              }
+            ]
+          },
+          {
+            "radiusM": 2500,
+            "stepM": 156.25,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 46.337637001494954,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -1.6033996482143387,
+                "maxAngleDeg": -0.2993446539526766,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -2.039284021013559,
+                "maxAngleDeg": -0.3330999474401646,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -2.6667266450101494,
+                "maxAngleDeg": -0.36375753593500704,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -2.1969266911924272,
+                "maxAngleDeg": -0.39367096747382807,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -1.5178861496231395,
+                "maxAngleDeg": 0.30286409916198653,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -1.2614299523662933,
+                "maxAngleDeg": 0.4025376102761666,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -1.141636912096965,
+                "maxAngleDeg": -0.2692966322289509,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -1.8290260843656363,
+                "maxAngleDeg": 0.15174604443451714,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 25000,
+            "stepM": 1562.5,
+            "form": "flat",
+            "label": "平坦面",
+            "missingSamples": 0,
+            "sampledReliefM": 200.6054847534129,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -0.5999330760834937,
+                "maxAngleDeg": -0.1767146502793639,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -0.8398176166245336,
+                "maxAngleDeg": -0.0670357499247211,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -0.727985693649855,
+                "maxAngleDeg": 0.0455922993848768,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -0.7179870226132422,
+                "maxAngleDeg": 0.1671412301877941,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -0.035112657502283096,
+                "maxAngleDeg": 0.22984696920874878,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.0666778046565351,
+                "maxAngleDeg": 0.4025376102761666,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -0.8272660979010114,
+                "maxAngleDeg": 0.11846672578351622,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -0.5326021048216919,
+                "maxAngleDeg": -0.09017676792187836,
+                "sign": 0
+              }
+            ]
+          }
+        ],
+        "scope": "Scale-dependent geometric ground shape, not Terrain22 regional classes or a GRASS reproduction. Finite radial samples can miss features. No geological cause, hydrology, land-cover or exhaustive extrema are inferred."
+      }
+    },
+    {
+      "id": "hill:7987",
+      "kind": "hill",
+      "name": "丘陵の起伏 2",
+      "sourceCell": 7987,
+      "latDeg": -85.78955724425262,
+      "lonDeg": 144.89062492114022,
+      "surveyCenter": {
+        "latDeg": -85.78125,
+        "lonDeg": 144.84375
+      },
+      "surveyRadiusM": 1000,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 383.2495337093925,
+      "maxElevationM": 430.91822667994035,
+      "reliefM": 47.66869297054785,
+      "viewAltitudeM": 800,
+      "shapeContext": {
+        "method": "finite-eight-ray-ground-shape@1",
+        "flatThresholdDeg": 1,
+        "stepsPerRay": 16,
+        "sampleCount": 385,
+        "scales": [
+          {
+            "radiusM": 250,
+            "stepM": 15.625,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 20.545920449665857,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -3.594233633159726,
+                "maxAngleDeg": -1.4367865146614165,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -4.393304502537184,
+                "maxAngleDeg": -1.876418388701658,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -3.479555029637099,
+                "maxAngleDeg": -1.1492637864775113,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -1.9558999405251192,
+                "maxAngleDeg": 0.2936044658205698,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -0.5744184675175822,
+                "maxAngleDeg": 1.2469159627757402,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.3428880747476713,
+                "maxAngleDeg": 1.10244868099371,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -2.4114024124159847,
+                "maxAngleDeg": 0.33750304343890336,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -2.9812516109821616,
+                "maxAngleDeg": -0.5456416895670856,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 2500,
+            "stepM": 156.25,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 49.8013276985576,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -3.1602686554760826,
+                "maxAngleDeg": -0.7083688204176554,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -4.16650755244235,
+                "maxAngleDeg": -0.651858995601894,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -3.9779538096722966,
+                "maxAngleDeg": -0.6532051811977894,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -2.3127870077213677,
+                "maxAngleDeg": -0.4469645485727971,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -1.0162390471874436,
+                "maxAngleDeg": 0.18205806193664192,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.7445096813748608,
+                "maxAngleDeg": 0.12886494864442213,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -2.4114024124159847,
+                "maxAngleDeg": -0.13025071642446978,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -2.853535386116932,
+                "maxAngleDeg": 0.05082956622758484,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 25000,
+            "stepM": 1562.5,
+            "form": "flat",
+            "label": "平坦面",
+            "missingSamples": 0,
+            "sampledReliefM": 202.5589667330703,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -1.0019598572672679,
+                "maxAngleDeg": -0.13357722974969266,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -1.3109332047731008,
+                "maxAngleDeg": -0.23531064047924866,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -0.7874411080604053,
+                "maxAngleDeg": -0.1719805643820233,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -0.9445390082904117,
+                "maxAngleDeg": -0.009131740905856835,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -0.5735597650402681,
+                "maxAngleDeg": 0.12275223976987132,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.4160629935860709,
+                "maxAngleDeg": 0.22713011793833074,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -0.19404078181429918,
+                "maxAngleDeg": 0.1864428625965776,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -0.5971100050046712,
+                "maxAngleDeg": 0.06150049542245229,
+                "sign": 0
+              }
+            ]
+          }
+        ],
+        "scope": "Scale-dependent geometric ground shape, not Terrain22 regional classes or a GRASS reproduction. Finite radial samples can miss features. No geological cause, hydrology, land-cover or exhaustive extrema are inferred."
+      }
+    },
+    {
+      "id": "hill:1906",
+      "kind": "hill",
+      "name": "丘陵の起伏 3",
+      "sourceCell": 1906,
+      "latDeg": 49.21875,
+      "lonDeg": 322.03125,
+      "surveyCenter": {
+        "latDeg": 49.21875,
+        "lonDeg": 322.03125
+      },
+      "surveyRadiusM": 1000,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 363.71773259544614,
+      "maxElevationM": 398.0960196122895,
+      "reliefM": 34.37828701684339,
+      "viewAltitudeM": 800,
+      "shapeContext": {
+        "method": "finite-eight-ray-ground-shape@1",
+        "flatThresholdDeg": 1,
+        "stepsPerRay": 16,
+        "sampleCount": 385,
+        "scales": [
+          {
+            "radiusM": 250,
+            "stepM": 15.625,
+            "form": "shoulder",
+            "label": "斜面の肩",
+            "missingSamples": 0,
+            "sampledReliefM": 11.333381390434567,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -1.3846172933681586,
+                "maxAngleDeg": -0.27392225501782413,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -0.8365057000787276,
+                "maxAngleDeg": -0.1276467266770569,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -0.9817323780019948,
+                "maxAngleDeg": 0.47164720955969175,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -0.6168751647240357,
+                "maxAngleDeg": 0.9460709995180442,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": 0.026003871084261273,
+                "maxAngleDeg": 0.25400075287693247,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": 0.3105496237455294,
+                "maxAngleDeg": 1.099202911287558,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -1.1778382039731665,
+                "maxAngleDeg": 1.0810676509518364,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -1.6508057480186704,
+                "maxAngleDeg": 0.41389494761487283,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 2500,
+            "stepM": 156.25,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 36.39716067973217,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -1.3942499243286834,
+                "maxAngleDeg": -0.16452789706769227,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -0.9119248725735232,
+                "maxAngleDeg": -0.1276467266770569,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -1.3855769021885511,
+                "maxAngleDeg": 0.288451203975197,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -1.3505528979424803,
+                "maxAngleDeg": 0.8843685849832255,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -1.0909516736097848,
+                "maxAngleDeg": 0.027565877587404978,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.8271589904521357,
+                "maxAngleDeg": 0.7827804237548426,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -1.7524287236057476,
+                "maxAngleDeg": -0.07091682949133474,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -2.5641164582888387,
+                "maxAngleDeg": -0.004055635896630642,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 25000,
+            "stepM": 1562.5,
+            "form": "flat",
+            "label": "平坦面",
+            "missingSamples": 0,
+            "sampledReliefM": 177.0226482531669,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -0.4786141029774762,
+                "maxAngleDeg": -0.1252309601021525,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -0.8373793285178955,
+                "maxAngleDeg": 0.00904501812031198,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -0.9865752605101836,
+                "maxAngleDeg": 0.09050712122263485,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -0.32221520258975483,
+                "maxAngleDeg": 0.2240996949729918,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -0.7631104629622354,
+                "maxAngleDeg": 0.20966313167547926,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.392622252163929,
+                "maxAngleDeg": 0.060519782162302596,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -0.6602304235942638,
+                "maxAngleDeg": -0.08701684994359037,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -0.5582335852575296,
+                "maxAngleDeg": -0.19364228291694438,
+                "sign": 0
+              }
+            ]
+          }
+        ],
+        "scope": "Scale-dependent geometric ground shape, not Terrain22 regional classes or a GRASS reproduction. Finite radial samples can miss features. No geological cause, hydrology, land-cover or exhaustive extrema are inferred."
+      }
+    },
+    {
+      "id": "mountain:4087",
+      "kind": "mountain",
+      "name": "山地の起伏 1",
+      "sourceCell": 4087,
+      "latDeg": 1.395864185734466,
+      "lonDeg": -23.901946779559353,
+      "surveyCenter": {
+        "latDeg": 1.40625,
+        "lonDeg": 336.09375
+      },
+      "surveyRadiusM": 2500,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 8604.50202620228,
+      "maxElevationM": 9035.55859715795,
+      "reliefM": 431.0565709556686,
+      "viewAltitudeM": 2000,
+      "shapeContext": {
+        "method": "finite-eight-ray-ground-shape@1",
+        "flatThresholdDeg": 1,
+        "stepsPerRay": 16,
+        "sampleCount": 385,
+        "scales": [
+          {
+            "radiusM": 250,
+            "stepM": 15.625,
+            "form": "slope",
+            "label": "斜面",
+            "missingSamples": 0,
+            "sampledReliefM": 35.32174481888978,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -0.20462916923640345,
+                "maxAngleDeg": 0.8669529879074785,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -2.223373977482783,
+                "maxAngleDeg": -1.3316216728500403,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -5.547407510127751,
+                "maxAngleDeg": -3.2907431728533854,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -5.700386847062332,
+                "maxAngleDeg": -2.470962825811099,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -3.5910284465741587,
+                "maxAngleDeg": 0.07596390908505345,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -0.8301432879272331,
+                "maxAngleDeg": 2.47760169361044,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": 1.643492056645472,
+                "maxAngleDeg": 3.026565778013385,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": 1.5390970369268167,
+                "maxAngleDeg": 2.6549130915890964,
+                "sign": 1
+              }
+            ]
+          },
+          {
+            "radiusM": 2500,
+            "stepM": 156.25,
+            "form": "peak",
+            "label": "頂部",
+            "missingSamples": 0,
+            "sampledReliefM": 438.43514672935817,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -4.524685571116199,
+                "maxAngleDeg": 0.5931159147972608,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -7.523546448556271,
+                "maxAngleDeg": -1.4058564457675329,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -11.676780444005459,
+                "maxAngleDeg": -4.620425646204407,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -6.927033740052366,
+                "maxAngleDeg": -4.886411845244784,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -3.239673754089335,
+                "maxAngleDeg": -0.8571223267653459,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -7.128694199766241,
+                "maxAngleDeg": 0.5900765932850875,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -9.357871232729464,
+                "maxAngleDeg": 2.7634085298518793,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -7.727816897631025,
+                "maxAngleDeg": 2.4365440618715275,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 25000,
+            "stepM": 1562.5,
+            "form": "peak",
+            "label": "頂部",
+            "missingSamples": 0,
+            "sampledReliefM": 789.5807201766966,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -4.346952450234813,
+                "maxAngleDeg": 0.4653161179663618,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -7.316386626682406,
+                "maxAngleDeg": 0.5479803787773663,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -11.603738361892827,
+                "maxAngleDeg": 0.43808097594861195,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -6.815354066934571,
+                "maxAngleDeg": 0.33824985582513184,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -2.723870101823417,
+                "maxAngleDeg": 1.0665526468441706,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -6.414220662783924,
+                "maxAngleDeg": 0.6072296041700982,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -9.001484477874016,
+                "maxAngleDeg": -0.10756446567040079,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -6.91464212906641,
+                "maxAngleDeg": 1.1881761907165647,
+                "sign": -1
+              }
+            ]
+          }
+        ],
+        "scope": "Scale-dependent geometric ground shape, not Terrain22 regional classes or a GRASS reproduction. Finite radial samples can miss features. No geological cause, hydrology, land-cover or exhaustive extrema are inferred."
+      }
+    },
+    {
+      "id": "mountain:4215",
+      "kind": "mountain",
+      "name": "山地の起伏 2",
+      "sourceCell": 4215,
+      "latDeg": -1.390352035909518,
+      "lonDeg": -23.922152591833083,
+      "surveyCenter": {
+        "latDeg": -1.40625,
+        "lonDeg": 336.09375
+      },
+      "surveyRadiusM": 2500,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 8275.220394825617,
+      "maxElevationM": 8841.40777799162,
+      "reliefM": 566.1873831660032,
+      "viewAltitudeM": 2000,
+      "shapeContext": {
+        "method": "finite-eight-ray-ground-shape@1",
+        "flatThresholdDeg": 1,
+        "stepsPerRay": 16,
+        "sampleCount": 385,
+        "scales": [
+          {
+            "radiusM": 250,
+            "stepM": 15.625,
+            "form": "slope",
+            "label": "斜面",
+            "missingSamples": 0,
+            "sampledReliefM": 46.8098199566175,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -6.209001783495144,
+                "maxAngleDeg": -4.384521240550254,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -1.271929287769485,
+                "maxAngleDeg": -0.672448003008074,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": 3.1785347915747737,
+                "maxAngleDeg": 3.5759044940849685,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": 4.787045062701971,
+                "maxAngleDeg": 5.586748257969797,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": 2.382472354875302,
+                "maxAngleDeg": 3.9094954500696586,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": 0.2734999234912529,
+                "maxAngleDeg": 0.6071440487277587,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -3.950359356186466,
+                "maxAngleDeg": -2.870037356541178,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -6.039719207131479,
+                "maxAngleDeg": -4.5560810323981515,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 2500,
+            "stepM": 156.25,
+            "form": "spur",
+            "label": "張り出した斜面",
+            "missingSamples": 0,
+            "sampledReliefM": 486.5146909476407,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -6.164821474516667,
+                "maxAngleDeg": -3.078146364949779,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -1.1002796149178542,
+                "maxAngleDeg": 2.290300954700044,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": 2.989307755073303,
+                "maxAngleDeg": 3.9447539666903197,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -7.311116540609154,
+                "maxAngleDeg": 5.586748257969797,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -0.9057481828759919,
+                "maxAngleDeg": 2.9204981605642475,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -4.3944215000135225,
+                "maxAngleDeg": 0.6707092015895688,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -6.613743905000157,
+                "maxAngleDeg": -1.5548288152092484,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -7.872116050799653,
+                "maxAngleDeg": -3.12760667633036,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 25000,
+            "stepM": 1562.5,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 773.7484184801851,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -3.9914195997185757,
+                "maxAngleDeg": 0.268731276319629,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -3.688838545958295,
+                "maxAngleDeg": 2.224823918160452,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -3.6261422409681257,
+                "maxAngleDeg": 3.12221339908973,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -6.5292900630635895,
+                "maxAngleDeg": 0.32957312837289926,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -3.116913363338708,
+                "maxAngleDeg": 0.7914567704788126,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -5.8363939530451105,
+                "maxAngleDeg": -0.5164700415191703,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -7.577463889480682,
+                "maxAngleDeg": -0.3140457800182551,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -9.10094842031353,
+                "maxAngleDeg": -0.18939984188690165,
+                "sign": -1
+              }
+            ]
+          }
+        ],
+        "scope": "Scale-dependent geometric ground shape, not Terrain22 regional classes or a GRASS reproduction. Finite radial samples can miss features. No geological cause, hydrology, land-cover or exhaustive extrema are inferred."
+      }
+    },
+    {
+      "id": "mountain:3687",
+      "kind": "mountain",
+      "name": "山地の起伏 3",
+      "sourceCell": 3687,
+      "latDeg": 9.822978267371044,
+      "lonDeg": -68.91498190031018,
+      "surveyCenter": {
+        "latDeg": 9.84375,
+        "lonDeg": 291.09375
+      },
+      "surveyRadiusM": 2500,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 7262.771637065322,
+      "maxElevationM": 7891.942511514051,
+      "reliefM": 629.1708744487296,
+      "viewAltitudeM": 2000,
+      "shapeContext": {
+        "method": "finite-eight-ray-ground-shape@1",
+        "flatThresholdDeg": 1,
+        "stepsPerRay": 16,
+        "sampleCount": 385,
+        "scales": [
+          {
+            "radiusM": 250,
+            "stepM": 15.625,
+            "form": "slope",
+            "label": "斜面",
+            "missingSamples": 0,
+            "sampledReliefM": 15.88440853436714,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -2.505574226855796,
+                "maxAngleDeg": -2.1380313470116863,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -2.8326821696546887,
+                "maxAngleDeg": -2.2342698629968667,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -1.8612615844274596,
+                "maxAngleDeg": -0.5793666475174063,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -0.2810323879806619,
+                "maxAngleDeg": 0.4053838252838408,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -0.2586299559427894,
+                "maxAngleDeg": 2.083448476825007,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": 0.6231990125979905,
+                "maxAngleDeg": 2.861830671602812,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": 1.0644032280077955,
+                "maxAngleDeg": 1.9790756798601217,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -0.49124593888553103,
+                "maxAngleDeg": -0.1569009158298636,
+                "sign": 0
+              }
+            ]
+          },
+          {
+            "radiusM": 2500,
+            "stepM": 156.25,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 442.7863735380297,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -2.505574226855796,
+                "maxAngleDeg": -0.5674732305397481,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -2.8525574485407277,
+                "maxAngleDeg": 0.01528100345574055,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -8.136908563970138,
+                "maxAngleDeg": 0.43158402447783484,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -6.2690041009912685,
+                "maxAngleDeg": 0.39724564067005863,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -2.344021030131313,
+                "maxAngleDeg": 1.8807928732162043,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": 0.16290883708667678,
+                "maxAngleDeg": 2.2480601319872036,
+                "sign": 1
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -1.6788958287671645,
+                "maxAngleDeg": 1.4313809403057498,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -7.723704404427807,
+                "maxAngleDeg": -0.49124593888553103,
+                "sign": -1
+              }
+            ]
+          },
+          {
+            "radiusM": 25000,
+            "stepM": 1562.5,
+            "form": "ridge",
+            "label": "尾根状",
+            "missingSamples": 0,
+            "sampledReliefM": 813.8125052296782,
+            "directions": [
+              {
+                "azimuthFromEastDeg": 0,
+                "minAngleDeg": -6.049658081842465,
+                "maxAngleDeg": 0.10488479551167147,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 45,
+                "minAngleDeg": -3.7036005586411016,
+                "maxAngleDeg": 1.4034165760799673,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 90,
+                "minAngleDeg": -7.653515979025865,
+                "maxAngleDeg": 0.28291215852551277,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 135,
+                "minAngleDeg": -7.465986892368683,
+                "maxAngleDeg": 0.8835654319833611,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 180,
+                "minAngleDeg": -5.698113749687644,
+                "maxAngleDeg": 2.684482741035206,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 225,
+                "minAngleDeg": -1.7741010670894204,
+                "maxAngleDeg": 1.787058903358024,
+                "sign": 0
+              },
+              {
+                "azimuthFromEastDeg": 270,
+                "minAngleDeg": -1.9780368077151296,
+                "maxAngleDeg": 0.5912395603860978,
+                "sign": -1
+              },
+              {
+                "azimuthFromEastDeg": 315,
+                "minAngleDeg": -6.867617047340245,
+                "maxAngleDeg": 1.7429715994091124,
+                "sign": -1
+              }
+            ]
+          }
+        ],
+        "scope": "Scale-dependent geometric ground shape, not Terrain22 regional classes or a GRASS reproduction. Finite radial samples can miss features. No geological cause, hydrology, land-cover or exhaustive extrema are inferred."
+      }
+    }
+  ],
+  "limitation": "Sampled ranges are not exhaustive extrema. Hill/mountain labels are inspection categories, not geomorphological proof. Missing targets do not prove missing relief."
+}

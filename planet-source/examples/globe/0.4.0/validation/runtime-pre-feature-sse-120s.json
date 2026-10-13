@@ -1,0 +1,4418 @@
+{
+  "schema": "minimal-world-globe-runtime@1",
+  "timestamp": "2026-10-09T14:26:46.487Z",
+  "worldId": "sha256:357f80c153499c9db179cc2450f3dc77b3635c82e7ece72a548ac240e2b93e13",
+  "manifest": "http://127.0.0.1:3157/examples/globe/0.4.0/demo/manifest.json",
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00002484) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "viewport": [
+    1280,
+    720
+  ],
+  "devicePixelRatio": 1,
+  "durationMs": 120001.20000000298,
+  "frames": 17189,
+  "averageFPS": 143.24023426432046,
+  "intervalMs": {
+    "p50": 6.900000000008731,
+    "p95": 7,
+    "p99": 7.100000000005821,
+    "max": 590.2999999999956
+  },
+  "mainWorkMs": {
+    "p50": 1.7999999970197678,
+    "p95": 2.7000000029802322,
+    "max": 7
+  },
+  "framesOver33ms": 1,
+  "noGeometryFrames": 0,
+  "longTasks": {
+    "supported": true,
+    "count": 0,
+    "longestMs": 0,
+    "records": []
+  },
+  "slowFrames": [
+    {
+      "elapsedMs": 31648.80000000298,
+      "intervalMs": 590.2999999999956,
+      "cpuMs": 5.200000002980232,
+      "heightM": 39.74888545891072,
+      "drawTiles": 73
+    }
+  ],
+  "visibility": [
+    {
+      "elapsedMs": 0,
+      "state": "visible"
+    }
+  ],
+  "altitudeMinM": 15.000008224669607,
+  "altitudeMaxM": 19999999.99996495,
+  "renderedLevelRange": [
+    0,
+    17
+  ],
+  "gpuTimerAvailable": true,
+  "lastGpuMs": 1.26464,
+  "memorySamples": [
+    {
+      "elapsedMs": 5.600000002979868,
+      "jsHeapBytes": 32606513,
+      "gpuBufferBytes": 377568,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 1245296,
+      "cacheTiles": 18,
+      "allocations": 18,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 1005.8000000029806,
+      "jsHeapBytes": 30301738,
+      "gpuBufferBytes": 755136,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 1622864,
+      "cacheTiles": 36,
+      "allocations": 36,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 2005.900000002981,
+      "jsHeapBytes": 18631547,
+      "gpuBufferBytes": 1573200,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 2440928,
+      "cacheTiles": 75,
+      "allocations": 75,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 3006.10000000298,
+      "jsHeapBytes": 23169159,
+      "gpuBufferBytes": 2789808,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 3657536,
+      "cacheTiles": 133,
+      "allocations": 133,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 4006.2000000029802,
+      "jsHeapBytes": 11588362,
+      "gpuBufferBytes": 4446912,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 5314640,
+      "cacheTiles": 212,
+      "allocations": 212,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 5006.400000002981,
+      "jsHeapBytes": 30227867,
+      "gpuBufferBytes": 6166944,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 7034672,
+      "cacheTiles": 294,
+      "allocations": 294,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 6006.5000000029795,
+      "jsHeapBytes": 33403185,
+      "gpuBufferBytes": 7740144,
+      "workerOwnedBytesEstimated": 867728,
+      "trackedOwnedBytes": 8607872,
+      "cacheTiles": 369,
+      "allocations": 369,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 7006.600000002982,
+      "jsHeapBytes": 12996740,
+      "gpuBufferBytes": 9250416,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 10199504,
+      "cacheTiles": 441,
+      "allocations": 441,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 8006.70000000298,
+      "jsHeapBytes": 16079923,
+      "gpuBufferBytes": 10739712,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 11688800,
+      "cacheTiles": 512,
+      "allocations": 512,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 9006.900000002981,
+      "jsHeapBytes": 13917811,
+      "gpuBufferBytes": 12187656,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 13136744,
+      "cacheTiles": 581,
+      "allocations": 581,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 10007.00000000298,
+      "jsHeapBytes": 33619924,
+      "gpuBufferBytes": 13551996,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 14501084,
+      "cacheTiles": 646,
+      "allocations": 646,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 11007.100000002982,
+      "jsHeapBytes": 11478067,
+      "gpuBufferBytes": 14937312,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 15886400,
+      "cacheTiles": 712,
+      "allocations": 712,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 12007.400000002981,
+      "jsHeapBytes": 39251845,
+      "gpuBufferBytes": 16240140,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 17189228,
+      "cacheTiles": 774,
+      "allocations": 774,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 13007.50000000298,
+      "jsHeapBytes": 42154226,
+      "gpuBufferBytes": 17374056,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 18323144,
+      "cacheTiles": 828,
+      "allocations": 828,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 14014.50000000298,
+      "jsHeapBytes": 15092469,
+      "gpuBufferBytes": 17922660,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 18871748,
+      "cacheTiles": 854,
+      "allocations": 854,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 15014.70000000298,
+      "jsHeapBytes": 17494631,
+      "gpuBufferBytes": 18414696,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 19363784,
+      "cacheTiles": 877,
+      "allocations": 877,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 16014.800000002979,
+      "jsHeapBytes": 24074434,
+      "gpuBufferBytes": 18921810,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 19870898,
+      "cacheTiles": 901,
+      "allocations": 901,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 17014.90000000298,
+      "jsHeapBytes": 22279196,
+      "gpuBufferBytes": 19272528,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 20221616,
+      "cacheTiles": 917,
+      "allocations": 917,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 18015.00000000298,
+      "jsHeapBytes": 26344695,
+      "gpuBufferBytes": 19568658,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 20517746,
+      "cacheTiles": 931,
+      "allocations": 931,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 19015.20000000298,
+      "jsHeapBytes": 30389402,
+      "gpuBufferBytes": 19766172,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 20715260,
+      "cacheTiles": 939,
+      "allocations": 939,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 20015.40000000298,
+      "jsHeapBytes": 16750889,
+      "gpuBufferBytes": 19861590,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 20810678,
+      "cacheTiles": 943,
+      "allocations": 943,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 21015.50000000298,
+      "jsHeapBytes": 18432836,
+      "gpuBufferBytes": 19861590,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 20810678,
+      "cacheTiles": 943,
+      "allocations": 943,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 22015.60000000298,
+      "jsHeapBytes": 24745332,
+      "gpuBufferBytes": 20507706,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 21456794,
+      "cacheTiles": 946,
+      "allocations": 946,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 23015.70000000298,
+      "jsHeapBytes": 20800218,
+      "gpuBufferBytes": 21508662,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 22457750,
+      "cacheTiles": 948,
+      "allocations": 948,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 24015.900000002977,
+      "jsHeapBytes": 12752411,
+      "gpuBufferBytes": 21508662,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 22457750,
+      "cacheTiles": 948,
+      "allocations": 948,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 25016.000000002983,
+      "jsHeapBytes": 14139668,
+      "gpuBufferBytes": 21508662,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 22457750,
+      "cacheTiles": 948,
+      "allocations": 948,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 26016.20000000298,
+      "jsHeapBytes": 30331447,
+      "gpuBufferBytes": 22553694,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 23502782,
+      "cacheTiles": 949,
+      "allocations": 949,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 27016.400000002977,
+      "jsHeapBytes": 21670287,
+      "gpuBufferBytes": 22553694,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 23502782,
+      "cacheTiles": 949,
+      "allocations": 949,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 28016.500000002983,
+      "jsHeapBytes": 39874467,
+      "gpuBufferBytes": 22553694,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 23502782,
+      "cacheTiles": 949,
+      "allocations": 949,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 29016.60000000298,
+      "jsHeapBytes": 15655088,
+      "gpuBufferBytes": 24839994,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 25789082,
+      "cacheTiles": 952,
+      "allocations": 952,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 30016.80000000298,
+      "jsHeapBytes": 14028481,
+      "gpuBufferBytes": 25442730,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 26391818,
+      "cacheTiles": 953,
+      "allocations": 953,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 31016.900000002977,
+      "jsHeapBytes": 39255870,
+      "gpuBufferBytes": 25442730,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 26391818,
+      "cacheTiles": 953,
+      "allocations": 953,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 32017.10000000298,
+      "jsHeapBytes": 33439003,
+      "gpuBufferBytes": 26227926,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 27177014,
+      "cacheTiles": 955,
+      "allocations": 955,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 33017.20000000298,
+      "jsHeapBytes": 24410234,
+      "gpuBufferBytes": 26605638,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 27554726,
+      "cacheTiles": 957,
+      "allocations": 957,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 34017.30000000298,
+      "jsHeapBytes": 28114717,
+      "gpuBufferBytes": 26605638,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 27554726,
+      "cacheTiles": 957,
+      "allocations": 957,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 35017.40000000298,
+      "jsHeapBytes": 28398379,
+      "gpuBufferBytes": 27646998,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 28596086,
+      "cacheTiles": 958,
+      "allocations": 958,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 36017.60000000298,
+      "jsHeapBytes": 17035890,
+      "gpuBufferBytes": 27646998,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 28596086,
+      "cacheTiles": 958,
+      "allocations": 958,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 37017.70000000298,
+      "jsHeapBytes": 19502056,
+      "gpuBufferBytes": 27646998,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 28596086,
+      "cacheTiles": 958,
+      "allocations": 958,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 38017.80000000298,
+      "jsHeapBytes": 26939024,
+      "gpuBufferBytes": 28556628,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 29505716,
+      "cacheTiles": 960,
+      "allocations": 960,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 39017.90000000298,
+      "jsHeapBytes": 31023864,
+      "gpuBufferBytes": 28556628,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 29505716,
+      "cacheTiles": 960,
+      "allocations": 960,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 40018.10000000298,
+      "jsHeapBytes": 28524792,
+      "gpuBufferBytes": 28619556,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 29568644,
+      "cacheTiles": 963,
+      "allocations": 963,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 41018.20000000298,
+      "jsHeapBytes": 22935913,
+      "gpuBufferBytes": 28913220,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 29862308,
+      "cacheTiles": 977,
+      "allocations": 977,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 42018.40000000298,
+      "jsHeapBytes": 20785011,
+      "gpuBufferBytes": 29185908,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 30134996,
+      "cacheTiles": 990,
+      "allocations": 990,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 43018.50000000298,
+      "jsHeapBytes": 11553037,
+      "gpuBufferBytes": 29500548,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 30449636,
+      "cacheTiles": 1005,
+      "allocations": 1005,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 44018.60000000298,
+      "jsHeapBytes": 14278042,
+      "gpuBufferBytes": 30129828,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 31078916,
+      "cacheTiles": 1035,
+      "allocations": 1035,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 45018.70000000298,
+      "jsHeapBytes": 30513659,
+      "gpuBufferBytes": 30759108,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 31708196,
+      "cacheTiles": 1065,
+      "allocations": 1065,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 46018.90000000298,
+      "jsHeapBytes": 19953551,
+      "gpuBufferBytes": 31430340,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 32379428,
+      "cacheTiles": 1097,
+      "allocations": 1097,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 47019.10000000298,
+      "jsHeapBytes": 20008827,
+      "gpuBufferBytes": 32479140,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 33428228,
+      "cacheTiles": 1147,
+      "allocations": 1147,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 48026.10000000298,
+      "jsHeapBytes": 20126739,
+      "gpuBufferBytes": 33632820,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 34581908,
+      "cacheTiles": 1202,
+      "allocations": 1202,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 49026.30000000298,
+      "jsHeapBytes": 35050324,
+      "gpuBufferBytes": 35017236,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 35966324,
+      "cacheTiles": 1268,
+      "allocations": 1268,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 50026.40000000298,
+      "jsHeapBytes": 34530167,
+      "gpuBufferBytes": 36485556,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 37434644,
+      "cacheTiles": 1338,
+      "allocations": 1338,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 51026.60000000298,
+      "jsHeapBytes": 14064595,
+      "gpuBufferBytes": 37932900,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 38881988,
+      "cacheTiles": 1407,
+      "allocations": 1407,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 52026.70000000298,
+      "jsHeapBytes": 33241806,
+      "gpuBufferBytes": 39443172,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 40392260,
+      "cacheTiles": 1479,
+      "allocations": 1479,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 53026.80000000298,
+      "jsHeapBytes": 14863043,
+      "gpuBufferBytes": 41142228,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 42091316,
+      "cacheTiles": 1560,
+      "allocations": 1560,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 54027.00000000298,
+      "jsHeapBytes": 25471337,
+      "gpuBufferBytes": 42967140,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 43916228,
+      "cacheTiles": 1647,
+      "allocations": 1647,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 55034.00000000298,
+      "jsHeapBytes": 31431725,
+      "gpuBufferBytes": 44750100,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 45699188,
+      "cacheTiles": 1732,
+      "allocations": 1732,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 56034.100000002974,
+      "jsHeapBytes": 29086507,
+      "gpuBufferBytes": 46176468,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 47125556,
+      "cacheTiles": 1800,
+      "allocations": 1800,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 57034.300000002986,
+      "jsHeapBytes": 31819723,
+      "gpuBufferBytes": 47372100,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48321188,
+      "cacheTiles": 1857,
+      "allocations": 1857,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 58034.40000000298,
+      "jsHeapBytes": 33317037,
+      "gpuBufferBytes": 47644788,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48593876,
+      "cacheTiles": 1870,
+      "allocations": 1870,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 59034.50000000298,
+      "jsHeapBytes": 19716755,
+      "gpuBufferBytes": 47644788,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48593876,
+      "cacheTiles": 1870,
+      "allocations": 1870,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 60034.70000000298,
+      "jsHeapBytes": 20697249,
+      "gpuBufferBytes": 47644788,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48593876,
+      "cacheTiles": 1870,
+      "allocations": 1870,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 61034.800000002986,
+      "jsHeapBytes": 11089455,
+      "gpuBufferBytes": 47686740,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48635828,
+      "cacheTiles": 1872,
+      "allocations": 1872,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 62035.00000000298,
+      "jsHeapBytes": 33588916,
+      "gpuBufferBytes": 47791620,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48740708,
+      "cacheTiles": 1877,
+      "allocations": 1877,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 63035.100000002974,
+      "jsHeapBytes": 29138555,
+      "gpuBufferBytes": 47917476,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 48866564,
+      "cacheTiles": 1883,
+      "allocations": 1883,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 64035.300000002986,
+      "jsHeapBytes": 35080601,
+      "gpuBufferBytes": 48211140,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 49160228,
+      "cacheTiles": 1897,
+      "allocations": 1897,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 65042.300000002986,
+      "jsHeapBytes": 18152987,
+      "gpuBufferBytes": 49050180,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 49999268,
+      "cacheTiles": 1937,
+      "allocations": 1937,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 66042.50000000298,
+      "jsHeapBytes": 21638276,
+      "gpuBufferBytes": 49994100,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 50943188,
+      "cacheTiles": 1982,
+      "allocations": 1982,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 67042.60000000297,
+      "jsHeapBytes": 31669714,
+      "gpuBufferBytes": 50791188,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 51740276,
+      "cacheTiles": 2020,
+      "allocations": 2020,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 68042.70000000298,
+      "jsHeapBytes": 37223356,
+      "gpuBufferBytes": 51860964,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 52810052,
+      "cacheTiles": 2071,
+      "allocations": 2071,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 69042.90000000298,
+      "jsHeapBytes": 25400143,
+      "gpuBufferBytes": 53098548,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 54047636,
+      "cacheTiles": 2130,
+      "allocations": 2130,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 70043.00000000298,
+      "jsHeapBytes": 31501689,
+      "gpuBufferBytes": 54063444,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 55012532,
+      "cacheTiles": 2176,
+      "allocations": 2176,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 71043.10000000297,
+      "jsHeapBytes": 20583296,
+      "gpuBufferBytes": 54860532,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 55809620,
+      "cacheTiles": 2214,
+      "allocations": 2214,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 72043.20000000298,
+      "jsHeapBytes": 18809829,
+      "gpuBufferBytes": 55531764,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 56480852,
+      "cacheTiles": 2246,
+      "allocations": 2246,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 73043.40000000298,
+      "jsHeapBytes": 22098000,
+      "gpuBufferBytes": 55783476,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 56732564,
+      "cacheTiles": 2258,
+      "allocations": 2258,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 74043.50000000298,
+      "jsHeapBytes": 15699050,
+      "gpuBufferBytes": 55993236,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 56942324,
+      "cacheTiles": 2268,
+      "allocations": 2268,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 75043.60000000297,
+      "jsHeapBytes": 20231892,
+      "gpuBufferBytes": 55993236,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 56942324,
+      "cacheTiles": 2268,
+      "allocations": 2268,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 76043.80000000299,
+      "jsHeapBytes": 42875759,
+      "gpuBufferBytes": 56202996,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 57152084,
+      "cacheTiles": 2278,
+      "allocations": 2278,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 77043.90000000298,
+      "jsHeapBytes": 35209656,
+      "gpuBufferBytes": 56202996,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 57152084,
+      "cacheTiles": 2278,
+      "allocations": 2278,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 78044.20000000298,
+      "jsHeapBytes": 31627788,
+      "gpuBufferBytes": 56202996,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 57152084,
+      "cacheTiles": 2278,
+      "allocations": 2278,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 79051.20000000298,
+      "jsHeapBytes": 27772199,
+      "gpuBufferBytes": 56475684,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 57424772,
+      "cacheTiles": 2291,
+      "allocations": 2291,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 80051.30000000299,
+      "jsHeapBytes": 34765200,
+      "gpuBufferBytes": 56475684,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 57424772,
+      "cacheTiles": 2291,
+      "allocations": 2291,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 81051.50000000298,
+      "jsHeapBytes": 25741194,
+      "gpuBufferBytes": 56475684,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 57424772,
+      "cacheTiles": 2291,
+      "allocations": 2291,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 82058.50000000298,
+      "jsHeapBytes": 21260062,
+      "gpuBufferBytes": 57521922,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 58471010,
+      "cacheTiles": 2292,
+      "allocations": 2292,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 83058.70000000298,
+      "jsHeapBytes": 24957266,
+      "gpuBufferBytes": 57931938,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 58881026,
+      "cacheTiles": 2294,
+      "allocations": 2294,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 84058.90000000298,
+      "jsHeapBytes": 23435888,
+      "gpuBufferBytes": 57931938,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 58881026,
+      "cacheTiles": 2294,
+      "allocations": 2294,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 85065.90000000298,
+      "jsHeapBytes": 24844625,
+      "gpuBufferBytes": 57931938,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 58881026,
+      "cacheTiles": 2294,
+      "allocations": 2294,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 86066.00000000298,
+      "jsHeapBytes": 30337907,
+      "gpuBufferBytes": 57931938,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 58881026,
+      "cacheTiles": 2294,
+      "allocations": 2294,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 87066.10000000297,
+      "jsHeapBytes": 34684173,
+      "gpuBufferBytes": 57931938,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 58881026,
+      "cacheTiles": 2294,
+      "allocations": 2294,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 88066.30000000299,
+      "jsHeapBytes": 34581193,
+      "gpuBufferBytes": 59215896,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 60164984,
+      "cacheTiles": 2295,
+      "allocations": 2295,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 89066.40000000298,
+      "jsHeapBytes": 39614377,
+      "gpuBufferBytes": 60761460,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 61710548,
+      "cacheTiles": 2298,
+      "allocations": 2298,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 90066.60000000297,
+      "jsHeapBytes": 17482685,
+      "gpuBufferBytes": 61222116,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 62171204,
+      "cacheTiles": 2301,
+      "allocations": 2301,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 91066.70000000298,
+      "jsHeapBytes": 28065423,
+      "gpuBufferBytes": 61483014,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 62432102,
+      "cacheTiles": 2304,
+      "allocations": 2304,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 92066.90000000298,
+      "jsHeapBytes": 13952204,
+      "gpuBufferBytes": 61483014,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 62432102,
+      "cacheTiles": 2304,
+      "allocations": 2304,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 93067.00000000298,
+      "jsHeapBytes": 36819633,
+      "gpuBufferBytes": 62664054,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 63613142,
+      "cacheTiles": 2305,
+      "allocations": 2305,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 94067.10000000297,
+      "jsHeapBytes": 22307824,
+      "gpuBufferBytes": 62664054,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 63613142,
+      "cacheTiles": 2305,
+      "allocations": 2305,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 95067.30000000299,
+      "jsHeapBytes": 21126434,
+      "gpuBufferBytes": 64393668,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 65342756,
+      "cacheTiles": 2307,
+      "allocations": 2307,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 96067.40000000298,
+      "jsHeapBytes": 23694662,
+      "gpuBufferBytes": 64393668,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 65342756,
+      "cacheTiles": 2307,
+      "allocations": 2307,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 97067.60000000297,
+      "jsHeapBytes": 39434052,
+      "gpuBufferBytes": 65345814,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 66294902,
+      "cacheTiles": 2308,
+      "allocations": 2308,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 98067.70000000298,
+      "jsHeapBytes": 23675631,
+      "gpuBufferBytes": 66691824,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67640912,
+      "cacheTiles": 2314,
+      "allocations": 2314,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 99067.90000000298,
+      "jsHeapBytes": 32790696,
+      "gpuBufferBytes": 66712800,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67661888,
+      "cacheTiles": 2315,
+      "allocations": 2315,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 100074.90000000298,
+      "jsHeapBytes": 33265409,
+      "gpuBufferBytes": 66775728,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67724816,
+      "cacheTiles": 2318,
+      "allocations": 2318,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 101075.10000000297,
+      "jsHeapBytes": 40790253,
+      "gpuBufferBytes": 66775728,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67724816,
+      "cacheTiles": 2318,
+      "allocations": 2318,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 102075.20000000298,
+      "jsHeapBytes": 39466369,
+      "gpuBufferBytes": 66775728,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67724816,
+      "cacheTiles": 2318,
+      "allocations": 2318,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 103075.30000000299,
+      "jsHeapBytes": 13711415,
+      "gpuBufferBytes": 66775728,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67724816,
+      "cacheTiles": 2318,
+      "allocations": 2318,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 104075.50000000298,
+      "jsHeapBytes": 29829158,
+      "gpuBufferBytes": 66817680,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67766768,
+      "cacheTiles": 2320,
+      "allocations": 2320,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 105075.60000000297,
+      "jsHeapBytes": 22854159,
+      "gpuBufferBytes": 66817680,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67766768,
+      "cacheTiles": 2320,
+      "allocations": 2320,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 106075.70000000298,
+      "jsHeapBytes": 38044052,
+      "gpuBufferBytes": 66901584,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67850672,
+      "cacheTiles": 2324,
+      "allocations": 2324,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 107075.90000000298,
+      "jsHeapBytes": 14574751,
+      "gpuBufferBytes": 66901584,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 67850672,
+      "cacheTiles": 2324,
+      "allocations": 2324,
+      "deletions": 0,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 108076.00000000298,
+      "jsHeapBytes": 21121046,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2368,
+      "deletions": 35,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 109076.10000000297,
+      "jsHeapBytes": 12155449,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2430,
+      "deletions": 97,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 110076.30000000299,
+      "jsHeapBytes": 33641889,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2491,
+      "deletions": 158,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 111083.40000000298,
+      "jsHeapBytes": 17419925,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2560,
+      "deletions": 227,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 112083.50000000298,
+      "jsHeapBytes": 15049411,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2635,
+      "deletions": 302,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 113083.60000000297,
+      "jsHeapBytes": 24343139,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2719,
+      "deletions": 386,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 114083.70000000298,
+      "jsHeapBytes": 29518197,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2787,
+      "deletions": 454,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 115083.90000000298,
+      "jsHeapBytes": 16440566,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2835,
+      "deletions": 502,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 116084.10000000297,
+      "jsHeapBytes": 24997432,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2900,
+      "deletions": 567,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 117091.10000000297,
+      "jsHeapBytes": 16221675,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2942,
+      "deletions": 609,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 118091.30000000299,
+      "jsHeapBytes": 37145861,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2954,
+      "deletions": 621,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    },
+    {
+      "elapsedMs": 119098.30000000299,
+      "jsHeapBytes": 17719287,
+      "gpuBufferBytes": 67090368,
+      "workerOwnedBytesEstimated": 949088,
+      "trackedOwnedBytes": 68039456,
+      "cacheTiles": 2333,
+      "allocations": 2958,
+      "deletions": 625,
+      "note": "Window JS heap excludes Worker heaps and driver memory; tracked buffers are not total browser process memory."
+    }
+  ],
+  "limits": {
+    "workers": 2,
+    "gpuBytes": 67108864,
+    "fieldBytesPerWorker": 262144,
+    "anchorBytesPerWorker": 131072,
+    "maxWantedTiles": 512,
+    "maxPendingUploads": 4,
+    "maxVisitedNodes": 1600,
+    "maxLevel": 24,
+    "morphMs": 400
+  },
+  "streaming": {
+    "cacheTiles": 2333,
+    "gpuBytes": 67090368,
+    "peakGpuBytes": 67090368,
+    "cacheEvictions": 627,
+    "allocations": 2960,
+    "deletions": 627,
+    "wantedTiles": 18,
+    "visitedNodes": 18,
+    "pendingUploads": 0,
+    "activeWorkers": 0,
+    "completedMeshes": 3008,
+    "cancelled": 120,
+    "workerStats": [
+      {
+        "requests": 1661,
+        "downloadBytes": 3406813,
+        "fieldBytes": 262144,
+        "anchorBytes": 131040,
+        "featureBytesEstimated": 81360,
+        "fieldEvictions": 1533,
+        "peakCacheBytes": 262144
+      },
+      {
+        "requests": 1727,
+        "downloadBytes": 3541981,
+        "fieldBytes": 262144,
+        "anchorBytes": 131040,
+        "featureBytesEstimated": 81360,
+        "fieldEvictions": 1599,
+        "peakCacheBytes": 262144
+      }
+    ],
+    "errors": []
+  },
+  "witnesses": [
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 10,
+        "y": 2
+      },
+      "latDeg": 52.94024869649336,
+      "lonDeg": -65.55604521958347,
+      "groundElevationM": 3055.5920741315567,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3055.5920741315567,
+      "normalECEF": [
+        0.2493773340269082,
+        -0.5486301348591981,
+        0.7980074688861063
+      ],
+      "maxVertexFloat32ErrorM": 0.01829208353482565,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 11,
+        "y": 2
+      },
+      "latDeg": 50.82339852074472,
+      "lonDeg": -57.528807709151515,
+      "groundElevationM": 2681.86349326108,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2681.86349326108,
+      "normalECEF": [
+        0.33915110817805644,
+        -0.5329517414226601,
+        0.7752025329784147
+      ],
+      "maxVertexFloat32ErrorM": 0.016940868807874026,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 10,
+        "y": 3
+      },
+      "latDeg": 57.239655633302306,
+      "lonDeg": -60.94539590092286,
+      "groundElevationM": 3461.8896963944303,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3461.8896963944303,
+      "normalECEF": [
+        0.26279416561381835,
+        -0.47302949810487305,
+        0.8409413299642188
+      ],
+      "maxVertexFloat32ErrorM": 0.01868212961057337,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 11,
+        "y": 3
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": -52.125016348901795,
+      "groundElevationM": 3082.885244287147,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3082.885244287147,
+      "normalECEF": [
+        0.35629061899150133,
+        -0.45808793870335884,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.016529942078248854,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 6,
+        "y": 2
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": -105.25511870305778,
+      "groundElevationM": 2163.4306434787495,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2163.4306434787495,
+      "normalECEF": [
+        -0.15269597956778627,
+        -0.5598852584152164,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.02114423589017884,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 7,
+        "y": 2
+      },
+      "latDeg": 55.381320775187966,
+      "lonDeg": -95.19442890773482,
+      "groundElevationM": 2465.2011590633847,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2465.2011590633847,
+      "normalECEF": [
+        -0.05143444998736397,
+        -0.5657789498610036,
+        0.8229511997978235
+      ],
+      "maxVertexFloat32ErrorM": 0.015767392778905553,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 6,
+        "y": 3
+      },
+      "latDeg": 59.335151081155516,
+      "lonDeg": -108.43494882292202,
+      "groundElevationM": 1895.9522313831978,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1895.9522313831978,
+      "normalECEF": [
+        -0.1612809991711411,
+        -0.4838429975134233,
+        0.8601653289127525
+      ],
+      "maxVertexFloat32ErrorM": 0.01608948338433377,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 7,
+        "y": 3
+      },
+      "latDeg": 60.49180655004784,
+      "lonDeg": -96.3401917459099,
+      "groundElevationM": 2704.8966801688457,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2704.8966801688457,
+      "normalECEF": [
+        -0.05439282932204212,
+        -0.4895354638983791,
+        0.8702852691526739
+      ],
+      "maxVertexFloat32ErrorM": 0.017885490775515232,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 10,
+        "y": 12
+      },
+      "latDeg": 57.239655633302306,
+      "lonDeg": 60.94539590092286,
+      "groundElevationM": 2072.2889563649387,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2072.2889563649387,
+      "normalECEF": [
+        0.26279416561381835,
+        0.47302949810487305,
+        0.8409413299642188
+      ],
+      "maxVertexFloat32ErrorM": 0.02028384892154666,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 11,
+        "y": 12
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": 52.125016348901795,
+      "groundElevationM": 2968.258923280312,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2968.258923280312,
+      "normalECEF": [
+        0.35629061899150133,
+        0.45808793870335884,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.020072309285116666,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 10,
+        "y": 13
+      },
+      "latDeg": 52.94024869649336,
+      "lonDeg": 65.55604521958347,
+      "groundElevationM": 1990.883665995629,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1990.883665995629,
+      "normalECEF": [
+        0.2493773340269082,
+        0.5486301348591981,
+        0.7980074688861063
+      ],
+      "maxVertexFloat32ErrorM": 0.01800982051529298,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 11,
+        "y": 13
+      },
+      "latDeg": 50.82339852074472,
+      "lonDeg": 57.528807709151515,
+      "groundElevationM": 3192.4335740552015,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3192.4335740552015,
+      "normalECEF": [
+        0.33915110817805644,
+        0.5329517414226601,
+        0.7752025329784147
+      ],
+      "maxVertexFloat32ErrorM": 0.019616402730857806,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 3,
+        "x": 6,
+        "y": 0
+      },
+      "latDeg": 42.92224486575371,
+      "lonDeg": -54.46232220802562,
+      "groundElevationM": 1326.865107781062,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1326.865107781062,
+      "normalECEF": [
+        0.4256282653793743,
+        -0.595879571531124,
+        0.6810052246069989
+      ],
+      "maxVertexFloat32ErrorM": 0.03311720158757134,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 3,
+        "x": 7,
+        "y": 0
+      },
+      "latDeg": 38.94244126898138,
+      "lonDeg": -45,
+      "groundElevationM": 531.4213428305893,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 531.4213428305893,
+      "normalECEF": [
+        0.5499719409228703,
+        -0.5499719409228703,
+        0.6285393610547089
+      ],
+      "maxVertexFloat32ErrorM": 0.02247563033483524,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 3,
+        "x": 6,
+        "y": 1
+      },
+      "latDeg": 48.527065691059505,
+      "lonDeg": -45,
+      "groundElevationM": 2209.476118128664,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2209.476118128664,
+      "normalECEF": [
+        0.468292905790847,
+        -0.468292905790847,
+        0.7492686492653552
+      ],
+      "maxVertexFloat32ErrorM": 0.0398649942463887,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 3,
+        "x": 7,
+        "y": 1
+      },
+      "latDeg": 42.92224486575371,
+      "lonDeg": -35.53767779197438,
+      "groundElevationM": 956.4127905097479,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 956.4127905097479,
+      "normalECEF": [
+        0.595879571531124,
+        -0.4256282653793743,
+        0.6810052246069989
+      ],
+      "maxVertexFloat32ErrorM": 0.030270295325295234,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 21,
+        "y": 17
+      },
+      "latDeg": 70.38877154141831,
+      "lonDeg": 15.255118703057777,
+      "groundElevationM": 1816.4340934510174,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1816.4340934510174,
+      "normalECEF": [
+        0.32380964517520505,
+        0.08831172141141956,
+        0.9419916950551419
+      ],
+      "maxVertexFloat32ErrorM": 0.01037446296898854,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 20,
+        "y": 14
+      },
+      "latDeg": 73.48683050966368,
+      "lonDeg": -18.43494882292201,
+      "groundElevationM": 2467.186848543191,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2467.186848543191,
+      "normalECEF": [
+        0.2696496829703909,
+        -0.08988322765679696,
+        0.9587544283391676
+      ],
+      "maxVertexFloat32ErrorM": 0.010518580518277882,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 1,
+        "x": 0,
+        "y": 1
+      },
+      "latDeg": 24.094842552110702,
+      "lonDeg": -26.56505117707799,
+      "groundElevationM": 1348.0903543077598,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1348.0903543077598,
+      "normalECEF": [
+        0.8164965809277261,
+        -0.4082482904638631,
+        0.4082482904638631
+      ],
+      "maxVertexFloat32ErrorM": 0.13166595292942987,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 21,
+        "y": 14
+      },
+      "latDeg": 70.38877154141831,
+      "lonDeg": -15.255118703057777,
+      "groundElevationM": 2795.1003479621995,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2795.1003479621995,
+      "normalECEF": [
+        0.32380964517520505,
+        -0.08831172141141956,
+        0.9419916950551419
+      ],
+      "maxVertexFloat32ErrorM": 0.010563340293871881,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 20,
+        "y": 15
+      },
+      "latDeg": 74.19950621159714,
+      "lonDeg": -6.34019174590991,
+      "groundElevationM": 1754.8520639795029,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1754.8520639795029,
+      "normalECEF": [
+        0.27062315069591864,
+        -0.030069238966213184,
+        0.9622156469188219
+      ],
+      "maxVertexFloat32ErrorM": 0.010201934371907185,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 21,
+        "y": 15
+      },
+      "latDeg": 70.95698820632232,
+      "lonDeg": -5.194428907734806,
+      "groundElevationM": 2157.8791086051974,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2157.8791086051974,
+      "normalECEF": [
+        0.32493790519706517,
+        -0.02953980956336956,
+        0.9452739060278259
+      ],
+      "maxVertexFloat32ErrorM": 0.010046573442000434,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 20,
+        "y": 12
+      },
+      "latDeg": 70.38877154141831,
+      "lonDeg": -37.8749836510982,
+      "groundElevationM": 2386.456145178363,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2386.456145178363,
+      "normalECEF": [
+        0.26493516423425867,
+        -0.20606068329331229,
+        0.9419916950551419
+      ],
+      "maxVertexFloat32ErrorM": 0.010134706842183079,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 21,
+        "y": 12
+      },
+      "latDeg": 67.83155384125254,
+      "lonDeg": -32.47119229084849,
+      "groundElevationM": 2042.1945582445076,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2042.1945582445076,
+      "normalECEF": [
+        0.31833949409527795,
+        -0.20257967806063143,
+        0.9260785282771723
+      ],
+      "maxVertexFloat32ErrorM": 0.009585303730135313,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 5,
+        "x": 20,
+        "y": 13
+      },
+      "latDeg": 72.1650208065261,
+      "lonDeg": -29.054604099077146,
+      "groundElevationM": 3019.4192879055568,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3019.4192879055568,
+      "normalECEF": [
+        0.26773385278892836,
+        -0.14874102932718242,
+        0.9519425876939674
+      ],
+      "maxVertexFloat32ErrorM": 0.010599234177314931,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 8,
+        "y": 12
+      },
+      "latDeg": 60.49180655004784,
+      "lonDeg": 83.6598082540901,
+      "groundElevationM": 1902.0703575606326,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1902.0703575606326,
+      "normalECEF": [
+        0.05439282932204212,
+        0.4895354638983791,
+        0.8702852691526739
+      ],
+      "maxVertexFloat32ErrorM": 0.0167616725516263,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 9,
+        "y": 12
+      },
+      "latDeg": 59.335151081155516,
+      "lonDeg": 71.56505117707799,
+      "groundElevationM": 1732.540848353792,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1732.540848353792,
+      "normalECEF": [
+        0.1612809991711411,
+        0.4838429975134233,
+        0.8601653289127525
+      ],
+      "maxVertexFloat32ErrorM": 0.01722986346254223,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 4,
+        "y": 10
+      },
+      "latDeg": 61.73551045495501,
+      "lonDeg": 144.46232220802563,
+      "groundElevationM": 2172.7934993389777,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2172.7934993389777,
+      "normalECEF": [
+        -0.3853373177942262,
+        0.27524094128159016,
+        0.8807710121010885
+      ],
+      "maxVertexFloat32ErrorM": 0.018950949944451657,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 5,
+        "y": 10
+      },
+      "latDeg": 66.15736397620765,
+      "lonDeg": 135,
+      "groundElevationM": 1849.7481632293932,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1849.7481632293932,
+      "normalECEF": [
+        -0.2858309752375147,
+        0.2858309752375147,
+        0.9146591207600472
+      ],
+      "maxVertexFloat32ErrorM": 0.021121556609424597,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 4,
+        "y": 11
+      },
+      "latDeg": 58.25415745636352,
+      "lonDeg": 135,
+      "groundElevationM": 2316.734149724422,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2316.734149724422,
+      "normalECEF": [
+        -0.3720458024169137,
+        0.3720458024169137,
+        0.8503904055243743
+      ],
+      "maxVertexFloat32ErrorM": 0.01697605002719938,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 8,
+        "y": 13
+      },
+      "latDeg": 55.381320775187966,
+      "lonDeg": 84.8055710922652,
+      "groundElevationM": 1158.351715766939,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1158.351715766939,
+      "normalECEF": [
+        0.05143444998736397,
+        0.5657789498610036,
+        0.8229511997978235
+      ],
+      "maxVertexFloat32ErrorM": 0.016826096625652584,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 5,
+        "y": 11
+      },
+      "latDeg": 61.73551045495501,
+      "lonDeg": 125.53767779197439,
+      "groundElevationM": 1835.4780024992035,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1835.4780024992035,
+      "normalECEF": [
+        -0.27524094128159016,
+        0.3853373177942262,
+        0.8807710121010885
+      ],
+      "maxVertexFloat32ErrorM": 0.02173008178642575,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 9,
+        "y": 13
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": 74.74488129694222,
+      "groundElevationM": 1438.7056410392727,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1438.7056410392727,
+      "normalECEF": [
+        0.15269597956778627,
+        0.5598852584152164,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.019540861315084507,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 0,
+        "y": 2
+      },
+      "latDeg": 11.309932474020213,
+      "lonDeg": -36.86989764584402,
+      "groundElevationM": -232.15081929474374,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": -232.15081929474374,
+      "normalECEF": [
+        0.7844645405527362,
+        -0.5883484054145521,
+        0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.07693383839992757,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 1,
+        "y": 2
+      },
+      "latDeg": 13.63302222536641,
+      "lonDeg": -14.036243467926477,
+      "groundElevationM": 3179.28392483668,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3179.28392483668,
+      "normalECEF": [
+        0.9428090415820635,
+        -0.23570226039551587,
+        0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.07803745773006641,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 1,
+        "x": 1,
+        "y": 1
+      },
+      "latDeg": 24.094842552110702,
+      "lonDeg": 26.56505117707799,
+      "groundElevationM": 3919.6502935955396,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3919.6502935955396,
+      "normalECEF": [
+        0.8164965809277261,
+        0.4082482904638631,
+        0.4082482904638631
+      ],
+      "maxVertexFloat32ErrorM": 0.12902336871170259,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 0,
+        "y": 3
+      },
+      "latDeg": 30.96375653207352,
+      "lonDeg": -36.86989764584402,
+      "groundElevationM": 155.68155609127578,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 155.68155609127578,
+      "normalECEF": [
+        0.6859943405700353,
+        -0.5144957554275265,
+        0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.06476382490563219,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 4
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": -37.874983651098205,
+      "groundElevationM": 1779.293123974835,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1779.293123974835,
+      "normalECEF": [
+        0.45808793870335884,
+        -0.35629061899150133,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.017622339958398365,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 4
+      },
+      "latDeg": 50.82339852074472,
+      "lonDeg": -32.47119229084849,
+      "groundElevationM": 1925.0244362235546,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1925.0244362235546,
+      "normalECEF": [
+        0.5329517414226601,
+        -0.33915110817805644,
+        0.7752025329784147
+      ],
+      "maxVertexFloat32ErrorM": 0.016390028273290745,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 5
+      },
+      "latDeg": 57.239655633302306,
+      "lonDeg": -29.054604099077146,
+      "groundElevationM": 1127.9262481178957,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1127.9262481178957,
+      "normalECEF": [
+        0.47302949810487305,
+        -0.26279416561381835,
+        0.8409413299642188
+      ],
+      "maxVertexFloat32ErrorM": 0.018877732364875766,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 5
+      },
+      "latDeg": 52.94024869649336,
+      "lonDeg": -24.443954780416533,
+      "groundElevationM": 1098.0523994771356,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1098.0523994771356,
+      "normalECEF": [
+        0.5486301348591981,
+        -0.2493773340269082,
+        0.7980074688861063
+      ],
+      "maxVertexFloat32ErrorM": 0.016376609798870692,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 1,
+        "y": 3
+      },
+      "latDeg": 36.039893430303856,
+      "lonDeg": -14.036243467926477,
+      "groundElevationM": 1454.2257723941304,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1454.2257723941304,
+      "normalECEF": [
+        0.7844645405527362,
+        -0.19611613513818404,
+        0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.06457683700292413,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 2,
+        "y": 2
+      },
+      "latDeg": 13.63302222536641,
+      "lonDeg": 14.036243467926477,
+      "groundElevationM": 4835.362560846668,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4835.362560846668,
+      "normalECEF": [
+        0.9428090415820635,
+        0.23570226039551587,
+        0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.08439141329955696,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 3,
+        "y": 2
+      },
+      "latDeg": 11.309932474020213,
+      "lonDeg": 36.86989764584402,
+      "groundElevationM": 2542.4765504465877,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2542.4765504465877,
+      "normalECEF": [
+        0.7844645405527362,
+        0.5883484054145521,
+        0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.06619461592329182,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 2,
+        "y": 3
+      },
+      "latDeg": 36.039893430303856,
+      "lonDeg": 14.036243467926477,
+      "groundElevationM": 4521.877550549111,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4521.877550549111,
+      "normalECEF": [
+        0.7844645405527362,
+        0.19611613513818404,
+        0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.06490575135197757,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 3,
+        "y": 3
+      },
+      "latDeg": 30.96375653207352,
+      "lonDeg": 36.86989764584402,
+      "groundElevationM": 4118.631130225982,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4118.631130225982,
+      "normalECEF": [
+        0.6859943405700353,
+        0.5144957554275265,
+        0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.05807542956456287,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 0,
+        "y": 6
+      },
+      "latDeg": 25.190437041798756,
+      "lonDeg": -41.185925165709655,
+      "groundElevationM": 1140.6386785153675,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1140.6386785153675,
+      "normalECEF": [
+        0.6810052246069989,
+        -0.595879571531124,
+        0.4256282653793743
+      ],
+      "maxVertexFloat32ErrorM": 0.03354050739222099,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 0,
+        "y": 7
+      },
+      "latDeg": 33.36508802077568,
+      "lonDeg": -41.185925165709655,
+      "groundElevationM": 163.150433650328,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 163.150433650328,
+      "normalECEF": [
+        0.6285393610547089,
+        -0.5499719409228703,
+        0.5499719409228703
+      ],
+      "maxVertexFloat32ErrorM": 0.02107488678075856,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 1,
+        "y": 6
+      },
+      "latDeg": 27.923542300530908,
+      "lonDeg": -32.005383208083494,
+      "groundElevationM": 490.051210873531,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 490.051210873531,
+      "normalECEF": [
+        0.7492686492653552,
+        -0.468292905790847,
+        0.468292905790847
+      ],
+      "maxVertexFloat32ErrorM": 0.038485155875305085,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 1,
+        "y": 7
+      },
+      "latDeg": 36.57536018859156,
+      "lonDeg": -32.005383208083494,
+      "groundElevationM": 218.0048052729666,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 218.0048052729666,
+      "normalECEF": [
+        0.6810052246069989,
+        -0.4256282653793743,
+        0.595879571531124
+      ],
+      "maxVertexFloat32ErrorM": 0.032957299192958305,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 0,
+        "y": 6
+      },
+      "latDeg": 25.190437041798756,
+      "lonDeg": 48.81407483429036,
+      "groundElevationM": 3076.691101273028,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3076.691101273028,
+      "normalECEF": [
+        0.595879571531124,
+        0.6810052246069989,
+        0.4256282653793743
+      ],
+      "maxVertexFloat32ErrorM": 0.031993634354465735,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 6
+      },
+      "latDeg": 59.335151081155516,
+      "lonDeg": -18.43494882292201,
+      "groundElevationM": 1169.3922075608293,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1169.3922075608293,
+      "normalECEF": [
+        0.4838429975134233,
+        -0.1612809991711411,
+        0.8601653289127525
+      ],
+      "maxVertexFloat32ErrorM": 0.019522848375980038,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 6
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": -15.255118703057775,
+      "groundElevationM": 1042.645349154487,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1042.645349154487,
+      "normalECEF": [
+        0.5598852584152164,
+        -0.15269597956778627,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.01597303150293704,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 7
+      },
+      "latDeg": 60.49180655004784,
+      "lonDeg": -6.340191745909909,
+      "groundElevationM": 1849.9643836362502,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1849.9643836362502,
+      "normalECEF": [
+        0.4895354638983791,
+        -0.05439282932204212,
+        0.8702852691526739
+      ],
+      "maxVertexFloat32ErrorM": 0.018729155021070563,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 7
+      },
+      "latDeg": 55.381320775187966,
+      "lonDeg": -5.194428907734807,
+      "groundElevationM": 1337.2790476609782,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1337.2790476609782,
+      "normalECEF": [
+        0.5657789498610036,
+        -0.05143444998736397,
+        0.8229511997978235
+      ],
+      "maxVertexFloat32ErrorM": 0.0175246489480044,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 2,
+        "y": 6
+      },
+      "latDeg": 30.336415617311186,
+      "lonDeg": -20.556045219583464,
+      "groundElevationM": 771.3456278173427,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 771.3456278173427,
+      "normalECEF": [
+        0.8081220356417685,
+        -0.30304576336566325,
+        0.5050762722761054
+      ],
+      "maxVertexFloat32ErrorM": 0.03320757123765941,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 3,
+        "y": 6
+      },
+      "latDeg": 31.80610001937851,
+      "lonDeg": -7.125016348901798,
+      "groundElevationM": 2001.7758585638157,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2001.7758585638157,
+      "normalECEF": [
+        0.8432740427115678,
+        -0.10540925533894598,
+        0.5270462766947299
+      ],
+      "maxVertexFloat32ErrorM": 0.03484825875619003,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 2,
+        "y": 7
+      },
+      "latDeg": 39.32735230482046,
+      "lonDeg": -20.556045219583464,
+      "groundElevationM": 1250.920765982785,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1250.920765982785,
+      "normalECEF": [
+        0.7242859683401482,
+        -0.2716072381275556,
+        0.6337502222976297
+      ],
+      "maxVertexFloat32ErrorM": 0.031307187170920785,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 3,
+        "y": 7
+      },
+      "latDeg": 40.965924749973844,
+      "lonDeg": -7.125016348901798,
+      "groundElevationM": 2863.845309968675,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2863.845309968675,
+      "normalECEF": [
+        0.7492686492653552,
+        -0.0936585811581694,
+        0.6556100681071858
+      ],
+      "maxVertexFloat32ErrorM": 0.03206689914519718,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 0,
+        "y": 7
+      },
+      "latDeg": 33.36508802077568,
+      "lonDeg": 48.81407483429036,
+      "groundElevationM": 2206.643880951929,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2206.643880951929,
+      "normalECEF": [
+        0.5499719409228703,
+        0.6285393610547089,
+        0.5499719409228703
+      ],
+      "maxVertexFloat32ErrorM": 0.020898271362360252,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 1,
+        "y": 6
+      },
+      "latDeg": 27.923542300530908,
+      "lonDeg": 57.9946167919165,
+      "groundElevationM": 1382.5792693158385,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1382.5792693158385,
+      "normalECEF": [
+        0.468292905790847,
+        0.7492686492653552,
+        0.468292905790847
+      ],
+      "maxVertexFloat32ErrorM": 0.034363910194904174,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 1,
+        "y": 7
+      },
+      "latDeg": 36.57536018859156,
+      "lonDeg": 57.9946167919165,
+      "groundElevationM": 1506.3073170291345,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1506.3073170291345,
+      "normalECEF": [
+        0.4256282653793743,
+        0.6810052246069989,
+        0.595879571531124
+      ],
+      "maxVertexFloat32ErrorM": 0.03293554768394113,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 4,
+        "y": 6
+      },
+      "latDeg": 31.80610001937851,
+      "lonDeg": -82.87498365109819,
+      "groundElevationM": 3724.3239856194427,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3724.3239856194427,
+      "normalECEF": [
+        0.10540925533894598,
+        -0.8432740427115678,
+        0.5270462766947299
+      ],
+      "maxVertexFloat32ErrorM": 0.034215906516380255,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 5,
+        "y": 6
+      },
+      "latDeg": 30.336415617311186,
+      "lonDeg": -69.44395478041653,
+      "groundElevationM": 2993.149824895385,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2993.149824895385,
+      "normalECEF": [
+        0.30304576336566325,
+        -0.8081220356417685,
+        0.5050762722761054
+      ],
+      "maxVertexFloat32ErrorM": 0.0391283394401335,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 8
+      },
+      "latDeg": 60.49180655004784,
+      "lonDeg": 6.340191745909909,
+      "groundElevationM": 2934.6100105306136,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2934.6100105306136,
+      "normalECEF": [
+        0.4895354638983791,
+        0.05439282932204212,
+        0.8702852691526739
+      ],
+      "maxVertexFloat32ErrorM": 0.017048554404605988,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 8
+      },
+      "latDeg": 55.381320775187966,
+      "lonDeg": 5.194428907734807,
+      "groundElevationM": 1934.8649974483699,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1934.8649974483699,
+      "normalECEF": [
+        0.5657789498610036,
+        0.05143444998736397,
+        0.8229511997978235
+      ],
+      "maxVertexFloat32ErrorM": 0.016093987498782224,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 9
+      },
+      "latDeg": 59.335151081155516,
+      "lonDeg": 18.43494882292201,
+      "groundElevationM": 3498.242859492253,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3498.242859492253,
+      "normalECEF": [
+        0.4838429975134233,
+        0.1612809991711411,
+        0.8601653289127525
+      ],
+      "maxVertexFloat32ErrorM": 0.016103491666416916,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 9
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": 15.255118703057775,
+      "groundElevationM": 2727.769872559962,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2727.769872559962,
+      "normalECEF": [
+        0.5598852584152164,
+        0.15269597956778627,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.01718385138743283,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 4,
+        "y": 7
+      },
+      "latDeg": 40.965924749973844,
+      "lonDeg": -82.87498365109819,
+      "groundElevationM": 3796.9219523943425,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3796.9219523943425,
+      "normalECEF": [
+        0.0936585811581694,
+        -0.7492686492653552,
+        0.6556100681071858
+      ],
+      "maxVertexFloat32ErrorM": 0.031050699275385743,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 5,
+        "y": 7
+      },
+      "latDeg": 39.32735230482046,
+      "lonDeg": -69.44395478041653,
+      "groundElevationM": 2555.0843212903596,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2555.0843212903596,
+      "normalECEF": [
+        0.2716072381275556,
+        -0.7242859683401482,
+        0.6337502222976297
+      ],
+      "maxVertexFloat32ErrorM": 0.031175075743104182,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 2,
+        "y": 6
+      },
+      "latDeg": 30.336415617311186,
+      "lonDeg": -110.55604521958348,
+      "groundElevationM": 3350.96726612229,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3350.96726612229,
+      "normalECEF": [
+        -0.30304576336566325,
+        -0.8081220356417685,
+        0.5050762722761054
+      ],
+      "maxVertexFloat32ErrorM": 0.033503176407429294,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 3,
+        "y": 6
+      },
+      "latDeg": 31.80610001937851,
+      "lonDeg": -97.12501634890181,
+      "groundElevationM": 3674.391817688909,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3674.391817688909,
+      "normalECEF": [
+        -0.10540925533894598,
+        -0.8432740427115678,
+        0.5270462766947299
+      ],
+      "maxVertexFloat32ErrorM": 0.03250322928365363,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 2,
+        "y": 7
+      },
+      "latDeg": 39.32735230482046,
+      "lonDeg": -110.55604521958347,
+      "groundElevationM": 3358.138219963886,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3358.138219963886,
+      "normalECEF": [
+        -0.2716072381275556,
+        -0.7242859683401482,
+        0.6337502222976297
+      ],
+      "maxVertexFloat32ErrorM": 0.032258676427295,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 3,
+        "x": 3,
+        "y": 7
+      },
+      "latDeg": 40.965924749973844,
+      "lonDeg": -97.12501634890181,
+      "groundElevationM": 4579.406290560416,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4579.406290560416,
+      "normalECEF": [
+        -0.0936585811581694,
+        -0.7492686492653552,
+        0.6556100681071858
+      ],
+      "maxVertexFloat32ErrorM": 0.03340507054356061,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 4,
+        "y": 6
+      },
+      "latDeg": 31.80610001937851,
+      "lonDeg": 7.125016348901798,
+      "groundElevationM": 3807.0808260957388,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3807.0808260957388,
+      "normalECEF": [
+        0.8432740427115678,
+        0.10540925533894598,
+        0.5270462766947299
+      ],
+      "maxVertexFloat32ErrorM": 0.04348238220114919,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 5,
+        "y": 6
+      },
+      "latDeg": 30.336415617311186,
+      "lonDeg": 20.556045219583464,
+      "groundElevationM": 4847.0235698907245,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4847.0235698907245,
+      "normalECEF": [
+        0.8081220356417685,
+        0.30304576336566325,
+        0.5050762722761054
+      ],
+      "maxVertexFloat32ErrorM": 0.0376227284285528,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 4,
+        "y": 7
+      },
+      "latDeg": 40.965924749973844,
+      "lonDeg": 7.125016348901798,
+      "groundElevationM": 3254.642876815774,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3254.642876815774,
+      "normalECEF": [
+        0.7492686492653552,
+        0.0936585811581694,
+        0.6556100681071858
+      ],
+      "maxVertexFloat32ErrorM": 0.031077693271654955,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 5,
+        "y": 7
+      },
+      "latDeg": 39.32735230482046,
+      "lonDeg": 20.556045219583464,
+      "groundElevationM": 3546.6460559329316,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3546.6460559329316,
+      "normalECEF": [
+        0.7242859683401482,
+        0.2716072381275556,
+        0.6337502222976297
+      ],
+      "maxVertexFloat32ErrorM": 0.031959451904971785,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 3,
+        "y": 2
+      },
+      "latDeg": 11.309932474020213,
+      "lonDeg": -53.13010235415598,
+      "groundElevationM": -445.11068475032073,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": -445.11068475032073,
+      "normalECEF": [
+        0.5883484054145521,
+        -0.7844645405527362,
+        0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.06756113725538136,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 2,
+        "y": 2
+      },
+      "latDeg": 13.63302222536641,
+      "lonDeg": -75.96375653207353,
+      "groundElevationM": 2351.5515753303407,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2351.5515753303407,
+      "normalECEF": [
+        0.23570226039551587,
+        -0.9428090415820635,
+        0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.07024306010600605,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 3,
+        "y": 3
+      },
+      "latDeg": 30.96375653207352,
+      "lonDeg": -53.13010235415598,
+      "groundElevationM": 1520.6869281367792,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1520.6869281367792,
+      "normalECEF": [
+        0.5144957554275265,
+        -0.6859943405700353,
+        0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.0691865560667576,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 2,
+        "y": 3
+      },
+      "latDeg": 36.039893430303856,
+      "lonDeg": -75.96375653207353,
+      "groundElevationM": 3932.792177339769,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3932.792177339769,
+      "normalECEF": [
+        0.19611613513818404,
+        -0.7844645405527362,
+        0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.06641917763533375,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 0,
+        "y": 2
+      },
+      "latDeg": 11.309932474020213,
+      "lonDeg": -126.86989764584402,
+      "groundElevationM": 3082.7732715683023,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3082.7732715683023,
+      "normalECEF": [
+        -0.5883484054145521,
+        -0.7844645405527362,
+        0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.07388997915451073,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 1,
+        "y": 2
+      },
+      "latDeg": 13.63302222536641,
+      "lonDeg": -104.0362434679265,
+      "groundElevationM": 5150.504780647101,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 5150.504780647101,
+      "normalECEF": [
+        -0.23570226039551587,
+        -0.9428090415820635,
+        0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.08390378333975222,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 10
+      },
+      "latDeg": 52.94024869649336,
+      "lonDeg": 24.443954780416533,
+      "groundElevationM": 3338.9659863530287,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3338.9659863530287,
+      "normalECEF": [
+        0.5486301348591981,
+        0.2493773340269082,
+        0.7980074688861063
+      ],
+      "maxVertexFloat32ErrorM": 0.017398468845170746,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 10
+      },
+      "latDeg": 57.239655633302306,
+      "lonDeg": 29.054604099077146,
+      "groundElevationM": 3788.13425182307,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3788.13425182307,
+      "normalECEF": [
+        0.47302949810487305,
+        0.26279416561381835,
+        0.8409413299642188
+      ],
+      "maxVertexFloat32ErrorM": 0.019578413810066395,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 12,
+        "y": 11
+      },
+      "latDeg": 54.52596135026465,
+      "lonDeg": 37.874983651098205,
+      "groundElevationM": 3993.7360200248163,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3993.7360200248163,
+      "normalECEF": [
+        0.45808793870335884,
+        0.35629061899150133,
+        0.8143785576948602
+      ],
+      "maxVertexFloat32ErrorM": 0.02045501678946137,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 4,
+        "level": 4,
+        "x": 13,
+        "y": 11
+      },
+      "latDeg": 50.82339852074472,
+      "lonDeg": 32.47119229084849,
+      "groundElevationM": 3604.0649282576783,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3604.0649282576783,
+      "normalECEF": [
+        0.5329517414226601,
+        0.33915110817805644,
+        0.7752025329784147
+      ],
+      "maxVertexFloat32ErrorM": 0.019155333759704705,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 4,
+        "y": 4
+      },
+      "latDeg": 7.070555116965825,
+      "lonDeg": 7.125016348901798,
+      "groundElevationM": 5103.688603662964,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 5103.688603662964,
+      "normalECEF": [
+        0.9847319278346618,
+        0.12309149097933272,
+        0.12309149097933272
+      ],
+      "maxVertexFloat32ErrorM": 0.04041661992519604,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 5,
+        "y": 4
+      },
+      "latDeg": 6.67559216607672,
+      "lonDeg": 20.556045219583464,
+      "groundElevationM": 5384.501324005508,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 5384.501324005508,
+      "normalECEF": [
+        0.9299811099505543,
+        0.34874291623145787,
+        0.11624763874381928
+      ],
+      "maxVertexFloat32ErrorM": 0.037570896600511244,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 5,
+        "y": 5
+      },
+      "latDeg": 19.34736996093555,
+      "lonDeg": 20.556045219583464,
+      "groundElevationM": 3935.944322284363,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3935.944322284363,
+      "normalECEF": [
+        0.8834522085987723,
+        0.3312945782245396,
+        0.3312945782245396
+      ],
+      "maxVertexFloat32ErrorM": 0.04345021468326213,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 4,
+        "y": 5
+      },
+      "latDeg": 20.410445521658506,
+      "lonDeg": 7.125016348901798,
+      "groundElevationM": 3818.1819418460136,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3818.1819418460136,
+      "normalECEF": [
+        0.9299811099505543,
+        0.11624763874381928,
+        0.34874291623145787
+      ],
+      "maxVertexFloat32ErrorM": 0.03848009810384057,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 0,
+        "y": 3
+      },
+      "latDeg": 30.96375653207352,
+      "lonDeg": -126.86989764584402,
+      "groundElevationM": 2187.4774747442366,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2187.4774747442366,
+      "normalECEF": [
+        -0.5144957554275265,
+        -0.6859943405700353,
+        0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.061148285860414396,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 2,
+        "x": 1,
+        "y": 3
+      },
+      "latDeg": 36.039893430303856,
+      "lonDeg": -104.0362434679265,
+      "groundElevationM": 3619.1162046859577,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3619.1162046859577,
+      "normalECEF": [
+        -0.19611613513818404,
+        -0.7844645405527362,
+        0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.06876998134793386,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 1,
+        "x": 0,
+        "y": 0
+      },
+      "latDeg": -24.094842552110702,
+      "lonDeg": -116.56505117707799,
+      "groundElevationM": 3639.148618675931,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3639.148618675931,
+      "normalECEF": [
+        -0.4082482904638631,
+        -0.8164965809277261,
+        -0.4082482904638631
+      ],
+      "maxVertexFloat32ErrorM": 0.14450455661883355,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 1,
+        "x": 1,
+        "y": 0
+      },
+      "latDeg": -24.094842552110702,
+      "lonDeg": -63.43494882292201,
+      "groundElevationM": 1754.0319976104126,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1754.0319976104126,
+      "normalECEF": [
+        0.4082482904638631,
+        -0.8164965809277261,
+        -0.4082482904638631
+      ],
+      "maxVertexFloat32ErrorM": 0.14161809883636947,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 2,
+        "y": 4
+      },
+      "latDeg": 6.67559216607672,
+      "lonDeg": -20.556045219583464,
+      "groundElevationM": 1547.0071021515614,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1547.0071021515614,
+      "normalECEF": [
+        0.9299811099505543,
+        -0.34874291623145787,
+        0.11624763874381928
+      ],
+      "maxVertexFloat32ErrorM": 0.03709576287271934,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 3,
+        "y": 4
+      },
+      "latDeg": 7.070555116965825,
+      "lonDeg": -7.125016348901798,
+      "groundElevationM": 3337.961451846446,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3337.961451846446,
+      "normalECEF": [
+        0.9847319278346618,
+        -0.12309149097933272,
+        0.12309149097933272
+      ],
+      "maxVertexFloat32ErrorM": 0.042130700667572546,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 2,
+        "y": 5
+      },
+      "latDeg": 19.34736996093555,
+      "lonDeg": -20.556045219583464,
+      "groundElevationM": 2535.7950577559172,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2535.7950577559172,
+      "normalECEF": [
+        0.8834522085987723,
+        -0.3312945782245396,
+        0.3312945782245396
+      ],
+      "maxVertexFloat32ErrorM": 0.04276652099737745,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 3,
+        "y": 5
+      },
+      "latDeg": 20.410445521658506,
+      "lonDeg": -7.125016348901798,
+      "groundElevationM": 3143.0543952299986,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3143.0543952299986,
+      "normalECEF": [
+        0.9299811099505543,
+        -0.11624763874381928,
+        0.34874291623145787
+      ],
+      "maxVertexFloat32ErrorM": 0.03378936712392163,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 2,
+        "y": 4
+      },
+      "latDeg": 6.67559216607672,
+      "lonDeg": 69.44395478041653,
+      "groundElevationM": -652.6612452426933,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": -652.6612452426933,
+      "normalECEF": [
+        0.34874291623145787,
+        0.9299811099505543,
+        0.11624763874381928
+      ],
+      "maxVertexFloat32ErrorM": 0.04295785693825764,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 3,
+        "y": 4
+      },
+      "latDeg": 7.070555116965825,
+      "lonDeg": 82.87498365109819,
+      "groundElevationM": -82.01394955915929,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": -82.01394955915929,
+      "normalECEF": [
+        0.12309149097933272,
+        0.9847319278346618,
+        0.12309149097933272
+      ],
+      "maxVertexFloat32ErrorM": 0.03797933723888467,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 2,
+        "y": 5
+      },
+      "latDeg": 19.34736996093555,
+      "lonDeg": 69.44395478041653,
+      "groundElevationM": 1055.4113587268623,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1055.4113587268623,
+      "normalECEF": [
+        0.3312945782245396,
+        0.8834522085987723,
+        0.3312945782245396
+      ],
+      "maxVertexFloat32ErrorM": 0.037875896154691,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 3,
+        "x": 3,
+        "y": 5
+      },
+      "latDeg": 20.410445521658506,
+      "lonDeg": 82.87498365109819,
+      "groundElevationM": 283.79448696241496,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 283.79448696241496,
+      "normalECEF": [
+        0.11624763874381928,
+        0.9299811099505543,
+        0.34874291623145787
+      ],
+      "maxVertexFloat32ErrorM": 0.0415590805185994,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 1,
+        "x": 0,
+        "y": 1
+      },
+      "latDeg": 24.094842552110702,
+      "lonDeg": -116.56505117707799,
+      "groundElevationM": 4289.096259972329,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4289.096259972329,
+      "normalECEF": [
+        -0.4082482904638631,
+        -0.8164965809277261,
+        0.4082482904638631
+      ],
+      "maxVertexFloat32ErrorM": 0.1782828237401626,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 1,
+        "x": 1,
+        "y": 1
+      },
+      "latDeg": 24.094842552110702,
+      "lonDeg": -63.43494882292201,
+      "groundElevationM": 1104.1730612729755,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1104.1730612729755,
+      "normalECEF": [
+        0.4082482904638631,
+        -0.8164965809277261,
+        0.4082482904638631
+      ],
+      "maxVertexFloat32ErrorM": 0.16355347891880107,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 6,
+        "y": 6
+      },
+      "latDeg": 27.923542300530908,
+      "lonDeg": 32.005383208083494,
+      "groundElevationM": 4641.227927661973,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4641.227927661973,
+      "normalECEF": [
+        0.7492686492653552,
+        0.468292905790847,
+        0.468292905790847
+      ],
+      "maxVertexFloat32ErrorM": 0.03344120377004184,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 7,
+        "y": 6
+      },
+      "latDeg": 25.190437041798756,
+      "lonDeg": 41.185925165709655,
+      "groundElevationM": 3790.2419290304947,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3790.2419290304947,
+      "normalECEF": [
+        0.6810052246069989,
+        0.595879571531124,
+        0.4256282653793743
+      ],
+      "maxVertexFloat32ErrorM": 0.0368307642642582,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 6,
+        "y": 7
+      },
+      "latDeg": 36.57536018859156,
+      "lonDeg": 32.005383208083494,
+      "groundElevationM": 3525.8859395917116,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3525.8859395917116,
+      "normalECEF": [
+        0.6810052246069989,
+        0.4256282653793743,
+        0.595879571531124
+      ],
+      "maxVertexFloat32ErrorM": 0.03180613373252263,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 3,
+        "x": 7,
+        "y": 7
+      },
+      "latDeg": 33.36508802077568,
+      "lonDeg": 41.185925165709655,
+      "groundElevationM": 3098.991141383398,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3098.991141383398,
+      "normalECEF": [
+        0.6285393610547089,
+        0.5499719409228703,
+        0.5499719409228703
+      ],
+      "maxVertexFloat32ErrorM": 0.020751293096421337,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 0,
+        "y": 0
+      },
+      "latDeg": -30.96375653207352,
+      "lonDeg": 53.13010235415598,
+      "groundElevationM": 2675.441596869229,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2675.441596869229,
+      "normalECEF": [
+        0.5144957554275265,
+        0.6859943405700353,
+        -0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.06240383576057421,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 1,
+        "y": 0
+      },
+      "latDeg": -36.039893430303856,
+      "lonDeg": 75.96375653207353,
+      "groundElevationM": 1621.7210056238232,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1621.7210056238232,
+      "normalECEF": [
+        0.19611613513818404,
+        0.7844645405527362,
+        -0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.08167951417862072,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 0,
+        "y": 1
+      },
+      "latDeg": -11.309932474020213,
+      "lonDeg": 53.13010235415598,
+      "groundElevationM": 575.8180581955493,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 575.8180581955493,
+      "normalECEF": [
+        0.5883484054145521,
+        0.7844645405527362,
+        -0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.06923331847850692,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 1,
+        "y": 1
+      },
+      "latDeg": -13.63302222536641,
+      "lonDeg": 75.96375653207353,
+      "groundElevationM": 143.1769753298768,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 143.1769753298768,
+      "normalECEF": [
+        0.23570226039551587,
+        0.9428090415820635,
+        -0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.08552044852491834,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 3,
+        "y": 0
+      },
+      "latDeg": -30.96375653207352,
+      "lonDeg": 36.86989764584402,
+      "groundElevationM": 3223.5170092138605,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3223.5170092138605,
+      "normalECEF": [
+        0.6859943405700353,
+        0.5144957554275265,
+        -0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.062414281035192275,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 2,
+        "y": 0
+      },
+      "latDeg": -36.039893430303856,
+      "lonDeg": 14.036243467926477,
+      "groundElevationM": 3543.6144044422535,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3543.6144044422535,
+      "normalECEF": [
+        0.7844645405527362,
+        0.19611613513818404,
+        -0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.06766960764401676,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 3,
+        "y": 1
+      },
+      "latDeg": -11.309932474020213,
+      "lonDeg": 36.86989764584402,
+      "groundElevationM": 2483.459629566781,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2483.459629566781,
+      "normalECEF": [
+        0.7844645405527362,
+        0.5883484054145521,
+        -0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.08050547327054904,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 0,
+        "level": 2,
+        "x": 2,
+        "y": 1
+      },
+      "latDeg": -13.63302222536641,
+      "lonDeg": 14.036243467926477,
+      "groundElevationM": 5174.285191460225,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 5174.285191460225,
+      "normalECEF": [
+        0.9428090415820635,
+        0.23570226039551587,
+        -0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.0849145978215921,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 3,
+        "y": 0
+      },
+      "latDeg": -30.96375653207352,
+      "lonDeg": 126.86989764584402,
+      "groundElevationM": 3340.8660111732147,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3340.8660111732147,
+      "normalECEF": [
+        -0.5144957554275265,
+        0.6859943405700353,
+        -0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.05918070835805217,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 2,
+        "y": 0
+      },
+      "latDeg": -36.039893430303856,
+      "lonDeg": 104.0362434679265,
+      "groundElevationM": 1308.7952764445613,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 1308.7952764445613,
+      "normalECEF": [
+        -0.19611613513818404,
+        0.7844645405527362,
+        -0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.07434768712905325,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 2,
+        "y": 1
+      },
+      "latDeg": -13.63302222536641,
+      "lonDeg": 104.0362434679265,
+      "groundElevationM": 2940.8195517004697,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2940.8195517004697,
+      "normalECEF": [
+        -0.23570226039551587,
+        0.9428090415820635,
+        -0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.07532739358779071,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 2,
+        "x": 3,
+        "y": 1
+      },
+      "latDeg": -11.309932474020213,
+      "lonDeg": 126.86989764584402,
+      "groundElevationM": 4105.460101935692,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4105.460101935692,
+      "normalECEF": [
+        -0.5883484054145521,
+        0.7844645405527362,
+        -0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.08481461386512923,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 1,
+        "level": 2,
+        "x": 0,
+        "y": 0
+      },
+      "latDeg": -30.96375653207352,
+      "lonDeg": 143.13010235415598,
+      "groundElevationM": 4705.256194688673,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 4705.256194688673,
+      "normalECEF": [
+        -0.6859943405700353,
+        0.5144957554275265,
+        -0.5144957554275265
+      ],
+      "maxVertexFloat32ErrorM": 0.058639374978848136,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 1,
+        "level": 2,
+        "x": 0,
+        "y": 1
+      },
+      "latDeg": -11.309932474020213,
+      "lonDeg": 143.13010235415598,
+      "groundElevationM": 3893.020203484439,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3893.020203484439,
+      "normalECEF": [
+        -0.7844645405527362,
+        0.5883484054145521,
+        -0.19611613513818404
+      ],
+      "maxVertexFloat32ErrorM": 0.06661165786100788,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 1,
+        "level": 2,
+        "x": 1,
+        "y": 0
+      },
+      "latDeg": -36.039893430303856,
+      "lonDeg": 165.96375653207352,
+      "groundElevationM": 3786.537899110907,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3786.537899110907,
+      "normalECEF": [
+        -0.7844645405527362,
+        0.19611613513818404,
+        -0.5883484054145521
+      ],
+      "maxVertexFloat32ErrorM": 0.07691680708785187,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 1,
+        "level": 2,
+        "x": 1,
+        "y": 1
+      },
+      "latDeg": -13.63302222536641,
+      "lonDeg": 165.96375653207352,
+      "groundElevationM": 2114.7469526118343,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 2114.7469526118343,
+      "normalECEF": [
+        -0.9428090415820635,
+        0.23570226039551587,
+        -0.23570226039551587
+      ],
+      "maxVertexFloat32ErrorM": 0.08400280847428251,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 5,
+        "level": 1,
+        "x": 1,
+        "y": 0
+      },
+      "latDeg": -54.735610317245346,
+      "lonDeg": 45,
+      "groundElevationM": 3551.1018895413117,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3551.1018895413117,
+      "normalECEF": [
+        0.4082482904638631,
+        0.4082482904638631,
+        -0.8164965809277261
+      ],
+      "maxVertexFloat32ErrorM": 0.13569334342967465,
+      "float32PositionErrorM": 0
+    },
+    {
+      "tile": {
+        "face": 5,
+        "level": 1,
+        "x": 0,
+        "y": 0
+      },
+      "latDeg": -54.735610317245346,
+      "lonDeg": 135,
+      "groundElevationM": 3166.1154971870815,
+      "waterLevelElevationM": null,
+      "waterDepthM": null,
+      "roadSurface": null,
+      "buildingId": null,
+      "vertexGroundElevationM": 3166.1154971870815,
+      "normalECEF": [
+        -0.4082482904638631,
+        0.4082482904638631,
+        -0.8164965809277261
+      ],
+      "maxVertexFloat32ErrorM": 0.1496632710001007,
+      "float32PositionErrorM": 0
+    }
+  ],
+  "centerProbe": {
+    "type": "probe",
+    "id": 1,
+    "point": {
+      "latDeg": 35,
+      "lonDeg": 135
+    },
+    "sample": {
+      "groundElevationM": 597.338106685588,
+      "waterLevelElevationM": 599.338106685588,
+      "waterDepthM": 2,
+      "roadSurface": {
+        "roadId": "demo-road",
+        "structureKind": "bridge-deck",
+        "surfaceKind": "road",
+        "roadElevationM": 603.6991480211826,
+        "slopeMPerM": 0,
+        "roughness": 0
+      },
+      "waterSourceIds": [
+        "demo-river"
+      ],
+      "xM": 0,
+      "yM": 0,
+      "buildingId": null,
+      "structureKind": null,
+      "baseGroundElevationM": 600.6622911747163,
+      "gradientEastNorth": {
+        "east": 4.042135515192058e-10,
+        "north": -0.0004113475515055143
+      },
+      "slopeMPerM": 0.00041134755150571285
+    },
+    "stats": {
+      "requests": 2,
+      "downloadBytes": 9181,
+      "fieldBytes": 4096,
+      "anchorBytes": 576,
+      "featureBytesEstimated": 81360,
+      "fieldEvictions": 0,
+      "peakCacheBytes": 4096
+    }
+  },
+  "fps30Gate": true,
+  "totalBrowserMemoryGate": "not-measured; requires browser process/driver measurement",
+  "stabilityScope": "120s automated prototype tour; not a long-duration/device acceptance"
+}

@@ -1,0 +1,58 @@
+{
+  "roadCulling": {
+    "tile": {
+      "face": 1,
+      "level": 16,
+      "x": 27545,
+      "y": 38060
+    },
+    "roadCandidates": 14,
+    "remaining": 6,
+    "culled": 8,
+    "elapsedMs": 4195,
+    "roadIds": [
+      "road:population-zone:926/0/3/3/0/0/site:0|population-zone:926/0/3/3/0/0/site:1",
+      "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+      "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0",
+      "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1",
+      "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/2/segment:0",
+      "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/2/segment:1"
+    ]
+  },
+  "denseWaterProbe": {
+    "riverId": "tributary-region@4/referenced/river:926:861/point:365/channel:8166:8555",
+    "lengthM": 243.1065755001925,
+    "samples": 995,
+    "dry": 0,
+    "minDepthM": 0.29499999564910695,
+    "maxDepthM": 0.29999999999999716
+  },
+  "visualAcceptance": "FAILED: disconnected narrow-water triangles remain visible at LOD14 and16 despite wet physical centerline.",
+  "rejectedExperiments": [
+    "width-weighted subdivision",
+    "tight triangle/capsule intersection",
+    "disabled interior display skirts",
+    "doubled fine water subdivision budget"
+  ],
+  "originalNearfieldMs": 94883,
+  "fineFullScene": "Interrupted after more than5minutes without first tile.",
+  "waterOnlyFineMs": 16457,
+  "scope": "Node production mesh/software-renderer diagnostic; not browser acceptance. Culling eliminates8of14 potential road surveys in this view, but no claim that complete-scene delay is resolved.",
+  "roadLatencyFollowup": {
+    "normalTileTimeoutMs": 120000,
+    "newRoadElapsedBeforeAbortMs": 114596,
+    "cachedIndexNormalTileTimeoutMs": 300000,
+    "cachedIndexNewRoadElapsedBeforeAbortMs": 293015,
+    "completedTile": false,
+    "diagnosis": "A new 11.2 km inter-zone road enters wide and extended-direction grid searches. Normal stream worker deadline is 120 seconds; this is still a blocker.",
+    "indexMicrobenchmark": {
+      "segments": 32653,
+      "queries": 6000,
+      "beforeMs": 158.01731599999994,
+      "afterMs": 33.149102000000084,
+      "identical": true
+    },
+    "microbenchmarkScope": "6000 alternating zero/200m queries over a fixed 6km line using actual 32653-segment manifest. Identical ordered candidate arrays; not whole scene timing.",
+    "rejected": "Incoming-goal-edge preflight passed focused tests but did not resolve the actual view wait; reverted."
+  }
+}

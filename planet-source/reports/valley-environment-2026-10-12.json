@@ -1,0 +1,63 @@
+{
+  "n": 129,
+  "extentM": 20000,
+  "center": {
+    "latDeg": 19.6875,
+    "lonDeg": 154.6875
+  },
+  "counts": {
+    "before": {
+      "water": 1861,
+      "wet_meadow": 269,
+      "woodland": 14511
+    },
+    "after": {
+      "water": 1861,
+      "wet_meadow": 1192,
+      "woodland": 13588
+    }
+  },
+  "scope": "Both panels use identical prospective alluvial physical terrain/water. Only environmental interpretation changes. Potential cover, no human land use. Existing saved world not modified.",
+  "changedCells": 923,
+  "waterClassificationUnchanged": true,
+  "policy": "valley-water-cover@2",
+  "queryReachM": {
+    "minimum": 200,
+    "maximum": 1000,
+    "derivedFrom": "maximum installed valley-floor width +180m; bounded to query limit"
+  },
+  "existingWorldsChanged": false,
+  "fullSuite": {
+    "pass": 1133,
+    "fail": 0,
+    "skip": 0,
+    "durationMs": 437487.377713,
+    "memoryLimitMiB": 256,
+    "workers": 1,
+    "runner": "same TEST_FILES list and Node options as npm test; streamed output; same600s deadline"
+  },
+  "limitations": [
+    "Potential cover, not hydrological or flood-risk validation",
+    "Nearest-river context, not drainage-connected HAND",
+    "No sediment, soil survey or woodland succession",
+    "Diagnostic omits human land use; farm exclusion tested separately",
+    "Browser acceptance remains unverified"
+  ],
+  "usesAcceptedLocalConfinementCandidate": true,
+  "build": {
+    "passed": true,
+    "coreModules": 139,
+    "legacyEntryPoints": 30,
+    "globeModules": 57
+  },
+  "earlierAttempts": [
+    "Intermediate suite deliberately interrupted to finish default package connection",
+    "First completed aggregate attempt reached600s timeout; not a pass",
+    "Optimized unnecessary wide proximity scans; reran focused checks and full list"
+  ],
+  "focusedTests": {
+    "pass": 25,
+    "fail": 0,
+    "includesActualDefaultPackageGeneration": true
+  }
+}

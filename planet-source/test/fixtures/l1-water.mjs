@@ -1,0 +1,4 @@
+export function waterFixture(){
+ const w=16,h=8,n=w*h,land=Array.from({length:n},(_,i)=>i<w*(h-1)?1:0),z=Array.from({length:n},(_,i)=>(h-1-Math.floor(i/w))*80),down=Array.from({length:n},(_,i)=>land[i]?i+w:-1);
+ return{snapshot:{worldId:'water-world',layerId:'water-layer',layer:'L1',grid:{columns:w,rows:h},frame:{radiusM:100000},fields:{groundElevationM:z,landMask:land,downstream:down,lakeFillDepthM:Array(n).fill(0)},references:{lakes:[]}},climate:{id:'water-climate',sourceWorldId:'water-world',sourceLayerId:'water-layer',cellAreaM2:Array(n).fill(1e8),annualMeanTemperatureC:Array(n).fill(15),annualPrecipitationMm:Array(n).fill(800),biome:land.map(v=>v?'temperate_forest':'ocean'),catchmentWater:{annualLocalYieldMm:Array(n).fill(100),meanSoilMoisture:Array(n).fill(.5),annualRoutedYieldM3:Array.from({length:n},(_,i)=>(Math.floor(i/w)+1)*1e7)}}};
+}

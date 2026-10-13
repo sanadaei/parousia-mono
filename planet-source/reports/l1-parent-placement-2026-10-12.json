@@ -1,0 +1,56 @@
+{
+  "schema": "l1-parent-placement-review@1",
+  "date": "2026-10-12",
+  "status": "parent placement trial implemented; independent neighbour trial rejected visually",
+  "parentPlacement": {
+    "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+    "climateId": "sha256:1d639e72674f2896b32a6bcb813fee20b25c251eaefe78d00390315206c46cb7",
+    "settings": {
+      "cellSizeM": 60,
+      "columns": 192,
+      "detailAmplitude": 1,
+      "latDeg": 43.59375,
+      "lonDeg": 158.90625,
+      "rows": 144,
+      "seed": "muna-atlas-001"
+    },
+    "diagnostics": {
+      "activeCells": 27648,
+      "depressionCells": 0,
+      "maxRoutingFillM": 0,
+      "meanHeightResidualM": 0.001641590416259518,
+      "relativeBudgetResidual": 1.4835462066340405e-15,
+      "totalInputM3PerYear": 13810892.137985665,
+      "totalOutputM3PerYear": 13810892.137985686
+    },
+    "conditioning": {
+      "anchors": 668,
+      "cutCells": 470,
+      "maxCutM": 8.527360958393103,
+      "maxGradeViolationM": 0,
+      "maxRaiseM": 8.315502179529801,
+      "raisedCells": 358
+    }
+  },
+  "negativeNeighbourExperiment": {
+    "method": "new side boundary blending; old ground and interior receivers fixed",
+    "observedProblem": "long boundary-hugging streams; not accepted as natural terrain",
+    "implementedStatus": "constraints-pass-visual-unapproved, never production approval"
+  },
+  "verification": {
+    "focusedTests": 6,
+    "fullSuite": {
+      "pass": 1169,
+      "fail": 0,
+      "skip": 0
+    },
+    "browserQA": "not run",
+    "build": "passed:142 core,30 legacy,57 globe"
+  },
+  "remaining": [
+    "natural downstream corridor reservation before detail generation",
+    "arbitrary nonrectangular neighbour geometry",
+    "receiving seas/lakes and external inflow",
+    "channel geometry and world viewer integration"
+  ]
+}

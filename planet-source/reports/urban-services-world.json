@@ -1,0 +1,146 @@
+{
+  "worldId": "sha256:6c5dc7d74ff3b0c0b0fee1b8e718e6a13eced9ceab62410bfee26e8ec520bf77",
+  "scope": "Paired same-site new urban service policy; sampled shared physical chart, not visual or whole-world acceptance",
+  "results": [
+    {
+      "id": "pop:3841:0",
+      "districtIndex": 0,
+      "before": {
+        "homes": 96,
+        "facilities": 6,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 6,
+        "yards": 6,
+        "publicAccess": [
+          {
+            "targetId": "pop:3841:0/church",
+            "targetType": "chapel",
+            "status": "connected",
+            "roadId": "pop:3841:0/church/public-access",
+            "joinsRoadId": "pop:3841:0/urban-street:42214,38057|51624,-26340",
+            "entranceSide": "east",
+            "lengthM": 26.246304837170456
+          }
+        ],
+        "accessRoads": 6
+      },
+      "samples": 139,
+      "failures": [],
+      "elapsedMs": 485.34905399999997
+    },
+    {
+      "id": "pop:3841:0",
+      "districtIndex": 1,
+      "before": {
+        "homes": 96,
+        "facilities": 1,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 1,
+        "yards": 1,
+        "publicAccess": [],
+        "accessRoads": 1
+      },
+      "samples": 13,
+      "failures": [],
+      "elapsedMs": 421.16068599999994
+    },
+    {
+      "id": "pop:3841:0",
+      "districtIndex": 4,
+      "before": {
+        "homes": 96,
+        "facilities": 2,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 2,
+        "yards": 2,
+        "publicAccess": [],
+        "accessRoads": 2
+      },
+      "samples": 26,
+      "failures": [],
+      "elapsedMs": 517.4657670000001
+    },
+    {
+      "id": "pop:3963:0",
+      "districtIndex": 0,
+      "before": {
+        "homes": 96,
+        "facilities": 6,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 6,
+        "yards": 6,
+        "publicAccess": [
+          {
+            "targetId": "pop:3963:0/church",
+            "targetType": "chapel",
+            "status": "connected",
+            "roadId": "pop:3963:0/church/public-access",
+            "joinsRoadId": "pop:3963:0/urban-street:33224,-45659|40732,43044",
+            "entranceSide": "east",
+            "lengthM": 15.781857966820173
+          }
+        ],
+        "accessRoads": 6
+      },
+      "samples": 117,
+      "failures": [],
+      "elapsedMs": 360.505279
+    },
+    {
+      "id": "pop:3963:0",
+      "districtIndex": 1,
+      "before": {
+        "homes": 96,
+        "facilities": 1,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 1,
+        "yards": 1,
+        "publicAccess": [],
+        "accessRoads": 1
+      },
+      "samples": 13,
+      "failures": [],
+      "elapsedMs": 348.92804700000033
+    },
+    {
+      "id": "pop:3963:0",
+      "districtIndex": 4,
+      "before": {
+        "homes": 96,
+        "facilities": 2,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 2,
+        "yards": 2,
+        "publicAccess": [],
+        "accessRoads": 2
+      },
+      "samples": 27,
+      "failures": [],
+      "elapsedMs": 264.5310089999998
+    }
+  ]
+}

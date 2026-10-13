@@ -1,0 +1,408 @@
+{
+  "schema": "minimal-world-core-ui-audit-verification@1",
+  "implementationVersion": "0.3.5",
+  "measuredAtUTC": "2026-10-09T12:25:03.136Z",
+  "node": "v22.23.1",
+  "limits": {
+    "childHeapMiB": 256,
+    "timeoutPerChildMs": 30000,
+    "workersConcurrent": 1,
+    "minimumFreeMemoryMiB": 768
+  },
+  "freeMemoryBeforeMiB": 11672.1484375,
+  "unitTests": {
+    "tests": 256,
+    "pass": 256
+  },
+  "buildPassed": true,
+  "coreModuleCount": 31,
+  "legacyEntryPointsIdentical": 30,
+  "legacyReplay": {
+    "file": "examples/audit-0.3.3/0.3.5/verification.json",
+    "sha256": "fb19e84cacc57ef2e4d22cdead03ebc344c579188284af8aa7395383fcac2f3e",
+    "measuredAtUTC": "2026-10-09T12:21:35.057Z",
+    "snapshots": 40,
+    "sourceFilesUnchanged": true,
+    "inputSnapshotsUnchanged": true
+  },
+  "uiSceneSeparateProcess": {
+    "captured": {
+      "worldId": "sha256:5179997607d2ecfead7fb173399e1c92615b2211e5440ab11761e0c4c67b84e8",
+      "roadAdjustmentId": "sha256:42bf8e1f2645249ab6e902269fa7c7970600266b5e57de336267df73a01a357a",
+      "statuses": [
+        "at-grade-matched",
+        "insufficient-vertical-clearance",
+        "grade-separated-clearance-met",
+        "collision"
+      ],
+      "samplesCompared": 5,
+      "exact": true
+    },
+    "reopened": {
+      "worldId": "sha256:5179997607d2ecfead7fb173399e1c92615b2211e5440ab11761e0c4c67b84e8",
+      "roadAdjustmentId": "sha256:42bf8e1f2645249ab6e902269fa7c7970600266b5e57de336267df73a01a357a",
+      "statuses": [
+        "at-grade-matched",
+        "insufficient-vertical-clearance",
+        "grade-separated-clearance-met",
+        "collision"
+      ],
+      "samplesCompared": 5,
+      "exact": true
+    }
+  },
+  "browserEvidence": [
+    "ui-demo-reopened.dom.txt",
+    "ui-demo-reopened.jpg",
+    "ui-four-statuses.dom.txt",
+    "ui-four-statuses.jpg"
+  ],
+  "implementationFiles": [
+    {
+      "file": "package.json",
+      "sha256": "acc8a31086e68fc89765b7ffc899cfb6a11bf9c1e665d1e07a13551e2ef0c88d"
+    },
+    {
+      "file": "src/core/bernstein.mjs",
+      "sha256": "ac7927715dbc2797848a81606dd8d3a163ca317dc8bb80eb87972c7eb7371479"
+    },
+    {
+      "file": "src/core/building-pad.mjs",
+      "sha256": "34e7d6691b45bc0e9b452104058afd70cab4475016c92e22d6d7edaa4f5b272c"
+    },
+    {
+      "file": "src/core/channel-sizing.mjs",
+      "sha256": "ea6569271c6438af3fbf7a6348fac12b4532a290309f559d09c282022bf58ee9"
+    },
+    {
+      "file": "src/core/contract-validation.mjs",
+      "sha256": "e7aa2b3ac7aed09ac64e914371cc1c0d00f9aff43a2895495175f920c28d4301"
+    },
+    {
+      "file": "src/core/dynamic-drainage.mjs",
+      "sha256": "e11557a27fbeeb37f26ff9dc3140a7bcbc2ed650317ecf2089a980b7c4ddd96f"
+    },
+    {
+      "file": "src/core/dynamic-regional.mjs",
+      "sha256": "036af97b0014c2c846d4f809397d18caa2488358c4a202b60d43fe8a279c3e6e"
+    },
+    {
+      "file": "src/core/earthwork-drainage.mjs",
+      "sha256": "0536e5244a890f3ae8e75bfc348a7e85cde562e0233a57ae2115746800a50be1"
+    },
+    {
+      "file": "src/core/field-math.mjs",
+      "sha256": "855a2940976de27150bd000b3cd6a8b336e8cc2ff741fc16067d39aa5bfa04d6"
+    },
+    {
+      "file": "src/core/global-interchart-rivers.mjs",
+      "sha256": "c23175537f1d16e9f376a3d017cb120912f2bf8fd6aa591f051b83a6eb80a4e6"
+    },
+    {
+      "file": "src/core/global-terrain.mjs",
+      "sha256": "46520bbabd9fa7c9dd4210cfdd2ef9ebc4de0a2ac4df4c21a95ff487e0f3349d"
+    },
+    {
+      "file": "src/core/global-water-charts.mjs",
+      "sha256": "5b8085db7a2c3680d0aef702097fd7b725e62b0d0487b833bc7b575c5712e164"
+    },
+    {
+      "file": "src/core/global-water.mjs",
+      "sha256": "4c6c36fbbc0e1ff7fd6c76861d80f829f4d944c7002bef732058aad2ff0e6cd5"
+    },
+    {
+      "file": "src/core/hermite-field.mjs",
+      "sha256": "d8797432d8399a264a4de2f561b8504d8cfd5bf1f8e79d34b1cee6f03ac6ea43"
+    },
+    {
+      "file": "src/core/index.mjs",
+      "sha256": "2076905d15d89e64e3d6512c92515be7e0d6a7b84fc5db00452c41ad90b8a5bd"
+    },
+    {
+      "file": "src/core/json-contract.mjs",
+      "sha256": "754c30289fe9693f19a79c7d54aaca44627cfa9979b7ab7c48094174503ab5e5"
+    },
+    {
+      "file": "src/core/periodic-field.mjs",
+      "sha256": "840d58e6588bd8552d4d4da637fa8eea1939496ef3632f0eadbb924e08825c8f"
+    },
+    {
+      "file": "src/core/post-detail-drainage.mjs",
+      "sha256": "e1a2b81f1bde33b24480b4191e5d6a89f03539b0251b939840e03f3243dacb34"
+    },
+    {
+      "file": "src/core/projected-canonical.mjs",
+      "sha256": "1c10b2cd7230b08f291b3fe45afd33bded167f00ba40b28d78cf0e48be423796"
+    },
+    {
+      "file": "src/core/projected-ground-bounds.mjs",
+      "sha256": "a04bc88dca07e3f911a02f1de2c6df83a5466540ff13e6c59354aad73aa1100d"
+    },
+    {
+      "file": "src/core/road-crossings.mjs",
+      "sha256": "75014d0a32a21844fc699fc044c073e5fd68ee1138e9093d6fa60605867d3c97"
+    },
+    {
+      "file": "src/core/road-earthwork.mjs",
+      "sha256": "266ede593aa5cf4e11d3a2f86aa6106b32d80a6a0558a2355c201ca1f8e02f7e"
+    },
+    {
+      "file": "src/core/road-geometry.mjs",
+      "sha256": "37e85c267bacad252e8e1ea5d6563aeae61e84ce1def8a74c80551538d803df8"
+    },
+    {
+      "file": "src/core/road-junctions.mjs",
+      "sha256": "160276f756c8ad9daae0a59a5f0883b0c15716ce9b2c22de522582ab45984c57"
+    },
+    {
+      "file": "src/core/spherical-detail.mjs",
+      "sha256": "97ce25f2fce9eefc030724c2681458aebc03153c2d9408d40728ec44f3a4e398"
+    },
+    {
+      "file": "src/core/spherical-noise.mjs",
+      "sha256": "b0958c8f50dc76531684d4f069a7cf507b25659167e25d4e54625c2317ce9540"
+    },
+    {
+      "file": "src/core/spherical.mjs",
+      "sha256": "e80939d29c5e09ea7aa46e0cf0b48fb2bc728e60a977b3ceb8206bae964ff830"
+    },
+    {
+      "file": "src/core/surface-derivatives.mjs",
+      "sha256": "f56f554a96b7ff2d9a52cb931318fcd3ff18ee04138e9a4bf82808734f0e24ea"
+    },
+    {
+      "file": "src/core/surface-trace.mjs",
+      "sha256": "c5dcb76fde48e0891d01e60d4839bdd9e0a6dd307838955df4daa602e62b3a0b"
+    },
+    {
+      "file": "src/core/surface-water.mjs",
+      "sha256": "0086068b9e630538d0ce8483eb2eda5fc8b7567fac8cd0302883d6d9719c92e7"
+    },
+    {
+      "file": "src/core/trafficability.mjs",
+      "sha256": "e6d423ad87223f0e8b2eb2efcba2f7e4e9b2e1242e252aaf5cfdd2d5e9e823f3"
+    },
+    {
+      "file": "src/core/water-model.mjs",
+      "sha256": "8654f565891f1b135570e625b1d5e72dc7cd40411d7484e815ffcdce24aea552"
+    },
+    {
+      "file": "src/ui/app.mjs",
+      "sha256": "447d60d81becd1c4becfc0b58296ecd2193a8a831821672852c6d144ea11bf1e"
+    },
+    {
+      "file": "src/ui/crossing-panel.mjs",
+      "sha256": "72b959cf360b7676ae522da63ee5791cf0a8e1e415ddcc353add25dea2a3dce5"
+    },
+    {
+      "file": "src/ui/drainage.mjs",
+      "sha256": "bb33ff8360cdc5eb4e3d628db93e445f448fe1d6bdf0d2476ba4386ea90a0fe4"
+    },
+    {
+      "file": "src/ui/index.mjs",
+      "sha256": "f7bf061b8823d13ce1c42c3ad1b8dd284ce009ad1f10cce2b27ce3ceb3022da0"
+    },
+    {
+      "file": "src/ui/inspector.mjs",
+      "sha256": "d61cb2cc5da37b7579fcd9bcefce62f3219ddd0de7482012a24410a7950add4a"
+    },
+    {
+      "file": "src/ui/junctions.mjs",
+      "sha256": "e61d4d37c953dcf6aa62661fe9cb45150129a05f7443a8d84500c38fbee5422c"
+    },
+    {
+      "file": "src/ui/lod-comparator.mjs",
+      "sha256": "690d1ee4e77af22ffca7a3e6f52e8d77f791b61608f2c1e9a26debe3bc89f908"
+    },
+    {
+      "file": "src/ui/map-viewer.mjs",
+      "sha256": "f0c7b7b0c198d68f71faac63d4bfc12acb7133bbd70b342e19c6208e9788d054"
+    },
+    {
+      "file": "src/ui/node-crypto-shim.mjs",
+      "sha256": "4d611db38e5d7a80ebf29f057cd62fcaff9e22afd0bccab6b64faaa0afc35399"
+    },
+    {
+      "file": "src/ui/presets.mjs",
+      "sha256": "aae6f44897afe4e41d783527e8b650a76a678be3b3a53dab673403e34f332aed"
+    },
+    {
+      "file": "src/ui/profile-chart.mjs",
+      "sha256": "018c0b0e6696261faebfc112d89d9abb7e1736495f875f5e4173fb3f94c7a8ad"
+    },
+    {
+      "file": "src/ui/sandbox.mjs",
+      "sha256": "e04bcaa64dbd00f8d2eddf536e5a1862cba81bb805bd0f7a91c61df891d52dec"
+    },
+    {
+      "file": "src/ui/scene.mjs",
+      "sha256": "c3e97c62ba65d423c12efb691741b4dd71307036ea66158bb1282a09d1b5e6f2"
+    },
+    {
+      "file": "src/ui/server.mjs",
+      "sha256": "426ca673a3d088ad7572574fa7245dfa46a0f1f599abe21899ab04daec1783a7"
+    },
+    {
+      "file": "src/ui/trafficability.mjs",
+      "sha256": "c9e12925759d7f564245984ff0835aaf421f308d58b55073df0b02c1952dcf0c"
+    },
+    {
+      "file": "src/ui/util.mjs",
+      "sha256": "0347b52abce94089624dd5efb5fe13159b36d7ca8cae0689e9c5303942cd8bf5"
+    },
+    {
+      "file": "test/adapter.test.mjs",
+      "sha256": "9dfa57365cedc6ea1d7a52a9e2ae5dcb4155313c16a25ad2b03a99d8bec4855b"
+    },
+    {
+      "file": "test/audit-0.3.2.test.mjs",
+      "sha256": "51227e2f58cb4801aee651d8b533cc50408e9188433cbd37d12ce836c4f7664b"
+    },
+    {
+      "file": "test/audit-0.3.3.test.mjs",
+      "sha256": "5121c805fb818344f0ccb8019c0d3df8b56a9dae561307003d77d80824de7bf5"
+    },
+    {
+      "file": "test/audit-0.3.4.test.mjs",
+      "sha256": "3fe925631d6da86749af14ae4fc48ddaf2e6b84553ca960c526b47c5ee7c514d"
+    },
+    {
+      "file": "test/audit-regressions.test.mjs",
+      "sha256": "99ce7799ab2b3ac3cbfc695fc97f22a468770a9c493706fa1bf55761f82a52f6"
+    },
+    {
+      "file": "test/building-pad.test.mjs",
+      "sha256": "8db34c0043d5894f2641e0a2c1cf0aa71b7a45c6d6926c3659c208dec5d1ea4a"
+    },
+    {
+      "file": "test/global-interchart.test.mjs",
+      "sha256": "dede95ae9f17489855e1e1ea589d3e7c93090115dc61839762415ac3853860c5"
+    },
+    {
+      "file": "test/global-terrain.test.mjs",
+      "sha256": "d96edd0c069ca6037c7e40b82d53a5a19ecc392ba3c7c95d6d8b93cd8d6235b2"
+    },
+    {
+      "file": "test/global-water.test.mjs",
+      "sha256": "c8d6ed9cea76ea134df6e3e037d2be075d29f4c20b8c6e70ff8a35f4cc0325fd"
+    },
+    {
+      "file": "test/integration.test.mjs",
+      "sha256": "35ef79830547e1b29d48a7fac988a31d64e3ca96d6f0fa13ebcd506135d6efcf"
+    },
+    {
+      "file": "test/refinement.test.mjs",
+      "sha256": "1756c15ff2dbbd765f6786d005b8ee033e2753dd51300c4aefe928e6484fbdeb"
+    },
+    {
+      "file": "test/road-earthwork.test.mjs",
+      "sha256": "dbdd2b60a929cad40376d3b9f0fd656ea67e779b76a7a97833351f58c92cd018"
+    },
+    {
+      "file": "test/road-junctions.test.mjs",
+      "sha256": "dfe0e9967b725c02aa46c15491e7074e5e05a4b83ca2b003e522d8f6c2218a03"
+    },
+    {
+      "file": "test/surface-water.test.mjs",
+      "sha256": "7c60a1b41b6732493ccc3e3c0bc440f98582ff8803dcd97376c3624405c86325"
+    },
+    {
+      "file": "test/trafficability.test.mjs",
+      "sha256": "36d58d1b807d820fce618c753a02ec4ea472d8c1ea5b5541cf37220d0fefbca1"
+    },
+    {
+      "file": "test/ui.test.mjs",
+      "sha256": "d5243d7a2456ff57ba95bf713698062ce047931908adef2fc46a29abab797ee2"
+    },
+    {
+      "file": "scripts/audit-ui-worker.mjs",
+      "sha256": "c75e9664a40cfefd00963f84778c8e46382d38ac14f353f5c0286073f89c0a01"
+    },
+    {
+      "file": "scripts/build.mjs",
+      "sha256": "fd202a958d9a2a49b3688471b0af9e61f727d0f1d5985b7bd7590a30361077ea"
+    },
+    {
+      "file": "scripts/canonical-export-worker.mjs",
+      "sha256": "69de9e3c6fed087473d1a4f9f8559f6d53448890b4bde701adc5bc8ed0a13172"
+    },
+    {
+      "file": "scripts/global-terrain-worker.mjs",
+      "sha256": "ed2877126606fce51b43529a96a171f7078aef319821667800b7a08c5157afe5"
+    },
+    {
+      "file": "scripts/global-water-worker.mjs",
+      "sha256": "0a32bd3f751732a46dcb55debc54d9897933f7311746b9540cdd3f5fdf561f79"
+    },
+    {
+      "file": "scripts/refinement-worker.mjs",
+      "sha256": "a2b3d381f5d15d0eede374fd6c334c4ad06e22fcd6780f5c8148c3f1ef953bd7"
+    },
+    {
+      "file": "scripts/stage3-water-worker.mjs",
+      "sha256": "0243f4959686065a34b7f27c00c8e915effc47ac146c8b7f76db065f6e29da4c"
+    },
+    {
+      "file": "scripts/surface-water-worker.mjs",
+      "sha256": "a3babb77939cdce9287475f75cf6c00f113ca9713ebf0f9566e0a359bba17de4"
+    },
+    {
+      "file": "scripts/test-files.mjs",
+      "sha256": "488ac8eb78fa6ef649837735a1fe2beca006a2cf7bead451fdd1b332dbf806c4"
+    },
+    {
+      "file": "scripts/test.mjs",
+      "sha256": "5161258cb6019ea3ae5f5703ab60226ad93b535a977c01278d07c2e53621ce5f"
+    },
+    {
+      "file": "scripts/verification-paths.mjs",
+      "sha256": "bb8e0af5f532c04ec484a204e0b5bd0efb129bfb4ddf4cd664161c9cb43a028b"
+    },
+    {
+      "file": "scripts/verification-runtime.mjs",
+      "sha256": "4a803aaba36c18ff419931faccfa8733de9eb987eeb300f26d753a64335288ec"
+    },
+    {
+      "file": "scripts/verification-worker.mjs",
+      "sha256": "a1914f2745aa84c7558e8c2d2f085e55cee25b7f9b4e442ecd8f23df17aa8614"
+    },
+    {
+      "file": "scripts/verify-audit-0.3.2.mjs",
+      "sha256": "a502579c13c631f1cb8603d9e5b7ea1ebdd2b09c5065c3f20e2777fff5e0ddee"
+    },
+    {
+      "file": "scripts/verify-core-ui.mjs",
+      "sha256": "5508e6e0b5303a3bb74b1ba1b45d435b75682bc84a507f7e9f03a4687781647f"
+    },
+    {
+      "file": "scripts/verify-global-water.mjs",
+      "sha256": "5fb98e0c2132f902efcbf098208eddd105a168fc98c8cf4e51d309a6cdf231d4"
+    },
+    {
+      "file": "scripts/verify-global.mjs",
+      "sha256": "7d8450f6408b6e71dfcf0a3e9f7d2028a65c5dbd2e07ca736a6a7d57937c77fc"
+    },
+    {
+      "file": "scripts/verify-refinement.mjs",
+      "sha256": "ca05e758bdddf5ed24f7daebfce85999011e8dc803242b0be3af8ae5a0fc8ace"
+    },
+    {
+      "file": "scripts/verify-stage3.mjs",
+      "sha256": "00ff4394eaee9bcc21f53bef7d8ed612ca697d1fab7d78dcb2105c3f010acc22"
+    },
+    {
+      "file": "scripts/verify-surface-water.mjs",
+      "sha256": "221f852edadc128efd9145ef6cc5392c0f9b5d3e30a7330771713d8dfde8a80d"
+    },
+    {
+      "file": "scripts/verify.mjs",
+      "sha256": "7b96d4ba79d64cbb0d2fe7fcff2d1875ce2b74730337caf88a8f3392c8c86249"
+    }
+  ],
+  "unverified": [
+    "Earthwork coupling to constructed culverts, pooling and recomputed drainage",
+    "Explicit water bodies across charts; full carved terrain C1; road crossfall/cant",
+    "Full-width vehicle clearance, structural capacity, broad real-seed visual/device/human acceptance",
+    "Sandbox edit history and all display state persistence; automatic water bodies deferred by user"
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "canonicalWorldId": "sha256:af2a52ccb12b3527bd60130ffe5f9e3c20bc6a8fb4dca4d686dab978bac3b01b",
+  "results": [
+    {
+      "id": "pop:4048:65",
+      "latDeg": 1.4089754043008034,
+      "lonDeg": -134.94380254389114,
+      "kind": "village",
+      "population": 299,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:4047:4048/channel:8892:8374",
+      "approachM": 181.06063874384395,
+      "layout": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:4048:65",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 59,
+        "representedPopulation": 295,
+        "districtComplete": false,
+        "complete": false,
+        "unplacedDwellings": 1,
+        "publicSpaces": [
+          {
+            "id": "pop:4048:65/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:4048:65/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:4048:65/district:0/chapel/public-access",
+          "joinsRoadId": "pop:4048:65/district:0/terrain-street:0:west",
+          "entranceSide": "north",
+          "lengthM": 20.75
+        }
+      ],
+      "roadSamples": 604,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [
+        {
+          "road": "pop:4048:65/district:0/terrain-street:0:west",
+          "xM": -200,
+          "yM": 0,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        },
+        {
+          "road": "pop:4048:65/district:0/terrain-street:0:east",
+          "xM": 200,
+          "yM": 0,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        },
+        {
+          "road": "pop:4048:65/district:0/infill-access:44",
+          "xM": -200,
+          "yM": -6,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        },
+        {
+          "road": "pop:4048:65/district:0/infill-access:44",
+          "xM": -200,
+          "yM": -1,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        },
+        {
+          "road": "pop:4048:65/district:0/infill-access:44",
+          "xM": -200,
+          "yM": 0,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        }
+      ],
+      "padContacts": [
+        {
+          "road": "pop:4048:65/district:0/chapel/public-access",
+          "xM": 0,
+          "yM": -20.75,
+          "building": "pop:4048:65/district:0/chapel",
+          "inside": false,
+          "box": {
+            "minXM": -6,
+            "maxXM": 6,
+            "minYM": -46,
+            "maxYM": -22
+          }
+        }
+      ]
+    },
+    {
+      "id": "pop:4048:78",
+      "latDeg": 1.4021613611664396,
+      "lonDeg": -134.9955264535966,
+      "kind": "village",
+      "population": 299,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:4047:4048/channel:7644:8293",
+      "approachM": 181.06135806568653,
+      "layout": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:4048:78",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 299,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:4048:78/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:4048:78/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:4048:78/district:0/chapel/public-access",
+          "joinsRoadId": "pop:4048:78/district:0/terrain-street:0:east",
+          "entranceSide": "south",
+          "lengthM": 20.75
+        }
+      ],
+      "roadSamples": 151,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": [
+        {
+          "road": "pop:4048:78/district:0/terrain-street:0:north-west",
+          "xM": -90,
+          "yM": 130,
+          "building": "pop:4048:78/district:0/house:42",
+          "inside": false,
+          "box": {
+            "minXM": -101.82337649086284,
+            "maxXM": -89.095454429505,
+            "minYM": 114.95331880577405,
+            "maxYM": 127.68124086713189
+          }
+        },
+        {
+          "road": "pop:4048:78/district:0/chapel/public-access",
+          "xM": 30,
+          "yM": 20.75,
+          "building": "pop:4048:78/district:0/chapel",
+          "inside": false,
+          "box": {
+            "minXM": 24,
+            "maxXM": 36,
+            "minYM": 22,
+            "maxYM": 46
+          }
+        }
+      ]
+    },
+    {
+      "id": "pop:4174:0",
+      "latDeg": -0.038249211382031474,
+      "lonDeg": -140.57783657950608,
+      "kind": "town",
+      "population": 3249,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:4045:4174/channel:3338:2560",
+      "approachM": 351.06857258725665,
+      "layout": {
+        "method": "urban-block-frontage@1",
+        "redistributedDwellings": 0,
+        "settlementId": "pop:4174:0",
+        "districtIndex": 0,
+        "districtCount": 7,
+        "totalRequestedDwellings": 650,
+        "requestedDwellings": 96,
+        "placedDwellings": 96,
+        "unplacedDwellings": 0,
+        "representedPopulation": 480,
+        "districtComplete": true,
+        "complete": false,
+        "blockedEdges": [],
+        "limitations": [
+          "Town-wide terrain-biased blocks, not simulated historical growth",
+          "Water/grade-rejected streets need connected-component acceptance",
+          "Unplaced households remain explicit; no forced housing on unsuitable land",
+          "Facility yards and external agriculture still require refinement"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:4174:0/church",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:4174:0/church/public-access",
+          "joinsRoadId": "pop:4174:0/urban-street:-39998,-41608|44794,-28482",
+          "entranceSide": "south",
+          "lengthM": 19.022445016785284
+        }
+      ],
+      "roadSamples": 797,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    },
+    {
+      "id": "pop:5368:0",
+      "latDeg": -25.319663863322134,
+      "lonDeg": -22.47545098638045,
+      "kind": "town",
+      "population": 3242,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:5240:5367/channel:11451:12347",
+      "approachM": 351.00776950228044,
+      "layout": {
+        "method": "urban-block-frontage@1",
+        "redistributedDwellings": 0,
+        "settlementId": "pop:5368:0",
+        "districtIndex": 0,
+        "districtCount": 7,
+        "totalRequestedDwellings": 649,
+        "requestedDwellings": 96,
+        "placedDwellings": 96,
+        "unplacedDwellings": 0,
+        "representedPopulation": 480,
+        "districtComplete": true,
+        "complete": false,
+        "blockedEdges": [],
+        "limitations": [
+          "Town-wide terrain-biased blocks, not simulated historical growth",
+          "Water/grade-rejected streets need connected-component acceptance",
+          "Unplaced households remain explicit; no forced housing on unsuitable land",
+          "Facility yards and external agriculture still require refinement"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:5368:0/church",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:5368:0/church/public-access",
+          "joinsRoadId": "pop:5368:0/urban-street:36842,-35326|39477,25865",
+          "entranceSide": "east",
+          "lengthM": 17.0974152749948
+        }
+      ],
+      "roadSamples": 784,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    },
+    {
+      "id": "pop:2699:12",
+      "latDeg": 28.401107397300226,
+      "lonDeg": 31.185819683992918,
+      "kind": "village",
+      "population": 300,
+      "waterAccess": "sampled-river-approach",
+      "river": "river:2699:2826",
+      "approachM": 202.64155471448782,
+      "layout": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:2699:12",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 300,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:2699:12/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:2699:12/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:2699:12/district:0/chapel/public-access",
+          "joinsRoadId": "pop:2699:12/district:0/terrain-street:0:east",
+          "entranceSide": "east",
+          "lengthM": 20.75
+        }
+      ],
+      "roadSamples": 896,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [
+        {
+          "road": "pop:2699:12/district:0/terrain-street:0:east",
+          "xM": 200,
+          "yM": 0,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        },
+        {
+          "road": "pop:2699:12/district:0/terrain-street:0:north",
+          "xM": 0,
+          "yM": 230,
+          "bounds": {
+            "minXM": -200,
+            "maxXM": 200,
+            "minYM": -230,
+            "maxYM": 230
+          }
+        }
+      ],
+      "padContacts": [
+        {
+          "road": "pop:2699:12/district:0/terrain-street:0:south-west",
+          "xM": -30,
+          "yM": -60,
+          "building": "pop:2699:12/district:0/house:11",
+          "inside": false,
+          "box": {
+            "minXM": -45.25483399593904,
+            "maxXM": -32.52691193458118,
+            "minYM": -61.112698372208094,
+            "maxYM": -48.384776310850235
+          }
+        },
+        {
+          "road": "pop:2699:12/district:0/chapel/public-access",
+          "xM": -20.25595238095238,
+          "yM": 0,
+          "building": "pop:2699:12/district:0/chapel",
+          "inside": false,
+          "box": {
+            "minXM": -46,
+            "maxXM": -22,
+            "minYM": -6,
+            "maxYM": 6
+          }
+        },
+        {
+          "road": "pop:2699:12/district:0/chapel/public-access",
+          "xM": -20.75,
+          "yM": 0,
+          "building": "pop:2699:12/district:0/chapel",
+          "inside": false,
+          "box": {
+            "minXM": -46,
+            "maxXM": -22,
+            "minYM": -6,
+            "maxYM": 6
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Actual saved sites and local physical recipes; finite road centerline checks, not complete footprint/road connectivity or visual acceptance",
+  "caveats": [
+    "Seven chart-boundary round-trip samples return null and are excluded from wet/collision counts.",
+    "Six samples touch building pad influence, but none of the inspected road centers lies inside a building footprint.",
+    "Town/city examples cover only one district each; not complete urban acceptance."
+  ]
+}

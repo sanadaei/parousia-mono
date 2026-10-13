@@ -1,0 +1,854 @@
+{
+  "worldId": "sha256:376a6a5649c47a0f9be657d63ae120a23a49ac0c4238165c23130728e150beb2",
+  "center": {
+    "latDeg": -10.546875,
+    "lonDeg": -18.984375
+  },
+  "spanM": 1000,
+  "bearingDeg": 0,
+  "sampleStepM": 2,
+  "profiles": [
+    {
+      "level": 12,
+      "maxAbsErrorM": 120.66861733879614,
+      "rmsM": 48.77345873412938,
+      "sampleCount": 501,
+      "worstSample": {
+        "offsetM": 26,
+        "actualM": 2931.394430688225,
+        "interpolatedM": 2810.725813349429,
+        "errorM": -120.66861733879614
+      },
+      "profileSamplesEvery50m": [
+        {
+          "offsetM": -500,
+          "actualM": 2499.1420996616516,
+          "interpolatedM": 2497.890829413501,
+          "errorM": -1.2512702481508313
+        },
+        {
+          "offsetM": -450,
+          "actualM": 2500.5023048897665,
+          "interpolatedM": 2499.375945066846,
+          "errorM": -1.1263598229206764
+        },
+        {
+          "offsetM": -400,
+          "actualM": 2501.0529167649306,
+          "interpolatedM": 2500.861056378397,
+          "errorM": -0.19186038653379
+        },
+        {
+          "offsetM": -350,
+          "actualM": 2501.553510405639,
+          "interpolatedM": 2538.32452341718,
+          "errorM": 36.77101301154107
+        },
+        {
+          "offsetM": -300,
+          "actualM": 2626.6562859303476,
+          "interpolatedM": 2598.3830852733645,
+          "errorM": -28.273200656983136
+        },
+        {
+          "offsetM": -250,
+          "actualM": 2714.581522531132,
+          "interpolatedM": 2658.441471569319,
+          "errorM": -56.1400509618129
+        },
+        {
+          "offsetM": -200,
+          "actualM": 2714.394267136245,
+          "interpolatedM": 2715.3671587543336,
+          "errorM": 0.9728916180883971
+        },
+        {
+          "offsetM": -150,
+          "actualM": 2714.6817590615765,
+          "interpolatedM": 2728.3913224881017,
+          "errorM": 13.709563426525165
+        },
+        {
+          "offsetM": -100,
+          "actualM": 2715.637975768727,
+          "interpolatedM": 2741.4154481554997,
+          "errorM": 25.777472386772843
+        },
+        {
+          "offsetM": -50,
+          "actualM": 2717.4478269796605,
+          "interpolatedM": 2754.439535758041,
+          "errorM": 36.9917087783806
+        },
+        {
+          "offsetM": 0,
+          "actualM": 2858.691512027006,
+          "interpolatedM": 2784.435684640215,
+          "errorM": -74.25582738679077
+        },
+        {
+          "offsetM": 50,
+          "actualM": 2935.0210647075446,
+          "interpolatedM": 2834.993589006048,
+          "errorM": -100.02747570149677
+        },
+        {
+          "offsetM": 100,
+          "actualM": 2938.0195691006784,
+          "interpolatedM": 2885.5513456295066,
+          "errorM": -52.46822347117177
+        },
+        {
+          "offsetM": 150,
+          "actualM": 2940.8613190298797,
+          "interpolatedM": 2938.180690953245,
+          "errorM": -2.680628076634548
+        },
+        {
+          "offsetM": 200,
+          "actualM": 2942.8380625513178,
+          "interpolatedM": 2888.3949157314187,
+          "errorM": -54.443146819899084
+        },
+        {
+          "offsetM": 250,
+          "actualM": 2944.8166131006014,
+          "interpolatedM": 2833.3296486518316,
+          "errorM": -111.48696444876987
+        },
+        {
+          "offsetM": 300,
+          "actualM": 2832.7688747529783,
+          "interpolatedM": 2778.264542459622,
+          "errorM": -54.50433229335613
+        },
+        {
+          "offsetM": 350,
+          "actualM": 2739.6993672775493,
+          "interpolatedM": 2751.3948519632177,
+          "errorM": 11.695484685668362
+        },
+        {
+          "offsetM": 400,
+          "actualM": 2744.8310529933283,
+          "interpolatedM": 2753.4029875140504,
+          "errorM": 8.571934520722152
+        },
+        {
+          "offsetM": 450,
+          "actualM": 2749.295931112698,
+          "interpolatedM": 2755.4111171983764,
+          "errorM": 6.115186085678488
+        },
+        {
+          "offsetM": 500,
+          "actualM": 2752.184231129585,
+          "interpolatedM": 2755.531236581092,
+          "errorM": 3.3470054515069023
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "maxAbsErrorM": 79.45219612861729,
+      "rmsM": 25.166095664441848,
+      "sampleCount": 501,
+      "worstSample": {
+        "offsetM": -332,
+        "actualM": 2511.1555711214146,
+        "interpolatedM": 2590.607767250032,
+        "errorM": 79.45219612861729
+      },
+      "profileSamplesEvery50m": [
+        {
+          "offsetM": -500,
+          "actualM": 2499.1420996616516,
+          "interpolatedM": 2499.0071801869362,
+          "errorM": -0.1349194747153888
+        },
+        {
+          "offsetM": -450,
+          "actualM": 2500.5023048897665,
+          "interpolatedM": 2500.454123944779,
+          "errorM": -0.048180944987507246
+        },
+        {
+          "offsetM": -400,
+          "actualM": 2501.0529167649306,
+          "interpolatedM": 2501.1407619019897,
+          "errorM": 0.08784513705904828
+        },
+        {
+          "offsetM": -350,
+          "actualM": 2501.553510405639,
+          "interpolatedM": 2557.679062056484,
+          "errorM": 56.125551650844955
+        },
+        {
+          "offsetM": -300,
+          "actualM": 2626.6562859303476,
+          "interpolatedM": 2648.0235168219374,
+          "errorM": 21.36723089158977
+        },
+        {
+          "offsetM": -250,
+          "actualM": 2714.581522531132,
+          "interpolatedM": 2684.4768432481715,
+          "errorM": -30.10467928296066
+        },
+        {
+          "offsetM": -200,
+          "actualM": 2714.394267136245,
+          "interpolatedM": 2714.363268267314,
+          "errorM": -0.030998868930964818
+        },
+        {
+          "offsetM": -150,
+          "actualM": 2714.6817590615765,
+          "interpolatedM": 2714.6242765184834,
+          "errorM": -0.05748254309310141
+        },
+        {
+          "offsetM": -100,
+          "actualM": 2715.637975768727,
+          "interpolatedM": 2722.59797255889,
+          "errorM": 6.959996790163132
+        },
+        {
+          "offsetM": -50,
+          "actualM": 2717.4478269796605,
+          "interpolatedM": 2748.3851410384973,
+          "errorM": 30.93731405883682
+        },
+        {
+          "offsetM": 0,
+          "actualM": 2858.691512027006,
+          "interpolatedM": 2807.667472392366,
+          "errorM": -51.02403963463985
+        },
+        {
+          "offsetM": 50,
+          "actualM": 2935.0210647075446,
+          "interpolatedM": 2905.9240224883665,
+          "errorM": -29.097042219178093
+        },
+        {
+          "offsetM": 100,
+          "actualM": 2938.0195691006784,
+          "interpolatedM": 2937.8518248730197,
+          "errorM": -0.16774422765865893
+        },
+        {
+          "offsetM": 150,
+          "actualM": 2940.8613190298797,
+          "interpolatedM": 2940.803338497165,
+          "errorM": -0.05798053271473691
+        },
+        {
+          "offsetM": 200,
+          "actualM": 2942.8380625513178,
+          "interpolatedM": 2942.6397727438493,
+          "errorM": -0.19828980746842717
+        },
+        {
+          "offsetM": 250,
+          "actualM": 2944.8166131006014,
+          "interpolatedM": 2924.6102581789096,
+          "errorM": -20.206354921691855
+        },
+        {
+          "offsetM": 300,
+          "actualM": 2832.7688747529783,
+          "interpolatedM": 2812.7148711273885,
+          "errorM": -20.054003625589758
+        },
+        {
+          "offsetM": 350,
+          "actualM": 2739.6993672775493,
+          "interpolatedM": 2750.0042217671357,
+          "errorM": 10.304854489586432
+        },
+        {
+          "offsetM": 400,
+          "actualM": 2744.8310529933283,
+          "interpolatedM": 2750.697233088115,
+          "errorM": 5.866180094786614
+        },
+        {
+          "offsetM": 450,
+          "actualM": 2749.295931112698,
+          "interpolatedM": 2748.7228323885042,
+          "errorM": -0.5730987241936418
+        },
+        {
+          "offsetM": 500,
+          "actualM": 2752.184231129585,
+          "interpolatedM": 2752.017317945182,
+          "errorM": -0.16691318440280156
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "maxAbsErrorM": 29.507289614884485,
+      "rmsM": 7.981073477717005,
+      "sampleCount": 501,
+      "worstSample": {
+        "offsetM": -272,
+        "actualM": 2712.2317603630217,
+        "interpolatedM": 2682.7244707481373,
+        "errorM": -29.507289614884485
+      },
+      "profileSamplesEvery50m": [
+        {
+          "offsetM": -500,
+          "actualM": 2499.1420996616516,
+          "interpolatedM": 2499.113793593785,
+          "errorM": -0.028306067866651574
+        },
+        {
+          "offsetM": -450,
+          "actualM": 2500.5023048897665,
+          "interpolatedM": 2500.4421677480136,
+          "errorM": -0.06013714175287532
+        },
+        {
+          "offsetM": -400,
+          "actualM": 2501.0529167649306,
+          "interpolatedM": 2501.1398528860063,
+          "errorM": 0.08693612107572335
+        },
+        {
+          "offsetM": -350,
+          "actualM": 2501.553510405639,
+          "interpolatedM": 2504.5163888059524,
+          "errorM": 2.962878400313457
+        },
+        {
+          "offsetM": -300,
+          "actualM": 2626.6562859303476,
+          "interpolatedM": 2633.180425385974,
+          "errorM": 6.524139455626482
+        },
+        {
+          "offsetM": -250,
+          "actualM": 2714.581522531132,
+          "interpolatedM": 2710.9441834091467,
+          "errorM": -3.6373391219854057
+        },
+        {
+          "offsetM": -200,
+          "actualM": 2714.394267136245,
+          "interpolatedM": 2714.349542062355,
+          "errorM": -0.04472507389027669
+        },
+        {
+          "offsetM": -150,
+          "actualM": 2714.6817590615765,
+          "interpolatedM": 2714.638069610004,
+          "errorM": -0.04368945157239068
+        },
+        {
+          "offsetM": -100,
+          "actualM": 2715.637975768727,
+          "interpolatedM": 2715.671741707181,
+          "errorM": 0.03376593845405296
+        },
+        {
+          "offsetM": -50,
+          "actualM": 2717.4478269796605,
+          "interpolatedM": 2736.5386234241273,
+          "errorM": 19.090796444466832
+        },
+        {
+          "offsetM": 0,
+          "actualM": 2858.691512027006,
+          "interpolatedM": 2849.7360331960717,
+          "errorM": -8.955478830934226
+        },
+        {
+          "offsetM": 50,
+          "actualM": 2935.0210647075446,
+          "interpolatedM": 2928.9588301892613,
+          "errorM": -6.062234518283276
+        },
+        {
+          "offsetM": 100,
+          "actualM": 2938.0195691006784,
+          "interpolatedM": 2938.024903675754,
+          "errorM": 0.005334575075721659
+        },
+        {
+          "offsetM": 150,
+          "actualM": 2940.8613190298797,
+          "interpolatedM": 2940.8168463836846,
+          "errorM": -0.044472646195117704
+        },
+        {
+          "offsetM": 200,
+          "actualM": 2942.8380625513178,
+          "interpolatedM": 2942.8470760648024,
+          "errorM": 0.009013513484660507
+        },
+        {
+          "offsetM": 250,
+          "actualM": 2944.8166131006014,
+          "interpolatedM": 2931.0582938674734,
+          "errorM": -13.758319233128077
+        },
+        {
+          "offsetM": 300,
+          "actualM": 2832.7688747529783,
+          "interpolatedM": 2840.167092493802,
+          "errorM": 7.3982177408238385
+        },
+        {
+          "offsetM": 350,
+          "actualM": 2739.6993672775493,
+          "interpolatedM": 2747.4786492032467,
+          "errorM": 7.779281925697433
+        },
+        {
+          "offsetM": 400,
+          "actualM": 2744.8310529933283,
+          "interpolatedM": 2744.871148167471,
+          "errorM": 0.04009517414260699
+        },
+        {
+          "offsetM": 450,
+          "actualM": 2749.295931112698,
+          "interpolatedM": 2749.216498373904,
+          "errorM": -0.079432738793912
+        },
+        {
+          "offsetM": 500,
+          "actualM": 2752.184231129585,
+          "interpolatedM": 2752.100264044622,
+          "errorM": -0.08396708496320571
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "maxAbsErrorM": 12.056126404044335,
+      "rmsM": 2.640089787045368,
+      "sampleCount": 501,
+      "worstSample": {
+        "offsetM": -38,
+        "actualM": 2724.4103646172175,
+        "interpolatedM": 2736.466491021262,
+        "errorM": 12.056126404044335
+      },
+      "profileSamplesEvery50m": [
+        {
+          "offsetM": -500,
+          "actualM": 2499.1420996616516,
+          "interpolatedM": 2499.1496686237356,
+          "errorM": 0.007568962083951192
+        },
+        {
+          "offsetM": -450,
+          "actualM": 2500.5023048897665,
+          "interpolatedM": 2500.506436861356,
+          "errorM": 0.004131971589686145
+        },
+        {
+          "offsetM": -400,
+          "actualM": 2501.0529167649306,
+          "interpolatedM": 2501.080445675415,
+          "errorM": 0.027528910484306834
+        },
+        {
+          "offsetM": -350,
+          "actualM": 2501.553510405639,
+          "interpolatedM": 2503.169055223501,
+          "errorM": 1.6155448178619736
+        },
+        {
+          "offsetM": -300,
+          "actualM": 2626.6562859303476,
+          "interpolatedM": 2625.9681944924655,
+          "errorM": -0.6880914378821217
+        },
+        {
+          "offsetM": -250,
+          "actualM": 2714.581522531132,
+          "interpolatedM": 2714.4247055988385,
+          "errorM": -0.1568169322936228
+        },
+        {
+          "offsetM": -200,
+          "actualM": 2714.394267136245,
+          "interpolatedM": 2714.3798995839943,
+          "errorM": -0.014367552250860172
+        },
+        {
+          "offsetM": -150,
+          "actualM": 2714.6817590615765,
+          "interpolatedM": 2714.6338080922396,
+          "errorM": -0.04795096933685272
+        },
+        {
+          "offsetM": -100,
+          "actualM": 2715.637975768727,
+          "interpolatedM": 2715.6236964611444,
+          "errorM": -0.014279307582455658
+        },
+        {
+          "offsetM": -50,
+          "actualM": 2717.4478269796605,
+          "interpolatedM": 2717.4379659161236,
+          "errorM": -0.009861063536845904
+        },
+        {
+          "offsetM": 0,
+          "actualM": 2858.691512027006,
+          "interpolatedM": 2855.9980122394445,
+          "errorM": -2.69349978756145
+        },
+        {
+          "offsetM": 50,
+          "actualM": 2935.0210647075446,
+          "interpolatedM": 2935.0279336754857,
+          "errorM": 0.006868967941045412
+        },
+        {
+          "offsetM": 100,
+          "actualM": 2938.0195691006784,
+          "interpolatedM": 2938.0174093927467,
+          "errorM": -0.0021597079316961754
+        },
+        {
+          "offsetM": 150,
+          "actualM": 2940.8613190298797,
+          "interpolatedM": 2940.843647915238,
+          "errorM": -0.0176711146418711
+        },
+        {
+          "offsetM": 200,
+          "actualM": 2942.8380625513178,
+          "interpolatedM": 2942.8277468806036,
+          "errorM": -0.010315670714135194
+        },
+        {
+          "offsetM": 250,
+          "actualM": 2944.8166131006014,
+          "interpolatedM": 2941.005857233491,
+          "errorM": -3.8107558671104016
+        },
+        {
+          "offsetM": 300,
+          "actualM": 2832.7688747529783,
+          "interpolatedM": 2832.947122288391,
+          "errorM": 0.17824753541253813
+        },
+        {
+          "offsetM": 350,
+          "actualM": 2739.6993672775493,
+          "interpolatedM": 2741.0301021036757,
+          "errorM": 1.3307348261264451
+        },
+        {
+          "offsetM": 400,
+          "actualM": 2744.8310529933283,
+          "interpolatedM": 2744.844107838194,
+          "errorM": 0.013054844865564519
+        },
+        {
+          "offsetM": 450,
+          "actualM": 2749.295931112698,
+          "interpolatedM": 2749.2689867066574,
+          "errorM": -0.02694440604045667
+        },
+        {
+          "offsetM": 500,
+          "actualM": 2752.184231129585,
+          "interpolatedM": 2752.1694416334876,
+          "errorM": -0.014789496097364463
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "maxAbsErrorM": 3.0234215740360924,
+      "rmsM": 0.6447421438064435,
+      "sampleCount": 501,
+      "worstSample": {
+        "offsetM": -42,
+        "actualM": 2719.399339156557,
+        "interpolatedM": 2722.422760730593,
+        "errorM": 3.0234215740360924
+      },
+      "profileSamplesEvery50m": [
+        {
+          "offsetM": -500,
+          "actualM": 2499.1420996616516,
+          "interpolatedM": 2499.1383194795144,
+          "errorM": -0.0037801821372340783
+        },
+        {
+          "offsetM": -450,
+          "actualM": 2500.5023048897665,
+          "interpolatedM": 2500.4909381400257,
+          "errorM": -0.01136674974077323
+        },
+        {
+          "offsetM": -400,
+          "actualM": 2501.0529167649306,
+          "interpolatedM": 2501.054246185926,
+          "errorM": 0.0013294209952618985
+        },
+        {
+          "offsetM": -350,
+          "actualM": 2501.553510405639,
+          "interpolatedM": 2501.552901266335,
+          "errorM": -0.0006091393038332171
+        },
+        {
+          "offsetM": -300,
+          "actualM": 2626.6562859303476,
+          "interpolatedM": 2626.203101609309,
+          "errorM": -0.4531843210384068
+        },
+        {
+          "offsetM": -250,
+          "actualM": 2714.581522531132,
+          "interpolatedM": 2714.583812666042,
+          "errorM": 0.002290134909799235
+        },
+        {
+          "offsetM": -200,
+          "actualM": 2714.394267136245,
+          "interpolatedM": 2714.401174711767,
+          "errorM": 0.0069075755218364066
+        },
+        {
+          "offsetM": -150,
+          "actualM": 2714.6817590615765,
+          "interpolatedM": 2714.6711646418307,
+          "errorM": -0.010594419745757477
+        },
+        {
+          "offsetM": -100,
+          "actualM": 2715.637975768727,
+          "interpolatedM": 2715.639963732935,
+          "errorM": 0.001987964208183257
+        },
+        {
+          "offsetM": -50,
+          "actualM": 2717.4478269796605,
+          "interpolatedM": 2717.447923352472,
+          "errorM": 9.637281164032174e-05
+        },
+        {
+          "offsetM": 0,
+          "actualM": 2858.691512027006,
+          "interpolatedM": 2857.9630189366308,
+          "errorM": -0.7284930903751956
+        },
+        {
+          "offsetM": 50,
+          "actualM": 2935.0210647075446,
+          "interpolatedM": 2935.0225828654525,
+          "errorM": 0.0015181579078671348
+        },
+        {
+          "offsetM": 100,
+          "actualM": 2938.0195691006784,
+          "interpolatedM": 2938.0223288537,
+          "errorM": 0.002759753021564393
+        },
+        {
+          "offsetM": 150,
+          "actualM": 2940.8613190298797,
+          "interpolatedM": 2940.8563885734234,
+          "errorM": -0.00493045645634993
+        },
+        {
+          "offsetM": 200,
+          "actualM": 2942.8380625513178,
+          "interpolatedM": 2942.836640649086,
+          "errorM": -0.0014219022318684438
+        },
+        {
+          "offsetM": 250,
+          "actualM": 2944.8166131006014,
+          "interpolatedM": 2944.827468510552,
+          "errorM": 0.010855409950636385
+        },
+        {
+          "offsetM": 300,
+          "actualM": 2832.7688747529783,
+          "interpolatedM": 2832.995195764555,
+          "errorM": 0.22632101157660145
+        },
+        {
+          "offsetM": 350,
+          "actualM": 2739.6993672775493,
+          "interpolatedM": 2739.7548110180974,
+          "errorM": 0.05544374054807122
+        },
+        {
+          "offsetM": 400,
+          "actualM": 2744.8310529933283,
+          "interpolatedM": 2744.8379987207313,
+          "errorM": 0.006945727403035562
+        },
+        {
+          "offsetM": 450,
+          "actualM": 2749.295931112698,
+          "interpolatedM": 2749.29185317702,
+          "errorM": -0.004077935677742062
+        },
+        {
+          "offsetM": 500,
+          "actualM": 2752.184231129585,
+          "interpolatedM": 2752.189874799943,
+          "errorM": 0.005643670358040254
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "maxAbsErrorM": 0.8034783174571203,
+      "rmsM": 0.17211737645770694,
+      "sampleCount": 501,
+      "worstSample": {
+        "offsetM": -272,
+        "actualM": 2712.2317603630217,
+        "interpolatedM": 2711.4282820455646,
+        "errorM": -0.8034783174571203
+      },
+      "profileSamplesEvery50m": [
+        {
+          "offsetM": -500,
+          "actualM": 2499.1420996616516,
+          "interpolatedM": 2499.142432380134,
+          "errorM": 0.0003327184822410345
+        },
+        {
+          "offsetM": -450,
+          "actualM": 2500.5023048897665,
+          "interpolatedM": 2500.496852957527,
+          "errorM": -0.00545193223933893
+        },
+        {
+          "offsetM": -400,
+          "actualM": 2501.0529167649306,
+          "interpolatedM": 2501.0538077916726,
+          "errorM": 0.0008910267420105811
+        },
+        {
+          "offsetM": -350,
+          "actualM": 2501.553510405639,
+          "interpolatedM": 2501.556309484564,
+          "errorM": 0.0027990789249088266
+        },
+        {
+          "offsetM": -300,
+          "actualM": 2626.6562859303476,
+          "interpolatedM": 2626.55921467441,
+          "errorM": -0.09707125593740784
+        },
+        {
+          "offsetM": -250,
+          "actualM": 2714.581522531132,
+          "interpolatedM": 2714.5842813052477,
+          "errorM": 0.0027587741155912227
+        },
+        {
+          "offsetM": -200,
+          "actualM": 2714.394267136245,
+          "interpolatedM": 2714.3973515283105,
+          "errorM": 0.003084392065375141
+        },
+        {
+          "offsetM": -150,
+          "actualM": 2714.6817590615765,
+          "interpolatedM": 2714.675470427538,
+          "errorM": -0.006288634038355667
+        },
+        {
+          "offsetM": -100,
+          "actualM": 2715.637975768727,
+          "interpolatedM": 2715.6370840251475,
+          "errorM": -0.0008917435793591721
+        },
+        {
+          "offsetM": -50,
+          "actualM": 2717.4478269796605,
+          "interpolatedM": 2717.4468192270633,
+          "errorM": -0.0010077525971610157
+        },
+        {
+          "offsetM": 0,
+          "actualM": 2858.691512027006,
+          "interpolatedM": 2858.5061216171207,
+          "errorM": -0.18539040988525812
+        },
+        {
+          "offsetM": 50,
+          "actualM": 2935.0210647075446,
+          "interpolatedM": 2935.0193492567205,
+          "errorM": -0.0017154508241219446
+        },
+        {
+          "offsetM": 100,
+          "actualM": 2938.0195691006784,
+          "interpolatedM": 2938.0198764243546,
+          "errorM": 0.00030732367622476886
+        },
+        {
+          "offsetM": 150,
+          "actualM": 2940.8613190298797,
+          "interpolatedM": 2940.859304778187,
+          "errorM": -0.0020142516927990073
+        },
+        {
+          "offsetM": 200,
+          "actualM": 2942.8380625513178,
+          "interpolatedM": 2942.8365807992086,
+          "errorM": -0.0014817521091572416
+        },
+        {
+          "offsetM": 250,
+          "actualM": 2944.8166131006014,
+          "interpolatedM": 2944.8232294507707,
+          "errorM": 0.006616350169224461
+        },
+        {
+          "offsetM": 300,
+          "actualM": 2832.7688747529783,
+          "interpolatedM": 2832.8072519916905,
+          "errorM": 0.03837723871220078
+        },
+        {
+          "offsetM": 350,
+          "actualM": 2739.6993672775493,
+          "interpolatedM": 2739.7017602169853,
+          "errorM": 0.002392939436049346
+        },
+        {
+          "offsetM": 400,
+          "actualM": 2744.8310529933283,
+          "interpolatedM": 2744.8338773995947,
+          "errorM": 0.002824406266427104
+        },
+        {
+          "offsetM": 450,
+          "actualM": 2749.295931112698,
+          "interpolatedM": 2749.293843352135,
+          "errorM": -0.0020877605629721074
+        },
+        {
+          "offsetM": 500,
+          "actualM": 2752.184231129585,
+          "interpolatedM": 2752.1891339923613,
+          "errorM": 0.0049028627763618715
+        }
+      ]
+    }
+  ],
+  "scope": "Finite fixed-bearing transect using the 16-cell cube-tile triangle diagonal and scalar radial heights. Excludes ECEF chord, Float32, morph, stitching, feature refinement and runtime LOD selection. Not a global error bound or browser acceptance.",
+  "retainedProfileStride": 25
+}

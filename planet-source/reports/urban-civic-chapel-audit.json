@@ -1,0 +1,302 @@
+{
+  "policy": "surveyed-civic-chapel@1",
+  "method": "Existing street-led public-site selector, a civic yard then compact yard, both inside the same central block. Foundation relief limit remains 1.2m. Smaller nave variants and two orientations are permitted, never a raised relief limit.",
+  "scope": "Two actual saved sites with explicit proposed site-policy overrides; plus independently published runtime27 small world and cloud inspector. No full-world success claim.",
+  "cases": [
+    {
+      "sourceWorld": "sha256:d103b8885d1bd405b35cb8d61447119eba82563b827f6290942b6676723b7ef9",
+      "site": "pop:266:0",
+      "before": {
+        "homes": 69,
+        "chapels": 0
+      },
+      "after": {
+        "homes": 69,
+        "chapels": 1,
+        "churchyards": 1,
+        "publicAccess": [
+          {
+            "targetId": "pop:266:0/chapel",
+            "targetType": "chapel",
+            "status": "connected",
+            "roadId": "pop:266:0/chapel/public-access",
+            "joinsRoadId": "pop:266:0/urban-street:-36970,-42310|35099,-46379",
+            "entranceSide": "south",
+            "lengthM": 8.012720251830215
+          }
+        ],
+        "survey": {
+          "method": "surveyed-street-public-sites@1",
+          "siteProfile": "compact-civic-yard",
+          "site": {
+            "score": 61.42033559253151,
+            "yard": {
+              "minXM": -16.115717386527955,
+              "maxXM": 3.8842826134720454,
+              "minYM": -36.026659237251074,
+              "maxYM": -20.026659237251074
+            },
+            "buildings": [
+              {
+                "id": "pop:266:0/chapel",
+                "facilityType": "chapel",
+                "sector": 3,
+                "bounds": {
+                  "minXM": -15.115717386527955,
+                  "maxXM": 2.8842826134720454,
+                  "minYM": -33.026659237251074,
+                  "maxYM": -23.026659237251074
+                },
+                "baseElevationM": 1120.9692082517547,
+                "heightM": 6,
+                "roofHeightM": 4,
+                "wallColor": [
+                  0.68,
+                  0.66,
+                  0.57
+                ],
+                "roofColor": [
+                  0.35,
+                  0.24,
+                  0.18
+                ]
+              },
+              {
+                "id": "pop:266:0/chapel/tower",
+                "facilityType": "chapel_tower",
+                "sector": 3,
+                "bounds": {
+                  "minXM": -15.115717386527955,
+                  "maxXM": -10.115717386527955,
+                  "minYM": -33.026659237251074,
+                  "maxYM": -28.026659237251074
+                },
+                "baseElevationM": 1120.9692082517547,
+                "heightM": 12,
+                "roofHeightM": 3,
+                "wallColor": [
+                  0.68,
+                  0.66,
+                  0.57
+                ],
+                "roofColor": [
+                  0.35,
+                  0.24,
+                  0.18
+                ]
+              }
+            ],
+            "foundationReliefM": 0.6383959567356214,
+            "access": {
+              "targetId": "pop:266:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:266:0/chapel/public-access",
+              "joinsRoadId": "pop:266:0/urban-street:-36970,-42310|35099,-46379",
+              "entranceSide": "south",
+              "lengthM": 8.012720251830228
+            },
+            "reason": "Dry street-front yard, bounded foundation earthwork, surveyed pedestrian access, proximity to civic center"
+          },
+          "surveyed": 19,
+          "rejected": {
+            "reserved": 14,
+            "wet": 0,
+            "grade": 0,
+            "foundation": 0,
+            "access": 0
+          },
+          "reason": null,
+          "attempts": [
+            {
+              "siteProfile": "civic-yard",
+              "surveyed": 28,
+              "rejected": {
+                "reserved": 28,
+                "wet": 0,
+                "grade": 0,
+                "foundation": 0,
+                "access": 0
+              },
+              "reason": "no-feasible-public-site-within-budget"
+            },
+            {
+              "siteProfile": "compact-civic-yard",
+              "surveyed": 19,
+              "rejected": {
+                "reserved": 14,
+                "wet": 0,
+                "grade": 0,
+                "foundation": 0,
+                "access": 0
+              },
+              "reason": null
+            }
+          ],
+          "totalSurveyed": 47,
+          "maxTotalCandidates": 96
+        }
+      }
+    },
+    {
+      "sourceWorld": "sha256:17833a44f7b0875986b31dc3605e9b94b92144fcaad51d8bd3c08450364312dd",
+      "site": "pop:4174:0",
+      "before": {
+        "homes": 96,
+        "chapels": 1
+      },
+      "after": {
+        "homes": 96,
+        "chapels": 1,
+        "churchyards": 1,
+        "publicAccess": [
+          {
+            "targetId": "pop:4174:0/chapel",
+            "targetType": "chapel",
+            "status": "connected",
+            "roadId": "pop:4174:0/chapel/public-access",
+            "joinsRoadId": "pop:4174:0/urban-street:26461,42405|40181,-27161",
+            "entranceSide": "east",
+            "lengthM": 9.132285566974037
+          }
+        ],
+        "survey": {
+          "method": "surveyed-street-public-sites@1",
+          "siteProfile": "compact-civic-yard",
+          "site": {
+            "score": 54.34887548369653,
+            "yard": {
+              "minXM": 10.678432571018526,
+              "maxXM": 26.678432571018526,
+              "minYM": -10.823382563330318,
+              "maxYM": 9.176617436669682
+            },
+            "buildings": [
+              {
+                "id": "pop:4174:0/chapel",
+                "facilityType": "chapel",
+                "sector": 3,
+                "bounds": {
+                  "minXM": 13.678432571018526,
+                  "maxXM": 23.678432571018526,
+                  "minYM": -9.823382563330318,
+                  "maxYM": 8.176617436669682
+                },
+                "baseElevationM": 1496.0927060330014,
+                "heightM": 6,
+                "roofHeightM": 4,
+                "wallColor": [
+                  0.68,
+                  0.66,
+                  0.57
+                ],
+                "roofColor": [
+                  0.35,
+                  0.24,
+                  0.18
+                ]
+              },
+              {
+                "id": "pop:4174:0/chapel/tower",
+                "facilityType": "chapel_tower",
+                "sector": 3,
+                "bounds": {
+                  "minXM": 13.678432571018526,
+                  "maxXM": 18.678432571018526,
+                  "minYM": -9.823382563330318,
+                  "maxYM": -4.823382563330318
+                },
+                "baseElevationM": 1496.0927060330014,
+                "heightM": 12,
+                "roofHeightM": 3,
+                "wallColor": [
+                  0.68,
+                  0.66,
+                  0.57
+                ],
+                "roofColor": [
+                  0.35,
+                  0.24,
+                  0.18
+                ]
+              }
+            ],
+            "foundationReliefM": 0.6908035725393802,
+            "access": {
+              "targetId": "pop:4174:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:4174:0/chapel/public-access",
+              "joinsRoadId": "pop:4174:0/urban-street:26461,42405|40181,-27161",
+              "entranceSide": "east",
+              "lengthM": 9.132285566974037
+            },
+            "reason": "Dry street-front yard, bounded foundation earthwork, surveyed pedestrian access, proximity to civic center"
+          },
+          "surveyed": 15,
+          "rejected": {
+            "reserved": 13,
+            "wet": 0,
+            "grade": 0,
+            "foundation": 0,
+            "access": 0
+          },
+          "reason": null,
+          "attempts": [
+            {
+              "siteProfile": "civic-yard",
+              "surveyed": 26,
+              "rejected": {
+                "reserved": 26,
+                "wet": 0,
+                "grade": 0,
+                "foundation": 0,
+                "access": 0
+              },
+              "reason": "no-feasible-public-site-within-budget"
+            },
+            {
+              "siteProfile": "compact-civic-yard",
+              "surveyed": 15,
+              "rejected": {
+                "reserved": 13,
+                "wet": 0,
+                "grade": 0,
+                "foundation": 0,
+                "access": 0
+              },
+              "reason": null
+            }
+          ],
+          "totalSurveyed": 41,
+          "maxTotalCandidates": 96
+        }
+      }
+    }
+  ],
+  "newPublishedPackage": {
+    "worldId": "sha256:dfab22621aeaa3a43172d3d38e09046ccccafb0f7401ca681d797cb0170ad02d",
+    "sourceGrid": "32x16",
+    "site": "pop:266:0",
+    "runtime": "settlement-runtime@27",
+    "cloudInspector": {
+      "buildings": 73,
+      "landAndWaterEntries": 53,
+      "chapels": 1,
+      "chapelTowers": 1,
+      "churchyards": 1,
+      "traceVisible": {
+        "siteProfile": "compact-civic-yard",
+        "totalSurveyed": 47,
+        "foundationReliefM": 0.6383959567356214
+      }
+    }
+  },
+  "limitations": [
+    "A religious-community scenario must already be declared. No institution is inferred from soil or landscape.",
+    "Maximum96candidate sites across two profiles; failure stays explicit.",
+    "Finite foundation/yard/access surveys do not establish continuous ground, flood return periods, structural engineering or full pedestrian accessibility.",
+    "This is a communal chapel, not a simulated hierarchy of cathedrals/parishes or a claim about religious capacity for a large city.",
+    "Historic street growth, natural mountain valleys, agricultural capacity, first-load performance and full-scene acceptance remain incomplete."
+  ]
+}

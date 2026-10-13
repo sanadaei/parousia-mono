@@ -1,0 +1,43 @@
+{
+  "siteId": "pop:3392:102",
+  "beforeWorld": "sha256:fcafb9c95bb87d9eb61243834fd4ac6cf599ee4b82120b7dc5f235c1873829f7",
+  "afterWorld": "sha256:b6c3928c38766aa1c86bbe75ab67ce6722dcefaa3520d2cd9829fcfd783132b5",
+  "before": {
+    "method": "population-districts@1",
+    "settlementId": "pop:3392:102",
+    "districtIndex": 0,
+    "districtCount": 1,
+    "totalRequestedDwellings": 60,
+    "requestedDwellings": 60,
+    "placedDwellings": 12,
+    "infillDwellings": 0,
+    "representedPopulation": 60,
+    "districtComplete": false,
+    "complete": false,
+    "limitations": [
+      "Facility dependencies are planned production, not stock or capacity",
+      "No bridges or local drainage design"
+    ]
+  },
+  "after": {
+    "method": "population-districts@1",
+    "settlementId": "pop:3392:102",
+    "districtIndex": 0,
+    "districtCount": 1,
+    "totalRequestedDwellings": 60,
+    "requestedDwellings": 60,
+    "placedDwellings": 60,
+    "infillDwellings": 48,
+    "representedPopulation": 299,
+    "districtComplete": true,
+    "complete": true,
+    "limitations": [
+      "Facility dependencies are planned production, not stock or capacity",
+      "No bridges or local drainage design"
+    ]
+  },
+  "existingHomesPreserved": 12,
+  "reloadIdentical": true,
+  "noBuildingOverlap": true,
+  "scope": "Actual canonical PagedSource, including geographically selected neighboring settlements. One representative riverbank village, not a claim that every terrain can fit every requested dwelling."
+}

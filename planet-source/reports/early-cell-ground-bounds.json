@@ -1,0 +1,54 @@
+{
+  "scope": "Actual saved23b L16 mesh, before/after only certificate threshold change. Sequential runtimes are not a controlled performance comparison.",
+  "results": [
+    {
+      "label": "before",
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "timeMs": 7489.059554,
+      "error": {
+        "method": "lipschitz-cube-triangles@1",
+        "terrainErrorM": 54.032115297014535,
+        "featureErrorM": 1400,
+        "geometricErrorM": 535.3177626907161,
+        "baseCertified": true,
+        "featureStatus": "amplitude-only",
+        "intervalGroundErrorM": 535.3177586043162,
+        "groundBoundMethod": "canonical local height interval"
+      },
+      "vertexHash": "5fa18d35b36f3d8b2ad820b7053dcaebaa9a903d9cb9ac0580eb6ea8ab53daa6",
+      "indexHash": "a262290025f2f0d623acbeab17a3462fec60634a74fb37172d6aaa5c74e71932"
+    },
+    {
+      "label": "after",
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "timeMs": 6659.773429000001,
+      "error": {
+        "method": "lipschitz-cube-triangles@1",
+        "terrainErrorM": 54.032115297014535,
+        "featureErrorM": 1400,
+        "geometricErrorM": 17.540217015838714,
+        "baseCertified": true,
+        "featureStatus": "amplitude-only",
+        "intervalGroundErrorM": 535.3177586043162,
+        "groundBoundMethod": "canonical grid-cell and rendered-vertex height intervals",
+        "cellGroundErrorM": 17.540212929438745,
+        "maximumCellHeightSpanM": 33.457607342811684,
+        "maximumCellHeightErrorM": 17.540030972346585,
+        "intervalCellCount": 256
+      },
+      "vertexHash": "5fa18d35b36f3d8b2ad820b7053dcaebaa9a903d9cb9ac0580eb6ea8ab53daa6",
+      "indexHash": "a262290025f2f0d623acbeab17a3462fec60634a74fb37172d6aaa5c74e71932"
+    }
+  ],
+  "identicalGeometry": true
+}

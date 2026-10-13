@@ -1,0 +1,210 @@
+{
+  "worldId": "sha256:c92c703f9f4b3e6e357fee99a7c67c8a525d06d0eafd28f11f5836ea00ee2c80",
+  "scope": "Same generated terrain and slot seeds; one versus eight bounded siting candidates, four regions only",
+  "results": [
+    {
+      "cell": 2706,
+      "samples": [
+        {
+          "maxCandidateSurveys": 1,
+          "ms": 53.76530099999991,
+          "placed": 208,
+          "requested": 509,
+          "rejected": {
+            "wet": 263,
+            "slope": 38,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 62235,
+            "unplaced": 102461
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 1,
+            "candidateSurveys": 509,
+            "relocatedSites": 0,
+            "maxSearchRadiusM": 1200
+          }
+        },
+        {
+          "maxCandidateSurveys": 8,
+          "ms": 179.4362990000002,
+          "placed": 249,
+          "requested": 509,
+          "rejected": {
+            "wet": 260,
+            "slope": 0,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 74498,
+            "unplaced": 90198
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 8,
+            "candidateSurveys": 2396,
+            "relocatedSites": 41,
+            "maxSearchRadiusM": 1200
+          }
+        }
+      ]
+    },
+    {
+      "cell": 3649,
+      "samples": [
+        {
+          "maxCandidateSurveys": 1,
+          "ms": 12.46796900000004,
+          "placed": 149,
+          "requested": 274,
+          "rejected": {
+            "wet": 0,
+            "slope": 125,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 44562,
+            "unplaced": 44028
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 1,
+            "candidateSurveys": 274,
+            "relocatedSites": 0,
+            "maxSearchRadiusM": 1200
+          }
+        },
+        {
+          "maxCandidateSurveys": 8,
+          "ms": 181.7200969999999,
+          "placed": 250,
+          "requested": 274,
+          "rejected": {
+            "wet": 0,
+            "slope": 24,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 81410,
+            "unplaced": 7180
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 8,
+            "candidateSurveys": 734,
+            "relocatedSites": 101,
+            "maxSearchRadiusM": 1200
+          }
+        }
+      ]
+    },
+    {
+      "cell": 3392,
+      "samples": [
+        {
+          "maxCandidateSurveys": 1,
+          "ms": 11.102073000000019,
+          "placed": 170,
+          "requested": 262,
+          "rejected": {
+            "wet": 54,
+            "slope": 38,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 50834,
+            "unplaced": 33873
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 1,
+            "candidateSurveys": 262,
+            "relocatedSites": 0,
+            "maxSearchRadiusM": 1200
+          }
+        },
+        {
+          "maxCandidateSurveys": 8,
+          "ms": 15.780276000000185,
+          "placed": 208,
+          "requested": 262,
+          "rejected": {
+            "wet": 53,
+            "slope": 1,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 62197,
+            "unplaced": 22510
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 8,
+            "candidateSurveys": 705,
+            "relocatedSites": 38,
+            "maxSearchRadiusM": 1200
+          }
+        }
+      ]
+    },
+    {
+      "cell": 3843,
+      "samples": [
+        {
+          "maxCandidateSurveys": 1,
+          "ms": 33.79109100000005,
+          "placed": 503,
+          "requested": 622,
+          "rejected": {
+            "wet": 0,
+            "slope": 119,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 215454,
+            "unplaced": 35699
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 1,
+            "candidateSurveys": 622,
+            "relocatedSites": 0,
+            "maxSearchRadiusM": 1200
+          }
+        },
+        {
+          "maxCandidateSurveys": 8,
+          "ms": 38.99233800000002,
+          "placed": 622,
+          "requested": 622,
+          "rejected": {
+            "wet": 0,
+            "slope": 0,
+            "anchor": 0,
+            "budget": 0
+          },
+          "populations": {
+            "placed": 251153,
+            "unplaced": 0
+          },
+          "survey": {
+            "method": "population-sited-settlements@2",
+            "maxCandidateSurveys": 8,
+            "candidateSurveys": 792,
+            "relocatedSites": 119,
+            "maxSearchRadiusM": 1200
+          }
+        }
+      ]
+    }
+  ]
+}

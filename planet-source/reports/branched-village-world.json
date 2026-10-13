@@ -1,0 +1,117 @@
+{
+  "worldId": "sha256:57ebbac95df158785a953ea5ac6c1cb9fed20db86392975ae07304285c0a7849",
+  "scope": "Actual restored generated world, central communal pond physical sampling; not natural hydrology or visual acceptance",
+  "results": [
+    {
+      "siteId": "pop:2706:508",
+      "pond": {
+        "id": "pop:2706:508/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": -122,
+          "maxXM": -68,
+          "minYM": 45,
+          "maxYM": 85
+        },
+        "waterLevelElevationM": 998.5212709039118,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 28.172249712603396,
+        "lonDeg": 50.92660033078698
+      },
+      "sample": {
+        "groundElevationM": 997.0262709039118,
+        "waterLevelElevationM": 998.5212709039118,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:2706:508/district:0/communal-pond"
+        ],
+        "xM": -94.99999999672204,
+        "yM": 65.00000000041896,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "homes": 60,
+      "requested": 60
+    },
+    {
+      "siteId": "pop:3649:25",
+      "pond": {
+        "id": "pop:3649:25/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": 68,
+          "maxXM": 122,
+          "minYM": 45,
+          "maxYM": 85
+        },
+        "waterLevelElevationM": 2298.4226791162546,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 10.963433618427963,
+        "lonDeg": -175.81369713506496
+      },
+      "sample": {
+        "groundElevationM": 2296.9276791162547,
+        "waterLevelElevationM": 2298.4226791162546,
+        "waterDepthM": 1.4949999999998909,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:3649:25/district:0/communal-pond"
+        ],
+        "xM": 94.99999999910924,
+        "yM": 64.99999999971162,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "homes": 60,
+      "requested": 60
+    },
+    {
+      "siteId": "pop:3392:102",
+      "pond": {
+        "id": "pop:3392:102/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": -122,
+          "maxXM": -68,
+          "minYM": 45,
+          "maxYM": 85
+        },
+        "waterLevelElevationM": 163.478245121816,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 15.831478674276918,
+        "lonDeg": -178.86205684948607
+      },
+      "sample": {
+        "groundElevationM": 161.983245121816,
+        "waterLevelElevationM": 163.478245121816,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:3392:102/district:0/communal-pond"
+        ],
+        "xM": -94.99999999919768,
+        "yM": 65.00000000041896,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "homes": 60,
+      "requested": 60
+    }
+  ]
+}

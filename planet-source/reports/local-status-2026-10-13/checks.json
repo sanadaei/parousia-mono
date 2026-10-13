@@ -1,0 +1,50 @@
+{
+  "dateJST": "2026-10-13",
+  "scope": "Read-only project status assessment; no source or existing documentation modified",
+  "environment": "Windows, Node.js v22.23.1, managed sandbox",
+  "sourceIntegrity": {
+    "command": "python -B verify_bundle.py",
+    "files": 2317,
+    "byteLengthsAndSha256AndGitBlobSha1": "passed"
+  },
+  "build": {
+    "command": "node --max-old-space-size=256 scripts/build.mjs",
+    "exitCode": 0,
+    "coreModules": 154,
+    "sharedRootExports": 30,
+    "globeSyntaxModules": 74
+  },
+  "fullTests": {
+    "command": "node --max-old-space-size=256 scripts/test.mjs",
+    "exitCode": 1,
+    "tests": 1356,
+    "passed": 1337,
+    "failed": 19,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 343644.634,
+    "failureCategories": {
+      "fileHardlinkEPERM": 10,
+      "localHttpFetch": 7,
+      "unixPathAssumptions": 2
+    }
+  },
+  "independentEnvironmentProbes": {
+    "sameDirectoryHardlink": "EPERM",
+    "loopbackHttpConnect": "EACCES",
+    "probeServer": "closed"
+  },
+  "preFullTestResources": {
+    "freePhysicalGiB": 16.49,
+    "commitHeadroomGiB": 21.79
+  },
+  "notExecuted": [
+    "Live browser interaction",
+    "GPU performance",
+    "Native device acceptance",
+    "Fresh long-duration memory validation",
+    "Remote publication verification"
+  ],
+  "retainedEvidence": "full-test.log",
+  "temporaryData": "Removed from task-specific G-drive directory"
+}

@@ -1,0 +1,110 @@
+{
+  "sourceWorld": "sha256:17833a44f7b0875986b31dc3605e9b94b92144fcaad51d8bd3c08450364312dd",
+  "scope": "Actual35a town, explicit proposed site-policy override. All seven districts compared; not a rewritten saved world. Finite point checks are not continuous footprint proof.",
+  "site": "pop:4174:0",
+  "rows": [
+    {
+      "districtIndex": 0,
+      "homes": 96,
+      "oldGardens": 36,
+      "newGardens": 36,
+      "oldAreaM2": 4032,
+      "newAreaM2": 5408,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    },
+    {
+      "districtIndex": 1,
+      "homes": 96,
+      "oldGardens": 51,
+      "newGardens": 51,
+      "oldAreaM2": 5712,
+      "newAreaM2": 8320,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    },
+    {
+      "districtIndex": 2,
+      "homes": 96,
+      "oldGardens": 50,
+      "newGardens": 50,
+      "oldAreaM2": 5600,
+      "newAreaM2": 8960,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    },
+    {
+      "districtIndex": 3,
+      "homes": 96,
+      "oldGardens": 53,
+      "newGardens": 53,
+      "oldAreaM2": 5936,
+      "newAreaM2": 8448,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    },
+    {
+      "districtIndex": 4,
+      "homes": 96,
+      "oldGardens": 54,
+      "newGardens": 54,
+      "oldAreaM2": 6048,
+      "newAreaM2": 9440,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    },
+    {
+      "districtIndex": 5,
+      "homes": 96,
+      "oldGardens": 55,
+      "newGardens": 55,
+      "oldAreaM2": 6160,
+      "newAreaM2": 9504,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    },
+    {
+      "districtIndex": 6,
+      "homes": 74,
+      "oldGardens": 43,
+      "newGardens": 44,
+      "oldAreaM2": 4816,
+      "newAreaM2": 6976,
+      "buildingsUnchanged": true,
+      "padsUnchanged": true,
+      "roadsUnchanged": true
+    }
+  ],
+  "gardenPoints": 15965,
+  "insideBuilding": 0,
+  "totalOldAreaM2": 38304,
+  "totalNewAreaM2": 57056,
+  "policy": "bounded-backland-gardens@1",
+  "rejectedPrototype": "Greedy deep plots removed 88 otherwise eligible gardens in the first seven-district trial. That behavior was rejected; final allocation reserves minimum household plots before expansion.",
+  "newPublishedPackage": {
+    "worldId": "sha256:d103b8885d1bd405b35cb8d61447119eba82563b827f6290942b6676723b7ef9",
+    "sourceGrid": "32x16",
+    "site": "pop:266:0",
+    "runtime": "settlement-runtime@26",
+    "savedSitePolicy": "bounded-backland-gardens@1",
+    "cloudInspector": {
+      "buildings": 71,
+      "landAndWaterEntries": 52,
+      "gardenEntries": 49,
+      "note": "Actual loaded recipe in inspector. This town still has no chapel: existing fixed urban chapel site fails its foundation criterion. Not whole-scene acceptance."
+    }
+  },
+  "limitations": [
+    "Only new opt-in urban sites; old saves and villages unchanged.",
+    "Owned-block boundaries are mandatory; unknown ownership does not allocate a garden.",
+    "Dry/grade surveys use a finite grid up to four metres. No continuous-ground safety proof.",
+    "Gardening is a declared household land-use scenario. Fertile soil, harvest, irrigation and tenure are not simulated.",
+    "This repairs one source of empty urban interiors; it does not complete medieval morphology."
+  ]
+}

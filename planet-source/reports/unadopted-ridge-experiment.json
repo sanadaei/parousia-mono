@@ -1,0 +1,249 @@
+{
+  "before": "sha256:17833a44f7b0875986b31dc3605e9b94b92144fcaad51d8bd3c08450364312dd",
+  "after": "sha256:4b780b8cb0c89f21b6f2a1eb4d764a7ba6748879b36efbbf9bc8d3ea305554a6",
+  "scope": "Fixed-latitude terrain samples, not erosion or drainage realism acceptance. Population zero in ridge inspection world; base macro grid and original saved world preserved.",
+  "rows": [
+    {
+      "target": {
+        "id": "hill:7493",
+        "kind": "hill",
+        "name": "\u4e18\u9675\u306e\u8d77\u4f0f 1",
+        "sourceCell": 7493,
+        "latDeg": -74.52294097845336,
+        "lonDeg": -164.5441468420015,
+        "surveyCenter": {
+          "latDeg": -74.53125,
+          "lonDeg": 195.46875
+        },
+        "surveyRadiusM": 1000,
+        "drySamples": 33,
+        "totalSamples": 33,
+        "minElevationM": 388.755064151646,
+        "maxElevationM": 426.5151775740167,
+        "reliefM": 37.760113422370694,
+        "viewAltitudeM": 800
+      },
+      "side": 61,
+      "stepM": 40,
+      "before": {
+        "minimumM": 381.82302594678913,
+        "maximumM": 435.6625780562124,
+        "rangeM": 53.839552109423266,
+        "medianGrade": 0.042091198707302165,
+        "p95Grade": 0.08719849562544202
+      },
+      "after": {
+        "minimumM": 381.82315168026037,
+        "maximumM": 435.6626086888737,
+        "rangeM": 53.83945700861335,
+        "medianGrade": 0.04209112785417588,
+        "p95Grade": 0.0871984134054651
+      },
+      "changed": 3721
+    },
+    {
+      "target": {
+        "id": "hill:3459",
+        "kind": "hill",
+        "name": "\u4e18\u9675\u306e\u8d77\u4f0f 2",
+        "sourceCell": 3459,
+        "latDeg": 12.664558625032292,
+        "lonDeg": 9.847277374576038,
+        "surveyCenter": {
+          "latDeg": 12.65625,
+          "lonDeg": 9.84375
+        },
+        "surveyRadiusM": 1000,
+        "drySamples": 33,
+        "totalSamples": 33,
+        "minElevationM": 391.10550100187766,
+        "maxElevationM": 438.79905178017304,
+        "reliefM": 47.69355077829539,
+        "viewAltitudeM": 800
+      },
+      "side": 61,
+      "stepM": 40,
+      "before": {
+        "minimumM": 386.8715043097718,
+        "maximumM": 439.69979221548977,
+        "rangeM": 52.82828790571796,
+        "medianGrade": 0.038248454590300754,
+        "p95Grade": 0.08677616647846036
+      },
+      "after": {
+        "minimumM": 386.8715043097718,
+        "maximumM": 439.69979221548977,
+        "rangeM": 52.82828790571796,
+        "medianGrade": 0.038248454590300754,
+        "p95Grade": 0.08677616647846036
+      },
+      "changed": 0
+    },
+    {
+      "target": {
+        "id": "hill:6970",
+        "kind": "hill",
+        "name": "\u4e18\u9675\u306e\u8d77\u4f0f 3",
+        "sourceCell": 6970,
+        "latDeg": -63.27780724853829,
+        "lonDeg": 164.54972741841698,
+        "surveyCenter": {
+          "latDeg": -63.28125,
+          "lonDeg": 164.53125
+        },
+        "surveyRadiusM": 1000,
+        "drySamples": 33,
+        "totalSamples": 33,
+        "minElevationM": 393.6977671243375,
+        "maxElevationM": 441.815443750733,
+        "reliefM": 48.11767662639551,
+        "viewAltitudeM": 800
+      },
+      "side": 61,
+      "stepM": 40,
+      "before": {
+        "minimumM": 393.64474460515925,
+        "maximumM": 443.4194763439337,
+        "rangeM": 49.77473173877445,
+        "medianGrade": 0.03873907718273027,
+        "p95Grade": 0.08109194745540343
+      },
+      "after": {
+        "minimumM": 393.6447702681934,
+        "maximumM": 443.4196193870734,
+        "rangeM": 49.77484911888001,
+        "medianGrade": 0.03873936229516388,
+        "p95Grade": 0.08109190091788065
+      },
+      "changed": 3714
+    },
+    {
+      "target": {
+        "id": "mountain:5302",
+        "kind": "mountain",
+        "name": "\u5c71\u5730\u306e\u8d77\u4f0f 1",
+        "sourceCell": 5302,
+        "latDeg": -26.73952129531164,
+        "lonDeg": 153.29088415088472,
+        "surveyCenter": {
+          "latDeg": -26.71875,
+          "lonDeg": 153.28125
+        },
+        "surveyRadiusM": 2500,
+        "drySamples": 33,
+        "totalSamples": 33,
+        "minElevationM": 8894.08075857481,
+        "maxElevationM": 9440.062938838824,
+        "reliefM": 545.9821802640145,
+        "viewAltitudeM": 2000
+      },
+      "side": 61,
+      "stepM": 100,
+      "before": {
+        "minimumM": 8804.518077128023,
+        "maximumM": 9484.502370036942,
+        "rangeM": 679.9842929089191,
+        "medianGrade": 0.18958013460423764,
+        "p95Grade": 0.33230006874127865
+      },
+      "after": {
+        "minimumM": 8502.69556150508,
+        "maximumM": 9246.933363140042,
+        "rangeM": 744.237801634963,
+        "medianGrade": 0.35021756424647627,
+        "p95Grade": 0.6136399179956072
+      },
+      "changed": 3721
+    },
+    {
+      "target": {
+        "id": "mountain:5139",
+        "kind": "mountain",
+        "name": "\u5c71\u5730\u306e\u8d77\u4f0f 2",
+        "sourceCell": 5139,
+        "latDeg": -23.885478093147803,
+        "lonDeg": 54.83434022848678,
+        "surveyCenter": {
+          "latDeg": -23.90625,
+          "lonDeg": 54.84375
+        },
+        "surveyRadiusM": 2500,
+        "drySamples": 33,
+        "totalSamples": 33,
+        "minElevationM": 8233.163917365307,
+        "maxElevationM": 8785.21193572507,
+        "reliefM": 552.0480183597629,
+        "viewAltitudeM": 2000
+      },
+      "side": 61,
+      "stepM": 100,
+      "before": {
+        "minimumM": 8124.121515376316,
+        "maximumM": 8788.754637631273,
+        "rangeM": 664.633122254957,
+        "medianGrade": 0.13297903605896338,
+        "p95Grade": 0.2672771819430567
+      },
+      "after": {
+        "minimumM": 7861.68816664634,
+        "maximumM": 8677.127464702318,
+        "rangeM": 815.4392980559787,
+        "medianGrade": 0.26983440065767,
+        "p95Grade": 0.5249202005642893
+      },
+      "changed": 3721
+    },
+    {
+      "target": {
+        "id": "mountain:3021",
+        "kind": "mountain",
+        "name": "\u5c71\u5730\u306e\u8d77\u4f0f 3",
+        "sourceCell": 3021,
+        "latDeg": 23.910551526199797,
+        "lonDeg": -142.04261080195545,
+        "surveyCenter": {
+          "latDeg": 23.90625,
+          "lonDeg": 217.96875
+        },
+        "surveyRadiusM": 2500,
+        "drySamples": 33,
+        "totalSamples": 33,
+        "minElevationM": 7956.16499040175,
+        "maxElevationM": 8553.626980427753,
+        "reliefM": 597.4619900260022,
+        "viewAltitudeM": 2000
+      },
+      "side": 61,
+      "stepM": 100,
+      "before": {
+        "minimumM": 7840.632382604783,
+        "maximumM": 8589.937108104532,
+        "rangeM": 749.3047254997491,
+        "medianGrade": 0.2177148048982294,
+        "p95Grade": 0.3458245331300421
+      },
+      "after": {
+        "minimumM": 7847.454278301231,
+        "maximumM": 8665.233507244113,
+        "rangeM": 817.7792289428817,
+        "medianGrade": 0.36745367286751096,
+        "p95Grade": 0.6330840972904955
+      },
+      "changed": 3721
+    }
+  ],
+  "decision": "Not adopted: passing numerical checks and increased relief did not establish a more plausible mountain landscape.",
+  "experiment": {
+    "shape": "1 - 2*(sqrt(n*n + 0.08^2)-0.08)/(sqrt(1+0.08^2)-0.08)",
+    "band": "mountain-massifs, existing2500m wavelength and900m amplitude",
+    "method": "C1 transformed bounded noise, same source anchors, corrected derivative bounds and paged pole means",
+    "testResult": "874 PASS / 0 fail including5temporary ridge tests; build passed; this does not imply geographic acceptance."
+  },
+  "observedIssues": [
+    "Six-kilometre contour comparisons still show broad rounded, often closed hollows rather than drainage-shaped valleys.",
+    "Actual cloud CPU mountain view remains too smooth; higher relief alone is insufficient.",
+    "No erosion, geological structure or small-watershed drainage guarantees.",
+    "Extra detail or aggressive derivative bounds may worsen already slow close-view loading."
+  ],
+  "productionAction": "Prototype source changes were reverted; current shipped default and saved-world evaluators remain unchanged. Experimental36-ridges is an unadopted private fixture, not a supported release."
+}

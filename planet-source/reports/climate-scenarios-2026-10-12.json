@@ -1,0 +1,195 @@
+{
+  "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+  "sourceSnapshotHash": "sha256:5cfc020479c44e342ae2ec62e72e82889731afd73ffd3178036d2dc009571b84",
+  "unchangedGeography": true,
+  "limitations": [
+    "Ocean and lake geometry and water levels remain fixed",
+    "Ice biome means year-round freezing air temperature, not simulated glacier or sea ice",
+    "No ice sheets, glacial erosion, albedo feedback, sea-level response or physical atmospheric forcing",
+    "Existing rendered river geometry is unchanged; potential runoff is recomputed, not hydraulic geometry"
+  ],
+  "results": [
+    {
+      "scenario": "baseline",
+      "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+      "sourceSnapshotHash": "sha256:5cfc020479c44e342ae2ec62e72e82889731afd73ffd3178036d2dc009571b84",
+      "globalPercent": {
+        "ice": 3.738469077786356,
+        "ocean": 63.154892003768474,
+        "lake": 1.6743799695248567,
+        "tundra": 3.680749696777948,
+        "grassland": 2.548245307588028,
+        "shrubland": 8.096646423452096,
+        "boreal": 1.1432428549185119,
+        "temperate_forest": 2.149070492722767,
+        "mediterranean": 0.1957866309294017,
+        "desert": 5.204066102044493,
+        "savanna": 5.044911114981568,
+        "tropical_forest": 3.369540325507735
+      },
+      "dryLandPercent": {
+        "ice": 10.629490168492797,
+        "tundra": 10.46537818035157,
+        "grassland": 7.245358428898313,
+        "shrubland": 23.020980450855387,
+        "boreal": 3.2505521468032583,
+        "temperate_forest": 6.110395244280319,
+        "mediterranean": 0.5566749450870675,
+        "desert": 14.796583391997267,
+        "savanna": 14.344062230245722,
+        "tropical_forest": 9.580524812989095
+      },
+      "annualLandMeanTemperatureC": 13.167431893610207,
+      "annualLandMeanPrecipitationMm": 446.17127494362245,
+      "potentialWaterBalance": {
+        "precipitationM3": 81486437817817,
+        "evaporationM3": 51747158237470.95,
+        "initialStorageM3": 19103917965515.805,
+        "finalStorageM3": 21879881934456.69,
+        "exportedOrTerminalM3": 26963315611403.203,
+        "balanceErrorM3": 1.96484375,
+        "storageChangeM3": 2775963968940.8867,
+        "scope": "Scenario water availability, not calibrated discharge or flood prediction",
+        "missing": [
+          "snow-energy-balance-and-glaciers",
+          "groundwater-delay",
+          "lake-water-balance",
+          "channel-losses",
+          "routing-travel-time"
+        ]
+      }
+    },
+    {
+      "scenario": "arid",
+      "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+      "sourceSnapshotHash": "sha256:5cfc020479c44e342ae2ec62e72e82889731afd73ffd3178036d2dc009571b84",
+      "globalPercent": {
+        "ice": 2.089505053196774,
+        "ocean": 63.154892003768474,
+        "tundra": 2.378740635859676,
+        "lake": 1.6743799695248567,
+        "desert": 29.40160595973229,
+        "shrubland": 1.3008763779200192
+      },
+      "dryLandPercent": {
+        "ice": 5.941034406822618,
+        "tundra": 6.763410282702334,
+        "desert": 83.59680794041164,
+        "shrubland": 3.69874737006336
+      },
+      "annualLandMeanTemperatureC": 21.167431893610278,
+      "annualLandMeanPrecipitationMm": 37.299898880474466,
+      "potentialWaterBalance": {
+        "precipitationM3": 6812204962507.2705,
+        "evaporationM3": 6704870832754.607,
+        "initialStorageM3": 491016203619.1674,
+        "finalStorageM3": 594946750390.5629,
+        "exportedOrTerminalM3": 3403582981.286582,
+        "balanceErrorM3": -0.019370079040527344,
+        "storageChangeM3": 103930546771.39545,
+        "scope": "Scenario water availability, not calibrated discharge or flood prediction",
+        "missing": [
+          "snow-energy-balance-and-glaciers",
+          "groundwater-delay",
+          "lake-water-balance",
+          "channel-losses",
+          "routing-travel-time"
+        ]
+      }
+    },
+    {
+      "scenario": "glacial",
+      "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+      "sourceSnapshotHash": "sha256:5cfc020479c44e342ae2ec62e72e82889731afd73ffd3178036d2dc009571b84",
+      "globalPercent": {
+        "ice": 5.850935678669208,
+        "ocean": 63.154892003768474,
+        "lake": 1.6743799695248567,
+        "tundra": 4.4314275093565465,
+        "grassland": 3.910903196834349,
+        "shrubland": 7.7465755412326835,
+        "boreal": 0.6286343774047063,
+        "temperate_forest": 4.1907774571717455,
+        "desert": 5.100109617086671,
+        "mediterranean": 0.13767885752326306,
+        "savanna": 1.7056085199091648,
+        "tropical_forest": 1.4680772715205617
+      },
+      "dryLandPercent": {
+        "ice": 16.635810536040015,
+        "tundra": 12.599760533791995,
+        "grassland": 11.119767534707927,
+        "shrubland": 22.02563317810754,
+        "boreal": 1.7873794848014601,
+        "temperate_forest": 11.915526610621379,
+        "desert": 14.501006670131073,
+        "mediterranean": 0.3914586511223483,
+        "savanna": 4.84951155578563,
+        "tropical_forest": 4.17414524489146
+      },
+      "annualLandMeanTemperatureC": 7.167431893610124,
+      "annualLandMeanPrecipitationMm": 340.2558157719486,
+      "potentialWaterBalance": {
+        "precipitationM3": 62144053761774.34,
+        "evaporationM3": 38852357888740.81,
+        "initialStorageM3": 22308218385824.766,
+        "finalStorageM3": 26110712364094.246,
+        "exportedOrTerminalM3": 19489201894764.723,
+        "balanceErrorM3": -0.671875,
+        "storageChangeM3": 3802493978269.4805,
+        "scope": "Scenario water availability, not calibrated discharge or flood prediction",
+        "missing": [
+          "snow-energy-balance-and-glaciers",
+          "groundwater-delay",
+          "lake-water-balance",
+          "channel-losses",
+          "routing-travel-time"
+        ]
+      }
+    },
+    {
+      "scenario": "deep-cold",
+      "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+      "sourceSnapshotHash": "sha256:5cfc020479c44e342ae2ec62e72e82889731afd73ffd3178036d2dc009571b84",
+      "globalPercent": {
+        "ice": 11.263659770595154,
+        "ocean": 63.154892003768474,
+        "lake": 1.6743799695248567,
+        "tundra": 12.186326601340365,
+        "shrubland": 3.0265418288855117,
+        "desert": 2.642758981528522,
+        "grassland": 2.286665720528231,
+        "temperate_forest": 3.580855963989664,
+        "boreal": 0.18391915984147203
+      },
+      "dryLandPercent": {
+        "ice": 32.02566566731735,
+        "tundra": 34.64905984341896,
+        "shrubland": 8.605286266997858,
+        "desert": 7.514086656157979,
+        "grassland": 6.501616113239801,
+        "temperate_forest": 10.181352974184604,
+        "boreal": 0.5229324786845592
+      },
+      "annualLandMeanTemperatureC": -4.832568106389969,
+      "annualLandMeanPrecipitationMm": 216.34261103176377,
+      "potentialWaterBalance": {
+        "precipitationM3": 39518444149011.14,
+        "evaporationM3": 19613784593834.773,
+        "initialStorageM3": 29847329762801.13,
+        "finalStorageM3": 35830313585194.89,
+        "exportedOrTerminalM3": 13921675732783.266,
+        "balanceErrorM3": -0.6640625,
+        "storageChangeM3": 5982983822393.762,
+        "scope": "Scenario water availability, not calibrated discharge or flood prediction",
+        "missing": [
+          "snow-energy-balance-and-glaciers",
+          "groundwater-delay",
+          "lake-water-balance",
+          "channel-losses",
+          "routing-travel-time"
+        ]
+      }
+    }
+  ]
+}

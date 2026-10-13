@@ -1,0 +1,22 @@
+{
+  "projection": {
+    "centerLatDeg": 40,
+    "centerLonDeg": 179.999,
+    "radiusM": 6371000,
+    "maxRadiusM": 30000
+  },
+  "metricOrigin": {
+    "xM": 0,
+    "yM": 0
+  },
+  "window": {
+    "minXM": -7655.8020601392545,
+    "minYM": 5293.141866144997,
+    "maxXM": -5655.8020601392545,
+    "maxYM": 7293.141866144997
+  },
+  "altitudeM": 2500,
+  "tiltDeg": 45,
+  "headingDeg": -25,
+  "expectedSourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f"
+}

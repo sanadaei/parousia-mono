@@ -1,0 +1,424 @@
+[
+  {
+    "id": "alps",
+    "bounds": [
+      46,
+      46.5,
+      7.5,
+      8
+    ],
+    "sourceRegions": [
+      21,
+      23
+    ],
+    "width": 600,
+    "height": 600,
+    "resampling": "nearest",
+    "overlapDisagreements": 0,
+    "counts": [
+      {
+        "code": 0,
+        "label": "NoData",
+        "count": 2147
+      },
+      {
+        "code": 1,
+        "label": "1 Mountain summit",
+        "count": 152919
+      },
+      {
+        "code": 2,
+        "label": "2 Cliff slope",
+        "count": 157474
+      },
+      {
+        "code": 3,
+        "label": "3 Lower/hilly mountain",
+        "count": 9336
+      },
+      {
+        "code": 4,
+        "label": "4 Steep hills/dissected cliff slope",
+        "count": 8163
+      },
+      {
+        "code": 5,
+        "label": "5 Large highland slope (steep)",
+        "count": 3592
+      },
+      {
+        "code": 6,
+        "label": "6 Large highland slope (moderate)",
+        "count": 371
+      },
+      {
+        "code": 7,
+        "label": "7 Mountain valley slope",
+        "count": 13430
+      },
+      {
+        "code": 8,
+        "label": "8 Moderate hills",
+        "count": 3882
+      },
+      {
+        "code": 9,
+        "label": "9 Terrace/fan/plateau (high, dissected, Sinks not predominant)",
+        "count": 440
+      },
+      {
+        "code": 13,
+        "label": "13 Valley slope  (Sinks not predominant)",
+        "count": 3509
+      },
+      {
+        "code": 14,
+        "label": "14 Valley slope  (Sinks predominant)",
+        "count": 545
+      },
+      {
+        "code": 15,
+        "label": "15 Terrace/fan/plateau (low, dissected, Sinks not predominant)",
+        "count": 733
+      },
+      {
+        "code": 16,
+        "label": "16 Terrace/fan/plateau (low, dissected, Sinks predominant)",
+        "count": 77
+      },
+      {
+        "code": 19,
+        "label": "19 High plain  (Sinks not predominant)",
+        "count": 1208
+      },
+      {
+        "code": 20,
+        "label": "20 High plain (Sinks predominant)",
+        "count": 798
+      },
+      {
+        "code": 21,
+        "label": "21 Low plain (Sinks not predominant)",
+        "count": 416
+      },
+      {
+        "code": 22,
+        "label": "22 Low plain (Sinks predominant)",
+        "count": 960
+      }
+    ],
+    "scope": "Terrain22 supplied labels; not inferred from ETOPO. 0 is unavailable/masked, not a water classification. Nearest resampling for categorical data; source seam gaps are retained."
+  },
+  {
+    "id": "tuscany",
+    "bounds": [
+      43,
+      43.5,
+      11,
+      11.5
+    ],
+    "sourceRegions": [
+      21
+    ],
+    "width": 600,
+    "height": 600,
+    "resampling": "nearest",
+    "overlapDisagreements": 0,
+    "counts": [
+      {
+        "code": 0,
+        "label": "NoData",
+        "count": 428
+      },
+      {
+        "code": 1,
+        "label": "1 Mountain summit",
+        "count": 79
+      },
+      {
+        "code": 2,
+        "label": "2 Cliff slope",
+        "count": 15043
+      },
+      {
+        "code": 3,
+        "label": "3 Lower/hilly mountain",
+        "count": 18352
+      },
+      {
+        "code": 4,
+        "label": "4 Steep hills/dissected cliff slope",
+        "count": 141731
+      },
+      {
+        "code": 5,
+        "label": "5 Large highland slope (steep)",
+        "count": 17172
+      },
+      {
+        "code": 6,
+        "label": "6 Large highland slope (moderate)",
+        "count": 3515
+      },
+      {
+        "code": 7,
+        "label": "7 Mountain valley slope",
+        "count": 17240
+      },
+      {
+        "code": 8,
+        "label": "8 Moderate hills",
+        "count": 81444
+      },
+      {
+        "code": 9,
+        "label": "9 Terrace/fan/plateau (high, dissected, Sinks not predominant)",
+        "count": 10095
+      },
+      {
+        "code": 11,
+        "label": "11 Terrace/fan/plateau (high, surface, Sinks not predominant)",
+        "count": 1700
+      },
+      {
+        "code": 13,
+        "label": "13 Valley slope  (Sinks not predominant)",
+        "count": 32455
+      },
+      {
+        "code": 14,
+        "label": "14 Valley slope  (Sinks predominant)",
+        "count": 1084
+      },
+      {
+        "code": 15,
+        "label": "15 Terrace/fan/plateau (low, dissected, Sinks not predominant)",
+        "count": 5530
+      },
+      {
+        "code": 16,
+        "label": "16 Terrace/fan/plateau (low, dissected, Sinks predominant)",
+        "count": 97
+      },
+      {
+        "code": 17,
+        "label": "17 Terrace/fan/plateau (low, surface, Sinks not predominant)",
+        "count": 1
+      },
+      {
+        "code": 19,
+        "label": "19 High plain  (Sinks not predominant)",
+        "count": 10000
+      },
+      {
+        "code": 20,
+        "label": "20 High plain (Sinks predominant)",
+        "count": 1325
+      },
+      {
+        "code": 21,
+        "label": "21 Low plain (Sinks not predominant)",
+        "count": 2045
+      },
+      {
+        "code": 22,
+        "label": "22 Low plain (Sinks predominant)",
+        "count": 664
+      }
+    ],
+    "scope": "Terrain22 supplied labels; not inferred from ETOPO. 0 is unavailable/masked, not a water classification. Nearest resampling for categorical data; source seam gaps are retained."
+  },
+  {
+    "id": "netherlands",
+    "bounds": [
+      52,
+      52.5,
+      5,
+      5.5
+    ],
+    "sourceRegions": [
+      23
+    ],
+    "width": 600,
+    "height": 600,
+    "resampling": "nearest",
+    "overlapDisagreements": 0,
+    "counts": [
+      {
+        "code": 0,
+        "label": "NoData",
+        "count": 75961
+      },
+      {
+        "code": 9,
+        "label": "9 Terrace/fan/plateau (high, dissected, Sinks not predominant)",
+        "count": 2708
+      },
+      {
+        "code": 11,
+        "label": "11 Terrace/fan/plateau (high, surface, Sinks not predominant)",
+        "count": 5122
+      },
+      {
+        "code": 15,
+        "label": "15 Terrace/fan/plateau (low, dissected, Sinks not predominant)",
+        "count": 2115
+      },
+      {
+        "code": 16,
+        "label": "16 Terrace/fan/plateau (low, dissected, Sinks predominant)",
+        "count": 1499
+      },
+      {
+        "code": 17,
+        "label": "17 Terrace/fan/plateau (low, surface, Sinks not predominant)",
+        "count": 5889
+      },
+      {
+        "code": 18,
+        "label": "18 Terrace/fan/plateau (low, surface, Sinks predominant)",
+        "count": 3262
+      },
+      {
+        "code": 19,
+        "label": "19 High plain  (Sinks not predominant)",
+        "count": 2406
+      },
+      {
+        "code": 20,
+        "label": "20 High plain (Sinks predominant)",
+        "count": 40685
+      },
+      {
+        "code": 22,
+        "label": "22 Low plain (Sinks predominant)",
+        "count": 220353
+      }
+    ],
+    "scope": "Terrain22 supplied labels; not inferred from ETOPO. 0 is unavailable/masked, not a water classification. Nearest resampling for categorical data; source seam gaps are retained."
+  },
+  {
+    "id": "fiordland",
+    "bounds": [
+      -45.3,
+      -44.8,
+      167.5,
+      168
+    ],
+    "sourceRegions": [
+      57
+    ],
+    "width": 600,
+    "height": 600,
+    "resampling": "nearest",
+    "overlapDisagreements": 0,
+    "counts": [
+      {
+        "code": 0,
+        "label": "NoData",
+        "count": 44265
+      },
+      {
+        "code": 1,
+        "label": "1 Mountain summit",
+        "count": 167054
+      },
+      {
+        "code": 2,
+        "label": "2 Cliff slope",
+        "count": 50277
+      },
+      {
+        "code": 3,
+        "label": "3 Lower/hilly mountain",
+        "count": 16628
+      },
+      {
+        "code": 4,
+        "label": "4 Steep hills/dissected cliff slope",
+        "count": 12844
+      },
+      {
+        "code": 5,
+        "label": "5 Large highland slope (steep)",
+        "count": 11484
+      },
+      {
+        "code": 6,
+        "label": "6 Large highland slope (moderate)",
+        "count": 6960
+      },
+      {
+        "code": 7,
+        "label": "7 Mountain valley slope",
+        "count": 17126
+      },
+      {
+        "code": 8,
+        "label": "8 Moderate hills",
+        "count": 8677
+      },
+      {
+        "code": 9,
+        "label": "9 Terrace/fan/plateau (high, dissected, Sinks not predominant)",
+        "count": 9289
+      },
+      {
+        "code": 10,
+        "label": "10 Terrace/fan/plateau (high, dissected, Sinks predominant)",
+        "count": 125
+      },
+      {
+        "code": 11,
+        "label": "11 Terrace/fan/plateau (high, surface, Sinks not predominant)",
+        "count": 2393
+      },
+      {
+        "code": 13,
+        "label": "13 Valley slope  (Sinks not predominant)",
+        "count": 3780
+      },
+      {
+        "code": 14,
+        "label": "14 Valley slope  (Sinks predominant)",
+        "count": 1908
+      },
+      {
+        "code": 15,
+        "label": "15 Terrace/fan/plateau (low, dissected, Sinks not predominant)",
+        "count": 3778
+      },
+      {
+        "code": 16,
+        "label": "16 Terrace/fan/plateau (low, dissected, Sinks predominant)",
+        "count": 1003
+      },
+      {
+        "code": 17,
+        "label": "17 Terrace/fan/plateau (low, surface, Sinks not predominant)",
+        "count": 111
+      },
+      {
+        "code": 19,
+        "label": "19 High plain  (Sinks not predominant)",
+        "count": 1356
+      },
+      {
+        "code": 20,
+        "label": "20 High plain (Sinks predominant)",
+        "count": 394
+      },
+      {
+        "code": 21,
+        "label": "21 Low plain (Sinks not predominant)",
+        "count": 183
+      },
+      {
+        "code": 22,
+        "label": "22 Low plain (Sinks predominant)",
+        "count": 365
+      }
+    ],
+    "scope": "Terrain22 supplied labels; not inferred from ETOPO. 0 is unavailable/masked, not a water classification. Nearest resampling for categorical data; source seam gaps are retained."
+  }
+]

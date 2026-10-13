@@ -1,0 +1,6 @@
+{
+  "kind": "synthetic-demonstration",
+  "name": "Illustrative uniform net runoff, no external supply",
+  "runoffMmPerYear": 400,
+  "externalInputs": []
+}

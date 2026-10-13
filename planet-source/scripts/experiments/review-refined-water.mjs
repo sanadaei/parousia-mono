@@ -1,0 +1,20 @@
+import fs from'node:fs';
+import{refineRegionalWater,saveRegionalWaterRefinement}from'../../src/core/refine-regional-water.mjs';
+import{regionalWaterWindow,createRegionalWaterContext}from'../../src/core/regional-water-context.mjs';
+import{CommittedMaterializer}from'../../src/core/committed-materialization.mjs';
+import{createFileMaterializationStorage}from'../materialization-file-store.mjs';
+import{requireVerificationMemory}from'../verification-runtime.mjs';
+requireVerificationMemory();
+const[input,output,directory,earthFile]=process.argv.slice(2);if(!directory)throw Error('Usage: review-refined-water.mjs INHERITED_WINDOWS.json OUTPUT.json SAVE_DIRECTORY [REAL_DEM.json]');
+const r=JSON.parse(fs.readFileSync(input,'utf8')),makeStore=()=>new CommittedMaterializer(createFileMaterializationStorage(directory));
+const began=performance.now(),refined=await saveRegionalWaterRefinement(makeStore(),r.context,{factor:2},'intermediate-refined-water');
+const reload=await saveRegionalWaterRefinement(makeStore(),r.context,{factor:2},'intermediate-refined-water');
+if(JSON.stringify(refined)!==JSON.stringify(reload))throw Error('Refined reload differs');
+const windows=r.windows.map(v=>regionalWaterWindow(refined.context,v.settings));
+const ap=windows[0].ports.filter(p=>p.boundarySides.includes('south')),bp=windows[1].ports.filter(p=>p.boundarySides.includes('north'));
+const allPortsMatch=ap.length===bp.length&&ap.every(p=>bp.some(q=>q.id===p.id&&q.annualFlowM3===p.annualFlowM3&&q.direction!==p.direction));
+if(!allPortsMatch)throw Error('Refined neighbour windows disagree');
+const check={persistedReloadIdentical:true,allPortsMatch,sharedPorts:ap.length,budgetsPreserved:refined.budgets.every(b=>b.relativeResidual<1e-9),maxRelativeBudgetResidual:Math.max(...refined.budgets.map(b=>b.relativeResidual)),elapsedMs:performance.now()-began};
+let realTerrainComparison=null;
+if(earthFile){const earth=JSON.parse(fs.readFileSync(earthFile,'utf8')),context=createRegionalWaterContext(earth),trial=refineRegionalWater(context);realTerrainComparison={source:earth.source,parent:context,refined:trial.context,diagnostics:trial.drainage.diagnostics,budgetCount:trial.budgets.length,limits:['Actual terrain heights, but drainage is computed by our solver, not observed river geometry','Refinement interpolates the existing DEM; it adds no survey detail']};}
+fs.writeFileSync(output,JSON.stringify({schema:'refined-water-review@1',parent:r.context,context:refined.context,windows,refined,check,realTerrainComparison}));console.log(JSON.stringify({check,diagnostics:refined.drainage.diagnostics,realTerrain:realTerrainComparison?.diagnostics}));

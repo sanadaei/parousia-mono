@@ -1,0 +1,191 @@
+{
+  "worldId": "sha256:6c5dc7d74ff3b0c0b0fee1b8e718e6a13eced9ceab62410bfee26e8ec520bf77",
+  "scope": "Paired same-site new urban service policy; sampled shared physical chart, not visual or whole-world acceptance",
+  "results": [
+    {
+      "id": "pop:3841:0",
+      "districtIndex": 0,
+      "before": {
+        "homes": 96,
+        "facilities": 6,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 6,
+        "yards": 6,
+        "publicAccess": [
+          {
+            "targetId": "pop:3841:0/church",
+            "targetType": "chapel",
+            "status": "connected",
+            "roadId": "pop:3841:0/church/public-access",
+            "joinsRoadId": "pop:3841:0/urban-street:-40373,-40107|44564,-36388",
+            "entranceSide": "south",
+            "lengthM": 24.453028918540138
+          }
+        ],
+        "accessRoads": 6
+      },
+      "samples": 135,
+      "failures": [
+        {
+          "road": "pop:3841:0/church/public-access",
+          "p": {
+            "xM": 14.02182801283097,
+            "yM": -13.74856380058942,
+            "distanceM": 23.95398751203932,
+            "roadElevationM": 1103.107762076358,
+            "structureKind": "fill",
+            "segmentKind": "fill"
+          },
+          "s": {
+            "groundElevationM": 1103.1170037682,
+            "waterLevelElevationM": null,
+            "waterDepthM": 0,
+            "roadSurface": null,
+            "waterSourceIds": [],
+            "xM": 14.021828013837512,
+            "yM": -13.748563800607734,
+            "buildingId": "pop:3841:0/church",
+            "structureKind": "retaining-batter"
+          }
+        },
+        {
+          "road": "pop:3841:0/church/public-access",
+          "p": {
+            "xM": 14,
+            "yM": -13.25,
+            "distanceM": 24.453028918540138,
+            "roadElevationM": 1103.111525757501,
+            "structureKind": "fill",
+            "segmentKind": "fill"
+          },
+          "s": {
+            "groundElevationM": 1103.252653622362,
+            "waterLevelElevationM": null,
+            "waterDepthM": 0,
+            "roadSurface": null,
+            "waterSourceIds": [],
+            "xM": 13.999999995724878,
+            "yM": -13.250000000092056,
+            "buildingId": "pop:3841:0/church",
+            "structureKind": "retaining-batter"
+          }
+        }
+      ],
+      "elapsedMs": 668.399807
+    },
+    {
+      "id": "pop:3841:0",
+      "districtIndex": 1,
+      "before": {
+        "homes": 96,
+        "facilities": 1,
+        "yards": 0
+      },
+      "after": {
+        "homes": 92,
+        "requested": 96,
+        "facilities": 1,
+        "yards": 1,
+        "publicAccess": [],
+        "accessRoads": 1
+      },
+      "samples": 13,
+      "failures": [],
+      "elapsedMs": 485.90013699999986
+    },
+    {
+      "id": "pop:3841:0",
+      "districtIndex": 4,
+      "before": {
+        "homes": 96,
+        "facilities": 2,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 2,
+        "yards": 2,
+        "publicAccess": [],
+        "accessRoads": 2
+      },
+      "samples": 26,
+      "failures": [],
+      "elapsedMs": 634.5207089999999
+    },
+    {
+      "id": "pop:3963:0",
+      "districtIndex": 0,
+      "before": {
+        "homes": 96,
+        "facilities": 6,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 6,
+        "yards": 6,
+        "publicAccess": [
+          {
+            "targetId": "pop:3963:0/church",
+            "targetType": "chapel",
+            "status": "connected",
+            "roadId": "pop:3963:0/church/public-access",
+            "joinsRoadId": "pop:3963:0/urban-street:33224,-45659|40732,43044",
+            "entranceSide": "east",
+            "lengthM": 15.781857966820173
+          }
+        ],
+        "accessRoads": 6
+      },
+      "samples": 117,
+      "failures": [],
+      "elapsedMs": 324.44514200000003
+    },
+    {
+      "id": "pop:3963:0",
+      "districtIndex": 1,
+      "before": {
+        "homes": 96,
+        "facilities": 1,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 1,
+        "yards": 1,
+        "publicAccess": [],
+        "accessRoads": 1
+      },
+      "samples": 13,
+      "failures": [],
+      "elapsedMs": 337.12734899999987
+    },
+    {
+      "id": "pop:3963:0",
+      "districtIndex": 4,
+      "before": {
+        "homes": 96,
+        "facilities": 2,
+        "yards": 0
+      },
+      "after": {
+        "homes": 96,
+        "requested": 96,
+        "facilities": 2,
+        "yards": 2,
+        "publicAccess": [],
+        "accessRoads": 2
+      },
+      "samples": 27,
+      "failures": [],
+      "elapsedMs": 363.9796089999995
+    }
+  ]
+}

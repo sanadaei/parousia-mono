@@ -1,0 +1,12 @@
+{
+  "site": "pop:2117:1",
+  "worldId": "sha256:7b193113023af6d5d180524ac716c324151af2c07848b3506a770812716e35a3",
+  "sampleSpacingM": 25,
+  "windowWidthM": 2000,
+  "minElevationM": 606.0136301974785,
+  "maxElevationM": 689.9500659982338,
+  "bestFitPlaneSlope": 0.015346535634619143,
+  "residualRangeM": 70.32196954076915,
+  "localMaxima": 10,
+  "scope": "Sampled base terrain only; not proof of geomorphological realism"
+}

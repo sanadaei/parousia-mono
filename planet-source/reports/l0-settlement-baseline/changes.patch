@@ -1,0 +1,1691 @@
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,5 @@
++> 2026-10-13: **L0の全球人口・集落分布からL1への予算受け渡し**を追加しました。`npm run l0:baseline` で人口正本・L0/L1 JSONと[全球の分布確認画面](reports/l0-settlement-baseline/review.html)を作れます。人口と村・町・都市の7項目を保存し、適地のない分は未配分として保持します。通常の気候付き惑星生成・世界保存にも同じL0分布を接続しています。家や街の実配置、旧保存世界・形状優先ドラフトへの配置追加は次の段階です。[仕様と再現手順](docs/L0_REVIEW.md)。
++
+ > 2026-10-13: 当面の目標は、**今までのベストを組み合わせ、「それらしい」見た目で動く一式を先に仕上げること**です。現在の採用案・仕上げの完了条件・次の順序は [作業用ベースラインのロードマップ](docs/WORKING_BASELINE_ROADMAP.md) を参照してください。形状優先の地形・水系は `/src/globe/index.html?terrain=shape-first`、操作と保存は [実行ガイド](docs/SHAPE_FIRST_REGION.md)。以下の日時付き記録は各時点の履歴です。
+ 
+ > 2026-10-12: 現在の階層は **L0（惑星の下絵）→ L1（新設した広域の具体化）→ L2（従来の地域詳細）** です。[役割と実装範囲](docs/WORLD_LAYER_ROLES.md)。128×64→256×128→512×256の比較と凡例付きHTMLを生成でき、保存したL1の標高・投影気候をL2が利用できます。新しい水系接続試作ではL1の本流・流入量・流出先をL2へ渡し、谷・支流を生成して保存できます。独立した隣接地形・湖・海岸への接続と既存全球UIへの全面採用は未完成です。以下の古い進捗ログや文書名のL1は旧称の場合があります。
+--- a/docs/L0_REVIEW.md
++++ b/docs/L0_REVIEW.md
+@@ -143,3 +143,110 @@
+ 追補後の最終検証: 全1147件 PASS / 0 fail / 0 skip、ビルド成功。
+ 同一snapshotでの4条件比較、以前の保存済み基準気候との一致も別途確認した。
+ 通常UIの気候入力欄は今回の対象外。APIまたは比較スクリプトから値を渡す。
++
++## 人口・集落予算の分布のみレイヤー（2026-10-13追補）
++
++`src/core/settlement-distribution.mjs` を追加した。全球の人口・村町都市数を
++「分布のみ」として保存し、L1の細かい格子へ整数予算を失わず受け渡す。家・村の
++正確な座標や道路は全世界分生成しない。GUIはこのデータを使う。
++
++公開API（純粋関数、入力は変更しない）:
++
++- `createL0SettlementDistribution(snapshot, climate, population)`:
++  既存 `planAgriculturePopulation` を人口の正本として再利用し、各L0セルの
++  7予算（population / rural / town / city 人口、villages / towns / cities 数）を
++  そのまま継承する。人口の二重計算や交易・灌漑・歴史シミュレーションはしない。
++  海・湖セルは0。
++- `validateSettlementDistribution(distribution)`:
++  版・内容ハッシュ、`status:'distribution-only'`、7予算の整数・非負・上限、
++  人の3種の和=population、人口と対応する集落数の整合、海・湖への配分禁止、
++  格子一致を検査する。改ざんされたid、別世界/別気候/別格子は拒否する。
++  さらに宣言された集計（`totals`の全7項目と`populatedCells`）と`summary`
++  （要求=支持+未配置、L0支持=実セル総人口、L1支持=実セル総人口+未配分総人口、
++  村町都市数・人口セル数は実配分と一致、L1`unallocatedPopulation`は再計算値と
++  一致）を実セルから再計算して照合する。L1の`unallocated`は`parentCells`を
++  配列として検査し、7列と`populatedCells`・`parentCells`件数を実配列から
++  再計算して照合する（空レコードでも全7項目0を要求）。ハッシュは構造整合の
++  代替ではない。人口正本の`totals`が矛盾する場合も`createL0SettlementDistribution`
++  が拒否する。
++- `describeSettlementDistribution(distribution, cellIndices)`:
++  一意なセル集合の7予算を集計して返す。
++- `refineSettlementDistribution(distribution, options)`:
++  options は `sourceWorldId` / `climateId` / `sourceLayerId` / `grid` /
++  `parentCell` / `cellAreaM2` / `landMask` / `lakeFillDepthM` / `suitability`。
++  親セルごとに子をまとめ、実面積と相対適性の重みで largest-remainder/BigInt
++  整数配分し、7予算を厳密保存する。各人口種の集落数と人口を結び付け、人口だけ
++  あるのに集落数0という矛盾を作らない。親に予算があるのに適地が無い場合は、
++  その親の7予算を `unallocated` として明示的に残す（親=全子+未配分、全7項目）。
++  このスライスでは L0 親専用であり、L1 を再配分することは明示的に拒否する
++  （L1->L2 の一般化は今回行わない）。`createL1BroadRegion` と `describeL0Region`
++  の任意の親分布も `layer:'L0'` を照合する。
++
++保存形式は版と内容ハッシュ（`id`）、`sourceWorldId`、`populationId`、
++`climateId`、L1は `sourceLayerId` と `parentDistributionId`、`grid`、
++7予算、`interpretation`/`assumptions`/`limitations` を持つ。格子データは
++コンパクトな列配列 `fields`（7予算 + `wet` + 量子化 `suitability`）にし、
++大量の集落オブジェクトや座標を作らない。
++
++接続:
++
++- `describeL0Region(snapshot, climate, cellIndices, settlementDistribution)` は
++  任意の第4引数を受け取り、同一世界・格子・気候を検査して、指定セルの人口・
++  村町都市予算を `settlementBudget` として返す。渡さない呼出しは従来どおり。
++- `createL1BroadRegion` は `parent.settlementDistribution` がある場合だけ
++  L1の `settlementDistribution` を生成して返す。L1 layerId の内容に親
++  distribution IDを含めるため、同じ地形でも人口予算が違えばL1 idは異なる。
++  地形・水系・気候の数値は人口の有無で完全に一致する（idだけが変わる）。
++- `scripts/experiments/build-l1-broad-region.mjs` の保存条件にも親 distribution
++  IDを含める。24MiB上限と通常の16MiBローカル枠は変更しない。
++- `scripts/audit-l0.mjs` の `auditL0(seed, options)` は `targetPopulation`
++  （既定1億）と人口シナリオを受け取り、人口正本とL0 settlementDistribution を
++  返す。summaryに要求/支持/未配置人口、村町都市数、人口のあるセル数を追加する。
++  表面適性はL0データから得るため全家屋/道路生成は呼ばない。
++
++再現CLI:
++
++`npm run l0:baseline` で下記の実データと単独で開ける
++`reports/l0-settlement-baseline/review.html`（惑星の人口・集落分布）を作成する。
++L0/L1、人口密度・村・町・都市の密度を共通尺度で比較でき、区画をクリック・
++タップまたは矢印キーで選ぶと予定数と親予算・配分・未配分を確認できる。
++家・街・道路や正確な集落位置を生成する画面ではない。
++
++保存済みの3つのJSONから表示だけを作り直す場合:
++
++```sh
++node scripts/build-settlement-distribution-review.mjs reports/l0-settlement-baseline
++```
++
++```sh
++node --max-old-space-size=256 scripts/build-l0-settlement-baseline.mjs \
++  reports/l0-settlement-baseline --seed=planet-1 --population=100000000 \
++  --columns=128 --rows=64 --levels=2
++```
++
++`auditL0 -> createL0ResolutionSeries -> createL1BroadRegion` を直列で行い、
++`l0.json` / `l1.json` / `summary.json` を保存し、読戻しの同一性・保存サイズ・
++全予算保存を検査する。`examples/planet/generated`、`fixtures`、参照DEMは
++上書きしない。実測（planet-1、1億人、128×64 L0）:
++
++- L1 512×256（`--levels=3`）: L1 JSON 19,666,679 bytes ≈ 18.75 MiB、
++  24MiBストアの保存レコード 19,667,076 bytes。24MiB未満。
++- L1 256×128（`--levels=2`、既定）: L1 JSON 4,932,143 bytes ≈ 4.70 MiB。
++  全予算保存。適地の無いL0親1件が未配分（re: 101,168人）として明示的に残った。
++
++L0/L1予算はGUIの色分けとL2以降への受渡しに使う。正確な都市等の立地点と
++道路は引き続き未確定であり、`coarse suitability` は相対重みで、細かい食料
++収容力の保証ではない。
++
++## population zones との用途境界
++
++既存 `src/core/population-zones.mjs` は、参照した枝だけを球面等面積で4分割し、
++`PopulationZoneHierarchy` と materializer を通じて**確定した集落位置**を
++保存する（`surveyPopulationZoneWeights` の疎な調査を含む）。用途は「参照時の
++局所確定」。
++
++今回の `settlement-distribution.mjs` は、全球L0/L1の**分布のみ**を持ち、
++座標・家・道路を一切作らない。用途は「GUIの広域色分け」と「上位から下位への
++妥当な整数予算の受け渡し」。人口は `planAgriculturePopulation` の単一正本を
++共有し、二重計算しない。集落位置を確定するのは population zones 側の役割で、
++両者を同じ確定結果として二重に配置しない。
+--- a/docs/WORKING_BASELINE_ROADMAP.md
++++ b/docs/WORKING_BASELINE_ROADMAP.md
+@@ -43,6 +43,16 @@
+ - 起動・操作・保存復元が再現でき、未接続や保存不能などの状態を隠さない。
+ - 最終検証と残る見た目の弱点を添えて渡せる。全面的な物理改修や無期限の磨き込みを納品条件にしない。
+ 
++### 2026-10-13: 人の景観に向けたL0分布とL1受け渡し
++
++ユーザーの追加指示により、全球の人口・村・町・都市を統計分布として持つ土台を追加した。既存の農業人口計画を正本とし、L0は地域の7整数予算、L1は実面積と相対適性による子への配分を保存する。適地がない親の予算は未配分に残し、親=子+未配分を全7項目で検査する。場所・家・農地・道はまだ具体化しない。
++
++`npm run l0:baseline` でL0/L1の実データと独立した全球確認画面を作る。既定例は人口1億、村300,864、町3,052、都市40をL0の1,754人口区画に持つ。L1 256×128では99,898,832人を配分し、101,168人・村310・町3は親の未配分として保持する。画面は密度の共通尺度、親子予算、未配分への移動、キーボード選択を持つ。これは現在開いている旧保存世界の集落を増やした表示ではない。
++
++通常の気候付き惑星生成・世界保存にもL0分布を接続し、人口正本と一致しない分布を拒否する。L1の識別と保存条件に親分布IDを含め、通常の世界セーブのキー整列後も分布IDが一致する。現行の24MiB保存枠を維持する。今回の変更は旧配布ZIPのSOURCE-MANIFESTと一致しない開発差分であり、旧ZIPの検証記録を新コードの証拠として更新しない。
++
++**現在位置**: L0の統計分布・保存・L1配分・確認画面まで。次は集落規模の統計（平均規模からの丸めによる極小の町など）、L1の集落候補域と農地予算、隣接地域の交通候補、L2の実際の立地・敷地へ進む。L1からL2への分布再配分と、既存の参照時集落生成への統合は未完了。下記の地形改善と両立させる。根拠は[仕様](L0_REVIEW.md)と新しい`reports/l0-settlement-baseline`の検証資料。
++
+ ## 3. 次の限定改善: 形の豊かさと必要な細部
+ 
+ 優先順は次の通り。毎回「同じ広さ・同じ縮尺の実例 → 小さい変更 → 比較 → 採用または保留」で進める。
+--- a/package.json
++++ b/package.json
+@@ -59,6 +59,7 @@
+     "node": ">=22"
+   },
+   "scripts": {
++    "l0:baseline": "node --max-old-space-size=256 scripts/build-l0-settlement-baseline.mjs",
+     "build": "node --max-old-space-size=256 scripts/build.mjs",
+     "test": "node --max-old-space-size=256 scripts/test.mjs",
+     "verify": "node --max-old-space-size=256 scripts/verify.mjs",
+--- a/scripts/audit-l0.mjs
++++ b/scripts/audit-l0.mjs
+@@ -2,15 +2,22 @@
+ import {createPlanetMacroTerrain} from '../src/core/planet-macro.mjs';
+ import {derivePlanetHydrology} from '../src/core/planet-hydrology.mjs';
+ import {generateClimate} from '../src/core/planet-climate.mjs';
++import {planAgriculturePopulation} from '../src/core/planet-population.mjs';
++import {createL0SettlementDistribution} from '../src/core/settlement-distribution.mjs';
+ import {requireVerificationMemory} from './verification-runtime.mjs';
+ /** Bounded global-field audit; does not generate local settlements or claim
+- * browser acceptance. Area weights prevent polar raster cells inflating shares. */
+-export function auditL0(seed,{columns=128,rows=64}={}){
++ * browser acceptance. Area weights prevent polar raster cells inflating shares.
++ * The settlement budget is a distribution only: no house, village or road is
++ * placed here, and the surface suitability already present in L0 is reused
++ * rather than regenerating every building and road. */
++export function auditL0(seed,{columns=128,rows=64,targetPopulation=100000000,...populationScenario}={}){
+  const {elevation,recipe}=createPlanetMacroTerrain({seed,columns,rows,radiusM:6371000}),hydrology=derivePlanetHydrology({elevation,columns,rows,lakeFillFraction:.2});
+  const snapshot={worldId:`l0-audit:${seed}:${columns}:${rows}`,grid:{columns,rows},frame:{radiusM:6371000,verticalDatum:'generated-sea-datum'},fields:{groundElevationM:elevation,landMask:hydrology.oceanCells.map(v=>1-v),lakeFillDepthM:hydrology.lakeFillDepthM,downstream:hydrology.downstream},references:{macroRecipe:recipe,sea:{levelElevationM:0},lakes:hydrology.lakes}},climate=generateClimate(snapshot);
++ const population=planAgriculturePopulation(snapshot,climate,{targetPopulation,...populationScenario});
++ const settlementDistribution=createL0SettlementDistribution(snapshot,climate,population);
+  const area=climate.cellAreaM2,total=area.reduce((s,v)=>s+v,0),biomeAreaPercent={};let landArea=0,elevationSum=0,lowlandArea=0;
+  for(let i=0;i<area.length;i++){const b=climate.biome[i];biomeAreaPercent[b]=(biomeAreaPercent[b]??0)+area[i]/total*100;if(b!=='ocean'&&b!=='lake'){landArea+=area[i];elevationSum+=area[i]*elevation[i];if(elevation[i]>=0&&elevation[i]<1000)lowlandArea+=area[i];}}
+- const summary={seed,columns,rows,meanDryLandElevationM:elevationSum/landArea,dryLandBelow1000mFraction:lowlandArea/landArea,biomeAreaPercent,source:'macro fields plus hydrology and climate; no fine river geometry',lakeAssumption:'static fill fraction 0.2; not climate-balanced',marineAssumption:'largest connected sub-sea reservoir; enclosed basins separate'};
+- return{snapshot,climate,summary};
++ const summary={seed,columns,rows,meanDryLandElevationM:elevationSum/landArea,dryLandBelow1000mFraction:lowlandArea/landArea,biomeAreaPercent,requestedPopulation:population.totals.targetPopulation,supportedPopulation:population.totals.supportedPopulation,unplacedPopulation:population.totals.unplacedPopulation,villages:settlementDistribution.totals.villages,towns:settlementDistribution.totals.towns,cities:settlementDistribution.totals.cities,populatedCells:settlementDistribution.totals.populatedCells,populationId:population.id,settlementDistributionId:settlementDistribution.id,source:'macro fields plus hydrology and climate; no fine river geometry',lakeAssumption:'static fill fraction 0.2; not climate-balanced',marineAssumption:'largest connected sub-sea reservoir; enclosed basins separate'};
++ return{snapshot,climate,population,settlementDistribution,summary};
+ }
+ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){requireVerificationMemory();const directory=process.argv[2]??'reports/l0-review';fs.mkdirSync(directory,{recursive:true});const summaries=[];for(const seed of ['planet-1','planet-2','planet-3','muna-atlas-001']){const result=auditL0(seed);fs.writeFileSync(path.join(directory,seed+'.json'),JSON.stringify(result));summaries.push(result.summary);}fs.writeFileSync(path.join(directory,'summary.json'),JSON.stringify(summaries,null,2));console.log(JSON.stringify(summaries,null,2));}
+--- a/scripts/experiments/build-l1-broad-region.mjs
++++ b/scripts/experiments/build-l1-broad-region.mjs
+@@ -8,7 +8,7 @@
+  // cap. Do not enlarge the ordinary local-world 16 MiB store or UI archive.
+  const maxRecordBytes=24*1024*1024;
+  const store=new CommittedMaterializer(createFileMaterializationStorage(directory,{maxRecordBytes}),{maxRecordBytes});
+- return store.resolve({worldId:parent.snapshot.worldId,entityId:`L1-resolution:${level.columns}x${level.rows}`,conditions:{resolutionId:level.id,parentClimateId:parent.climate.id},generator:'l1-broad-region@1',generate:()=>createL1BroadRegion(parent,level)});
++ return store.resolve({worldId:parent.snapshot.worldId,entityId:`L1-resolution:${level.columns}x${level.rows}`,conditions:{resolutionId:level.id,parentClimateId:parent.climate.id,...(parent.settlementDistribution?{parentDistributionId:parent.settlementDistribution.id}:{})},generator:'l1-broad-region@1',generate:()=>createL1BroadRegion(parent,level)});
+ }
+ if(process.argv[1]?.endsWith('/build-l1-broad-region.mjs')){
+  const [input,seriesFile,output,directory,levelArg='2']=process.argv.slice(2);if(!directory)throw Error('Usage: build-l1-broad-region.mjs L0.json SERIES.json OUTPUT.json SAVE_DIR [LEVEL_INDEX]');
+--- a/scripts/planet-generation-api.mjs
++++ b/scripts/planet-generation-api.mjs
+@@ -15,7 +15,7 @@
+  if(typeof deferredWater!=='boolean')throw new RangeError('deferredWater must be boolean');
+  if(deferredWater&&!deferredPopulation)throw new RangeError('deferredWater requires deferredPopulation');
+  if(typeof localTributaries!=='boolean')throw new RangeError('localTributaries must be boolean');
+- return 'examples/planet/seeds/'+createHash('sha256').update('planet-ui-generator@17-l0\0'+SETTLEMENT_RUNTIME_VERSION+'\0'+JSON.stringify([seed,sites,settlements,population,localTributaries,riverDetail,...(landformShape==='rounded'?[]:[landformShape]),...(deferredPopulation?['on-reference-population@1','adjacent-committed-sites@1']:[]),...(deferredWater?[unpopulatedWater?'shared-regional-water-regions@1':'settlement-zone-interior-water@1']:[])])).digest('hex').slice(0,24);
++ return 'examples/planet/seeds/'+createHash('sha256').update('planet-ui-generator@18-l0-settlement-distribution\0'+SETTLEMENT_RUNTIME_VERSION+'\0'+JSON.stringify([seed,sites,settlements,population,localTributaries,riverDetail,...(landformShape==='rounded'?[]:[landformShape]),...(deferredPopulation?['on-reference-population@1','adjacent-committed-sites@1']:[]),...(deferredWater?[unpopulatedWater?'shared-regional-water-regions@1':'settlement-zone-interior-water@1']:[])])).digest('hex').slice(0,24);
+ }
+ export function populationUpgradeRequest(root,pathname){
+  if(typeof pathname!=='string'||!pathname.startsWith('/examples/planet/')||!pathname.endsWith('/manifest.json')||pathname.includes('\\')||pathname.includes('\0'))throw new Error('Invalid saved-world path');
+--- a/src/core/index.mjs
++++ b/src/core/index.mjs
+@@ -303,6 +303,7 @@
+ export {encodeMaterializationArchive,decodeMaterializationArchive,MATERIALIZATION_ARCHIVE_LIMIT} from './materialization-archive.mjs';
+ 
+ export {createPlanetMacroTerrain,describeL0Region,EARTHLIKE_L0} from './planet-macro.mjs';
++export {createL0SettlementDistribution,validateSettlementDistribution,describeSettlementDistribution,refineSettlementDistribution} from './settlement-distribution.mjs';
+ 
+ export {planRegionalDomains} from "./regional-domains.mjs";
+ 
+--- a/src/core/l1-broad-region.mjs
++++ b/src/core/l1-broad-region.mjs
+@@ -1,15 +1,18 @@
+ import {hashJson} from './json-contract.mjs';
++import {refineSettlementDistribution} from './settlement-distribution.mjs';
+ /** L1 is a saved broad-scale parent for L2. It adopts an explicitly selected
+  * resolution stage, projects existing L0 climate, and retains its water graph.
+  * Projection is not a new atmosphere simulation or resolved channel geometry.
+  */
+ export function createL1BroadRegion(parent,level){
+  const {snapshot:s,climate:c}=parent??{},w=level?.columns,h=level?.rows,n=w*h,pw=s?.grid?.columns,ph=s?.grid?.rows;
++ const distribution=parent?.settlementDistribution;
+  if(!s||!c||c.sourceWorldId!==s.worldId||level?.sourceWorldId!==s.worldId||!Number.isSafeInteger(w)||!Number.isSafeInteger(h)||n>131072||w<pw||h<ph||w/pw!==h/ph||!Number.isInteger(w/pw)||((w/pw)&(w/pw-1))!==0)throw Error('Matching bounded L0 and power-of-two resolution stage required');
+  for(const a of [level.elevation,level.water?.oceanCells,level.water?.lakeFillDepthM,level.water?.downstream])if(!Array.isArray(a)||a.length!==n)throw Error('Complete resolution-stage fields required');
+  for(const a of [c.annualMeanTemperatureC,c.annualPrecipitationMm,c.catchmentWater?.annualLocalYieldMm,c.catchmentWater?.meanSoilMoisture,s.fields.groundElevationM])if(!Array.isArray(a)||a.length!==pw*ph||!a.every(Number.isFinite))throw Error('Complete parent climate projection fields required');
+  if(!level.elevation.every(Number.isFinite)||!level.water.oceanCells.every(v=>v===0||v===1)||!level.water.lakeFillDepthM.every(v=>Number.isFinite(v)&&v>=0)||!level.water.downstream.every((v,i)=>Number.isSafeInteger(v)&&v>=-1&&v<n&&v!==i))throw Error('Invalid stage terrain or drainage');
+  if(!Array.isArray(c.biome)||c.biome.length!==pw*ph||!Array.isArray(s.fields.landMask)||s.fields.landMask.length!==pw*ph||!Number.isFinite(s.frame?.radiusM)||s.frame.radiusM<=0)throw Error('Valid parent grid and climate classifications required');
++ if(distribution!==undefined&&(distribution.layer!=='L0'||distribution.sourceWorldId!==s.worldId||distribution.climateId!==c.id||distribution.grid?.columns!==pw||distribution.grid?.rows!==ph))throw Error('Parent settlement distribution must be an L0 distribution for this world, climate and grid');
+  const expected=hashJson({schema:level.schema,stage:level.stage,sourceWorldId:level.sourceWorldId,parentId:level.parentId,columns:w,rows:h,elevation:level.elevation,water:level.water,upstreamAreaM2:level.upstreamAreaM2});
+  if(expected!==level.id)throw Error('Resolution stage content identity mismatch');
+  const scale=w/pw,land=level.water.oceanCells.map(v=>1-v),area=[],temp=[],rain=[],yieldMm=[],soil=[],biome=[],parentCell=[],province=[];
+@@ -34,9 +37,15 @@
+  for(let i=0;i<n;i++)if(!incoming[i])order.push(i);
+  for(let k=0;k<order.length;k++){const i=order[k],j=down[i];if(j>=0){volume[j]+=volume[i];if(!--incoming[j])order.push(j);}}
+  if(order.length!==n)throw Error('Cyclic L1 water graph');
+- const layerId=hashJson({schema:'l1-broad-region@1',sourceWorldId:s.worldId,climateId:c.id,resolutionId:level.id,projection:'l0-climate-bilinear-lapse; parent-local-yield@1'});
++ const layerId=hashJson({schema:'l1-broad-region@1',sourceWorldId:s.worldId,climateId:c.id,resolutionId:level.id,projection:'l0-climate-bilinear-lapse; parent-local-yield@1',...(distribution?{parentDistributionId:distribution.id}:{})});
+  const snapshot={schema:'l1-parent-fields@1',worldId:s.worldId,layerId,layer:'L1',parentLayerId:s.layerId??s.worldId,grid:{columns:w,rows:h},frame:{...s.frame},fields:{groundElevationM:[...level.elevation],landMask:land,lakeFillDepthM:[...level.water.lakeFillDepthM],downstream:down},references:{macroRecipe:s.references.macroRecipe,sea:s.references.sea,lakes:level.water.lakes,climateForcing:s.references.climateForcing??null}};
+  const climateContent={schema:'l1-projected-climate@1',sourceWorldId:s.worldId,sourceLayerId:layerId,parentClimateId:c.id,grid:snapshot.grid,cellAreaM2:area,annualMeanTemperatureC:temp,annualPrecipitationMm:rain,biome,catchmentWater:{annualLocalYieldMm:yieldMm,meanSoilMoisture:soil,annualRoutedYieldM3:volume,meanPotentialFlowM3PerSecond:volume.map(v=>v/(365*86400))},interpretation:'Projected coarse climate; no new rainfall transport or monthly model'};
+  const climate={...climateContent,id:hashJson(climateContent)},output=volume.reduce((sum,v,i)=>sum+(down[i]<0?v:0),0);
+- return {schema:'l1-broad-region@1',id:layerId,sourceWorldId:s.worldId,resolutionId:level.id,snapshot,climate,parentCell,provinceKind:province,diagnostics:{cells:n,coastChangedCells,localPotentialYieldM3PerYear:localVolume,exportedOrTerminalM3PerYear:output,relativeBudgetResidual:Math.abs(output-localVolume)/Math.max(1,localVolume)},status:'terrain and climate parent available to L2; hydraulic boundary adoption incomplete',limits:['Province classes are rough relief descriptors, not geological classification','New coastline cells require refined climate/water evidence','Previous resolution drainage topology is not constrained','L2 still needs receiving-water crossings and imported upstream flow','Not a new complete world snapshot; use as a regional parent']};
++ const region={schema:'l1-broad-region@1',id:layerId,sourceWorldId:s.worldId,resolutionId:level.id,snapshot,climate,parentCell,provinceKind:province,diagnostics:{cells:n,coastChangedCells,localPotentialYieldM3PerYear:localVolume,exportedOrTerminalM3PerYear:output,relativeBudgetResidual:Math.abs(output-localVolume)/Math.max(1,localVolume)},status:'terrain and climate parent available to L2; hydraulic boundary adoption incomplete',limits:['Province classes are rough relief descriptors, not geological classification','New coastline cells require refined climate/water evidence','Previous resolution drainage topology is not constrained','L2 still needs receiving-water crossings and imported upstream flow','Not a new complete world snapshot; use as a regional parent']};
++ // Inherit the parent's settlement budget only when the parent actually carries
++ // one. The L1 layer identity above already includes the parent distribution id,
++ // so two deployments of the same terrain with different populations cannot
++ // share an L1 id. Terrain and climate numbers are never changed by population.
++ if(distribution!==undefined)region.settlementDistribution=refineSettlementDistribution(distribution,{sourceWorldId:s.worldId,climateId:climate.id,sourceLayerId:layerId,grid:{columns:w,rows:h},parentCell,cellAreaM2:area,landMask:land,lakeFillDepthM:level.water.lakeFillDepthM});
++ return region;
+ }
+--- a/src/core/planet-generation.mjs
++++ b/src/core/planet-generation.mjs
+@@ -9,6 +9,7 @@
+ import {deriveRegionalTributaries} from './regional-tributaries.mjs';
+ import {generateClimate} from './planet-climate.mjs';
+ import {planAgriculturePopulation} from './planet-population.mjs';
++import {createL0SettlementDistribution} from './settlement-distribution.mjs';
+ import { metricRoads } from './road-geometry.mjs';
+ import { ROAD_CROSS_SECTION_SCHEMA, mergeFlatRoadIntervals } from './road-cross-section.mjs';
+ import { extendVillageRoads } from './village-roads.mjs';
+@@ -116,6 +117,7 @@
+     climate=generateClimate(base.toSnapshot());
+   }
+   const population=climate?planAgriculturePopulation(base.toSnapshot(),climate,{targetPopulation}):null;
++  const settlementDistribution=population?createL0SettlementDistribution(base.toSnapshot(),climate,population):null;
+   const candidates = [];
+   for (let i = 0; i < elevation.length; i++) {
+     if (!landMask[i] || elevation[i] > seaLevelM + 1200 || Math.abs(point(i).latDeg) > 65) continue;
+@@ -218,7 +220,7 @@
+       roadEarthworkOptions:{blendPolicy:'squared-odds@1'}, roadCenterlineProfiles: roads, roadJunctions:streetPlan.junctions, streetGeneration:streetPlan.diagnostics, bridgeStructures, buildingPads: pads, buildings });
+   }
+   const terminalSinks=new Set(hydrology.lakes.flatMap(l=>l.terminalSinkCellIndices??[])),wetSourceCells=landMask.filter((v,i)=>!v||hydrology.lakeFillDepthM[i]>0).length;
+-  return { base, ...(climate?{climate,population,landscape:{profile:LANDSCAPE_PROFILE,earthworkEnvelopePolicy:'c1-outer-earthwork-apron@1',urbanParcelTransition:'planned-block-boundaries@1',gardenParcelPolicy:'bounded-backland-gardens@1',urbanPublicSitePolicy:'surveyed-civic-chapel@1',urbanBlockSeedPolicy:'terrain-ranked-block-seeds@2',householdAccessPolicy:'surveyed-direct-household-access@1',streetRefinementPolicy:'surveyed-lattice-refinement@1',villagePortalPolicy:'bearing-led-boundary-portals@1',residentialStreetPolicy:'surveyed-residential-catchments@1',pondPolicy:'surveyed-communal-pond@2',publicGreenPolicy:'surveyed-sloping-commons@1',householdFrontagePolicy:'surveyed-household-frontages@2',woodlandPattern:'patchy-woodland-stands@1',fieldPattern:'surveyed-furlongs@2',landUseMosaic:'mixed-rainfed-hinterland@1',roadPadClearance:'surveyed-frontage-pads@1',...((localTributaries||riverDetail==='regional')?{settlementSiting:BALANCED_WATER_LED_SITING,riverbankAccessPolicy:'surveyed-riverbank-footpath@1'}:{}),parcelTransition:'village-footprints@1',roadParcelClipping:'surveyed-corridors@1',fieldSurvey:'local-triangle-clearance@1',seed,environmentPolicy:VALLEY_ENVIRONMENT_POLICY,annualRainMm:climate.annualPrecipitationMm,soilMoisture:climate.catchmentWater.meanSoilMoisture,grid:{columns,rows},biome:climate.biome,temperatureC:climate.annualMeanTemperatureC,baseElevationM:elevation}}:{}), recipes, settlements, focus: settlements[0] ? { latDeg: settlements[0].latDeg, lonDeg: settlements[0].lonDeg } : { latDeg: 0, lonDeg: 0 },
++  return { base, ...(climate?{climate,population,settlementDistribution,landscape:{profile:LANDSCAPE_PROFILE,earthworkEnvelopePolicy:'c1-outer-earthwork-apron@1',urbanParcelTransition:'planned-block-boundaries@1',gardenParcelPolicy:'bounded-backland-gardens@1',urbanPublicSitePolicy:'surveyed-civic-chapel@1',urbanBlockSeedPolicy:'terrain-ranked-block-seeds@2',householdAccessPolicy:'surveyed-direct-household-access@1',streetRefinementPolicy:'surveyed-lattice-refinement@1',villagePortalPolicy:'bearing-led-boundary-portals@1',residentialStreetPolicy:'surveyed-residential-catchments@1',pondPolicy:'surveyed-communal-pond@2',publicGreenPolicy:'surveyed-sloping-commons@1',householdFrontagePolicy:'surveyed-household-frontages@2',woodlandPattern:'patchy-woodland-stands@1',fieldPattern:'surveyed-furlongs@2',landUseMosaic:'mixed-rainfed-hinterland@1',roadPadClearance:'surveyed-frontage-pads@1',...((localTributaries||riverDetail==='regional')?{settlementSiting:BALANCED_WATER_LED_SITING,riverbankAccessPolicy:'surveyed-riverbank-footpath@1'}:{}),parcelTransition:'village-footprints@1',roadParcelClipping:'surveyed-corridors@1',fieldSurvey:'local-triangle-clearance@1',seed,environmentPolicy:VALLEY_ENVIRONMENT_POLICY,annualRainMm:climate.annualPrecipitationMm,soilMoisture:climate.catchmentWater.meanSoilMoisture,grid:{columns,rows},biome:climate.biome,temperatureC:climate.annualMeanTemperatureC,baseElevationM:elevation}}:{}), recipes, settlements, focus: settlements[0] ? { latDeg: settlements[0].latDeg, lonDeg: settlements[0].lonDeg } : { latDeg: 0, lonDeg: 0 },
+     diagnostics: { generationWorkBudget:{maxSourceCells,maxRiverPoints,sourceCells:columns*rows}, landCells: landMask.length-wetSourceCells, waterCells: wetSourceCells, oceanCells: hydrology.diagnostics.oceanCells, modeledTerminalSinks:terminalSinks.size,
+       unresolvedLandTerminals: downstream.filter((v,i)=>landMask[i] && v<0 && !terminalSinks.has(i)).length,
+       requestedSettlements: settlementCount, generatedSettlements: settlements.length,
+--- a/src/core/planet-macro.mjs
++++ b/src/core/planet-macro.mjs
+@@ -1,5 +1,6 @@
+ import {createSphericalNoise} from './spherical-noise.mjs';
+ import {sphereBasis} from './spherical.mjs';
++import {describeSettlementDistribution} from './settlement-distribution.mjs';
+ export const EARTHLIKE_L0='earthlike-l0@1';
+ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+ /** Statistical Earthlike geography. These are explicit game-world priors, not
+@@ -26,12 +27,18 @@
+ /** Read-only parent evidence for a region. A raster sample is a coarse trend,
+  * not a claim that every point in that cell shares that elevation or biome.
+  * This contract describes inputs; it does not pretend an L1 solver exists. */
+-export function describeL0Region(snapshot,climate,cellIndices){
++export function describeL0Region(snapshot,climate,cellIndices,settlementDistribution){
+  const {columns,rows}=snapshot.grid,n=columns*rows;
+  if(climate.sourceWorldId!==snapshot.worldId||climate.grid.columns!==columns||climate.grid.rows!==rows||!Array.isArray(cellIndices)||!cellIndices.length||cellIndices.length>n||new Set(cellIndices).size!==cellIndices.length||cellIndices.some(i=>!Number.isSafeInteger(i)||i<0||i>=n))throw new RangeError('L0 region requires matching unique source cells');
+  const cells=[...cellIndices].sort((a,b)=>a-b),range=a=>{let min=Infinity,max=-Infinity;for(const i of cells){min=Math.min(min,a[i]);max=Math.max(max,a[i]);}return{min,max};},biomeAreaM2={};
+  for(const i of cells)biomeAreaM2[climate.biome[i]]=(biomeAreaM2[climate.biome[i]]??0)+climate.cellAreaM2[i];
+- return{schema:'l0-region-conditions@1',sourceWorldId:snapshot.worldId,climateId:climate.id,cellIndices:cells,sourceGrid:{columns,rows},areaM2:cells.reduce((s,i)=>s+climate.cellAreaM2[i],0),fixed:{radiusM:snapshot.frame.radiusM,verticalDatum:snapshot.frame.verticalDatum??snapshot.frame.sourceVerticalDatum,seaLevelM:snapshot.references.sea.levelElevationM},coarseEvidence:{groundElevationM:range(snapshot.fields.groundElevationM),annualMeanTemperatureC:range(climate.annualMeanTemperatureC),annualPrecipitationMm:range(climate.annualPrecipitationMm),biomeAreaM2},unresolved:['subcell terrain and shoreline geometry','minor streams and groundwater','local biome mixtures','settlement sites and roads'],refinementRules:['preserve already committed neighbour boundaries and receiving waters','do not interpret sampled extrema as hard bounds on every local point','derive local detail before settlement placement','commit choices before publication; replay without regeneration'],solverStatus:'parent evidence only; regional constraint solver is separate'};
++ const region={schema:'l0-region-conditions@1',sourceWorldId:snapshot.worldId,climateId:climate.id,cellIndices:cells,sourceGrid:{columns,rows},areaM2:cells.reduce((s,i)=>s+climate.cellAreaM2[i],0),fixed:{radiusM:snapshot.frame.radiusM,verticalDatum:snapshot.frame.verticalDatum??snapshot.frame.sourceVerticalDatum,seaLevelM:snapshot.references.sea.levelElevationM},coarseEvidence:{groundElevationM:range(snapshot.fields.groundElevationM),annualMeanTemperatureC:range(climate.annualMeanTemperatureC),annualPrecipitationMm:range(climate.annualPrecipitationMm),biomeAreaM2},unresolved:['subcell terrain and shoreline geometry','minor streams and groundwater','local biome mixtures','settlement sites and roads'],refinementRules:['preserve already committed neighbour boundaries and receiving waters','do not interpret sampled extrema as hard bounds on every local point','derive local detail before settlement placement','commit choices before publication; replay without regeneration'],solverStatus:'parent evidence only; regional constraint solver is separate'};
++ if(settlementDistribution===undefined)return region;
++ // A supplied distribution must describe this same world, climate and grid before
++ // its aggregate budget can be attached. Settlement sites and roads stay unresolved.
++ if(settlementDistribution.layer!=='L0'||settlementDistribution.sourceWorldId!==snapshot.worldId||settlementDistribution.climateId!==climate.id||settlementDistribution.grid?.columns!==columns||settlementDistribution.grid?.rows!==rows)throw new RangeError('Settlement distribution must be an L0 distribution matching this world, climate and grid');
++ const described=describeSettlementDistribution(settlementDistribution,cells);
++ return{...region,settlementBudget:{...described.budgets,populatedCells:described.populatedCells,layer:described.layer,distributionId:settlementDistribution.id},status:'terrain, climate and settlement budget evidence; sites and roads unresolved'};
+ }
+ 
+ /** Evaluate the frozen macro recipe for a separate, bounded hydrology plan.
+--- a/src/core/planet-world.mjs
++++ b/src/core/planet-world.mjs
+@@ -4,11 +4,21 @@
+ import { copyJson, hashJson } from './json-contract.mjs';
+ import { restoreGlobalTerrain } from './global-terrain.mjs';
+ import { createGlobeFeatureChart } from './globe-features.mjs';
++import { createL0SettlementDistribution, validateSettlementDistribution } from './settlement-distribution.mjs';
++
++function validateWorldDistribution(base, climate, population, distribution) {
++  validateSettlementDistribution(distribution);
++  const expected = createL0SettlementDistribution(base, climate, population);
++  if (distribution.id !== expected.id) throw new TypeError('Planet settlement distribution does not match its population authority');
++}
+ export const PLANET_WORLD_SCHEMA = 'planet-world@1';
+ /** Identity includes geography, water, roads, houses and settlement locations.
+  * Runtime caches and camera/LOD state are deliberately excluded. */
+ export function snapshotPlanetWorld(world) {
+-  const content = copyJson({ schema: PLANET_WORLD_SCHEMA, base: world.base.toSnapshot(),
++  const base = world.base.toSnapshot();
++  if (world.settlementDistribution !== undefined) validateWorldDistribution(base, world.climate, world.population, world.settlementDistribution);
++  const content = copyJson({ schema: PLANET_WORLD_SCHEMA, base,
++    ...(world.settlementDistribution !== undefined?{settlementDistribution:world.settlementDistribution}:{}),
+     ...(world.landscape?{landscape:world.landscape}:{}), ...(world.settlementCatalogue?{settlementCatalogue:world.settlementCatalogue}:{}), ...(world.population?{population:world.population}:{}), ...(world.climate?{climate:world.climate}:{}), ...(world.settlementNetwork?{settlementNetwork:world.settlementNetwork}:{}), recipes: world.recipes, settlements: world.settlements, focus: world.focus });
+   return { ...content, worldId: hashJson(content) };
+ }
+@@ -16,6 +26,7 @@
+   const saved = copyJson(typeof input === 'string' ? JSON.parse(input) : input);
+   const { worldId, ...content } = saved;
+   if (saved.schema !== PLANET_WORLD_SCHEMA || typeof worldId !== 'string' || hashJson(content) !== worldId) throw new TypeError('Planet snapshot identity mismatch');
++  if (saved.settlementDistribution !== undefined) validateWorldDistribution(saved.base, saved.climate, saved.population, saved.settlementDistribution);
+   if (!Array.isArray(saved.recipes) || saved.recipes.length > 32 || !Array.isArray(saved.settlements) || saved.settlements.length !== saved.recipes.length) throw new RangeError('Invalid planet settlement collection');
+   const base = restoreGlobalTerrain(saved.base), ids = new Set();
+   const charts = saved.recipes.map(recipe => {
+@@ -43,5 +54,5 @@
+       }}
+       return includeDerivatives?base.sampleAt(lat,lon):base.sampleSurfaceAt(lat,lon);
+     }
+-  return {worldId,base,...(saved.landscape?{landscape:saved.landscape}:{}),...(saved.settlementCatalogue?{settlementCatalogue:saved.settlementCatalogue}:{}),...(saved.population?{population:saved.population}:{}),...(saved.climate?{climate:saved.climate}:{}),...(saved.settlementNetwork?{settlementNetwork:saved.settlementNetwork}:{}),recipes:saved.recipes,settlements:saved.settlements,focus:saved.focus,charts,sampleAt:(lat,lon)=>samplePoint(lat,lon,true),sampleSurfaceAt:(lat,lon)=>samplePoint(lat,lon,false),toSnapshot(){return copyJson(saved);}};
++  return {worldId,base,...(saved.settlementDistribution?{settlementDistribution:saved.settlementDistribution}:{}),...(saved.landscape?{landscape:saved.landscape}:{}),...(saved.settlementCatalogue?{settlementCatalogue:saved.settlementCatalogue}:{}),...(saved.population?{population:saved.population}:{}),...(saved.climate?{climate:saved.climate}:{}),...(saved.settlementNetwork?{settlementNetwork:saved.settlementNetwork}:{}),recipes:saved.recipes,settlements:saved.settlements,focus:saved.focus,charts,sampleAt:(lat,lon)=>samplePoint(lat,lon,true),sampleSurfaceAt:(lat,lon)=>samplePoint(lat,lon,false),toSnapshot(){return copyJson(saved);}};
+ }
+--- a/src/globe/index.html
++++ b/src/globe/index.html
+@@ -20,6 +20,7 @@
+ <p id="state" role="status">数値場のページを準備しています</p><pre id="probe">中心点の地盤・水深・道路面をWorkerで取得できます。</pre>
+ <div class="row"><button id="save-view" disabled>この視点を保存</button><button id="restore-view" disabled>保存した視点へ</button><button id="restart-workers" disabled>地形読込を再起動</button></div>
+ <p><a href="./relief.html">保存した三角地形の地域ビュー（試験）</a></p>
++<p><a href="../../reports/l0-settlement-baseline/review.html">新しいL0人口・集落分布を確認</a><br><small><code>npm run l0:baseline</code> で作成する独立の分布確認用です。現在表示中の保存世界そのものの分布ではありません。</small></p>
+ <p><a id="climate-link" href="./climate.html">気温・降水・バイオームを見る</a></p><p><a id="network-link" href="./network.html">居住適性と広域の道の候補を見る</a></p><p><a href="./settlement.html?recipe=/examples/settlement-planning/actual-village-recipe.json">施設配置の保存済み実例（条件付き）</a></p>
+ <p><a id="settlement-plan-link" href="./settlement.html">集落の配置理由を見る</a></p>
+ <p><a id="vehicle-link" href="./vehicle.html">選択中の集落の車両通行を試す</a></p>
+--- a/test/road-material-overlay.test.mjs
++++ b/test/road-material-overlay.test.mjs
+@@ -1,7 +1,7 @@
+-import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';import{fileURLToPath,pathToFileURL}from'node:url';import{globalFixture}from'../fixtures/global-scenarios.mjs';import{createGlobeFeatureChart}from'../src/core/globe-features.mjs';import{WATER_SCHEMA}from'../src/core/water-model.mjs';import{packageGlobe}from'../scripts/package-globe.mjs';import{PagedSource}from'../src/globe/paged-source.mjs';import{buildMesh}from'../src/globe/mesh.mjs';import{buildBuildingMesh}from'../src/globe/buildings.mjs';
++import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';import os from'node:os';import path from'node:path';import{fileURLToPath,pathToFileURL}from'node:url';import{globalFixture}from'../fixtures/global-scenarios.mjs';import{createGlobeFeatureChart}from'../src/core/globe-features.mjs';import{WATER_SCHEMA}from'../src/core/water-model.mjs';import{packageGlobe}from'../scripts/package-globe.mjs';import{PagedSource}from'../src/globe/paged-source.mjs';import{buildMesh}from'../src/globe/mesh.mjs';import{buildBuildingMesh}from'../src/globe/buildings.mjs';
+ const base=globalFixture({height:()=>100}),recipe=material=>({id:'r',projection:{centerLatDeg:0,centerLonDeg:0,radiusM:6371000},bounds:{minXM:-400,maxXM:400,minYM:-400,maxYM:400},model:{schema:WATER_SCHEMA,construction:'strip-with-smooth-banks@4',nodes:[],edges:[],bodies:[],topologyOrder:[],basins:null},buildings:[],buildingPads:[],roadCenterlineProfiles:[{roadId:'track',halfWidthM:3,...(material?{surfaceMaterial:material}:{}),samples:[{xM:-200,yM:0,distanceM:0,roadElevationM:100.06,structureKind:'fill'},{xM:200,yM:0,distanceM:400,roadElevationM:100.06,structureKind:'fill'}]}]});
+ test('geographic road surface retains material without changing geometry or legacy samples',()=>{const old=createGlobeFeatureChart(base,recipe()),earth=createGlobeFeatureChart(base,recipe('compacted-earth')),a=old.sampleAt(0,0),b=earth.sampleAt(0,0);assert.equal(b.roadSurface.surfaceMaterial,'compacted-earth');delete b.roadSurface.surfaceMaterial;assert.deepEqual(a,b);assert.equal(old.sampleAt(0,0).roadSurface.surfaceMaterial,undefined);});
+ test('paged ground road overlay and feature mesh show the same saved road material',async()=>{
+- const meshes=[];for(const material of[undefined,'compacted-earth']){const r=recipe(material),dir=fs.mkdtempSync('/tmp/planet-road-material-');packageGlobe(base,dir,{recipe:r});const m=JSON.parse(fs.readFileSync(dir+'/manifest.json')),p=new PagedSource(m,pathToFileURL(dir+'/manifest.json').href,async u=>{const b=fs.readFileSync(fileURLToPath(u));return{ok:true,arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),text:async()=>b.toString()};}),mesh=await buildMesh(p,{face:0,level:21,x:1048576,y:1048576}),feature=buildBuildingMesh(r,6371000,{includeRoads:true}),color=material?[.46,.40,.29]:[.35,.36,.39];assert.ok(mesh.overlayIndex.length>0);for(const vertices of[mesh.overlayVertex,feature.vertex])for(let i=0;i<vertices.length;i+=12)for(let k=0;k<3;k++)assert.ok(Math.abs(vertices[i+6+k]-color[k])<1e-7);meshes.push(mesh);fs.rmSync(dir,{recursive:true,force:true});}
++ const meshes=[];for(const material of[undefined,'compacted-earth']){const r=recipe(material),dir=fs.mkdtempSync(path.join(os.tmpdir(),'planet-road-material-'));packageGlobe(base,dir,{recipe:r});const m=JSON.parse(fs.readFileSync(dir+'/manifest.json')),p=new PagedSource(m,pathToFileURL(dir+'/manifest.json').href,async u=>{const b=fs.readFileSync(fileURLToPath(u));return{ok:true,arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),text:async()=>b.toString()};}),mesh=await buildMesh(p,{face:0,level:21,x:1048576,y:1048576}),feature=buildBuildingMesh(r,6371000,{includeRoads:true}),color=material?[.46,.40,.29]:[.35,.36,.39];assert.ok(mesh.overlayIndex.length>0);for(const vertices of[mesh.overlayVertex,feature.vertex])for(let i=0;i<vertices.length;i+=12)for(let k=0;k<3;k++)assert.ok(Math.abs(vertices[i+6+k]-color[k])<1e-7);meshes.push(mesh);fs.rmSync(dir,{recursive:true,force:true});}
+  assert.deepEqual(meshes[0].vertex,meshes[1].vertex);assert.deepEqual(meshes[0].overlayIndex,meshes[1].overlayIndex);for(let i=0;i<meshes[0].overlayVertex.length;i++)if(i%12<6||i%12>8)assert.equal(meshes[0].overlayVertex[i],meshes[1].overlayVertex[i]);
+ });
+--- a/test/shape-first-region-pyramid.test.mjs
++++ b/test/shape-first-region-pyramid.test.mjs
+@@ -4,6 +4,7 @@
+ import { tmpdir } from 'node:os';
+ import { join } from 'node:path';
+ import { execFileSync } from 'node:child_process';
++import { fileURLToPath } from 'node:url';
+ import { buildShapeFirstPyramid, renderShapeFirstPreview, sha256 } from '../scripts/experiments/shape-first/region-pyramid.mjs';
+ const text = readFileSync(new URL('../fixtures/shape-first/river-first-candidate.json', import.meta.url), 'utf8');
+ const source = JSON.parse(text);
+@@ -87,7 +88,7 @@
+   const dir = mkdtempSync(join(tmpdir(), 'shape-first-'));
+   try {
+     const cli = new URL('../scripts/experiments/shape-first/build-region-pyramid.mjs',import.meta.url);
+-    execFileSync(process.execPath,[cli.pathname,new URL('../fixtures/shape-first/river-first-candidate.json',import.meta.url).pathname,dir]);
++    execFileSync(process.execPath,[fileURLToPath(cli),fileURLToPath(new URL('../fixtures/shape-first/river-first-candidate.json',import.meta.url)),dir]);
+     const p = JSON.parse(readFileSync(join(dir,'region-pyramid.json'),'utf8'));
+     assert.deepEqual(p,buildShapeFirstPyramid(text));
+     const html=readFileSync(join(dir,'preview.html'),'utf8');
+--- /dev/null
++++ b/src/core/settlement-distribution.mjs
+@@ -0,0 +1,397 @@
++import {copyJson, hashJson} from './json-contract.mjs';
++
++// Planet saves canonicalize object key order. Distribution identity must survive
++// that serialization, while retaining exact array order and numerical budgets.
++const distributionHash = content => hashJson(copyJson(content));
++
++/** A distribution-only settlement budget. It carries the authoritative census
++ * (or a refined allocation of it) as compact column arrays: population totals,
++ * rural/town/city people and counts, a wet mask and a relative suitability
++ * weight. No individual house, village site or road is placed here.
++ *
++ * This is the L0 -> L1 half of the deferred materialization contract: the
++ * parent's seven integer budgets are conserved exactly when they are passed to
++ * children, and any parent budget whose children have no habitable land is kept
++ * as an explicit `unallocated` record instead of being dropped or moved. */
++export const SETTLEMENT_DISTRIBUTION_SCHEMA = 'settlement-distribution@1';
++export const SETTLEMENT_DISTRIBUTION_STATUS = 'distribution-only';
++export const SUITABILITY_SCALE = 1000000;
++const MAX_CELLS = 1048576;
++const MAX_PEOPLE = 10000000000;
++const LAYERS = ['L0', 'L1'];
++const BUDGETS = ['population', 'ruralPopulation', 'townPopulation', 'cityPopulation', 'villages', 'towns', 'cities'];
++const PEOPLE_COUNTS = [['ruralPopulation', 'villages'], ['townPopulation', 'towns'], ['cityPopulation', 'cities']];
++
++const clamp01 = v => Math.max(0, Math.min(1, v));
++function integer(value, name = 'budget', max = MAX_PEOPLE) {
++  if (!Number.isSafeInteger(value) || value < 0 || value > max) throw new RangeError(`Invalid ${name}`);
++  return value;
++}
++function positiveDimension(value, name) {
++  if (!Number.isSafeInteger(value) || value < 1) throw new RangeError(`Invalid ${name}`);
++  return value;
++}
++function gridOf(grid, name) {
++  const columns = positiveDimension(grid?.columns, `${name} columns`);
++  const rows = positiveDimension(grid?.rows, `${name} rows`);
++  const cells = columns * rows;
++  if (!Number.isSafeInteger(cells) || cells > MAX_CELLS) throw new RangeError(`${name} exceeds the bounded cell budget`);
++  return { columns, rows, cells };
++}
++function sumField(field, n) { let s = 0; for (let i = 0; i < n; i++) s += field[i]; return s; }
++function totalsFor(fields, n) {
++  const totals = {};
++  for (const key of BUDGETS) totals[key] = sumField(fields[key], n);
++  let populatedCells = 0;
++  for (let i = 0; i < n; i++) if (fields.population[i] > 0) populatedCells++;
++  return { ...totals, populatedCells };
++}
++
++/** Exact largest-remainder integer apportionment. `total` is a safe integer;
++ * weights are non-negative BigInt so that area (metres squared) and a quantised
++ * suitability cannot lose precision or drift independently. */
++export function allocateIntegerBudget(total, weights) {
++  if (!Number.isSafeInteger(total) || total < 0) throw new RangeError('Invalid allocation total');
++  if (!Array.isArray(weights)) throw new TypeError('Allocation weights required');
++  let sum = 0n;
++  for (const weight of weights) { if (typeof weight !== 'bigint' || weight < 0n) throw new RangeError('Invalid allocation weight'); sum += weight; }
++  if (sum === 0n || total === 0) return weights.map(() => 0);
++  const terms = weights.map((weight, i) => { const v = BigInt(total) * weight; return { i, n: Number(v / sum), r: v % sum }; });
++  let left = total - terms.reduce((s, t) => s + t.n, 0);
++  for (const t of [...terms].sort((a, b) => (a.r === b.r ? a.i - b.i : a.r > b.r ? -1 : 1))) { if (!left) break; t.n++; left--; }
++  return terms.map(t => t.n);
++}
++
++function requireIdentity(distribution) {
++  for (const key of ['sourceWorldId', 'populationId', 'climateId', 'sourceLayerId']) {
++    if (typeof distribution[key] !== 'string' || !distribution[key]) throw new RangeError(`Settlement distribution ${key} required`);
++  }
++}
++
++function validateFields(fields, n, { label = 'Settlement distribution' } = {}) {
++  const required = [...BUDGETS, 'wet', 'suitability'];
++  for (const key of required) {
++    if (!Array.isArray(fields?.[key]) || fields[key].length !== n) throw new RangeError(`${label} field '${key}' must match the grid`);
++  }
++  for (let i = 0; i < n; i++) {
++    const population = integer(fields.population[i], 'population');
++    let sum = 0;
++    for (const [people, count] of PEOPLE_COUNTS) {
++      const p = integer(fields[people][i], people), c = integer(fields[count][i], count);
++      if ((p === 0) !== (c === 0) || c > p) throw new RangeError('Inconsistent settlement budget');
++      sum += p;
++    }
++    if (sum !== population) throw new RangeError('Cell population does not match its parts');
++    const wet = fields.wet[i];
++    if (wet !== 0 && wet !== 1) throw new RangeError('Wet mask must be 0 or 1');
++    if (wet && population !== 0) throw new RangeError('Sea or lake cells cannot receive a settlement budget');
++    integer(fields.suitability[i], 'suitability', SUITABILITY_SCALE);
++  }
++}
++
++function validateTotals(totals, recomputed, n) {
++  if (!totals || typeof totals !== 'object') throw new RangeError('Settlement distribution totals required');
++  for (const key of BUDGETS) {
++    integer(totals[key], `total '${key}'`);
++    if (totals[key] !== recomputed[key]) throw new RangeError(`Settlement distribution total '${key}' does not match its cells`);
++  }
++  integer(totals.populatedCells, 'total populatedCells', n);
++  if (totals.populatedCells !== recomputed.populatedCells) throw new RangeError("Settlement distribution total 'populatedCells' does not match its cells");
++}
++
++/** Summary populations are declared aggregates, so they are re-derived from the
++ * actual cells rather than trusted. A re-hashed record with a plausible but
++ * inconsistent summary is rejected exactly like an inconsistent total. */
++function validateSummary(summary, { layer, fieldsTotals, unallocatedTotals, n }) {
++  if (!summary || typeof summary !== 'object') throw new RangeError('Settlement distribution summary required');
++  const requested = integer(summary.requestedPopulation, 'requestedPopulation');
++  const supported = integer(summary.supportedPopulation, 'supportedPopulation');
++  const unplaced = integer(summary.unplacedPopulation, 'unplacedPopulation');
++  if (requested !== supported + unplaced) throw new RangeError('Settlement distribution summary population does not balance');
++  const expectedSupported = layer === 'L1' ? fieldsTotals.population + unallocatedTotals.population : fieldsTotals.population;
++  if (supported !== expectedSupported) throw new RangeError('Settlement distribution summary supported population does not match its cells');
++  for (const key of ['villages', 'towns', 'cities']) {
++    if (integer(summary[key], key) !== fieldsTotals[key]) throw new RangeError(`Settlement distribution summary '${key}' does not match allocated cells`);
++  }
++  if (integer(summary.populatedCells, 'summary populatedCells', n) !== fieldsTotals.populatedCells) throw new RangeError('Settlement distribution summary populated cells do not match allocated cells');
++  if (layer === 'L1') {
++    if (integer(summary.unallocatedPopulation, 'unallocatedPopulation') !== unallocatedTotals.population) throw new RangeError('Settlement distribution summary unallocated population does not match unallocated cells');
++  }
++}
++
++/** Validate a saved distribution in isolation. Rejects a tampered content hash,
++ * an inconsistent people/count split, an allocation to sea or lake, a
++ * distribution that does not carry the declared grid, and any declared
++ * total/summary that does not re-derive from the actual cells. */
++export function validateSettlementDistribution(distribution) {
++  if (!distribution || typeof distribution !== 'object') throw new TypeError('Settlement distribution required');
++  if (distribution.schema !== SETTLEMENT_DISTRIBUTION_SCHEMA) throw new RangeError('Unsupported settlement distribution schema');
++  if (distribution.status !== SETTLEMENT_DISTRIBUTION_STATUS) throw new RangeError('Settlement distribution must be distribution-only');
++  if (!LAYERS.includes(distribution.layer)) throw new RangeError('Settlement distribution layer must be L0 or L1');
++  requireIdentity(distribution);
++  if (distribution.layer === 'L1' && (typeof distribution.parentDistributionId !== 'string' || !distribution.parentDistributionId)) throw new RangeError('L1 settlement distribution requires a parent distribution id');
++  if (distribution.suitabilityScale !== SUITABILITY_SCALE) throw new RangeError('Unsupported settlement distribution suitability scale');
++  const { cells } = gridOf(distribution.grid, 'Settlement distribution grid');
++  validateFields(distribution.fields, cells);
++  const fieldsTotals = totalsFor(distribution.fields, cells);
++  validateTotals(distribution.totals, fieldsTotals, cells);
++  let unallocatedTotals = null;
++  if (distribution.layer === 'L1') {
++    const unallocated = distribution.unallocated;
++    if (!unallocated || typeof unallocated !== 'object') throw new RangeError('L1 settlement distribution requires unallocated budgets');
++    if (!Array.isArray(unallocated.parentCells)) throw new RangeError('Unallocated parent cells must be an array');
++    const { cells: parentN } = gridOf(unallocated.parentGrid, 'Unallocated parent grid');
++    const n = unallocated.parentCells.length;
++    for (const key of BUDGETS) if (!Array.isArray(unallocated[key]) || unallocated[key].length !== n) throw new RangeError(`Unallocated field '${key}' must match the parent cells`);
++    const seen = new Set();
++    for (let i = 0; i < n; i++) {
++      const parentCell = unallocated.parentCells[i];
++      if (!Number.isSafeInteger(parentCell) || parentCell < 0 || parentCell >= parentN || seen.has(parentCell)) throw new RangeError('Unallocated parent cell out of range or duplicated');
++      seen.add(parentCell);
++      let sum = 0;
++      for (const [people, count] of PEOPLE_COUNTS) {
++        const p = integer(unallocated[people][i], people), c = integer(unallocated[count][i], count);
++        if ((p === 0) !== (c === 0) || c > p) throw new RangeError('Inconsistent unallocated settlement budget');
++        sum += p;
++      }
++      if (sum !== integer(unallocated.population[i], 'unallocated population')) throw new RangeError('Unallocated population does not match its parts');
++    }
++    unallocatedTotals = totalsFor(unallocated, n);
++    const declared = unallocated.totals;
++    if (!declared || typeof declared !== 'object') throw new RangeError('L1 settlement distribution requires unallocated totals');
++    for (const key of BUDGETS) {
++      integer(declared[key], `unallocated total '${key}'`);
++      if (declared[key] !== unallocatedTotals[key]) throw new RangeError(`Unallocated total '${key}' does not match its cells`);
++    }
++    integer(declared.populatedCells, 'unallocated populatedCells', n);
++    if (declared.populatedCells !== unallocatedTotals.populatedCells) throw new RangeError("Unallocated total 'populatedCells' does not match its cells");
++    if (!Number.isSafeInteger(declared.parentCells) || declared.parentCells !== n) throw new RangeError("Unallocated total 'parentCells' does not match the record");
++  } else if (distribution.unallocated !== undefined) {
++    throw new RangeError('L0 settlement distribution must not declare unallocated budgets');
++  }
++  validateSummary(distribution.summary, { layer: distribution.layer, fieldsTotals, unallocatedTotals, n: cells });
++  const { id, ...content } = distribution;
++  if (typeof id !== 'string' || id !== distributionHash(content)) throw new Error('Settlement distribution identity mismatch');
++  return distribution;
++}
++
++/** A contradictory authority would silently become a second census, so its
++ * declared totals are checked against the actual allocated cells. */
++function validateAuthorityTotals(population, fields, n) {
++  const totals = population?.totals;
++  if (!totals || typeof totals !== 'object') throw new RangeError('Population authority totals required');
++  const target = integer(totals.targetPopulation, 'targetPopulation');
++  const supported = integer(totals.supportedPopulation, 'supportedPopulation');
++  const unplaced = integer(totals.unplacedPopulation, 'unplacedPopulation');
++  if (target !== supported + unplaced) throw new RangeError('Population authority totals do not balance');
++  if (supported !== totalsFor(fields, n).population) throw new RangeError('Population authority supported population does not match its cells');
++}
++
++/** L0 creation reuses the existing agricultural population authority as the one
++ * census. It does not recompute people, trade, irrigation or history. */
++export function createL0SettlementDistribution(snapshot, climate, population) {
++  const { columns, rows, cells: n } = gridOf(snapshot?.grid, 'L0 settlement grid');
++  if (typeof snapshot?.worldId !== 'string' || !snapshot.worldId) throw new RangeError('L0 settlement distribution requires a world id');
++  if (population?.sourceWorldId !== snapshot.worldId || population?.grid?.columns !== columns || population?.grid?.rows !== rows) {
++    throw new RangeError('L0 settlement distribution requires the matching population authority');
++  }
++  if (typeof population.id !== 'string' || !population.id) throw new RangeError('Population authority id required');
++  if (climate?.sourceWorldId !== snapshot.worldId || climate?.id !== population.climateId || climate?.grid?.columns !== columns || climate?.grid?.rows !== rows) {
++    throw new RangeError('L0 settlement distribution requires the matching climate');
++  }
++  if (!Array.isArray(population.cells) || population.cells.length !== n) throw new RangeError('Population authority cells must match the L0 grid');
++  const land = snapshot.fields?.landMask, lake = snapshot.fields?.lakeFillDepthM;
++  if (!Array.isArray(land) || land.length !== n) throw new RangeError('L0 land mask required');
++  const fields = { population: [], ruralPopulation: [], townPopulation: [], cityPopulation: [], villages: [], towns: [], cities: [], wet: [], suitability: [] };
++  for (let i = 0; i < n; i++) {
++    const cell = population.cells[i];
++    if (!cell || cell.cellIndex !== i) throw new RangeError('Population authority cells must be index ordered');
++    for (const key of BUDGETS) fields[key].push(cell[key] ?? 0);
++    fields.wet.push((!land[i] || (lake?.[i] ?? 0) > 0) ? 1 : 0);
++    fields.suitability.push(Math.round(clamp01(cell.suitability ?? 0) * SUITABILITY_SCALE));
++  }
++  validateAuthorityTotals(population, fields, n);
++  const totals = totalsFor(fields, n);
++  const summary = {
++    layer: 'L0',
++    requestedPopulation: population.totals.targetPopulation,
++    supportedPopulation: population.totals.supportedPopulation,
++    unplacedPopulation: population.totals.unplacedPopulation,
++    populatedCells: totals.populatedCells,
++    villages: totals.villages, towns: totals.towns, cities: totals.cities,
++    allocation: 'inherited population authority; no independent census',
++  };
++  const content = {
++    schema: SETTLEMENT_DISTRIBUTION_SCHEMA,
++    layer: 'L0',
++    sourceWorldId: snapshot.worldId,
++    populationId: population.id,
++    climateId: climate.id,
++    sourceLayerId: snapshot.layerId ?? snapshot.worldId,
++    grid: { columns, rows },
++    status: SETTLEMENT_DISTRIBUTION_STATUS,
++    suitabilityScale: SUITABILITY_SCALE,
++    fields, totals, summary,
++    interpretation: 'Aggregate settlement budget per L0 cell. Locations, roads, fields and buildings remain unresolved.',
++    assumptions: [
++      'People and settlement counts come from the existing agricultural population authority, not a second census',
++      'Suitability is a relative placement weight from the saved L0 climate and relief, not a measured food capacity',
++      'Settlement counts still depend on assumed mean size; no urban hierarchy is simulated',
++    ],
++    limitations: [
++      'Sea and lake cells carry zero population and zero settlements',
++      'A cell budget is not a list of instantiated villages, towns or cities',
++      'No trade, irrigation, fisheries, migration or political boundaries',
++    ],
++  };
++  const distribution = { ...content, id: distributionHash(content) };
++  validateSettlementDistribution(distribution);
++  return distribution;
++}
++
++/** Read-only aggregation of a saved distribution over selected cells. */
++export function describeSettlementDistribution(distribution, cellIndices) {
++  validateSettlementDistribution(distribution);
++  const { cells: n } = gridOf(distribution.grid, 'Settlement distribution grid');
++  if (!Array.isArray(cellIndices) || !cellIndices.length || cellIndices.length > n
++    || new Set(cellIndices).size !== cellIndices.length
++    || cellIndices.some(i => !Number.isSafeInteger(i) || i < 0 || i >= n)) {
++    throw new RangeError('Settlement distribution description requires unique in-range cells');
++  }
++  const cells = [...cellIndices].sort((a, b) => a - b);
++  const pick = key => cells.reduce((s, i) => s + distribution.fields[key][i], 0);
++  return {
++    schema: 'settlement-distribution-description@1',
++    layer: distribution.layer,
++    sourceWorldId: distribution.sourceWorldId,
++    populationId: distribution.populationId,
++    climateId: distribution.climateId,
++    grid: { ...distribution.grid },
++    cellIndices: cells,
++    budgets: {
++      population: pick('population'),
++      ruralPopulation: pick('ruralPopulation'),
++      townPopulation: pick('townPopulation'),
++      cityPopulation: pick('cityPopulation'),
++      villages: pick('villages'),
++      towns: pick('towns'),
++      cities: pick('cities'),
++    },
++    populatedCells: cells.filter(i => distribution.fields.population[i] > 0).length,
++    interpretation: distribution.interpretation,
++    assumptions: [...distribution.assumptions],
++  };
++}
++
++/** Refine a saved distribution onto a finer grid. Each parent cell's children
++ * are allocated together from the L1 cell area and a relative suitability, so
++ * that no child rounding can steal another child's budget. A parent whose
++ * children are all water or all unsuitable keeps its seven budgets as an
++ * explicit `unallocated` record: parent = children + unallocated for every one
++ * of the seven fields. No settlement site, road or building is placed. */
++export function refineSettlementDistribution(distribution, {
++  sourceWorldId, climateId, sourceLayerId, grid, parentCell, cellAreaM2, landMask, lakeFillDepthM, suitability,
++} = {}) {
++  validateSettlementDistribution(distribution);
++  if (distribution.layer !== 'L0') throw new RangeError('refineSettlementDistribution currently refines only an L0 parent distribution');
++  const { columns: parentColumns, rows: parentRows, cells: parentN } = gridOf(distribution.grid, 'Parent settlement grid');
++  if (sourceWorldId !== distribution.sourceWorldId) throw new RangeError('Refined settlement distribution world mismatch');
++  if (typeof climateId !== 'string' || !climateId) throw new RangeError('Refined settlement distribution climate identity required');
++  if (typeof sourceLayerId !== 'string' || !sourceLayerId) throw new RangeError('Refined settlement distribution source layer identity required');
++  const { columns, rows, cells: n } = gridOf(grid, 'Refined settlement grid');
++  for (const [key, array] of Object.entries({ parentCell, cellAreaM2, landMask, lakeFillDepthM })) {
++    if (!Array.isArray(array) || array.length !== n) throw new RangeError(`Refined settlement distribution '${key}' must match the child grid`);
++  }
++  if (parentCell.some(p => !Number.isSafeInteger(p) || p < 0 || p >= parentN)) throw new RangeError('Refined settlement parent cell out of range');
++  if (cellAreaM2.some(a => !Number.isFinite(a) || a <= 0)) throw new RangeError('Refined settlement cell area must be positive and finite');
++  if (landMask.some(v => v !== 0 && v !== 1)) throw new RangeError('Refined settlement land mask must be 0 or 1');
++  if (lakeFillDepthM.some(v => !Number.isFinite(v) || v < 0)) throw new RangeError('Refined settlement lake depth must be finite and non-negative');
++  if (suitability !== undefined && (!Array.isArray(suitability) || suitability.length !== n || suitability.some(v => !Number.isFinite(v)))) {
++    throw new RangeError('Refined settlement suitability must match the child grid');
++  }
++  const suitInt = new Array(n);
++  for (let i = 0; i < n; i++) {
++    suitInt[i] = suitability === undefined
++      ? distribution.fields.suitability[parentCell[i]]
++      : Math.round(clamp01(suitability[i]) * SUITABILITY_SCALE);
++  }
++  const childrenByParent = new Map();
++  for (let i = 0; i < n; i++) { const p = parentCell[i]; if (!childrenByParent.has(p)) childrenByParent.set(p, []); childrenByParent.get(p).push(i); }
++  const fields = { population: new Array(n).fill(0), ruralPopulation: new Array(n).fill(0), townPopulation: new Array(n).fill(0), cityPopulation: new Array(n).fill(0), villages: new Array(n).fill(0), towns: new Array(n).fill(0), cities: new Array(n).fill(0), wet: new Array(n).fill(0), suitability: new Array(n).fill(0) };
++  for (let i = 0; i < n; i++) {
++    fields.wet[i] = (!landMask[i] || lakeFillDepthM[i] > 0) ? 1 : 0;
++    fields.suitability[i] = fields.wet[i] ? 0 : suitInt[i];
++  }
++  const unallocated = { parentGrid: { columns: parentColumns, rows: parentRows }, parentCells: [], population: [], ruralPopulation: [], townPopulation: [], cityPopulation: [], villages: [], towns: [], cities: [], totals: {} };
++  for (let p = 0; p < parentN; p++) {
++    const parentPopulation = distribution.fields.population[p];
++    const kids = childrenByParent.get(p) ?? [];
++    const weights = kids.map(k => {
++      const suitable = landMask[k] === 1 && !(lakeFillDepthM[k] > 0);
++      return suitable ? BigInt(Math.round(cellAreaM2[k])) * BigInt(suitInt[k]) : 0n;
++    });
++    const totalWeight = weights.reduce((s, w) => s + w, 0n);
++    if (parentPopulation === 0 && !kids.length) continue;
++    if (!kids.length || totalWeight === 0n) {
++      if (parentPopulation > 0 || BUDGETS.some(key => key !== 'population' && distribution.fields[key][p] > 0)) {
++        unallocated.parentCells.push(p);
++        for (const key of BUDGETS) unallocated[key].push(distribution.fields[key][p]);
++      }
++      continue;
++    }
++    for (const [people, count] of PEOPLE_COUNTS) {
++      const totalPeople = distribution.fields[people][p], totalCount = distribution.fields[count][p];
++      const counts = allocateIntegerBudget(totalCount, weights);
++      if (totalCount === 0) { kids.forEach((k, i) => { fields[count][k] = 0; fields[people][k] = 0; }); continue; }
++      const active = kids.map((_, i) => (counts[i] > 0 ? 1 : 0));
++      const activeCount = active.reduce((s, v) => s + v, 0);
++      if (activeCount === 0) throw new Error('Settlement count allocation produced no child');
++      const personWeights = weights.map((w, i) => (counts[i] > 0 ? w : 0n));
++      const extra = allocateIntegerBudget(totalPeople - activeCount, personWeights);
++      kids.forEach((k, i) => { fields[count][k] = counts[i]; fields[people][k] = counts[i] > 0 ? 1 + extra[i] : 0; });
++    }
++    kids.forEach(k => { fields.population[k] = fields.ruralPopulation[k] + fields.townPopulation[k] + fields.cityPopulation[k]; });
++  }
++  const totals = totalsFor(fields, n);
++  const unallocatedTotals = { ...totalsFor(unallocated, unallocated.parentCells.length), parentCells: unallocated.parentCells.length };
++  unallocated.totals = unallocatedTotals;
++  for (const key of BUDGETS) {
++    if (totals[key] + unallocatedTotals[key] !== distribution.totals[key]) throw new Error(`Refinement did not conserve ${key}`);
++  }
++  const summary = {
++    layer: 'L1',
++    requestedPopulation: distribution.summary.requestedPopulation,
++    supportedPopulation: distribution.summary.supportedPopulation,
++    unplacedPopulation: distribution.summary.unplacedPopulation,
++    unallocatedPopulation: unallocatedTotals.population,
++    populatedCells: totals.populatedCells,
++    villages: totals.villages, towns: totals.towns, cities: totals.cities,
++    allocation: 'area-and-suitability weighted largest-remainder within each parent cell',
++  };
++  const content = {
++    schema: SETTLEMENT_DISTRIBUTION_SCHEMA,
++    layer: 'L1',
++    sourceWorldId, populationId: distribution.populationId, climateId, sourceLayerId,
++    parentDistributionId: distribution.id,
++    grid: { columns, rows },
++    status: SETTLEMENT_DISTRIBUTION_STATUS,
++    suitabilityScale: SUITABILITY_SCALE,
++    fields, unallocated, totals, summary,
++    interpretation: 'Refined aggregate settlement budget per L1 cell. Coarse suitability is a relative weight, not a certified local food capacity. No site, road or building is fixed yet.',
++    assumptions: [
++      'Parent = allocated children + explicit unallocated for every one of the seven budgets',
++      'Child area is the actual L1 cell area; suitability is projected from the parent distribution unless overridden',
++      'A child may only receive a population type when it also receives a settlement count of that type',
++    ],
++    limitations: [
++      'Sea and lake cells carry zero population and zero settlements',
++      'Unallocated parents have no habitable L1 land in this refinement; they are not silently zeroed or moved',
++      'Exact town and city sites and roads remain unresolved',
++    ],
++  };
++  const refined = { ...content, id: distributionHash(content) };
++  validateSettlementDistribution(refined);
++  return refined;
++}
++
++export { BUDGETS as SETTLEMENT_DISTRIBUTION_BUDGETS };
+--- /dev/null
++++ b/scripts/build-l0-settlement-baseline.mjs
+@@ -0,0 +1,115 @@
++import fs from 'node:fs';
++import path from 'node:path';
++import {fileURLToPath} from 'node:url';
++import assert from 'node:assert/strict';
++import {auditL0} from './audit-l0.mjs';
++import {createL0ResolutionSeries} from './experiments/l0-resolution-series.mjs';
++import {createL1BroadRegion} from '../src/core/l1-broad-region.mjs';
++import {validateSettlementDistribution} from '../src/core/settlement-distribution.mjs';
++import {requireVerificationMemory} from './verification-runtime.mjs';
++import {renderSavedSettlementDistributionReview} from './build-settlement-distribution-review.mjs';
++
++/** Reproducible L0 -> L1 settlement-distribution baseline for the GUI. It runs
++ * the existing audit, resolution series and L1 broad-region stages in series,
++ * then saves l0.json / l1.json / summary.json and checks that the seven integer
++ * budgets survive L0 -> L1 and that the saved record stays inside the dedicated
++ * 24 MiB L1 store. It never generates houses, village sites or roads, and never
++ * writes examples/planet/generated, fixtures or the reference DEM. */
++export const MAX_RECORD_BYTES = 24 * 1024 * 1024;
++export const SETTLEMENT_BUDGETS = ['population', 'ruralPopulation', 'townPopulation', 'cityPopulation', 'villages', 'towns', 'cities'];
++const BLOCKED_OUTPUT_PREFIXES = ['examples', 'fixtures', 'reference'];
++
++export function parseBaselineArgs(argv) {
++  const options = { seed: 'planet-1', population: 100000000, columns: 128, rows: 64, levels: 2, outputDir: 'reports/l0-settlement-baseline' };
++  for (const arg of argv) {
++    if (arg.startsWith('--seed=')) options.seed = arg.slice('--seed='.length);
++    else if (arg.startsWith('--population=')) options.population = Number(arg.slice('--population='.length));
++    else if (arg.startsWith('--columns=')) options.columns = Number(arg.slice('--columns='.length));
++    else if (arg.startsWith('--rows=')) options.rows = Number(arg.slice('--rows='.length));
++    else if (arg.startsWith('--levels=')) options.levels = Number(arg.slice('--levels='.length));
++    else if (arg.startsWith('--')) throw new RangeError(`Unknown option ${arg}`);
++    else options.outputDir = arg;
++  }
++  if (typeof options.seed !== 'string' || !options.seed.trim()) throw new RangeError('--seed must be a non-empty string');
++  if (!Number.isSafeInteger(options.population) || options.population < 0 || options.population > 10000000000) throw new RangeError('--population must be a non-negative integer up to 10 billion');
++  if (!Number.isSafeInteger(options.columns) || options.columns < 16) throw new RangeError('--columns must be an integer of at least 16');
++  if (!Number.isSafeInteger(options.rows) || options.rows < 8) throw new RangeError('--rows must be an integer of at least 8');
++  if (!Number.isSafeInteger(options.levels) || options.levels < 1 || options.levels > 5) throw new RangeError('--levels must be an integer from 1 to 5');
++  if (options.columns * options.rows > 32768) throw new RangeError('--columns x --rows must be at most 32768 for the population authority');
++  if (options.columns * options.rows * 4 ** (options.levels - 1) > 131072) throw new RangeError('resolution series exceeds the bounded 131072-cell planning budget');
++  const resolved = path.resolve(options.outputDir);
++  const blocked = BLOCKED_OUTPUT_PREFIXES.some(prefix => resolved.split(path.sep).includes(prefix));
++  if (blocked) throw new RangeError('Refusing to write a baseline into a distributed examples/fixtures/reference directory');
++  return { ...options, outputDir: resolved };
++}
++
++export function buildL0SettlementBaseline({ seed, targetPopulation, columns, rows, levels, beforeLevel = () => requireVerificationMemory() }) {
++  const l0 = auditL0(seed, { columns, rows, targetPopulation });
++  validateSettlementDistribution(l0.settlementDistribution);
++  const series = createL0ResolutionSeries(l0.snapshot, { levels, beforeLevel });
++  const level = series.cases[levels - 1];
++  const l1 = createL1BroadRegion(l0, level);
++  if (!l1.settlementDistribution) throw new Error('L1 settlement distribution was not generated');
++  validateSettlementDistribution(l1.settlementDistribution);
++  for (const key of SETTLEMENT_BUDGETS) {
++    const conserved = l1.settlementDistribution.totals[key] + l1.settlementDistribution.unallocated.totals[key];
++    if (conserved !== l0.settlementDistribution.totals[key]) throw new Error(`L0 to L1 settlement budget did not conserve ${key}`);
++  }
++  const l0Bytes = Buffer.byteLength(JSON.stringify(l0));
++  const l1Bytes = Buffer.byteLength(JSON.stringify(l1));
++  if (l1Bytes > MAX_RECORD_BYTES) throw new RangeError('L1 settlement record exceeds the 24 MiB budget');
++  const summary = {
++    schema: 'l0-settlement-baseline@1',
++    seed, columns, rows, levels,
++    l0: {
++      worldId: l0.snapshot.worldId, climateId: l0.climate.id, populationId: l0.population.id,
++      settlementDistributionId: l0.settlementDistribution.id,
++      requestedPopulation: l0.summary.requestedPopulation, supportedPopulation: l0.summary.supportedPopulation,
++      unplacedPopulation: l0.summary.unplacedPopulation,
++      villages: l0.summary.villages, towns: l0.summary.towns, cities: l0.summary.cities, populatedCells: l0.summary.populatedCells,
++    },
++    l1: {
++      id: l1.id, grid: l1.snapshot.grid, resolutionId: l1.resolutionId,
++      settlementDistributionId: l1.settlementDistribution.id,
++      populatedCells: l1.settlementDistribution.totals.populatedCells,
++      villages: l1.settlementDistribution.totals.villages, towns: l1.settlementDistribution.totals.towns, cities: l1.settlementDistribution.totals.cities,
++      unallocatedPopulation: l1.settlementDistribution.unallocated.totals.population,
++      unallocatedParents: l1.settlementDistribution.unallocated.parentCells.length,
++      relativeBudgetResidual: l1.diagnostics.relativeBudgetResidual,
++    },
++    sizes: { l0Bytes, l1Bytes, l1LimitBytes: MAX_RECORD_BYTES, withinLimit: l1Bytes <= MAX_RECORD_BYTES },
++    checks: { l0Validated: true, l1Validated: true, budgetsConserved: true, withinLimit: l1Bytes <= MAX_RECORD_BYTES },
++    interpretation: 'Distribution-only L0/L1 settlement budgets for the GUI. Site selection and roads remain unresolved.',
++    limitations: [
++      'Suitability is a relative placement weight, not a certified local food capacity',
++      'Unallocated parents keep their budgets explicitly instead of moving them to another parent',
++      'No houses, village sites, fields or roads are generated by this baseline',
++    ],
++  };
++  return { l0, l1, summary };
++}
++
++export function saveBaseline(result, directory) {
++  fs.mkdirSync(directory, { recursive: true });
++  const files = { l0: path.join(directory, 'l0.json'), l1: path.join(directory, 'l1.json'), summary: path.join(directory, 'summary.json') };
++  fs.writeFileSync(files.l0, JSON.stringify(result.l0));
++  fs.writeFileSync(files.l1, JSON.stringify(result.l1));
++  fs.writeFileSync(files.summary, JSON.stringify(result.summary, null, 2));
++  const l0 = JSON.parse(fs.readFileSync(files.l0, 'utf8'));
++  const l1 = JSON.parse(fs.readFileSync(files.l1, 'utf8'));
++  assert.deepEqual(l0, JSON.parse(JSON.stringify(result.l0)), 'l0.json did not reload identically');
++  assert.deepEqual(l1, JSON.parse(JSON.stringify(result.l1)), 'l1.json did not reload identically');
++  validateSettlementDistribution(l1.settlementDistribution);
++  const sizes = { l0Bytes: fs.statSync(files.l0).size, l1Bytes: fs.statSync(files.l1).size, summaryBytes: fs.statSync(files.summary).size };
++  if (sizes.l1Bytes > MAX_RECORD_BYTES) throw new RangeError('Saved L1 settlement record exceeds the 24 MiB budget');
++  return { files, sizes, reloadedIdentical: true };
++}
++
++if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
++  requireVerificationMemory();
++  const options = parseBaselineArgs(process.argv.slice(2));
++  const result = buildL0SettlementBaseline({ seed: options.seed, targetPopulation: options.population, columns: options.columns, rows: options.rows, levels: options.levels });
++  const saved = saveBaseline(result, options.outputDir);
++  saved.files.review = renderSavedSettlementDistributionReview(options.outputDir);
++  console.log(JSON.stringify({ ...result.summary, saved }, null, 2));
++}
+--- /dev/null
++++ b/scripts/build-settlement-distribution-review.mjs
+@@ -0,0 +1,253 @@
++import fs from 'node:fs';
++import path from 'node:path';
++import {fileURLToPath} from 'node:url';
++import {validateSettlementDistribution, SETTLEMENT_DISTRIBUTION_BUDGETS as BUDGETS} from '../src/core/settlement-distribution.mjs';
++
++const sameGrid = (a, b) => a?.columns === b?.columns && a?.rows === b?.rows;
++const requireInput = (condition, message) => { if (!condition) throw new RangeError(message); };
++
++// Validate the saved budgets first, then the spatial joins used by this view.
++// No census, settlement sites, climate or terrain are generated here.
++function reviewData({l0, l1, summary} = {}) {
++  const parents = validateSettlementDistribution(l0?.settlementDistribution);
++  const children = validateSettlementDistribution(l1?.settlementDistribution);
++  requireInput(parents.layer === 'L0' && children.layer === 'L1', 'Expected L0 and L1 distributions');
++  const layers = [l0, l1].map((record, index) => {
++    const d = record.settlementDistribution, s = record.snapshot, c = record.climate;
++    requireInput(s?.worldId === d.sourceWorldId && c?.sourceWorldId === d.sourceWorldId && c?.id === d.climateId,
++      'World or climate identity does not match the distribution');
++    requireInput(d.sourceLayerId === (s.layerId ?? s.worldId), 'Source layer identity does not match');
++    requireInput(sameGrid(d.grid, s.grid) && sameGrid(d.grid, c.grid), 'Snapshot/climate grid does not match');
++    const n = d.grid.columns * d.grid.rows, area = c.cellAreaM2, land = s.fields?.landMask, lake = s.fields?.lakeFillDepthM;
++    for (const values of [area, land, lake]) requireInput(Array.isArray(values) && values.length === n, 'Spatial fields must match the grid');
++    const surface = [];
++    for (let i = 0; i < n; i++) {
++      requireInput(Number.isFinite(area[i]) && area[i] > 0, 'Cell area must be positive and finite');
++      requireInput((land[i] === 0 || land[i] === 1) && Number.isFinite(lake[i]) && lake[i] >= 0, 'Invalid land or lake mask');
++      const wet = !land[i] || lake[i] > 0;
++      requireInput(Number(wet) === d.fields.wet[i], 'Wet mask does not match saved terrain');
++      surface.push(!land[i] ? 'sea' : lake[i] > 0 ? 'lake' : 'land');
++    }
++    return {name: index === 0 ? 'L0' : 'L1', grid: d.grid, fields: d.fields, totals: d.totals, area, surface,
++      id: d.id, worldId: d.sourceWorldId, climateId: d.climateId, populationId: d.populationId};
++  });
++  requireInput(l0.population?.id === parents.populationId && children.populationId === parents.populationId,
++    'Population authority identity does not match');
++  requireInput(children.sourceWorldId === parents.sourceWorldId && children.parentDistributionId === parents.id,
++    'L1 parent distribution identity does not match');
++  requireInput(sameGrid(children.unallocated.parentGrid, parents.grid), 'Unallocated parent grid does not match');
++  const scale = children.grid.columns / parents.grid.columns;
++  requireInput(Number.isSafeInteger(scale) && scale >= 1 && children.grid.rows / parents.grid.rows === scale && (scale & (scale - 1)) === 0,
++    'L1 must use the matching power-of-two geographic grid');
++  const n = parents.grid.columns * parents.grid.rows, childN = children.grid.columns * children.grid.rows;
++  requireInput(Array.isArray(l1.parentCell) && l1.parentCell.length === childN, 'L1 parent cells must match the grid');
++  const allocated = Object.fromEntries(BUDGETS.map(key => [key, Array(n).fill(0)]));
++  for (let i = 0; i < childN; i++) {
++    const expected = Math.floor(Math.floor(i / children.grid.columns) / scale) * parents.grid.columns + Math.floor((i % children.grid.columns) / scale);
++    requireInput(l1.parentCell[i] === expected, 'L1 parent cell does not match its geographic position');
++    for (const key of BUDGETS) allocated[key][expected] += children.fields[key][i];
++  }
++  const u = children.unallocated, byParent = new Map(u.parentCells.map((p, i) => [p, i]));
++  for (let p = 0; p < n; p++) for (const key of BUDGETS) {
++    const i = byParent.get(p), remaining = i === undefined ? 0 : u[key][i];
++    requireInput(parents.fields[key][p] === allocated[key][p] + remaining, `Parent budget does not conserve ${key}`);
++  }
++  const census = parents.summary;
++  for (const key of ['requestedPopulation', 'supportedPopulation', 'unplacedPopulation']) {
++    requireInput(children.summary[key] === census[key], `L0/L1 census mismatch: ${key}`);
++  }
++  // summary.json is presentation metadata, never an independent authority.
++  requireInput(summary?.schema === 'l0-settlement-baseline@1', 'Saved baseline summary required');
++  for (const [part, d] of [['l0', parents], ['l1', children]]) {
++    requireInput(summary[part]?.settlementDistributionId === d.id, 'Baseline summary distribution identity does not match');
++    for (const key of ['villages', 'towns', 'cities', 'populatedCells']) requireInput(summary[part][key] === d.totals[key], `Baseline summary ${part}.${key} does not match`);
++  }
++  for (const key of ['requestedPopulation', 'supportedPopulation', 'unplacedPopulation']) requireInput(summary.l0[key] === census[key], `Baseline summary ${key} does not match`);
++  requireInput(summary.l1.unallocatedPopulation === u.totals.population && summary.l1.unallocatedParents === u.parentCells.length,
++    'Baseline summary unallocated budgets do not match');
++  return {layers, census, parentCell: l1.parentCell, unallocated: u, seed: String(summary.seed ?? '')};
++}
++
++// Kept self-contained so the exact browser code can also run in a minimal
++// DOM/Canvas harness, without a browser, server or external dependencies.
++function settlementReviewRuntime(data) {
++  const $ = id => document.getElementById(id);
++  const fmt = n => n.toLocaleString('ja-JP');
++  const decimal = n => n.toLocaleString('ja-JP', {maximumSignificantDigits: 4});
++  const budgets = ['population', 'ruralPopulation', 'townPopulation', 'cityPopulation', 'villages', 'towns', 'cities'];
++  const names = {population: '人口密度', villages: '村の分布', towns: '町の分布', cities: '都市の分布'};
++  const limits = {population: [.1, 1, 10, 50, 200], villages: [.001, .01, .1, 1, 10], towns: [.0001, .001, .01, .1, 1], cities: [.00001, .0001, .001, .01, .1]};
++  const colors = ['#fff0bb', '#ffd16d', '#f8a844', '#ec7139', '#c4443b', '#822c50'];
++  const base = {sea: '#17394c', lake: '#4b97b1', empty: '#687865', zero: '#dbe3cf'};
++  const labels = {sea: '海', lake: '湖', empty: '人口0の陸地', zero: '居住予算あり・この種類の予定数0'};
++  const map = $('map'), ctx = map.getContext('2d'), cache = new Map();
++  const parentTotals = Object.fromEntries(budgets.map(k => [k, Array(data.layers[0].area.length).fill(0)]));
++  const childCounts = Array(data.layers[0].area.length).fill(0);
++  data.parentCell.forEach((p, i) => { childCounts[p]++; for (const k of budgets) parentTotals[k][p] += data.layers[1].fields[k][i]; });
++  const unallocatedIndex = new Map(data.unallocated.parentCells.map((p, i) => [p, i]));
++  let location = null, pendingIndex = 0;
++  $('level').value = '0'; $('metric').value = 'population';
++  const layer = () => data.layers[Number($('level').value)];
++  const center = (l, i) => [(i % l.grid.columns + .5) / l.grid.columns * 360, 90 - (Math.floor(i / l.grid.columns) + .5) / l.grid.rows * 180];
++  const cellAt = l => Math.min(l.grid.rows - 1, Math.max(0, Math.floor((90 - location[1]) / 180 * l.grid.rows))) * l.grid.columns +
++    Math.min(l.grid.columns - 1, Math.max(0, Math.floor(location[0] / 360 * l.grid.columns)));
++  const density = (l, i, key) => l.fields[key][i] / (l.area[i] / 1e6) * (key === 'population' ? 1 : 1000);
++  const color = (l, i, key) => {
++    if (l.surface[i] !== 'land') return base[l.surface[i]];
++    if (l.fields.population[i] === 0) return base.empty;
++    if (l.fields[key][i] === 0) return base.zero;
++    const value = density(l, i, key), bin = limits[key].findIndex(v => value < v);
++    return colors[bin < 0 ? colors.length - 1 : bin];
++  };
++  const bounds = (l, i) => {
++    const x = i % l.grid.columns, y = Math.floor(i / l.grid.columns), w = 360 / l.grid.columns, h = 180 / l.grid.rows;
++    return '緯度 ' + (90 - (y + 1) * h).toFixed(3) + '〜' + (90 - y * h).toFixed(3) + '° / 経度 ' + (x * w).toFixed(3) + '〜' + ((x + 1) * w).toFixed(3) + '°';
++  };
++  const image = (l, key) => {
++    const id = l.name + key;
++    if (cache.has(id)) return cache.get(id);
++    const canvas = document.createElement('canvas'); canvas.width = l.grid.columns; canvas.height = l.grid.rows;
++    const c = canvas.getContext('2d'), pixels = c.createImageData(canvas.width, canvas.height);
++    for (let i = 0; i < l.area.length; i++) {
++      const hex = color(l, i, key);
++      pixels.data.set([parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16), 255], i * 4);
++    }
++    c.putImageData(pixels, 0, 0); cache.set(id, canvas); return canvas;
++  };
++  function legend() {
++    const key = $('metric').value, unit = key === 'population' ? '人/km²' : '予定数/1,000 km²';
++    $('legend-title').textContent = names[key] + ' · ' + unit + '（L0/L1共通）';
++    const list = $('legend'); list.replaceChildren();
++    const entry = (hex, label) => {
++      const item = document.createElement('li'), swatch = document.createElement('i'), text = document.createElement('span');
++      swatch.style.backgroundColor = hex; swatch.setAttribute('aria-hidden', 'true'); text.textContent = label;
++      item.append(swatch, text); list.append(item);
++    };
++    for (const k of ['sea', 'lake', 'empty', ...(key === 'population' ? [] : ['zero'])]) entry(base[k], labels[k]);
++    for (let i = 0; i < colors.length; i++) {
++      const low = i === 0 ? '0超' : decimal(limits[key][i - 1]) + '以上';
++      entry(colors[i], low + (i < limits[key].length ? '〜' + decimal(limits[key][i]) + '未満' : ''));
++    }
++  }
++  function selection() {
++    const l = layer(), i = cellAt(l), land = l.surface[i] === 'land';
++    const kind = land ? (l.fields.population[i] > 0 ? '居住予算のある陸地' : '人口0の陸地') : labels[l.surface[i]];
++    $('selection-title').textContent = l.name + 'の選択区画 · ' + kind;
++    $('cell-bounds').textContent = bounds(l, i);
++    $('cell-area').textContent = decimal(l.area[i] / 1e6) + ' km²';
++    for (const key of ['population', 'villages', 'towns', 'cities']) {
++      $('cell-' + key).textContent = fmt(l.fields[key][i]) + (key === 'population' ? ' 人' : '');
++      $('density-' + key).textContent = decimal(density(l, i, key)) + (key === 'population' ? ' 人/km²' : ' /1,000 km²');
++    }
++    $('parent-budget').hidden = l.name !== 'L1';
++    if (l.name === 'L1') {
++      const p = data.parentCell[i], u = unallocatedIndex.get(p);
++      $('parent-bounds').textContent = bounds(data.layers[0], p);
++      $('parent-explanation').textContent = '選択区画を含む ' + fmt(childCounts[p]) + ' 区画への配分。全7項目で L0親 ＝ 子の合計 ＋ 未配分。';
++      for (const k of budgets) {
++        $('parent-' + k).textContent = fmt(data.layers[0].fields[k][p]);
++        $('allocated-' + k).textContent = fmt(parentTotals[k][p]);
++        $('remaining-' + k).textContent = fmt(u === undefined ? 0 : data.unallocated[k][u]);
++      }
++    }
++    $('selection-live').textContent = l.name + '、' + kind + '。' + bounds(l, i) + '。予定人口 ' + fmt(l.fields.population[i]) + ' 人。村 ' + fmt(l.fields.villages[i]) + '、町 ' + fmt(l.fields.towns[i]) + '、都市 ' + fmt(l.fields.cities[i]) + '。';
++    $('cell-identity').textContent = '区画番号: ' + i + (l.name === 'L1' ? ' / L0親区画番号: ' + data.parentCell[i] : '') + ' / 分布ID: ' + l.id;
++  }
++  function draw() {
++    const l = layer(), key = $('metric').value, i = cellAt(l);
++    ctx.imageSmoothingEnabled = false;
++    ctx.clearRect(0, 0, map.width, map.height); ctx.drawImage(image(l, key), 0, 0, map.width, map.height);
++    const outline = (grid, index, stroke, width, inset = 0) => {
++      ctx.strokeStyle = stroke; ctx.lineWidth = width;
++      const w = map.width / grid.columns, h = map.height / grid.rows;
++      ctx.strokeRect(index % grid.columns * w + inset, Math.floor(index / grid.columns) * h + inset, w - inset * 2, h - inset * 2);
++    };
++    if (l.name === 'L1') { ctx.setLineDash([6, 4]); outline(data.layers[0].grid, data.parentCell[i], '#ffec99', 2); ctx.setLineDash([]); }
++    outline(l.grid, i, '#102a34', 5); outline(l.grid, i, '#ffffff', 2);
++    const t = l.totals;
++    $('layer-summary').textContent = (l.name === 'L1' ? 'L1へ配分済み' : 'L0の人口予算') + '：' + fmt(t.population) + ' 人 / 村 ' + fmt(t.villages) + ' / 町 ' + fmt(t.towns) + ' / 都市 ' + fmt(t.cities) + '（人口のある区画 ' + fmt(t.populatedCells) + '）';
++    $('map-status').textContent = l.name + ' · ' + l.grid.columns + ' × ' + l.grid.rows + ' 区画 · ' + names[key];
++    selection(); legend();
++  }
++  let first = data.layers[0].fields.population.findIndex(v => v > 0);
++  location = center(data.layers[0], first < 0 ? 0 : first);
++  for (const k of ['requestedPopulation', 'supportedPopulation', 'unplacedPopulation']) $('global-' + k).textContent = fmt(data.census[k]);
++  for (const k of ['villages', 'towns', 'cities']) $('global-' + k).textContent = fmt(data.layers[0].totals[k]);
++  $('global-allocated').textContent = fmt(data.layers[1].totals.population);
++  $('global-unallocated').textContent = fmt(data.unallocated.totals.population);
++  $('unallocated-parent-count').textContent = fmt(data.unallocated.parentCells.length);
++  $('unallocated-note').classList.toggle('attention', data.unallocated.totals.population > 0);
++  $('pending').hidden = data.unallocated.parentCells.length === 0;
++  $('seed').textContent = data.seed;
++  $('identities').textContent = data.layers.map(l => l.name + ': 世界 ' + l.worldId + ' / 気候 ' + l.climateId + ' / 人口正本 ' + l.populationId + ' / 分布 ' + l.id).join('\n');
++  map.onpointerdown = event => {
++    if (event.button !== undefined && event.button !== 0) return;
++    const r = map.getBoundingClientRect();
++    location = [Math.max(0, Math.min(1 - Number.EPSILON, (event.clientX - r.left) / r.width)) * 360,
++      90 - Math.max(0, Math.min(1, (event.clientY - r.top) / r.height)) * 180];
++    map.focus({preventScroll: true}); draw();
++  };
++  map.onkeydown = event => {
++    const steps = {ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1]}, step = steps[event.key];
++    if (!step) return;
++    event.preventDefault();
++    const l = layer(), i = cellAt(l), w = l.grid.columns, h = l.grid.rows;
++    const x = (i % w + step[0] + w) % w, y = Math.max(0, Math.min(h - 1, Math.floor(i / w) + step[1]));
++    location = center(l, y * w + x); draw();
++  };
++  $('level').onchange = draw; $('metric').onchange = draw;
++  $('to-parent').onclick = () => { $('level').value = '0'; draw(); };
++  $('pending').onclick = () => {
++    const p = data.unallocated.parentCells[pendingIndex++ % data.unallocated.parentCells.length];
++    location = center(data.layers[0], p); $('level').value = '1'; draw(); map.focus({preventScroll: true});
++  };
++  draw();
++}
++
++/** Build a single offline HTML document from validated saved L0/L1 records. */
++export function buildSettlementDistributionReview(records) {
++  const data = JSON.stringify(reviewData(records)).replaceAll('<', '\\u003c').replaceAll('\u2028', '\\u2028').replaceAll('\u2029', '\\u2029');
++  const budgetRows = [['population', '人口（人）'], ['ruralPopulation', '村の人口'], ['townPopulation', '町の人口'], ['cityPopulation', '都市の人口'], ['villages', '村の予定数'], ['towns', '町の予定数'], ['cities', '都市の予定数']]
++    .map(([k, label]) => `<tr><th scope="row">${label}</th><td id="parent-${k}"></td><td id="allocated-${k}"></td><td id="remaining-${k}"></td></tr>`).join('');
++  return `<!doctype html>
++<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
++<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'">
++<title>惑星の人口・集落分布</title><style>
++:root{color-scheme:light;--ink:#18363e;--muted:#52656b;--line:#d8e1dc;--paper:#f4f6f0;--accent:#16617b}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,"Yu Gothic",Meiryo,sans-serif}main{max-width:1240px;margin:auto;padding:24px}h1{font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.3;margin:6px 0 10px}h2{font-size:1.12rem;margin:0 0 10px}p{margin:8px 0}.eyebrow{color:var(--accent);font-size:.8rem;letter-spacing:.1em;font-weight:700}.intro{max-width:65em;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 18px}.stat dt{color:var(--muted);font-size:.85rem}.stat dd{margin:2px 0 0;font-size:clamp(1.1rem,3vw,1.65rem);font-weight:700;font-variant-numeric:tabular-nums}.stat dd small{font-size:.75rem;font-weight:400}.map-card,.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.controls label{display:grid;gap:4px;flex:1 1 210px;min-width:0;font-weight:600;font-size:.88rem}select,button{font:inherit;color:inherit;border:1px solid #a4b5b4;border-radius:7px;background:white;min-height:44px;padding:8px 10px;max-width:100%}select{width:100%;min-width:0}button{cursor:pointer;background:#eef4ef}button:hover{background:#ddebe5}:focus-visible{outline:3px solid #0077ad;outline-offset:4px}#map{display:block;width:100%;height:auto;aspect-ratio:2/1;background:#17394c;cursor:crosshair;border-radius:3px;touch-action:pan-y}#map:focus-visible{outline:4px solid #0077ad;outline-offset:4px}.map-wrap{margin-top:12px}.longitudes{display:flex;justify-content:space-between;color:var(--muted);font-size:.72rem;margin:2px 0}.help,.caption{font-size:.82rem;color:var(--muted)}#map-status{font-weight:600;font-size:.85rem}#layer-summary{font-size:.88rem;overflow-wrap:anywhere}.legend-title{font-size:.88rem;margin:12px 0 4px}.legend{list-style:none;padding:0;margin:4px 0;display:flex;flex-wrap:wrap;gap:5px 16px;font-size:.78rem}.legend li{display:flex;align-items:center;gap:6px}.legend i{width:15px;height:15px;border:1px solid #0003;border-radius:2px;flex:none}.totals{display:flex;flex-wrap:wrap;gap:8px 24px;padding:12px 0;font-variant-numeric:tabular-nums}.totals strong{font-size:1.08rem}.allocation{margin:16px 0;padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:#edf3ed}.allocation.attention{border-color:#c78c26;background:#fff3d6}#global-unallocated{font-weight:800}.selection-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.cell-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.cell-stats>div{padding:8px 10px;background:#f4f6f0;border-radius:7px;min-width:0}.cell-stats dt{font-size:.82rem;color:var(--muted)}.cell-stats dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}.cell-stats small{display:block;font-weight:400;color:var(--muted);font-size:.78rem;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;font-size:.84rem;table-layout:fixed;margin:12px 0}th,td{padding:8px 4px;border-bottom:1px solid var(--line);text-align:right;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}th:first-child{text-align:left}thead{background:#f0f4ed}td:last-child{font-weight:700}details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}summary{cursor:pointer;font-size:.9rem}pre,.identity{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.78rem;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}[hidden]{display:none!important}noscript{display:block;padding:24px;background:#fff3d6}
++body{overflow-wrap:anywhere}
++@media(max-width:700px){main{padding:16px}.selection-grid{grid-template-columns:1fr}.map-card,.panel{padding:14px}.stats{grid-template-columns:1fr;gap:7px}.stat{padding:10px}.stat dt{font-size:.75rem}.controls{gap:8px}.controls label{flex-basis:100%}.controls button{width:100%}.totals{gap:6px 16px}table{font-size:.78rem}}
++@media(max-width:390px){main{padding:12px}.stat dd{font-size:1.3rem;white-space:nowrap}.stat dd small{display:block}.map-card,.panel{padding:12px}.stats{gap:5px}.stat{padding:8px 6px}.cell-stats{gap:8px}}
++</style></head><body><main>
++<header><div class="eyebrow">L0 → L1 / 分布の作業版</div><h1>惑星の人口・集落分布</h1><p class="intro">各区画の予定人口と村・町・都市の数を、全球図で確認します。家・街・道路や、集落の正確な位置はまだ作っていません。</p></header>
++<dl class="stats" aria-label="全球の人口"><div class="stat"><dt>設定人口</dt><dd><span id="global-requestedPopulation">—</span> <small>人</small></dd></div><div class="stat"><dt>L0の人口予算</dt><dd><span id="global-supportedPopulation">—</span> <small>人</small></dd></div><div class="stat"><dt>L0で割り当てられない人口</dt><dd><span id="global-unplacedPopulation">—</span> <small>人</small></dd></div></dl>
++<section class="map-card" aria-label="全球の分布図"><div class="controls"><label>確認する段階<select id="level"><option value="0">L0 · 惑星の分布</option><option value="1">L1 · 広域への配分</option></select></label><label>色で比べる内容<select id="metric"><option value="population">人口密度</option><option value="villages">村の分布</option><option value="towns">町の分布</option><option value="cities">都市の分布</option></select></label><button id="pending" type="button" hidden>未配分の地域を見る</button></div>
++<p id="layer-summary"></p><div class="map-wrap"><div class="longitudes" aria-hidden="true"><span>経度 0°</span><span>90°</span><span>180°</span><span>270°</span><span>360°</span></div><canvas id="map" width="1440" height="720" tabindex="0" role="img" aria-label="惑星の人口・集落分布図。クリック、タップ、矢印キーで区画を選択できます" aria-describedby="map-help">地図を描画できない場合も、下の選択区画に予算を表示します。</canvas></div>
++<p id="map-status"></p><p id="map-help" class="help">上が北極、下が南極。経度は0〜360°（東向き）。クリック・タップで区画を選択し、矢印キーで隣へ移動できます。白枠が選択区画、L1の黄色い破線がL0親の範囲です。</p><h2 id="legend-title" class="legend-title"></h2><ul id="legend" class="legend"></ul><p class="caption">色は区画全体の面積あたりの密度です。L0/L1で同じ尺度を使い、村・町・都市は位置を表す点記号では表示しません。</p></section>
++<div class="totals" aria-label="全球の集落予算"><span>全球の村 <strong id="global-villages">—</strong></span><span>町 <strong id="global-towns">—</strong></span><span>都市 <strong id="global-cities">—</strong></span><span class="help">L0の予定数</span></div>
++<div id="unallocated-note" class="allocation"><p>L1へ配分済み <strong id="global-allocated">—</strong> 人 ＋ 未配分 <strong id="global-unallocated">—</strong> 人（L0親 <span id="unallocated-parent-count">—</span> 区画）＝ L0の人口予算</p><p class="help">L0で割り当てられない人口は、設定人口のうち農業条件の仮定から予算に含められなかった分です。L1未配分は、親にある人口予算を子へ渡せず保留している分です。集落の正確な位置は、どちらの段階でも未確定です。人口0の陸地は、その区画への配分が0という意味です。</p></div>
++<div class="selection-grid"><section class="panel" aria-labelledby="selection-title"><h2 id="selection-title">選択区画</h2><p id="cell-bounds"></p><p class="help">区画の面積 <span id="cell-area"></span></p><dl class="cell-stats"><div><dt>予定人口</dt><dd><span id="cell-population"></span><small id="density-population"></small></dd></div><div><dt>村の予定数</dt><dd><span id="cell-villages"></span><small id="density-villages"></small></dd></div><div><dt>町の予定数</dt><dd><span id="cell-towns"></span><small id="density-towns"></small></dd></div><div><dt>都市の予定数</dt><dd><span id="cell-cities"></span><small id="density-cities"></small></dd></div></dl><details><summary>選択区画の識別情報</summary><p id="cell-identity" class="identity"></p></details></section>
++<section id="parent-budget" class="panel" aria-label="L0親予算とL1配分" hidden><h2>L0親の予算と、その子への配分</h2><p id="parent-bounds" class="help"></p><p id="parent-explanation" class="help"></p><table><caption class="sr-only">各行でL0親＝子の合計＋未配分。人口は人、集落は予定数。</caption><thead><tr><th scope="col">予算</th><th scope="col">L0親</th><th scope="col">子の合計</th><th scope="col">未配分</th></tr></thead><tbody>${budgetRows}</tbody></table><button id="to-parent" type="button">同じ場所をL0で見る</button></section></div>
++<p id="selection-live" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
++<details class="panel"><summary>データの出典・モデルの前提</summary><p>seed: <span id="seed"></span>。保存済みのL0人口正本と、L1の配分結果を表示しています。表示や選択の操作では、保存データを変更しません。</p><p>正距円筒図のため高緯度ほど見かけの面積が広がります。密度は保存された球面上の区画面積で計算します。適性は相対的な配分重みで、細かい食料収容力を保証しません。集落数は仮定した平均規模に依存し、都市階層のシミュレーションではありません。</p><p>湖は静的水位の仮定です。家・農地・街路・都市の位置、交易・灌漑・漁業・移住は、この分布図には含みません。</p><pre id="identities"></pre></details>
++<p class="help">再作成: <code>npm run l0:baseline</code>。実データから作成した独立の分布確認用です。通常画面で現在開いている保存世界の分布を示すものではありません。</p>
++<noscript>この分布図の表示・区画選択にはJavaScriptが必要です。保存データは変更しません。</noscript>
++</main><script id="review-data" type="application/json">${data}</script><script>(${settlementReviewRuntime.toString()})(JSON.parse(document.getElementById('review-data').textContent));</script></body></html>`;
++}
++
++/** Re-render saved records, independently of any generation stage. */
++export function renderSavedSettlementDistributionReview(directory, output = path.join(directory, 'review.html')) {
++  const records = Object.fromEntries(['l0', 'l1', 'summary'].map(key => [key, JSON.parse(fs.readFileSync(path.join(directory, key + '.json'), 'utf8'))]));
++  const html = buildSettlementDistributionReview(records);
++  const destination = path.resolve(output);
++  requireInput(!['l0.json', 'l1.json', 'summary.json'].some(name => path.resolve(directory, name).toLowerCase() === destination.toLowerCase()), 'Refusing to overwrite saved baseline data');
++  requireInput(path.extname(destination).toLowerCase() === '.html', 'Review output must be an HTML file');
++  fs.mkdirSync(path.dirname(destination), {recursive: true});
++  fs.writeFileSync(destination, html, 'utf8');
++  return destination;
++}
++
++if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
++  const [directory = 'reports/l0-settlement-baseline', output, ...extra] = process.argv.slice(2);
++  if (extra.length) throw new RangeError('Usage: node scripts/build-settlement-distribution-review.mjs [saved-directory] [review.html]');
++  console.log(renderSavedSettlementDistributionReview(directory, output));
++}
+--- /dev/null
++++ b/test/settlement-distribution.test.mjs
+@@ -0,0 +1,222 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import os from 'node:os';
++import path from 'node:path';
++import {copyJson, hashJson} from '../src/core/json-contract.mjs';
++import {
++  createL0SettlementDistribution, validateSettlementDistribution,
++  describeSettlementDistribution, refineSettlementDistribution, SETTLEMENT_DISTRIBUTION_SCHEMA,
++} from '../src/core/settlement-distribution.mjs';
++import {describeL0Region} from '../src/core/planet-macro.mjs';
++import {auditL0} from '../scripts/audit-l0.mjs';
++import {createL0ResolutionSeries} from '../scripts/experiments/l0-resolution-series.mjs';
++import {createL1BroadRegion} from '../src/core/l1-broad-region.mjs';
++import {parseBaselineArgs, buildL0SettlementBaseline, saveBaseline, SETTLEMENT_BUDGETS} from '../scripts/build-l0-settlement-baseline.mjs';
++
++function fixture({ columns = 1, rows = 1, population, ruralPopulation, townPopulation = population.map(() => 0), cityPopulation = population.map(() => 0), villages, towns = population.map(() => 0), cities = population.map(() => 0), landMask, lakeFillDepthM, suitability }) {
++  const n = columns * rows;
++  const at = (a, fallback) => (a === undefined ? fallback : a);
++  const budgets = { population, ruralPopulation, townPopulation, cityPopulation, villages, towns, cities };
++  for (const [key, values] of Object.entries(budgets)) if (!Array.isArray(values) || values.length !== n) throw new Error(`fixture ${key} length`);
++  const cells = population.map((_, i) => ({ cellIndex: i, population: population[i], ruralPopulation: ruralPopulation[i], townPopulation: townPopulation[i], cityPopulation: cityPopulation[i], villages: villages[i], towns: towns[i], cities: cities[i], suitability: at(suitability, population.map(() => 1))[i] }));
++  const snapshot = { worldId: 'world@1', grid: { columns, rows }, frame: { radiusM: 6371000, verticalDatum: 'test' }, references: { sea: { levelElevationM: 0 } }, fields: { groundElevationM: Array.from({ length: n }, () => 100), landMask, lakeFillDepthM: at(lakeFillDepthM, landMask.map(() => 0)) } };
++  const climate = { id: 'climate@1', sourceWorldId: 'world@1', grid: { columns, rows }, cellAreaM2: Array.from({ length: n }, () => 1), biome: Array.from({ length: n }, () => 'grassland'), annualMeanTemperatureC: Array.from({ length: n }, () => 12), annualPrecipitationMm: Array.from({ length: n }, () => 600) };
++  const authority = { id: 'population@1', sourceWorldId: 'world@1', climateId: 'climate@1', grid: { columns, rows }, totals: { targetPopulation: population.reduce((s, v) => s + v, 0), supportedPopulation: population.reduce((s, v) => s + v, 0), unplacedPopulation: 0 }, cells };
++  return { snapshot, climate, population: authority };
++}
++
++const singleParent = () => fixture({ population: [100], ruralPopulation: [100], villages: [3], landMask: [1] });
++
++const mutation = (value) => JSON.parse(JSON.stringify(value));
++const reidentify = (value) => { const { id, ...content } = value; return { ...content, id: hashJson(copyJson(content)) }; };
++
++test('L0 distribution inherits the census, ignores water cells and survives reload', () => {
++  const { snapshot, climate, population } = fixture({ columns: 2, rows: 1, population: [100, 0], ruralPopulation: [100, 0], villages: [4, 0], landMask: [1, 0] });
++  const before = JSON.stringify({ snapshot, climate, population });
++  const distribution = createL0SettlementDistribution(snapshot, climate, population);
++  assert.equal(distribution.schema, SETTLEMENT_DISTRIBUTION_SCHEMA);
++  assert.equal(distribution.layer, 'L0');
++  assert.equal(distribution.status, 'distribution-only');
++  assert.deepEqual(distribution.totals, { population: 100, ruralPopulation: 100, townPopulation: 0, cityPopulation: 0, villages: 4, towns: 0, cities: 0, populatedCells: 1 });
++  assert.deepEqual(distribution.fields.wet, [0, 1]);
++  assert.equal(distribution.fields.population[1], 0);
++  validateSettlementDistribution(distribution);
++  assert.deepEqual(JSON.parse(JSON.stringify(distribution)), distribution);
++  assert.equal(JSON.stringify({ snapshot, climate, population }), before);
++  for (let i = 0; i < 2; i++) assert.equal(distribution.fields.ruralPopulation[i] + distribution.fields.townPopulation[i] + distribution.fields.cityPopulation[i], distribution.fields.population[i]);
++  assert.equal(distribution.id, createL0SettlementDistribution(snapshot, climate, population).id);
++});
++
++test('validation rejects a tampered id, water allocation and mismatched inputs', () => {
++  const { snapshot, climate, population } = fixture({ population: [100], ruralPopulation: [100], villages: [3], landMask: [1] });
++  const distribution = createL0SettlementDistribution(snapshot, climate, population);
++  const tampered = mutation(distribution); tampered.interpretation = 'forged';
++  assert.throws(() => validateSettlementDistribution(tampered), /identity/);
++  const shifted = mutation(distribution); shifted.fields.population[0] += 1;
++  assert.throws(() => validateSettlementDistribution(shifted), /does not match/);
++  const wet = mutation(distribution); wet.fields.wet[0] = 1;
++  assert.throws(() => validateSettlementDistribution(wet), /Water|water|Sea/);
++  const badCount = mutation(distribution); badCount.fields.villages[0] = 0;
++  assert.throws(() => validateSettlementDistribution(badCount), /Inconsistent/);
++  const altCells = population.cells.map(c => ({ ...c, ruralPopulation: 99, cityPopulation: 1, cities: 1, villages: 3, population: 100 }));
++  const alternative = createL0SettlementDistribution(snapshot, climate, { ...population, id: 'population@2', cells: altCells });
++  assert.doesNotThrow(() => validateSettlementDistribution(alternative));
++  assert.notEqual(alternative.id, distribution.id);
++  assert.throws(() => createL0SettlementDistribution({ ...snapshot, worldId: 'other' }, climate, population), /population authority/);
++  assert.throws(() => createL0SettlementDistribution(snapshot, { ...climate, id: 'other' }, population), /climate/);
++  assert.throws(() => createL0SettlementDistribution(snapshot, climate, { ...population, grid: { columns: 2, rows: 1 } }), /population authority/);
++  assert.throws(() => createL0SettlementDistribution(snapshot, climate, { ...population, totals: { ...population.totals, supportedPopulation: 50 } }), /balance|does not match/);
++});
++
++test('re-hashed totals, populated-cell counts and summaries are rejected as inconsistent aggregates', () => {
++  const { snapshot, climate, population } = fixture({ population: [100], ruralPopulation: [100], villages: [3], landMask: [1] });
++  const distribution = createL0SettlementDistribution(snapshot, climate, population);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(distribution), totals: { ...distribution.totals, villages: distribution.totals.villages + 1 } })), /total 'villages'/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(distribution), totals: { ...distribution.totals, populatedCells: 0 } })), /populatedCells/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(distribution), totals: { ...distribution.totals, population: 10000000001 } })), /total 'population'/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(distribution), summary: { ...distribution.summary, supportedPopulation: distribution.summary.supportedPopulation - 1 } })), /balance|supported population/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(distribution), summary: { ...distribution.summary, villages: distribution.summary.villages + 1 } })), /summary 'villages'/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(distribution), summary: { ...distribution.summary, requestedPopulation: 10000000001, supportedPopulation: 10000000001 } })), /Invalid requestedPopulation/);
++  const overWorld = reidentify({
++    ...mutation(distribution),
++    fields: { ...distribution.fields, population: [10000000001], ruralPopulation: [10000000001] },
++    totals: { ...distribution.totals, population: 10000000001, ruralPopulation: 10000000001 },
++    summary: { ...distribution.summary, requestedPopulation: 10000000001, supportedPopulation: 10000000001 },
++  });
++  assert.throws(() => validateSettlementDistribution(overWorld), /Invalid population/);
++});
++
++test('L1 unallocated totals, false empty aggregates and L1 re-refinement are rejected', () => {
++  const { snapshot, climate, population } = singleParent();
++  const parent = createL0SettlementDistribution(snapshot, climate, population);
++  const base = { sourceWorldId: 'world@1', climateId: 'l1-climate@1', sourceLayerId: 'l1-layer@1', grid: { columns: 2, rows: 1 }, parentCell: [0, 0], cellAreaM2: [1, 1], lakeFillDepthM: [0, 0] };
++  const allWet = refineSettlementDistribution(parent, { ...base, landMask: [0, 0] });
++  validateSettlementDistribution(allWet);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(allWet), unallocated: { ...allWet.unallocated, totals: { ...allWet.unallocated.totals, villages: allWet.unallocated.totals.villages + 1 } } })), /Unallocated total 'villages'/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(allWet), unallocated: { ...allWet.unallocated, totals: { ...allWet.unallocated.totals, parentCells: 0 } } })), /parentCells/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(allWet), unallocated: { ...allWet.unallocated, totals: { ...allWet.unallocated.totals, population: 0, ruralPopulation: 0, villages: 0 } } })), /Unallocated population does not match|Unallocated total/);
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(allWet), summary: { ...allWet.summary, unallocatedPopulation: allWet.summary.unallocatedPopulation - 1 } })), /unallocated population/);
++  const allSuitable = refineSettlementDistribution(parent, { ...base, landMask: [1, 1], suitability: [1, 1] });
++  assert.deepEqual(allSuitable.unallocated.parentCells, []);
++  assert.deepEqual(allSuitable.unallocated.totals, { population: 0, ruralPopulation: 0, townPopulation: 0, cityPopulation: 0, villages: 0, towns: 0, cities: 0, populatedCells: 0, parentCells: 0 });
++  assert.throws(() => validateSettlementDistribution(reidentify({ ...mutation(allSuitable), unallocated: { ...allSuitable.unallocated, totals: { ...allSuitable.unallocated.totals, villages: 5 } } })), /Unallocated total 'villages'/);
++  assert.throws(() => refineSettlementDistribution(allWet, { ...base, grid: { columns: 4, rows: 1 }, parentCell: [0, 0, 0, 0], cellAreaM2: [1, 1, 1, 1], landMask: [1, 1, 1, 1] }), /L0 parent/);
++});
++
++test('describe aggregates budgets and describeL0Region attaches them as settlementBudget', () => {
++  const { snapshot, climate, population } = fixture({ columns: 2, rows: 1, population: [100, 20], ruralPopulation: [100, 20], villages: [4, 1], landMask: [1, 1] });
++  const distribution = createL0SettlementDistribution(snapshot, climate, population);
++  const described = describeSettlementDistribution(distribution, [1, 0]);
++  assert.deepEqual(described.cellIndices, [0, 1]);
++  assert.equal(described.budgets.population, 120);
++  assert.equal(described.budgets.villages, 5);
++  assert.equal(described.budgets.population, described.budgets.ruralPopulation + described.budgets.townPopulation + described.budgets.cityPopulation);
++  const whole = describeL0Region(snapshot, climate, [0, 1], distribution);
++  assert.equal(whole.settlementBudget.population, 120);
++  assert.equal(whole.settlementBudget.villages, 5);
++  assert.equal(whole.settlementBudget.player, undefined);
++  assert.equal(describeL0Region(snapshot, climate, [0, 1]).settlementBudget, undefined);
++  const other = createL0SettlementDistribution({ ...snapshot, worldId: 'elsewhere' }, { ...climate, sourceWorldId: 'elsewhere' }, { ...population, sourceWorldId: 'elsewhere' });
++  assert.throws(() => describeL0Region(snapshot, climate, [0], other), /matching this world|must be an L0/);
++});
++
++test('refine conserves every budget, binds people to counts and never touches the parent', () => {
++  const { snapshot, climate, population } = singleParent();
++  const parent = createL0SettlementDistribution(snapshot, climate, population);
++  const before = JSON.stringify(parent);
++  const options = {
++    sourceWorldId: 'world@1', climateId: 'l1-climate@1', sourceLayerId: 'l1-layer@1', grid: { columns: 2, rows: 1 }, parentCell: [0, 0],
++    cellAreaM2: [4, 1], landMask: [1, 1], lakeFillDepthM: [0, 0], suitability: [1, 1],
++  };
++  const refined = refineSettlementDistribution(parent, options);
++  validateSettlementDistribution(refined);
++  assert.equal(refined.layer, 'L1');
++  assert.equal(refined.parentDistributionId, parent.id);
++  assert.equal(refined.sourceLayerId, 'l1-layer@1');
++  assert.equal(JSON.stringify(parent), before);
++  for (const key of SETTLEMENT_BUDGETS) assert.equal(refined.totals[key] + refined.unallocated.totals[key], parent.totals[key], key);
++  assert.equal(refined.totals.ruralPopulation, refined.totals.population);
++  for (let i = 0; i < 2; i++) {
++    assert.equal((refined.fields.villages[i] > 0), (refined.fields.ruralPopulation[i] > 0));
++    assert.ok(refined.fields.villages[i] <= refined.fields.ruralPopulation[i]);
++    assert.equal(refined.fields.ruralPopulation[i] + refined.fields.townPopulation[i] + refined.fields.cityPopulation[i], refined.fields.population[i]);
++  }
++  assert.ok(refined.fields.ruralPopulation[0] > refined.fields.ruralPopulation[1]);
++  assert.equal(refined.fields.suitability[0], 1000000);
++  assert.deepEqual(refineSettlementDistribution(parent, options), refined);
++});
++
++test('a parent with no habitable child keeps its budgets as explicit unallocated', () => {
++  const { snapshot, climate, population } = singleParent();
++  const parent = createL0SettlementDistribution(snapshot, climate, population);
++  const base = { sourceWorldId: 'world@1', climateId: 'l1-climate@1', sourceLayerId: 'l1-layer@1', grid: { columns: 2, rows: 1 }, parentCell: [0, 0], cellAreaM2: [1, 1] };
++  for (const option of [{ landMask: [0, 0], lakeFillDepthM: [0, 0] }, { landMask: [1, 1], lakeFillDepthM: [0, 0], suitability: [0, 0] }]) {
++    const refined = refineSettlementDistribution(parent, { ...base, ...option });
++    validateSettlementDistribution(refined);
++    assert.deepEqual(refined.unallocated.parentCells, [0]);
++    for (const key of SETTLEMENT_BUDGETS) {
++      assert.equal(refined.totals[key], 0, key);
++      assert.equal(refined.unallocated.totals[key], parent.totals[key], key);
++      assert.equal(refined.unallocated[key][0], parent.fields[key][0], key);
++    }
++  }
++});
++
++test('refine rejects a different world, grid, parent cell or malformed area', () => {
++  const { snapshot, climate, population } = singleParent();
++  const parent = createL0SettlementDistribution(snapshot, climate, population);
++  const base = { sourceWorldId: 'world@1', climateId: 'l1-climate@1', sourceLayerId: 'l1-layer@1', grid: { columns: 2, rows: 1 }, parentCell: [0, 0], cellAreaM2: [1, 1], landMask: [1, 1], lakeFillDepthM: [0, 0] };
++  assert.throws(() => refineSettlementDistribution(parent, { ...base, sourceWorldId: 'other' }), /world mismatch/);
++  assert.throws(() => refineSettlementDistribution(parent, { ...base, grid: { columns: 2, rows: 2 } }), /must match|length/);
++  assert.throws(() => refineSettlementDistribution(parent, { ...base, parentCell: [0, 2] }), /out of range/);
++  assert.throws(() => refineSettlementDistribution(parent, { ...base, cellAreaM2: [1, 0] }), /positive/);
++  assert.throws(() => refineSettlementDistribution(parent, { ...base, landMask: [1, 2] }), /land mask/);
++});
++
++test('L1 broad region refines the parent distribution and leaves terrain and climate numbers identical', () => {
++  const audit = auditL0('settlement-l1', { columns: 32, rows: 16 });
++  validateSettlementDistribution(audit.settlementDistribution);
++  const series = createL0ResolutionSeries(audit.snapshot, { levels: 2 }), level = series.cases[1];
++  const withBudget = createL1BroadRegion(audit, level);
++  const plainParent = { snapshot: audit.snapshot, climate: audit.climate };
++  const withoutBudget = createL1BroadRegion(plainParent, level);
++  assert.equal(withoutBudget.settlementDistribution, undefined);
++  assert.ok(withBudget.settlementDistribution);
++  validateSettlementDistribution(withBudget.settlementDistribution);
++  assert.equal(withBudget.settlementDistribution.sourceLayerId, withBudget.id);
++  assert.equal(withBudget.settlementDistribution.parentDistributionId, audit.settlementDistribution.id);
++  assert.notEqual(withBudget.id, withoutBudget.id);
++  assert.deepEqual(withBudget.snapshot.fields, withoutBudget.snapshot.fields);
++  assert.deepEqual(withBudget.parentCell, withoutBudget.parentCell);
++  assert.deepEqual(withBudget.provinceKind, withoutBudget.provinceKind);
++  for (const key of ['cellAreaM2', 'annualMeanTemperatureC', 'annualPrecipitationMm', 'biome']) assert.deepEqual(withBudget.climate[key], withoutBudget.climate[key], key);
++  for (const key of SETTLEMENT_BUDGETS) assert.equal(withBudget.settlementDistribution.totals[key] + withBudget.settlementDistribution.unallocated.totals[key], audit.settlementDistribution.totals[key], key);
++  const denser = auditL0('settlement-l1', { columns: 32, rows: 16, targetPopulation: 50000000 });
++  assert.notEqual(denser.settlementDistribution.id, audit.settlementDistribution.id);
++  assert.notEqual(createL1BroadRegion(denser, level).id, withBudget.id);
++});
++
++test('baseline CLI validates options, conserves budgets and reloads identically', () => {
++  assert.deepEqual(parseBaselineArgs([]), { seed: 'planet-1', population: 100000000, columns: 128, rows: 64, levels: 2, outputDir: path.resolve('reports/l0-settlement-baseline') });
++  assert.equal(parseBaselineArgs(['out', '--seed=x', '--population=10', '--columns=16', '--rows=8', '--levels=1']).population, 10);
++  assert.throws(() => parseBaselineArgs(['--levels=6']), /levels/);
++  assert.throws(() => parseBaselineArgs(['--columns=8']), /columns/);
++  assert.throws(() => parseBaselineArgs(['--population=-1']), /population/);
++  assert.throws(() => parseBaselineArgs(['--unknown=1']), /Unknown option/);
++  assert.throws(() => parseBaselineArgs(['examples/planet/generated']), /Refusing/);
++  const result = buildL0SettlementBaseline({ seed: 'baseline-test', targetPopulation: 1000000, columns: 32, rows: 16, levels: 2, beforeLevel: () => {} });
++  assert.equal(result.summary.checks.budgetsConserved, true);
++  assert.equal(result.summary.checks.withinLimit, true);
++  assert.ok(result.summary.sizes.l1Bytes > 0);
++  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'l0-settlement-baseline-'));
++  try {
++    const saved = saveBaseline(result, directory);
++    assert.equal(saved.reloadedIdentical, true);
++    assert.ok(fs.existsSync(path.join(directory, 'l0.json')));
++    assert.ok(fs.existsSync(path.join(directory, 'l1.json')));
++    assert.ok(fs.existsSync(path.join(directory, 'summary.json')));
++  } finally {
++    fs.rmSync(directory, { recursive: true, force: true });
++  }
++});
+--- /dev/null
++++ b/test/settlement-distribution-world.test.mjs
+@@ -0,0 +1,48 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {generatePlanet} from '../src/core/planet-generation.mjs';
++import {snapshotPlanetWorld, restorePlanetWorld} from '../src/core/planet-world.mjs';
++import {validateSettlementDistribution} from '../src/core/settlement-distribution.mjs';
++import {copyJson, hashJson} from '../src/core/json-contract.mjs';
++
++const world = generatePlanet({seed:'settlement-budget-world',columns:16,rows:8,
++  macroProfile:'earthlike-l0@1',climatePlanning:true,settlementCount:0});
++
++test('production L0 generation saves a worldwide census without constructing settlements',()=>{
++  const d=world.settlementDistribution;
++  assert.equal(world.settlements.length,0);
++  assert.equal(d.layer,'L0');
++  assert.equal(d.status,'distribution-only');
++  assert.equal(d.populationId,world.population.id);
++  assert.equal(d.totals.population,world.population.totals.supportedPopulation);
++  assert.ok(d.totals.populatedCells>1);
++  const saved=snapshotPlanetWorld(world), restored=restorePlanetWorld(JSON.stringify(saved));
++  validateSettlementDistribution(saved.settlementDistribution);
++  assert.deepEqual(restored.settlementDistribution,copyJson(d));
++  assert.deepEqual(snapshotPlanetWorld(restored),saved);
++});
++
++test('distribution identity survives the canonical key ordering used by world saves',()=>{
++  const reordered=copyJson(world.settlementDistribution);
++  assert.notDeepEqual(Object.keys(reordered),Object.keys(world.settlementDistribution));
++  assert.equal(validateSettlementDistribution(reordered).id,world.settlementDistribution.id);
++});
++
++test('an explicitly broken distribution cannot be silently omitted while saving',()=>{
++  assert.throws(()=>snapshotPlanetWorld({...world,settlementDistribution:null}),/Settlement distribution required/);
++});
++
++test('a freshly rehashed world still rejects a distribution contradicting its census',()=>{
++  const saved=snapshotPlanetWorld(world), d=saved.settlementDistribution;
++  const i=d.fields.ruralPopulation.findIndex(n=>n>0);
++  assert.ok(i>=0);
++  d.fields.population[i]++;d.fields.ruralPopulation[i]++;
++  d.totals.population++;d.totals.ruralPopulation++;
++  d.summary.supportedPopulation++;d.summary.requestedPopulation++;
++  const {id,...distributionContent}=d;
++  d.id=hashJson(copyJson(distributionContent));
++  validateSettlementDistribution(d);
++  const {worldId,...worldContent}=saved;
++  saved.worldId=hashJson(worldContent);
++  assert.throws(()=>restorePlanetWorld(saved),/does not match its population authority/);
++});
+--- /dev/null
++++ b/test/settlement-distribution-review.test.mjs
+@@ -0,0 +1,250 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import path from 'node:path';
++import vm from 'node:vm';
++import {spawnSync} from 'node:child_process';
++import {fileURLToPath} from 'node:url';
++import {buildL0SettlementBaseline, saveBaseline} from '../scripts/build-l0-settlement-baseline.mjs';
++import {buildSettlementDistributionReview, renderSavedSettlementDistributionReview} from '../scripts/build-settlement-distribution-review.mjs';
++import {createL0SettlementDistribution, refineSettlementDistribution, validateSettlementDistribution, SETTLEMENT_DISTRIBUTION_BUDGETS as BUDGETS} from '../src/core/settlement-distribution.mjs';
++import {copyJson, hashJson} from '../src/core/json-contract.mjs';
++
++const ROOT = fileURLToPath(new URL('../', import.meta.url));
++const TEMP_ROOT = path.join(ROOT, 'tmp/l0-population-20261013');
++const clone = value => JSON.parse(JSON.stringify(value));
++const reidentify = d => { const {id, ...content} = d; return {...content, id: hashJson(copyJson(content))}; };
++function withTemp(run) {
++  fs.mkdirSync(TEMP_ROOT, {recursive: true});
++  const dir = fs.mkdtempSync(path.join(TEMP_ROOT, 'ui-review-'));
++  try { return run(dir); } finally { fs.rmSync(dir, {recursive: true}); }
++}
++
++// Backend-created distributions with known wet, empty, allocated and entirely
++// unallocated parents. Coordinates refer only to grid cells, never settlements.
++function budgetFixture({empty = false} = {}) {
++  const grid = {columns: 4, rows: 2};
++  const snapshot = {worldId: 'review-world', grid, fields: {
++    landMask: [0, 1, 1, 1, 1, 1, 1, 1], lakeFillDepthM: [0, 1, 0, 0, 0, 0, 0, 0],
++  }};
++  const climate = {id: 'review-climate', sourceWorldId: snapshot.worldId, grid, cellAreaM2: Array(8).fill(1e9)};
++  const cells = Array.from({length: 8}, (_, cellIndex) => {
++    const inhabited = !empty && cellIndex >= 3;
++    return {cellIndex, population: inhabited ? 100 : 0, ruralPopulation: inhabited ? 60 : 0,
++      townPopulation: inhabited ? 30 : 0, cityPopulation: inhabited ? 10 : 0,
++      villages: inhabited ? 6 : 0, towns: inhabited ? 3 : 0, cities: inhabited ? 1 : 0, suitability: 1};
++  });
++  const supported = empty ? 0 : 500;
++  const population = {id: 'review-population', sourceWorldId: snapshot.worldId, climateId: climate.id, grid, cells,
++    totals: {targetPopulation: supported + 20, supportedPopulation: supported, unplacedPopulation: 20}};
++  const l0 = {snapshot, climate, population, settlementDistribution: createL0SettlementDistribution(snapshot, climate, population)};
++  const childGrid = {columns: 8, rows: 4};
++  const parentCell = Array.from({length: 32}, (_, i) => Math.floor(Math.floor(i / 8) / 2) * 4 + Math.floor(i % 8 / 2));
++  const landMask = parentCell.map(p => p === 0 || p === 3 ? 0 : 1);
++  const lakeFillDepthM = parentCell.map(p => p === 1 ? 1 : 0);
++  const childSnapshot = {worldId: snapshot.worldId, layerId: 'review-L1', grid: childGrid, fields: {landMask, lakeFillDepthM}};
++  const childClimate = {id: 'review-climate-L1', sourceWorldId: snapshot.worldId, grid: childGrid, cellAreaM2: Array(32).fill(2.5e8)};
++  const distribution = refineSettlementDistribution(l0.settlementDistribution, {sourceWorldId: snapshot.worldId,
++    climateId: childClimate.id, sourceLayerId: childSnapshot.layerId, grid: childGrid, parentCell, cellAreaM2: childClimate.cellAreaM2, landMask, lakeFillDepthM});
++  const l1 = {snapshot: childSnapshot, climate: childClimate, parentCell, settlementDistribution: distribution};
++  const d0 = l0.settlementDistribution;
++  const summary = {schema: 'l0-settlement-baseline@1', seed: 'review',
++    l0: {...d0.summary, settlementDistributionId: d0.id},
++    l1: {...distribution.summary, settlementDistributionId: distribution.id, unallocatedParents: distribution.unallocated.parentCells.length}};
++  return {l0, l1, summary};
++}
++
++function harness(html) {
++  const match = html.match(/<script id="review-data" type="application\/json">([\s\S]*?)<\/script><script>([\s\S]*?)<\/script>/);
++  assert.ok(match, 'standalone data and runtime');
++  const paints = [], outlines = [], canvases = [], elements = new Map();
++  function context() {
++    return {createImageData: (w, h) => ({data: new Uint8ClampedArray(w * h * 4)}),
++      putImageData(image) { this.pixels = image.data; }, clearRect() {},
++      drawImage(image) { paints.push(image); }, setLineDash() {},
++      strokeRect(...rect) { outlines.push({rect, color: this.strokeStyle}); }};
++  }
++  function element(tag = 'div') {
++    return {tag, value: '', textContent: '', hidden: false, style: {}, children: [], attributes: {}, width: 1440, height: 720,
++      ctx: tag === 'canvas' ? context() : null, getContext() { return this.ctx; },
++      classList: {toggle() {}}, setAttribute(k, v) { this.attributes[k] = v; },
++      replaceChildren(...items) { this.children = items; }, append(...items) { this.children.push(...items); },
++      getBoundingClientRect() { return {left: 10, top: 20, width: 720, height: 360}; },
++      focus() { this.focused = true; }};
++  }
++  const $ = id => { if (!elements.has(id)) elements.set(id, element(id === 'map' ? 'canvas' : 'div')); return elements.get(id); };
++  $('review-data').textContent = match[1];
++  const doc = {getElementById: $, createElement(tag) { const e = element(tag); if (tag === 'canvas') canvases.push(e); return e; }};
++  vm.runInNewContext(match[2], {document: doc, Uint8ClampedArray}, {timeout: 3000});
++  const click = (x, y) => $('map').onpointerdown({clientX: 10 + x * 720, clientY: 20 + y * 360, button: 0});
++  const key = key => { let prevented = false; $('map').onkeydown({key, preventDefault() { prevented = true; }}); return prevented; };
++  const level = value => { $('level').value = String(value); $('level').onchange(); };
++  const metric = value => { $('metric').value = value; $('metric').onchange(); };
++  const selected = () => Number($('cell-identity').textContent.match(/区画番号: (\d+)/)[1]);
++  const pixel = (index, canvas = paints.at(-1)) => Array.from(canvas.ctx.pixels.slice(index * 4, index * 4 + 3));
++  return {$, click, key, level, metric, selected, pixel, paints, outlines, canvases, data: JSON.parse(match[1])};
++}
++
++test('real backend records survive saving and render through the independent CLI without changing JSON', () => withTemp(dir => {
++  const result = buildL0SettlementBaseline({seed: 'ui-real', targetPopulation: 1000000, columns: 32, rows: 16, levels: 2, beforeLevel: () => {}});
++  const saved = saveBaseline(result, dir), before = Object.values(saved.files).map(f => fs.readFileSync(f, 'utf8'));
++  const run = spawnSync(process.execPath, ['--max-old-space-size=256', 'scripts/build-settlement-distribution-review.mjs', dir], {cwd: ROOT,
++    env: {...process.env, TEMP: dir, TMP: dir}, encoding: 'utf8', windowsHide: true, timeout: 15000});
++  assert.equal(run.status, 0, run.stderr);
++  const html = fs.readFileSync(path.join(dir, 'review.html'), 'utf8'), h = harness(html);
++  assert.equal(h.$('global-supportedPopulation').textContent, result.l0.settlementDistribution.totals.population.toLocaleString('ja-JP'));
++  assert.equal(h.data.layers[1].id, result.l1.settlementDistribution.id);
++  h.level(1);
++  assert.match(h.$('map-status').textContent, /64 × 32/);
++  assert.deepEqual(Object.values(saved.files).map(f => fs.readFileSync(f, 'utf8')), before);
++  assert.match(html, /connect-src 'none'/);
++  assert.doesNotMatch(html, /<script[^>]+src=|fetch\(|https?:\/\//);
++  assert.throws(() => renderSavedSettlementDistributionReview(dir, path.join(dir, 'l0.json')), /overwrite/);
++}));
++
++test('baseline CLI and npm entry create JSON plus standalone HTML after readback', () => withTemp(dir => {
++  const run = spawnSync(process.execPath, ['--max-old-space-size=256', 'scripts/build-l0-settlement-baseline.mjs', dir,
++    '--seed=ui-cli', '--population=100000', '--columns=16', '--rows=8', '--levels=2'], {cwd: ROOT,
++    env: {...process.env, TEMP: dir, TMP: dir}, encoding: 'utf8', windowsHide: true, timeout: 15000});
++  assert.equal(run.status, 0, run.stderr);
++  const report = JSON.parse(run.stdout);
++  assert.equal(report.saved.reloadedIdentical, true);
++  assert.equal(report.saved.files.review, path.join(dir, 'review.html'));
++  const html = fs.readFileSync(report.saved.files.review, 'utf8');
++  assert.equal(harness(html).data.layers[0].id, JSON.parse(fs.readFileSync(report.saved.files.l0, 'utf8')).settlementDistribution.id);
++  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
++  assert.equal(pkg.scripts['l0:baseline'], 'node --max-old-space-size=256 scripts/build-l0-settlement-baseline.mjs');
++}));
++
++test('builder rejects malformed distributions, spatial joins, summaries and per-parent imbalance', () => {
++  const reject = (mutate, pattern) => { const value = budgetFixture(); mutate(value); assert.throws(() => buildSettlementDistributionReview(value), pattern); };
++  reject(v => v.l0.settlementDistribution.id = 'tampered', /identity/);
++  reject(v => v.l1.settlementDistribution.fields.population[0] = 3, /population|budget/);
++  reject(v => v.l1.parentCell[0] = 1, /geographic/);
++  reject(v => v.l1.climate.cellAreaM2[0] = 0, /area/);
++  reject(v => v.l1.climate.cellAreaM2.pop(), /grid/);
++  reject(v => v.l0.snapshot.fields.landMask[0] = 1, /Wet mask/);
++  reject(v => v.l1.climate.id = 'another-climate', /identity/);
++  reject(v => v.l1.snapshot.worldId = 'another-world', /identity/);
++  reject(v => v.l1.snapshot.grid = {columns: 4, rows: 8}, /grid/);
++  reject(v => v.summary.l1.unallocatedPopulation = 0, /unallocated/);
++  reject(v => v.summary.l0.supportedPopulation = 1, /supportedPopulation/);
++  reject(v => { const d = v.l1.settlementDistribution; d.parentDistributionId = 'other'; v.l1.settlementDistribution = reidentify(d); }, /parent distribution/);
++  reject(v => {
++    // The global sums and individual distribution remain valid, but moving an
++    // entire child's budget between two parents violates the saved parent join.
++    const d = v.l1.settlementDistribution;
++    for (const k of BUDGETS) [d.fields[k][16], d.fields[k][18]] = [d.fields[k][18], d.fields[k][16]];
++    // Use unequal budgets by moving one child's full tuple into another parent.
++    for (const k of BUDGETS) { d.fields[k][18] += d.fields[k][16]; d.fields[k][16] = 0; }
++    d.totals.populatedCells--; d.summary.populatedCells--;
++    v.l1.settlementDistribution = reidentify(d);
++    assert.doesNotThrow(() => validateSettlementDistribution(v.l1.settlementDistribution));
++  }, /Parent budget/);
++});
++
++test('L0/L1 switching keeps geographic selection and exposes global allocated and unallocated totals', () => {
++  const records = budgetFixture(), before = JSON.stringify(records), h = harness(buildSettlementDistributionReview(records));
++  assert.equal(h.$('global-requestedPopulation').textContent, '520');
++  assert.equal(h.$('global-supportedPopulation').textContent, '500');
++  assert.equal(h.$('global-unplacedPopulation').textContent, '20');
++  assert.equal(h.$('global-allocated').textContent, '400');
++  assert.equal(h.$('global-unallocated').textContent, '100');
++  assert.equal(h.$('global-villages').textContent, '30');
++  h.level(1); h.click(.68, .68); const child = h.selected();
++  const parent = records.l1.parentCell[child];
++  assert.equal(child, 21); assert.equal(parent, 6);
++  assert.match(h.$('layer-summary').textContent, /400 人 \/ 村 24 \/ 町 12 \/ 都市 4/);
++  h.$('to-parent').onclick(); assert.equal(h.selected(), parent); assert.equal(h.$('parent-budget').hidden, true);
++  assert.match(h.$('layer-summary').textContent, /500 人 \/ 村 30 \/ 町 15 \/ 都市 5/);
++  h.level(1); assert.equal(h.selected(), child);
++  for (const metric of ['villages', 'towns', 'cities', 'population']) { h.metric(metric); assert.equal(h.selected(), child); }
++  assert.ok(h.outlines.some(o => o.color === '#ffffff'));
++  assert.equal(JSON.stringify(records), before);
++});
++
++test('sea, lake, zero-population land and inhabited cells use distinct pixels and correct area densities', () => {
++  const h = harness(buildSettlementDistributionReview(budgetFixture()));
++  const colors = [0, 1, 2, 3].map(i => h.pixel(i).join(','));
++  assert.equal(new Set(colors).size, 4);
++  for (const [x, label] of [[.125, '海'], [.375, '湖'], [.625, '人口0の陸地'], [.875, '居住予算のある陸地']]) {
++    h.click(x, .25); assert.match(h.$('selection-title').textContent, new RegExp(label));
++  }
++  assert.equal(h.$('cell-population').textContent, '100 人');
++  assert.equal(h.$('density-population').textContent, '0.1 人/km²');
++  assert.equal(h.$('cell-villages').textContent, '6');
++  assert.equal(h.$('density-villages').textContent, '6 /1,000 km²');
++  h.metric('villages'); assert.match(h.$('legend-title').textContent, /予定数\/1,000 km²/);
++  const parentColor = h.pixel(4);
++  const legend = h.$('legend').children.map(e => e.children[1].textContent).join('|');
++  h.level(1);
++  assert.equal(h.$('legend').children.map(e => e.children[1].textContent).join('|'), legend);
++  // Integer apportionment gives this child 2 villages on quarter-size area.
++  // Density 8 and its parent's density 6 must retain the same fixed colour bin.
++  h.click(.125, .625); assert.equal(h.$('cell-area').textContent, '250 km²');
++  assert.equal(h.$('density-villages').textContent, '8 /1,000 km²');
++  assert.deepEqual(h.pixel(16), parentColor);
++  h.metric('cities');
++  const l = h.data.layers[1], zero = l.fields.population.findIndex((v, i) => v > 0 && l.fields.cities[i] === 0);
++  assert.ok(zero >= 0);
++  assert.deepEqual(h.pixel(zero), [219, 227, 207]);
++  h.click((zero % 8 + .5) / 8, (Math.floor(zero / 8) + .5) / 4);
++  assert.match(h.$('selection-title').textContent, /居住予算のある陸地/);
++  assert.equal(h.$('cell-cities').textContent, '0');
++});
++
++test('L1 parent table balances every budget including explicit unallocated parents', () => {
++  const records = budgetFixture(), h = harness(buildSettlementDistributionReview(records));
++  h.$('pending').onclick(); assert.equal(h.$('level').value, '1');
++  assert.equal(h.$('parent-budget').hidden, false);
++  assert.match(h.$('selection-title').textContent, /海/);
++  assert.equal(h.$('cell-population').textContent, '0 人');
++  for (const k of BUDGETS) {
++    const parent = records.l0.settlementDistribution.fields[k][3];
++    assert.equal(h.$('parent-' + k).textContent, String(parent));
++    assert.equal(h.$('allocated-' + k).textContent, '0');
++    assert.equal(h.$('remaining-' + k).textContent, String(parent));
++  }
++  assert.match(h.$('parent-explanation').textContent, /4 区画/);
++  const child = h.selected(); h.$('to-parent').onclick(); assert.equal(h.selected(), 3);
++  h.level(1); assert.equal(h.selected(), child);
++  h.click(.125, .625);
++  for (const k of BUDGETS) {
++    const value = records.l0.settlementDistribution.fields[k][4];
++    assert.equal(h.$('parent-' + k).textContent, String(value));
++    assert.equal(h.$('allocated-' + k).textContent, String(value));
++    assert.equal(h.$('remaining-' + k).textContent, '0');
++  }
++});
++
++test('pointer and arrow controls focus and announce selection, wrap longitude and stop at poles', () => {
++  const h = harness(buildSettlementDistributionReview(budgetFixture()));
++  h.click(.125, .25); assert.equal(h.selected(), 0); assert.equal(h.$('map').focused, true);
++  assert.equal(h.key('ArrowLeft'), true); assert.equal(h.selected(), 3);
++  assert.equal(h.key('ArrowRight'), true); assert.equal(h.selected(), 0);
++  h.key('ArrowUp'); assert.equal(h.selected(), 0);
++  h.key('ArrowDown'); assert.equal(h.selected(), 4);
++  h.key('ArrowDown'); assert.equal(h.selected(), 4);
++  assert.match(h.$('selection-live').textContent, /L0、居住予算のある陸地/);
++  assert.match(h.$('selection-live').textContent, /予定人口 100 人。村 6、町 3、都市 1/);
++  assert.equal(h.key('Enter'), false);
++  h.click(1, 1); assert.equal(h.selected(), 7);
++  h.level(1); assert.equal(h.selected(), 31);
++});
++
++test('zero-supported world remains navigable and disables the absent-unallocated shortcut', () => {
++  const h = harness(buildSettlementDistributionReview(budgetFixture({empty: true})));
++  assert.equal(h.$('global-supportedPopulation').textContent, '0');
++  assert.equal(h.$('global-unallocated').textContent, '0');
++  assert.equal(h.$('pending').hidden, true);
++  assert.equal(h.selected(), 0);
++  h.level(1); h.click(.68, .68); assert.match(h.$('selection-title').textContent, /人口0の陸地/);
++  h.key('ArrowRight'); assert.equal(h.selected(), 22);
++});
++
++test('embedded user text cannot terminate the data script or add executable markup', () => {
++  const records = budgetFixture(); records.summary.seed = '</script><script>throw new Error("injected")</script>\u2028';
++  const html = buildSettlementDistributionReview(records), h = harness(html);
++  assert.equal(h.$('seed').textContent, records.summary.seed);
++  assert.equal((html.match(/<script>/g) ?? []).length, 1);
++});

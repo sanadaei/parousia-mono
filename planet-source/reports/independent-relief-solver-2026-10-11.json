@@ -1,0 +1,2098 @@
+{
+  "status": "UNADOPTED local solver connected to existing canonical terrain format, not to the planet",
+  "algorithmReference": "https://doi.org/10.5194/esurf-7-549-2019",
+  "implementation": "Independent JS Kruskal basin tree, receiver-path reversal and implicit n=1 stream power; no external library code copied or runtime dependency added",
+  "reproductionCommand": "node --max-old-space-size=256 scripts/experiments/run-relief-scenarios.mjs OUTPUT_DIRECTORY",
+  "scenarios": [
+    {
+      "name": "uplifted-mountain",
+      "worldId": "sha256:256d23f39e70ac2bde95b5d3f63d2e719e3926c97f0f34654df1bfb873f44bd8",
+      "status": "UNADOPTED synthetic scenario",
+      "input": {
+        "parameters": {
+          "n": 129,
+          "extentM": 50000,
+          "steps": 100,
+          "dtYears": 20000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0.005
+        },
+        "initialDescription": "Near-flat deterministic noise",
+        "seed": 20261011,
+        "boundary": "All outer nodes fixed"
+      },
+      "output": {
+        "heightMinM": 7.310565561056138e-05,
+        "heightMaxM": 1842.7951388898498,
+        "slopeMedianDeg": 15.640767436868225,
+        "slopeP95Deg": 22.68140398712363,
+        "elapsedMs": 4196.183929
+      },
+      "routing": {
+        "status": "UNADOPTED research solver",
+        "n": 129,
+        "extentM": 50000,
+        "steps": 100,
+        "dtYears": 20000,
+        "erodibility": 0.0001,
+        "areaExponent": 0.4,
+        "upliftMPerYear": 0.005,
+        "basins": 512,
+        "externalBasins": 512,
+        "selectedPasses": 0,
+        "reversedEdges": 0,
+        "uphillRoutingEdges": 0,
+        "method": "basin-graph-kruskal-path-reversal-research@1",
+        "limitations": [
+          "Routes may cross depressions uphill: graph continuity is not hydraulic validity",
+          "Fixed outlets are scenario inputs, not automatically justified regional boundaries",
+          "No sediment transport, soil production, glaciation or geological age calibration",
+          "No shared regional surface or production LOD integration"
+        ]
+      },
+      "acceptance": {
+        "canonicalTerrainRestore": true,
+        "planetIntegration": false,
+        "browserInspection": false,
+        "earthCalibration": false
+      }
+    },
+    {
+      "name": "eroding-escarpment",
+      "worldId": "sha256:cb4692e11c2f7431c494b9bc02f2667fc0619fa43e872366549a1de386b530b0",
+      "status": "UNADOPTED synthetic scenario",
+      "input": {
+        "parameters": {
+          "n": 129,
+          "extentM": 3000,
+          "steps": 60,
+          "dtYears": 1000,
+          "erodibility": 0.0001,
+          "areaExponent": 0.4,
+          "upliftMPerYear": 0
+        },
+        "initialDescription": "Authored 60 m escarpment with a 60 m transition, then erosion; not spontaneous cliff genesis",
+        "seed": 20261011,
+        "boundary": "All outer nodes fixed"
+      },
+      "output": {
+        "heightMinM": 8.39142594486475e-06,
+        "heightMaxM": 60.049890328838956,
+        "slopeMedianDeg": 0.005406398169716051,
+        "slopeP95Deg": 26.607636890050255,
+        "elapsedMs": 1793.597807
+      },
+      "routing": {
+        "status": "UNADOPTED research solver",
+        "n": 129,
+        "extentM": 3000,
+        "steps": 60,
+        "dtYears": 1000,
+        "erodibility": 0.0001,
+        "areaExponent": 0.4,
+        "upliftMPerYear": 0,
+        "basins": 651,
+        "externalBasins": 512,
+        "selectedPasses": 139,
+        "reversedEdges": 332,
+        "uphillRoutingEdges": 230,
+        "method": "basin-graph-kruskal-path-reversal-research@1",
+        "limitations": [
+          "Routes may cross depressions uphill: graph continuity is not hydraulic validity",
+          "Fixed outlets are scenario inputs, not automatically justified regional boundaries",
+          "No sediment transport, soil production, glaciation or geological age calibration",
+          "No shared regional surface or production LOD integration"
+        ]
+      },
+      "acceptance": {
+        "canonicalTerrainRestore": true,
+        "planetIntegration": false,
+        "browserInspection": false,
+        "earthCalibration": false
+      }
+    }
+  ],
+  "externalReferenceComparison": {
+    "referenceLibraryVersion": "0.3.0",
+    "sameInput": true,
+    "sameRasterDimensions": true,
+    "sameParameters": true,
+    "referenceElapsedSeconds": 1.347364902496338,
+    "maximumAbsoluteHeightDifferenceM": 92.52062000357091,
+    "rmsHeightDifferenceM": 24.66910679894362,
+    "interpretation": "A numeric cross-check on one synthetic case, not a reproduction or geological validation claim"
+  },
+  "localEarthComparison": {
+    "method": "Fixed centre 2.8 km square; 25 m point-sample spacing; 50 m central-difference stencil",
+    "sampling": "Bilinear interpolation, all four source samples must exist. No low-pass filtering or missing-data filling; diagnostic rather than resolution-independent estimator.",
+    "limitations": [
+      "Small selected regions are not global terrain distributions",
+      "Synthetic cliff position/initial step authored, not predicted",
+      "Modern reference data include human modification",
+      "Matching slope percentiles alone does not validate shape or process",
+      "Geographic metric approximation uses each reference centre latitude"
+    ],
+    "sites": [
+      {
+        "name": "numata",
+        "source": "GSI DEM5A interpolated PNG mosaic",
+        "sourcePixelSpacingM": 3.832866118651318,
+        "statistics": {
+          "finiteHeights": 12575,
+          "missingHeights": 194,
+          "validSlopeSamples": 11874,
+          "slopeMedianDeg": 3.299501754922124,
+          "slopeP95Deg": 29.40990059432975,
+          "fractionSlopeBelow1Deg": 0.1123463028465555,
+          "fractionSlopeAbove20Deg": 0.16211891527707598,
+          "heightRangeM": [
+            324.4392419674465,
+            553.0445264905725
+          ]
+        }
+      },
+      {
+        "name": "byobugaura",
+        "source": "GSI DEM5A interpolated PNG mosaic",
+        "sourcePixelSpacingM": 3.87877269146719,
+        "statistics": {
+          "finiteHeights": 11302,
+          "missingHeights": 1467,
+          "validSlopeSamples": 10778,
+          "slopeMedianDeg": 1.6183449000038999,
+          "slopeP95Deg": 21.841928585644656,
+          "fractionSlopeBelow1Deg": 0.37168305808127666,
+          "fractionSlopeAbove20Deg": 0.06884394136203377,
+          "heightRangeM": [
+            0.15937680628047235,
+            63.164489327256106
+          ]
+        }
+      },
+      {
+        "name": "synthetic-prescribed-escarpment",
+        "sourceWorldId": "sha256:cb4692e11c2f7431c494b9bc02f2667fc0619fa43e872366549a1de386b530b0",
+        "source": "Independent solver output nodes, bilinear diagnostic resampling",
+        "sourcePixelSpacingM": 23.4375,
+        "statistics": {
+          "finiteHeights": 12769,
+          "missingHeights": 0,
+          "validSlopeSamples": 12321,
+          "slopeMedianDeg": 0.004172497458449996,
+          "slopeP95Deg": 22.76898515631245,
+          "fractionSlopeBelow1Deg": 0.7107377647918188,
+          "fractionSlopeAbove20Deg": 0.07450693937180423,
+          "heightRangeM": [
+            1.869868726011314e-05,
+            60.00825976764702
+          ]
+        }
+      }
+    ]
+  },
+  "validationLimits": [
+    "External comparison used the earlier weaker-uplift scenario U=.001 and K=.0002, not the mountain scenario above",
+    "Single-step plane and perturbed 9x9 examples had zero height difference from Fastscapelib 0.3.0; the rough 129x129 case does not agree and is not a reproduction claim",
+    "The canonical adapter and viewer restoration paths are exercised; real browser/WebGL remains blocked",
+    "Escarpment final routing retains 230 uphill graph edges; these are not physically valid river beds",
+    "Planar snapshots have no planetary placement, shared watershed borders, or global water semantics",
+    "All fixed-edge cases have artificial boundary effects; repeating them as tiles would be invalid"
+  ],
+  "sharedLocalTiles": [
+    {
+      "name": "uplifted-mountain",
+      "parentWorldId": "sha256:256d23f39e70ac2bde95b5d3f63d2e719e3926c97f0f34654df1bfb873f44bd8",
+      "tileCount": 4,
+      "tileIds": [
+        "sha256:8dc40b3b885339ddcc1c58c2ffbc19cd8ec6227782395053a1f4c76696dcb2d5",
+        "sha256:07a52b8b7511169cfa34d6395527a546ccafc100fe5fb9b8a8a5e1973b1f6509",
+        "sha256:4a759dab1dd0f64243ed142ecb768d9460c7340d230084bf8d62b016162444c8",
+        "sha256:b5e564ee0b1c078755e75929259f5d88e74557e7084bdeab2d55836add59ee1d"
+      ],
+      "heightAndSlopeProbes": 6168,
+      "maxHeightDifferenceM": 9.094947017729282e-13,
+      "maxSlopeDifference": 1.2200795929118158e-12,
+      "semantics": "Subdivide an already solved regional surface with two-node support halos; no independent tile erosion",
+      "limits": [
+        "Not a solution for boundaries between independently generated planetary watersheds",
+        "No actual WebGL LOD acceptance",
+        "Two-node halo is required for the finite-difference normal at active borders"
+      ]
+    },
+    {
+      "name": "eroding-escarpment",
+      "parentWorldId": "sha256:cb4692e11c2f7431c494b9bc02f2667fc0619fa43e872366549a1de386b530b0",
+      "tileCount": 4,
+      "tileIds": [
+        "sha256:accd8bf9f495b7b9952de59a620f10f05d9a27658654f1e581cac6d73baaba98",
+        "sha256:57d3ef7ee2d5e8913a3a4e561ad95378d1b51ee64b9c0a044cb747643ab29318",
+        "sha256:e2085397fea73ff70da018e7e717cc01b3d61eea227d9c8fcc8535041dc6ea76",
+        "sha256:ff8feaf18f628809a86eaf26162907412f6bbb4fdfd78ebdc657ebca73f975cc"
+      ],
+      "heightAndSlopeProbes": 6168,
+      "maxHeightDifferenceM": 6.750155989720952e-14,
+      "maxSlopeDifference": 1.4521717162097048e-13,
+      "semantics": "Subdivide an already solved regional surface with two-node support halos; no independent tile erosion",
+      "limits": [
+        "Not a solution for boundaries between independently generated planetary watersheds",
+        "No actual WebGL LOD acceptance",
+        "Two-node halo is required for the finite-difference normal at active borders"
+      ]
+    }
+  ],
+  "spatialForcingScenario": {
+    "name": "uplift-belt",
+    "worldId": "sha256:7dfbd07769840609cbd20c611717c15a2cc10d9169c79853424515c78f1f7693",
+    "status": "UNADOPTED synthetic scenario",
+    "input": {
+      "parameters": {
+        "n": 129,
+        "extentM": 50000,
+        "steps": 100,
+        "dtYears": 20000,
+        "erodibility": 0.0001,
+        "areaExponent": 0.4,
+        "upliftMPerYear": {
+          "kind": "explicit-node-field",
+          "nodes": 16641,
+          "min": 5.701145829663344e-19,
+          "max": 0.005,
+          "hash": "sha256:2199ae0c558290d209d48bd9595a10638a8586c5d6a36ce0da31ddf75e5a8769"
+        },
+        "hillslopeDiffusivityM2PerYear": 1
+      },
+      "forcingDescription": "Prescribed Gaussian-like uplift belt and uniform linear hillslope diffusion, not simulated tectonics",
+      "initialDescription": "Near-flat deterministic noise",
+      "seed": 20261011,
+      "boundary": "All outer nodes fixed"
+    },
+    "output": {
+      "heightMinM": 7.310565561056138e-05,
+      "heightMaxM": 1045.365797585505,
+      "slopeMedianDeg": 0.05976136918076584,
+      "slopeP95Deg": 11.053706843418391,
+      "elapsedMs": 2689.785175000001
+    },
+    "routing": {
+      "status": "UNADOPTED research solver",
+      "n": 129,
+      "extentM": 50000,
+      "steps": 100,
+      "dtYears": 20000,
+      "erodibility": 0.0001,
+      "areaExponent": 0.4,
+      "upliftMPerYear": {
+        "kind": "explicit-node-field",
+        "nodes": 16641,
+        "min": 5.701145829663344e-19,
+        "max": 0.005,
+        "hash": "sha256:2199ae0c558290d209d48bd9595a10638a8586c5d6a36ce0da31ddf75e5a8769"
+      },
+      "hillslopeDiffusivityM2PerYear": 1,
+      "hillslopeBoundaryExportM3": -23477107.813276794,
+      "basins": 539,
+      "externalBasins": 512,
+      "selectedPasses": 27,
+      "reversedEdges": 52,
+      "uphillRoutingEdges": 48,
+      "method": "basin-graph-kruskal-path-reversal-research@1",
+      "limitations": [
+        "Routes may cross depressions uphill: graph continuity is not hydraulic validity",
+        "Fixed outlets are scenario inputs, not automatically justified regional boundaries",
+        "No sediment transport, soil production, glaciation or geological age calibration",
+        "No shared regional surface or production LOD integration"
+      ]
+    },
+    "acceptance": {
+      "canonicalTerrainRestore": true,
+      "planetIntegration": false,
+      "browserInspection": false,
+      "earthCalibration": false
+    },
+    "visualAudit": {
+      "accepted": false,
+      "findings": [
+        "Uplift location controls mountain-belt placement without changing viewing state",
+        "Uniformly low surrounding terrain still too featureless",
+        "Grid-oriented drainage remains visible",
+        "Hillslope smoothing alters drainage as well as cross-sections, so final peaks need not simply decrease"
+      ],
+      "physicalLimits": [
+        "Fixed outer nodes are material reservoirs; signed boundary export is explicitly reported and may be negative",
+        "This does not model fluvial sediment deposition or calibrated geological history",
+        "No global watershed connection or browser acceptance"
+      ]
+    }
+  },
+  "actualPlanetInputExperiments": [
+    {
+      "status": "UNADOPTED local experiment, not a changed planet",
+      "inputId": "sha256:17569c3b469b66cb1bb866ee3151e2d61a07546bdf39f932237408ea17597b18",
+      "originalWorldId": "sha256:7de4f2cbe4d19aa9250a4d88cb8f4574e4a5c1af6efe826d28507427cf762a35",
+      "derivedSourceWorldId": "sha256:9e1b72ce674fe7aaeb16bcc0640c238cfa6b531818087888c4e3df4788238f5e",
+      "outputWorldId": "sha256:82c0b05c58d3a718e7d3586da8c8c3a8681ddd74a936218b826b9d18a6bde86f",
+      "sourceMode": "coarse-only",
+      "projection": {
+        "kind": "spherical-azimuthal-equidistant@1",
+        "centerLatDeg": 56.25796140311981,
+        "centerLonDeg": 73.17667543831021,
+        "radiusM": 6371000,
+        "maxRadiusM": 35357.33905932738
+      },
+      "n": 129,
+      "extentM": 50000,
+      "verticalDatum": "generated-sea-datum",
+      "initialRangeM": [
+        2761.7260041472678,
+        3127.0521077171325
+      ],
+      "outputRangeM": [
+        2761.7260041472678,
+        3325.3111577286622
+      ],
+      "maxLoweringM": 3.105798327732373,
+      "maxRaisingM": 284.5499615586291,
+      "forcing": {
+        "steps": 100,
+        "dtYears": 10000,
+        "erodibility": 0.0001,
+        "upliftMPerYear": 0.001,
+        "hillslopeDiffusivityM2PerYear": 0.1
+      },
+      "routing": {
+        "status": "UNADOPTED research solver",
+        "n": 129,
+        "extentM": 50000,
+        "steps": 100,
+        "dtYears": 10000,
+        "erodibility": 0.0001,
+        "areaExponent": 0.4,
+        "upliftMPerYear": 0.001,
+        "hillslopeDiffusivityM2PerYear": 0.1,
+        "hillslopeBoundaryExportM3": 1040701302.9919415,
+        "basins": 512,
+        "externalBasins": 512,
+        "selectedPasses": 0,
+        "reversedEdges": 0,
+        "uphillRoutingEdges": 0,
+        "method": "basin-graph-kruskal-path-reversal-research@1",
+        "limitations": [
+          "Routes may cross depressions uphill: graph continuity is not hydraulic validity",
+          "Fixed outlets are scenario inputs, not automatically justified regional boundaries",
+          "No fluvial sediment routing/deposition, soil production, glaciation or geological age calibration",
+          "No shared regional surface or production LOD integration"
+        ]
+      },
+      "elapsedMs": 3441.834224,
+      "limitations": [
+        "Only the base snapshot identity is validated; planet-world settlement state is not used",
+        "Sampled dry derived source, not a continuous water proof",
+        "Old detail and local river/pond effects removed only from the derived input copy",
+        "All outer nodes fixed; independent watershed coupling unresolved",
+        "Explicit uncalibrated forcing; no planet rewrite or browser acceptance"
+      ]
+    },
+    {
+      "status": "UNADOPTED local experiment, not a changed planet",
+      "inputId": "sha256:c392cfb822e3b5636286248247053a1282c5ac53597914c3d58968cd878e6ee6",
+      "originalWorldId": "sha256:7de4f2cbe4d19aa9250a4d88cb8f4574e4a5c1af6efe826d28507427cf762a35",
+      "derivedSourceWorldId": "sha256:9e1b72ce674fe7aaeb16bcc0640c238cfa6b531818087888c4e3df4788238f5e",
+      "outputWorldId": "sha256:e882364a132cffa93548c77030ec0d6fd6336597d23756f42af52b43f7b6d470",
+      "sourceMode": "coarse-only",
+      "projection": {
+        "kind": "spherical-azimuthal-equidistant@1",
+        "centerLatDeg": 47.82108152610851,
+        "centerLonDeg": -104.02440375008814,
+        "radiusM": 6371000,
+        "maxRadiusM": 35357.33905932738
+      },
+      "n": 129,
+      "extentM": 50000,
+      "verticalDatum": "generated-sea-datum",
+      "initialRangeM": [
+        1471.4263638151708,
+        2149.588875591422
+      ],
+      "outputRangeM": [
+        1471.4263638151708,
+        2167.3421286206217
+      ],
+      "maxLoweringM": 343.286560823497,
+      "maxRaisingM": 172.17677623834265,
+      "forcing": {
+        "steps": 100,
+        "dtYears": 10000,
+        "erodibility": 0.0001,
+        "upliftMPerYear": 0.001,
+        "hillslopeDiffusivityM2PerYear": 0.1
+      },
+      "routing": {
+        "status": "UNADOPTED research solver",
+        "n": 129,
+        "extentM": 50000,
+        "steps": 100,
+        "dtYears": 10000,
+        "erodibility": 0.0001,
+        "areaExponent": 0.4,
+        "upliftMPerYear": 0.001,
+        "hillslopeDiffusivityM2PerYear": 0.1,
+        "hillslopeBoundaryExportM3": 875498880.5636985,
+        "basins": 512,
+        "externalBasins": 512,
+        "selectedPasses": 0,
+        "reversedEdges": 0,
+        "uphillRoutingEdges": 0,
+        "method": "basin-graph-kruskal-path-reversal-research@1",
+        "limitations": [
+          "Routes may cross depressions uphill: graph continuity is not hydraulic validity",
+          "Fixed outlets are scenario inputs, not automatically justified regional boundaries",
+          "No fluvial sediment routing/deposition, soil production, glaciation or geological age calibration",
+          "No shared regional surface or production LOD integration"
+        ]
+      },
+      "elapsedMs": 4421.441195,
+      "limitations": [
+        "Only the base snapshot identity is validated; planet-world settlement state is not used",
+        "Sampled dry derived source, not a continuous water proof",
+        "Old detail and local river/pond effects removed only from the derived input copy",
+        "All outer nodes fixed; independent watershed coupling unresolved",
+        "Explicit uncalibrated forcing; no planet rewrite or browser acceptance"
+      ]
+    }
+  ],
+  "actualPlanetInputVisualAudit": {
+    "accepted": false,
+    "finding": "Coarse 50 km windows are nearly single smooth slopes. Removing old river locks avoids that old protected-corridor constraint, but fixed square boundaries and regular diagonal drainage still dominate. Cannot adopt this as a planetary realism fix.",
+    "provenance": "Existing saved base as verified input; derived coarse input and local output have separate identities; original world is unchanged",
+    "reproductionCommand": "node --max-old-space-size=256 scripts/experiments/run-planet-relief.mjs SOURCE_JSON OUTPUT_DIR LAT LON [EXTENT_M]"
+  },
+  "sharedSkeleton": {
+    "status": "UNADOPTED shared-skeleton research output",
+    "inputId": "sha256:ce397ec631c1729f2e5f57eb390d4702b37b2e41c417cb84322126d31d1d0b21",
+    "skeletonId": "sha256:4f470187a205609b38190a015e21ba8d4d0559e57a1daf14b02265e3ec5efbad",
+    "worldId": "sha256:a4e2eeb28894c390a46e65f1b2a7bcb4152abac7a505cd1310416be235c37c4a",
+    "initialRangeM": [
+      6.821210263296962e-14,
+      2293.6621554630497
+    ],
+    "outputRangeM": [
+      6.821210263296962e-14,
+      798.7197142411133
+    ],
+    "solver": {
+      "status": "UNADOPTED research solver",
+      "n": 129,
+      "extentM": 20000,
+      "steps": 80,
+      "dtYears": 5000,
+      "erodibility": 0.0001,
+      "areaExponent": 0.4,
+      "upliftMPerYear": 0.001,
+      "outlets": [
+        64
+      ],
+      "hillslopeDiffusivityM2PerYear": 0.1,
+      "hillslopeBoundaryExportM3": 952897.3490901678,
+      "basins": 3,
+      "externalBasins": 1,
+      "selectedPasses": 2,
+      "reversedEdges": 2,
+      "uphillRoutingEdges": 2,
+      "method": "basin-graph-kruskal-path-reversal-research@1",
+      "limitations": [
+        "Routes may cross depressions uphill: graph continuity is not hydraulic validity",
+        "Fixed outlets are scenario inputs, not automatically justified regional boundaries",
+        "No fluvial sediment routing/deposition, soil production, glaciation or geological age calibration",
+        "No shared regional surface or production LOD integration"
+      ]
+    },
+    "initialConstraints": {
+      "maximumSampledUndercutM": 1.1368683772161603e-13,
+      "samplesPerEdge": 33,
+      "compatibleAtSampledPoints": true,
+      "terminals": [
+        "0"
+      ]
+    },
+    "boundary": "Only declared terminal nodes are fixed; other external borders have no external hillslope flux",
+    "limitations": [
+      "Prescribed skeleton and cross-slope are not inferred geology",
+      "Finite sampled constraint audit is not a continuous proof",
+      "Routing may change during erosion; no water surface or river corridor is asserted",
+      "No coupling between independently solved neighbouring basins; render tiles must crop this one solution",
+      "No planetary adoption, browser acceptance, or Earth calibration"
+    ],
+    "reproductionCommand": "node --max-old-space-size=256 scripts/experiments/run-drainage-relief.mjs fixtures/drainage-skeleton-research.json NEW_OUTPUT_DIRECTORY",
+    "cropChecks": [
+      {
+        "name": "shared-skeleton",
+        "parentWorldId": "sha256:a4e2eeb28894c390a46e65f1b2a7bcb4152abac7a505cd1310416be235c37c4a",
+        "tileCount": 4,
+        "tileIds": [
+          "sha256:a330e1604f8280e757da89a8ed66ca26e921d85f0785222052231f5d543fc4a7",
+          "sha256:97f4258030ec84e46614ea91316b9f41d5361242903ab1c4c18f7426e38e2189",
+          "sha256:04e079c918ba57aa04a8eefe2c7dec5ec40466ec333e570f86e58cf909f859cb",
+          "sha256:13485fbdf7374b1361078f1b37f247bb67c09dac13bd91edc91c211f6ef272dd"
+        ],
+        "heightAndSlopeProbes": 6168,
+        "maxHeightDifferenceM": 3.410605131648481e-13,
+        "maxSlopeDifference": 5.117573032009659e-13,
+        "semantics": "Subdivide an already solved regional surface with two-node support halos; no independent tile erosion",
+        "limits": [
+          "Not a solution for boundaries between independently generated planetary watersheds",
+          "No actual WebGL LOD acceptance",
+          "Two-node halo is required for the finite-difference normal at active borders"
+        ]
+      }
+    ],
+    "visualAudit": "Actual canonical output plotted in CPU diagnostic and inspected. Branched valleys and ridges, but regular grid ribs, artificial domain boundary and synthetic tree remain. Not a game screenshot or final acceptance.",
+    "boundaryLesson": "Prior all-boundary-fixed experiment retained the high perimeter as an artificial square wall while the interior eroded. Fixing only the declared outlet reduces that failure; closed external boundaries do not solve adjacent planetary basin coupling.",
+    "verification": {
+      "focusedPass": 27,
+      "fullPass": 962,
+      "fullFail": 0,
+      "fullSkip": 0,
+      "fullDurationMs": 331801.974361,
+      "browserInspection": false,
+      "fullSuiteCommit": "85b6a172613841581a4084dae1816734de34e08f",
+      "followup": "Strict-ground diagnostic follow-up: 27 focused passes; no new full-suite run; generated terrain identity unchanged"
+    },
+    "surfaceDrainage": {
+      "strictGroundCatchments": {
+        "schema": "sampled-d8-catchments@1",
+        "grid": {
+          "columns": 129,
+          "rows": 129,
+          "cellSizeM": 156.25,
+          "originXM": -78.125,
+          "originYM": -78.125
+        },
+        "catchments": [
+          {
+            "id": "outlet:64",
+            "status": "partial-catchment",
+            "reasons": [
+              "upstream-touches-window-edge"
+            ],
+            "cellIndex": 64,
+            "cellCenter": {
+              "xM": 10000,
+              "yM": 0
+            },
+            "mouthToCellCenterM": 0,
+            "contributingCells": 155,
+            "areaM2": 3784179.6875,
+            "longestPathM": 2316.9417382415922,
+            "outletIsLocalSink": true
+          }
+        ],
+        "diagnostics": {
+          "cells": 16641,
+          "sinks": 3,
+          "scope": "strict downhill D8 on fixed sampled ground; outlet is its containing cell, not an exact point capture. No depression overflow, storm storage, underground flow or drainage outside this window."
+        }
+      },
+      "uphillEdgeCount": 2,
+      "firstUphillEdges": [
+        {
+          "from": 1482,
+          "to": 1353,
+          "riseM": 0.2673040388856185,
+          "potentialGraphAreaM2": 402490234.375
+        },
+        {
+          "from": 12472,
+          "to": 12343,
+          "riseM": 0.3648319459260705,
+          "potentialGraphAreaM2": 156884765.625
+        }
+      ],
+      "interpretation": "Potential graph drainage includes depression crossings. Strict sampled ground drainage does not model overflow or water storage; neither is a discharge estimate."
+    }
+  },
+  "triangularMesh": {
+    "status": "UNADOPTED mesh research solver",
+    "meshId": "sha256:fd00339494f40580fcc9fd47167559f891bd07ddff745ef0e9c519c5051696c8",
+    "nodes": 16641,
+    "areaMethod": "triangle-area/3 lumped planar area",
+    "steps": 80,
+    "dtYears": 5000,
+    "erodibility": 0.0001,
+    "areaExponent": 0.4,
+    "upliftMPerYear": 0.001,
+    "outlets": [
+      64
+    ],
+    "basins": 1,
+    "externalBasins": 1,
+    "selectedPasses": 0,
+    "reversedEdges": 0,
+    "uphillRoutingEdges": 0,
+    "method": "basin-graph-kruskal-path-reversal-research@1",
+    "limitations": [
+      "Triangulation supplied externally; no all-pairs overlap proof",
+      "Lumped areas differ from a Voronoi discretization",
+      "No diffusion, deposition or physically resolved lake overflow",
+      "No raster export or planetary integration implied"
+    ],
+    "outputWorldId": "sha256:50afcd368e12ded7d536ae305e35873a9d021f35b98489157d47aedfb78c3117",
+    "rasterConversion": {
+      "sourceNodesChecked": 16641,
+      "maxNodeReconstructionDifferenceM": 30.988256397803184,
+      "interpretation": "Finite source-node reconstruction error, not a continuous-interior error bound"
+    },
+    "forcingDescription": "Explicit erosion-only comparison: no hillslope diffusion in mesh or reference benchmark",
+    "visualAcceptance": false,
+    "planetAdoption": false,
+    "waterModel": false,
+    "externalGridComparison": [
+      {
+        "kind": "raster",
+        "nodes": 16641,
+        "elapsedSeconds": 0.40471577644348145,
+        "minM": 6.838973831690964e-14,
+        "maxM": 633.7996094074466,
+        "libraryVersion": "0.3.0",
+        "forcing": "80 x 5000 years, K=.0001, m=.4, U=.001; no hillslope diffusion in EITHER comparison",
+        "limits": [
+          "External GPL library benchmark only, not adopted runtime",
+          "Analytic initial skeleton sampled at different node locations",
+          "Triangular geometry changes areas and discretization, not only routing directions",
+          "Closed external edges and one prescribed outlet; no planetary integration"
+        ]
+      },
+      {
+        "kind": "triangular",
+        "nodes": 16641,
+        "elapsedSeconds": 3.1101651191711426,
+        "minM": 6.838973831690964e-14,
+        "maxM": 799.6906074100546,
+        "libraryVersion": "0.3.0",
+        "forcing": "80 x 5000 years, K=.0001, m=.4, U=.001; no hillslope diffusion in EITHER comparison",
+        "limits": [
+          "External GPL library benchmark only, not adopted runtime",
+          "Analytic initial skeleton sampled at different node locations",
+          "Triangular geometry changes areas and discretization, not only routing directions",
+          "Closed external edges and one prescribed outlet; no planetary integration"
+        ]
+      }
+    ],
+    "independentComparison": {
+      "status": "UNADOPTED independent triangular solver comparison",
+      "samePoints": true,
+      "differenceRmsM": 9.936856721532921,
+      "maxDifferenceM": 103.39882596609499,
+      "ownRangeM": [
+        6.821210263296962e-14,
+        770.4722835854271
+      ],
+      "note": "Own lumped triangle/3 areas differ from library areas; not a bit-identical reproduction"
+    },
+    "reproductionCommands": [
+      "python3 scripts/experiments/make-relief-mesh.py NEW_MESH_JSON",
+      "node --max-old-space-size=256 scripts/experiments/run-mesh-relief.mjs NEW_MESH_JSON NEW_OUTPUT_DIRECTORY"
+    ],
+    "inputToolVersions": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    "visualReview": "CPU plots inspected: regular grid ribs are less evident in the triangular experiment; synthetic tree and outer boundary remain. External library is a benchmark only, not integrated or copied.",
+    "coarseToFineTrial": "33 -> 65 -> 129 -> 257 raster evolution retained strong regular directional ribs; zero uphill edges did not establish natural appearance. Rejected as a sufficient fix.",
+    "verification": {
+      "focusedPass": 32,
+      "fullPass": 967,
+      "fullFail": 0,
+      "fullSkip": 0,
+      "fullDurationMs": 286154.792055,
+      "build": "passed",
+      "browser": false
+    }
+  },
+  "canonicalTriangularSurface": {
+    "status": "UNADOPTED research surface; existing planet unchanged",
+    "schema": "minimal-world-triangular-terrain@1",
+    "actualRun": {
+      "status": "UNADOPTED mesh research solver",
+      "meshId": "sha256:fd00339494f40580fcc9fd47167559f891bd07ddff745ef0e9c519c5051696c8",
+      "nodes": 16641,
+      "areaMethod": "triangle-area/3 lumped planar area",
+      "steps": 80,
+      "dtYears": 5000,
+      "erodibility": 0.0001,
+      "areaExponent": 0.4,
+      "upliftMPerYear": 0.001,
+      "outlets": [
+        64
+      ],
+      "basins": 1,
+      "externalBasins": 1,
+      "selectedPasses": 0,
+      "reversedEdges": 0,
+      "uphillRoutingEdges": 0,
+      "method": "basin-graph-kruskal-path-reversal-research@1",
+      "limitations": [
+        "Triangulation supplied externally; no all-pairs overlap proof",
+        "Lumped areas differ from a Voronoi discretization",
+        "No diffusion, deposition or physically resolved lake overflow",
+        "No raster export or planetary integration implied"
+      ],
+      "outputWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+      "canonicalNodeChecks": 16641,
+      "maxCanonicalNodeErrorM": 0,
+      "rasterPreviewWorldId": "sha256:50afcd368e12ded7d536ae305e35873a9d021f35b98489157d47aedfb78c3117",
+      "rasterConversion": {
+        "sourceNodesChecked": 16641,
+        "maxNodeReconstructionDifferenceM": 30.988256397803184,
+        "interpretation": "Finite source-node reconstruction error, not a continuous-interior error bound"
+      },
+      "forcingDescription": "Explicit erosion-only comparison: no hillslope diffusion in mesh or reference benchmark",
+      "visualAcceptance": false,
+      "planetAdoption": false,
+      "waterModel": false
+    },
+    "geometryAudit": {
+      "worldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+      "vertices": 16641,
+      "triangles": 32768,
+      "maxVertexErrorM": 0,
+      "maxTriangleCentroidErrorM": 1.7053025658242404e-12,
+      "maxEdgeMidpointErrorM": 1.1368683772161603e-12,
+      "restoredWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+      "worstRasterConversionVertex": {
+        "index": 13437,
+        "xM": -6655.8020601392545,
+        "yM": 6293.141866144997,
+        "zM": 397.2430428333389,
+        "differenceM": 30.988256397803184
+      },
+      "limitation": "Finite geometry checks, not a global adoption or browser visual acceptance"
+    },
+    "commands": [
+      "node scripts/experiments/run-mesh-relief.mjs MESH_JSON NEW_OUTPUT_DIRECTORY",
+      "node scripts/experiments/verify-mesh-canonical.mjs RESULT_DIRECTORY NEW_REPORT_JSON"
+    ],
+    "capabilities": [
+      "owned canonical points, triangles, elevations and provenance",
+      "saved identity validated on restore",
+      "analytic face gradients with explicit one-sided edge semantics",
+      "same canonical heights under regular preview sampling and exact toMesh export",
+      "segment traces include crossed triangle edges",
+      "existing metric scene loader accepts saved triangle schema"
+    ],
+    "limits": [
+      "nonoverlapping input triangulation is required; all-pairs intersection validation is not implemented",
+      "no C1 guarantee across triangle edges",
+      "no water model, overhangs, global stitching or automatic planetary adoption",
+      "WebGL/browser acceptance not performed; globe does not yet consume this mesh directly"
+    ],
+    "verification": {
+      "focusedTests": 11,
+      "fullSuite": {
+        "pass": 973,
+        "fail": 0,
+        "skip": 0,
+        "durationMs": 322744.171251
+      },
+      "build": "PASS: 122 core, 30 legacy aliases, 47 globe modules",
+      "actualSceneLoadExportRestore": "PASS, same worldId and exact ridge height; no browser/WebGL acceptance"
+    }
+  },
+  "canonicalTriangleWindows": {
+    "status": "bounded exact geometry extraction; no globe renderer adoption",
+    "actualAudit": {
+      "worldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+      "windows": 64,
+      "triangleCount": 28101,
+      "maxCentroidErrorM": 9.663381206337363e-13,
+      "maxAreaErrorM2": 5.122274160385132e-09,
+      "elapsedMs": 472.7866700000002,
+      "maximumWindowTriangles": 457,
+      "maximumWindowJsonBytes": 85597,
+      "detail": [
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": -8000,
+            "maxXM": -6000,
+            "maxYM": -6000
+          },
+          "triangles": 439,
+          "candidates": 468,
+          "bytes": 82464
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": -8000,
+            "maxXM": -4000,
+            "maxYM": -6000
+          },
+          "triangles": 440,
+          "candidates": 463,
+          "bytes": 83086
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": -8000,
+            "maxXM": -2000,
+            "maxYM": -6000
+          },
+          "triangles": 435,
+          "candidates": 459,
+          "bytes": 82503
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": -8000,
+            "maxXM": 0,
+            "maxYM": -6000
+          },
+          "triangles": 427,
+          "candidates": 449,
+          "bytes": 80221
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": -8000,
+            "maxXM": 2000,
+            "maxYM": -6000
+          },
+          "triangles": 439,
+          "candidates": 434,
+          "bytes": 81069
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": -8000,
+            "maxXM": 4000,
+            "maxYM": -6000
+          },
+          "triangles": 449,
+          "candidates": 464,
+          "bytes": 83198
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": -8000,
+            "maxXM": 6000,
+            "maxYM": -6000
+          },
+          "triangles": 438,
+          "candidates": 467,
+          "bytes": 80548
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": -8000,
+            "maxXM": 8000,
+            "maxYM": -6000
+          },
+          "triangles": 436,
+          "candidates": 450,
+          "bytes": 80845
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": -6000,
+            "maxXM": -6000,
+            "maxYM": -4000
+          },
+          "triangles": 451,
+          "candidates": 467,
+          "bytes": 85072
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": -6000,
+            "maxXM": -4000,
+            "maxYM": -4000
+          },
+          "triangles": 442,
+          "candidates": 472,
+          "bytes": 83288
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": -6000,
+            "maxXM": -2000,
+            "maxYM": -4000
+          },
+          "triangles": 437,
+          "candidates": 459,
+          "bytes": 83178
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": -6000,
+            "maxXM": 0,
+            "maxYM": -4000
+          },
+          "triangles": 441,
+          "candidates": 441,
+          "bytes": 83019
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": -6000,
+            "maxXM": 2000,
+            "maxYM": -4000
+          },
+          "triangles": 442,
+          "candidates": 423,
+          "bytes": 82240
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": -6000,
+            "maxXM": 4000,
+            "maxYM": -4000
+          },
+          "triangles": 434,
+          "candidates": 448,
+          "bytes": 80787
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": -6000,
+            "maxXM": 6000,
+            "maxYM": -4000
+          },
+          "triangles": 442,
+          "candidates": 452,
+          "bytes": 81958
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": -6000,
+            "maxXM": 8000,
+            "maxYM": -4000
+          },
+          "triangles": 439,
+          "candidates": 460,
+          "bytes": 81796
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": -4000,
+            "maxXM": -6000,
+            "maxYM": -2000
+          },
+          "triangles": 437,
+          "candidates": 468,
+          "bytes": 83136
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": -4000,
+            "maxXM": -4000,
+            "maxYM": -2000
+          },
+          "triangles": 446,
+          "candidates": 458,
+          "bytes": 84904
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": -4000,
+            "maxXM": -2000,
+            "maxYM": -2000
+          },
+          "triangles": 426,
+          "candidates": 451,
+          "bytes": 81427
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": -4000,
+            "maxXM": 0,
+            "maxYM": -2000
+          },
+          "triangles": 449,
+          "candidates": 462,
+          "bytes": 85597
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": -4000,
+            "maxXM": 2000,
+            "maxYM": -2000
+          },
+          "triangles": 433,
+          "candidates": 417,
+          "bytes": 81042
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": -4000,
+            "maxXM": 4000,
+            "maxYM": -2000
+          },
+          "triangles": 440,
+          "candidates": 456,
+          "bytes": 82239
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": -4000,
+            "maxXM": 6000,
+            "maxYM": -2000
+          },
+          "triangles": 438,
+          "candidates": 467,
+          "bytes": 81564
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": -4000,
+            "maxXM": 8000,
+            "maxYM": -2000
+          },
+          "triangles": 435,
+          "candidates": 459,
+          "bytes": 81313
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": -2000,
+            "maxXM": -6000,
+            "maxYM": 0
+          },
+          "triangles": 440,
+          "candidates": 460,
+          "bytes": 82552
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": -2000,
+            "maxXM": -4000,
+            "maxYM": 0
+          },
+          "triangles": 433,
+          "candidates": 457,
+          "bytes": 81715
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": -2000,
+            "maxXM": -2000,
+            "maxYM": 0
+          },
+          "triangles": 444,
+          "candidates": 469,
+          "bytes": 84146
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": -2000,
+            "maxXM": 0,
+            "maxYM": 0
+          },
+          "triangles": 446,
+          "candidates": 460,
+          "bytes": 84222
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": -2000,
+            "maxXM": 2000,
+            "maxYM": 0
+          },
+          "triangles": 433,
+          "candidates": 421,
+          "bytes": 80291
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": -2000,
+            "maxXM": 4000,
+            "maxYM": 0
+          },
+          "triangles": 438,
+          "candidates": 460,
+          "bytes": 82023
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": -2000,
+            "maxXM": 6000,
+            "maxYM": 0
+          },
+          "triangles": 445,
+          "candidates": 453,
+          "bytes": 82540
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": -2000,
+            "maxXM": 8000,
+            "maxYM": 0
+          },
+          "triangles": 437,
+          "candidates": 454,
+          "bytes": 80988
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": 0,
+            "maxXM": -6000,
+            "maxYM": 2000
+          },
+          "triangles": 441,
+          "candidates": 423,
+          "bytes": 81791
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": 0,
+            "maxXM": -4000,
+            "maxYM": 2000
+          },
+          "triangles": 452,
+          "candidates": 433,
+          "bytes": 84017
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": 0,
+            "maxXM": -2000,
+            "maxYM": 2000
+          },
+          "triangles": 435,
+          "candidates": 429,
+          "bytes": 81506
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": 0,
+            "maxXM": 0,
+            "maxYM": 2000
+          },
+          "triangles": 457,
+          "candidates": 432,
+          "bytes": 85001
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": 0,
+            "maxXM": 2000,
+            "maxYM": 2000
+          },
+          "triangles": 435,
+          "candidates": 393,
+          "bytes": 79732
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": 0,
+            "maxXM": 4000,
+            "maxYM": 2000
+          },
+          "triangles": 439,
+          "candidates": 427,
+          "bytes": 81084
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": 0,
+            "maxXM": 6000,
+            "maxYM": 2000
+          },
+          "triangles": 449,
+          "candidates": 427,
+          "bytes": 82028
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": 0,
+            "maxXM": 8000,
+            "maxYM": 2000
+          },
+          "triangles": 437,
+          "candidates": 425,
+          "bytes": 79835
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": 2000,
+            "maxXM": -6000,
+            "maxYM": 4000
+          },
+          "triangles": 438,
+          "candidates": 453,
+          "bytes": 81579
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": 2000,
+            "maxXM": -4000,
+            "maxYM": 4000
+          },
+          "triangles": 433,
+          "candidates": 466,
+          "bytes": 80741
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": 2000,
+            "maxXM": -2000,
+            "maxYM": 4000
+          },
+          "triangles": 434,
+          "candidates": 469,
+          "bytes": 81382
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": 2000,
+            "maxXM": 0,
+            "maxYM": 4000
+          },
+          "triangles": 433,
+          "candidates": 453,
+          "bytes": 80858
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": 2000,
+            "maxXM": 2000,
+            "maxYM": 4000
+          },
+          "triangles": 443,
+          "candidates": 428,
+          "bytes": 81385
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": 2000,
+            "maxXM": 4000,
+            "maxYM": 4000
+          },
+          "triangles": 444,
+          "candidates": 451,
+          "bytes": 82180
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": 2000,
+            "maxXM": 6000,
+            "maxYM": 4000
+          },
+          "triangles": 430,
+          "candidates": 463,
+          "bytes": 79041
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": 2000,
+            "maxXM": 8000,
+            "maxYM": 4000
+          },
+          "triangles": 429,
+          "candidates": 443,
+          "bytes": 78710
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": 4000,
+            "maxXM": -6000,
+            "maxYM": 6000
+          },
+          "triangles": 440,
+          "candidates": 465,
+          "bytes": 81689
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": 4000,
+            "maxXM": -4000,
+            "maxYM": 6000
+          },
+          "triangles": 443,
+          "candidates": 450,
+          "bytes": 81983
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": 4000,
+            "maxXM": -2000,
+            "maxYM": 6000
+          },
+          "triangles": 439,
+          "candidates": 457,
+          "bytes": 81918
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": 4000,
+            "maxXM": 0,
+            "maxYM": 6000
+          },
+          "triangles": 438,
+          "candidates": 455,
+          "bytes": 81454
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": 4000,
+            "maxXM": 2000,
+            "maxYM": 6000
+          },
+          "triangles": 450,
+          "candidates": 431,
+          "bytes": 82608
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": 4000,
+            "maxXM": 4000,
+            "maxYM": 6000
+          },
+          "triangles": 445,
+          "candidates": 448,
+          "bytes": 81938
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": 4000,
+            "maxXM": 6000,
+            "maxYM": 6000
+          },
+          "triangles": 438,
+          "candidates": 450,
+          "bytes": 80078
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": 4000,
+            "maxXM": 8000,
+            "maxYM": 6000
+          },
+          "triangles": 441,
+          "candidates": 457,
+          "bytes": 80654
+        },
+        {
+          "bounds": {
+            "minXM": -8000,
+            "minYM": 6000,
+            "maxXM": -6000,
+            "maxYM": 8000
+          },
+          "triangles": 427,
+          "candidates": 454,
+          "bytes": 78455
+        },
+        {
+          "bounds": {
+            "minXM": -6000,
+            "minYM": 6000,
+            "maxXM": -4000,
+            "maxYM": 8000
+          },
+          "triangles": 442,
+          "candidates": 448,
+          "bytes": 81751
+        },
+        {
+          "bounds": {
+            "minXM": -4000,
+            "minYM": 6000,
+            "maxXM": -2000,
+            "maxYM": 8000
+          },
+          "triangles": 440,
+          "candidates": 465,
+          "bytes": 82209
+        },
+        {
+          "bounds": {
+            "minXM": -2000,
+            "minYM": 6000,
+            "maxXM": 0,
+            "maxYM": 8000
+          },
+          "triangles": 434,
+          "candidates": 457,
+          "bytes": 80887
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": 6000,
+            "maxXM": 2000,
+            "maxYM": 8000
+          },
+          "triangles": 436,
+          "candidates": 419,
+          "bytes": 79839
+        },
+        {
+          "bounds": {
+            "minXM": 2000,
+            "minYM": 6000,
+            "maxXM": 4000,
+            "maxYM": 8000
+          },
+          "triangles": 440,
+          "candidates": 458,
+          "bytes": 80947
+        },
+        {
+          "bounds": {
+            "minXM": 4000,
+            "minYM": 6000,
+            "maxXM": 6000,
+            "maxYM": 8000
+          },
+          "triangles": 433,
+          "candidates": 453,
+          "bytes": 79184
+        },
+        {
+          "bounds": {
+            "minXM": 6000,
+            "minYM": 6000,
+            "maxXM": 8000,
+            "maxYM": 8000
+          },
+          "triangles": 435,
+          "candidates": 448,
+          "bytes": 79448
+        }
+      ]
+    },
+    "semantics": [
+      "clip original faces against metric rectangle",
+      "preserve source plane and narrow ridge vertices",
+      "retain holes, never create coverage",
+      "default 8192 output triangle limit; throw before silent truncation",
+      "fixed canonical surface and identity independent of window order or size"
+    ],
+    "verification": {
+      "focusedTests": 13,
+      "fullSuite": {
+        "pass": 975,
+        "fail": 0,
+        "skip": 0,
+        "durationMs": 309830.836144
+      },
+      "build": "PASS"
+    }
+  },
+  "earthCanonicalReferenceImport": {
+    "status": "Actual Earth reference data imported, not procedural terrain generation",
+    "results": [
+      {
+        "site": "numata",
+        "worldId": "sha256:b9a6d326c8b11b2d6f01fe7817e73715b70b937e63bac3aad763d6e9a00a042e",
+        "vertices": 36334,
+        "triangles": 71186,
+        "maximumVertexErrorM": 0,
+        "diagnostics": {
+          "sampleStride": 4,
+          "sampleSpacingM": 15.331464474605273,
+          "sampledShape": [
+            192,
+            192
+          ],
+          "sourceNoDataCells": 7567,
+          "sampledNoDataCells": 480,
+          "retainedVertices": 36334,
+          "retainedTriangles": 71186,
+          "coverage": "Only cells whose entire source support is observed; missing supports omitted, no fill or inferred water",
+          "limitations": [
+            "Point decimation without antialias filtering; not a full-resolution DEM",
+            "Approximate local metric spacing, not a geodetic transformation",
+            "Missing source support conservatively omits whole coarse cells; covered area may be underestimated"
+          ]
+        },
+        "status": "Real Earth reference; no generated-world replacement or browser acceptance"
+      },
+      {
+        "site": "byobugaura",
+        "worldId": "sha256:fff043235da64e749e44ecf84bf40e702c04af19f0c3e97c4e9cd2ad35f84588",
+        "vertices": 32160,
+        "triangles": 63286,
+        "maximumVertexErrorM": 0,
+        "diagnostics": {
+          "sampleStride": 4,
+          "sampleSpacingM": 15.51509076586876,
+          "sampledShape": [
+            192,
+            192
+          ],
+          "sourceNoDataCells": 75192,
+          "sampledNoDataCells": 4622,
+          "retainedVertices": 32160,
+          "retainedTriangles": 63286,
+          "coverage": "Only cells whose entire source support is observed; missing supports omitted, no fill or inferred water",
+          "limitations": [
+            "Point decimation without antialias filtering; not a full-resolution DEM",
+            "Approximate local metric spacing, not a geodetic transformation",
+            "Missing source support conservatively omits whole coarse cells; covered area may be underestimated"
+          ]
+        },
+        "status": "Real Earth reference; no generated-world replacement or browser acceptance"
+      }
+    ],
+    "pythonUnitTests": {
+      "pass": 5,
+      "fail": 0
+    },
+    "commands": [
+      "python scripts/experiments/import-earth-reference-mesh.py INPUT_NPZ reference/earth-terrain/gsi-local-manifest.json SITE NEW_INPUT_JSON --stride 4"
+    ],
+    "limits": [
+      "Two selected sites are not global landform coverage",
+      "Reference display does not prove generated terrain realism",
+      "No real Earth data inserted into a saved game world",
+      "Holes remain unknown; not sea or flat ground"
+    ]
+  },
+  "geographicTriangleRenderPackets": {
+    "status": "Regional coordinate binding and existing renderer integration; not automatic planetary adoption",
+    "actualBufferAudit": {
+      "status": "Regional renderer-buffer verification; not live globe adoption or WebGL acceptance",
+      "binding": {
+        "method": "georeferenced-triangular-view@1",
+        "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+        "projection": {
+          "kind": "spherical-azimuthal-equidistant@1",
+          "centerLatDeg": 40,
+          "centerLonDeg": 179.99900000000002,
+          "radiusM": 6371000,
+          "maxRadiusM": 28284.271247461904
+        },
+        "metricOrigin": {
+          "xM": 0,
+          "yM": 0
+        }
+      },
+      "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+      "elapsedMs": 1327.5165860000002,
+      "windows": [
+        {
+          "bounds": {
+            "minXM": -10000,
+            "minYM": -10000,
+            "maxXM": -5000,
+            "maxYM": -5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2191,
+          "maxVertexFloat32ErrorM": 0.00014982121195479157,
+          "maxSampledChordErrorM": 0.0022277578498233197,
+          "bufferBytes": 486402,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -5000,
+            "minYM": -10000,
+            "maxXM": 0,
+            "maxYM": -5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2244,
+          "maxVertexFloat32ErrorM": 0.00013513427551341349,
+          "maxSampledChordErrorM": 0.002395814502676785,
+          "bufferBytes": 498168,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": -10000,
+            "maxXM": 5000,
+            "maxYM": -5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2264,
+          "maxVertexFloat32ErrorM": 0.00013681661230820625,
+          "maxSampledChordErrorM": 0.0021260606727651066,
+          "bufferBytes": 502608,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 5000,
+            "minYM": -10000,
+            "maxXM": 10000,
+            "maxYM": -5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2183,
+          "maxVertexFloat32ErrorM": 0.00014020821966193592,
+          "maxSampledChordErrorM": 0.002254058145695126,
+          "bufferBytes": 484626,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -10000,
+            "minYM": -5000,
+            "maxXM": -5000,
+            "maxYM": 0
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2258,
+          "maxVertexFloat32ErrorM": 0.00016821412885808414,
+          "maxSampledChordErrorM": 0.0022109121113658148,
+          "bufferBytes": 501276,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -5000,
+            "minYM": -5000,
+            "maxXM": 0,
+            "maxYM": 0
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2346,
+          "maxVertexFloat32ErrorM": 0.00015323813730575662,
+          "maxSampledChordErrorM": 0.002306047598437999,
+          "bufferBytes": 520812,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": -5000,
+            "maxXM": 5000,
+            "maxYM": 0
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2346,
+          "maxVertexFloat32ErrorM": 0.00014884414299579142,
+          "maxSampledChordErrorM": 0.002290610435096596,
+          "bufferBytes": 520812,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 5000,
+            "minYM": -5000,
+            "maxXM": 10000,
+            "maxYM": 0
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2262,
+          "maxVertexFloat32ErrorM": 0.00013589491826941644,
+          "maxSampledChordErrorM": 0.0021097067142932246,
+          "bufferBytes": 502164,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -10000,
+            "minYM": 0,
+            "maxXM": -5000,
+            "maxYM": 5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2259,
+          "maxVertexFloat32ErrorM": 0.00016437072591478464,
+          "maxSampledChordErrorM": 0.0022115613239179766,
+          "bufferBytes": 501498,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -5000,
+            "minYM": 0,
+            "maxXM": 0,
+            "maxYM": 5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2336,
+          "maxVertexFloat32ErrorM": 0.0001398855763589431,
+          "maxSampledChordErrorM": 0.0020760768423997433,
+          "bufferBytes": 518592,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": 0,
+            "maxXM": 5000,
+            "maxYM": 5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2340,
+          "maxVertexFloat32ErrorM": 0.00013864435713931814,
+          "maxSampledChordErrorM": 0.0021643076482860124,
+          "bufferBytes": 519480,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 5000,
+            "minYM": 0,
+            "maxXM": 10000,
+            "maxYM": 5000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2279,
+          "maxVertexFloat32ErrorM": 0.00014288660535696798,
+          "maxSampledChordErrorM": 0.0022070564135105997,
+          "bufferBytes": 505938,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -10000,
+            "minYM": 5000,
+            "maxXM": -5000,
+            "maxYM": 10000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2193,
+          "maxVertexFloat32ErrorM": 0.0001669490647689964,
+          "maxSampledChordErrorM": 0.0024551603405598144,
+          "bufferBytes": 486846,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": -5000,
+            "minYM": 5000,
+            "maxXM": 0,
+            "maxYM": 10000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2236,
+          "maxVertexFloat32ErrorM": 0.00013805668131520709,
+          "maxSampledChordErrorM": 0.0023894801462631676,
+          "bufferBytes": 496392,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 0,
+            "minYM": 5000,
+            "maxXM": 5000,
+            "maxYM": 10000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2267,
+          "maxVertexFloat32ErrorM": 0.00014278347851082862,
+          "maxSampledChordErrorM": 0.002091074132039239,
+          "bufferBytes": 503274,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        },
+        {
+          "bounds": {
+            "minXM": 5000,
+            "minYM": 5000,
+            "maxXM": 10000,
+            "maxYM": 10000
+          },
+          "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+          "viewId": "sha256:732e1f337a1e9edbb2eca23f4eb28aab0a3041f3c8d196ba19d0cd403e50fa2f",
+          "triangles": 2186,
+          "maxVertexFloat32ErrorM": 0.00013434616863683874,
+          "maxSampledChordErrorM": 0.002347860959901027,
+          "bufferBytes": 485292,
+          "limitations": [
+            "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+            "No automatic insertion into a planet or cube-tile seam coupling",
+            "Actual browser/WebGL draw still requires verification"
+          ]
+        }
+      ],
+      "maximumBufferBytes": 520812,
+      "maximumVertexFloat32ErrorM": 0.00016821412885808414,
+      "maximumSampledChordErrorM": 0.0024551603405598144
+    },
+    "actualCpuRender": {
+      "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+      "viewId": "sha256:9db787fa4e5c38181c566493db8bc126dc6141425408eb17ca2faa09ce013cc6",
+      "config": {
+        "projection": {
+          "centerLatDeg": 40,
+          "centerLonDeg": 179.999,
+          "radiusM": 6371000,
+          "maxRadiusM": 30000
+        },
+        "metricOrigin": {
+          "xM": 0,
+          "yM": 0
+        },
+        "window": {
+          "minXM": -7655.8020601392545,
+          "minYM": 5293.141866144997,
+          "maxXM": -5655.8020601392545,
+          "maxYM": 7293.141866144997
+        },
+        "altitudeM": 2500,
+        "tiltDeg": 45,
+        "headingDeg": -25
+      },
+      "draw": {
+        "drawTiles": 1,
+        "triangles": 407,
+        "gpuMs": null,
+        "viewport": [
+          1100,
+          700
+        ],
+        "renderer": "software-diagnostic",
+        "drawCpuMs": 112.49590699999999,
+        "drawIntervalMs": 224.99181399999998,
+        "renderCount": 1,
+        "drawFPS": 0
+      },
+      "mesh": {
+        "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+        "viewId": "sha256:9db787fa4e5c38181c566493db8bc126dc6141425408eb17ca2faa09ce013cc6",
+        "triangles": 430,
+        "maxVertexFloat32ErrorM": 4.8123526795971117e-05,
+        "maxSampledChordErrorM": 0.002005967712761958,
+        "bufferBytes": 95460,
+        "limitations": [
+          "Only finite centroid chord-error probes, not an adaptive LOD error certificate",
+          "No automatic insertion into a planet or cube-tile seam coupling",
+          "Actual browser/WebGL draw still requires verification"
+        ]
+      },
+      "renderer": "Existing src/globe/software-renderer.mjs and view-state camera; not browser/WebGL acceptance",
+      "heightScale": 1,
+      "water": "not modeled",
+      "planetAdoption": false
+    },
+    "verification": {
+      "focusedTests": 3,
+      "fullSuite": {
+        "pass": 978,
+        "fail": 0,
+        "skip": 0,
+        "durationMs": 262282.406348
+      },
+      "build": "PASS: 122 core, 30 legacy aliases, 48 globe modules"
+    },
+    "limits": [
+      "No surrounding-planet or watershed boundary reconciliation",
+      "No certified cube-tile adaptive LOD bound",
+      "No water model",
+      "GPU upload layout tested with mock WebGL; actual WebGL/browser acceptance remains unverified"
+    ],
+    "equalWindowSeamProbe": {
+      "viewId": "sha256:9db787fa4e5c38181c566493db8bc126dc6141425408eb17ca2faa09ce013cc6",
+      "edge": "x=0, -5000<=y<=0",
+      "leftPoints": 78,
+      "rightPoints": 78,
+      "matched": 78,
+      "maximumGapM": 0.00023130080524613557,
+      "keyToleranceM": 1e-07,
+      "limits": "Finite rendered-vertex seam check of two equal-size windows; not arbitrary mixed-LOD or cube tile stitching"
+    }
+  },
+  "regionalInteractiveViewer": {
+    "entry": "src/globe/relief.html",
+    "linkedFrom": "src/globe/index.html",
+    "status": "Implemented regional viewer; actual browser/WebGL acceptance unverified",
+    "actualPreparationAndCpuDraw": {
+      "sourceWorldId": "sha256:cf6cc30457559a7b4534b0dc54668f28c4273daa3249642ae3fcb42246622f4f",
+      "viewId": "sha256:75e4445c53f9e7a2919c686b73caf0521635a205241c452cbc86847982d26f12",
+      "packets": 16,
+      "bytes": 8034180,
+      "paintedPixels": 56215,
+      "result": {
+        "drawTiles": 16,
+        "triangles": 36190,
+        "gpuMs": null,
+        "viewport": [
+          500,
+          325
+        ],
+        "renderer": "software-diagnostic",
+        "drawCpuMs": 120.47852000000012,
+        "drawIntervalMs": 240.95704000000023,
+        "renderCount": 1,
+        "drawFPS": 0
+      },
+      "elapsedMs": 2234.7347409999998,
+      "resourcesAfterDispose": 0,
+      "scope": "Actual source through UI preparation + renderer path, not browser event/WebGL acceptance"
+    },
+    "earthPreparation": [
+      {
+        "site": "numata",
+        "sourceWorldId": "sha256:b9a6d326c8b11b2d6f01fe7817e73715b70b937e63bac3aad763d6e9a00a042e",
+        "packets": 16,
+        "bytes": 16787196,
+        "focusGround": 384.81,
+        "elapsedMs": 9909.766481
+      },
+      {
+        "site": "byobugaura",
+        "sourceWorldId": "sha256:fff043235da64e749e44ecf84bf40e702c04af19f0c3e97c4e9cd2ad35f84588",
+        "packets": 16,
+        "bytes": 14979672,
+        "focusGround": 53.68,
+        "elapsedMs": 4872.408398000001
+      }
+    ],
+    "limits": {
+      "inputBytes": 16777216,
+      "newDrawBufferBytes": 33554432,
+      "windows": 16,
+      "cooperativeTrianglesPerStep": 128
+    },
+    "verified": [
+      "heading/tilt/distance/exaggeration keep canonical source identity",
+      "late file reads cannot replace a newer request",
+      "failed/cancelled upload releases staged resources and preserves previous display",
+      "renderer retry and persisted navigation restore saved source",
+      "actual page logic executed with instrumented DOM and CPU canvas",
+      "static server returned page and module resources with correct MIME types"
+    ],
+    "notVerified": [
+      "actual browser layout and pointer/native file-picker behavior",
+      "actual GPU shader/driver rendering",
+      "whole-planet ownership and mixed-LOD boundary coupling"
+    ],
+    "verification": {
+      "focusedPageAndSessionAndPacketTests": 9,
+      "fullSuite": {
+        "pass": 984,
+        "fail": 0,
+        "skip": 0,
+        "durationMs": 271959.155106
+      },
+      "build": "PASS: 122 core, 30 legacy aliases, 50 globe modules",
+      "framebufferAfterCooperativeRefactor": "byte-identical to prior inspected native CPU image"
+    }
+  }
+}

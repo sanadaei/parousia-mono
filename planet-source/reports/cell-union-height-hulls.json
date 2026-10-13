@@ -1,0 +1,71 @@
+{
+  "scope": "Actual saved23b L16 tile; same raw geometry, tighter conservative union of covering cells and rendered fine/coarse vertices. Sequential runtimes are order-confounded, not a speed claim.",
+  "results": [
+    {
+      "label": "before",
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "timeMs": 8574.575179000001,
+      "range": [
+        396.1286170116661,
+        931.4461319350041
+      ],
+      "error": {
+        "method": "lipschitz-cube-triangles@1",
+        "terrainErrorM": 54.032115297014535,
+        "featureErrorM": 1400,
+        "geometricErrorM": 17.540217015838714,
+        "baseCertified": true,
+        "featureStatus": "amplitude-only",
+        "intervalGroundErrorM": 535.3177586043162,
+        "groundBoundMethod": "canonical grid-cell and rendered-vertex height intervals",
+        "cellGroundErrorM": 17.540212929438745,
+        "maximumCellHeightSpanM": 33.457607342811684,
+        "maximumCellHeightErrorM": 17.540030972346585,
+        "intervalCellCount": 256
+      },
+      "vertexHash": "5fa18d35b36f3d8b2ad820b7053dcaebaa9a903d9cb9ac0580eb6ea8ab53daa6",
+      "indexHash": "a262290025f2f0d623acbeab17a3462fec60634a74fb37172d6aaa5c74e71932"
+    },
+    {
+      "label": "after",
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "timeMs": 7524.631415000002,
+      "range": [
+        644.6831537337168,
+        684.4473929152227
+      ],
+      "error": {
+        "method": "lipschitz-cube-triangles@1",
+        "terrainErrorM": 54.032115297014535,
+        "featureErrorM": 1400,
+        "geometricErrorM": 17.540217008866463,
+        "baseCertified": true,
+        "featureStatus": "amplitude-only",
+        "intervalGroundErrorM": 535.3177586043162,
+        "groundBoundMethod": "canonical grid-cell and rendered-vertex height intervals",
+        "originalTileHeightRangeM": [
+          396.1286170116661,
+          931.4461319350041
+        ],
+        "heightHullMethod": "cell-union-and-rendered-vertices@1",
+        "cellGroundErrorM": 17.540212922466495,
+        "maximumCellHeightSpanM": 33.457607342811684,
+        "maximumCellHeightErrorM": 17.540030972346585,
+        "intervalCellCount": 256
+      },
+      "vertexHash": "5fa18d35b36f3d8b2ad820b7053dcaebaa9a903d9cb9ac0580eb6ea8ab53daa6",
+      "indexHash": "a262290025f2f0d623acbeab17a3462fec60634a74fb37172d6aaa5c74e71932"
+    }
+  ],
+  "identicalGeometry": true
+}

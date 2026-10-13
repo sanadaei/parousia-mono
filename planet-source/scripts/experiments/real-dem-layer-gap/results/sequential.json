@@ -1,0 +1,865 @@
+{
+  "schema": "real-dem-sequential-layer-test@1",
+  "method": "Repeated adjacent2x refinement; actual-source intermediate strides for real variants, no new source samples for interpolation variant. Draft candidate contexts propagated only in isolated benchmark; no production budget acceptance or storage.",
+  "limits": [
+    "Final source distribution can differ across sequential and direct paths although global source total is equal; destination/routing-head metrics do not depend on supply, corridor/flow metrics intentionally omitted.",
+    "Sequential refinements retain initial sparse endpoint identities; they cannot recover absent open boundary endpoints."
+  ],
+  "results": [
+    {
+      "crop": "NW",
+      "initialGap": 4,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 141.58349999999996
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 178.03212000000002
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.8017851646660511,
+      "finalMaxAddedFillM": 83.31016,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494847514
+    },
+    {
+      "crop": "NW",
+      "initialGap": 4,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.16796874999999864,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 42.38104999999996
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.059733072916670904,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 42.38104999999996
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9886118805786396,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "NW",
+      "initialGap": 4,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.09309895833333263,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 32.13644500000002
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.028510199652779743,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 32.429432500000004
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.7830101569713758,
+      "finalMaxAddedFillM": 32.3216125,
+      "finalTerrainRMSEM": 28.70070460161118,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "NW",
+      "initialGap": 8,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 136.42634999999996
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 155.86545
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 219.01788
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.7993228685749462,
+      "finalMaxAddedFillM": 219.01788,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494847275
+    },
+    {
+      "crop": "NW",
+      "initialGap": 8,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.1901041666666661,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 53.97598000000002
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.12879774305555527,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 52.49784999999997
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.055600766782410854,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 61.44462999999999
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9910741766697445,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484569
+    },
+    {
+      "crop": "NW",
+      "initialGap": 8,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.1041666666666664,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 28.035774999999987
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.04611545138888873,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 32.78742874999999
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.02111364293981597,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 33.50364171874999
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.907356109572176,
+      "finalMaxAddedFillM": 33.50364171874999,
+      "finalTerrainRMSEM": 43.76197138433539,
+      "finalSourceTotalM3": 64039094.49484569
+    },
+    {
+      "crop": "NE",
+      "initialGap": 4,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 160.00427999999994
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 237.40130999999997
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.8522622345337026,
+      "finalMaxAddedFillM": 100.95765999999998,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484735
+    },
+    {
+      "crop": "NE",
+      "initialGap": 4,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.11447482638888813,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 55.2663
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.026991102430557416,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 37.67432000000002
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9935364727608494,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "NE",
+      "initialGap": 4,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.10514322916666599,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 55.045879999999954
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.029920789930557645,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 57.40763999999996
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.8153277931671283,
+      "finalMaxAddedFillM": 57.40763999999996,
+      "finalTerrainRMSEM": 25.965775042426966,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "NE",
+      "initialGap": 8,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 288.14977999999996
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 336.78824999999995
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 348.62744999999995
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.6755924899969221,
+      "finalMaxAddedFillM": 183.14763999999997,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484822
+    },
+    {
+      "crop": "NE",
+      "initialGap": 8,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.20876736111111058,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 101.56710999999996
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.08957851080246898,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 101.56710999999996
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.021556712962964183,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 139.24142999999998
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9932286857494613,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "NE",
+      "initialGap": 8,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.1197916666666664,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 53.38655749999998
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.03417968749999984,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 53.38655749999998
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.0156521267361121,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 53.38655749999998
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.7753154816866729,
+      "finalMaxAddedFillM": 53.38655749999998,
+      "finalTerrainRMSEM": 42.39257417716653,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "SW",
+      "initialGap": 4,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 160.62856
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 244.85396000000003
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.2219144352108341,
+      "finalMaxAddedFillM": 178.72898,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484836
+    },
+    {
+      "crop": "SW",
+      "initialGap": 4,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.5823567708333296,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 98.15947000000003
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.21062102141205102,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 59.329309999999964
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9895352416128039,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "SW",
+      "initialGap": 4,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.12196180555555489,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 93.95301
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.03046332465277935,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 93.95301
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.2739304401354263,
+      "finalMaxAddedFillM": 71.21569749999998,
+      "finalTerrainRMSEM": 39.71283615469236,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "SW",
+      "initialGap": 8,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 250.79044
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 276.27454
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 276.27454
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.6371191135734072,
+      "finalMaxAddedFillM": 159.25911000000002,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494848765
+    },
+    {
+      "crop": "SW",
+      "initialGap": 8,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.17925347222222185,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 154.92567999999997
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.11357060185185164,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 182.58127999999996
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.04850762763631966,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 166.60406
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9935364727608494,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "SW",
+      "initialGap": 8,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.13888888888888853,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 63.49042000000003
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.0987413194444443,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 63.616445000000056
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.02275028935185306,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 63.67945750000007
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.716528162511542,
+      "finalMaxAddedFillM": 33.48271562499997,
+      "finalTerrainRMSEM": 62.53121401128841,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "SE",
+      "initialGap": 4,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 174.87349999999998
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 279.10213
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.7845490920283164,
+      "finalMaxAddedFillM": 151.77554999999995,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484743
+    },
+    {
+      "crop": "SE",
+      "initialGap": 4,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.08072916666666613,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 37.21800999999999
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.2438693576389053,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 36.50208000000001
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9993844259772238,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494845286
+    },
+    {
+      "crop": "SE",
+      "initialGap": 4,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.4967447916666632,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 52.190079999999995
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.02742513020833514,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 52.190079999999995
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.23730378578024008,
+      "finalMaxAddedFillM": 52.190079999999995,
+      "finalTerrainRMSEM": 28.061657959729033,
+      "finalSourceTotalM3": 64039094.494845286
+    },
+    {
+      "crop": "SE",
+      "initialGap": 8,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 165.42651
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 216.56092999999998
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 304.69451
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.34779932286857496,
+      "finalMaxAddedFillM": 205.02151000000003,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.4948499
+    },
+    {
+      "crop": "SE",
+      "initialGap": 8,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.4531249999999987,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 75.67186000000001
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.05056423611111094,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 37.21800999999999
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.24514431423612612,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 60.60413
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9984610649430594,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "SE",
+      "initialGap": 8,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.14583333333333293,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 22.62133399999999
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.17144097222222182,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 22.62133399999999
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.019359447337964027,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 22.62133399999999
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.2739304401354263,
+      "finalMaxAddedFillM": 22.62133399999999,
+      "finalTerrainRMSEM": 46.92062238620426,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "C",
+      "initialGap": 4,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 157.84147000000002
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 164.78235
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.2634656817482302,
+      "finalMaxAddedFillM": 141.52653,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494848564
+    },
+    {
+      "crop": "C",
+      "initialGap": 4,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.5491536458333295,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 66.49738000000002
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.13586877893519436,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 34.850959999999986
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9889196675900277,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "C",
+      "initialGap": 4,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.5214843749999964,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 49.39541999999997
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.028130425347224305,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 49.39541999999997
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.7273007079101262,
+      "finalMaxAddedFillM": 43.07123999999999,
+      "finalTerrainRMSEM": 28.706029391036186,
+      "finalSourceTotalM3": 64039094.49484529
+    },
+    {
+      "crop": "C",
+      "initialGap": 8,
+      "method": "hard-mask-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 168.55862000000002
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 188.39100000000002
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0,
+          "pendingReconciliation": false,
+          "maxRoutingFillM": 228.36124999999998
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.3087103724222838,
+      "finalMaxAddedFillM": 228.36124999999998,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.49484867
+    },
+    {
+      "crop": "C",
+      "initialGap": 8,
+      "method": "soft-divide-real",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.6171874999999981,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 57.88328000000001
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.44108072916666546,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 79.17666
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": true,
+          "budgetRedistributionFraction": 0.22790276170268872,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 62.926710000000014
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.9929208987380732,
+      "finalMaxAddedFillM": 0,
+      "finalTerrainRMSEM": 0,
+      "finalSourceTotalM3": 64039094.494845696
+    },
+    {
+      "crop": "C",
+      "initialGap": 8,
+      "method": "soft-divide-interpolation",
+      "stages": [
+        {
+          "nativeSourceStride": 4,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.1471354166666663,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 48.0146
+        },
+        {
+          "nativeSourceStride": 2,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.04926215277777766,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 49.188815000000005
+        },
+        {
+          "nativeSourceStride": 1,
+          "newSourceInformation": false,
+          "budgetRedistributionFraction": 0.028483072916668253,
+          "pendingReconciliation": true,
+          "maxRoutingFillM": 49.188815000000005
+        }
+      ],
+      "finalInteriorDestinationAgreement": 0.31117266851338876,
+      "finalMaxAddedFillM": 44.18895999999995,
+      "finalTerrainRMSEM": 47.1498211249958,
+      "finalSourceTotalM3": 64039094.494845696
+    }
+  ]
+}

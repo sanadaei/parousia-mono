@@ -1,0 +1,3 @@
+results/case-*.json
+results/*.log
+results/*.png

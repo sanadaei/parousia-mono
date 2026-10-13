@@ -1,0 +1,15 @@
+{
+  "worldId": "sha256:ca13650ec47456e6d394b5698cf60d8ad533708f977215aa68a9f444f2dabedb",
+  "siteId": "pop:2990:577",
+  "scope": "Counterfactual new infill policy on saved runtime13 site; all house centers and sampled access centerlines and ±1.2 m sides through the shared physical chart, not exhaustive continuous proof",
+  "before": 17,
+  "after": 60,
+  "infill": {
+    "placed": 43,
+    "remaining": 0,
+    "method": "surveyed-residential-infill@2"
+  },
+  "movedExistingHouses": [],
+  "physicalPathSamples": 3102,
+  "failures": []
+}

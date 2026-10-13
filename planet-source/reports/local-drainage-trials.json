@@ -1,0 +1,316 @@
+{
+  "canonicalWorldId": "sha256:36dc278278b024ec96f6ef75852be85089302f0e531178aa542efc02e191e374",
+  "scope": "Four fixed8.192km local terrain surveys around existing river stations, not integrated streams or new water surfaces; timing includes other work",
+  "results": [
+    {
+      "profileId": "river:1798:1925",
+      "center": {
+        "latDeg": 47.82108152610852,
+        "lonDeg": 16.83690375008814
+      },
+      "ms": 624.235498,
+      "diagnostics": {
+        "cells": 16641,
+        "receivingWaterSeeds": 59,
+        "candidateCells": 106,
+        "boundaryTruncatedBasins": 323,
+        "depressionDependentBasins": 1
+      },
+      "channelCompilation": {
+        "maxIncisionM": 2,
+        "profileStepM": 4,
+        "pointCount": 2283,
+        "acceptedProfiles": 13,
+        "rejected": [],
+        "scope": "Trial local tributaries; widths/depths are a declared small-stream scenario, no discharge or global integration",
+        "physicalSamples": {
+          "samples": 11350,
+          "dry": 0,
+          "overIncision": 0,
+          "minDepthM": 0.2949998686337949,
+          "maxIncisionM": 0.7615297780569108
+        }
+      },
+      "candidateBasins": [
+        {
+          "outlet": {
+            "cell": 2355,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.2444375884213
+          },
+          "areaM2": 409600,
+          "landCells": 99,
+          "channelCells": 12,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 3133,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.2444375884213
+          },
+          "areaM2": 274432,
+          "landCells": 66,
+          "channelCells": 8,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 5597,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.2444375884215
+          },
+          "areaM2": 368640,
+          "landCells": 89,
+          "channelCells": 11,
+          "maxFillM": 0.016108576770193395
+        },
+        {
+          "outlet": {
+            "cell": 6764,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.244437588421
+          },
+          "areaM2": 266240,
+          "landCells": 64,
+          "channelCells": 1,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 8320,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.2444375884213
+          },
+          "areaM2": 741376,
+          "landCells": 180,
+          "channelCells": 19,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 9098,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.2444375884213
+          },
+          "areaM2": 1425408,
+          "landCells": 347,
+          "channelCells": 35,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 9487,
+            "id": "river:1798:1925",
+            "kind": "river",
+            "levelM": 1643.2444375884213
+          },
+          "areaM2": 700416,
+          "landCells": 170,
+          "channelCells": 20,
+          "maxFillM": 0
+        }
+      ],
+      "maxFillM": 44.11614917438533
+    },
+    {
+      "profileId": "river:1925:2052",
+      "center": {
+        "latDeg": 44.990356200779026,
+        "lonDeg": 14.009727245707495
+      },
+      "ms": 207.759364,
+      "diagnostics": {
+        "cells": 16641,
+        "receivingWaterSeeds": 68,
+        "candidateCells": 0,
+        "boundaryTruncatedBasins": 176,
+        "depressionDependentBasins": 2
+      },
+      "channelCompilation": {
+        "maxIncisionM": 2,
+        "profileStepM": 4,
+        "pointCount": 0,
+        "acceptedProfiles": 0,
+        "rejected": [],
+        "scope": "Trial local tributaries; widths/depths are a declared small-stream scenario, no discharge or global integration",
+        "physicalSamples": {
+          "samples": 0,
+          "dry": 0,
+          "overIncision": 0,
+          "minDepthM": null,
+          "maxIncisionM": 0
+        }
+      },
+      "candidateBasins": [],
+      "maxFillM": 42.45132795837287
+    },
+    {
+      "profileId": "river:2574:2701",
+      "center": {
+        "latDeg": 30.928162964097435,
+        "lonDeg": 39.33737085786788
+      },
+      "ms": 549.2903040000001,
+      "diagnostics": {
+        "cells": 16641,
+        "receivingWaterSeeds": 93,
+        "candidateCells": 62,
+        "boundaryTruncatedBasins": 219,
+        "depressionDependentBasins": 3
+      },
+      "channelCompilation": {
+        "maxIncisionM": 2,
+        "profileStepM": 4,
+        "pointCount": 1338,
+        "acceptedProfiles": 10,
+        "rejected": [],
+        "scope": "Trial local tributaries; widths/depths are a declared small-stream scenario, no discharge or global integration",
+        "physicalSamples": {
+          "samples": 6640,
+          "dry": 0,
+          "overIncision": 0,
+          "minDepthM": 0.29499943947348584,
+          "maxIncisionM": 0.6131655078502263
+        }
+      },
+      "candidateBasins": [
+        {
+          "outlet": {
+            "cell": 5853,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.697148258339
+          },
+          "areaM2": 307200,
+          "landCells": 74,
+          "channelCells": 1,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 6372,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.6971482583385
+          },
+          "areaM2": 266240,
+          "landCells": 64,
+          "channelCells": 9,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 6762,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.6971482583385
+          },
+          "areaM2": 278528,
+          "landCells": 67,
+          "channelCells": 7,
+          "maxFillM": 0.02278784893314878
+        },
+        {
+          "outlet": {
+            "cell": 7281,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.697148258339
+          },
+          "areaM2": 315392,
+          "landCells": 76,
+          "channelCells": 8,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 8190,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.6971482583385
+          },
+          "areaM2": 753664,
+          "landCells": 183,
+          "channelCells": 25,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 8969,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.697148258339
+          },
+          "areaM2": 315392,
+          "landCells": 76,
+          "channelCells": 5,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 13774,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.697148258339
+          },
+          "areaM2": 233472,
+          "landCells": 56,
+          "channelCells": 6,
+          "maxFillM": 0
+        },
+        {
+          "outlet": {
+            "cell": 14034,
+            "id": "river:2574:2701",
+            "kind": "river",
+            "levelM": 2359.697148258339
+          },
+          "areaM2": 159744,
+          "landCells": 38,
+          "channelCells": 1,
+          "maxFillM": 0
+        }
+      ],
+      "maxFillM": 21.677911766245415
+    },
+    {
+      "profileId": "river:4049:3922",
+      "center": {
+        "latDeg": 2.8291480139859684,
+        "lonDeg": -129.36089868529257
+      },
+      "ms": 253.92050300000005,
+      "diagnostics": {
+        "cells": 16641,
+        "receivingWaterSeeds": 16641,
+        "candidateCells": 0,
+        "boundaryTruncatedBasins": 0,
+        "depressionDependentBasins": 0
+      },
+      "channelCompilation": {
+        "maxIncisionM": 2,
+        "profileStepM": 4,
+        "pointCount": 0,
+        "acceptedProfiles": 0,
+        "rejected": [],
+        "scope": "Trial local tributaries; widths/depths are a declared small-stream scenario, no discharge or global integration",
+        "physicalSamples": {
+          "samples": 0,
+          "dry": 0,
+          "overIncision": 0,
+          "minDepthM": null,
+          "maxIncisionM": 0
+        }
+      },
+      "candidateBasins": [],
+      "maxFillM": 0
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "worldId": "sha256:6d6229ec0df5b9887331f6ae8febc38688100407be8877f50fe14905dd94b995",
+  "rowBefore": 46.08002951064643,
+  "rowAfter": 3.144097112864123,
+  "poleUnchanged": true,
+  "results": [
+    {
+      "tile": {
+        "face": 3,
+        "level": 15,
+        "x": 2,
+        "y": 16950
+      },
+      "before": [
+        -979.6890622435571,
+        2354.2876044478735
+      ],
+      "after": [
+        132.65244615691688,
+        1203.2795009314073
+      ],
+      "beforeSpan": 3333.9766666914306,
+      "afterSpan": 1070.6270547744903,
+      "sampledRange": [
+        661.3142268493384,
+        674.7512269980572
+      ],
+      "samples": 289,
+      "mismatch": 0,
+      "outside": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "before": [
+        -979.6890622435571,
+        2354.2876044478735
+      ],
+      "after": [
+        396.1286451361243,
+        931.4461133060818
+      ],
+      "beforeSpan": 3333.9766666914306,
+      "afterSpan": 535.3174681699575,
+      "sampledRange": [
+        661.3142268493384,
+        667.9659735441621
+      ],
+      "samples": 289,
+      "mismatch": 0,
+      "outside": 0
+    },
+    {
+      "tile": {
+        "face": 3,
+        "level": 17,
+        "x": 10,
+        "y": 67803
+      },
+      "before": [
+        -979.6890622435571,
+        2354.2876044478735
+      ],
+      "after": [
+        530.5659928489695,
+        798.2230067969917
+      ],
+      "beforeSpan": 3333.9766666914306,
+      "afterSpan": 267.65701394802227,
+      "sampledRange": [
+        662.5787829410868,
+        666.746714098543
+      ],
+      "samples": 289,
+      "mismatch": 0,
+      "outside": 0
+    }
+  ],
+  "scope": "Base terrain bound only, finite samples supplement the latitude-scope analytic bound. Not frame-time or feature-ground acceptance.",
+  "meshBenchmark": [
+    {
+      "label": "before",
+      "tile": {
+        "face": 3,
+        "level": 0,
+        "x": 0,
+        "y": 0
+      },
+      "timeMs": 1934.0195919999999
+    },
+    {
+      "label": "before",
+      "tile": {
+        "face": 3,
+        "level": 5,
+        "x": 0,
+        "y": 16
+      },
+      "timeMs": 1016.5129539999998
+    },
+    {
+      "label": "before",
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "timeMs": 6519.255498
+    },
+    {
+      "label": "after",
+      "tile": {
+        "face": 3,
+        "level": 0,
+        "x": 0,
+        "y": 0
+      },
+      "timeMs": 1377.6270959999983
+    },
+    {
+      "label": "after",
+      "tile": {
+        "face": 3,
+        "level": 5,
+        "x": 0,
+        "y": 16
+      },
+      "timeMs": 1018.3014320000002
+    },
+    {
+      "label": "after",
+      "tile": {
+        "face": 3,
+        "level": 16,
+        "x": 5,
+        "y": 33901
+      },
+      "timeMs": 7225.462492999999
+    }
+  ],
+  "benchmarkLimit": "Sequential cold Node builds, not controlled latency comparison; per-tile speedup is not established.",
+  "cloudObservation": {
+    "at": "2026-10-11T00:31:41Z",
+    "world": "local-landscape-23b",
+    "site": "pop:4048:78",
+    "heightM": 500,
+    "tiltDeg": 60,
+    "renderer": "software",
+    "generated": 1261,
+    "drawnTiles": 436,
+    "maximumLevel": 18,
+    "cpuShapeMiB": 70.2,
+    "loading": 0,
+    "overTargetLeaves": 387,
+    "plannedLeaves": 387,
+    "status": "fixed-budget limited, target unmet; several-minute load still unacceptable"
+  }
+}

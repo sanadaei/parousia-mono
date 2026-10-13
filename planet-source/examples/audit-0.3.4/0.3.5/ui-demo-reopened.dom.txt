@@ -1,0 +1,127 @@
+- banner:
+  - text: Terrain & Water
+  - emphasis: Stage 5
+  - generic: Scene
+  - combobox "Preset scene":
+    - option "Choose a preset…" [disabled] [selected]
+    - 'option "Demo valley: river, lake, sea, bridges, pads · generated"'
+    - 'option "Fixture: lake → river → ocean · 8 KB"'
+    - 'option "Fixture: concave U-shaped lake · 3 KB"'
+    - 'option "Fixture: river + surface water-level grid · 9 KB"'
+    - 'option "Fixture: river + groundwater grid · 9 KB"'
+    - option "World A (C1, modeled rivers, 7 roads) · 0.9 MB"
+    - option "World B (C1, modeled rivers, roads) · 0.9 MB"
+    - option "World A (bilinear, modeled rivers) · 0.9 MB"
+    - option "World A (Strahler channel sizing) · 0.9 MB"
+    - option "Refinement A (C1, no hydrology) · 0.6 MB"
+    - option "Legacy terrain@1 (unresolved water) · 0.2 MB"
+    - 'option "Global water chart: explicit bowl lake · 66 KB"'
+    - 'option "Global water chart: date line · 66 KB"'
+    - option "Global multi-chart world (4 charts) · 0.2 MB"
+    - option "Global Drainage & Multi-Chart · 0.2 MB"
+    - 'option "Projected grid export: north pole · 0.6 MB"'
+  - button "Open JSON…" [active]
+  - toolbar "Map tools":
+    - button "Pan"
+    - button "Profile"
+    - button "Sandbox"
+    - button "Fit"
+    - group "Quick layer toggles":
+      - button "Elevation" [pressed]
+      - button "Relief" [pressed]
+      - button "Water" [pressed]
+      - button "Contours"
+      - button "Structures" [pressed]
+      - button "Trafficability" [pressed]
+      - button "Drainage"
+    - generic "Layers"
+    - option "Fine (1 px)"
+    - option "Balanced (1.5 px)" [selected]
+    - option "Fast (3 px)"
+    - option "Draft (6 px)"
+  - generic: Demo_valley_river_lake_sea_bridges_pads.scene.json · modeled water · loaded in 0.23 s
+- main:
+  - region "Map":
+    - generic: —
+    - generic: sample step 4 m
+    - generic: "-19 m"
+    - generic: 109 m
+    - generic: Trafficability · pedestrian
+    - generic: Dry road / bridge
+    - generic: Building pad
+    - generic: Walkable ground
+    - generic: Difficult scramble
+    - generic: Cliff / blocked
+    - generic: Shallow wading
+    - generic: Deep water (pedestrian blocked)
+    - generic: scramble > 50% · cliff > 100% · wading ≤ 0.3 m · vehicle slope ≤ 30% / water ≤ 0.4 m · unknown water stays unknown
+    - generic: Drag pan · wheel zoom · Shift+drag profile · click pin/select · F fit · P profile · S sandbox · T trafficability · D drainage · [ ] chart · Esc unpin
+  - complementary:
+    - tablist:
+      - tab "Inspector"
+      - tab "Crossings 3"
+      - tab "Sandbox": Sandbox
+      - tab "LOD"
+      - tab "Scene"
+    - heading "Demo_valley_river_lake_sea_bridges_pads.scene.json" [level=4]
+    - term: schema
+    - definition: minimal-world-continuous-terrain@3
+    - term: kind
+    - definition: planar
+    - term: interpolation
+    - definition: bounded-hermite-c1@1
+    - term: worldId
+    - definition: sha256:9f7ab4e64ba3b7d0…
+    - term: roadAdjustmentId
+    - definition: sha256:9883137930abf963…
+    - term: vertical datum
+    - definition: ui-demo-sea-level
+    - term: hydrology
+    - definition: modeled
+    - term: bounds
+    - definition: 0…1600 × 0…1200 m
+    - term: extent
+    - definition: 1.60 km × 1.20 km
+    - term: grid
+    - definition: 64×48 @ 25 m
+    - term: elevation
+    - definition: "-18.7 m … 109.0 m"
+    - heading "Features" [level=4]
+    - term: water bodies
+    - definition: "2"
+    - term: river edges
+    - definition: "5"
+    - term: roads
+    - definition: "3"
+    - term: bridges
+    - definition: "3"
+    - term: building pads
+    - definition: "8"
+    - term: settlements
+    - definition: "2"
+    - term: crossings
+    - definition: "3"
+    - heading "Load timings" [level=4]
+    - term: totalMs
+    - definition: 232 ms
+    - term: parse
+    - definition: 0 ms
+    - term: restore
+    - definition: 4 ms
+    - term: roads
+    - definition: 46 ms
+    - term: earthwork
+    - definition: 122 ms
+    - term: range
+    - definition: 212 ms
+    - button "Download scene bundle"
+  - region "Profile":
+    - generic: Road valley-road · 1.52 km · 2451 samples
+    - combobox "Road profile":
+      - option "Road profile…"
+      - option "valley-road" [selected]
+      - option "hill-road"
+      - option "coast-road"
+    - button "Reset zoom"
+    - button "Export CSV"
+    - button "Clear"

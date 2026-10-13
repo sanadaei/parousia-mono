@@ -1,0 +1,37 @@
+{
+  "scope": "Actual generated base terrain at identical coordinates; no settlement or vegetation rendering",
+  "site": {
+    "profile": "river:3670:3541",
+    "index": 25,
+    "bankWidthM": 85.43659987467137,
+    "depthM": 2.506422782621459,
+    "floodplainRiseM": 1.4999245616003105,
+    "floodplainWidthM": 68.34859238403631,
+    "halfWidthM": 17.08800749063506,
+    "latDeg": 10.645389392031033,
+    "lonDeg": -117.51227522651152,
+    "waterLevelElevationM": 1159.3465658290907
+  },
+  "worlds": [
+    {
+      "name": "Before",
+      "worldId": "sha256:cd942a93f46d2982b38a3e9d87668f88139878a82c6fe23f976149344ae4f428",
+      "size": 161,
+      "extentM": 1600,
+      "minM": 1154.7668979619134,
+      "maxM": 1162.7576707800058
+    },
+    {
+      "name": "Alluvial section candidate",
+      "worldId": "sha256:9266cdd064f415dcdd9c4cded30d29a94cf8c6bd210d9e76f1949662348311ef",
+      "size": 161,
+      "extentM": 1600,
+      "minM": 1154.7668979619134,
+      "maxM": 1162.7576707800058
+    }
+  ],
+  "maximumHeightChangeM": 1.9637160869528998,
+  "changedSamples": 1257,
+  "sampleCount": 25921,
+  "visualAssessment": "Small local cross-section change; channel remains straight. Not accepted as a solution to near-field realism. Explicit opt-in only."
+}

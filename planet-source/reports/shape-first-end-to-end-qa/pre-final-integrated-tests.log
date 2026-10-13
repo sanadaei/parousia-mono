@@ -1,0 +1,37 @@
+✔ connector represents continuous wet bed, monotonically descending water and unchanged exterior (6.091906ms)
+✔ terminal joins existing wet water field without a gap even through compact fade (3.692876ms)
+✔ deterministic identity and sampled bounds, including fine-scale convergence (15.164386ms)
+Verified saved receiver candidate {"kind":"existing-river","regionExtent":{"widthM":8847.576,"heightM":9772.992},"id":"river:2640:2769","pointIndex":45,"xM":14174.084774997533,"yM":16141.291856336655,"latDeg":30.826437875204128,"lonDeg":-132.04839511275225,"waterLevelM":556.0602967784469,"depthM":2.213007565979904,"widthM":22.271057451320086,"direction":{"xM":0.6507124930230668,"yM":0.7593242070576346},"distanceM":9584.649097938875}
+✔ saved planet resolves an actual downstream receiver outside modified collar with bounded search (15.202734ms)
+✔ real receiver overlap stays wet against saved planet sampling (119.40847ms)
+✔ all four outlet sides route outside authored rectangle and use bounded geometry (2.127982ms)
+✔ explicit sphere draft has stable separate persisted identity and original untouched (70.88793ms)
+✔ sphere queries and camera ground follow original native shape at geographic placement (24.927817ms)
+✔ exterior collar joins the saved planet without moving native rectangle (37.965364ms)
+✔ normal globe mesh uses selected heights and draped design river symbols (200.698247ms)
+✔ recorded vertical placement preserves all native relative heights and reloads (38.304579ms)
+✔ seed-generated shape uses the same sphere field contract (1020.473711ms)
+✔ post-shape channel water, bed, camera and exact-width strips share one field (492.48295ms)
+✔ explicit below-sea placement is consistently wet rather than dry hidden ocean (27.066464ms)
+✔ automatic outlet placement reaches a verified saved river with wet bed continuity (119.047208ms)
+✔ runtime loads the actual chosen A source and annotations with five unchanged levels (14.577554ms)
+✔ runtime rejects detached/tampered pyramid and water sources (84.730487ms)
+✔ runtime rejects malformed display contracts (64.884767ms)
+✔ bilinear sampler is exact at nodes and clamps to a finite boundary (0.506442ms)
+✔ LOD adapts to zoom but stops at native resolution (0.258539ms)
+✔ pan/zoom coordinates round trip and river selection reports the right segment (1.690474ms)
+✔ actual runtime raster is deterministic, finite, level-sensitive and source-preserving (10.602953ms)
+✔ entry point offers shape mode without replacing saved-world runtime (0.54465ms)
+✔ runtime rejects tampered water arithmetic and cyclic parent labels (67.909249ms)
+✔ shared source controls preserve selected view and safely round-trip seeds (4.909287ms)
+✔ shared loader produces validated deterministic multi-seed native shapes (1951.718236ms)
+✔ draft records persist exact data, round-trip and refuse same-seed conflicts (1004.976276ms)
+✔ draft export/import preserves selected world and exact geographic placement (1.659087ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3384.712281

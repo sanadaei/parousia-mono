@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: saved native L2 terrain is shared and never falls back outside its domain
+ok 1 - saved native L2 terrain is shared and never falls back outside its domain
+  ---
+  duration_ms: 9.8414
+  type: 'test'
+  ...
+# Subtest: native-grid, content identity, handoff and water-geometry mismatches fail closed
+ok 2 - native-grid, content identity, handoff and water-geometry mismatches fail closed
+  ---
+  duration_ms: 3.7167
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 135.6155

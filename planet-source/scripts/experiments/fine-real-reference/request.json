@@ -1,0 +1,35 @@
+{
+  "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?f=json&bbox=313940.1526075908%2C4325043.133862447%2C322870.1526075908%2C4334903.133862447&bboxSR=32618&imageSR=32618&size=893%2C986&format=tiff&pixelType=F32&interpolation=RSP_BilinearInterpolation&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicLockRaster%22%2C+%22lockRasterIds%22%3A+%5B5276%5D%2C+%22mosaicOperation%22%3A+%22MT_FIRST%22%7D&adjustAspectRatio=false",
+  "parameters": {
+    "f": "json",
+    "bbox": "313940.1526075908,4325043.133862447,322870.1526075908,4334903.133862447",
+    "bboxSR": "32618",
+    "imageSR": "32618",
+    "size": "893,986",
+    "format": "tiff",
+    "pixelType": "F32",
+    "interpolation": "RSP_BilinearInterpolation",
+    "renderingRule": "{\"rasterFunction\": \"None\"}",
+    "mosaicRule": "{\"mosaicMethod\": \"esriMosaicLockRaster\", \"lockRasterIds\": [5276], \"mosaicOperation\": \"MT_FIRST\"}",
+    "adjustAspectRatio": "false"
+  },
+  "predeterminedCenter": [
+    -77.1,
+    39.1
+  ],
+  "centerUTM18N": [
+    318405.1526075908,
+    4329973.133862447
+  ],
+  "targetGrid": {
+    "cellSizeM": 55.297348888543404,
+    "cellSizeYM": 76.35149687202671,
+    "columns": 161,
+    "rows": 129
+  },
+  "pointExtentM": [
+    8847.575822166944,
+    9772.99159961942
+  ],
+  "sourceDownloadLimitBytes": 20000000
+}

@@ -1,0 +1,72 @@
+{
+  "worldId": "sha256:b29f598660e043689774d6bd9455daf7b59db8bb9c3c5bfe7bb08be599c6f811",
+  "site": {
+    "id": "pop:3843:0",
+    "name": "都市 3843-0",
+    "cellIndex": 3843,
+    "slot": 0,
+    "kind": "city",
+    "population": 50000,
+    "latDeg": 5.567875272668681,
+    "lonDeg": 8.490236523923528,
+    "elevationM": 2399.829733253985,
+    "status": "sited-needs-local-layout",
+    "economicContext": {
+      "method": "regional-cereal-woodland@1",
+      "institutionPolicy": "medieval-communal@1",
+      "populationId": "sha256:655032bc45089b20307c22a1c6bf39e633f26ae8a883103fa5e6ab0b5548afef",
+      "agricultureSuitability": 0.9756144688994616,
+      "agriculturalDependentPopulation": 0,
+      "netGrainKgPerHa": 429.27036631576317,
+      "foodKgPerPersonYear": 250,
+      "grainKgPerPersonYear": 2500.44246072211,
+      "biome": "temperate_forest",
+      "woodland": true
+    }
+  },
+  "districtCount": 105,
+  "counts": {
+    "requestedHomes": 10000,
+    "placedHomes": 10000,
+    "facilities": 71,
+    "types": {
+      "carpenter": 14,
+      "chapel": 1,
+      "granary": 26,
+      "hall": 1,
+      "handmill": 20,
+      "market": 1,
+      "school": 1,
+      "warehouse": 7
+    },
+    "rejectedFacilities": 80
+  },
+  "roads": [
+    {
+      "id": "road:pop:3843:0|pop:3843:25",
+      "status": "surveyed-local-route",
+      "lengthM": 9673.90259560101,
+      "probes": 485
+    },
+    {
+      "id": "road:pop:3843:0|pop:3843:1",
+      "status": "surveyed-local-route",
+      "lengthM": 13049.620174455555,
+      "probes": 654
+    }
+  ],
+  "agriculture": {
+    "requestedAreaHa": 0,
+    "plannedParcels": 0,
+    "samples": []
+  },
+  "regionalRoadComponents": 3,
+  "riverRejected": [],
+  "elapsedMs": 2689.83334,
+  "heapUsedMiB": 131.8761978149414,
+  "limitations": [
+    "Selected city and two routes only; not a global completion certificate",
+    "Households on unsuitable plots remain explicitly unbuilt",
+    "Facility dependencies do not prove production capacity"
+  ]
+}

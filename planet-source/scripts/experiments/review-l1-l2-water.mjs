@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import {createL1WaterNetwork} from '../../src/core/l1-water-network.mjs';
+import {saveConnectedL2Water} from './connect-l2-water.mjs';
+import {hashJson} from '../../src/core/json-contract.mjs';
+import {requireVerificationMemory} from '../verification-runtime.mjs';
+// Explicit position or a documented nearest eligible reach; no seed lottery.
+const [input,output,directory,networkOutput,lat='43.59375',lon='158.90625']=process.argv.slice(2);
+if(!networkOutput)throw Error('Usage: review-l1-l2-water.mjs L1.json OUTPUT.json SAVE_DIR NETWORK.json [TARGET_LAT TARGET_LON]');
+requireVerificationMemory();
+const parent=JSON.parse(fs.readFileSync(input,'utf8')),network=createL1WaterNetwork(parent),latitude=Number(lat),longitude=Number(lon);
+if(!Number.isFinite(latitude)||!Number.isFinite(longitude))throw Error('Finite review coordinates required');
+const distance=e=>((e.from.latDeg+e.to.latDeg)/2-latitude)**2+((e.from.lonDeg+e.to.lonDeg)/2-longitude)**2;
+const edges=network.edges.filter(e=>e.meanPotentialFlowM3PerSecond>=20&&e.meanPotentialFlowM3PerSecond<2000&&e.from.elevationM>60&&e.to.elevationM>60&&e.bedStatus==='downhill-coarse-corridor'&&!parent.snapshot.fields.lakeFillDepthM[e.fromCell]&&!parent.snapshot.fields.lakeFillDepthM[e.toCell]).sort((a,b)=>distance(a)-distance(b)||a.fromCell-b.fromCell);
+if(!edges.length)throw Error('No eligible inland downhill review reach');
+const e=edges[0],settings={latDeg:(e.from.latDeg+e.to.latDeg)/2,lonDeg:(e.from.lonDeg+e.to.lonDeg)/2,seed:'muna-atlas-001',columns:192,rows:144,cellSizeM:60,detailAmplitude:.5};
+const r=await saveConnectedL2Water(parent,settings,directory,{network,minFlowM3PerSecond:20});
+const reopened=await saveConnectedL2Water(parent,settings,directory,{network,minFlowM3PerSecond:20});
+if(hashJson(r)!==hashJson(reopened))throw Error('Saved water region changed on reload');
+fs.writeFileSync(output,JSON.stringify(r));fs.writeFileSync(networkOutput,JSON.stringify(network));
+console.log(JSON.stringify({sourceLayerId:parent.id,selectedParentEdge:e.id,selection:'nearest inland downhill 20–2000 m3/s reach to requested point; no seed search',settings,diagnostics:r.diagnostics,valleyConstruction:r.valleyConstruction,contentHash:hashJson(r),reopenIdentical:true}));

@@ -1,0 +1,193 @@
+diff --git a/README.md b/README.md
+index 4d2cb4f..4e5bef2 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-> 2026-10-13: **保存されたL1候補をネイティブL2地形上の住宅・農地区画・道路調査へ接続**しました。PC向けの限定地域例です。`npm run l2:materialize`で生成・確定保存し、人口と農地の保留・対象外を残します。全球画面への採用と隣接地形・道路の接続は次段階です。[仕様と再現](docs/L2_SETTLEMENT_MATERIALIZATION.md)。
++> 2026-10-13 訂正: **L1候補から局地地形への接続・予算・保存を試す診断例**を追加しました。画面の直交する住宅配置と矩形農地は仮配置で、村の景観として未採用です。`npm run l2:diagnose-layout`で再現できます。次は既存の地形・村のリアリティ方針に照らした比較と配置設計で、その受け入れを経てから全球へ統合します。[範囲と採用条件](docs/L2_SETTLEMENT_MATERIALIZATION.md)。
+ 
+ > 開発・利用環境は **PC** を前提とします。操作・画面・性能の受け入れ条件もPCを対象にします。
+ 
+diff --git a/package.json b/package.json
+index f0c817a..7954e46 100644
+--- a/package.json
++++ b/package.json
+@@ -61,7 +61,7 @@
+   "scripts": {
+     "l0:baseline": "node --max-old-space-size=256 scripts/build-l0-settlement-baseline.mjs",
+     "l2:baseline": "node --max-old-space-size=256 scripts/build-l2-settlement-baseline.mjs",
+-    "l2:materialize": "node --max-old-space-size=256 scripts/build-l2-settlement-materialization.mjs",
++    "l2:diagnose-layout": "node --max-old-space-size=256 scripts/build-l2-settlement-materialization.mjs",
+     "build": "node --max-old-space-size=256 scripts/build.mjs",
+     "test": "node --max-old-space-size=256 scripts/test.mjs",
+     "verify": "node --max-old-space-size=256 scripts/verify.mjs",
+diff --git a/src/core/index.mjs b/src/core/index.mjs
+index bbde752..f6284c8 100644
+--- a/src/core/index.mjs
++++ b/src/core/index.mjs
+@@ -321,4 +321,5 @@ export {refineWaterCandidate,reconcileWaterCandidate,saveWaterCandidate} from '.
+ 
+ export {createShapeFirstCandidateChannels} from './shape-first-channels.mjs';
+ export {L2_SETTLEMENT_DETAIL_SCHEMA,makeL2SettlementDetail,createL2SettlementSurface} from './l2-settlement-surface.mjs';
+-export {L2_SETTLEMENT_MATERIALIZATION_SCHEMA,materializeL2SettlementCandidate,saveL2SettlementMaterialization} from './l2-settlement-materialization.mjs';
++// The provisional orthogonal layout is a diagnostic fixture, not the adopted
++// settlement-generation API. Diagnostic scripts import its module explicitly.
+diff --git a/src/core/l2-settlement-materialization.mjs b/src/core/l2-settlement-materialization.mjs
+index 2f8332d..56b28f9 100644
+--- a/src/core/l2-settlement-materialization.mjs
++++ b/src/core/l2-settlement-materialization.mjs
+@@ -279,6 +279,9 @@ function materializeAccess(base, worldProj, baseSite, accessTarget, radiusM, bui
+ function heldAccess() {
+   return { status: 'not-generated', recipe: null, receivingConnection: 'unresolved', reason: null, target: null };
+ }
++// Diagnostic only: the fallback population-districts layout and rectangular
++// field pages exercise budgets, terrain rejection and persistence. They do not
++// implement the adopted terrain-led landscape plan and must not feed the globe.
+ export function materializeL2SettlementCandidate(surface, population, handoff, options) {
+   validateL2SettlementHandoff(handoff);
+   if (options === undefined || options === null || typeof options !== 'object') throw new TypeError('L2 materialization options required');
+diff --git a/scripts/build-l2-settlement-materialization.mjs b/scripts/build-l2-settlement-materialization.mjs
+index bba8d0a..80a9d79 100644
+--- a/scripts/build-l2-settlement-materialization.mjs
++++ b/scripts/build-l2-settlement-materialization.mjs
+@@ -64,9 +64,11 @@ export async function buildL2SettlementMaterialization({inputDir='reports/l2-set
+       nativeSurfaceId:detail.id,origin:{latDeg:candidate.latDeg,lonDeg:candidate.lonDeg},population:candidate.population,
+       housing:h,fields:{...f,accepted:f.accepted.length,rejected:f.rejected.length},accessStatus:result.access.status});
+   }
+-  const output={schema:'l2-settlement-materialization-baseline@1',platform:'PC',inputDir,sourceLayerId:l1.id,
++  const output={schema:'l2-settlement-materialization-baseline@1',purpose:'diagnostic-only',realismAcceptance:'unaccepted',platform:'PC',inputDir,sourceLayerId:l1.id,
+     examples,checks:{populationAndAreaConserved:true,reopenedWithoutRegeneration:true},
+-    limitations:['Only fixed representative candidates and bounded district/field pages were generated',
++    limitations:['Orthogonal housing and rectangular field slots are diagnostic fixtures, not adopted village morphology',
++      'Passing numerical checks or reference review does not establish landscape realism',
++      'Only fixed representative candidates and bounded district/field pages were generated',
+       'Local native designs are not adopted into the global terrain renderer; adjacent patches remain unjoined',
+       'Surveyed fields do not establish food yield, rights or complete agricultural access',
+       'A local road to a survey portal does not establish a neighbouring road connection',
+@@ -79,5 +81,6 @@ export async function buildL2SettlementMaterialization({inputDir='reports/l2-set
+   return output;
+ }
+ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
++  console.error('診断用の仮配置を保存します。地形・村のリアリティは未受入で、全球ランタイムへの採用対象ではありません。');
+   console.log(JSON.stringify(await buildL2SettlementMaterialization({inputDir:process.argv[2],outputDir:process.argv[3]}),null,2));
+ }
+diff --git a/scripts/build-l2-materialization-review.mjs b/scripts/build-l2-materialization-review.mjs
+index e784d66..b2f1fe4 100644
+--- a/scripts/build-l2-materialization-review.mjs
++++ b/scripts/build-l2-materialization-review.mjs
+@@ -385,12 +385,12 @@ export function buildL2MaterializationReview(data) {
+     '<html lang="ja"><head><meta charset="utf-8">',
+     '<meta name="viewport" content="width=device-width, initial-scale=1">',
+     '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; connect-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src \'none\'; font-src \'none\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'">',
+-    '<title>L2 詳細地形の検査 — 保存レイアウト</title>',
++    '<title>L2 接続診断 — 仮配置・景観として未採用</title>',
+     '<style>', reviewStyles(), '</style></head><body>',
+-    '<header class="page-header"><div><p class="eyebrow">PLANET / L2 SAVED REVIEW</p><h1>L2 詳細地形の検査</h1><p class="subtitle">住宅・農地・道路の保存結果と、保留の位置を確認する</p></div><span class="saved-badge">PC用 · 保存データのみ</span></header>',
++    '<header class="page-header"><div><p class="eyebrow">PLANET / L2 DIAGNOSTIC REVIEW</p><h1>L2 接続診断</h1><p class="subtitle">仮配置の予算・保留・保存を確認する。地形・村のリアリティは未受入</p></div><span class="saved-badge">PC用 · 景観として未採用</span></header>',
+     '<main>',
+     '<section class="candidate-bar" aria-labelledby="candidate-heading"><div><h2 id="candidate-heading">検査する候補</h2><label class="sr-only" for="candidate">候補を切り替える</label><select id="candidate"></select></div><div id="candidate-summary"></div></section>',
+-    '<p class="scope">保存範囲：各固定候補の住宅一区画＋農地一ページ（最大16区画）。候補原点は変更していません。「今回の対象外」はこの保存に含めていない要求分で、累積の未生成量ではありません。</p>',
++    '<p class="scope"><strong>住宅の直交配置と矩形農地は診断用の仮配置です。この配置をそのまま全球へ採用しません。</strong> 保存範囲：各固定候補の住宅一区画＋農地一ページ（最大16区画）。候補原点は変更していません。「今回の対象外」はこの保存に含めていない要求分で、累積の未生成量ではありません。</p>',
+     '<div class="workspace"><section class="map-panel" aria-labelledby="map-heading">',
+     '<div class="map-toolbar"><h2 id="map-heading">詳細地形と保存輪郭</h2><div class="view-buttons" role="group" aria-label="地図の視点"><button type="button" id="view-full">全景</button><button type="button" id="view-settlement">集落周辺</button><button type="button" id="view-fields">農地周辺</button></div></div>',
+     '<div class="map-stage"><canvas id="map" tabindex="0" aria-label="L2詳細地形。矢印で移動、プラスとマイナスで拡大縮小、Homeで全景。対象をクリックすると一覧でも選択されます。" aria-describedby="map-help map-description"></canvas><div class="north" aria-hidden="true">↑<span>北 / N</span></div><div class="elevation-key"><span>表示標高</span><span class="ramp"></span><span id="elevation-range"></span></div><div class="scale-box" aria-hidden="true"><div id="scale-line"></div><span id="scale-label"></span></div></div>',
+@@ -410,9 +410,9 @@ export function buildL2MaterializationReview(data) {
+     '<div class="budgets"><section class="budget-panel" aria-labelledby="population-heading"><h2 id="population-heading">人口と住宅の予算</h2><p id="housing-status"></p><table><caption class="sr-only">候補の全人口と今回の住宅区画の配分</caption><thead><tr><th scope="col">範囲・状態</th><th scope="col">人数枠</th><th scope="col">住宅</th></tr></thead><tbody id="population-body"></tbody></table><p class="table-note">配置住宅の正本は保存された住宅戸数です。公共施設を住宅数へ加算しません。表示人数は統計上の需要と住宅容量の枠であり、住民個体の生成数を表していません。</p></section>',
+     '<section class="budget-panel" aria-labelledby="fields-heading"><h2 id="fields-heading">農地の面積予算</h2><p id="fields-status"></p><table><caption class="sr-only">候補の農地全需要と今回の農地ページの配分</caption><thead><tr><th scope="col">範囲・状態</th><th scope="col">面積</th></tr></thead><tbody id="fields-body"></tbody></table><p class="table-note">「通過」は乾燥・勾配の標本調査を通った区画輪郭です。食料供給・土地の権利・年間収量・農道の確保は未完了です。</p></section></div>',
+     '<section class="access-panel" aria-labelledby="access-heading"><h2 id="access-heading">道路と外部アクセス</h2><div id="access-summary"></div></section>',
+-    '<section class="limits-panel" aria-labelledby="limits-heading"><h2 id="limits-heading">この保存から確認できる範囲</h2><p>地形は詳細L2の保存表示格子です。河川は幅を持つ設計水面で、内外の河川連続性・洪水・飲料水は未検証です。地域端の調査点は隣接地域への接続を保証しません。</p><p>詳細L2の地域例を追加した段階です。全球ランタイムへの採用と隣接ネイティブ境界への接続は未完了です。</p></section>',
++    '<section class="limits-panel" aria-labelledby="limits-heading"><h2 id="limits-heading">この保存から確認できる範囲</h2><p>地形は局地生成例の保存表示格子です。細かい格子や補間だけで、谷・川岸・村の自然さを証明しません。河川は幅を持つ設計水面で、内外の河川連続性・洪水・飲料水は未検証です。地域端の調査点は隣接地域への接続を保証しません。</p><p>予算・保留・保存の接続を診断した段階です。街路・宅地・住宅・農地の形態は未受入で、全球ランタイムには未採用です。</p></section>',
+     '<details class="technical"><summary>技術詳細：候補ID・surface ID・保存状態と座標系</summary><pre id="technical-data"></pre></details>',
+-    '<footer class="roadmap"><strong>現在：詳細L2の保存結果をPCで検査する段階</strong><p>次のロードマップ：立地保留の探索 → 農地への実アクセス → 隣接道路・ネイティブ地形の接続 → 全球画面への採用</p></footer>',
++    '<footer class="roadmap"><strong>現在：L0統計 → L1配分 → L2候補受け渡し。局地配置は接続診断まで</strong><p>次のロードマップ：地形と村のリアリティを比較・設計 → 複数地域で景観を確認 → 隣接地形・道路と全球画面へ統合</p></footer>',
+     '</main><noscript>保存データの地図と一覧を表示するにはJavaScriptを有効にしてください。このHTMLはネットワーク接続を使いません。</noscript>',
+     '<script type="application/json" id="review-data">', escaped, '</script>',
+     '<script>(', initializeReview.toString(), ')();</script>',
+diff --git a/docs/WORKING_BASELINE_ROADMAP.md b/docs/WORKING_BASELINE_ROADMAP.md
+index 040a9a6..b1cda1c 100644
+--- a/docs/WORKING_BASELINE_ROADMAP.md
++++ b/docs/WORKING_BASELINE_ROADMAP.md
+@@ -63,11 +63,13 @@
+ 
+ **前段の完了範囲**: L0統計・L1配分から、規模付きの地域候補・農地需要・L2受け渡しまで。次はL2の詳細地形上での立地・敷地、実際の農地と生活圏、隣接地域への交通候補・接続道路。通常の参照時集落生成にも新規模仮定を適用したが、新しいL1候補を全球ランタイムで実敷地へ採用する統合は残る。下記の地形改善と両立させる。[契約](L2_SETTLEMENT_HANDOFF.md)と`reports/l2-settlement-baseline`の新検証資料を参照。
+ 
+-### 2026-10-13: 固定候補を局地のL2詳細地形へ
++### 2026-10-13: 固定候補と局地地形の接続診断（景観として未採用）
+ 
+ 保存済みの固定三候補に、既存のseed生成器によるネイティブ詳細地形と同じ設計河床サンプラを接続した。住宅一区画・農地一ページ・地域端への道路を条件調査し、人口・需要面積・保留を確定保存する。二候補は傾斜で保留、起伏地域の村では住宅27戸・135人分と農地60万m²の輪郭を得たが、149人・農地4万m²・地域端への道路は保留。ページ対象外の需要も残す。
+ 
+-**現在位置**: L0統計・L1配分・L2候補から、参照した候補の局地詳細化と配置調査・保存まで。次は立地保留の扱い、農地への実アクセス、隣接するネイティブ地形・道路の接続、全球画面からこの新候補を参照する統合。独立地域例を、境界まで成立した全球地形と扱わない。PCの操作・GPU描画・性能を対象とする。[仕様](L2_SETTLEMENT_MATERIALIZATION.md)。
++**現在位置**: L0統計・L1配分・L2候補受け渡しが土台。局地地形へつなぐ予算・条件調査・保存は診断例までで、詳細地形と村のリアリティは未受入。今回の処理は既存の `terrain-led-neighborhood@2` を通さず、旧来の直交配置と矩形農地を使っていた。そのまま本線へ採用しない。[診断の範囲](L2_SETTLEMENT_MATERIALIZATION.md)。
++
++**統合前の順序**: 下記の地形比較と、[近景計画](../LOCAL_LANDSCAPE_PLAN.md)の街路・土地利用方針へ戻る。谷底・斜面・川岸・段丘・支谷を同じ縮尺で比較し、地形と進入路、水へのアクセス、公共・生産用地から街路、宅地、住宅、周辺農地を決める。形を自然にするための一様なランダムずらしは採用しない。既存のterrain-led経路自体も完成景観として受入済みではないため、接続しただけで完了とはしない。複数の地形条件を地域・村・街路の縮尺で確認してから、隣接地形・道路と全球参照へ統合する。PC前提を維持する。
+ 
+ ## 3. 次の限定改善: 形の豊かさと必要な細部
+ 
+diff --git a/docs/L2_SETTLEMENT_MATERIALIZATION.md b/docs/L2_SETTLEMENT_MATERIALIZATION.md
+index 6bfd7f1..375ccd2 100644
+--- a/docs/L2_SETTLEMENT_MATERIALIZATION.md
++++ b/docs/L2_SETTLEMENT_MATERIALIZATION.md
+@@ -1,6 +1,14 @@
+-# 集落候補をネイティブL2地形で具体化する
++# 集落候補と局地L2地形の接続診断
+ 
+-2026-10-13。対象環境は **PC**。L0人口正本とL1配分から渡された候補一件を、保存された詳細地形上の住宅一区画・農地区画一ページ・地域端へのアクセス調査へ接続する。
++2026-10-13。対象環境は **PC**。L0人口正本とL1配分から渡された候補一件を、保存された詳細地形上の住宅一区画・農地区画一ページ・地域端へのアクセス調査へ接続する診断例。
++
++## 景観としての採用は保留
++
++画面の直交した住宅配置・同型の12m住宅・矩形農地は、人口と面積の収支、地形上の保留、保存再利用を検査する仮配置。住宅の形状だけでなく、街路・宅地・農地の配置そのものが未採用であり、そのまま全球ランタイムへ接続しない。
++
++この処理は `economicContext.layoutPolicy` を与えておらず、`createSettlementLayout` の旧 `population-districts@1` 経路を使っていた。以前の近景計画で課題とした反復格子・四角い農地リングへ戻ったもので、地形に沿う集落を実現した進捗とは扱わない。診断コマンドを `l2:diagnose-layout` へ変更し、この仮配置の生成・保存関数を共通core APIから外した。専用スクリプトと試験は明示的に診断モジュールを参照する。
++
++次は [近景計画](../LOCAL_LANDSCAPE_PLAN.md)と[実地形との比較](EARTH_LANDSCAPE_COMPARISON.md)に沿う配置設計。地形と進入路、水へのアクセス、公共用地・生産用地から街路と区画を組み、住宅と農地を配する。既存のterrain-led経路も未完成なので、フラグの切替や家の装飾だけで受け入れとしない。複数地域を同じ広さ・縮尺で比較し、地形・集落・農地・道が一体として読めることを確認してから統合する。
+ 
+ ## 正本と生成範囲
+ 
+@@ -21,27 +29,31 @@
+ ```powershell
+ # 前段のL0/L1・候補資料がない場合
+ npm run l2:baseline
+-# 保存されたL1から固定三候補を詳細化
+-npm run l2:materialize
++# 保存されたL1から固定三候補の接続を診断（景観として未採用）
++npm run l2:diagnose-layout
+ ```
+ 
+ 入力は `reports/l2-settlement-baseline`、出力は `reports/l2-settlement-materialization`。CLIの二つの位置引数で入力・出力ディレクトリーを指定できる。既定の三候補のslotを固定しており、成功例を探すためにseedや原点を選び直さない。
+ 
+ 今回の地域地形例には既存のseed生成器を用い、161×129節点、約8.85×9.77km、55.30×76.35mのネイティブ形状を追加した。L1の一点の標高を配置時の基準として平行移動し、局地の形を保つ。設計河床と仮の400mm/年流出注釈を使い、外部流入・洪水・飲料水を成立済みとはしない。住宅の敷地判定はこの格子の補間と設計河床上で行う。格子未満の小地形・土壌・基礎耐力は未生成・未検証。
+ 
++ここで「ネイティブ」は入力の高さ格子を意味し、自然な詳細地形として受け入れたという意味ではない。候補ごとに独立した地形例を作り、親L1の一点の標高に合わせただけで、周辺の地形・排水・土地利用の連続性は成立させていない。細かい表示補間や敷地の標本間隔は、新しい地形情報の生成を意味しない。
++
+ 固定三候補では、都市74,465人と村260人は詳細面の傾斜で保留。起伏地域の村284人では住宅27戸・135人分を配置し、149人を保留した。公共建物一棟は住宅数に含めない。この村の必要農地4,431,714m²のうち、今回のページ640,000m²で600,000m²が標本条件を通過、40,000m²が水域で保留、3,791,714m²がページ対象外。地域端への道は幅の水域・未知値確認で保留。
+ 
+ `review.html` は保存結果の独立したPC向け検査画面。詳細地形と配置輪郭を見比べ、通過・保留・今回の対象外を区別する。表示格子も住宅・農地・道路と同じ詳細サンプラから作る。土壌・食料確保・権利・農道の完成を、この画面の農地輪郭で証明しない。
+ 
+ ## 現在のロードマップ
+ 
+-**L0統計 → L1配分 → L2候補受け渡し → 参照候補の局地詳細化・条件調査・確定保存** まで。
++**L0統計 → L1配分 → L2候補受け渡し**が土台。局地詳細化・条件調査・保存は接続診断までで、詳細地形と村のリアリティは未受入。
+ 
+-次は、固定原点で保留となった立地の扱い、農地への実アクセス、隣接するネイティブ地形と道路の接続、新しい候補から全球ランタイムで地域を参照する経路への採用。独立した三地域の地形例を、共有境界まで成立した全球地形と扱わない。長時間運用とPCのGPU描画・性能の受け入れも残る。
++次は地形の比較・必要な細部の設計と、地形・進入路・土地利用から決める村の配置。この受け入れを経てから、立地保留の扱い、農地への実アクセス、隣接するネイティブ地形と道路の接続、全球ランタイムへの採用へ進む。独立した三地域の地形例を、共有境界まで成立した全球地形と扱わない。長時間運用とPCのGPU描画・性能の受け入れも残る。
+ 
+ 今回の実測・自動試験・PCブラウザー操作・参考レビュー・未実行事項は `reports/l2-settlement-materialization/verification.json` に記録する。元配布ZIPのSOURCE-MANIFESTは現在の変更コードの証拠として更新しない。
+ 
+-検証は全1,432試験PASS / 0 fail / 0 skip、buildはcore 160・完全一致alias 30・globe構文74が成功。最後の表記補正ではHTML内のJavaScript構文とPC実ブラウザーを再確認した。三候補切替、地図と一覧の連動、保留の絞り込み、キーボード・ホイール・ドラッグを確認し、コンソールエラー0・横overflow無し。Geminiは画像閲覧ツールで三枚を参照し、住宅容量・保留住宅需要・隣接未接続の表記を参考レビューした。人口需要まで住宅容量とする案は採用していない。
++訂正前の接続診断チェックポイントでは全1,432試験PASS / 0 fail / 0 skip、buildはcore 160・完全一致alias 30・globe構文74が成功。そのチェックポイントの最後の表記補正ではHTML内のJavaScript構文とPC実ブラウザーを再確認した。三候補切替、地図と一覧の連動、保留の絞り込み、キーボード・ホイール・ドラッグを確認し、コンソールエラー0・横overflow無し。Geminiは画像閲覧ツールで三枚を参照し、住宅容量・保留住宅需要・隣接未接続の表記を参考レビューした。人口需要まで住宅容量とする案は採用していない。これらは村や地形の自然さの受け入れを証明しない。
++
++今回の位置づけの訂正は `reports/l2-settlement-materialization/realism-scope-correction.json` に別途記録する。以前の検証・画像・コード差分は当時の診断チェックポイントとして保持し、今回のコードや景観の受け入れの証拠へ読み替えない。
+ 
+ 全球ランタイムへの採用、PCのGPU globe、長時間運用、人間による景観・操作の受け入れは未実行・未完了。今回の実画面はCanvas2Dによる局地の保存結果検査。
+ 
+diff --git a/docs/L2_SETTLEMENT_HANDOFF.md b/docs/L2_SETTLEMENT_HANDOFF.md
+index 3424d53..0f16c48 100644
+--- a/docs/L2_SETTLEMENT_HANDOFF.md
++++ b/docs/L2_SETTLEMENT_HANDOFF.md
+@@ -1,4 +1,4 @@
+-> 次段階の局地詳細化・住宅/農地ページ・道路調査と保存は [L2具体化の契約](L2_SETTLEMENT_MATERIALIZATION.md) を参照。以下は候補受け渡し段階の記録。PC前提を維持する。
++> 候補から局地地形への接続・住宅/農地ページ・道路調査と保存の診断例は [L2接続診断の範囲](L2_SETTLEMENT_MATERIALIZATION.md) を参照。直交配置は村の景観として未採用であり、次の本線は地形と集落のリアリティを比較・設計する段階。以下は候補受け渡し段階の記録。PC前提を維持する。
+ 
+ # 集落規模とL1からL2への候補受け渡し
+ 

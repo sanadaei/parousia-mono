@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-12",
+  "roles": {
+    "L0": "planetary sketch",
+    "L1": "new broad-scale parent",
+    "L2": "former L1 regional detail"
+  },
+  "l1": {
+    "id": "sha256:9050149f607f44c97dca4e3a1cd1d73b4cfeb22ca3bc5914db7aae5c911444a5",
+    "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+    "grid": {
+      "columns": 512,
+      "rows": 256
+    },
+    "bytes": 17008235,
+    "storageBudgetBytes": 25165824,
+    "diagnostics": {
+      "cells": 131072,
+      "coastChangedCells": 3470,
+      "exportedOrTerminalM3PerYear": 24372234444859.625,
+      "localPotentialYieldM3PerYear": 24372234444859.72,
+      "relativeBudgetResidual": 3.8465902751798185e-15
+    },
+    "status": "terrain and climate parent available to L2; hydraulic boundary adoption incomplete"
+  },
+  "l2": {
+    "sourceLayerId": "sha256:9050149f607f44c97dca4e3a1cd1d73b4cfeb22ca3bc5914db7aae5c911444a5",
+    "parentLayer": "L1",
+    "settings": {
+      "cellSizeM": 60,
+      "columns": 192,
+      "detailAmplitude": 1,
+      "latDeg": 43.59375,
+      "lonDeg": 158.90625,
+      "rows": 144,
+      "seed": "muna-atlas-001"
+    },
+    "diagnostics": {
+      "activeCells": 27648,
+      "depressionCells": 0,
+      "maxRoutingFillM": 0,
+      "meanHeightResidualM": 0.005901248113027046,
+      "relativeBudgetResidual": 4.3662368350319477e-13,
+      "totalInputM3PerYear": 13928553.676806165,
+      "totalOutputM3PerYear": 13928553.676800083
+    },
+    "conditioning": {
+      "anchors": 668,
+      "cutCells": 456,
+      "maxCutM": 8.547170209913872,
+      "maxGradeViolationM": 0,
+      "maxRaiseM": 8.074352966348442,
+      "raisedCells": 384
+    }
+  },
+  "limits": [
+    "Province classes are rough relief descriptors, not geological classification",
+    "New coastline cells require refined climate/water evidence",
+    "Previous resolution drainage topology is not constrained",
+    "L2 still needs receiving-water crossings and imported upstream flow",
+    "Not a new complete world snapshot; use as a regional parent"
+  ],
+  "verification": {
+    "newFocusedTests": 5,
+    "fullSuite": {
+      "tests": 1188,
+      "pass": 1188,
+      "fail": 0,
+      "skipped": 0
+    },
+    "savedReplay": "actual 512x256 L1 record reloaded with identical content hash",
+    "browser": "not run; image is offline plot of actual arrays",
+    "build": "passed: 144 core, 30 compatibility, UI import, 57 globe syntax"
+  }
+}

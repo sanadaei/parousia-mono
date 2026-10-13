@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": {
+    "rawHashMatches": true,
+    "allPixelsFiniteValid": true,
+    "actualGridMatchesProvenance": true,
+    "interpolationExactlyMatchesSaved": true,
+    "noExtrapolation": true,
+    "nativeFinerThanTarget": true,
+    "downloadUnder20MB": true,
+    "selectedRawIdentity": true,
+    "selectedAreaClosure": true,
+    "selectedFineArrayIdentity": true,
+    "reproducedRawIdentity": true,
+    "reproducedAreaClosure": true,
+    "reproducedFineArrayIdentity": true,
+    "reproducedAllStageArraysAndMetricsExact": true
+  }
+}

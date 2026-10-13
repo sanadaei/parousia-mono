@@ -1,0 +1,124 @@
+{
+  "schema": "l2-realism-scope-correction@1",
+  "createdAt": "2026-10-13T14:35:50.864Z",
+  "platform": "PC",
+  "purpose": "Correct the diagnostic layout classification; this is not terrain or village realism implementation or acceptance",
+  "finding": "The new diagnostic materializer did not supply layoutPolicy and invoked population-districts@1 instead of the existing terrain-led path; rectangular field pages are provisional too",
+  "runtime": "No production globe caller of this diagnostic materializer was found; its common core exports have now been removed",
+  "actions": [
+    "Rename l2:materialize to l2:diagnose-layout; no compatibility alias",
+    "Remove provisional materialization exports from the common core API",
+    "Label the dedicated CLI, generated summary, review and documentation diagnostic-only and realism-unaccepted",
+    "Restore terrain and settlement comparison/design before neighbouring/global integration"
+  ],
+  "compatibility": "The command name and three newly introduced common core exports changed. Dedicated module imports remain for diagnostics and tests. Existing L0/L1/native/layout records and numerical algorithms were not changed; no save regeneration needed.",
+  "roadmap": "L0 statistics -> L1 allocation -> L2 candidate handoff. Local terrain/layout is a connection diagnostic; terrain and village realism remain unaccepted.",
+  "next": "Compare valley/river/near-terrain form at matched scales; design roads and parcels from terrain, access and shared land use; inspect contrasting regional/village/street views before global adoption",
+  "changes": {
+    "files": [
+      {
+        "path": "README.md",
+        "beforeSha256": "6ec2dc6a6eb117bd47fd85e0a744848f0ff663bd0129fc1346a3537dc9bdf2ae",
+        "afterSha256": "d8e1bce63f2b5d76d02cf5be5c8801d5b3e88459a8f1ec7a90c29a8059045056"
+      },
+      {
+        "path": "package.json",
+        "beforeSha256": "1bcbce2a6037c42d1a446d02f97497a82ee04796f91f2cc2136e867da86ca93d",
+        "afterSha256": "3c66b77c2e61e6e2f7858e3a9b45e9341792bcea153febb32a0679e39d0e8337"
+      },
+      {
+        "path": "src/core/index.mjs",
+        "beforeSha256": "355d299eaca4de1197543293d88c60b0d000aa25b7f6f58744919c56e70c7f68",
+        "afterSha256": "f44d4b3544a90efae21de1b3239d9c0e7f64712efc56cb3f84d9e1b6e1c19380"
+      },
+      {
+        "path": "src/core/l2-settlement-materialization.mjs",
+        "beforeSha256": "47140f108c38fad8cf7735b293f83f7e457a97aa7888e2f8b7b362664e58379f",
+        "afterSha256": "74148be78c86252f15ccc476103ae0c1762a00bdf07988eb173f522e802a84ba"
+      },
+      {
+        "path": "scripts/build-l2-settlement-materialization.mjs",
+        "beforeSha256": "7ecdaba494cf0f14eada4dd389393b0e73cb5acef5982368a5fd60fa6b4b6c54",
+        "afterSha256": "578dd63e0823b6e9f75caaace436804b2d776aa499f5cabc543b8381cdff3757"
+      },
+      {
+        "path": "scripts/build-l2-materialization-review.mjs",
+        "beforeSha256": "31895ede4eaa7436998a856aba35f24e63e28bfbbae400b7de859acfa5a3cf4c",
+        "afterSha256": "8cf44615367f522e776c8921182f416cca95e4f42d53a09ea2508201d5e2ac97"
+      },
+      {
+        "path": "docs/WORKING_BASELINE_ROADMAP.md",
+        "beforeSha256": "4af6589dd680a003f28c9a03bf7435cb44db23289df3ba4704d94c84b9654ad6",
+        "afterSha256": "ae0e20d9cbc28fc5e3fa226d5b5b19cf5ef502c3c638bd07a885f98d814ddb09"
+      },
+      {
+        "path": "docs/L2_SETTLEMENT_MATERIALIZATION.md",
+        "beforeSha256": "c3fcd3934022ece0463274f4d799484d0f40b4f33823de5b0472377a70ea5907",
+        "afterSha256": "e84032a0f624adde302d46ced3b90075728900da2f2f46c06a1e1e20334ed299"
+      },
+      {
+        "path": "docs/L2_SETTLEMENT_HANDOFF.md",
+        "beforeSha256": "67d5461186e22ca0c5bb5623653c5b72b6b4c694374dca333f2a60f375da4294",
+        "afterSha256": "77d833c02cf0c38d221f1bd3aa472176b02bda7ec59677168566c585de32dca7"
+      },
+      {
+        "path": "reports/l2-settlement-materialization/review.html",
+        "beforeSha256": "b44b6a7916270f59e56b603e8acc485fe19c3e757548f637d32af68d3ba706e8",
+        "afterSha256": "fcce10d77d4dc47aa7a3bea781b25ce8b4f605a3f10d66893d8b9db245afcb8c"
+      }
+    ],
+    "patch": "realism-scope-correction.patch",
+    "reviewDataSha256": "1018188df1402e0b8170044b0e86101f806b3334c36d680a2381d96d51fe5018"
+  },
+  "checks": [
+    {
+      "name": "diagnostic command is explicit; old production-like command removed",
+      "status": "PASS"
+    },
+    {
+      "name": "diagnostic materialization is absent from the common core API",
+      "status": "PASS"
+    },
+    {
+      "name": "numeric materializer is unchanged apart from its diagnostic comment",
+      "status": "PASS"
+    },
+    {
+      "name": "saved terrain and layout embedded in the review are exactly unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "review declares the provisional layout and corrected roadmap",
+      "status": "PASS"
+    },
+    {
+      "name": "review interaction script is unchanged and parses",
+      "status": "PASS"
+    }
+  ],
+  "resources": {
+    "measuredUtc": "2026-10-13T14:31:02.7490589Z",
+    "freePhysicalGiB": 12.94,
+    "commitHeadroomGiB": 12.44,
+    "gFreeGiB": 21.66,
+    "beforeBuild": {
+      "utc": "2026-10-13T14:36:10.6935992Z",
+      "freePhysicalGiB": 13.65,
+      "commitHeadroomGiB": 12.87
+    }
+  },
+  "validation": {
+    "build": "PASS: 160 core imports, 30 exact alias exports, 74 globe syntax checks, UI import; heap 256MiB, serial",
+    "fullSuite": "not rerun: numerical generation and interaction code unchanged; prior 1432-pass record belongs to the preceding diagnostic checkpoint",
+    "browser": "not rerun: static wording changed; saved data and interaction script verified unchanged",
+    "realism": "unaccepted",
+    "gemini": "not rerun: prior image review of clarity is not terrain or settlement realism acceptance",
+    "diagnosticSourceSyntax": "PASS: diagnostic CLI and review builder syntax"
+  },
+  "provenance": "verification.json, source-changes.json, changes.patch and QA photos are retained as historical evidence of the preceding diagnostic checkpoint; their hashes and acceptance claims are not current-code certification",
+  "delegation": "No new model delegation: a bounded classification, API exposure and wording correction was handled directly; no geometry design or new realism feature implemented",
+  "cleanup": {
+    "processesStarted": "Only synchronous checks; no server, browser tab or model launched",
+    "scratch": "Removed the verified task scratch path on G, including before-copies and the one-off check helper; no temporary directory remains for this correction"
+  }
+}

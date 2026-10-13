@@ -1,0 +1,85 @@
+{
+  "worldId": "sha256:7b193113023af6d5d180524ac716c324151af2c07848b3506a770812716e35a3",
+  "earthCenter": {
+    "latDeg": 46.25208333333333,
+    "lonDeg": 7.752083333333333
+  },
+  "generatedCenter": {
+    "latDeg": -10.546875,
+    "lonDeg": -18.984375
+  },
+  "columns": 121,
+  "rows": 121,
+  "dxM": 320.3742617765692,
+  "dyM": 463.3121943526968,
+  "earth": {
+    "elevationMinM": 511.5264,
+    "elevationMaxM": 4363.7534,
+    "reliefM": 3852.2269999999994,
+    "slopeSamples": 14161,
+    "slopeP50Deg": 22.989802872882787,
+    "slopeP95Deg": 38.252048712651856,
+    "slopeBins": [
+      {
+        "upperDeg": 5,
+        "count": 461
+      },
+      {
+        "upperDeg": 15,
+        "count": 2547
+      },
+      {
+        "upperDeg": 30,
+        "count": 7924
+      },
+      {
+        "upperDeg": 45,
+        "count": 3146
+      },
+      {
+        "upperDeg": 60,
+        "count": 83
+      },
+      {
+        "upperDeg": 90,
+        "count": 0
+      }
+    ]
+  },
+  "generated": {
+    "elevationMinM": 2205.21874341615,
+    "elevationMaxM": 3247.7776511852007,
+    "reliefM": 1042.5589077690506,
+    "slopeSamples": 14161,
+    "slopeP50Deg": 6.9739774892477415,
+    "slopeP95Deg": 15.985873831087767,
+    "slopeBins": [
+      {
+        "upperDeg": 5,
+        "count": 4453
+      },
+      {
+        "upperDeg": 15,
+        "count": 8670
+      },
+      {
+        "upperDeg": 30,
+        "count": 1038
+      },
+      {
+        "upperDeg": 45,
+        "count": 0
+      },
+      {
+        "upperDeg": 60,
+        "count": 0
+      },
+      {
+        "upperDeg": 90,
+        "count": 0
+      }
+    ]
+  },
+  "scope": "Same local tangent metre grid and central differences for both crops. All finite heights, no land-only mask; Earth distances use a 6371km sphere and mean latitude. Finite selected windows, not global prevalence, matching formation history, or a realism score.",
+  "earthInputSha256": "175f1b008ef800fec462ec78c65a692e927aed9a778637876817c0257bcc0c98"
+}

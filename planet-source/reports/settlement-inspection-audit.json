@@ -1,0 +1,14 @@
+{
+  "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+  "browser": "cloud browser; ordinary SVG inspection, not WebGL acceptance",
+  "cases": [
+    {"site":"pop:4048:65","district":0,"districtCount":1,"buildings":66,"landAndWaterItems":25,"granaryRoadDistanceM":24,"granarySupplyPlanDistanceM":38},
+    {"site":"pop:4174:0","district":0,"districtCount":7,"buildings":103,"landAndWaterItems":50},
+    {"site":"pop:4174:0","district":6,"districtCount":7,"buildings":74,"landAndWaterItems":44},
+    {"site":"pop:4174:0","district":7,"result":"Rejected out-of-range; old map and selection cleared"},
+    {"site":"pop:4174:0","district":0,"result":"Recovered same103 buildings and50 land/water items after invalid input"}
+  ],
+  "verification":{"testsPass":860,"testsFail":0,"build":"passed","durationMs":128341.454633,"heapLimitMiB":256},
+  "scope":"Exact selected canonical settlement/district, one worker and one district at a time. Current economy and legacy plan understood. Old upfront-demo-only lookup no longer hides procedural villages. No new facilities or geometry are created by the inspector.",
+  "limitations":["Production links are planned supply, not actual stocks or throughput.","Local district only; surrounding forests, farms and all-town geography still inspected in globe.","No complete historical plausibility or GPU-device acceptance.","Out-of-range district currently displays the underlying English validation message."]
+}

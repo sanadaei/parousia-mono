@@ -1,0 +1,369 @@
+{
+  "contextId": "sha256:56459e696bb4bb458e5b8e3c7ea287f14fdbad97541d26fbeb2276ff1090ec31",
+  "grid": {
+    "cellSizeM": 55.297348888543404,
+    "cellSizeYM": 76.35149687202671,
+    "columns": 161,
+    "rows": 129
+  },
+  "outlet": {
+    "cell": 2736,
+    "groundM": 44.300914347649794,
+    "levelM": 44.300914347649794
+  },
+  "sourceCount": 29,
+  "uniqueInletNodes": 24,
+  "fixedAnchorCount": 5265,
+  "anchorBasis": "immediate-adopted-parent",
+  "anchorParentContextId": "sha256:bfbb427d04edabd9865e0b714337b1604cc72fd7ab2530b9bea056b8ce8f8bb8",
+  "boundaryNecessity": {
+    "belowOutletBedSourceCount": 8,
+    "belowOutletBedNodeCount": 8,
+    "belowOutletBedAnnualM3": 1620579.3051124003,
+    "belowOutletLevelSourceCount": 8,
+    "maximumBedEndpointRiseM": 4.2195213553236215,
+    "maximumMinimumInletDepthM": 4.2195213553236215,
+    "monotoneBedEndpointNecessaryConditionPassed": false,
+    "physicalHydraulicFeasibility": "undetermined: inlet stage/energy, velocities and backwater model not specified"
+  },
+  "fixedReceiver": {
+    "maxHeadCorrectionM": 8.755286299674275,
+    "p95HeadCorrectionM": 5.657367594149797,
+    "importedPathEdges": 1069,
+    "importedPathUphillEdges": 377,
+    "maxImportedEdgeRiseM": 4.49370338630515,
+    "fixedAnchorsWithHigherDownstreamAnchor": 2077,
+    "maximumFixedAnchorPairRiseM": 8.522570779572987,
+    "monotoneBedWithAllAnchorsFixedPossible": false,
+    "necessaryFillLowerBoundMaxM": 8.727415107898906,
+    "necessaryCutLowerBoundMaxM": 8.755286299674275
+  },
+  "unchangedGroundAnyD8Routing": {
+    "monotoneReachableInletSourceCount": 1,
+    "monotoneReachableInletNodeCount": 1,
+    "maximumMinimaxHeadCorrectionAtInletM": 7.35612777368771
+  },
+  "inlets": [
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2531/2661",
+      "cell": 80,
+      "groundM": 71.25013907728747,
+      "annualM3": 285984.58325512946,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2532/2662",
+      "cell": 96,
+      "groundM": 60.920950610870705,
+      "annualM3": 142992.29162756473,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2533/2663",
+      "cell": 112,
+      "groundM": 53.708029330815116,
+      "annualM3": 142992.29162756473,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2534/2664",
+      "cell": 128,
+      "groundM": 49.597434031779684,
+      "annualM3": 142992.29162756473,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2535/2665",
+      "cell": 144,
+      "groundM": 47.79300772168702,
+      "annualM3": 190656.38883675297,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2536/2665",
+      "cell": 144,
+      "groundM": 47.79300772168702,
+      "annualM3": 190656.38883675297,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2537/2666",
+      "cell": 160,
+      "groundM": 47.678445631450025,
+      "annualM3": 381312.77767350595,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2784/2914",
+      "cell": 5152,
+      "groundM": 135.34961951317828,
+      "annualM3": 47664.09720918824,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2913/3043",
+      "cell": 7728,
+      "groundM": 121.34092498933961,
+      "annualM3": 47664.09720918824,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/2925/2795",
+      "cell": 2736,
+      "groundM": 44.300914347649794,
+      "annualM3": 428976.8748826942,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": true,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3042/3043",
+      "cell": 7728,
+      "groundM": 121.34092498933961,
+      "annualM3": 95328.19441837649,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3054/2924",
+      "cell": 5312,
+      "groundM": 42.809252789872026,
+      "annualM3": 381312.77767350595,
+      "outletBedRiseM": 1.4916615577777677,
+      "minimumInletDepthForNonascendingSurfaceM": 1.4916615577777677,
+      "fixedReceiverHeadCorrectionM": 4.628267976141856,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 4.628267976141856
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3171/3301",
+      "cell": 12880,
+      "groundM": 94.72290087585372,
+      "annualM3": 95328.19441837649,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3183/3053",
+      "cell": 7888,
+      "groundM": 42.14493877879943,
+      "annualM3": 238320.48604594122,
+      "outletBedRiseM": 2.1559755688503657,
+      "minimumInletDepthForNonascendingSurfaceM": 2.1559755688503657,
+      "fixedReceiverHeadCorrectionM": 5.292581987214454,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 5.292581987214454
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3300/3301",
+      "cell": 12880,
+      "groundM": 94.72290087585372,
+      "annualM3": 238320.48604594122,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3312/3182",
+      "cell": 10464,
+      "groundM": 42.73937148207936,
+      "annualM3": 238320.48604594122,
+      "outletBedRiseM": 1.5615428655704306,
+      "minimumInletDepthForNonascendingSurfaceM": 1.5615428655704306,
+      "fixedReceiverHeadCorrectionM": 4.698149283934519,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 4.698149283934519
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3429/3430",
+      "cell": 15456,
+      "groundM": 84.06350089943656,
+      "annualM3": 190656.38883675297,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3441/3311",
+      "cell": 13040,
+      "groundM": 43.98190559924413,
+      "annualM3": 47664.09720918824,
+      "outletBedRiseM": 0.31900874840566473,
+      "minimumInletDepthForNonascendingSurfaceM": 0.31900874840566473,
+      "fixedReceiverHeadCorrectionM": 3.4556151667697534,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 3.4556151667697534
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3558/3559",
+      "cell": 18032,
+      "groundM": 75.38356709673309,
+      "annualM3": 142992.29162756473,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3570/3569",
+      "cell": 18192,
+      "groundM": 46.769065780019474,
+      "annualM3": 47664.09720918824,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0.6684549859944084,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.6684549859944084
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3687/3688",
+      "cell": 20608,
+      "groundM": 68.26120551216076,
+      "annualM3": 142992.29162756473,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3699/3698",
+      "cell": 20768,
+      "groundM": 48.321143776503845,
+      "annualM3": 190656.38883675297,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3820/3691",
+      "cell": 20656,
+      "groundM": 45.85321539299007,
+      "annualM3": 4782654.819462229,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 1.5843053730238097,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 1.5843053730238097
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3821/3691",
+      "cell": 20656,
+      "groundM": 45.85321539299007,
+      "annualM3": 1385619.8739375083,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 1.5843053730238097,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 1.5843053730238097
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3822/3692",
+      "cell": 20672,
+      "groundM": 42.81078771023064,
+      "annualM3": 95328.19441837649,
+      "outletBedRiseM": 1.4901266374191522,
+      "minimumInletDepthForNonascendingSurfaceM": 1.4901266374191522,
+      "fixedReceiverHeadCorrectionM": 4.626733055783241,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 4.626733055783241
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3823/3693",
+      "cell": 20688,
+      "groundM": 40.55125537824397,
+      "annualM3": 95328.19441837649,
+      "outletBedRiseM": 3.7496589694058216,
+      "minimumInletDepthForNonascendingSurfaceM": 3.7496589694058216,
+      "fixedReceiverHeadCorrectionM": 6.88626538776991,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 6.88626538776991
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3824/3694",
+      "cell": 20704,
+      "groundM": 40.08139299232617,
+      "annualM3": 381312.77767350595,
+      "outletBedRiseM": 4.2195213553236215,
+      "minimumInletDepthForNonascendingSurfaceM": 4.2195213553236215,
+      "fixedReceiverHeadCorrectionM": 7.35612777368771,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 7.35612777368771
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3825/3695",
+      "cell": 20720,
+      "groundM": 41.18392824709923,
+      "annualM3": 142992.29162756473,
+      "outletBedRiseM": 3.1169861005505624,
+      "minimumInletDepthForNonascendingSurfaceM": 3.1169861005505624,
+      "fixedReceiverHeadCorrectionM": 6.253592518914651,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 6.253592518914651
+    },
+    {
+      "id": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e/edge/3828/3698",
+      "cell": 20768,
+      "groundM": 48.321143776503845,
+      "annualM3": 47664.09720918824,
+      "outletBedRiseM": 0,
+      "minimumInletDepthForNonascendingSurfaceM": 0,
+      "fixedReceiverHeadCorrectionM": 0,
+      "anyD8MonotoneGroundReachable": false,
+      "anyD8MinimaxHeadCorrectionM": 0.0
+    }
+  ],
+  "inputPath": "flow-aware-detail-trials/selected-review/fine-local-layer.json",
+  "inputFileSha256": "69b0b5cebe34a7a9a3170bd6b08262b66e4ebc54efa9f7ff7c8fe6db48b3f05d"
+}

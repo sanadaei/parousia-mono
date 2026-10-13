@@ -1,0 +1,10 @@
+{
+  "auditedWorldId": "sha256:fcafb9c95bb87d9eb61243834fd4ac6cf599ee4b82120b7dc5f235c1873829f7",
+  "housingUpdatedWorldId": "sha256:b6c3928c38766aa1c86bbe75ab67ce6722dcefaa3520d2cd9829fcfd783132b5",
+  "regions": 765,
+  "sites": 287877,
+  "regionalLinks": 287112,
+  "trunks": 766,
+  "unchangedExternalInputsHash": "57f41666db19a60086acff9af9d27897d2b60222eb9bcd66f323382d3824b4fa",
+  "scope": "Housing-only data upgrade; terrain, water, legacy features, all site attributes except explicit infill policy, reservations and external road links unchanged. Original road evidence is not relabeled. This receipt does not permit reuse after changing road algorithm source."
+}

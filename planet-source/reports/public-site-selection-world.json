@@ -1,0 +1,316 @@
+{
+  "worldId": "sha256:f08b5955fd05e8a1bed7d47881e53f1a9a1db0f3adf5349afff4864681e172a5",
+  "scope": "Paired counterfactual policy comparison at the SAME saved sites/terrain. New policy is not written into saved world. New package and visual inspection remain separate.",
+  "results": [
+    {
+      "id": "pop:2706:508",
+      "cases": [
+        {
+          "policy": "legacy-fixed-public-sites",
+          "ms": 2326.579309,
+          "homes": 60,
+          "requested": 60,
+          "chapels": [
+            {
+              "id": "pop:2706:508/district:0/chapel",
+              "facilityType": "chapel",
+              "sector": 3,
+              "bounds": {
+                "minXM": 49,
+                "maxXM": 61,
+                "minYM": -12,
+                "maxYM": 12
+              },
+              "baseElevationM": 984.6479469116268,
+              "heightM": 6,
+              "roofHeightM": 4,
+              "wallColor": [
+                0.68,
+                0.66,
+                0.57
+              ],
+              "roofColor": [
+                0.35,
+                0.24,
+                0.18
+              ]
+            }
+          ],
+          "access": [
+            {
+              "targetId": "pop:2706:508/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:2706:508/district:0/chapel/public-access",
+              "joinsRoadId": "pop:2706:508/district:0/terrain-street:0:east",
+              "entranceSide": "north",
+              "lengthM": 26.75
+            }
+          ],
+          "ponds": 0
+        },
+        {
+          "policy": "surveyed-street-public-sites@1",
+          "ms": 1579.698054,
+          "homes": 60,
+          "requested": 60,
+          "chapels": [
+            {
+              "id": "pop:2706:508/district:0/chapel",
+              "facilityType": "chapel",
+              "sector": 3,
+              "bounds": {
+                "minXM": -66,
+                "maxXM": -54,
+                "minYM": 22,
+                "maxYM": 46
+              },
+              "baseElevationM": 986.2712894834798,
+              "heightM": 6,
+              "roofHeightM": 4,
+              "wallColor": [
+                0.68,
+                0.66,
+                0.57
+              ],
+              "roofColor": [
+                0.35,
+                0.24,
+                0.18
+              ]
+            }
+          ],
+          "access": [
+            {
+              "targetId": "pop:2706:508/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:2706:508/district:0/chapel/public-access",
+              "joinsRoadId": "pop:2706:508/district:0/terrain-street:0:west",
+              "entranceSide": "south",
+              "lengthM": 20.75
+            }
+          ],
+          "survey": {
+            "method": "surveyed-street-public-sites@1",
+            "surveyed": 21,
+            "rejected": {
+              "reserved": 14,
+              "wet": 0,
+              "grade": 0,
+              "foundation": 0,
+              "access": 0
+            },
+            "reason": null,
+            "chosen": {
+              "foundationReliefM": 0.15220254716973614,
+              "reason": "Dry street-front yard, bounded foundation earthwork, surveyed pedestrian access, proximity to civic center"
+            }
+          },
+          "ponds": 0
+        }
+      ]
+    },
+    {
+      "id": "pop:3649:273",
+      "cases": [
+        {
+          "policy": "legacy-fixed-public-sites",
+          "ms": 2605.2999870000003,
+          "homes": 60,
+          "requested": 60,
+          "chapels": [],
+          "access": [],
+          "ponds": 0
+        },
+        {
+          "policy": "surveyed-street-public-sites@1",
+          "ms": 3558.6158860000005,
+          "homes": 60,
+          "requested": 60,
+          "chapels": [
+            {
+              "id": "pop:3649:273/district:0/chapel",
+              "facilityType": "chapel",
+              "sector": 3,
+              "bounds": {
+                "minXM": 22,
+                "maxXM": 46,
+                "minYM": -66,
+                "maxYM": -54
+              },
+              "baseElevationM": 3157.8931311593687,
+              "heightM": 6,
+              "roofHeightM": 4,
+              "wallColor": [
+                0.68,
+                0.66,
+                0.57
+              ],
+              "roofColor": [
+                0.35,
+                0.24,
+                0.18
+              ]
+            }
+          ],
+          "access": [
+            {
+              "targetId": "pop:3649:273/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3649:273/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3649:273/district:0/terrain-street:0:south",
+              "entranceSide": "west",
+              "lengthM": 20.75
+            }
+          ],
+          "survey": {
+            "method": "surveyed-street-public-sites@1",
+            "surveyed": 28,
+            "rejected": {
+              "reserved": 12,
+              "wet": 0,
+              "grade": 0,
+              "foundation": 0,
+              "access": 0
+            },
+            "reason": null,
+            "chosen": {
+              "foundationReliefM": 0.45052372985037437,
+              "reason": "Dry street-front yard, bounded foundation earthwork, surveyed pedestrian access, proximity to civic center"
+            }
+          },
+          "ponds": 0
+        }
+      ]
+    },
+    {
+      "id": "pop:3392:261",
+      "cases": [
+        {
+          "policy": "legacy-fixed-public-sites",
+          "ms": 6070.238654999999,
+          "homes": 60,
+          "requested": 60,
+          "chapels": [
+            {
+              "id": "pop:3392:261/district:0/chapel",
+              "facilityType": "chapel",
+              "sector": 3,
+              "bounds": {
+                "minXM": 49,
+                "maxXM": 61,
+                "minYM": -12,
+                "maxYM": 12
+              },
+              "baseElevationM": 846.6869667642271,
+              "heightM": 6,
+              "roofHeightM": 4,
+              "wallColor": [
+                0.68,
+                0.66,
+                0.57
+              ],
+              "roofColor": [
+                0.35,
+                0.24,
+                0.18
+              ]
+            }
+          ],
+          "access": [
+            {
+              "targetId": "pop:3392:261/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:east",
+              "entranceSide": "south",
+              "lengthM": 26.75
+            },
+            {
+              "targetId": "pop:3392:261/district:0/communal-pond",
+              "targetType": "communal_pond_bank",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/communal-pond/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:north-east",
+              "entranceSide": "north",
+              "lengthM": 44.03478738452134
+            }
+          ],
+          "ponds": 1
+        },
+        {
+          "policy": "surveyed-street-public-sites@1",
+          "ms": 4516.3343239999995,
+          "homes": 60,
+          "requested": 60,
+          "chapels": [
+            {
+              "id": "pop:3392:261/district:0/chapel",
+              "facilityType": "chapel",
+              "sector": 3,
+              "bounds": {
+                "minXM": 54,
+                "maxXM": 66,
+                "minYM": -46,
+                "maxYM": -22
+              },
+              "baseElevationM": 846.6038396748653,
+              "heightM": 6,
+              "roofHeightM": 4,
+              "wallColor": [
+                0.68,
+                0.66,
+                0.57
+              ],
+              "roofColor": [
+                0.35,
+                0.24,
+                0.18
+              ]
+            }
+          ],
+          "access": [
+            {
+              "targetId": "pop:3392:261/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:east",
+              "entranceSide": "north",
+              "lengthM": 20.75
+            },
+            {
+              "targetId": "pop:3392:261/district:0/communal-pond",
+              "targetType": "communal_pond_bank",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/communal-pond/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:east",
+              "entranceSide": "south",
+              "lengthM": 43.75
+            }
+          ],
+          "survey": {
+            "method": "surveyed-street-public-sites@1",
+            "surveyed": 20,
+            "rejected": {
+              "reserved": 13,
+              "wet": 0,
+              "grade": 0,
+              "foundation": 0,
+              "access": 0
+            },
+            "reason": null,
+            "chosen": {
+              "foundationReliefM": 0.18805676545275674,
+              "reason": "Dry street-front yard, bounded foundation earthwork, surveyed pedestrian access, proximity to civic center"
+            }
+          },
+          "ponds": 1
+        }
+      ]
+    }
+  ]
+}

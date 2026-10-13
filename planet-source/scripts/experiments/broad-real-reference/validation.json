@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": [
+    "apennines: hashes, metric footprint, stage sizes, source-exact generated arrays, finite values, adjacency, outlet-area budget, inherited nodes passed",
+    "paris: hashes, metric footprint, stage sizes, source-exact generated arrays, finite values, adjacency, outlet-area budget, inherited nodes passed"
+  ]
+}

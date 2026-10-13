@@ -1,0 +1,356 @@
+{
+  "worldId": "sha256:3cdee46fd793325f9fd24b8636be30e3bbc57be11caa73bb912b473fa900e14d",
+  "scope": "Same saved runtime15/19h terrain, six nearest tiles of pond village2948:595, counterfactual partial field survey, sequential warm-cache comparison; timings not a speedup benchmark",
+  "runs": [
+    {
+      "roadIntersectionCount": 0,
+      "policy": null,
+      "ms": 5201.75246,
+      "tile": "procedural:landscape:29301:77640",
+      "fields": 1,
+      "areaM2": 1050.5305485298547,
+      "triangles": 18,
+      "ids": [
+        "landscape:29301:77640/strip:0"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": null,
+      "ms": 283.69948999999997,
+      "tile": "procedural:landscape:29301:77641",
+      "fields": 4,
+      "areaM2": 12839.937244855635,
+      "triangles": 295,
+      "ids": [
+        "landscape:29301:77641/strip:0",
+        "landscape:29301:77641/strip:1",
+        "landscape:29301:77641/strip:2",
+        "landscape:29301:77641/strip:3"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": null,
+      "ms": 313.4803660000007,
+      "tile": "procedural:landscape:29300:77639",
+      "fields": 13,
+      "areaM2": 63177.64600707011,
+      "triangles": 1650,
+      "ids": [
+        "landscape:29300:77639/strip:0",
+        "landscape:29300:77639/strip:1",
+        "landscape:29300:77639/strip:2",
+        "landscape:29300:77639/strip:3",
+        "landscape:29300:77639/strip:4",
+        "landscape:29300:77639/strip:5",
+        "landscape:29300:77639/strip:6",
+        "landscape:29300:77639/strip:7",
+        "landscape:29300:77639/strip:8",
+        "landscape:29300:77639/strip:9",
+        "landscape:29300:77639/strip:10",
+        "landscape:29300:77639/strip:11",
+        "landscape:29300:77639/strip:12"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": null,
+      "ms": 294.1525529999999,
+      "tile": "procedural:landscape:29302:77642",
+      "fields": 12,
+      "areaM2": 52084.2660597821,
+      "triangles": 1613,
+      "ids": [
+        "landscape:29302:77642/strip:0",
+        "landscape:29302:77642/strip:1",
+        "landscape:29302:77642/strip:2",
+        "landscape:29302:77642/strip:3",
+        "landscape:29302:77642/strip:4",
+        "landscape:29302:77642/strip:5",
+        "landscape:29302:77642/strip:6",
+        "landscape:29302:77642/strip:7",
+        "landscape:29302:77642/strip:8",
+        "landscape:29302:77642/strip:9",
+        "landscape:29302:77642/strip:10",
+        "landscape:29302:77642/strip:11"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": null,
+      "ms": 314.88494900000023,
+      "tile": "procedural:landscape:29302:77641",
+      "fields": 10,
+      "areaM2": 39484.70675355361,
+      "triangles": 1048,
+      "ids": [
+        "landscape:29302:77641/strip:0",
+        "landscape:29302:77641/strip:1",
+        "landscape:29302:77641/strip:2",
+        "landscape:29302:77641/strip:3",
+        "landscape:29302:77641/strip:4",
+        "landscape:29302:77641/strip:5",
+        "landscape:29302:77641/strip:6",
+        "landscape:29302:77641/strip:12",
+        "landscape:29302:77641/strip:13",
+        "landscape:29302:77641/strip:14"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": null,
+      "ms": 294.61077600000044,
+      "tile": "procedural:landscape:29300:77640",
+      "fields": 12,
+      "areaM2": 45885.38232562155,
+      "triangles": 1224,
+      "ids": [
+        "landscape:29300:77640/strip:0",
+        "landscape:29300:77640/strip:2",
+        "landscape:29300:77640/strip:3",
+        "landscape:29300:77640/strip:4",
+        "landscape:29300:77640/strip:5",
+        "landscape:29300:77640/strip:6",
+        "landscape:29300:77640/strip:7",
+        "landscape:29300:77640/strip:8",
+        "landscape:29300:77640/strip:9",
+        "landscape:29300:77640/strip:10",
+        "landscape:29300:77640/strip:11",
+        "landscape:29300:77640/strip:12"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": "local-triangle-clearance@1",
+      "ms": 327.02677500000027,
+      "tile": "procedural:landscape:29301:77640",
+      "fields": 13,
+      "areaM2": 27923.502472538832,
+      "triangles": 685,
+      "ids": [
+        "landscape:29301:77640/strip:0",
+        "landscape:29301:77640/strip:1",
+        "landscape:29301:77640/strip:2",
+        "landscape:29301:77640/strip:3",
+        "landscape:29301:77640/strip:4",
+        "landscape:29301:77640/strip:5",
+        "landscape:29301:77640/strip:6",
+        "landscape:29301:77640/strip:7",
+        "landscape:29301:77640/strip:8",
+        "landscape:29301:77640/strip:9",
+        "landscape:29301:77640/strip:10",
+        "landscape:29301:77640/strip:11",
+        "landscape:29301:77640/strip:12"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": "local-triangle-clearance@1",
+      "ms": 513.8077010000006,
+      "tile": "procedural:landscape:29301:77641",
+      "fields": 16,
+      "areaM2": 56088.342285112936,
+      "triangles": 1446,
+      "ids": [
+        "landscape:29301:77641/strip:0",
+        "landscape:29301:77641/strip:1",
+        "landscape:29301:77641/strip:2",
+        "landscape:29301:77641/strip:3",
+        "landscape:29301:77641/strip:4",
+        "landscape:29301:77641/strip:5",
+        "landscape:29301:77641/strip:6",
+        "landscape:29301:77641/strip:7",
+        "landscape:29301:77641/strip:8",
+        "landscape:29301:77641/strip:9",
+        "landscape:29301:77641/strip:10",
+        "landscape:29301:77641/strip:11",
+        "landscape:29301:77641/strip:12",
+        "landscape:29301:77641/strip:13",
+        "landscape:29301:77641/strip:14",
+        "landscape:29301:77641/strip:15"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": "local-triangle-clearance@1",
+      "ms": 355.2602619999998,
+      "tile": "procedural:landscape:29300:77639",
+      "fields": 13,
+      "areaM2": 63177.64600707011,
+      "triangles": 1650,
+      "ids": [
+        "landscape:29300:77639/strip:0",
+        "landscape:29300:77639/strip:1",
+        "landscape:29300:77639/strip:2",
+        "landscape:29300:77639/strip:3",
+        "landscape:29300:77639/strip:4",
+        "landscape:29300:77639/strip:5",
+        "landscape:29300:77639/strip:6",
+        "landscape:29300:77639/strip:7",
+        "landscape:29300:77639/strip:8",
+        "landscape:29300:77639/strip:9",
+        "landscape:29300:77639/strip:10",
+        "landscape:29300:77639/strip:11",
+        "landscape:29300:77639/strip:12"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": "local-triangle-clearance@1",
+      "ms": 408.0471290000005,
+      "tile": "procedural:landscape:29302:77642",
+      "fields": 12,
+      "areaM2": 52084.2660597821,
+      "triangles": 1613,
+      "ids": [
+        "landscape:29302:77642/strip:0",
+        "landscape:29302:77642/strip:1",
+        "landscape:29302:77642/strip:2",
+        "landscape:29302:77642/strip:3",
+        "landscape:29302:77642/strip:4",
+        "landscape:29302:77642/strip:5",
+        "landscape:29302:77642/strip:6",
+        "landscape:29302:77642/strip:7",
+        "landscape:29302:77642/strip:8",
+        "landscape:29302:77642/strip:9",
+        "landscape:29302:77642/strip:10",
+        "landscape:29302:77642/strip:11"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": "local-triangle-clearance@1",
+      "ms": 465.38497599999937,
+      "tile": "procedural:landscape:29302:77641",
+      "fields": 15,
+      "areaM2": 58361.434850409554,
+      "triangles": 1538,
+      "ids": [
+        "landscape:29302:77641/strip:0",
+        "landscape:29302:77641/strip:1",
+        "landscape:29302:77641/strip:2",
+        "landscape:29302:77641/strip:3",
+        "landscape:29302:77641/strip:4",
+        "landscape:29302:77641/strip:5",
+        "landscape:29302:77641/strip:6",
+        "landscape:29302:77641/strip:7",
+        "landscape:29302:77641/strip:8",
+        "landscape:29302:77641/strip:9",
+        "landscape:29302:77641/strip:10",
+        "landscape:29302:77641/strip:11",
+        "landscape:29302:77641/strip:12",
+        "landscape:29302:77641/strip:13",
+        "landscape:29302:77641/strip:14"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    },
+    {
+      "roadIntersectionCount": 0,
+      "policy": "local-triangle-clearance@1",
+      "ms": 435.6912540000012,
+      "tile": "procedural:landscape:29300:77640",
+      "fields": 13,
+      "areaM2": 49247.607191629046,
+      "triangles": 1291,
+      "ids": [
+        "landscape:29300:77640/strip:0",
+        "landscape:29300:77640/strip:1",
+        "landscape:29300:77640/strip:2",
+        "landscape:29300:77640/strip:3",
+        "landscape:29300:77640/strip:4",
+        "landscape:29300:77640/strip:5",
+        "landscape:29300:77640/strip:6",
+        "landscape:29300:77640/strip:7",
+        "landscape:29300:77640/strip:8",
+        "landscape:29300:77640/strip:9",
+        "landscape:29300:77640/strip:10",
+        "landscape:29300:77640/strip:11",
+        "landscape:29300:77640/strip:12"
+      ],
+      "status": {
+        "profile": "medieval-regional-landscape@1",
+        "trees": 0,
+        "scope": "Potential woodland outside settlement/food clearings; individual stable trunks and crowns. No forest age or forestry simulation.",
+        "deferredFieldParcels": 0,
+        "roadClearanceLinks": 9
+      }
+    }
+  ]
+}

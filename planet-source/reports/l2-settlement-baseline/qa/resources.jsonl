@@ -1,0 +1,5 @@
+{"stage":"baseline","freePhysicalGiB":15.76,"commitHeadroomGiB":16.46}
+{"stage":"full-test","freePhysicalGiB":15.6,"commitHeadroomGiB":16.25,"otherHeavyCount":0}
+{"stage":"build","freePhysicalGiB":16.45,"commitHeadroomGiB":17.1}
+{"stage":"maximum-grid","freePhysicalGiB":15.77,"commitHeadroomGiB":16.34}
+{"stage":"browser","freePhysicalGiB":15.13,"commitHeadroomGiB":15.67}

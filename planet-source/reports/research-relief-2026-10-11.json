@@ -1,0 +1,156 @@
+{
+  "status": "UNADOPTED RESEARCH COMPARISON",
+  "source": {
+    "worldId": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e",
+    "profileId": "river:2156:2285",
+    "center": {
+      "bankWidthM": 330.02225399702775,
+      "depthM": 3.2801494418053854,
+      "halfWidthM": 51.92301994298868,
+      "latDeg": 42.1960838287715,
+      "lonDeg": -53.40620525529806,
+      "waterLevelElevationM": 529.0327529310614
+    },
+    "scope": "Clipped existing river bed profile; no invented receiving water or new world committed"
+  },
+  "scriptHashes": {
+    "drainage-led-relief.mjs": "028f5854316aab1443be8f061d928172b69342238d10c444f385f7bbb6c4d0b2",
+    "planet-parent-relief.mjs": "a6d57f3d138456e00557dd75d66427d6ed4400201e39c2280d657de40647294e",
+    "steady-stream-power.mjs": "4484799c30795d1862456b89907b717befb871578b59aaa2e591cbf0f25dd0ad",
+    "run-relief-comparison.mjs": "00e37f7e29df0066ca90777a26ebe8bde571b9ff174b4d2ab45e6e63d7ecf61d"
+  },
+  "graph": {
+    "seed": "sha256:5f4c6a64c75faca381a5f7801b8e00b3b06d0a10de31ab655f36a68e1152128e/river:2156:2285",
+    "segments": 151,
+    "rejected": {
+      "crossing": 131,
+      "short": 48,
+      "bedConflict": 10
+    },
+    "resolution": 129,
+    "reliefM": 483.3118529032371,
+    "minM": 525.752603489256,
+    "maxM": 1009.0644563924931,
+    "crossings": 0,
+    "maximumBedErrorM": 2.8421709430404007e-13,
+    "uphillSurfaceSteps": 0,
+    "interiorSinks": 196,
+    "sharedDifferenceM": 0,
+    "approximateNumericStorageBytes": 144000,
+    "limitations": [
+      "Parent supplied by the caller; global downstream provenance must be checked separately",
+      "Piecewise distance envelopes have sharp divides and are not a Dendry reproduction",
+      "Sampled safeguards are not continuous hydrology proofs",
+      "No water, erosion, sediment, soils or vegetation generated",
+      "Window agreement uses one canonical region; independent catchment boundary stitching remains unimplemented"
+    ]
+  },
+  "reconstruction": {
+    "bedErrorM": 3.410605131648481e-13,
+    "maxChangeM": 360.030966866379,
+    "rmsChangeM": 95.08003960132403,
+    "edgeMaximumChangeM": 360.030966866379,
+    "primitiveCount": 8094
+  },
+  "steady": {
+    "method": "steady-stream-power-research-surrogate@1",
+    "resolution": 129,
+    "extentM": 8192,
+    "stages": [
+      {
+        "resolution": 17,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 534.6842186680528,
+        "maximumUnrelaxedDeltaM": 1050.9475489796368,
+        "reroutedDepressionCells": 0
+      },
+      {
+        "resolution": 33,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 310.8230382620036,
+        "maximumUnrelaxedDeltaM": 314.82243027137565,
+        "reroutedDepressionCells": 0
+      },
+      {
+        "resolution": 65,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 216.7274505733326,
+        "maximumUnrelaxedDeltaM": 284.4858456936745,
+        "reroutedDepressionCells": 0
+      },
+      {
+        "resolution": 129,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 178.4699961594465,
+        "maximumUnrelaxedDeltaM": 201.13793920044554,
+        "reroutedDepressionCells": 0
+      }
+    ],
+    "reliefM": 1252.201177534415,
+    "edgeErrorM": 0,
+    "converged": false,
+    "limitations": [
+      "Priority-flood routing is not the paper depression-carving algorithm",
+      "Steady-state only: no finite geological time, sediment deposition or transient solution",
+      "No fixed-parent river constraints or adjacent-region hydrology guarantee",
+      "Satisfying fixed boundary heights does not prove boundary gradients or physical flow continuity",
+      "No production evaluator, saved-world policy or renderer integration"
+    ]
+  },
+  "corrected": {
+    "method": "steady-stream-power-research-surrogate@1",
+    "resolution": 129,
+    "extentM": 8192,
+    "stages": [
+      {
+        "resolution": 17,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 534.6842186680528,
+        "maximumUnrelaxedDeltaM": 1050.9475489796368,
+        "reroutedDepressionCells": 0
+      },
+      {
+        "resolution": 33,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 310.8230382620036,
+        "maximumUnrelaxedDeltaM": 314.82243027137565,
+        "reroutedDepressionCells": 0
+      },
+      {
+        "resolution": 65,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 216.7274505733326,
+        "maximumUnrelaxedDeltaM": 284.4858456936745,
+        "reroutedDepressionCells": 0
+      },
+      {
+        "resolution": 129,
+        "iterations": 6,
+        "lastUnrelaxedDeltaM": 178.4699961594465,
+        "maximumUnrelaxedDeltaM": 201.13793920044554,
+        "reroutedDepressionCells": 0
+      }
+    ],
+    "reliefM": 1187.379272907212,
+    "edgeErrorM": 0,
+    "converged": false,
+    "limitations": [
+      "Priority-flood routing is not the paper depression-carving algorithm",
+      "Steady-state only: no finite geological time, sediment deposition or transient solution",
+      "No fixed-parent river constraints or adjacent-region hydrology guarantee",
+      "Satisfying fixed boundary heights does not prove boundary gradients or physical flow continuity",
+      "No production evaluator, saved-world policy or renderer integration"
+    ],
+    "correctionBoundaryChangeM": 0,
+    "correction": {
+      "iterations": 200,
+      "step": 0.01,
+      "initialLoss": 0.6490412663460667,
+      "bestLoss": 0.14958716266579805,
+      "lastLoss": 0.14958716266579805,
+      "acceptedBestIterate": true
+    }
+  },
+  "steadyAndCorrectionRuntimeMs": 766.6740140000002,
+  "decision": "Neither candidate passes production acceptance. The graph preserves sampled parent beds but does not join regional edges; the numerical candidate fixes edge heights but changes internal drainage and retains visible grid artifacts. The actual viewer, water, saved worlds and production evaluator remain unchanged."
+}

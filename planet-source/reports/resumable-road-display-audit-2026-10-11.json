@@ -1,0 +1,70 @@
+{
+  "schema": "resumable-road-display-audit@1",
+  "completionVerification": "A synthetic actual PagedSource input finishes through repeated slices, exactly matches one-shot canonical recipe, commits once, and reopens without generation. The expensive real-world road has not completed in this audit.",
+  "limits": [
+    "One active road iterator per source",
+    "Only completed recipes reach durable storage",
+    "Leaving the retained view may discard uncommitted work",
+    "Browser/WebGL visual acceptance not run",
+    "Nine-tile image contains terrain and water; separate building geometry is not drawn",
+    "Road completion can still take substantial time; this change makes initial terrain display independent of that wait"
+  ],
+  "priorCoarseSlice": {
+    "firstTile": {
+      "elapsedMs": 9225,
+      "physicalFeatures": {
+        "loaded": 1,
+        "deferred": 4,
+        "pending": 4
+      },
+      "scope": "Production buildMesh and SoftwareRenderer over saved water-first runtime. Normal terrain work path including physical settlement/road preparation. One tile only, no separate building geometry or browser/WebGL acceptance. Black outside bounded3x3tile window."
+    },
+    "nineTiles": {
+      "elapsedMs": 28479,
+      "tiles": 9,
+      "pendingPerTile": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "scope": "Production buildMesh and SoftwareRenderer over saved water-first runtime. Normal terrain work path including physical settlement/road preparation. Nine tiles; pending roads explicitly provisional. No separate building geometry or browser/WebGL acceptance. Black outside bounded3x3tile window."
+    },
+    "actualResume": {
+      "elapsedMs": 12758,
+      "attempts": 12,
+      "pending": 12,
+      "sameIteratorTransitions": 10,
+      "changedIteratorTransitions": 0,
+      "roadCommitted": false,
+      "activeJobs": 1,
+      "heapMiB": 235.10546112060547
+    }
+  },
+  "nineTiles": {
+    "elapsedMs": 37771,
+    "tiles": 9,
+    "scope": "Production buildMesh and SoftwareRenderer over saved water-first runtime. Normal terrain work path including physical settlement/road preparation. Nine tiles; pending roads explicitly provisional. No separate building geometry or browser/WebGL acceptance. Black outside bounded3x3tile window."
+  },
+  "actualResume": {
+    "elapsedMs": 28701,
+    "attempts": 12,
+    "pending": 12,
+    "sameIteratorTransitions": 10,
+    "changedIteratorTransitions": 0,
+    "roadCommitted": false,
+    "activeJobs": 1,
+    "heapMiB": 190.38870239257812
+  },
+  "sliceBudget": {
+    "iteratorStepsPerRequest": 32,
+    "yieldEveryEdgeProbes": 128,
+    "maximumIteratorSteps": 64
+  },
+  "firstTileElapsedMs": 11059
+}

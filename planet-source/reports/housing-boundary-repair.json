@@ -1,0 +1,15 @@
+{
+  "scope": "Actual canonical paged recheck of both formerly blocked housing-boundary sections",
+  "results": [
+    {
+      "id": "road:pop:3723:327|pop:3723:329/segment:0",
+      "status": "surveyed-local-route",
+      "bridges": 0
+    },
+    {
+      "id": "road:pop:3723:327|pop:3723:329/segment:1",
+      "status": "surveyed-local-route",
+      "bridges": 0
+    }
+  ]
+}

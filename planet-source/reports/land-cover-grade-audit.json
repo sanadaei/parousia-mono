@@ -1,0 +1,86 @@
+{
+  "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+  "results": [
+    {
+      "id": "pop:4048:78",
+      "samples": 404,
+      "steep": 6,
+      "changed": 4,
+      "changes": {
+        "arable->woodland": 4
+      },
+      "wrongCereal": 0,
+      "maxSlope": 0.1515826150341283
+    },
+    {
+      "id": "pop:4048:65",
+      "samples": 404,
+      "steep": 31,
+      "changed": 25,
+      "changes": {
+        "pasture->woodland": 6,
+        "arable->woodland": 19
+      },
+      "wrongCereal": 0,
+      "maxSlope": 0.16794286536594052
+    },
+    {
+      "id": "pop:4174:0",
+      "samples": 404,
+      "steep": 130,
+      "changed": 12,
+      "changes": {
+        "woodland->bare": 12
+      },
+      "wrongCereal": 0,
+      "maxSlope": 0.9945807492095057
+    }
+  ],
+  "scope": "150m grid outside500m and inside3km square, single selected settlement ownership. Base terrain, not all local foundations or all owners; finite samples only.",
+  "meshComparison": {
+    "point": {
+      "latDeg": 1.472950376204363,
+      "lonDeg": -134.8688561041772
+    },
+    "tile": {
+      "face": 3,
+      "level": 17,
+      "x": 299,
+      "y": 67913
+    },
+    "results": [
+      {
+        "enabled": false,
+        "applied": 0,
+        "groundQueries": 1156,
+        "surfaceQueries": 289,
+        "buildMs": 1619.788873,
+        "vertices": 353
+      },
+      {
+        "enabled": true,
+        "applied": 289,
+        "groundQueries": 1156,
+        "surfaceQueries": 289,
+        "buildMs": 1548.3931389999998,
+        "vertices": 353
+      }
+    ],
+    "geometryDifferences": 0,
+    "colorDifferences": 894,
+    "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46"
+  },
+  "limitations": [
+    "Finite differences at the canonical derivative step, not a continuous slope certificate.",
+    "Only local meshes with measured normals and point probes use the measured slope; coarse colours remain approximations.",
+    "Tree placement and field triangles keep their own existing grade checks.",
+    "Synthetic agriculture inputs are not surveyed soil or historical land ownership."
+  ],
+  "verification": {
+    "testsPass": 853,
+    "testsFail": 0,
+    "build": "passed",
+    "durationMs": 121899.98111,
+    "heapLimitMiB": 256
+  }
+}

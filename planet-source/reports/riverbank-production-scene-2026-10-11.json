@@ -1,0 +1,228 @@
+{
+  "schema": "nearfield-production-scene-audit@1",
+  "worldId": "sha256:a8b35f0ea35cd4e9f3393904f329c78865dd814f8f08f8fcd1bf226272bb3561",
+  "region": 5010,
+  "waterCandidateCoverage": {
+    "populatedRegions": 744,
+    "regionsWithCandidate": 195,
+    "index": {
+      "stations": 25683,
+      "candidates": 32768,
+      "withheld": 121330,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "allocation": "cell-kind-stratified-identity-rank@1",
+      "eligibleStrata": 1945,
+      "coveredStrata": 1945,
+      "eligibleCells": 659,
+      "coveredCells": 659,
+      "scope": "Balanced finite station proposals; coverage is not water accessibility, supply or potability"
+    },
+    "scope": "Saved river-based siting proposals, not an inventory of all water or proof of an accepted access route"
+  },
+  "scenes": [
+    {
+      "siteId": "pop:5010:26",
+      "kind": "village",
+      "location": {
+        "latDeg": -19.75956659897035,
+        "lonDeg": 53.385777926097035
+      },
+      "population": 300,
+      "riverbankAccess": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5010:4883",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -19.75843042171499,
+          "lonDeg": 53.3844966628119
+        },
+        "waterPoint": {
+          "latDeg": -19.758409099266487,
+          "lonDeg": 53.384472617830966
+        },
+        "shoreSamples": 37,
+        "roadId": "pop:5010:26/riverbank/public-access",
+        "joinsRoadId": "pop:5010:26/district:0/terrain-street:0:west",
+        "lengthM": 108.61996772486262,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "riverbankPhysicalChecks": {
+        "tested": true,
+        "samples": 44,
+        "wet": 0,
+        "buildingObstructions": 0,
+        "missingRoadSurface": 0
+      },
+      "waterAccess": {
+        "status": "sampled-river-approach",
+        "sourceId": "river:5010:4883",
+        "waterPoint": {
+          "latDeg": -19.758409099266487,
+          "lonDeg": 53.384472617830966
+        },
+        "shorePoint": {
+          "latDeg": -19.75852484966262,
+          "lonDeg": 53.384603147805024
+        },
+        "distanceM": 187.68270110087593,
+        "maxObservedGrade": 0.05007385400208391,
+        "samples": 11,
+        "points": [
+          {
+            "id": "river:5010:4883/station:41/village/1",
+            "sourceId": "river:5010:4883",
+            "kind": "village",
+            "latDeg": -19.75956659897035,
+            "lonDeg": 53.385777926097035,
+            "waterPoint": {
+              "latDeg": -19.758409099266487,
+              "lonDeg": 53.384472617830966
+            },
+            "elevationM": 344.49921291279696
+          },
+          {
+            "latDeg": -19.759450849425725,
+            "lonDeg": 53.3856473944179,
+            "elevationM": 344.12146865131746
+          },
+          {
+            "latDeg": -19.759335099786483,
+            "lonDeg": 53.38551686292817,
+            "elevationM": 343.9140775027408
+          },
+          {
+            "latDeg": -19.75921935005262,
+            "lonDeg": 53.385386331627956,
+            "elevationM": 343.77395273491663
+          },
+          {
+            "latDeg": -19.75910360022416,
+            "lonDeg": 53.38525580051714,
+            "elevationM": 343.6494138869287
+          },
+          {
+            "latDeg": -19.758987850301075,
+            "lonDeg": 53.38512526959585,
+            "elevationM": 343.4642209658564
+          },
+          {
+            "latDeg": -19.758872100283384,
+            "lonDeg": 53.38499473886395,
+            "elevationM": 343.1369117766839
+          },
+          {
+            "latDeg": -19.758756350171073,
+            "lonDeg": 53.384864208321574,
+            "elevationM": 342.67757207265646
+          },
+          {
+            "latDeg": -19.758640599964153,
+            "lonDeg": 53.3847336779686,
+            "elevationM": 342.14913179695844
+          },
+          {
+            "latDeg": -19.75852484966262,
+            "lonDeg": 53.384603147805024,
+            "elevationM": 341.55811859792357
+          }
+        ],
+        "limitations": "20 m finite natural-ground samples; no engineered footpath, flood safety, yield or potability claim"
+      },
+      "status": {
+        "riverbankAccess": {
+          "policy": "surveyed-riverbank-footpath@1",
+          "sourceId": "river:5010:4883",
+          "status": "connected",
+          "reason": null,
+          "bankPoint": {
+            "latDeg": -19.75843042171499,
+            "lonDeg": 53.3844966628119
+          },
+          "waterPoint": {
+            "latDeg": -19.758409099266487,
+            "lonDeg": 53.384472617830966
+          },
+          "shoreSamples": 37,
+          "roadId": "pop:5010:26/riverbank/public-access",
+          "joinsRoadId": "pop:5010:26/district:0/terrain-street:0:west",
+          "lengthM": 108.61996772486262,
+          "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+        },
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:5010:26",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 300,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:5010:26/district:0/commons",
+            "type": "village_green"
+          },
+          {
+            "id": "pop:5010:26/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "buildings": 66,
+      "roads": 29,
+      "parcels": 46,
+      "geometrySha256": "ffb9912f1cbccf52348fdac7268ae710f6d9fe4dde47629d2a0ac29f559bc70d"
+    }
+  ],
+  "limitations": [
+    "Selected region only, town district zero is not a complete town",
+    "SVG draws actual oriented footprints, sampled roads and parcels only; blank background does not mean vegetation, water or terrain are absent",
+    "No browser, visual LOD, continuous collision or universal historical-plausibility acceptance",
+    "Locations come from the production planner and saved world policies; no alternate inspection-only siting"
+  ],
+  "inputSha256": "fdd93e194298c215e6b702c6647ec7448e4b993aa4e03332ef279090a0d21030",
+  "sourceFiles": [
+    {
+      "path": "scripts/audit-nearfield-scene.mjs",
+      "sha256": "f11341894c53e5542bf0ff869d2279906e9e7f48111e264e4d91ff6f4e9510fd"
+    },
+    {
+      "path": "scripts/package-settlements.mjs",
+      "sha256": "c30664b8b8ecdcaa1fa627514c5425ea7be9129a27b233f925c2d7967d30feea"
+    },
+    {
+      "path": "src/core/settlement-layout.mjs",
+      "sha256": "1b359f1e9f49558381a0b66a0779cac9c0840692c3a4dd4a6c7bb2572287f0e0"
+    },
+    {
+      "path": "src/core/settlement-catalogue.mjs",
+      "sha256": "1c26a2d9b23ed21abfe43eea8a6661b677fe49c3b3597053a484b160b246675d"
+    },
+    {
+      "path": "src/core/terrain-led-neighborhood.mjs",
+      "sha256": "1503e79565475e369afa94c633abe98899692a383587307c95dcbbf9e0769186"
+    },
+    {
+      "path": "src/core/riverbank-access.mjs",
+      "sha256": "e8271d81571f1489b78d2626db4b1c02716b0586860addf6b94ce5dc7a587fb1"
+    },
+    {
+      "path": "src/core/public-access.mjs",
+      "sha256": "e0cdc5d45be74e9b892c1c7814818947e569e211dd315168304aad3a95e2990a"
+    },
+    {
+      "path": "src/core/communal-pond.mjs",
+      "sha256": "5924f8465972e7afdefda0c58928b56070424097ed1fe4bc99f8d61ce5e02533"
+    }
+  ]
+}

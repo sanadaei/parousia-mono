@@ -1,0 +1,22 @@
+✔ actual channel field is finite, wet at every designed centre and bounded (34.880654ms)
+✔ designed confluences share exact water, width and bed depth; reload agrees (23.702715ms)
+✔ isolated cross section has designed centre, wet bank and exactly unchanged exterior (1.667258ms)
+✔ tile seams sample one source-global analytic field and reject bad inputs (19.159879ms)
+✔ seeded designs use the same wet field and finite bounded depths (2858.670654ms)
+✔ local interval bounds enclose actual source-centre samples and converge in wet core (11.495617ms)
+✔ explicit sphere draft has stable separate persisted identity and original untouched (68.667822ms)
+✔ sphere queries and camera ground follow original native shape at geographic placement (24.811213ms)
+✔ exterior collar joins the saved planet without moving native rectangle (51.206899ms)
+✔ normal globe mesh uses selected heights and draped design river symbols (286.025552ms)
+✔ recorded vertical placement preserves all native relative heights and reloads (51.246268ms)
+✔ seed-generated shape uses the same sphere field contract (1084.632295ms)
+✔ post-shape channel water, bed, camera and exact-width strips share one field (461.136334ms)
+✔ explicit below-sea placement is consistently wet rather than dry hidden ocean (24.693575ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3127.34934

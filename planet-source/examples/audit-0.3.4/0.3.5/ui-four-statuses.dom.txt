@@ -1,0 +1,144 @@
+- banner:
+  - text: Terrain & Water
+  - emphasis: Stage 5
+  - generic: Scene
+  - combobox "Preset scene":
+    - option "Choose a preset…" [disabled]
+    - 'option "Demo valley: river, lake, sea, bridges, pads · generated"'
+    - 'option "Fixture: road junctions in four states · 14 KB" [selected]'
+    - 'option "Fixture: lake → river → ocean · 8 KB"'
+    - 'option "Fixture: concave U-shaped lake · 3 KB"'
+    - 'option "Fixture: river + surface water-level grid · 9 KB"'
+    - 'option "Fixture: river + groundwater grid · 9 KB"'
+    - option "World A (C1, modeled rivers, 7 roads) · 0.9 MB"
+    - option "World B (C1, modeled rivers, roads) · 0.9 MB"
+    - option "World A (bilinear, modeled rivers) · 0.9 MB"
+    - option "World A (Strahler channel sizing) · 0.9 MB"
+    - option "Refinement A (C1, no hydrology) · 0.6 MB"
+    - option "Legacy terrain@1 (unresolved water) · 0.2 MB"
+    - 'option "Global water chart: explicit bowl lake · 66 KB"'
+    - 'option "Global water chart: date line · 66 KB"'
+    - option "Global multi-chart world (4 charts) · 0.2 MB"
+    - option "Global Drainage & Multi-Chart · 0.2 MB"
+    - 'option "Projected grid export: north pole · 0.6 MB"'
+  - button "Open JSON…"
+  - toolbar "Map tools":
+    - button "Pan"
+    - button "Profile"
+    - button "Sandbox"
+    - button "Fit"
+    - group "Quick layer toggles":
+      - button "Elevation" [pressed]
+      - button "Relief" [pressed]
+      - button "Water" [pressed]
+      - button "Contours"
+      - button "Structures" [pressed]
+      - button "Trafficability" [pressed]
+      - button "Drainage"
+    - generic "Layers"
+    - option "Fine (1 px)"
+    - option "Balanced (1.5 px)" [selected]
+    - option "Fast (3 px)"
+    - option "Draft (6 px)"
+  - generic: "Fixture: road junctions in four states · defined water · loaded in 0.04 s"
+- main:
+  - region "Map":
+    - generic: —
+    - generic: sample step 1 m
+    - generic: 100 m
+    - generic: 101 m
+    - generic: Trafficability · pedestrian
+    - generic: Dry road / bridge
+    - generic: Building pad
+    - generic: Walkable ground
+    - generic: Difficult scramble
+    - generic: Cliff / blocked
+    - generic: Shallow wading
+    - generic: Deep water (pedestrian blocked)
+    - generic: scramble > 50% · cliff > 100% · wading ≤ 0.3 m · vehicle slope ≤ 30% / water ≤ 0.4 m · unknown water stays unknown
+    - generic: Drag pan · wheel zoom · Shift+drag profile · click pin/select · F fit · P profile · S sandbox · T trafficability · D drainage · [ ] chart · Esc unpin
+  - complementary:
+    - tablist:
+      - tab "Inspector"
+      - tab "Crossings" [active]: Crossings
+      - tab "Sandbox": Sandbox
+      - tab "LOD"
+      - tab "Scene"
+    - generic: "8"
+    - text: roads
+    - generic: "0"
+    - text: water crossings
+    - generic: "0"
+    - text: water bridges
+    - generic: "0"
+    - text: road errors
+    - generic: "3"
+    - text: overpasses
+    - generic: "1"
+    - text: at-grade junctions
+    - generic: "0"
+    - text: culverts
+    - heading "Crossings" [level=4]
+    - paragraph: No road crosses water.
+    - heading "Road crossings & junctions" [level=4]
+    - generic: case-2/upper over case-2/lower
+    - generic: Insufficient clearance
+    - term: type
+    - definition: grade-separated overpass
+    - term: stations
+    - definition: case-2/lower @ 40.0 m · case-2/upper @ 40.0 m
+    - term: upper road
+    - definition: case-2/upper · 102.00 m
+    - term: lower road
+    - definition: case-2/lower · 100.00 m
+    - term: clearance
+    - definition: 1.50 m (min 4.50 m)
+    - generic: case-1/upper over case-1/lower
+    - generic: Clearance met
+    - term: type
+    - definition: grade-separated overpass
+    - term: stations
+    - definition: case-1/lower @ 40.0 m · case-1/upper @ 40.0 m
+    - term: upper road
+    - definition: case-1/upper · 105.00 m
+    - term: lower road
+    - definition: case-1/lower · 100.00 m
+    - term: clearance
+    - definition: 4.50 m (min 4.50 m)
+    - generic: case-3/upper over case-3/lower
+    - generic: Collision
+    - term: type
+    - definition: grade-separated overpass
+    - term: stations
+    - definition: case-3/lower @ 40.0 m · case-3/upper @ 40.0 m
+    - term: upper road
+    - definition: case-3/upper · 100.20 m
+    - term: lower road
+    - definition: case-3/lower · 100.00 m
+    - term: clearance
+    - definition: "-0.30 m (min 4.50 m)"
+    - generic: case-0/lower × case-0/upper junction
+    - generic: At-grade junction
+    - term: type
+    - definition: at-grade junction
+    - term: stations
+    - definition: case-0/lower @ 40.0 m · case-0/upper @ 40.0 m
+    - term: separation
+    - definition: 0.00 m
+    - heading "Culverts" [level=4]
+    - paragraph: No drainage pass-throughs under road embankments.
+  - region "Profile":
+    - generic: Road case-0/lower · 80.0 m · 2 samples
+    - combobox "Road profile":
+      - option "Road profile…"
+      - option "case-0/lower" [selected]
+      - option "case-0/upper"
+      - option "case-1/lower"
+      - option "case-1/upper"
+      - option "case-2/lower"
+      - option "case-2/upper"
+      - option "case-3/lower"
+      - option "case-3/upper"
+    - button "Reset zoom"
+    - button "Export CSV"
+    - button "Clear"

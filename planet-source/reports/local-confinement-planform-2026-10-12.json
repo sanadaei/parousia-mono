@@ -1,0 +1,57 @@
+{
+  "center": {
+    "latDeg": 19.6875,
+    "lonDeg": 154.6875
+  },
+  "extentM": 20000,
+  "n": 129,
+  "adoptedProfilePoints": 2003,
+  "wetProfilePoints": 2003,
+  "attempts": [
+    {
+      "id": "river:730:795",
+      "status": "adopted",
+      "wavelengthM": 13614.450365591165,
+      "maxOffsetM": 1089.1552483931448
+    },
+    {
+      "id": "river:858:795",
+      "status": "infeasible-monotone-path"
+    }
+  ],
+  "scope": "Uncommitted prospective network using production sampler; same uncarved terrain and receiving nodes. Existing saved world not modified.",
+  "focusedTests": {
+    "pass": 5,
+    "fail": 0
+  },
+  "fullSuite": {
+    "pass": 1129,
+    "fail": 0,
+    "skip": 0,
+    "durationMs": 476488.071694,
+    "memoryLimitMiB": 256,
+    "workers": 1
+  },
+  "knownLimitations": [
+    "Fixed confluence remains angular",
+    "One branch remains straight after infeasible downhill fit",
+    "No sediment or braided-channel dynamics",
+    "Scenario widths are not hydraulically calibrated",
+    "Browser acceptance not run"
+  ],
+  "build": {
+    "coreModules": 139,
+    "legacyEntryPoints": 30,
+    "globeModules": 57,
+    "passed": true
+  },
+  "smallerBendFollowup": {
+    "strengths": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "allRejected": "infeasible-monotone-path",
+    "adopted": false
+  }
+}

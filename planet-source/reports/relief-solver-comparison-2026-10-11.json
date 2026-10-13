@@ -1,0 +1,103 @@
+{
+  "status": "UNADOPTED reference-library comparisons",
+  "library": {
+    "name": "fastscapelib",
+    "version": "0.3.0",
+    "source": "https://fastscapelib.readthedocs.io/en/latest/",
+    "license": "GPL-3.0; used externally for comparison, not a planet runtime dependency"
+  },
+  "experiments": [
+    {
+      "scenario": "mountain",
+      "libraryVersion": "0.3.0",
+      "n": 257,
+      "extentM": 50000.0,
+      "seed": 20261011,
+      "steps": 100,
+      "stepYears": 20000.0,
+      "erodibility": 0.0002,
+      "diffusivity": 0.01,
+      "areaExponent": 0.4,
+      "slopeExponent": 1,
+      "elapsedSeconds": 2.9634132385253906,
+      "heightRangeM": [
+        0.00012593949395752757,
+        197.61115088598498
+      ],
+      "status": "external-library diagnostic, not integrated; synthetic boundary/forcing, not calibrated Earth history"
+    },
+    {
+      "scenario": "escarpment",
+      "libraryVersion": "0.3.0",
+      "n": 257,
+      "extentM": 3000.0,
+      "seed": 20261011,
+      "steps": 60,
+      "stepYears": 1000.0,
+      "erodibility": 0.0001,
+      "diffusivity": 0.01,
+      "areaExponent": 0.4,
+      "slopeExponent": 1,
+      "elapsedSeconds": 6.656475305557251,
+      "heightRangeM": [
+        0.00016291211948413765,
+        60.09978846140084
+      ],
+      "status": "external-library diagnostic, not integrated; synthetic boundary/forcing, not calibrated Earth history"
+    },
+    {
+      "scenario": "existing-results.json",
+      "profileId": "river:1433:1562",
+      "method": "external-fastscapelib-0.3.0-benchmark",
+      "elapsedSeconds": 0.15841388702392578,
+      "maximumCutM": 682.1643837440338,
+      "maximumRaiseM": 0.0,
+      "lockedErrorM": 0.0,
+      "status": "UNADOPTED; protected-corridor envelope not a coupled physical solution"
+    },
+    {
+      "scenario": "existing-results.json",
+      "profileId": "river:1882:2011",
+      "method": "external-fastscapelib-0.3.0-benchmark",
+      "elapsedSeconds": 0.23752307891845703,
+      "maximumCutM": 179.5355204768041,
+      "maximumRaiseM": 0.0,
+      "lockedErrorM": 0.0,
+      "status": "UNADOPTED; protected-corridor envelope not a coupled physical solution"
+    },
+    {
+      "scenario": "coarse-results.json",
+      "profileId": "river:1433:1562",
+      "method": "external-fastscapelib-0.3.0-benchmark",
+      "elapsedSeconds": 0.645263671875,
+      "maximumCutM": 79.908652648724,
+      "maximumRaiseM": 79.87023349268202,
+      "lockedErrorM": 0.0,
+      "status": "UNADOPTED; protected-corridor envelope not a coupled physical solution"
+    },
+    {
+      "scenario": "coarse-results.json",
+      "profileId": "river:1882:2011",
+      "method": "external-fastscapelib-0.3.0-benchmark",
+      "elapsedSeconds": 0.7181112766265869,
+      "maximumCutM": 162.5419795944647,
+      "maximumRaiseM": 52.498634348419955,
+      "lockedErrorM": 0.0,
+      "status": "UNADOPTED; protected-corridor envelope not a coupled physical solution"
+    }
+  ],
+  "findings": [
+    "Synthetic coupled uplift/drainage produced branched valley networks in the inspected output",
+    "Applying an external solver after the existing noisy terrain retained sink-centred patterns and protected-corridor artifacts",
+    "Coarse-field-only reconstruction constrained by old river levels retained boundary and direction artifacts",
+    "A solver replacement alone does not establish cross-scale consistency or plausible geology"
+  ],
+  "limits": [
+    "No production integration or browser acceptance",
+    "No sediment balance or calibrated geological ages",
+    "Fixed outer/inner levels are experiment conditions, not automatically justified basin boundaries",
+    "Reference solver license is not adopted as project license"
+  ],
+  "sourceSnapshotWorldId": "sha256:7b193113023af6d5d180524ac716c324151af2c07848b3506a770812716e35a3",
+  "sourceBaseWorldId": "sha256:7de4f2cbe4d19aa9250a4d88cb8f4574e4a5c1af6efe826d28507427cf762a35"
+}

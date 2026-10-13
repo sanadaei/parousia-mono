@@ -1,0 +1,790 @@
+{
+  "inputWorldId": "sha256:6d6229ec0df5b9887331f6ae8febc38688100407be8877f50fe14905dd94b995",
+  "policy": "mixed-rainfed-hinterland@1",
+  "pattern": "surveyed-furlongs@2",
+  "scope": "Actual saved terrain, region catalogue and finite 3km-square point grid. These counts are not world-wide crop yield or ownership proof. Parcel examples exclude per-building road clearance and are not collision acceptance.",
+  "results": [
+    {
+      "id": "pop:4048:78",
+      "latDeg": 1.4021613611664396,
+      "lonDeg": -134.9955264535966,
+      "samples": 961,
+      "counts": {
+        "before": {
+          "woodland": 144,
+          "arable": 761,
+          "settlement": 25,
+          "water": 31
+        },
+        "after": {
+          "woodland": 208,
+          "arable": 559,
+          "pasture": 138,
+          "settlement": 25,
+          "water": 31
+        }
+      },
+      "waterMismatch": 0,
+      "examples": {
+        "woodland": {
+          "point": {
+            "latDeg": 1.3886714983318424,
+            "lonDeg": -135.00902024067312
+          },
+          "surface": {
+            "groundElevationM": 645.8485814138888,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "woodland",
+            "treeCover": 1,
+            "color": [
+              0.2,
+              0.34,
+              0.15
+            ],
+            "temperatureC": 23.481697007577168,
+            "ownerId": "pop:4048:78",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "arable": {
+          "point": {
+            "latDeg": 1.3886715122803361,
+            "lonDeg": -135.0063214832578
+          },
+          "surface": {
+            "groundElevationM": 636.1343469588458,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "arable",
+            "treeCover": 0,
+            "color": [
+              0.54,
+              0.48,
+              0.29
+            ],
+            "temperatureC": 23.54484106966305,
+            "ownerId": "pop:4048:78",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "settlement-food-hinterland",
+              "rain-fed-grain-scenario",
+              "allocation-scenario-not-verified-food-capacity"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "pasture": {
+          "point": {
+            "latDeg": 1.3886715327725678,
+            "lonDeg": -135.00002438262214
+          },
+          "surface": {
+            "groundElevationM": 644.4781098302719,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "pasture",
+            "treeCover": 0,
+            "color": [
+              0.39,
+              0.46,
+              0.23
+            ],
+            "temperatureC": 23.490610199958684,
+            "ownerId": "pop:4048:78",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "settlement-food-hinterland",
+              "rain-fed-grain-scenario",
+              "grazing-reserve-scenario",
+              "allocation-scenario-not-verified-food-capacity"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "settlement": {
+          "point": {
+            "latDeg": 1.4003627172638642,
+            "lonDeg": -134.99732563416023
+          },
+          "surface": {
+            "groundElevationM": 678.3918076953115,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "settlement",
+            "treeCover": 0,
+            "color": [
+              0.48,
+              0.44,
+              0.33
+            ],
+            "temperatureC": 23.270172581783072,
+            "ownerId": "pop:4048:78",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "canonical-settlement-envelope"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "water": {
+          "point": {
+            "latDeg": 1.406657930283746,
+            "lonDeg": -135.00902034413724
+          },
+          "surface": {
+            "groundElevationM": 597.7915040366134,
+            "waterDepthM": 2.2733140318071037
+          },
+          "classification": {
+            "kind": "water",
+            "treeCover": 0,
+            "color": [
+              0.12,
+              0.35,
+              0.43
+            ],
+            "reasons": [
+              "canonical-water-surface"
+            ]
+          }
+        }
+      },
+      "parcelExamples": [
+        {
+          "kind": "arable",
+          "tile": "landscape:38488:19537",
+          "trees": 66,
+          "parcels": [
+            {
+              "id": "landscape:38488:19537/strip:0",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 40,
+              "areaM2": 1783.512830317632
+            },
+            {
+              "id": "landscape:38488:19537/strip:1",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 52,
+              "areaM2": 3085.8273436991503
+            },
+            {
+              "id": "landscape:38488:19537/strip:2",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 135,
+              "areaM2": 6323.5116506522445
+            },
+            {
+              "id": "landscape:38488:19537/strip:3",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 136,
+              "areaM2": 6126.14252921755
+            },
+            {
+              "id": "landscape:38488:19537/strip:4",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 162,
+              "areaM2": 4456.744457112169
+            },
+            {
+              "id": "landscape:38488:19537/strip:5",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 166,
+              "areaM2": 5750.883421565591
+            },
+            {
+              "id": "landscape:38488:19537/strip:6",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 126,
+              "areaM2": 5539.930712400623
+            },
+            {
+              "id": "landscape:38488:19537/strip:7",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 72,
+              "areaM2": 5365.001994440225
+            },
+            {
+              "id": "landscape:38488:19537/strip:8",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 54,
+              "areaM2": 3044.789111244146
+            },
+            {
+              "id": "landscape:38488:19537/strip:9",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 59,
+              "areaM2": 2374.657686762628
+            },
+            {
+              "id": "landscape:38488:19537/strip:10",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 35,
+              "areaM2": 1706.414489469104
+            }
+          ]
+        },
+        {
+          "kind": "pasture",
+          "tile": "landscape:38488:19540",
+          "trees": 33,
+          "parcels": [
+            {
+              "id": "landscape:38488:19540/strip:0",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 56,
+              "areaM2": 5038.19035315432
+            },
+            {
+              "id": "landscape:38488:19540/strip:1",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 60,
+              "areaM2": 4083.3508816272306
+            },
+            {
+              "id": "landscape:38488:19540/strip:2",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 89,
+              "areaM2": 3606.361771349571
+            },
+            {
+              "id": "landscape:38488:19540/strip:3",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 30,
+              "areaM2": 1048.2167744048945
+            },
+            {
+              "id": "landscape:38488:19540/strip:4",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 2,
+              "areaM2": 33.01161159786473
+            }
+          ]
+        },
+        {
+          "kind": "woodland",
+          "tile": "landscape:38488:19536",
+          "trees": 357,
+          "parcels": [
+            {
+              "id": "landscape:38488:19536/strip:0",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 21,
+              "areaM2": 940.4509904254388
+            },
+            {
+              "id": "landscape:38488:19536/strip:1",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 56,
+              "areaM2": 2346.75494259857
+            },
+            {
+              "id": "landscape:38488:19536/strip:2",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 106,
+              "areaM2": 6265.27772601631
+            },
+            {
+              "id": "landscape:38488:19536/strip:3",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 88,
+              "areaM2": 4184.062840815398
+            },
+            {
+              "id": "landscape:38488:19536/strip:4",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 89,
+              "areaM2": 3217.9778005155385
+            },
+            {
+              "id": "landscape:38488:19536/strip:5",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 72,
+              "areaM2": 2244.216515600966
+            },
+            {
+              "id": "landscape:38488:19536/strip:6",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 58,
+              "areaM2": 2791.3071771482
+            },
+            {
+              "id": "landscape:38488:19536/strip:7",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 31,
+              "areaM2": 1516.809733728063
+            },
+            {
+              "id": "landscape:38488:19536/strip:8",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:78",
+              "triangles": 10,
+              "areaM2": 397.045640858491
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pop:4048:65",
+      "latDeg": 1.4089754043008034,
+      "lonDeg": -134.94380254389114,
+      "samples": 961,
+      "counts": {
+        "before": {
+          "woodland": 144,
+          "arable": 792,
+          "settlement": 25
+        },
+        "after": {
+          "woodland": 163,
+          "arable": 646,
+          "pasture": 127,
+          "settlement": 25
+        }
+      },
+      "waterMismatch": 0,
+      "examples": {
+        "woodland": {
+          "point": {
+            "latDeg": 1.3954855412772331,
+            "lonDeg": -134.95729636996572
+          },
+          "surface": {
+            "groundElevationM": 649.9253647948215,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "woodland",
+            "treeCover": 1,
+            "color": [
+              0.2,
+              0.34,
+              0.15
+            ],
+            "temperatureC": 23.45522730785789,
+            "ownerId": "pop:4048:65",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "arable": {
+          "point": {
+            "latDeg": 1.3954855552937573,
+            "lonDeg": -134.95459760475086
+          },
+          "surface": {
+            "groundElevationM": 646.0955703947873,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "arable",
+            "treeCover": 0,
+            "color": [
+              0.54,
+              0.48,
+              0.29
+            ],
+            "temperatureC": 23.48012250940617,
+            "ownerId": "pop:4048:65",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "settlement-food-hinterland",
+              "rain-fed-grain-scenario",
+              "allocation-scenario-not-verified-food-capacity"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "pasture": {
+          "point": {
+            "latDeg": 1.3954855802120223,
+            "lonDeg": -134.94380254389114
+          },
+          "surface": {
+            "groundElevationM": 630.6418900787038,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "pasture",
+            "treeCover": 0,
+            "color": [
+              0.39,
+              0.46,
+              0.23
+            ],
+            "temperatureC": 23.580577583247276,
+            "ownerId": "pop:4048:65",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "settlement-food-hinterland",
+              "rain-fed-grain-scenario",
+              "grazing-reserve-scenario",
+              "allocation-scenario-not-verified-food-capacity"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "settlement": {
+          "point": {
+            "latDeg": 1.407176760394868,
+            "lonDeg": -134.94560172969824
+          },
+          "surface": {
+            "groundElevationM": 602.6545680226493,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "settlement",
+            "treeCover": 0,
+            "color": [
+              0.48,
+              0.44,
+              0.33
+            ],
+            "temperatureC": 23.76249384270563,
+            "ownerId": "pop:4048:65",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "canonical-settlement-envelope"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        }
+      },
+      "parcelExamples": [
+        {
+          "kind": "arable",
+          "tile": "landscape:38485:19559",
+          "trees": 142,
+          "parcels": [
+            {
+              "id": "landscape:38485:19559/strip:2",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 32,
+              "areaM2": 1317.7004940286445
+            },
+            {
+              "id": "landscape:38485:19559/strip:3",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 105,
+              "areaM2": 3177.304226630126
+            },
+            {
+              "id": "landscape:38485:19559/strip:4",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 218,
+              "areaM2": 6969.304753205767
+            },
+            {
+              "id": "landscape:38485:19559/strip:5",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 164,
+              "areaM2": 7211.117734531368
+            },
+            {
+              "id": "landscape:38485:19559/strip:6",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 168,
+              "areaM2": 7464.503332484635
+            },
+            {
+              "id": "landscape:38485:19559/strip:7",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 158,
+              "areaM2": 3877.3513000535713
+            },
+            {
+              "id": "landscape:38485:19559/strip:8",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 104,
+              "areaM2": 5154.462042383379
+            },
+            {
+              "id": "landscape:38485:19559/strip:9",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 54,
+              "areaM2": 2399.9243559154324
+            },
+            {
+              "id": "landscape:38485:19559/strip:10",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 56,
+              "areaM2": 2816.7043579967167
+            },
+            {
+              "id": "landscape:38485:19559/strip:11",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 36,
+              "areaM2": 2713.021170628239
+            },
+            {
+              "id": "landscape:38485:19559/strip:12",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 20,
+              "areaM2": 1392.371996409274
+            }
+          ]
+        },
+        {
+          "kind": "pasture",
+          "tile": "landscape:38485:19564",
+          "trees": 51,
+          "parcels": [
+            {
+              "id": "landscape:38485:19564/strip:0",
+              "type": "common_grazing_candidate",
+              "ownerId": "pop:4048:65",
+              "triangles": 297,
+              "areaM2": 31466.826311509118
+            }
+          ]
+        },
+        {
+          "kind": "woodland",
+          "tile": "landscape:38485:19558",
+          "trees": 395,
+          "parcels": [
+            {
+              "id": "landscape:38485:19558/strip:3",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 2,
+              "areaM2": 62.96901572037645
+            },
+            {
+              "id": "landscape:38485:19558/strip:4",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 11,
+              "areaM2": 552.4479964511228
+            },
+            {
+              "id": "landscape:38485:19558/strip:5",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 53,
+              "areaM2": 1840.5209989523225
+            },
+            {
+              "id": "landscape:38485:19558/strip:6",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 36,
+              "areaM2": 1108.3679914995441
+            },
+            {
+              "id": "landscape:38485:19558/strip:7",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 26,
+              "areaM2": 1060.4338852862159
+            },
+            {
+              "id": "landscape:38485:19558/strip:8",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 29,
+              "areaM2": 1564.1328699256696
+            },
+            {
+              "id": "landscape:38485:19558/strip:9",
+              "type": "rainfed_cereal_strip",
+              "ownerId": "pop:4048:65",
+              "triangles": 2,
+              "areaM2": 33.65049030073535
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pop:2699:12",
+      "latDeg": 28.401107397300226,
+      "lonDeg": 31.185819683992918,
+      "samples": 961,
+      "counts": {
+        "before": {
+          "heath": 925,
+          "water": 13,
+          "settlement": 23
+        },
+        "after": {
+          "heath": 925,
+          "water": 13,
+          "settlement": 23
+        }
+      },
+      "waterMismatch": 0,
+      "examples": {
+        "heath": {
+          "point": {
+            "latDeg": 28.38761671475862,
+            "lonDeg": 31.17048600587725
+          },
+          "surface": {
+            "groundElevationM": 1454.254700249405,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "heath",
+            "treeCover": 0,
+            "color": [
+              0.49,
+              0.44,
+              0.3
+            ],
+            "temperatureC": -1.851100451975097,
+            "ownerId": "pop:2699:12",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        },
+        "water": {
+          "point": {
+            "latDeg": 28.391214672669594,
+            "lonDeg": 31.17866372466301
+          },
+          "surface": {
+            "groundElevationM": 1369.410887215793,
+            "waterDepthM": 0.6483620051408252
+          },
+          "classification": {
+            "kind": "water",
+            "treeCover": 0,
+            "color": [
+              0.12,
+              0.35,
+              0.43
+            ],
+            "reasons": [
+              "canonical-water-surface"
+            ]
+          }
+        },
+        "settlement": {
+          "point": {
+            "latDeg": 28.399308738823404,
+            "lonDeg": 31.183774968030093
+          },
+          "surface": {
+            "groundElevationM": 1392.2191612910397,
+            "waterDepthM": 0
+          },
+          "classification": {
+            "kind": "settlement",
+            "treeCover": 0,
+            "color": [
+              0.48,
+              0.44,
+              0.33
+            ],
+            "temperatureC": -1.4587663045912713,
+            "ownerId": "pop:2699:12",
+            "reasons": [
+              "climate-potential-vegetation",
+              "fixed-spherical-patch-field",
+              "canonical-settlement-envelope"
+            ],
+            "profile": "medieval-regional-landscape@1"
+          }
+        }
+      },
+      "parcelExamples": []
+    }
+  ],
+  "legacyOutputCompatibility": [
+    {
+      "lat": 20,
+      "lon": 30,
+      "identical": true,
+      "sha256": "b7ca5093a0f39a0d0df842bdb20d84bd8d713f1e7d300231578ab94636e773b2"
+    },
+    {
+      "lat": 1.4,
+      "lon": -135,
+      "identical": true,
+      "sha256": "9d783647fcb9dcaa72b16bc7176516d5b8c2281f65d8d49ec52c4d6f5998dc39"
+    },
+    {
+      "lat": 75,
+      "lon": 179,
+      "identical": true,
+      "sha256": "1d6fcd6eea6fa1ea967a08572e88380f0c034c48aba551dec16109a16ff964c1"
+    }
+  ],
+  "outputWorldId": "sha256:e2a2d337914001a56ffe1cc60fcfe25579dca138495f3233d042883308b9a9cc",
+  "validation": {
+    "testsPassed": 811,
+    "failed": 0,
+    "build": "passed",
+    "durationSeconds": 127.2,
+    "heapMiB": 256
+  },
+  "visualObservation": {
+    "at": "2026-10-11T00:40:46Z",
+    "savedWorld": "local-landscape-24a",
+    "site": "pop:4048:78",
+    "view": "500m,60 degrees,noon,software renderer",
+    "result": "Field widths/orientations now vary visibly. View still shows overly linear housing, hard/cropped distant field edges and flat woodland patches. Broad visual acceptance not passed.",
+    "generatedMeshes": 811,
+    "loadedTiles": 349,
+    "CPUShapeMiB": 50.9,
+    "loadsActive": 2
+  }
+}

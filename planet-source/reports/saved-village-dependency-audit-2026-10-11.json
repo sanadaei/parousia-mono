@@ -1,0 +1,702 @@
+{
+  "schema": "saved-village-dependency-audit@1",
+  "village": {
+    "point": {
+      "latDeg": 9.085143,
+      "lonDeg": 170.829142
+    },
+    "tileStats": [
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13737,
+          "y": 19036
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 5,
+            "pending": 5
+          },
+          "surfaceQueries": 808,
+          "surfaceCacheHits": 81,
+          "edgeSearches": 34,
+          "edgeCacheHits": 32,
+          "edgeCachePeak": 34,
+          "bisectionSamples": 510,
+          "avoidedFixedBisectionSamples": 102,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 512,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 1
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 357,
+            "groundAfter": 353,
+            "overlayBefore": 99,
+            "overlayAfter": 40,
+            "removedBytes": 3028
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13738,
+          "y": 19036
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 5,
+            "pending": 5
+          },
+          "surfaceQueries": 308,
+          "surfaceCacheHits": 81,
+          "edgeSearches": 0,
+          "edgeCacheHits": 0,
+          "edgeCachePeak": 0,
+          "bisectionSamples": 0,
+          "avoidedFixedBisectionSamples": 0,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 224,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 1
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 357,
+            "groundAfter": 353,
+            "overlayBefore": 0,
+            "overlayAfter": 0,
+            "removedBytes": 196
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13739,
+          "y": 19036
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 5,
+            "pending": 5
+          },
+          "surfaceQueries": 298,
+          "surfaceCacheHits": 81,
+          "edgeSearches": 0,
+          "edgeCacheHits": 0,
+          "edgeCachePeak": 0,
+          "bisectionSamples": 0,
+          "avoidedFixedBisectionSamples": 0,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 0,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 300
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 357,
+            "groundAfter": 353,
+            "overlayBefore": 0,
+            "overlayAfter": 0,
+            "removedBytes": 196
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13737,
+          "y": 19037
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 5,
+            "pending": 5
+          },
+          "surfaceQueries": 289,
+          "surfaceCacheHits": 81,
+          "edgeSearches": 0,
+          "edgeCacheHits": 0,
+          "edgeCachePeak": 0,
+          "bisectionSamples": 0,
+          "avoidedFixedBisectionSamples": 0,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 512,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 1
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 357,
+            "groundAfter": 353,
+            "overlayBefore": 0,
+            "overlayAfter": 0,
+            "removedBytes": 196
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13738,
+          "y": 19037
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 5,
+            "pending": 5
+          },
+          "surfaceQueries": 2238,
+          "surfaceCacheHits": 91,
+          "edgeSearches": 130,
+          "edgeCacheHits": 126,
+          "edgeCachePeak": 130,
+          "bisectionSamples": 1950,
+          "avoidedFixedBisectionSamples": 390,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 392,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 1
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 357,
+            "groundAfter": 353,
+            "overlayBefore": 395,
+            "overlayAfter": 155,
+            "removedBytes": 11716
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13739,
+          "y": 19037
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 5,
+            "pending": 5
+          },
+          "surfaceQueries": 3359,
+          "surfaceCacheHits": 277,
+          "edgeSearches": 239,
+          "edgeCacheHits": 91,
+          "edgeCachePeak": 239,
+          "bisectionSamples": 2909,
+          "avoidedFixedBisectionSamples": 1393,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 25,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 12
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 2675,
+            "groundAfter": 832,
+            "overlayBefore": 770,
+            "overlayAfter": 309,
+            "removedBytes": 112435
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13737,
+          "y": 19038
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 4,
+            "pending": 4
+          },
+          "surfaceQueries": 298,
+          "surfaceCacheHits": 81,
+          "edgeSearches": 0,
+          "edgeCacheHits": 0,
+          "edgeCachePeak": 0,
+          "bisectionSamples": 0,
+          "avoidedFixedBisectionSamples": 0,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 512,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 1
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 357,
+            "groundAfter": 353,
+            "overlayBefore": 0,
+            "overlayAfter": 0,
+            "removedBytes": 196
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13738,
+          "y": 19038
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 4,
+            "pending": 4
+          },
+          "surfaceQueries": 3895,
+          "surfaceCacheHits": 535,
+          "edgeSearches": 250,
+          "edgeCacheHits": 152,
+          "edgeCachePeak": 250,
+          "bisectionSamples": 2871,
+          "avoidedFixedBisectionSamples": 1629,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 12,
+            "bankTaskCount": 236,
+            "waterTaskBudget": 100,
+            "bankTaskBudget": 1
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 5023,
+            "groundAfter": 1332,
+            "overlayBefore": 1442,
+            "overlayAfter": 444,
+            "removedBytes": 228763
+          }
+        }
+      },
+      {
+        "tile": {
+          "face": 1,
+          "level": 15,
+          "x": 13739,
+          "y": 19038
+        },
+        "sampling": {
+          "cooperativeYield": "setImmediate",
+          "physicalFeatureLoad": {
+            "loaded": 3,
+            "deferred": 4,
+            "pending": 4
+          },
+          "surfaceQueries": 935,
+          "surfaceCacheHits": 137,
+          "edgeSearches": 43,
+          "edgeCacheHits": 25,
+          "edgeCachePeak": 43,
+          "bisectionSamples": 504,
+          "avoidedFixedBisectionSamples": 270,
+          "groundBreaklines": {
+            "available": 0,
+            "splitTriangles": 0,
+            "wallTriangles": 0,
+            "maxHorizontalGapM": 0
+          },
+          "featureSubdivision": {
+            "water": 1200,
+            "bank": 300,
+            "minimumWaterPerTriangle": 8,
+            "minimumBankPerTriangle": 1,
+            "waterTaskCount": 0,
+            "bankTaskCount": 6,
+            "waterTaskBudget": 1200,
+            "bankTaskBudget": 50
+          },
+          "committedWaterStrips": {
+            "segments": 0,
+            "quads": 0,
+            "samples": 0,
+            "dry": 0,
+            "limited": false
+          },
+          "vertexCompaction": {
+            "groundBefore": 1274,
+            "groundAfter": 556,
+            "overlayBefore": 330,
+            "overlayAfter": 108,
+            "removedBytes": 45838
+          }
+        }
+      }
+    ],
+    "featureStats": [
+      {
+        "id": "population-zone:926/0/3/2/1/1/site:1/district:0",
+        "buildings": 66,
+        "vegetation": 0,
+        "status": "saved-recipe"
+      }
+    ],
+    "render": {
+      "drawTiles": 10,
+      "triangles": 9759,
+      "gpuMs": null,
+      "viewport": [
+        1200,
+        900
+      ],
+      "renderer": "software-diagnostic",
+      "drawCpuMs": 232.5544809999992,
+      "drawIntervalMs": 465.1089619999984,
+      "renderCount": 1,
+      "drawFPS": 0
+    },
+    "elapsedMs": 27531,
+    "source": {
+      "pendingRoadSurveys": 1,
+      "residentWaterPlans": 4,
+      "activeWaterJobs": 1,
+      "landCoverContextStatus": "complete",
+      "landCoverSiteCount": 1,
+      "featureFootprintBytes": 1024,
+      "featureFootprintLimitBytes": 131072,
+      "settlementRecipeBytes": 452040,
+      "settlementRecipeLimitBytes": 2097152,
+      "settlementLandBytes": 0,
+      "settlementLandLimitBytes": 6291456,
+      "roadClearanceBytes": 4470,
+      "roadClearanceLimitBytes": 8388608,
+      "settlementPageBytesEstimated": 0,
+      "settlementPageLimitBytes": 8388608,
+      "requests": 1,
+      "downloadBytes": 165888,
+      "fieldBytes": 2048,
+      "anchorBytes": 2304,
+      "meshNormalBytesEstimated": 1160960,
+      "meshNormalEntries": 3628,
+      "meshNormalHits": 205,
+      "meshNormalMisses": 3628,
+      "meshNormalEvictions": 0,
+      "patchBytesEstimated": 2560,
+      "featureBytesEstimated": 2621440,
+      "fieldEvictions": 0,
+      "peakCacheBytes": 2048
+    },
+    "scope": "Production buildMesh, saved settlement building recipes and SoftwareRenderer over saved water-first runtime. Nine tiles; pending roads explicitly provisional. Vegetation not yet drawn. No browser/WebGL acceptance. Black outside bounded3x3tile window."
+  },
+  "landscapeRequests": [
+    {
+      "id": "population-zone:926/0/3/2/1/1/site:1/district:0",
+      "buildings": 66,
+      "vegetation": 0,
+      "parcels": 9,
+      "status": "saved-recipe"
+    },
+    {
+      "path": "procedural:landscape:35145:150472",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35146:150473",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35145:150473",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35145:150471",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35146:150474",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35146:150472",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35144:150471",
+      "status": "pending"
+    },
+    {
+      "path": "procedural:landscape:35144:150472",
+      "status": "pending"
+    }
+  ],
+  "candidateCulling": [
+    {
+      "id": "procedural:landscape:35145:150472",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35146:150473",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35145:150473",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35145:150471",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35146:150474",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35146:150472",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35144:150471",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    },
+    {
+      "id": "procedural:landscape:35144:150472",
+      "before": 14,
+      "after": 8,
+      "removed": [
+        "road:population-zone:926/0/3/0/3/3/site:0|population-zone:926/0/3/0/3/3/site:1",
+        "road:population-zone:926/0/3/1/2/2/site:0|population-zone:926/0/3/1/2/2/site:1",
+        "zone-road:population-zone:926/0/3/0/3/2|population-zone:926/0/3/2/1/0",
+        "zone-road:population-zone:926/0/3/0/3/3|population-zone:926/0/3/1/2/2",
+        "zone-road:population-zone:926/0/3/1/2/2|population-zone:926/0/3/3/0/0",
+        "zone-road:population-zone:926/0/3/3/0/0|population-zone:926/0/3/3/0/1"
+      ]
+    }
+  ],
+  "roadCompletionTrial": {
+    "deadlineMs": 600000,
+    "lastLoggedPendingRequests": 361,
+    "completed": false,
+    "reason": "Explicit diagnostic deadline; no incomplete recipe committed"
+  },
+  "limits": [
+    "Actual CPU production mesh/buildings, not browser acceptance",
+    "All eight requested landscape tiles still pending on roads",
+    "Culling reduced 14 candidates to 8 per tile but did not unblock vegetation",
+    "Optimistic grid connectivity experiment did not finish the actual road within 60 seconds; not adopted",
+    "Lazy candidate validation and incremental replanning prototypes also failed to complete the same actual road in bounded 120-second trials. They were not adopted into production."
+  ]
+}

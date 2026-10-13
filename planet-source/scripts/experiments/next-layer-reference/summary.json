@@ -1,0 +1,190 @@
+[
+  {
+    "name": "parent",
+    "grid": {
+      "cellSizeM": 55.297348888543404,
+      "cellSizeYM": 76.35149687202671,
+      "columns": 37,
+      "rows": 27
+    },
+    "pointExtentM": [
+      1990.7045599875626,
+      1985.1389186726947
+    ],
+    "areaKm2": 3.9518250976105125,
+    "sourceSupportMarginsM": [
+      3464.6477200062363,
+      3464.6477200062363,
+      3932.43054066319,
+      3932.43054066319
+    ],
+    "sourceExportPixelCenterCoordinates": {
+      "columnsMinMax": [
+        346.4647720006236,
+        545.5352279993764
+      ],
+      "rowsMinMax": [
+        393.243054066319,
+        591.756945933681
+      ]
+    },
+    "targetCornerLonLat": [
+      [
+        -77.11176997026116,
+        39.10873029799443
+      ],
+      [
+        -77.08876058731512,
+        39.109144997369846
+      ],
+      [
+        -77.11123651097317,
+        39.0908539846363
+      ],
+      [
+        -77.08823293012631,
+        39.091268421433746
+      ]
+    ],
+    "geodesicTopAndLeftM": [
+      1990.6924860242007,
+      1985.1180235537927
+    ],
+    "real": {
+      "rawDirectD8InteriorNoLowerNeighborFraction": 0.0034285714285714284,
+      "boundaryCondition": "all perimeter nodes open; no inherited outlets or imports",
+      "minM": 90.8305435180664,
+      "maxM": 141.42782736319106,
+      "reliefM": 50.59728384512465,
+      "elevationP05P50P95M": [
+        101.86215751268197,
+        118.64367930988365,
+        135.22992917299445
+      ],
+      "slopeP50P95Degrees": [
+        2.63390548514689,
+        6.760394582472512
+      ],
+      "fillMaxM": 1.2143654631884289,
+      "fillP95M": 0.0,
+      "fillPositiveFraction": 0.004004004004004004,
+      "outletAreaSumKm2": 3.9518250976105125,
+      "maxContributingAreaKm2": 0.7071909229164112
+    },
+    "generated": {
+      "rawDirectD8InteriorNoLowerNeighborFraction": 0.012571428571428572,
+      "boundaryCondition": "all perimeter nodes open; no inherited outlets or imports",
+      "minM": 36.090499833698686,
+      "maxM": 51.880424400574746,
+      "reliefM": 15.78992456687606,
+      "elevationP05P50P95M": [
+        39.005828768771494,
+        45.429572222613004,
+        50.13909156790558
+      ],
+      "slopeP50P95Degrees": [
+        0.3986373871767653,
+        0.9672138227473521
+      ],
+      "fillMaxM": 1.1810009224834133,
+      "fillP95M": 0.0,
+      "fillPositiveFraction": 0.04504504504504504,
+      "outletAreaSumKm2": 3.9518250976105134,
+      "maxContributingAreaKm2": 2.3242304660625934
+    }
+  },
+  {
+    "name": "child",
+    "grid": {
+      "cellSizeM": 27.648674444271702,
+      "cellSizeYM": 38.17574843601336,
+      "columns": 73,
+      "rows": 53
+    },
+    "pointExtentM": [
+      1990.7045599875626,
+      1985.1389186726947
+    ],
+    "areaKm2": 3.9518250976105125,
+    "sourceSupportMarginsM": [
+      3464.6477200062363,
+      3464.6477200062363,
+      3932.43054066319,
+      3932.43054066319
+    ],
+    "sourceExportPixelCenterCoordinates": {
+      "columnsMinMax": [
+        346.4647720006236,
+        545.5352279993764
+      ],
+      "rowsMinMax": [
+        393.243054066319,
+        591.756945933681
+      ]
+    },
+    "targetCornerLonLat": [
+      [
+        -77.11176997026116,
+        39.10873029799443
+      ],
+      [
+        -77.08876058731512,
+        39.109144997369846
+      ],
+      [
+        -77.11123651097317,
+        39.0908539846363
+      ],
+      [
+        -77.08823293012631,
+        39.091268421433746
+      ]
+    ],
+    "geodesicTopAndLeftM": [
+      1990.6924860242007,
+      1985.1180235537927
+    ],
+    "real": {
+      "rawDirectD8InteriorNoLowerNeighborFraction": 0.00579950289975145,
+      "boundaryCondition": "all perimeter nodes open; no inherited outlets or imports",
+      "minM": 90.83054351806639,
+      "maxM": 141.61490133427807,
+      "reliefM": 50.78435781621168,
+      "elevationP05P50P95M": [
+        101.7455892301258,
+        118.80826617680805,
+        135.55166177608348
+      ],
+      "slopeP50P95Degrees": [
+        2.890436368927983,
+        8.279575700559663
+      ],
+      "fillMaxM": 1.336679972555288,
+      "fillP95M": 0.0,
+      "fillPositiveFraction": 0.005686223830447144,
+      "outletAreaSumKm2": 3.951825097610512,
+      "maxContributingAreaKm2": 0.7151072392177144
+    },
+    "generated": {
+      "rawDirectD8InteriorNoLowerNeighborFraction": 0.0392156862745098,
+      "boundaryCondition": "all perimeter nodes open; no inherited outlets or imports",
+      "minM": 35.78580020595565,
+      "maxM": 51.880424400574746,
+      "reliefM": 16.094624194619094,
+      "elevationP05P50P95M": [
+        38.99517079955328,
+        45.433169590559885,
+        50.01029615834268
+      ],
+      "slopeP50P95Degrees": [
+        0.5459754783454882,
+        1.1756107371374023
+      ],
+      "fillMaxM": 1.449203331798664,
+      "fillP95M": 0.18918431313713724,
+      "fillPositiveFraction": 0.11320754716981132,
+      "outletAreaSumKm2": 3.9518250976105125,
+      "maxContributingAreaKm2": 1.572180417438798
+    }
+  }
+]

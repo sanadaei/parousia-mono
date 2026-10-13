@@ -1,0 +1,23 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>村の車両通行確認</title><style>body{background:#13202a;color:#e1e9ee;font:16px system-ui;max-width:1000px;margin:25px auto;padding:12px}a{color:#9cdefa}canvas{width:min(100%,700px);border:1px solid #567}button,select,input{font:inherit;padding:7px;margin:4px}label{display:inline-block}p{line-height:1.6}pre{white-space:pre-wrap;font-size:13px}</style>
+<a id="globe-link" href="./index.html">全球表示へ戻る</a><h1>村で曲がれるか</h1><p>同じ保存世界にある道路・家屋・橋に対して、車の大きさと曲がり方を変えて調べます。茶色は建物、灰色は橋、緑/赤は途中の車体全体を包む範囲です。橙色は接地・傾斜・冠水などの条件を満たさない区間です。</p>
+<label>集落 <select id="place" disabled></select></label><label>道路始点からの距離（m）<input id="station" type="number" min="10" max="450" value="80"></label>
+<label>曲がる方向 <select id="side"><option value="1">左</option><option value="-1">右</option></select></label>
+<label>車幅（m）<input id="width" type="number" min="0.5" max="8" step="0.1" value="1.8"></label>
+<label>操舵角（度）<input id="steering" type="number" min="5" max="60" value="26"></label><label>速度（km/時）<input id="speed" type="number" min="0" max="80" value="10"></label>
+<label>摩擦係数（仮定）<input id="friction" type="number" min="0" max="2" step="0.05" value="0.6"></label>
+<label>重心高（m・仮定）<input id="cg" type="number" min="0.1" max="2.2" step="0.1" value="0.9"></label>
+<button id="check" disabled>旋回を確認</button>
+<p id="status" role="status">世界を読み込んでいます</p><canvas id="map" width="700" height="700" aria-label="車両の旋回範囲と村の建物"></canvas>
+<p>車長4m・高さ2.2m・ホイールベース2.4m。90度曲がって50m進みます。「重なる可能性あり」は接触の断定ではありません。4輪位置から地面・橋面の高さと傾きを調べ、腹下の接触・冠水も標本検査します。地上高0.2m、縦勾配30%・横勾配20%・輪の平面ずれ0.15m・水深0.4mが今回の条件です。紫は指定速度・摩擦係数・重心高で滑り/転倒の準静的条件を満たさない区間です。速度は後軸の経路速度で、旋回中の車体中心の加速度と斜面を合わせて評価します。摩擦係数は地面から自動推定せず、入力した仮定です。標本間の全地形・牽引車は未判定です。下の動的実験では簡略なばね・ダンパーを追加できますが、この準静的判定を実車の安全証明に変えるものではありません。</p><section><h2>動いている間の車体の揺れ</h2><p>上で指定した経路を走り、4輪の下の地面・橋面から、ばねとダンパーを介した車体の上下・前後・左右の揺れを計算します。経路は指定どおりに進み、滑った後や衝突後の進路は計算しません。</p>
+<details><summary>車体の仮定を変える</summary>
+<label>質量（kg）<input id="mass" type="number" min="50" max="10000" value="1200"></label>
+<label>1輪のばね（N/m）<input id="spring" type="number" min="1000" max="200000" value="30000"></label>
+<label>1輪の減衰（Ns/m）<input id="damper" type="number" min="0" max="20000" value="2500"></label>
+<p>前後の慣性2000kg·m²、左右600kg·m²、ばね圧縮の上限0.3m、角度モデルの範囲±0.4rad。これらは実車の測定値ではない比較用設定です。</p></details>
+<button id="dynamic" disabled>車体の揺れを計算</button><button id="cancel-dynamic" disabled>中断</button>
+<p id="dynamic-status" role="status">まだ計算していません</p>
+<canvas id="motion-plot" width="700" height="220" aria-label="時間ごとの前後と左右の車体角度"></canvas>
+<label>時点 <input id="motion-frame" type="range" min="0" max="0" value="0" disabled></label><p id="motion-position"></p>
+<details><summary>動的計算の実入力・結果</summary><pre id="dynamic-details"></pre></details>
+<p>車輪の質量・タイヤの変形、路面との連続接触保証、牽引車、転倒後の運動は含みません。4輪は質量のない追従点です。小角度モデルの範囲を越えるとそこで終了し、正常完走とは表示しません。</p></section>
+<details><summary>実入力と判定内容</summary><pre id="details"></pre></details><script type="module" src="./vehicle-view.mjs"></script></html>

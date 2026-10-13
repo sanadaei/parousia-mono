@@ -1,0 +1,2488 @@
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,5 @@
++> 2026-10-13: **保存されたL1候補をネイティブL2地形上の住宅・農地区画・道路調査へ接続**しました。PC向けの限定地域例です。`npm run l2:materialize`で生成・確定保存し、人口と農地の保留・対象外を残します。全球画面への採用と隣接地形・道路の接続は次段階です。[仕様と再現](docs/L2_SETTLEMENT_MATERIALIZATION.md)。
++
+ > 開発・利用環境は **PC** を前提とします。操作・画面・性能の受け入れ条件もPCを対象にします。
+ 
+ > 2026-10-13: **集落規模を整え、L1からL2へ地域候補を渡す段階**まで進めました。`npm run l2:baseline` で[集落候補と農地の見積もり](reports/l2-settlement-baseline/review.html)を作れます。町・都市の最小規模、固定IDの候補ページ、必要耕地面積、広域地形による選別と確定保存を接続しています。候補の敷地・農地・道路は次の段階です。[仕様と再現手順](docs/L2_SETTLEMENT_HANDOFF.md)。
+--- a/package.json
++++ b/package.json
+@@ -61,6 +61,7 @@
+   "scripts": {
+     "l0:baseline": "node --max-old-space-size=256 scripts/build-l0-settlement-baseline.mjs",
+     "l2:baseline": "node --max-old-space-size=256 scripts/build-l2-settlement-baseline.mjs",
++    "l2:materialize": "node --max-old-space-size=256 scripts/build-l2-settlement-materialization.mjs",
+     "build": "node --max-old-space-size=256 scripts/build.mjs",
+     "test": "node --max-old-space-size=256 scripts/test.mjs",
+     "verify": "node --max-old-space-size=256 scripts/verify.mjs",
+--- a/src/core/index.mjs
++++ b/src/core/index.mjs
+@@ -320,3 +320,5 @@ export {refineRegionalWater,saveRegionalWaterRefinement} from './refine-regional
+ export {refineWaterCandidate,reconcileWaterCandidate,saveWaterCandidate} from './refine-water-candidates.mjs';
+ 
+ export {createShapeFirstCandidateChannels} from './shape-first-channels.mjs';
++export {L2_SETTLEMENT_DETAIL_SCHEMA,makeL2SettlementDetail,createL2SettlementSurface} from './l2-settlement-surface.mjs';
++export {L2_SETTLEMENT_MATERIALIZATION_SCHEMA,materializeL2SettlementCandidate,saveL2SettlementMaterialization} from './l2-settlement-materialization.mjs';
+--- a/docs/WORKING_BASELINE_ROADMAP.md
++++ b/docs/WORKING_BASELINE_ROADMAP.md
+@@ -61,7 +61,13 @@
+ 
+ `npm run l2:baseline`は全球分布と3代表地域の限定候補ページを保存する。既定のL0人口1億、村301,475、町2,724、都市40。L1へ99,898,832人を配分し、101,168人を親の未配分として保持する。農地は必要面積の見積もり。保存L1高さ・水域マスクによる広域選別を通しても、L2の敷地成立を確定したことにはしない。保存ページの再読込では初回の選別を使い、7整数予算と耕地需要を保持する。
+ 
+-**現在位置**: L0統計・L1配分から、規模付きの地域候補・農地需要・L2受け渡しまで。次はL2の詳細地形上での立地・敷地、実際の農地と生活圏、隣接地域への交通候補・接続道路。通常の参照時集落生成にも新規模仮定を適用したが、新しいL1候補を全球ランタイムで実敷地へ採用する統合は残る。下記の地形改善と両立させる。[契約](L2_SETTLEMENT_HANDOFF.md)と`reports/l2-settlement-baseline`の新検証資料を参照。
++**前段の完了範囲**: L0統計・L1配分から、規模付きの地域候補・農地需要・L2受け渡しまで。次はL2の詳細地形上での立地・敷地、実際の農地と生活圏、隣接地域への交通候補・接続道路。通常の参照時集落生成にも新規模仮定を適用したが、新しいL1候補を全球ランタイムで実敷地へ採用する統合は残る。下記の地形改善と両立させる。[契約](L2_SETTLEMENT_HANDOFF.md)と`reports/l2-settlement-baseline`の新検証資料を参照。
++
++### 2026-10-13: 固定候補を局地のL2詳細地形へ
++
++保存済みの固定三候補に、既存のseed生成器によるネイティブ詳細地形と同じ設計河床サンプラを接続した。住宅一区画・農地一ページ・地域端への道路を条件調査し、人口・需要面積・保留を確定保存する。二候補は傾斜で保留、起伏地域の村では住宅27戸・135人分と農地60万m²の輪郭を得たが、149人・農地4万m²・地域端への道路は保留。ページ対象外の需要も残す。
++
++**現在位置**: L0統計・L1配分・L2候補から、参照した候補の局地詳細化と配置調査・保存まで。次は立地保留の扱い、農地への実アクセス、隣接するネイティブ地形・道路の接続、全球画面からこの新候補を参照する統合。独立地域例を、境界まで成立した全球地形と扱わない。PCの操作・GPU描画・性能を対象とする。[仕様](L2_SETTLEMENT_MATERIALIZATION.md)。
+ 
+ ## 3. 次の限定改善: 形の豊かさと必要な細部
+ 
+--- a/docs/L2_SETTLEMENT_HANDOFF.md
++++ b/docs/L2_SETTLEMENT_HANDOFF.md
+@@ -1,3 +1,5 @@
++> 次段階の局地詳細化・住宅/農地ページ・道路調査と保存は [L2具体化の契約](L2_SETTLEMENT_MATERIALIZATION.md) を参照。以下は候補受け渡し段階の記録。PC前提を維持する。
++
+ # 集落規模とL1からL2への候補受け渡し
+ 
+ 2026-10-13。全球の人口統計を、参照した地域だけの集落候補へつなぐ段階。
+--- /dev/null
++++ b/src/core/l2-settlement-surface.mjs
+@@ -0,0 +1,85 @@
++import {copyJson, hashJson} from './json-contract.mjs';
++import {createHash} from './sha256.mjs';
++import {createSphericalProjection} from './spherical.mjs';
++import {createShapeFirstCandidateChannels} from './shape-first-channels.mjs';
++import {validateL2SettlementHandoff} from './l2-settlement-handoff.mjs';
++
++export const L2_SETTLEMENT_DETAIL_SCHEMA = 'l2-settlement-detail@1';
++const check = (value, message) => { if (!value) throw new RangeError(`L2 detail: ${message}`); };
++const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
++const freeze = value => {
++  if (value && typeof value === 'object') { for (const item of Object.values(value)) freeze(item); Object.freeze(value); }
++  return value;
++};
++
++/** Bind an explicitly supplied native source to one L1 handoff. This is a saved
++ * local design, not a new global terrain authority or a neighbouring seam. */
++export function makeL2SettlementDetail(handoff, {candidate, water, center, radiusM, elevationOffsetM = 0, provenance}) {
++  validateL2SettlementHandoff(handoff);
++  const body = copyJson({schema: L2_SETTLEMENT_DETAIL_SCHEMA, sourceWorldId: handoff.sourceWorldId,
++    parentLayerId: handoff.layerId, handoffId: handoff.id, radiusM,
++    center, elevationOffsetM, candidate, water, provenance});
++  const detail = {...body, id: hashJson(body)};
++  createL2SettlementSurface(detail, handoff);
++  return detail;
++}
++
++/** No coarse fallback: beyond this native domain water/height are unknown.
++ * The analytic designed river bed is shared by housing, farms, roads and UI. */
++export function createL2SettlementSurface(input, handoff) {
++  const detail = copyJson(input);
++  check(detail?.schema === L2_SETTLEMENT_DETAIL_SCHEMA, 'unsupported schema');
++  const {id, ...body} = detail;
++  check(typeof id === 'string' && id === hashJson(body), 'content identity mismatch');
++  check(['sourceWorldId','parentLayerId','handoffId'].every(key => typeof detail[key] === 'string' && detail[key]), 'missing source identity');
++  check(Number.isFinite(detail.radiusM) && detail.radiusM > 0, 'invalid radius');
++  check(Number.isFinite(detail.elevationOffsetM), 'invalid elevation datum');
++  check(detail.provenance && typeof detail.provenance.method === 'string' && detail.provenance.method, 'explicit provenance required');
++  const center = detail.center;
++  check(center && Number.isFinite(center.latDeg) && Math.abs(center.latDeg) <= 90 && Number.isFinite(center.lonDeg), 'invalid center');
++  if (handoff) {
++    validateL2SettlementHandoff(handoff);
++    check(detail.sourceWorldId === handoff.sourceWorldId && detail.parentLayerId === handoff.layerId && detail.handoffId === handoff.id, 'handoff geography mismatch');
++  }
++  const candidate = detail.candidate, g = candidate?.grid;
++  check(candidate?.schema === 'shape-first-candidate@1', 'native shape source required');
++  check(g && [g.columns,g.rows].every(v => Number.isSafeInteger(v) && v >= 2) && g.columns*g.rows <= 32768, 'native grid budget exceeded');
++  check(g.row0 === 'north' && g.yDirection === 'south', 'native axes must be east/south from northwest');
++  check([g.cellSizeM,g.cellSizeYM].every(v => Number.isFinite(v) && v > 0 && v <= 100), 'native spacing must be at most 100m');
++  check(Array.isArray(candidate.elevation) && candidate.elevation.length === g.columns*g.rows && candidate.elevation.every(Number.isFinite), 'invalid native elevations');
++  const widthM = (g.columns-1)*g.cellSizeM, heightM = (g.rows-1)*g.cellSizeYM;
++  check(widthM <= 20000 && heightM <= 20000 && Math.hypot(widthM,heightM)/2 < detail.radiusM*.1, 'domain budget exceeded');
++  check(Array.isArray(candidate.rivers) && candidate.rivers.length > 0 && candidate.rivers.length <= 128 &&
++    candidate.rivers.every(r => Array.isArray(r) && r.length >= 2 && r.length <= 4096 && r.every(p => p && Number.isFinite(p.xM) && Number.isFinite(p.yM) && p.xM >= 0 && p.xM <= widthM && p.yM >= 0 && p.yM <= heightM)), 'rivers outside native domain');
++  const water = detail.water;
++  check(water?.schema === 'shape-first-water-annotation@1' && water.scenario?.kind === 'synthetic-demonstration', 'explicit designed water scenario required');
++  check(Number.isFinite(water.scenario.runoffMmPerYear) && water.scenario.runoffMmPerYear >= 0, 'invalid runoff assumption');
++  for (const [field, value] of [['height', candidate.elevation], ['rivers', candidate.rivers]]) {
++    check(water.preservation?.before?.[field] === digest(value) && water.preservation?.after?.[field] === digest(value), `water ${field} geometry mismatch`);
++  }
++  const projection = createSphericalProjection({centerLatDeg:center.latDeg, centerLonDeg:center.lonDeg,
++    radiusM:detail.radiusM, maxRadiusM:Math.min(detail.radiusM*.1, Math.hypot(widthM,heightM)/2+100)});
++  const channels = createShapeFirstCandidateChannels(candidate, water);
++  freeze(detail);
++  function local(latDeg, lonDeg) {
++    const p = projection.toLocalIfWithin(latDeg, lonDeg);
++    if (!p) return null;
++    const xM = p.xM+widthM/2, yM = heightM/2-p.yM;
++    if (xM < -1e-6 || yM < -1e-6 || xM > widthM+1e-6 || yM > heightM+1e-6) return null;
++    return {xM:Math.max(0,Math.min(widthM,xM)), yM:Math.max(0,Math.min(heightM,yM))};
++  }
++  function sampleSurfaceAt(latDeg, lonDeg) {
++    const p = local(latDeg,lonDeg);
++    if (!p) return {groundElevationM:NaN, waterDepthM:NaN, waterLevelElevationM:NaN, unknown:true};
++    const q = channels.sample(p.xM,p.yM);
++    return {groundElevationM:q.groundElevationM+detail.elevationOffsetM, waterDepthM:q.waterDepthM,
++      waterLevelElevationM:q.wet ? q.waterLevelM+detail.elevationOffsetM : null,
++      waterSourceIds:q.riverId ? [q.riverId] : [], sitingWet:q.wet, unknown:false};
++  }
++  return Object.freeze({worldId:detail.sourceWorldId, sourceLayerId:detail.parentLayerId,
++    surfaceId:id, layer:'L2', detailKind:'native-l2-terrain@1', method:'saved-native-shape-and-designed-channels@1',
++    frame:Object.freeze({radiusM:detail.radiusM}), nativeSpacingM:Object.freeze({east:g.cellSizeM,north:g.cellSizeYM}),
++    extent:Object.freeze({widthM,heightM}), projection, local, sampleSurfaceAt,
++    groundElevationAt:(lat,lon)=>sampleSurfaceAt(lat,lon).groundElevationM,
++    toSnapshot:()=>copyJson(detail)});
++}
+--- /dev/null
++++ b/src/core/l2-settlement-materialization.mjs
+@@ -0,0 +1,405 @@
++import { copyJson } from './json-contract.mjs';
++import { finiteNumber, nonEmptyText } from './contract-validation.mjs';
++import {
++  readL2SettlementCandidatePage,
++  surveyL2SettlementCandidates,
++  validateL2SettlementHandoff,
++} from './l2-settlement-handoff.mjs';
++import { planSettlementDistricts, settlementStreetGate } from './settlement-districts.mjs';
++import { createSettlementLayout } from './settlement-layout.mjs';
++import { createLocalRoadRecipe } from './local-road-route.mjs';
++import { createSphericalProjection, greatCircle } from './spherical.mjs';
++export const L2_SETTLEMENT_MATERIALIZATION_SCHEMA = 'l2-settlement-materialization@1';
++export const L2_SETTLEMENT_MATERIALIZATION_METHOD = 'l2-settlement-materialization@2';
++export const L2_NATIVE_DETAIL_KIND = 'native-l2-terrain@1';
++const HOUSEHOLD_POPULATION = 5;
++const FIELD_PARCEL_SIZE_M = 200;
++const FIELD_PARCEL_AREA_M2 = FIELD_PARCEL_SIZE_M * FIELD_PARCEL_SIZE_M;
++const FIELD_SAMPLE_COUNT = 5;
++const FIELD_MAX_GRADE = 0.12;
++const FIELD_LIMIT_MAX = 64;
++const DEFAULT_FIELD_LIMIT = 16;
++const ACCESS_CELLS = 33;
++const ACCESS_MAX_DISTANCE_M = 5000;
++const ACCESS_PROBE_SPACING_M = 20;
++const BOUNDARY_PORTAL_KIND = 'local-boundary-portal';
++const SETTLEMENT_KINDS = ['city', 'town', 'village'];
++function integerInRange(value, name, min, max) {
++  if (!Number.isSafeInteger(value) || value < min || value > max) throw new RangeError(`Invalid ${name}`);
++  return value;
++}
++function normalizeAccessTarget(target) {
++  if (target === undefined || target === null) return null;
++  if (typeof target !== 'object') throw new TypeError('Invalid L2 access target');
++  if (target.kind !== BOUNDARY_PORTAL_KIND) throw new RangeError('L2 access target must be a local-boundary-portal');
++  const id = nonEmptyText(target.id, 'L2 access target id');
++  const provenance = nonEmptyText(target.provenance, 'L2 access target provenance');
++  const latDeg = finiteNumber(target.latDeg, 'L2 access target latDeg');
++  const lonDeg = finiteNumber(target.lonDeg, 'L2 access target lonDeg');
++  if (Math.abs(latDeg) > 90 || Math.abs(lonDeg) > 360) throw new RangeError('L2 access target coordinate out of range');
++  return { id, latDeg, lonDeg, provenance, kind: BOUNDARY_PORTAL_KIND };
++}
++function validateSurface(surface, handoff) {
++  if (!surface || typeof surface !== 'object') throw new TypeError('Native L2 detail surface required');
++  nonEmptyText(surface.worldId, 'L2 surface worldId');
++  if (surface.worldId !== handoff.sourceWorldId) throw new Error('L2 materialization world mismatch');
++  if (surface.sourceLayerId !== handoff.layerId) throw new Error('L2 materialization parent L1 layer mismatch');
++  if (surface.layer !== 'L2') throw new Error('L2 materialization requires an L2 surface');
++  if (surface.detailKind !== L2_NATIVE_DETAIL_KIND) throw new Error('L2 materialization requires native L2 detail');
++  nonEmptyText(surface.surfaceId, 'L2 surface identity');
++  if (!surface.frame || !Number.isFinite(surface.frame.radiusM) || surface.frame.radiusM <= 0) throw new RangeError('L2 surface frame radius required');
++  if (handoff.radiusM !== undefined && surface.frame.radiusM !== handoff.radiusM) throw new Error('L2 materialization radius mismatch');
++  const spacing = surface.nativeSpacingM;
++  if (!spacing || typeof spacing !== 'object') throw new TypeError('L2 surface native spacing required');
++  for (const axis of ['east', 'north']) {
++    const value = spacing[axis];
++    if (!Number.isFinite(value) || value <= 0 || value > 100) throw new RangeError(`Invalid L2 surface native spacing '${axis}'`);
++  }
++  if (typeof surface.sampleSurfaceAt !== 'function' || typeof surface.groundElevationAt !== 'function') throw new TypeError('L2 surface must expose sampleSurfaceAt and groundElevationAt');
++}
++function safeSurface(base) {
++  const sampleSurfaceAt = (latDeg, lonDeg) => {
++    const sample = base.sampleSurfaceAt(latDeg, lonDeg);
++    if (!sample || !Number.isFinite(sample.groundElevationM) || !Number.isFinite(sample.waterDepthM) || sample.waterDepthM < 0) {
++      return { groundElevationM: 0, waterDepthM: 1, waterLevelElevationM: 0, waterSourceIds: [], landReserved: false, sitingWet: true };
++    }
++    return sample;
++  };
++  const groundElevationAt = (latDeg, lonDeg) => {
++    const z = base.groundElevationAt(latDeg, lonDeg);
++    return Number.isFinite(z) ? z : 0;
++  };
++  return { worldId: base.worldId, sourceLayerId: base.sourceLayerId, surfaceId: base.surfaceId, frame: base.frame, sampleSurfaceAt, groundElevationAt };
++}
++function realDry(base, latDeg, lonDeg) {
++  const sample = base.sampleSurfaceAt(latDeg, lonDeg);
++  return !!sample && Number.isFinite(sample.groundElevationM) && sample.waterDepthM === 0;
++}
++function cornersOf(bounds) {
++  return [[bounds.minXM, bounds.minYM], [bounds.maxXM, bounds.minYM], [bounds.maxXM, bounds.maxYM], [bounds.minXM, bounds.maxYM]];
++}
++function rectOverlap(a, b, gap) {
++  return a.minXM < b.maxXM + gap && a.maxXM > b.minXM - gap && a.minYM < b.maxYM + gap && a.maxYM > b.minYM - gap;
++}
++function segmentCrossesBox(a,b,box,gap=0) {
++  let low=0,high=1;
++  for(const [key,min,max] of [['xM',box.minXM-gap,box.maxXM+gap],['yM',box.minYM-gap,box.maxYM+gap]]){
++    const delta=b[key]-a[key];
++    if(delta===0){if(a[key]<min||a[key]>max)return false;continue;}
++    const u=(min-a[key])/delta,v=(max-a[key])/delta;
++    low=Math.max(low,Math.min(u,v));high=Math.min(high,Math.max(u,v));
++    if(low>high)return false;
++  }
++  return true;
++}
++function overlapsFootprint(bounds, buildings, pads, roads) {
++  if (buildings.some(b => rectOverlap(bounds, b.bounds, 1))) return true;
++  if (pads.some(p => rectOverlap(bounds, p.bounds, 1))) return true;
++  for (const road of roads) {
++    const half = Number.isFinite(road.halfWidthM) ? road.halfWidthM : 2.5;
++    const points=road.samples??[];
++    if(points.some(p=>segmentCrossesBox(p,p,bounds,half+1)))return true;
++    for(let i=1;i<points.length;i++)if(segmentCrossesBox(points[i-1],points[i],bounds,half+1))return true;
++  }
++  return false;
++}
++function verifyGeometry(base, worldProj, recipe) {
++  const rejectedBuildings=[];
++  for (const building of recipe.buildings) {
++    const b=building.bounds;
++    if(!b||!Object.values(b).every(Number.isFinite)||b.maxXM<=b.minXM||b.maxYM<=b.minYM)return {ok:false,reason:'non-finite-house'};
++    const nx=Math.max(1,Math.ceil((b.maxXM-b.minXM)/2)),ny=Math.max(1,Math.ceil((b.maxYM-b.minYM)/2));
++    if((nx+1)*(ny+1)>16384)return {ok:false,reason:'building-footprint-survey-budget'};
++    let dry=true;
++    for(let y=0;y<=ny&&dry;y++)for(let x=0;x<=nx;x++){
++      try{const point=worldProj.toGeographic(b.minXM+(b.maxXM-b.minXM)*x/nx,b.minYM+(b.maxYM-b.minYM)*y/ny);
++        if(!realDry(base,point.latDeg,point.lonDeg)){dry=false;break;}
++      }catch{dry=false;break;}
++    }
++    if(!dry)rejectedBuildings.push({id:building.id,kind:building.id.includes('/house:')?'house':'public',bounds:{...b},reason:'wet-or-unknown-building-footprint'});
++  }
++  const blockedIds=new Set(rejectedBuildings.map(b=>b.id));
++  recipe.buildings=recipe.buildings.filter(b=>!blockedIds.has(b.id));
++  recipe.buildingPads=recipe.buildingPads.filter(b=>!blockedIds.has(b.id));
++  for (const road of recipe.roadCenterlineProfiles) {
++    for (const sample of road.samples) {
++      if (!Number.isFinite(sample.xM) || !Number.isFinite(sample.yM) || !Number.isFinite(sample.roadElevationM)) return { ok: false, reason: 'non-finite-road' };
++      let point;
++      try { point = worldProj.toGeographic(sample.xM, sample.yM); } catch { return { ok: false, reason: 'road-outside-frame' }; }
++      if (!realDry(base, point.latDeg, point.lonDeg)) return { ok: false, reason: 'road-point-not-dry-detailed' };
++    }
++    for(let i=1;i<road.samples.length;i++){
++      const a=road.samples[i-1],b=road.samples[i],dx=b.xM-a.xM,dy=b.yM-a.yM,length=Math.hypot(dx,dy)||1;
++      const steps=Math.max(1,Math.ceil(length/2));
++      for(let k=0;k<=steps;k++)for(const sign of [-1,0,1]){
++        const point=worldProj.toGeographic(a.xM+dx*k/steps-sign*dy/length*road.halfWidthM,a.yM+dy*k/steps+sign*dx/length*road.halfWidthM);
++        if(!realDry(base,point.latDeg,point.lonDeg))return {ok:false,reason:'road-corridor-not-dry-detailed'};
++      }
++    }
++  }
++  return {ok:true,rejectedBuildings};
++}
++function spiralSlot(k) {
++  const ring = Math.ceil((Math.sqrt(k + 1) - 1) / 2);
++  const side = ring * 2;
++  const max = (2 * ring + 1) ** 2 - 1;
++  const d = max - k;
++  if (d < side) return [ring - d, -ring];
++  if (d < 2 * side) return [-ring, -ring + (d - side)];
++  if (d < 3 * side) return [-ring + (d - 2 * side), ring];
++  return [ring, ring - (d - 3 * side)];
++}
++function makeParcel(prefix, index, cx, cy, requestedM2, totalPlots) {
++  const last = index === totalPlots - 1;
++  const areaM2 = last ? requestedM2 - (totalPlots - 1) * FIELD_PARCEL_AREA_M2 : FIELD_PARCEL_AREA_M2;
++  const widthM = last ? areaM2 / FIELD_PARCEL_SIZE_M : FIELD_PARCEL_SIZE_M;
++  const minXM = cx - widthM / 2, maxXM = cx + widthM / 2;
++  const minYM = cy - FIELD_PARCEL_SIZE_M / 2, maxYM = cy + FIELD_PARCEL_SIZE_M / 2;
++  return { id: `${prefix}/field:${index}`, bounds: { minXM, maxXM, minYM, maxYM }, areaM2, points: [[minXM, minYM], [maxXM, minYM], [maxXM, maxYM], [minXM, maxYM]] };
++}
++function fieldPageParcels(prefix, plan, offset, limit, requestedM2, totalPlots) {
++  const start = Math.min(offset, totalPlots);
++  const end = start + Math.min(limit,totalPlots-start);
++  const parcels = [];
++  if (end <= start) return { totalPlots, parcels };
++  const inner=Math.ceil((plan.extentM+FIELD_PARCEL_SIZE_M/2)/FIELD_PARCEL_SIZE_M);
++  const first=(2*inner+1)**2;
++  for(let included=start;included<end;included++) {
++    const [col, row] = spiralSlot(first+included);
++    const cx = col * FIELD_PARCEL_SIZE_M, cy = row * FIELD_PARCEL_SIZE_M;
++    parcels.push(makeParcel(prefix, included, cx, cy, requestedM2, totalPlots));
++  }
++  return { totalPlots, parcels };
++}
++function sampleParcel(parcel, base, worldProj, buildings, pads, roads) {
++  if (overlapsFootprint(parcel.bounds, buildings, pads, roads)) return { ok: false, reason: 'occupied' };
++  const b = parcel.bounds, n = FIELD_SAMPLE_COUNT;
++  const xs = [], ys = [];
++  for (let i = 0; i < n; i++) {
++    xs.push(b.minXM + (b.maxXM - b.minXM) * i / (n - 1));
++    ys.push(b.minYM + (b.maxYM - b.minYM) * i / (n - 1));
++  }
++  const z = [];
++  for (let j = 0; j < n; j++) {
++    const row = [];
++    for (let i = 0; i < n; i++) {
++      let point;
++      try { point = worldProj.toGeographic(xs[i], ys[j]); } catch { return { ok: false, reason: 'outside-frame' }; }
++      const sample = base.sampleSurfaceAt(point.latDeg, point.lonDeg);
++      if (!sample || !Number.isFinite(sample.groundElevationM) || !Number.isFinite(sample.waterDepthM)) return { ok: false, reason: 'unknown' };
++      if (sample.waterDepthM < 0) return {ok:false,reason:'unknown'};
++      if (sample.waterDepthM > 0) return { ok: false, reason: 'wet' };
++      row.push(sample.groundElevationM);
++    }
++    z.push(row);
++  }
++  const dx = (b.maxXM - b.minXM) / (n - 1);
++  const dy = (b.maxYM - b.minYM) / (n - 1);
++  const diagonal = Math.hypot(dx, dy) || 1;
++  for (let j = 0; j < n; j++) {
++    for (let i = 0; i < n; i++) {
++      if (i + 1 < n && Math.abs(z[j][i + 1] - z[j][i]) / dx > FIELD_MAX_GRADE) return { ok: false, reason: 'slope' };
++      if (j + 1 < n && Math.abs(z[j + 1][i] - z[j][i]) / dy > FIELD_MAX_GRADE) return { ok: false, reason: 'slope' };
++      if (i + 1 < n && j + 1 < n && Math.abs(z[j + 1][i + 1] - z[j][i]) / diagonal > FIELD_MAX_GRADE) return { ok: false, reason: 'slope' };
++    }
++  }
++  return { ok: true };
++}
++function buildFields({ prefix, plan, base, worldProj, buildings, pads, roads, localRequestedM2, totalDemandM2, offset, limit, held, status }) {
++  const totalPlots = localRequestedM2 > 0 ? Math.ceil(localRequestedM2 / FIELD_PARCEL_AREA_M2) : 0;
++  const accepted = [], rejected = [];
++  if (!held && localRequestedM2 > 0) {
++    const { parcels } = fieldPageParcels(prefix, plan, offset, limit, localRequestedM2, totalPlots);
++    for (const parcel of parcels) {
++      const survey = sampleParcel(parcel, base, worldProj, buildings, pads, roads);
++      if (survey.ok) accepted.push({ id: parcel.id, bounds: parcel.bounds, areaM2: parcel.areaM2, points: parcel.points, status: 'surveyed-dry-footprint' });
++      else rejected.push({ id: parcel.id, bounds: parcel.bounds, areaM2: parcel.areaM2, points: parcel.points, status: 'unresolved', reason: survey.reason });
++    }
++  }
++  const start=Math.min(offset,totalPlots),end=start+Math.min(limit,totalPlots-start);
++  const requestedM2=Math.min(localRequestedM2,end*FIELD_PARCEL_AREA_M2)-Math.min(localRequestedM2,start*FIELD_PARCEL_AREA_M2);
++  const surveyedM2 = accepted.reduce((sum, parcel) => sum + parcel.areaM2, 0);
++  return { status,offset,limit,totalPlots,totalDemandM2,requestedM2,surveyedM2,
++    unresolvedM2:requestedM2-surveyedM2,outsidePageM2:totalDemandM2-requestedM2,accepted,rejected };
++}
++function roadsInProjection(recipe,worldProj,radiusM){
++  if(!recipe)return [];
++  const projection=createSphericalProjection({...recipe.projection,radiusM});
++  return recipe.roadCenterlineProfiles.map(road=>({...road,samples:road.samples.map(p=>{
++    const q=projection.toGeographic(p.xM,p.yM);
++    return {...p,...worldProj.toLocal(q.latDeg,q.lonDeg)};
++  })}));
++}
++function accessRecipeView(recipe, includeProfile) {
++  const status = recipe.routeStatus ?? {};
++  return { id: recipe.id, projection: recipe.projection, bounds: recipe.bounds, roadCenterlineProfiles: includeProfile ? recipe.roadCenterlineProfiles : [], status: status.status ?? null, reason: status.reason ?? null };
++}
++function summarizeTarget(target) {
++  return { id: target.id, latDeg: target.latDeg, lonDeg: target.lonDeg, provenance: target.provenance, kind: target.kind };
++}
++function blockedAccess(recipe, status, reason, target) {
++  return { status, recipe: recipe ? accessRecipeView(recipe, false) : null, receivingConnection: 'unresolved', reason, target: target ? summarizeTarget(target) : null };
++}
++function materializeAccess(base, worldProj, baseSite, accessTarget, radiusM, buildings, pads) {
++  const gate = settlementStreetGate(baseSite, accessTarget, radiusM);
++  const distanceM = greatCircle(gate, accessTarget, radiusM).distanceM;
++  const link = { id: `${baseSite.id}/access:${accessTarget.id}`, fromPoint: gate, toPoint: accessTarget, distanceM };
++  let recipe;
++  try {
++    recipe = createLocalRoadRecipe(safeSurface(base), link, { cells: ACCESS_CELLS, allowRiverBridges: false, maxDistanceM: ACCESS_MAX_DISTANCE_M, probeSpacingM: ACCESS_PROBE_SPACING_M });
++  } catch {
++    return blockedAccess(null, 'access-survey-failed', 'route-error', accessTarget);
++  }
++  const status = recipe.routeStatus?.status;
++  if (status !== 'surveyed-local-route' || recipe.roadCenterlineProfiles.length === 0) {
++    return blockedAccess(recipe, status ?? 'no-route', recipe.routeStatus?.reason ?? status ?? 'no-route', accessTarget);
++  }
++  const recipeProjection = createSphericalProjection({ centerLatDeg: recipe.projection.centerLatDeg, centerLonDeg: recipe.projection.centerLonDeg, radiusM, maxRadiusM: recipe.projection.maxRadiusM });
++  const profile = recipe.roadCenterlineProfiles[0],locals=[];
++  for (let i=0;i<profile.samples.length;i++) {
++    const sample=profile.samples[i];
++    if (!Number.isFinite(sample.xM) || !Number.isFinite(sample.yM)) return blockedAccess(recipe, 'blocked-invalid-profile', 'non-finite-profile', accessTarget);
++    const point = recipeProjection.toGeographic(sample.xM, sample.yM);
++    if (!realDry(base, point.latDeg, point.lonDeg)) return blockedAccess(recipe, 'blocked-invalid-profile', 'wet-or-unknown-profile', accessTarget);
++    const local = worldProj.toLocalIfWithin(point.latDeg, point.lonDeg);
++    if (!local) return blockedAccess(recipe, 'blocked-invalid-profile', 'profile-outside-frame', accessTarget);
++    const prior=profile.samples[Math.max(0,i-1)],next=profile.samples[Math.min(profile.samples.length-1,i+1)];
++    const dx=next.xM-prior.xM,dy=next.yM-prior.yM,length=Math.hypot(dx,dy)||1;
++    for(const sign of [-1,1]){
++      const edge=recipeProjection.toGeographic(sample.xM-sign*dy/length*profile.halfWidthM,sample.yM+sign*dx/length*profile.halfWidthM);
++      if(!realDry(base,edge.latDeg,edge.lonDeg))return blockedAccess(recipe,'blocked-invalid-profile','road-width-wet-or-unknown',accessTarget);
++    }
++    locals.push(local);
++  }
++  for(const object of [...buildings,...pads])for(let i=1;i<locals.length;i++){
++    if(segmentCrossesBox(locals[i-1],locals[i],object.bounds,profile.halfWidthM+1))return blockedAccess(recipe,'blocked-invalid-profile','profile-crosses-building',accessTarget);
++  }
++  return { status: 'surveyed-local-route', recipe: accessRecipeView(recipe, true), receivingConnection: 'unresolved', reason: null, target: summarizeTarget(accessTarget) };
++}
++function heldAccess() {
++  return { status: 'not-generated', recipe: null, receivingConnection: 'unresolved', reason: null, target: null };
++}
++export function materializeL2SettlementCandidate(surface, population, handoff, options) {
++  validateL2SettlementHandoff(handoff);
++  if (options === undefined || options === null || typeof options !== 'object') throw new TypeError('L2 materialization options required');
++  const totalCandidates = handoff.budget.cities + handoff.budget.towns + handoff.budget.villages;
++  const slot = integerInRange(options.slot, 'slot', 0, totalCandidates - 1);
++  const fieldOffset = options.fieldOffset === undefined ? 0 : integerInRange(options.fieldOffset, 'fieldOffset', 0, Number.MAX_SAFE_INTEGER);
++  const fieldLimit = options.fieldLimit === undefined ? DEFAULT_FIELD_LIMIT : integerInRange(options.fieldLimit, 'fieldLimit', 1, FIELD_LIMIT_MAX);
++  const accessTarget = normalizeAccessTarget(options.accessTarget);
++  validateSurface(surface, handoff);
++  if (!population || population.id !== handoff.populationId || population.sourceWorldId !== handoff.sourceWorldId) throw new Error('L2 materialization population authority mismatch');
++  const radiusM = surface.frame.radiusM;
++  const page = readL2SettlementCandidatePage(handoff, { offset: slot, limit: 1 });
++  if (page.candidates.length !== 1) throw new RangeError('L2 materialization slot has no candidate');
++  const candidate = page.candidates[0];
++  if (!SETTLEMENT_KINDS.includes(candidate.kind)) throw new RangeError('L2 materialization candidate kind unsupported');
++  const districtIndex = options.districtIndex === undefined ? 0 : integerInRange(options.districtIndex, 'districtIndex', 0, Number.MAX_SAFE_INTEGER);
++  const layoutSettlement = { ...candidate, economicContext: { ...(candidate.economicContext ?? {}), infillPolicy: 'fixed-terrain-adaptive-infill@1' } };
++  const plan = planSettlementDistricts(layoutSettlement, radiusM);
++  if (districtIndex >= plan.count) throw new RangeError('L2 materialization district index outside the settlement plan');
++  const district = plan.district(districtIndex);
++  const survey = surveyL2SettlementCandidates(surface, population, handoff, { offset: slot, limit: 1 });
++  const site = survey.sites.find(s => s.id === candidate.id) ?? null;
++  const rejection = survey.unresolvedCandidates.find(c => c.id === candidate.id) ?? null;
++  const worldProj = createSphericalProjection({ centerLatDeg: candidate.latDeg, centerLonDeg: candidate.lonDeg, radiusM, maxRadiusM: radiusM * 0.1 });
++  const reasons = [];
++  let layout = null, placedDwellings = 0, representedPopulation = 0;
++  let held = !site;
++  if (held) reasons.push(`siting-unresolved:${rejection?.reason ?? 'unknown'}`);
++  if (!held) {
++    const recipe = createSettlementLayout(safeSurface(surface), layoutSettlement, { districtIndex });
++    const geometry = verifyGeometry(surface, worldProj, recipe);
++    if (!geometry.ok) {
++      held = true;
++      reasons.push(`invalid-layout:${geometry.reason}`);
++    } else {
++      placedDwellings = recipe.buildings.filter(b=>b.id.includes('/house:')).length;
++      representedPopulation = Math.min(district.population, placedDwellings * HOUSEHOLD_POPULATION);
++      const {infillDwellings,...status}=recipe.layoutStatus;
++      const layoutStatus={...status,placedDwellings,representedPopulation,districtComplete:placedDwellings===district.requestedDwellings,
++        complete:plan.count===1&&placedDwellings===district.requestedDwellings};
++      layout = { bounds: recipe.bounds, buildings: recipe.buildings, buildingPads: recipe.buildingPads, roadCenterlineProfiles: recipe.roadCenterlineProfiles, connections: recipe.connections, layoutStatus,geometryRejections:geometry.rejectedBuildings };
++      if(geometry.rejectedBuildings.length)reasons.push(`建物敷地内の水域・未知値で${geometry.rejectedBuildings.length}棟を保留`);
++    }
++  }
++  const totalPopulation = candidate.population;
++  const requestedPopulation = district.population;
++  const unvisitedPopulation = totalPopulation - requestedPopulation;
++  const housing = { totalPopulation, requestedPopulation, representedPopulation, unresolvedPopulation: requestedPopulation - representedPopulation, unvisitedPopulation, districtIndex, districtCount: plan.count, requestedDwellings: district.requestedDwellings, placedDwellings };
++  const isVillage = candidate.kind === 'village';
++  const yieldUnresolved = handoff.farmland.unresolved === true;
++  if (yieldUnresolved) reasons.push('farmland-unresolved-yield');
++  const localRequestedM2 = isVillage ? candidate.farmlandDemandM2 : 0;
++  let access;
++  if (held) access = heldAccess();
++  else if (!accessTarget) access = { status: 'not-requested', recipe: null, receivingConnection: 'unresolved', reason: null, target: null };
++  else access = materializeAccess(surface, worldProj, layoutSettlement, accessTarget, radiusM, layout?.buildings ?? [], layout?.buildingPads ?? []);
++  const accessRoads=roadsInProjection(access.recipe,worldProj,radiusM);
++  const fields = buildFields({ prefix:candidate.id,plan,base:surface,worldProj,buildings:layout?.buildings??[],pads:layout?.buildingPads??[],
++    roads:[...(layout?.roadCenterlineProfiles??[]),...accessRoads],localRequestedM2,totalDemandM2:candidate.farmlandDemandM2,
++    offset:fieldOffset,limit:fieldLimit,held:held||yieldUnresolved,status:yieldUnresolved?'unresolved-yield':isVillage?'local-field-page':'regional-supply-unresolved' });
++  if(yieldUnresolved)fields.unresolvedYield=true;
++  const result = {
++    schema: L2_SETTLEMENT_MATERIALIZATION_SCHEMA,
++    status: held ? 'held' : 'materialized',
++    worldId: handoff.sourceWorldId,
++    sourceLayerId: handoff.layerId,
++    surfaceId: surface.surfaceId,
++    detailKind: surface.detailKind,
++    handoffId: handoff.id,
++    candidateId: candidate.id,
++    populationId: handoff.populationId,
++    cellIndex: handoff.cellIndex,
++    slot,
++    kind: candidate.kind,
++    settlementClass: candidate.settlementClass ?? null,
++    origin: { latDeg: candidate.latDeg, lonDeg: candidate.lonDeg },
++    districtIndex,
++    districtCount: plan.count,
++    options: { slot, districtIndex, fieldOffset, fieldLimit, accessTarget: accessTarget ? summarizeTarget(accessTarget) : null },
++    housing,
++    layout,
++    fields,
++    access,
++    reasons,
++    interpretation: 'One identified L2 district page, field page and optional access survey over the native detail surface. Unresolved population and farmland remain explicit.',
++    limitations: [
++      'A field page is surveyed land, not secured food, rights or annual yield',
++      'An access target is an input boundary portal; no adjacent region connection is claimed',
++      'The residential layout still carries its own population-districts@1 limitations',
++    ],
++  };
++  return copyJson(result);
++}
++export function saveL2SettlementMaterialization(store, surface, population, handoff, options, { generate = materializeL2SettlementCandidate } = {}) {
++  if (!store || typeof store.resolve !== 'function') throw new TypeError('Committed materializer store required');
++  if (typeof generate !== 'function') throw new TypeError('L2 materialization generator required');
++  validateL2SettlementHandoff(handoff);
++  if (options === undefined || options === null || typeof options !== 'object') throw new TypeError('L2 materialization options required');
++  const totalCandidates = handoff.budget.cities + handoff.budget.towns + handoff.budget.villages;
++  const slot = integerInRange(options.slot, 'slot', 0, totalCandidates - 1);
++  const districtIndex = options.districtIndex === undefined ? 0 : integerInRange(options.districtIndex, 'districtIndex', 0, Number.MAX_SAFE_INTEGER);
++  const fieldOffset = options.fieldOffset === undefined ? 0 : integerInRange(options.fieldOffset, 'fieldOffset', 0, Number.MAX_SAFE_INTEGER);
++  const fieldLimit = options.fieldLimit === undefined ? DEFAULT_FIELD_LIMIT : integerInRange(options.fieldLimit, 'fieldLimit', 1, FIELD_LIMIT_MAX);
++  const accessTarget = normalizeAccessTarget(options.accessTarget);
++  validateSurface(surface, handoff);
++  if (!population || population.id !== handoff.populationId || population.sourceWorldId !== handoff.sourceWorldId) throw new Error('L2 materialization population authority mismatch');
++  const page = readL2SettlementCandidatePage(handoff, { offset: slot, limit: 1 });
++  if (page.candidates.length !== 1) throw new RangeError('L2 materialization slot has no candidate');
++  const candidate = page.candidates[0];
++  const worldId = handoff.sourceWorldId;
++  const entityId = [`${handoff.id}/slot:${slot}`, `district:${districtIndex}`, `fields:${fieldOffset}:${fieldLimit}`, accessTarget ? `portal:${accessTarget.id}` : 'portal:none'].join('/');
++  const conditions = {
++    schema: L2_SETTLEMENT_MATERIALIZATION_SCHEMA,
++    method: L2_SETTLEMENT_MATERIALIZATION_METHOD,
++    surfaceId: surface.surfaceId,
++    worldId: handoff.sourceWorldId,
++    sourceLayerId: handoff.layerId,
++    populationId: handoff.populationId,
++    handoffId: handoff.id,
++    candidateId: candidate.id,
++    options: { slot, districtIndex, fieldOffset, fieldLimit, accessTarget: accessTarget ? summarizeTarget(accessTarget) : null },
++  };
++  return store.resolve({ worldId, entityId, conditions, generator: L2_SETTLEMENT_MATERIALIZATION_METHOD, generate: () => generate(surface, population, handoff, options) });
++}
+--- /dev/null
++++ b/scripts/build-l2-settlement-materialization.mjs
+@@ -0,0 +1,83 @@
++import fs from 'node:fs';
++import path from 'node:path';
++import {fileURLToPath} from 'node:url';
++import assert from 'node:assert/strict';
++import {createL2SettlementHandoff,readL2SettlementCandidatePage} from '../src/core/l2-settlement-handoff.mjs';
++import {makeL2SettlementDetail,createL2SettlementSurface} from '../src/core/l2-settlement-surface.mjs';
++import {saveL2SettlementMaterialization} from '../src/core/l2-settlement-materialization.mjs';
++import {createL1SettlementSurveySurface} from '../src/core/l1-settlement-survey-surface.mjs';
++import {CommittedMaterializer} from '../src/core/committed-materialization.mjs';
++import {createFileMaterializationStorage} from './materialization-file-store.mjs';
++import {generateShapeFirstBundle} from '../src/globe/shape-first-generated.mjs';
++import {readL2MaterializationReviewData} from './l2-materialization-review-data.mjs';
++import {buildL2MaterializationReview} from './build-l2-materialization-review.mjs';
++
++const RECORD_LIMIT=4*1024*1024;
++export async function buildL2SettlementMaterialization({inputDir='reports/l2-settlement-baseline',outputDir='reports/l2-settlement-materialization'}={}){
++  const l0=JSON.parse(fs.readFileSync(path.join(inputDir,'l0.json'),'utf8'));
++  const l1=JSON.parse(fs.readFileSync(path.join(inputDir,'l1.json'),'utf8'));
++  const summary=JSON.parse(fs.readFileSync(path.join(inputDir,'summary.json'),'utf8'));
++  const coarse=createL1SettlementSurveySurface(l1),examples=[];
++  fs.mkdirSync(outputDir,{recursive:true});
++  const store=new CommittedMaterializer(createFileMaterializationStorage(path.join(outputDir,'committed'),{maxRecordBytes:RECORD_LIMIT}),{maxRecordBytes:RECORD_LIMIT});
++  for(const region of summary.regions){
++    const handoff=createL2SettlementHandoff(l1,l0.population,region.cellIndex);
++    // Fixed selection, never search for a nicer native outcome or move a site.
++    const slot=region.label.includes('村が多い')?handoff.budget.cities+handoff.budget.towns:0;
++    const candidate=readL2SettlementCandidatePage(handoff,{offset:slot,limit:1}).candidates[0];
++    if(!candidate)continue;
++    const seed=`l2-native:${region.cellIndex}:${slot}`;
++    const conditions={handoffId:handoff.id,parentLayerId:l1.id,radiusM:l1.snapshot.frame.radiusM,
++      sourceSurfaceId:coarse.surfaceId,seed,version:'selected-native-settlement-demo@1'};
++    const detail=await store.resolve({worldId:handoff.sourceWorldId,entityId:`L2-native:${handoff.id}/slot:${slot}`,
++      conditions,generator:'selected-native-settlement-demo@1',generate:()=>{
++        const bundle=generateShapeFirstBundle(seed),native=JSON.parse(bundle.candidateText),g=native.grid;
++        const centerHeight=native.elevation[Math.floor(g.rows/2)*g.columns+Math.floor(g.columns/2)];
++        return makeL2SettlementDetail(handoff,{candidate:native,water:bundle.water,
++          center:{latDeg:candidate.latDeg,lonDeg:candidate.lonDeg},radiusM:l1.snapshot.frame.radiusM,
++          elevationOffsetM:coarse.groundElevationAt(candidate.latDeg,candidate.lonDeg)-centerHeight,
++          provenance:{method:'selected-native-settlement-demo@1',seed,parentSurfaceId:coarse.surfaceId,
++            generator:native.generator.schema,placement:'Native shape translated to the saved candidate; one parent datum, no local origin relocation',
++            water:'Designed channels with illustrative 400mm/year runoff; external river inflow, drinking water and flood recurrence unresolved',
++            scope:'An explicit local L2 design example; adjacent native domains and adoption into the global runtime are unresolved'}});
++      }});
++    const reopenedDetail=await store.resolve({worldId:handoff.sourceWorldId,entityId:`L2-native:${handoff.id}/slot:${slot}`,
++      conditions,generator:'selected-native-settlement-demo@1',generate:()=>{throw Error('Native source must not regenerate');}});
++    assert.deepEqual(reopenedDetail,detail);
++    const surface=createL2SettlementSurface(detail,handoff);
++    const target=surface.projection.toGeographic(surface.extent.widthM/2-100,0);
++    const options={slot,districtIndex:0,fieldOffset:0,fieldLimit:16,
++      accessTarget:{id:`${handoff.id}/slot:${slot}/east-boundary`,...target,kind:'local-boundary-portal',provenance:'Explicit east-edge survey target; neighbouring road unresolved'}};
++    const result=await saveL2SettlementMaterialization(store,surface,l0.population,handoff,options);
++    const reopened=await saveL2SettlementMaterialization(store,surface,l0.population,handoff,options,{generate:()=>{throw Error('Saved layout must not regenerate');}});
++    assert.deepEqual(reopened,result);
++    const h=result.housing,f=result.fields;
++    assert.equal(h.totalPopulation,h.requestedPopulation+h.unvisitedPopulation);
++    assert.equal(h.requestedPopulation,h.representedPopulation+h.unresolvedPopulation);
++    assert.equal(f.totalDemandM2,f.requestedM2+f.outsidePageM2);
++    assert.equal(f.requestedM2,f.surveyedM2+f.unresolvedM2);
++    const file=`cell-${region.cellIndex}-slot-${slot}.json`;
++    const exported={label:region.label,handoff,detail,result};
++    fs.writeFileSync(path.join(outputDir,file),JSON.stringify(exported));
++    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(outputDir,file),'utf8')),exported);
++    examples.push({label:region.label,cellIndex:region.cellIndex,slot,file,candidateId:candidate.id,
++      nativeSurfaceId:detail.id,origin:{latDeg:candidate.latDeg,lonDeg:candidate.lonDeg},population:candidate.population,
++      housing:h,fields:{...f,accepted:f.accepted.length,rejected:f.rejected.length},accessStatus:result.access.status});
++  }
++  const output={schema:'l2-settlement-materialization-baseline@1',platform:'PC',inputDir,sourceLayerId:l1.id,
++    examples,checks:{populationAndAreaConserved:true,reopenedWithoutRegeneration:true},
++    limitations:['Only fixed representative candidates and bounded district/field pages were generated',
++      'Local native designs are not adopted into the global terrain renderer; adjacent patches remain unjoined',
++      'Surveyed fields do not establish food yield, rights or complete agricultural access',
++      'A local road to a survey portal does not establish a neighbouring road connection',
++      'Designed river water is not certified drinking water, global water balance or flood safety']};
++  fs.writeFileSync(path.join(outputDir,'summary.json'),JSON.stringify(output,null,2));
++  const reviewData=readL2MaterializationReviewData(outputDir);
++  fs.writeFileSync(path.join(outputDir,'review-data.json'),JSON.stringify(reviewData));
++  fs.writeFileSync(path.join(outputDir,'review.html'),examples.length?buildL2MaterializationReview(reviewData):
++    '<!doctype html><html lang="ja"><meta charset="utf-8"><title>L2集落の検査</title><h1>詳細化する集落候補がありません</h1><p>入力されたL1には今回対象となる人口候補がありません。</p></html>');
++  return output;
++}
++if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
++  console.log(JSON.stringify(await buildL2SettlementMaterialization({inputDir:process.argv[2],outputDir:process.argv[3]}),null,2));
++}
+--- /dev/null
++++ b/scripts/l2-materialization-review-data.mjs
+@@ -0,0 +1,32 @@
++import fs from 'node:fs';
++import path from 'node:path';
++import {createL2SettlementSurface} from '../src/core/l2-settlement-surface.mjs';
++import {createShapeFirstCandidateChannels} from '../src/core/shape-first-channels.mjs';
++import {createSphericalProjection} from '../src/core/spherical.mjs';
++
++export function readL2MaterializationReviewData(directory){
++  const summary=JSON.parse(fs.readFileSync(path.join(directory,'summary.json'),'utf8'));
++  return {schema:'l2-native-layout-review@1',platform:'PC',examples:summary.examples.map(item=>{
++    const {label,handoff,detail,result}=JSON.parse(fs.readFileSync(path.join(directory,item.file),'utf8'));
++    const surface=createL2SettlementSurface(detail,handoff),g=detail.candidate.grid;
++    const elevationM=[],waterDepthM=[];
++    for(let row=0;row<g.rows;row++)for(let col=0;col<g.columns;col++){
++      const geo=surface.projection.toGeographic(col*g.cellSizeM-surface.extent.widthM/2,surface.extent.heightM/2-row*g.cellSizeYM);
++      const q=surface.sampleSurfaceAt(geo.latDeg,geo.lonDeg);
++      if(!Number.isFinite(q.groundElevationM)||!Number.isFinite(q.waterDepthM))throw Error('Unknown display node in native domain');
++      elevationM.push(q.groundElevationM);waterDepthM.push(q.waterDepthM);
++    }
++    const channels=createShapeFirstCandidateChannels(detail.candidate,detail.water);
++    const rivers=channels.rivers.map(r=>({id:r.id,widthM:r.widthM,points:r.points.map(p=>({xM:p.xM-surface.extent.widthM/2,yM:surface.extent.heightM/2-p.yM}))}));
++    let accessPolyline=[];
++    if(result.access.recipe?.roadCenterlineProfiles.length){
++      const projection=createSphericalProjection(result.access.recipe.projection);
++      accessPolyline=result.access.recipe.roadCenterlineProfiles.map(road=>({halfWidthM:road.halfWidthM,points:road.samples.map(p=>{
++        const geo=projection.toGeographic(p.xM,p.yM);return surface.projection.toLocal(geo.latDeg,geo.lonDeg);
++      })}));
++    }
++    return {label,cellIndex:handoff.cellIndex,candidate:{id:result.candidateId,kind:result.kind,population:result.housing.totalPopulation,...result.origin},
++      surface:{id:detail.id,grid:g,widthM:surface.extent.widthM,heightM:surface.extent.heightM,elevationM,waterDepthM,rivers,
++        nativeSpacingM:surface.nativeSpacingM,provenance:detail.provenance},result,accessPolyline};
++  })};
++}
+--- /dev/null
++++ b/scripts/build-l2-materialization-review.mjs
+@@ -0,0 +1,1305 @@
++/**
++ * Saved L2 review renderer. No I/O, dependencies, data generation, or mutation.
++ * Limits bound both the serialized document and work done by its browser UI.
++ */
++export function buildL2MaterializationReview(data) {
++  const MAX_GRID_VALUES = 262144;
++  const MAX_TOTAL_GRID_VALUES = 1048576;
++  let gridValues = 0;
++  let vertices = 0;
++  const fail = (path, message) => {
++    throw new TypeError('L2検査入力 ' + path + ': ' + message);
++  };
++  const object = (value, path) => {
++    if (!value || typeof value !== 'object' || Array.isArray(value)) fail(path, 'オブジェクトが必要です');
++    const prototype = Object.getPrototypeOf(value);
++    if (prototype !== Object.prototype && prototype !== null) fail(path, '通常のデータオブジェクトが必要です');
++    return value;
++  };
++  const string = (value, path, max = 1024) => {
++    if (typeof value !== 'string' || value.length === 0 || value.length > max) fail(path, '空でない文字列が必要です（最大' + max + '文字）');
++    return value;
++  };
++  const number = (value, path, min = -1e9, max = 1e9) => {
++    if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max) fail(path, '範囲内の有限数が必要です');
++    return value;
++  };
++  const integer = (value, path, min = 0, max = 1e9) => {
++    number(value, path, min, max);
++    if (!Number.isSafeInteger(value)) fail(path, '安全な整数が必要です');
++    return value;
++  };
++  const array = (value, path, min = 0, max = 65536) => {
++    if (!Array.isArray(value) || value.length < min || value.length > max) fail(path, '配列長は' + min + '〜' + max + 'である必要があります');
++    return value;
++  };
++  const equal = (a, b, path) => {
++    if (a !== b) fail(path, '関連する保存値と一致しません');
++  };
++  const near = (a, b, path) => {
++    if (Math.abs(a - b) > Math.max(1e-6, Math.max(Math.abs(a), Math.abs(b)) * 1e-9)) fail(path, '関連する保存値と整合しません');
++  };
++  const member = (value, values, path) => {
++    if (!values.includes(value)) fail(path, '対応していない値です');
++    return value;
++  };
++  const strings = (value, path) => array(value, path, 0, 128).map((v, i) => string(v, path + '[' + i + ']', 2000));
++  const optionalString = (value, path) => value == null ? null : string(value, path, 2000);
++  const geographic = (value, path) => {
++    object(value, path);
++    return {
++      latDeg: number(value.latDeg, path + '.latDeg', -90, 90),
++      lonDeg: number(value.lonDeg, path + '.lonDeg', -180, 180)
++    };
++  };
++  const bounds = (value, path) => {
++    object(value, path);
++    const b = {};
++    for (const k of ['minXM', 'maxXM', 'minYM', 'maxYM']) b[k] = number(value[k], path + '.' + k);
++    if (b.minXM >= b.maxXM || b.minYM >= b.maxYM) fail(path, '面積のある境界が必要です');
++    return b;
++  };
++  const sameBounds = (a, b, path) => {
++    for (const k of ['minXM', 'maxXM', 'minYM', 'maxYM']) near(a[k], b[k], path + '.' + k);
++  };
++  const point = (value, path, pairAllowed = false) => {
++    vertices += 1;
++    if (vertices > 524288) fail(path, '全体の座標数が上限を超えました');
++    if (pairAllowed && Array.isArray(value)) {
++      array(value, path, 2, 2);
++      return { xM: number(value[0], path + '[0]'), yM: number(value[1], path + '[1]') };
++    }
++    object(value, path);
++    return { xM: number(value.xM, path + '.xM'), yM: number(value.yM, path + '.yM') };
++  };
++  const inSurface = (p, surface, path) => {
++    const epsilon = 1e-4;
++    if (Math.abs(p.xM) > surface.widthM / 2 + epsilon || Math.abs(p.yM) > surface.heightM / 2 + epsilon) fail(path, '候補原点を中心とした地形範囲を外れています');
++  };
++  const boundsInSurface = (b, surface, path) => {
++    inSurface({ xM: b.minXM, yM: b.minYM }, surface, path);
++    inSurface({ xM: b.maxXM, yM: b.maxYM }, surface, path);
++  };
++  const target = (value, path) => {
++    if (value == null) return null;
++    const geo = geographic(value, path);
++    return {
++      ...geo,
++      id: string(value.id, path + '.id'),
++      kind: member(value.kind, ['local-boundary-portal'], path + '.kind'),
++      provenance: optionalString(value.provenance, path + '.provenance')
++    };
++  };
++  const profiles = (value, path, surface = null) => array(value, path, 0, 2048).map((profile, i) => {
++    const p = path + '[' + i + ']';
++    object(profile, p);
++    let lastDistance = -1;
++    const samples = array(profile.samples, p + '.samples', 2, 65536).map((sample, j) => {
++      const q = p + '.samples[' + j + ']';
++      const xy = point(sample, q);
++      if (surface) inSurface(xy, surface, q);
++      const distanceM = number(sample.distanceM, q + '.distanceM', 0, 1e9);
++      if (distanceM <= lastDistance) fail(q + '.distanceM', '距離は単調増加する必要があります');
++      lastDistance = distanceM;
++      return {
++        ...xy, distanceM,
++        roadElevationM: number(sample.roadElevationM, q + '.roadElevationM'),
++        segmentKind: optionalString(sample.segmentKind, q + '.segmentKind'),
++        structureKind: optionalString(sample.structureKind, q + '.structureKind')
++      };
++    });
++    return {
++      roadId: string(profile.roadId, p + '.roadId'),
++      halfWidthM: number(profile.halfWidthM, p + '.halfWidthM', 0.01, 1000),
++      samples
++    };
++  });
++  const root = object(data, '$');
++  equal(root.schema, 'l2-native-layout-review@1', '$.schema');
++  equal(root.platform, 'PC', '$.platform');
++  const examples = array(root.examples, '$.examples', 1, 8).map((example, index) => {
++    const p = '$.examples[' + index + ']';
++    object(example, p);
++    const label = string(example.label, p + '.label', 160);
++    const cellIndex = integer(example.cellIndex, p + '.cellIndex');
++    const c = object(example.candidate, p + '.candidate');
++    const candidate = {
++      ...geographic(c, p + '.candidate'),
++      id: string(c.id, p + '.candidate.id'),
++      kind: member(c.kind, ['city', 'town', 'village', 'hamlet'], p + '.candidate.kind'),
++      population: integer(c.population, p + '.candidate.population', 1)
++    };
++    const s = object(example.surface, p + '.surface');
++    const g = object(s.grid, p + '.surface.grid');
++    const grid = {
++      columns: integer(g.columns, p + '.surface.grid.columns', 2, 2049),
++      rows: integer(g.rows, p + '.surface.grid.rows', 2, 2049),
++      cellSizeM: number(g.cellSizeM, p + '.surface.grid.cellSizeM', 0.01, 1e6),
++      cellSizeYM: number(g.cellSizeYM, p + '.surface.grid.cellSizeYM', 0.01, 1e6),
++      row0: member(g.row0, ['north'], p + '.surface.grid.row0'),
++      yDirection: member(g.yDirection, ['south'], p + '.surface.grid.yDirection')
++    };
++    const count = grid.columns * grid.rows;
++    gridValues += count;
++    if (count > MAX_GRID_VALUES || gridValues > MAX_TOTAL_GRID_VALUES) fail(p + '.surface.grid', '表示格子の値数が上限を超えました');
++    const surface = {
++      id: string(s.id, p + '.surface.id'),
++      grid,
++      widthM: number(s.widthM, p + '.surface.widthM', 0.01, 1e7),
++      heightM: number(s.heightM, p + '.surface.heightM', 0.01, 1e7),
++      elevationM: array(s.elevationM, p + '.surface.elevationM', count, count).map((v, i) => number(v, p + '.surface.elevationM[' + i + ']')),
++      waterDepthM: array(s.waterDepthM, p + '.surface.waterDepthM', count, count).map((v, i) => number(v, p + '.surface.waterDepthM[' + i + ']', 0, 1e6))
++    };
++    near(surface.widthM, (grid.columns - 1) * grid.cellSizeM, p + '.surface.widthM');
++    near(surface.heightM, (grid.rows - 1) * grid.cellSizeYM, p + '.surface.heightM');
++    const spacing = object(s.nativeSpacingM, p + '.surface.nativeSpacingM');
++    surface.nativeSpacingM = {
++      east: number(spacing.east, p + '.surface.nativeSpacingM.east', 0.01, 1e6),
++      north: number(spacing.north, p + '.surface.nativeSpacingM.north', 0.01, 1e6)
++    };
++    near(surface.nativeSpacingM.east, grid.cellSizeM, p + '.surface.nativeSpacingM.east');
++    near(surface.nativeSpacingM.north, grid.cellSizeYM, p + '.surface.nativeSpacingM.north');
++    surface.rivers = array(s.rivers, p + '.surface.rivers', 0, 2048).map((river, i) => {
++      const q = p + '.surface.rivers[' + i + ']';
++      object(river, q);
++      const points = array(river.points, q + '.points', 2, 65536).map((v, j) => {
++        const xy = point(v, q + '.points[' + j + ']');
++        inSurface(xy, surface, q + '.points[' + j + ']');
++        return xy;
++      });
++      const widths = array(river.widthM, q + '.widthM', points.length - 1, points.length).map((v, j) => number(v, q + '.widthM[' + j + ']', 0.01, 10000));
++      return { id: string(river.id, q + '.id'), points, widthM: widths };
++    });
++    const provenance = object(s.provenance, p + '.surface.provenance');
++    surface.provenance = {};
++    for (const key of ['generator', 'method', 'parentSurfaceId', 'placement', 'scope', 'seed', 'water']) {
++      surface.provenance[key] = optionalString(provenance[key], p + '.surface.provenance.' + key);
++    }
++    const r = object(example.result, p + '.result');
++    equal(r.schema, 'l2-settlement-materialization@1', p + '.result.schema');
++    equal(r.candidateId, candidate.id, p + '.result.candidateId');
++    equal(r.surfaceId, surface.id, p + '.result.surfaceId');
++    equal(r.cellIndex, cellIndex, p + '.result.cellIndex');
++    equal(r.kind, candidate.kind, p + '.result.kind');
++    const status = member(r.status, ['held', 'materialized'], p + '.result.status');
++    const origin = geographic(r.origin, p + '.result.origin');
++    near(origin.latDeg, candidate.latDeg, p + '.result.origin.latDeg');
++    near(origin.lonDeg, candidate.lonDeg, p + '.result.origin.lonDeg');
++    const districtCount = integer(r.districtCount, p + '.result.districtCount', 1, 1e6);
++    const districtIndex = integer(r.districtIndex, p + '.result.districtIndex', 0, districtCount - 1);
++    const slot = integer(r.slot, p + '.result.slot', 0, 1e6);
++    const h = object(r.housing, p + '.result.housing');
++    const housing = {};
++    for (const key of ['placedDwellings', 'representedPopulation', 'requestedDwellings', 'requestedPopulation', 'totalPopulation', 'unresolvedPopulation', 'unvisitedPopulation', 'districtCount', 'districtIndex']) {
++      housing[key] = integer(h[key], p + '.result.housing.' + key);
++    }
++    equal(housing.districtCount, districtCount, p + '.result.housing.districtCount');
++    equal(housing.districtIndex, districtIndex, p + '.result.housing.districtIndex');
++    equal(housing.totalPopulation, candidate.population, p + '.result.housing.totalPopulation');
++    equal(housing.representedPopulation + housing.unresolvedPopulation, housing.requestedPopulation, p + '.result.housing.requestedPopulation');
++    equal(housing.requestedPopulation + housing.unvisitedPopulation, housing.totalPopulation, p + '.result.housing.totalPopulation');
++    if (housing.requestedPopulation < 1 || housing.requestedDwellings < 1 || housing.placedDwellings > housing.requestedDwellings || housing.requestedDwellings > housing.requestedPopulation) fail(p + '.result.housing', '住宅要求または配置戸数が人口予算に収まりません');
++    if ((housing.placedDwellings === 0) !== (housing.representedPopulation === 0)) fail(p + '.result.housing', '住宅戸数と配置人口が整合しません');
++    const f = object(r.fields, p + '.result.fields');
++    const fields = {
++      status: member(f.status, ['local-field-page', 'regional-supply-unresolved'], p + '.result.fields.status'),
++      limit: integer(f.limit, p + '.result.fields.limit', 1, 16),
++      offset: integer(f.offset, p + '.result.fields.offset', 0, 1e6),
++      totalPlots: integer(f.totalPlots, p + '.result.fields.totalPlots', 0, 1e6)
++    };
++    for (const key of ['totalDemandM2', 'requestedM2', 'surveyedM2', 'unresolvedM2', 'outsidePageM2']) fields[key] = number(f[key], p + '.result.fields.' + key, 0, 1e15);
++    near(fields.surveyedM2 + fields.unresolvedM2, fields.requestedM2, p + '.result.fields.requestedM2');
++    near(fields.requestedM2 + fields.outsidePageM2, fields.totalDemandM2, p + '.result.fields.totalDemandM2');
++    if (fields.offset > fields.totalPlots) fail(p + '.result.fields.offset', '区画総数を超えています');
++    const plotIds = new Set();
++    const parsePlots = (items, accepted) => array(items, p + '.result.fields.' + (accepted ? 'accepted' : 'rejected'), 0, fields.limit).map((plot, i) => {
++      const q = p + '.result.fields.' + (accepted ? 'accepted' : 'rejected') + '[' + i + ']';
++      object(plot, q);
++      const id = string(plot.id, q + '.id');
++      if (plotIds.has(id)) fail(q + '.id', '農地区画IDが重複しています');
++      plotIds.add(id);
++      const b = bounds(plot.bounds, q + '.bounds');
++      boundsInSurface(b, surface, q + '.bounds');
++      const points = array(plot.points, q + '.points', 3, 512).map((v, j) => point(v, q + '.points[' + j + ']', true));
++      const actual = { minXM: Infinity, maxXM: -Infinity, minYM: Infinity, maxYM: -Infinity };
++      let twiceArea = 0;
++      const anchor = points[0];
++      for (let j = 0; j < points.length; j += 1) {
++        const a = points[j];
++        const next = points[(j + 1) % points.length];
++        actual.minXM = Math.min(actual.minXM, a.xM);
++        actual.maxXM = Math.max(actual.maxXM, a.xM);
++        actual.minYM = Math.min(actual.minYM, a.yM);
++        actual.maxYM = Math.max(actual.maxYM, a.yM);
++        twiceArea += (a.xM - anchor.xM) * (next.yM - anchor.yM) - (next.xM - anchor.xM) * (a.yM - anchor.yM);
++      }
++      sameBounds(actual, b, q + '.bounds');
++      const areaM2 = number(plot.areaM2, q + '.areaM2', 0.01, 1e15);
++      near(Math.abs(twiceArea) / 2, areaM2, q + '.areaM2');
++      return {
++        id, bounds: b, points, areaM2,
++        status: member(plot.status, [accepted ? 'surveyed-dry-footprint' : 'unresolved'], q + '.status'),
++        reason: accepted ? null : string(plot.reason, q + '.reason', 2000)
++      };
++    });
++    fields.accepted = parsePlots(f.accepted, true);
++    fields.rejected = parsePlots(f.rejected, false);
++    if (fields.accepted.length + fields.rejected.length > fields.limit) fail(p + '.result.fields', '今回の農地ページ上限を超えています');
++    if (fields.accepted.length + fields.rejected.length > Math.max(0, fields.totalPlots - fields.offset)) fail(p + '.result.fields', '区画総数を超えています');
++    near(fields.accepted.reduce((sum, v) => sum + v.areaM2, 0), fields.surveyedM2, p + '.result.fields.surveyedM2');
++    const rejectedArea = fields.rejected.reduce((sum, v) => sum + v.areaM2, 0);
++    if (rejectedArea > fields.unresolvedM2 + 1e-6) fail(p + '.result.fields.unresolvedM2', '保留輪郭の面積が保留予算を超えています');
++    if (fields.status === 'regional-supply-unresolved' && (fields.requestedM2 !== 0 || plotIds.size !== 0)) fail(p + '.result.fields', '地域供給未解決の候補にローカル農地を追加できません');
++    let layout = null;
++    if (r.layout != null) {
++      const l = object(r.layout, p + '.result.layout');
++      const b = bounds(l.bounds, p + '.result.layout.bounds');
++      boundsInSurface(b, surface, p + '.result.layout.bounds');
++      const buildingIds = new Set();
++      const color = (value, path) => array(value, path, 3, 3).map((v, i) => number(v, path + '[' + i + ']', 0, 1));
++      const buildings = array(l.buildings, p + '.result.layout.buildings', 0, 4096).map((building, i) => {
++        const q = p + '.result.layout.buildings[' + i + ']';
++        object(building, q);
++        const id = string(building.id, q + '.id');
++        if (buildingIds.has(id)) fail(q + '.id', '建物IDが重複しています');
++        buildingIds.add(id);
++        const bb = bounds(building.bounds, q + '.bounds');
++        boundsInSurface(bb, surface, q + '.bounds');
++        return {
++          id, bounds: bb,
++          baseElevationM: number(building.baseElevationM, q + '.baseElevationM'),
++          heightM: number(building.heightM, q + '.heightM', 0.01, 1000),
++          roofHeightM: number(building.roofHeightM, q + '.roofHeightM', 0, 1000),
++          roofColor: color(building.roofColor, q + '.roofColor'),
++          wallColor: color(building.wallColor, q + '.wallColor'),
++          residential: /\/house:\d+$/.test(id)
++        };
++      });
++      equal(buildings.filter(v => v.residential).length, housing.placedDwellings, p + '.result.layout.buildings（住宅のみ）');
++      const padIds = new Set();
++      const buildingMap = new Map(buildings.map(v => [v.id, v]));
++      const buildingPads = array(l.buildingPads, p + '.result.layout.buildingPads', 0, 4096).map((pad, i) => {
++        const q = p + '.result.layout.buildingPads[' + i + ']';
++        object(pad, q);
++        const id = string(pad.id, q + '.id');
++        if (padIds.has(id) || !buildingMap.has(id)) fail(q + '.id', '重複または対応する建物のない敷地です');
++        padIds.add(id);
++        const bb = bounds(pad.bounds, q + '.bounds');
++        sameBounds(bb, buildingMap.get(id).bounds, q + '.bounds');
++        return { id, bounds: bb, targetPadElevationM: number(pad.targetPadElevationM, q + '.targetPadElevationM') };
++      });
++      const ls = object(l.layoutStatus, p + '.result.layout.layoutStatus');
++      for (const key of ['placedDwellings', 'representedPopulation', 'requestedDwellings', 'districtCount', 'districtIndex']) equal(ls[key], housing[key], p + '.result.layout.layoutStatus.' + key);
++      if (typeof ls.complete !== 'boolean' || typeof ls.districtComplete !== 'boolean') fail(p + '.result.layout.layoutStatus', '完了フラグは真偽値である必要があります');
++      layout = {
++        bounds: b, buildings, buildingPads,
++        roadCenterlineProfiles: profiles(l.roadCenterlineProfiles, p + '.result.layout.roadCenterlineProfiles', surface),
++        layoutStatus: {
++          complete: ls.complete, districtComplete: ls.districtComplete,
++          placedDwellings: housing.placedDwellings,
++          representedPopulation: housing.representedPopulation,
++          requestedDwellings: housing.requestedDwellings,
++          districtCount, districtIndex,
++          limitations: strings(ls.limitations, p + '.result.layout.layoutStatus.limitations')
++        },
++        connections: array(l.connections, p + '.result.layout.connections', 0, 128).map((connection, i) => {
++          const q = p + '.result.layout.connections[' + i + ']';
++          object(connection, q);
++          return {
++            axis: member(connection.axis, ['x', 'y'], q + '.axis'),
++            sign: member(connection.sign, [-1, 1], q + '.sign'),
++            status: string(connection.status, q + '.status')
++          };
++        })
++      };
++    }
++    if (status === 'materialized' && !layout) fail(p + '.result.layout', '詳細化済み候補には保存レイアウトが必要です');
++    if (!layout && (housing.placedDwellings !== 0 || housing.representedPopulation !== 0)) fail(p + '.result.housing', 'レイアウトのない住宅配置は表示できません');
++    if (status === 'held' && layout) fail(p + '.result.layout', '立地保留候補には住宅レイアウトを追加できません');
++    const a = object(r.access, p + '.result.access');
++    let recipe = null;
++    if (a.recipe != null) {
++      const rec = object(a.recipe, p + '.result.access.recipe');
++      const projection = object(rec.projection, p + '.result.access.recipe.projection');
++      recipe = {
++        id: string(rec.id, p + '.result.access.recipe.id'),
++        bounds: bounds(rec.bounds, p + '.result.access.recipe.bounds'),
++        status: string(rec.status, p + '.result.access.recipe.status', 160),
++        reason: optionalString(rec.reason, p + '.result.access.recipe.reason'),
++        projection: {
++          kind: member(projection.kind, ['spherical-azimuthal-equidistant@1'], p + '.result.access.recipe.projection.kind'),
++          centerLatDeg: number(projection.centerLatDeg, p + '.result.access.recipe.projection.centerLatDeg', -90, 90),
++          centerLonDeg: number(projection.centerLonDeg, p + '.result.access.recipe.projection.centerLonDeg', -180, 180),
++          radiusM: number(projection.radiusM, p + '.result.access.recipe.projection.radiusM', 1, 1e9),
++          maxRadiusM: number(projection.maxRadiusM, p + '.result.access.recipe.projection.maxRadiusM', 0.01, 1e9)
++        },
++        roadCenterlineProfiles: profiles(rec.roadCenterlineProfiles, p + '.result.access.recipe.roadCenterlineProfiles')
++      };
++    }
++    const access = {
++      status: string(a.status, p + '.result.access.status', 160),
++      reason: optionalString(a.reason, p + '.result.access.reason'),
++      receivingConnection: member(a.receivingConnection, ['unresolved'], p + '.result.access.receivingConnection'),
++      target: target(a.target, p + '.result.access.target'),
++      recipe
++    };
++    if (access.status === 'not-generated' && (recipe || access.target)) fail(p + '.result.access', '未生成状態と保存調査が整合しません');
++    const options = object(r.options, p + '.result.options');
++    equal(options.districtIndex, districtIndex, p + '.result.options.districtIndex');
++    equal(options.slot, slot, p + '.result.options.slot');
++    equal(options.fieldLimit, fields.limit, p + '.result.options.fieldLimit');
++    equal(options.fieldOffset, fields.offset, p + '.result.options.fieldOffset');
++    const accessTarget = target(options.accessTarget, p + '.result.options.accessTarget');
++    if (access.target && accessTarget) equal(access.target.id, accessTarget.id, p + '.result.access.target.id');
++    const accessPolyline = array(example.accessPolyline, p + '.accessPolyline', 0, 65536).map((v, i) => {
++      const xy = point(v, p + '.accessPolyline[' + i + ']', true);
++      inSurface(xy, surface, p + '.accessPolyline[' + i + ']');
++      return xy;
++    });
++    if (accessPolyline.length === 1 || (accessPolyline.length > 0 && !recipe)) fail(p + '.accessPolyline', '調査レシピに対応する2点以上の変換済み座標が必要です');
++    const reasons = strings(r.reasons, p + '.result.reasons');
++    if (status === 'held' && reasons.length === 0) fail(p + '.result.reasons', '立地保留の理由が必要です');
++    const result = {
++      schema: r.schema, status, kind: candidate.kind,
++      candidateId: candidate.id, surfaceId: surface.id, cellIndex,
++      districtCount, districtIndex, slot, origin, housing, fields, layout, access, reasons,
++      options: { districtIndex, fieldLimit: fields.limit, fieldOffset: fields.offset, slot, accessTarget },
++      limitations: strings(r.limitations, p + '.result.limitations')
++    };
++    for (const key of ['detailKind', 'settlementClass', 'handoffId', 'populationId', 'sourceLayerId', 'worldId', 'interpretation']) result[key] = optionalString(r[key], p + '.result.' + key);
++    return { label, cellIndex, candidate, surface, result, accessPolyline };
++  });
++  const ids = new Set();
++  for (const example of examples) {
++    if (ids.has(example.candidate.id)) fail('$.examples', '同じ候補が重複しています');
++    ids.add(example.candidate.id);
++  }
++  // Serialize only owned, validated fields. Unknown input properties/toJSON are ignored.
++  const serialized = JSON.stringify({ schema: root.schema, platform: root.platform, examples });
++  if (serialized.length > 33554432) fail('$', 'HTMLに埋め込む保存データが32Mi文字を超えました');
++  const escaped = serialized.replace(/[<>&\u2028\u2029]/g, ch => ({
++    '<': '\\u003c', '>': '\\u003e', '&': '\\u0026', '\u2028': '\\u2028', '\u2029': '\\u2029'
++  })[ch]);
++  return [
++    '<!doctype html>',
++    '<html lang="ja"><head><meta charset="utf-8">',
++    '<meta name="viewport" content="width=device-width, initial-scale=1">',
++    '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; connect-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src \'none\'; font-src \'none\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'">',
++    '<title>L2 詳細地形の検査 — 保存レイアウト</title>',
++    '<style>', reviewStyles(), '</style></head><body>',
++    '<header class="page-header"><div><p class="eyebrow">PLANET / L2 SAVED REVIEW</p><h1>L2 詳細地形の検査</h1><p class="subtitle">住宅・農地・道路の保存結果と、保留の位置を確認する</p></div><span class="saved-badge">PC用 · 保存データのみ</span></header>',
++    '<main>',
++    '<section class="candidate-bar" aria-labelledby="candidate-heading"><div><h2 id="candidate-heading">検査する候補</h2><label class="sr-only" for="candidate">候補を切り替える</label><select id="candidate"></select></div><div id="candidate-summary"></div></section>',
++    '<p class="scope">保存範囲：各固定候補の住宅一区画＋農地一ページ（最大16区画）。候補原点は変更していません。「今回の対象外」はこの保存に含めていない要求分で、累積の未生成量ではありません。</p>',
++    '<div class="workspace"><section class="map-panel" aria-labelledby="map-heading">',
++    '<div class="map-toolbar"><h2 id="map-heading">詳細地形と保存輪郭</h2><div class="view-buttons" role="group" aria-label="地図の視点"><button type="button" id="view-full">全景</button><button type="button" id="view-settlement">集落周辺</button><button type="button" id="view-fields">農地周辺</button></div></div>',
++    '<div class="map-stage"><canvas id="map" tabindex="0" aria-label="L2詳細地形。矢印で移動、プラスとマイナスで拡大縮小、Homeで全景。対象をクリックすると一覧でも選択されます。" aria-describedby="map-help map-description"></canvas><div class="north" aria-hidden="true">↑<span>北 / N</span></div><div class="elevation-key"><span>表示標高</span><span class="ramp"></span><span id="elevation-range"></span></div><div class="scale-box" aria-hidden="true"><div id="scale-line"></div><span id="scale-label"></span></div></div>',
++    '<div class="map-readout"><span id="coordinate">原点から東・北の距離を表示</span><span id="view-state"></span></div>',
++    '<p class="map-help" id="map-help">ホイール：拡大縮小 · ドラッグ：移動 · 地図にフォーカスして矢印 / ＋ / − / Home。12mの住宅は「集落周辺」または一覧の選択で確認できます。</p>',
++    '<p class="map-description" id="map-description"></p>',
++    '<ul class="legend" aria-label="地図の凡例"><li><i class="legend-house"></i>住宅：茶色の矩形・屋根線</li><li><i class="legend-public"></i>公共施設：紫の矩形・菱形</li><li><i class="legend-pass"></i>農地通過：緑の点模様</li><li><i class="legend-held"></i>農地保留：橙の斜線・破線</li><li><i class="legend-road"></i>内部道路：白い設計線（集落内のみ）</li><li><i class="legend-access"></i>外部アクセス：紫の破線・調査点（隣接接続未確定）</li><li><i class="legend-water"></i>水面：青（保存格子・設計河川）</li><li><i class="legend-selected"></i>選択対象：水色の縁取り</li></ul>',
++    '</section>',
++    '<aside class="inspector" aria-labelledby="objects-heading"><div class="inspector-top"><h2 id="objects-heading">保存対象を選ぶ</h2><p id="object-counts"></p></div>',
++    '<label for="object-filter">対象の種類</label><select id="object-filter"><option value="all">すべての住宅・施設・農地</option><option value="house">住宅</option><option value="public">公共施設</option><option value="accepted">農地：調査通過</option><option value="rejected">農地：保留</option></select>',
++    '<label for="object-search">名前・区画番号・保留理由で絞り込み</label><input id="object-search" type="search" placeholder="例：住宅 03、農地、水域" autocomplete="off">',
++    '<label for="object-select">対象一覧（選ぶと地図で拡大）</label><select id="object-select"></select><p id="filter-count" class="muted"></p>',
++    '<div id="object-list" class="object-list" aria-label="対象の一覧"></div>',
++    '<div class="selection-actions"><button type="button" id="focus-object">選択対象へ近づく</button><button type="button" id="reveal-object">選択を一覧に表示</button></div>',
++    '<section class="selection-card" aria-labelledby="selection-heading"><h3 id="selection-heading">選択対象の詳細</h3><div id="selection-detail"></div></section><p id="selection-announcement" class="sr-only" role="status" aria-live="polite"></p>',
++    '</aside></div>',
++    '<div class="budgets"><section class="budget-panel" aria-labelledby="population-heading"><h2 id="population-heading">人口と住宅の予算</h2><p id="housing-status"></p><table><caption class="sr-only">候補の全人口と今回の住宅区画の配分</caption><thead><tr><th scope="col">範囲・状態</th><th scope="col">人数枠</th><th scope="col">住宅</th></tr></thead><tbody id="population-body"></tbody></table><p class="table-note">配置住宅の正本は保存された住宅戸数です。公共施設を住宅数へ加算しません。表示人数は統計上の需要と住宅容量の枠であり、住民個体の生成数を表していません。</p></section>',
++    '<section class="budget-panel" aria-labelledby="fields-heading"><h2 id="fields-heading">農地の面積予算</h2><p id="fields-status"></p><table><caption class="sr-only">候補の農地全需要と今回の農地ページの配分</caption><thead><tr><th scope="col">範囲・状態</th><th scope="col">面積</th></tr></thead><tbody id="fields-body"></tbody></table><p class="table-note">「通過」は乾燥・勾配の標本調査を通った区画輪郭です。食料供給・土地の権利・年間収量・農道の確保は未完了です。</p></section></div>',
++    '<section class="access-panel" aria-labelledby="access-heading"><h2 id="access-heading">道路と外部アクセス</h2><div id="access-summary"></div></section>',
++    '<section class="limits-panel" aria-labelledby="limits-heading"><h2 id="limits-heading">この保存から確認できる範囲</h2><p>地形は詳細L2の保存表示格子です。河川は幅を持つ設計水面で、内外の河川連続性・洪水・飲料水は未検証です。地域端の調査点は隣接地域への接続を保証しません。</p><p>詳細L2の地域例を追加した段階です。全球ランタイムへの採用と隣接ネイティブ境界への接続は未完了です。</p></section>',
++    '<details class="technical"><summary>技術詳細：候補ID・surface ID・保存状態と座標系</summary><pre id="technical-data"></pre></details>',
++    '<footer class="roadmap"><strong>現在：詳細L2の保存結果をPCで検査する段階</strong><p>次のロードマップ：立地保留の探索 → 農地への実アクセス → 隣接道路・ネイティブ地形の接続 → 全球画面への採用</p></footer>',
++    '</main><noscript>保存データの地図と一覧を表示するにはJavaScriptを有効にしてください。このHTMLはネットワーク接続を使いません。</noscript>',
++    '<script type="application/json" id="review-data">', escaped, '</script>',
++    '<script>(', initializeReview.toString(), ')();</script>',
++    '</body></html>'
++  ].join('\n');
++}
++
++function reviewStyles() {
++  return [
++    ':root{color-scheme:light;--ink:#172c31;--muted:#50646b;--border:#c7d4d5;--paper:#fff;--teal:#125b60;--focus:#005bda;--amber:#855015;font-family:system-ui,-apple-system,"Segoe UI","Yu Gothic UI",Meiryo,sans-serif;font-size:15px;line-height:1.6}',
++    '*{box-sizing:border-box}body{margin:0;background:#eef2f1;color:var(--ink);min-width:1050px}button,input,select{font:inherit}button,select,input{border:1px solid #91a7ab;border-radius:6px;background:#fff;color:var(--ink)}button{cursor:pointer;padding:7px 13px;font-weight:600}button:hover:not(:disabled){background:#e7f1f0;border-color:#417c80}button:disabled,select:disabled{opacity:.55;cursor:default}button[aria-pressed="true"]{background:var(--teal);color:white;border-color:var(--teal)}:focus-visible{outline:3px solid var(--focus);outline-offset:3px}select{padding:8px 30px 8px 10px;max-width:100%;width:100%}input{padding:8px 10px;width:100%}',
++    'h1,h2,h3,p{margin:0}h1{font-size:29px;letter-spacing:.03em;font-weight:750}h2{font-size:18px}h3{font-size:15px}.page-header{background:#153d43;color:#f5fbf9;padding:25px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}.eyebrow{font-size:11px;letter-spacing:.18em;color:#b6d8d3;margin-bottom:4px}.subtitle{color:#d5e5e2;margin-top:4px}.saved-badge{border:1px solid #6a999a;padding:7px 13px;border-radius:24px;font-size:13px;white-space:nowrap}main{padding:22px 28px 34px;max-width:1920px;margin:auto}',
++    '.candidate-bar{background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:16px 19px;display:grid;grid-template-columns:minmax(300px,400px) 1fr;gap:25px;align-items:center}.candidate-bar h2{margin-bottom:7px}#candidate-summary strong{font-size:19px}.candidate-meta{color:var(--muted);font-size:13px;margin-top:5px}.status-chip{display:inline-block;margin-right:9px;border-radius:4px;padding:3px 8px;font-size:13px;background:#e0efea;color:#195842;font-weight:700}.status-chip.held{background:#fff0d6;color:#855015}.scope{font-size:13px;color:#3e565d;margin:12px 2px 17px;max-width:1300px}',
++    '.workspace{display:grid;grid-template-columns:minmax(625px,1fr) 345px;gap:18px;align-items:start}.map-panel,.inspector,.budget-panel,.access-panel,.limits-panel{background:var(--paper);border:1px solid var(--border);border-radius:10px;overflow:hidden}.map-toolbar{padding:12px 15px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}.view-buttons{display:flex;gap:6px}.view-buttons button{font-size:13px;padding:6px 10px}.map-stage{height:clamp(600px,68vh,880px);position:relative;background:#d7e0dc;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}canvas{display:block;width:100%;height:100%;cursor:grab}canvas.dragging{cursor:grabbing}canvas:focus-visible{outline:4px solid var(--focus);outline-offset:-5px}.north{position:absolute;top:16px;right:17px;pointer-events:none;text-align:center;color:#163139;text-shadow:0 1px 3px #fff;font-size:30px;line-height:1.1}.north span{display:block;font-size:11px;font-weight:800;margin-top:4px}.elevation-key,.scale-box{position:absolute;pointer-events:none;background:#fffffff0;border:1px solid #bdcccb;border-radius:5px;font-size:11px;color:#25424a}.elevation-key{left:12px;bottom:12px;padding:7px 9px;display:grid;gap:4px;min-width:175px}.ramp{display:block;height:9px;background:linear-gradient(90deg,#849984,#b7b68b,#e9dfbf)}.scale-box{right:12px;bottom:12px;padding:8px 10px;text-align:center}#scale-line{border:solid #26434b;border-width:0 2px 2px;height:7px;min-width:15px}',
++    '.map-readout{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:8px 13px;background:#f5f8f7;font-size:12px;font-variant-numeric:tabular-nums;color:#35515a}.map-help,.map-description{padding:9px 14px 0;font-size:12px;color:var(--muted)}.legend{list-style:none;padding:12px 14px;margin:0;display:flex;flex-wrap:wrap;gap:8px 17px;font-size:12px}.legend li{display:flex;align-items:center;gap:7px}.legend i{display:inline-block;width:18px;height:13px;border:2px solid;flex-shrink:0}.legend-house{background:#b96d3e;border-color:#663b25!important;background-image:linear-gradient(90deg,transparent 45%,#5f3627 45%,#5f3627 55%,transparent 55%)}.legend-public{background:#ceb2eb;border-color:#633784!important;transform:rotate(-10deg)}.legend-pass{background-color:#d1e8af;background-image:radial-gradient(#387336 1px,transparent 1px);background-size:5px 5px;border-color:#347a3b!important}.legend-held{border:2px dashed #b56813!important;background:repeating-linear-gradient(135deg,#fbdb9d 0 4px,#c68a3f 4px 5px)}.legend-road{background:#fff4dc;border-color:#63706a!important;height:7px!important}.legend-access{border:2px dashed #a93d92!important;background:#f5e3f2;height:7px!important}.legend-water{background:#63b7d1;border-color:#327e99!important}.legend-selected{background:#efffff;border-color:#00aeca!important}',
++    '.inspector{padding:15px;display:flex;flex-direction:column;gap:7px}.inspector-top p{font-size:12px;color:var(--muted);margin:4px 0 7px}.inspector label{font-size:12px;font-weight:650;margin-top:4px}.muted{color:var(--muted);font-size:12px}.object-list{max-height:245px;overflow:auto;border:1px solid #d6e0df;border-radius:5px;background:#f6f9f8}.object-group{font-size:11px;font-weight:700;color:#416067;padding:5px 9px;background:#edf3f1;position:sticky;top:0;margin:0}.object-row{display:block;border:0;border-radius:0;border-bottom:1px solid #dce5e3;width:100%;padding:8px 10px;text-align:left;background:#fff;font-size:13px;font-weight:500}.object-row small{display:block;font-size:11px;color:#52676c;margin-top:2px}.object-row[aria-pressed="true"]{background:#e0f4f6;color:#123c46;border-left:4px solid #00a0b9;padding-left:6px}.selection-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}.selection-actions button{font-size:12px;padding:7px 8px}.selection-card{margin-top:6px;padding:12px;background:#f3f7f5;border:1px solid #d5e1dc;border-radius:7px}.selection-card h3{margin-bottom:7px}.detail-title{font-weight:750;margin-bottom:7px}.selection-card p{font-size:12px;margin-top:5px}.selection-card dl{font-size:12px;display:grid;grid-template-columns:80px 1fr;gap:5px;margin:8px 0}.selection-card dt{color:var(--muted)}.selection-card dd{margin:0;overflow-wrap:anywhere}.empty{padding:13px;font-size:13px;color:var(--muted)}',
++    '.budgets{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.budget-panel{padding:17px 19px}.budget-panel>p:first-of-type{font-size:13px;color:#425f66;margin:7px 0 12px}table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:8px 9px;border-bottom:1px solid #dce4e2}thead{background:#edf3f0;color:#3a565c}th:not(:first-child),td:not(:first-child){text-align:right;white-space:nowrap}tbody th{font-weight:500}.budget-total{background:#eff5f2;font-weight:750}.budget-sub th{padding-left:22px}.budget-held{color:#855015;background:#fff9ed}.budget-outside{color:#52676c}.table-note{font-size:12px;color:var(--muted);margin-top:12px}',
++    '.access-panel,.limits-panel{padding:17px 19px;margin-top:18px}.access-panel p,.limits-panel p{font-size:13px;margin-top:7px}.access-panel{border-left:4px solid #a176a6}.technical{margin-top:17px;border:1px solid var(--border);border-radius:7px;background:#fff}.technical summary{padding:12px 15px;cursor:pointer;font-size:13px;font-weight:600}.technical pre{margin:0;padding:0 15px 16px;max-height:430px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 ui-monospace,Consolas,monospace}.roadmap{margin-top:20px;padding:16px 18px;border-radius:7px;background:#e1eae6;font-size:13px}.roadmap p{margin-top:5px;color:#3f5e61}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}noscript{display:block;margin:20px;padding:20px;background:#ffedbf}',
++    '@media(min-width:1600px){.workspace{grid-template-columns:minmax(900px,1fr) 380px}.map-stage{height:clamp(650px,70vh,930px)}}'
++  ].join('\n');
++}
++
++function initializeReview() {
++  'use strict';
++  const data = JSON.parse(document.getElementById('review-data').textContent);
++  const $ = id => document.getElementById(id);
++  const canvas = $('map');
++  const ctx = canvas.getContext('2d');
++  if (!ctx) {
++    $('map-description').textContent = 'Canvasを利用できません。PCのCanvas対応ブラウザーで開いてください。';
++    return;
++  }
++  const format = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 0 });
++  const decimal = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 1 });
++  const num = v => format.format(v);
++  const area = v => num(v) + ' m²';
++  const people = v => num(v) + ' 人';
++  const kindName = { city: '都市', town: '町', village: '村', hamlet: '小集落' };
++  const groupNames = { house: '配置住宅', public: '公共施設', accepted: '農地・調査通過', rejected: '農地・保留' };
++  const groups = ['house', 'public', 'accepted', 'rejected'];
++  const reasonName = reason => {
++    const names = {
++      'siting-unresolved:slope': '詳細地形の傾斜で立地保留',
++      'siting-unresolved:wet': '詳細地形の水域で立地保留',
++      slope: '勾配', wet: '水域', unknown: '調査値不明',
++      'road-width-wet-or-unknown': '道路幅の範囲に水域または不明値',
++      'blocked-water': '水域で保留',
++      'not-generated': '未調査'
++    };
++    return names[reason] || '保存理由あり（技術詳細を参照）';
++  };
++  const statusName = e => e.result.status === 'materialized' ? '部分詳細化' : '立地保留';
++  const element = (tag, text, className) => {
++    const node = document.createElement(tag);
++    if (text != null) node.textContent = text;
++    if (className) node.className = className;
++    return node;
++  };
++  let example = null;
++  let records = [];
++  let selected = null;
++  let terrain = null;
++  let terrainMin = 0;
++  let terrainMax = 0;
++  let accessTargetPoint = null;
++  let width = 1;
++  let height = 1;
++  let pixelRatio = 1;
++  let frame = 0;
++  let activeView = 'full';
++  let pointer = null;
++  const camera = { x: 0, y: 0, scale: 1 };
++  const savedViews = {};
++  for (const [i, e] of data.examples.entries()) {
++    const option = element('option', e.label + '｜' + kindName[e.candidate.kind] + ' ' + people(e.candidate.population) + '｜' + statusName(e));
++    option.value = String(i);
++    $('candidate').append(option);
++  }
++  const screen = p => ({ x: width / 2 + (p.xM - camera.x) * camera.scale, y: height / 2 - (p.yM - camera.y) * camera.scale });
++  const world = (x, y) => ({ xM: camera.x + (x - width / 2) / camera.scale, yM: camera.y - (y - height / 2) / camera.scale });
++  const rectBounds = b => [
++    { xM: b.minXM, yM: b.minYM }, { xM: b.maxXM, yM: b.minYM },
++    { xM: b.maxXM, yM: b.maxYM }, { xM: b.minXM, yM: b.maxYM }
++  ];
++  const center = b => ({ xM: (b.minXM + b.maxXM) / 2, yM: (b.minYM + b.maxYM) / 2 });
++  const fullScale = () => Math.min((width - 74) / example.surface.widthM, (height - 74) / example.surface.heightM);
++  const clampCamera = () => {
++    if (!example) return;
++    camera.scale = Math.max(Math.max(1e-6, fullScale() * 0.35), Math.min(20, camera.scale));
++    const sx = example.surface.widthM / 2 + width / (2 * camera.scale) * 0.7;
++    const sy = example.surface.heightM / 2 + height / (2 * camera.scale) * 0.7;
++    camera.x = Math.max(-sx, Math.min(sx, camera.x));
++    camera.y = Math.max(-sy, Math.min(sy, camera.y));
++  };
++  const schedule = () => {
++    if (frame) return;
++    frame = requestAnimationFrame(() => { frame = 0; draw(); });
++  };
++  const viewButtons = () => {
++    for (const name of ['full', 'settlement', 'fields']) $('view-' + name).setAttribute('aria-pressed', String(activeView === name));
++  };
++  const fit = (bounds, padding = 1.3, minimum = 100) => {
++    if (!bounds) return;
++    const b = bounds;
++    camera.x = (b.minXM + b.maxXM) / 2;
++    camera.y = (b.minYM + b.maxYM) / 2;
++    camera.scale = Math.min((width - 75) / (Math.max(minimum, b.maxXM - b.minXM) * padding), (height - 75) / (Math.max(minimum, b.maxYM - b.minYM) * padding));
++    clampCamera();
++    schedule();
++  };
++  const union = items => {
++    if (!items.length) return null;
++    return items.reduce((b, item) => {
++      const a = item.bounds || item;
++      b.minXM = Math.min(b.minXM, a.minXM);
++      b.maxXM = Math.max(b.maxXM, a.maxXM);
++      b.minYM = Math.min(b.minYM, a.minYM);
++      b.maxYM = Math.max(b.maxYM, a.maxYM);
++      return b;
++    }, { minXM: Infinity, maxXM: -Infinity, minYM: Infinity, maxYM: -Infinity });
++  };
++  const fullBounds = () => ({
++    minXM: -example.surface.widthM / 2, maxXM: example.surface.widthM / 2,
++    minYM: -example.surface.heightM / 2, maxYM: example.surface.heightM / 2
++  });
++  const setView = name => {
++    activeView = name;
++    if (name === 'settlement') fit(example.result.layout ? example.result.layout.bounds : { minXM: -250, maxXM: 250, minYM: -250, maxYM: 250 }, 1.22, 400);
++    else if (name === 'fields') fit(union(records.filter(r => r.type === 'accepted' || r.type === 'rejected')), 1.18, 500);
++    else fit(fullBounds(), 1, 1);
++    viewButtons();
++  };
++  const targetCoordinates = target => {
++    if (!target) return null;
++    const radians = Math.PI / 180;
++    const lat0 = example.result.origin.latDeg * radians;
++    const lat = target.latDeg * radians;
++    const dl = (target.lonDeg - example.result.origin.lonDeg) * radians;
++    const cosC = Math.max(-1, Math.min(1, Math.sin(lat0) * Math.sin(lat) + Math.cos(lat0) * Math.cos(lat) * Math.cos(dl)));
++    const c = Math.acos(cosC);
++    if (c > Math.PI - 1e-6) return null;
++    const k = c < 1e-8 ? 1 : c / Math.sin(c);
++    const radius = example.result.access.recipe ? example.result.access.recipe.projection.radiusM : 6371000;
++    return {
++      xM: radius * k * Math.cos(lat) * Math.sin(dl),
++      yM: radius * k * (Math.cos(lat0) * Math.sin(lat) - Math.sin(lat0) * Math.cos(lat) * Math.cos(dl))
++    };
++  };
++  const prepareTerrain = () => {
++    const s = example.surface;
++    const g = s.grid;
++    terrain = document.createElement('canvas');
++    terrain.width = g.columns;
++    terrain.height = g.rows;
++    const context = terrain.getContext('2d');
++    const pixels = context.createImageData(g.columns, g.rows);
++    terrainMin = Infinity;
++    terrainMax = -Infinity;
++    for (const z of s.elevationM) {
++      terrainMin = Math.min(terrainMin, z);
++      terrainMax = Math.max(terrainMax, z);
++    }
++    const span = Math.max(1, terrainMax - terrainMin);
++    const stops = [[132, 153, 132], [183, 182, 139], [233, 223, 191]];
++    for (let y = 0; y < g.rows; y += 1) {
++      for (let x = 0; x < g.columns; x += 1) {
++        const i = y * g.columns + x;
++        const x0 = Math.max(0, x - 1);
++        const x1 = Math.min(g.columns - 1, x + 1);
++        const y0 = Math.max(0, y - 1);
++        const y1 = Math.min(g.rows - 1, y + 1);
++        const dx = (s.elevationM[y * g.columns + x1] - s.elevationM[y * g.columns + x0]) / ((x1 - x0) * g.cellSizeM);
++        const dy = (s.elevationM[y1 * g.columns + x] - s.elevationM[y0 * g.columns + x]) / ((y1 - y0) * g.cellSizeYM);
++        const dot = (dx * 0.45 + dy * 0.55 + 0.70) / Math.hypot(dx, dy, 1);
++        const shade = Math.max(0.48, Math.min(1.12, 0.68 + 0.42 * dot));
++        const t = (s.elevationM[i] - terrainMin) / span * 2;
++        const start = t < 1 ? stops[0] : stops[1];
++        const end = t < 1 ? stops[1] : stops[2];
++        const mix = t < 1 ? t : t - 1;
++        for (let channel = 0; channel < 3; channel += 1) pixels.data[i * 4 + channel] = (start[channel] * (1 - mix) + end[channel] * mix) * shade;
++        if (s.waterDepthM[i] > 0) {
++          const depth = Math.min(1, Math.log1p(s.waterDepthM[i]) / 4);
++          pixels.data[i * 4] = 95 - depth * 40;
++          pixels.data[i * 4 + 1] = 178 - depth * 35;
++          pixels.data[i * 4 + 2] = 205 - depth * 20;
++        }
++        pixels.data[i * 4 + 3] = 255;
++      }
++    }
++    context.putImageData(pixels, 0, 0);
++    $('elevation-range').textContent = num(terrainMin) + ' 〜 ' + num(terrainMax) + ' m';
++  };
++  const polygon = points => {
++    ctx.beginPath();
++    points.forEach((p, i) => {
++      const a = screen(p);
++      if (i === 0) ctx.moveTo(a.x, a.y);
++      else ctx.lineTo(a.x, a.y);
++    });
++    ctx.closePath();
++  };
++  const segment = (a, b) => {
++    const start = screen(a);
++    const end = screen(b);
++    ctx.beginPath();
++    ctx.moveTo(start.x, start.y);
++    ctx.lineTo(end.x, end.y);
++    ctx.stroke();
++  };
++  const visible = bounds => {
++    const a = screen({ xM: bounds.minXM, yM: bounds.maxYM });
++    const b = screen({ xM: bounds.maxXM, yM: bounds.minYM });
++    return b.x >= -15 && a.x <= width + 15 && b.y >= -15 && a.y <= height + 15;
++  };
++  const linePath = points => {
++    ctx.beginPath();
++    points.forEach((p, i) => {
++      const a = screen(p);
++      if (i === 0) ctx.moveTo(a.x, a.y);
++      else ctx.lineTo(a.x, a.y);
++    });
++  };
++  const drawField = record => {
++    if (!visible(record.bounds)) return;
++    const accepted = record.type === 'accepted';
++    const points = record.data.points;
++    polygon(points);
++    ctx.fillStyle = accepted ? 'rgba(189,226,146,.42)' : 'rgba(255,203,107,.45)';
++    ctx.fill();
++    ctx.save();
++    polygon(points);
++    ctx.clip();
++    const a = screen({ xM: record.bounds.minXM, yM: record.bounds.maxYM });
++    const b = screen({ xM: record.bounds.maxXM, yM: record.bounds.minYM });
++    const left = Math.max(-12, a.x);
++    const top = Math.max(-12, a.y);
++    const right = Math.min(width + 12, b.x);
++    const bottom = Math.min(height + 12, b.y);
++    if (accepted) {
++      ctx.fillStyle = 'rgba(36,99,47,.50)';
++      for (let y = Math.floor(top / 11) * 11; y <= bottom; y += 11) {
++        for (let x = Math.floor(left / 11) * 11; x <= right; x += 11) ctx.fillRect(x, y, 1.5, 1.5);
++      }
++    } else {
++      ctx.strokeStyle = 'rgba(142,78,9,.5)';
++      ctx.lineWidth = 1;
++      ctx.beginPath();
++      for (let k = Math.floor((left + top) / 12) * 12; k <= right + bottom; k += 12) {
++        const y0 = Math.max(top, k - right);
++        const y1 = Math.min(bottom, k - left);
++        ctx.moveTo(k - y0, y0);
++        ctx.lineTo(k - y1, y1);
++      }
++      ctx.stroke();
++    }
++    ctx.restore();
++    polygon(points);
++    ctx.strokeStyle = accepted ? '#267536' : '#aa5b0e';
++    ctx.lineWidth = 1.7;
++    ctx.setLineDash(accepted ? [] : [6, 4]);
++    ctx.stroke();
++    ctx.setLineDash([]);
++    if ((record.bounds.maxXM - record.bounds.minXM) * camera.scale > 70 && (record.bounds.maxYM - record.bounds.minYM) * camera.scale > 35) {
++      const c = screen(center(record.bounds));
++      const text = record.shortName + (accepted ? ' 通過' : ' 保留');
++      ctx.font = '600 12px system-ui,sans-serif';
++      ctx.textAlign = 'center';
++      const textWidth = ctx.measureText(text).width;
++      ctx.fillStyle = accepted ? 'rgba(243,255,236,.94)' : 'rgba(255,246,221,.96)';
++      ctx.fillRect(c.x - textWidth / 2 - 5, c.y - 10, textWidth + 10, 21);
++      ctx.fillStyle = accepted ? '#205a2a' : '#7a4107';
++      ctx.fillText(text, c.x, c.y + 5);
++    }
++  };
++  const drawBuilding = record => {
++    if (!visible(record.bounds)) return;
++    const b = record.bounds;
++    const a = screen({ xM: b.minXM, yM: b.maxYM });
++    const z = screen({ xM: b.maxXM, yM: b.minYM });
++    const publicBuilding = record.type === 'public';
++    polygon(rectBounds(b));
++    ctx.fillStyle = publicBuilding ? '#c4a4e6' : '#b96d3e';
++    ctx.fill();
++    ctx.strokeStyle = publicBuilding ? '#633784' : '#603921';
++    ctx.lineWidth = publicBuilding ? 1.7 : 1;
++    ctx.stroke();
++    const cx = (a.x + z.x) / 2;
++    const cy = (a.y + z.y) / 2;
++    if (Math.min(z.x - a.x, z.y - a.y) < 5) {
++      ctx.fillStyle = publicBuilding ? '#633784' : '#713c22';
++      if (publicBuilding) {
++        ctx.beginPath();
++        ctx.moveTo(cx, cy - 3);
++        ctx.lineTo(cx + 3, cy);
++        ctx.lineTo(cx, cy + 3);
++        ctx.lineTo(cx - 3, cy);
++        ctx.closePath();
++        ctx.fill();
++      } else {
++        ctx.beginPath();
++        ctx.arc(cx, cy, 1.8, 0, Math.PI * 2);
++        ctx.fill();
++      }
++    } else if (publicBuilding) {
++      ctx.beginPath();
++      ctx.moveTo(cx, a.y + 2);
++      ctx.lineTo(z.x - 2, cy);
++      ctx.lineTo(cx, z.y - 2);
++      ctx.lineTo(a.x + 2, cy);
++      ctx.closePath();
++      ctx.stroke();
++    } else {
++      ctx.beginPath();
++      ctx.moveTo(cx, a.y);
++      ctx.lineTo(cx, z.y);
++      ctx.stroke();
++    }
++  };
++  const drawGrid = () => {
++    const target = 110 / camera.scale;
++    const power = Math.pow(10, Math.floor(Math.log10(target)));
++    const step = [1, 2, 5, 10].map(v => v * power).find(v => v >= target) || power * 10;
++    const left = Math.max(-example.surface.widthM / 2, world(0, 0).xM);
++    const right = Math.min(example.surface.widthM / 2, world(width, height).xM);
++    const bottom = Math.max(-example.surface.heightM / 2, world(width, height).yM);
++    const top = Math.min(example.surface.heightM / 2, world(0, 0).yM);
++    ctx.lineWidth = 1;
++    ctx.strokeStyle = 'rgba(36,65,62,.13)';
++    ctx.font = '10px system-ui,sans-serif';
++    ctx.fillStyle = '#294a47';
++    ctx.textAlign = 'left';
++    for (let x = Math.ceil(left / step) * step, count = 0; x <= right && count < 100; x += step, count += 1) {
++      segment({ xM: x, yM: bottom }, { xM: x, yM: top });
++      const a = screen({ xM: x, yM: top });
++      ctx.fillText('東 ' + num(x), a.x + 3, Math.max(14, a.y + 13));
++    }
++    for (let y = Math.ceil(bottom / step) * step, count = 0; y <= top && count < 100; y += step, count += 1) {
++      segment({ xM: left, yM: y }, { xM: right, yM: y });
++      const a = screen({ xM: left, yM: y });
++      ctx.fillText('北 ' + num(y), Math.max(5, a.x + 4), a.y - 4);
++    }
++  };
++  const draw = () => {
++    if (!example || !terrain) return;
++    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
++    ctx.clearRect(0, 0, width, height);
++    ctx.fillStyle = '#dae3de';
++    ctx.fillRect(0, 0, width, height);
++    const s = example.surface;
++    const g = s.grid;
++    const nw = screen({ xM: -s.widthM / 2, yM: s.heightM / 2 });
++    ctx.save();
++    ctx.beginPath();
++    ctx.rect(nw.x, nw.y, s.widthM * camera.scale, s.heightM * camera.scale);
++    ctx.clip();
++    ctx.imageSmoothingEnabled = true;
++    // Grid samples are nodes: each offscreen pixel is centered on its saved node.
++    const origin = screen({ xM: -s.widthM / 2 - g.cellSizeM / 2, yM: s.heightM / 2 + g.cellSizeYM / 2 });
++    ctx.drawImage(terrain, origin.x, origin.y, g.columns * g.cellSizeM * camera.scale, g.rows * g.cellSizeYM * camera.scale);
++    drawGrid();
++    ctx.lineCap = 'round';
++    ctx.lineJoin = 'round';
++    for (const river of s.rivers) {
++      for (let i = 0; i < river.points.length - 1; i += 1) {
++        ctx.strokeStyle = '#3d91ae';
++        ctx.lineWidth = Math.max(.65, river.widthM[i] * camera.scale);
++        segment(river.points[i], river.points[i + 1]);
++      }
++    }
++    for (const record of records) if (record.type === 'accepted' || record.type === 'rejected') drawField(record);
++    const layout = example.result.layout;
++    if (layout) {
++      polygon(rectBounds(layout.bounds));
++      ctx.lineWidth = 1;
++      ctx.strokeStyle = 'rgba(54,75,71,.65)';
++      ctx.setLineDash([4, 5]);
++      ctx.stroke();
++      ctx.setLineDash([]);
++      for (const profile of layout.roadCenterlineProfiles) {
++        linePath(profile.samples);
++        ctx.lineWidth = Math.max(1.5, profile.halfWidthM * 2 * camera.scale + 2);
++        ctx.strokeStyle = '#616d63';
++        ctx.stroke();
++        linePath(profile.samples);
++        ctx.lineWidth = Math.max(.7, profile.halfWidthM * 2 * camera.scale);
++        ctx.strokeStyle = '#fff1d1';
++        ctx.stroke();
++      }
++    }
++    if (example.accessPolyline.length > 1) {
++      linePath(example.accessPolyline);
++      ctx.setLineDash([8, 6]);
++      ctx.strokeStyle = '#a23791';
++      ctx.lineWidth = 2;
++      ctx.stroke();
++      ctx.setLineDash([]);
++    }
++    for (const record of records) if (record.type === 'house' || record.type === 'public') drawBuilding(record);
++    ctx.restore();
++    // Survey target is a marker only. Empty saved routes never acquire invented lines.
++    if (accessTargetPoint) {
++      const p = screen(accessTargetPoint);
++      if (p.x > -15 && p.x < width + 15 && p.y > -15 && p.y < height + 15) {
++        ctx.beginPath();
++        ctx.moveTo(p.x, p.y - 8);
++        ctx.lineTo(p.x + 8, p.y);
++        ctx.lineTo(p.x, p.y + 8);
++        ctx.lineTo(p.x - 8, p.y);
++        ctx.closePath();
++        ctx.fillStyle = '#fff9fd';
++        ctx.fill();
++        ctx.strokeStyle = '#a23791';
++        ctx.lineWidth = 2;
++        ctx.stroke();
++        ctx.font = '600 11px system-ui,sans-serif';
++        const label = example.result.access.target ? '地域端の調査点 · 接続未解決' : '予定調査点 · 未調査';
++        ctx.textAlign = p.x > width * .6 ? 'right' : 'left';
++        const labelX = p.x > width * .6 ? p.x - 13 : p.x + 13;
++        ctx.lineWidth = 4;
++        ctx.strokeStyle = '#fffffff0';
++        ctx.strokeText(label, labelX, p.y + 4);
++        ctx.fillStyle = '#792666';
++        ctx.fillText(label, labelX, p.y + 4);
++      }
++    }
++    const zero = screen({ xM: 0, yM: 0 });
++    ctx.strokeStyle = '#293e43';
++    ctx.lineWidth = 1.5;
++    ctx.beginPath();
++    ctx.moveTo(zero.x - 6, zero.y);
++    ctx.lineTo(zero.x + 6, zero.y);
++    ctx.moveTo(zero.x, zero.y - 6);
++    ctx.lineTo(zero.x, zero.y + 6);
++    ctx.stroke();
++    if (selected) {
++      polygon(selected.points);
++      ctx.lineWidth = 5;
++      ctx.strokeStyle = 'rgba(255,255,255,.95)';
++      ctx.stroke();
++      polygon(selected.points);
++      ctx.lineWidth = 2.6;
++      ctx.strokeStyle = '#00a7c4';
++      ctx.stroke();
++      const p = screen(center(selected.bounds));
++      ctx.beginPath();
++      ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
++      ctx.strokeStyle = '#003d4b';
++      ctx.lineWidth = 1;
++      ctx.stroke();
++      ctx.fillStyle = '#00c4e0';
++      ctx.fill();
++    }
++    const maxDistance = Math.max(.001, Math.min(150, width * .2) / camera.scale);
++    const power = Math.pow(10, Math.floor(Math.log10(maxDistance)));
++    const distance = [1, 2, 5].map(v => v * power).filter(v => v <= maxDistance).pop() || power;
++    $('scale-line').style.width = Math.max(15, distance * camera.scale) + 'px';
++    $('scale-label').textContent = distance >= 1000 ? decimal.format(distance / 1000) + ' km' : decimal.format(distance) + ' m';
++    $('view-state').textContent = '表示幅 ' + decimal.format(width / camera.scale) + ' m · 原点から東/北 m';
++  };
++  const makeRecords = () => {
++    records = [];
++    const layout = example.result.layout;
++    let house = 0;
++    let facility = 0;
++    if (layout) for (const building of layout.buildings) {
++      const type = building.residential ? 'house' : 'public';
++      const index = building.residential ? ++house : ++facility;
++      const shortName = groupNames[type] + ' ' + String(index).padStart(2, '0');
++      records.push({
++        key: 'building-' + records.length, type, shortName,
++        label: shortName + '｜配置済み',
++        search: shortName + ' 配置済み',
++        bounds: building.bounds, points: rectBounds(building.bounds), data: building
++      });
++    }
++    let ordinal = 0;
++    for (const type of ['accepted', 'rejected']) {
++      for (const plot of example.result.fields[type]) {
++        const match = /\/field:(\d+)$/.exec(plot.id);
++        ordinal += 1;
++        const index = match ? Number(match[1]) + 1 : example.result.fields.offset + ordinal;
++        const shortName = '農地 ' + String(index).padStart(2, '0');
++        const status = type === 'accepted' ? '標本調査通過' : '保留・' + reasonName(plot.reason);
++        records.push({
++          key: 'plot-' + records.length, type, shortName,
++          label: shortName + '｜' + status,
++          search: shortName + ' ' + status + ' ' + area(plot.areaM2),
++          bounds: plot.bounds, points: plot.points, data: plot
++        });
++      }
++    }
++  };
++  const renderList = () => {
++    const focusedRow = document.activeElement && document.activeElement.classList.contains('object-row')
++      ? document.activeElement.dataset.key : null;
++    const query = $('object-search').value.trim().normalize('NFKC').toLocaleLowerCase('ja-JP');
++    const filter = $('object-filter').value;
++    const matches = records.filter(r => (filter === 'all' || r.type === filter) && r.search.normalize('NFKC').toLocaleLowerCase('ja-JP').includes(query));
++    const select = $('object-select');
++    const list = $('object-list');
++    select.replaceChildren();
++    list.replaceChildren();
++    const placeholder = element('option', '対象を選択してください');
++    placeholder.value = '';
++    select.append(placeholder);
++    for (const group of groups) {
++      const items = matches.filter(r => r.type === group);
++      if (!items.length) continue;
++      const optgroup = element('optgroup');
++      optgroup.label = groupNames[group] + '（' + num(items.length) + '）';
++      list.append(element('p', optgroup.label, 'object-group'));
++      for (const record of items) {
++        const option = element('option', record.label);
++        option.value = record.key;
++        optgroup.append(option);
++        const button = element('button', record.label, 'object-row');
++        button.type = 'button';
++        button.dataset.key = record.key;
++        button.setAttribute('aria-pressed', String(selected && selected.key === record.key));
++        const b = record.bounds;
++        const sub = record.type === 'house' || record.type === 'public'
++          ? decimal.format(b.maxXM - b.minXM) + ' × ' + decimal.format(b.maxYM - b.minYM) + ' m'
++          : area(record.data.areaM2);
++        button.append(element('small', sub));
++        button.addEventListener('click', () => choose(record, true, false));
++        list.append(button);
++      }
++      select.append(optgroup);
++    }
++    select.disabled = matches.length === 0;
++    if (selected && matches.includes(selected)) select.value = selected.key;
++    else if (selected) {
++      const option = element('option', '現在選択：' + selected.label + '（絞り込み外）');
++      option.value = selected.key;
++      select.append(option);
++      select.value = selected.key;
++    }
++    $('filter-count').textContent = num(matches.length) + ' / ' + num(records.length) + ' 対象を表示';
++    if (!matches.length) list.append(element('p', records.length ? '条件に合う対象がありません。種類や検索条件を変更してください。' : 'この候補には保存された住宅・施設・農地輪郭がありません。保留予算は下の表で確認できます。', 'empty'));
++    // Preserve keyboard focus when selection buttons are rebuilt.
++    if (focusedRow) for (const row of list.querySelectorAll('button')) {
++      if (row.dataset.key === focusedRow) { row.focus({ preventScroll: true }); break; }
++    }
++  };
++  const showSelection = () => {
++    const box = $('selection-detail');
++    box.replaceChildren();
++    $('focus-object').disabled = !selected;
++    $('reveal-object').disabled = !selected;
++    if (!selected) {
++      box.append(element('p', records.length ? '地図・一覧・選択欄から対象を選んでください。選択欄と一覧から選ぶと輪郭へ近づきます。' : '立地保留のため住宅輪郭は保存されていません。候補原点と人口予算は同じままです。'));
++      return;
++    }
++    const record = selected;
++    box.append(element('p', record.label, 'detail-title'));
++    const dl = element('dl');
++    const entry = (name, value) => { dl.append(element('dt', name), element('dd', value)); };
++    const c = center(record.bounds);
++    entry('中心位置', '東 ' + decimal.format(c.xM) + ' m / 北 ' + decimal.format(c.yM) + ' m');
++    entry('輪郭寸法', decimal.format(record.bounds.maxXM - record.bounds.minXM) + ' × ' + decimal.format(record.bounds.maxYM - record.bounds.minYM) + ' m');
++    if (record.type === 'house' || record.type === 'public') {
++      entry('用途', record.type === 'house' ? '住宅（戸数に算入）' : '公共施設（住宅数に含めない）');
++      entry('基礎標高', decimal.format(record.data.baseElevationM) + ' m');
++      entry('建物高', decimal.format(record.data.heightM) + ' m ＋ 屋根 ' + decimal.format(record.data.roofHeightM) + ' m');
++    } else {
++      entry('面積', area(record.data.areaM2));
++      entry('調査状態', record.type === 'accepted' ? '乾燥・勾配の標本調査を通過' : '保留：' + reasonName(record.data.reason));
++    }
++    box.append(dl);
++    if (record.type === 'accepted') box.append(element('p', '通過したのは区画輪郭の標本調査です。農道・権利・年間収量・食料は確保されていません。'));
++    if (record.type === 'rejected') box.append(element('p', '保留輪郭として表示しています。利用可能な農地面積へ加算していません。'));
++  };
++  const updateTechnical = () => {
++    const r = example.result;
++    const s = example.surface;
++    $('technical-data').textContent = JSON.stringify({
++      schema: data.schema, platform: data.platform,
++      candidateId: example.candidate.id, surfaceId: s.id,
++      cellIndex: example.cellIndex, slot: r.slot,
++      sourceLayerId: r.sourceLayerId, handoffId: r.handoffId, populationId: r.populationId, worldId: r.worldId,
++      status: r.status, reasons: r.reasons, origin: r.origin,
++      districtIndex: r.districtIndex, districtCount: r.districtCount,
++      housing: r.housing,
++      fields: {
++        status: r.fields.status, offset: r.fields.offset, limit: r.fields.limit, totalPlots: r.fields.totalPlots,
++        acceptedFootprints: r.fields.accepted.length, rejectedFootprints: r.fields.rejected.length
++      },
++      coordinates: {
++        terrainExtent: '候補原点から東 ±widthM/2、北 ±heightM/2（m）',
++        grid: s.grid, widthM: s.widthM, heightM: s.heightM,
++        nativeSpacingM: s.nativeSpacingM,
++        gridOrigin: 'nativeNW（北西）・X東 / Y南・行優先',
++        shapes: '住宅bounds・農地points・内部道路sample・accessPolylineは候補原点から東/北m',
++        accessRecipe: 'recipe内の座標はrecipe.projection固有。Canvasの道路線には直接使わない',
++        targetMarker: 'target緯度経度を候補原点の球面正距方位図法へ表示変換。予定調査点はoptions.accessTargetを使用',
++        displayOnly: '保存格子を補間して表示。地形サンプラの再実行・再生成なし'
++      },
++      access: {
++        status: r.access.status, reason: r.access.reason, receivingConnection: r.access.receivingConnection,
++        target: r.access.target, plannedTarget: r.options.accessTarget,
++        recipeId: r.access.recipe ? r.access.recipe.id : null,
++        recipeStatus: r.access.recipe ? r.access.recipe.status : null,
++        recipeReason: r.access.recipe ? r.access.recipe.reason : null,
++        projection: r.access.recipe ? r.access.recipe.projection : null,
++        savedRecipeProfiles: r.access.recipe ? r.access.recipe.roadCenterlineProfiles.length : 0,
++        convertedPolylinePoints: example.accessPolyline.length
++      },
++      layoutStatus: r.layout ? r.layout.layoutStatus : null,
++      internalRoadProfileCount: r.layout ? r.layout.roadCenterlineProfiles.length : 0,
++      localConnections: r.layout ? r.layout.connections : [],
++      provenance: s.provenance,
++      limitations: r.limitations,
++      selected: selected ? {
++        id: selected.data.id, type: selected.type, status: selected.data.status || 'saved-building',
++        reason: selected.data.reason || null, bounds: selected.bounds
++      } : null
++    }, null, 2);
++  };
++  const revealSelected = () => {
++    if (!selected) return;
++    $('object-filter').value = 'all';
++    $('object-search').value = '';
++    renderList();
++    for (const row of $('object-list').querySelectorAll('button')) {
++      if (row.dataset.key === selected.key) {
++        row.scrollIntoView({ block: 'nearest', inline: 'nearest' });
++        break;
++      }
++    }
++  };
++  function choose(record, focus, reveal) {
++    selected = record || null;
++    if (focus && selected) {
++      activeView = 'selection';
++      fit(selected.bounds, 1.65, selected.type === 'house' || selected.type === 'public' ? 100 : 250);
++      viewButtons();
++    }
++    if (reveal) revealSelected();
++    else renderList();
++    showSelection();
++    updateTechnical();
++    $('selection-announcement').textContent = selected ? selected.label + 'を選択しました。' : '対象の選択を解除しました。';
++    schedule();
++  }
++  const tableRow = (body, cells, className) => {
++    const row = element('tr', null, className);
++    cells.forEach((value, i) => {
++      const cell = element(i === 0 ? 'th' : 'td', value);
++      if (i === 0) cell.scope = 'row';
++      row.append(cell);
++    });
++    body.append(row);
++  };
++  const renderBudgets = () => {
++    const r = example.result;
++    const h = r.housing;
++    const f = r.fields;
++    const population = $('population-body');
++    population.replaceChildren();
++    tableRow(population, ['この固定候補の全需要', people(h.totalPopulation), '—'], 'budget-total');
++    tableRow(population, ['今回の住宅区画の要求', people(h.requestedPopulation), num(h.requestedDwellings) + ' 戸']);
++    tableRow(population, ['うち配置住宅の容量', people(h.representedPopulation), num(h.placedDwellings) + ' 戸'], 'budget-sub');
++    tableRow(population, ['うち今回の保留', people(h.unresolvedPopulation), num(h.requestedDwellings - h.placedDwellings) + ' 戸'], 'budget-sub budget-held');
++    tableRow(population, ['今回の対象外（保存範囲外）', people(h.unvisitedPopulation), '—'], 'budget-outside');
++    $('housing-status').textContent = r.status === 'held'
++      ? r.reasons.map(reasonName).join(' / ') + '。今回の住宅要求を保留し、候補原点は動かしていません。'
++      : '保存住宅 ' + num(h.placedDwellings) + ' 戸、公共施設 ' + num(records.filter(v => v.type === 'public').length) + ' 棟。住宅要求には未配置分が残っています。';
++    $('housing-status').textContent += ' 保留 ' + num(h.requestedDwellings-h.placedDwellings) + ' 戸分は今回配置しなかった需要です。地図・一覧には配置した住宅輪郭だけを表示しています。';
++    const fields = $('fields-body');
++    fields.replaceChildren();
++    tableRow(fields, ['この固定候補の全需要', area(f.totalDemandM2)], 'budget-total');
++    tableRow(fields, ['今回の一ページの要求', area(f.requestedM2)]);
++    tableRow(fields, ['うち標本調査通過', area(f.surveyedM2)], 'budget-sub');
++    tableRow(fields, ['うち今回の保留', area(f.unresolvedM2)], 'budget-sub budget-held');
++    tableRow(fields, ['今回の対象外（保存範囲外）', area(f.outsidePageM2)], 'budget-outside');
++    const unlocated = Math.max(0, f.unresolvedM2 - f.rejected.reduce((sum, plot) => sum + plot.areaM2, 0));
++    $('fields-status').textContent = f.status === 'regional-supply-unresolved'
++      ? '地域からの供給が未解決です。この候補のローカル農地輪郭は保存されていません。全需要は今回の対象外欄に残っています。'
++      : '今回：通過 ' + num(f.accepted.length) + ' 区画 / 保留輪郭 ' + num(f.rejected.length) + ' 区画（上限 ' + num(f.limit) + ' 区画）。' + (unlocated > 0 ? '保留のうち ' + area(unlocated) + ' は輪郭未保存です。地図には補って描きません。' : '');
++  };
++  const renderAccess = () => {
++    const r = example.result;
++    const a = r.access;
++    const box = $('access-summary');
++    box.replaceChildren();
++    const internal = r.layout ? r.layout.roadCenterlineProfiles.length : 0;
++    box.append(element('p', '内部道路：保存した中心線プロファイル ' + num(internal) + ' 件。白い線は地域内の設計線です。'));
++    let state;
++    if (a.status === 'not-generated') state = '外部アクセス：未調査。';
++    else if (a.reason || /blocked|unresolved|failed|invalid/.test(a.status)) state = '外部アクセス：保留。' + (a.reason ? '理由：' + reasonName(a.reason) + '。' : '');
++    else state = '外部アクセス：保存調査あり。';
++    box.append(element('p', state + (example.accessPolyline.length > 1 ? '変換済みの保存調査線を紫の破線で表示します。建設済み道路を表しません。' : '変換済みの保存調査線はありません。経路を補って描きません。')));
++    if (a.recipe && !a.recipe.roadCenterlineProfiles.length) box.append(element('p', '外部アクセスのレシピには有効な道路中心線プロファイルが保存されていません。'));
++    const target = a.target || r.options.accessTarget;
++    if (target) box.append(element('p', (a.target ? '地域端の調査点' : '予定調査点（未調査）') + '：緯度 ' + target.latDeg.toFixed(6) + '° / 経度 ' + target.lonDeg.toFixed(6) + '°。隣接地域の受け側接続は未解決です。'));
++    else box.append(element('p', '地域端の調査点は未保存です。隣接地域の受け側接続は未解決です。'));
++  };
++  const changeExample = index => {
++    if (example) savedViews[$('candidate').dataset.previous || ''] = { ...camera, activeView, key: selected ? selected.key : null };
++    example = data.examples[index];
++    $('candidate').dataset.previous = String(index);
++    $('candidate').value = String(index);
++    selected = null;
++    $('object-filter').value = 'all';
++    $('object-search').value = '';
++    makeRecords();
++    prepareTerrain();
++    accessTargetPoint = targetCoordinates(example.result.access.target || example.result.options.accessTarget);
++    const summary = $('candidate-summary');
++    summary.replaceChildren();
++    const line = element('p');
++    line.append(element('span', statusName(example), 'status-chip' + (example.result.status === 'held' ? ' held' : '')));
++    line.append(element('strong', example.label + ' · ' + kindName[example.candidate.kind] + ' ' + people(example.candidate.population)));
++    summary.append(line);
++    summary.append(element('p', '固定原点：緯度 ' + example.result.origin.latDeg.toFixed(6) + '° / 経度 ' + example.result.origin.lonDeg.toFixed(6) + '° · 保存は住宅一区画と農地一ページ', 'candidate-meta'));
++    $('object-counts').textContent = '住宅 ' + num(example.result.housing.placedDwellings) + ' 戸 / 公共施設 ' + num(records.filter(v => v.type === 'public').length) + ' 棟 / 農地輪郭 ' + num(example.result.fields.accepted.length + example.result.fields.rejected.length) + ' 区画';
++    $('view-fields').disabled = !records.some(r => r.type === 'accepted' || r.type === 'rejected');
++    const g = example.surface.grid;
++    $('map-description').textContent = '表示格子 ' + num(g.columns) + ' × ' + num(g.rows) + '、東西 ' + decimal.format(g.cellSizeM) + ' m × 南北 ' + decimal.format(g.cellSizeYM) + ' m。北西から東・南へ格納した標高と水深を表示しています。全景で小さい住宅は位置記号となり、拡大すると実寸の輪郭を表示します。' + (example.result.status === 'held' ? ' 立地保留のため、集落周辺ボタンは固定候補の原点周辺を表示します。' : '');
++    const saved = savedViews[String(index)];
++    if (saved) {
++      Object.assign(camera, { x: saved.x, y: saved.y, scale: saved.scale });
++      activeView = saved.activeView;
++      selected = records.find(v => v.key === saved.key) || null;
++      clampCamera();
++      viewButtons();
++    } else {
++      selected = records.find(v => v.type === 'house') || null;
++      setView(example.result.status === 'materialized' ? 'settlement' : 'full');
++    }
++    renderList();
++    showSelection();
++    renderBudgets();
++    renderAccess();
++    updateTechnical();
++    $('coordinate').textContent = '原点から東・北の距離を表示';
++    $('selection-announcement').textContent = example.label + '、' + statusName(example) + 'を表示しました。';
++    schedule();
++  };
++  const resize = () => {
++    const box = canvas.getBoundingClientRect();
++    width = Math.max(100, box.width);
++    height = Math.max(100, box.height);
++    pixelRatio = Math.max(1, Math.min(window.devicePixelRatio || 1, 2, 4096 / width, 4096 / height));
++    canvas.width = Math.round(width * pixelRatio);
++    canvas.height = Math.round(height * pixelRatio);
++    if (example) {
++      if (activeView === 'full' || activeView === 'settlement' || activeView === 'fields') setView(activeView);
++      else clampCamera();
++    }
++    schedule();
++  };
++  const manualView = () => {
++    activeView = 'custom';
++    viewButtons();
++    clampCamera();
++    schedule();
++  };
++  const zoom = (factor, x, y) => {
++    const before = world(x, y);
++    camera.scale *= factor;
++    clampCamera();
++    const after = world(x, y);
++    camera.x += before.xM - after.xM;
++    camera.y += before.yM - after.yM;
++    manualView();
++  };
++  const localPointer = event => {
++    const b = canvas.getBoundingClientRect();
++    return { x: event.clientX - b.left, y: event.clientY - b.top };
++  };
++  const contains = (p, points) => {
++    let inside = false;
++    for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
++      const a = points[i];
++      const b = points[j];
++      if ((a.yM > p.yM) !== (b.yM > p.yM) && p.xM < (b.xM - a.xM) * (p.yM - a.yM) / (b.yM - a.yM) + a.xM) inside = !inside;
++    }
++    return inside;
++  };
++  const hit = p => {
++    const xy = world(p.x, p.y);
++    const sorted = records.slice().reverse().sort((a, b) => (a.type === 'house' || a.type === 'public' ? 0 : 1) - (b.type === 'house' || b.type === 'public' ? 0 : 1));
++    for (const record of sorted) if (contains(xy, record.points)) return record;
++    let nearest = null;
++    let best = 8;
++    for (const record of records) {
++      if (record.type !== 'house' && record.type !== 'public') continue;
++      const c = screen(center(record.bounds));
++      const distance = Math.hypot(p.x - c.x, p.y - c.y);
++      if (distance < best) { best = distance; nearest = record; }
++    }
++    return nearest;
++  };
++  const coordinateReadout = p => {
++    const xy = world(p.x, p.y);
++    const s = example.surface;
++    const g = s.grid;
++    const gx = (xy.xM + s.widthM / 2) / g.cellSizeM;
++    const gy = (s.heightM / 2 - xy.yM) / g.cellSizeYM;
++    let text = '東 ' + decimal.format(xy.xM) + ' m / 北 ' + decimal.format(xy.yM) + ' m';
++    if (gx >= 0 && gx <= g.columns - 1 && gy >= 0 && gy <= g.rows - 1) {
++      const x0 = Math.min(g.columns - 2, Math.floor(gx));
++      const y0 = Math.min(g.rows - 2, Math.floor(gy));
++      const tx = gx - x0;
++      const ty = gy - y0;
++      const sample = values => {
++        const i = y0 * g.columns + x0;
++        return (values[i] * (1 - tx) + values[i + 1] * tx) * (1 - ty) +
++          (values[i + g.columns] * (1 - tx) + values[i + g.columns + 1] * tx) * ty;
++      };
++      text += ' · 格子補間標高 ' + decimal.format(sample(s.elevationM)) + ' m / 水深 ' + decimal.format(sample(s.waterDepthM)) + ' m';
++    } else text += ' · 保存地形の範囲外';
++    $('coordinate').textContent = text;
++  };
++  $('candidate').addEventListener('change', () => changeExample(Number($('candidate').value)));
++  $('object-filter').addEventListener('change', renderList);
++  $('object-search').addEventListener('input', renderList);
++  $('object-select').addEventListener('change', () => {
++    const record = records.find(v => v.key === $('object-select').value);
++    choose(record, Boolean(record), false);
++  });
++  $('focus-object').addEventListener('click', () => { if (selected) choose(selected, true, false); });
++  $('reveal-object').addEventListener('click', revealSelected);
++  for (const name of ['full', 'settlement', 'fields']) $('view-' + name).addEventListener('click', () => setView(name));
++  canvas.addEventListener('wheel', event => {
++    event.preventDefault();
++    const p = localPointer(event);
++    const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? height : 1);
++    zoom(Math.exp(-Math.max(-500, Math.min(500, delta)) * .0015), p.x, p.y);
++  }, { passive: false });
++  canvas.addEventListener('pointerdown', event => {
++    if (event.button !== 0 || event.pointerType === 'touch') return;
++    const p = localPointer(event);
++    canvas.focus({ preventScroll: true });
++    canvas.setPointerCapture(event.pointerId);
++    pointer = { id: event.pointerId, x: p.x, y: p.y, startX: p.x, startY: p.y, moved: false };
++    canvas.classList.add('dragging');
++  });
++  canvas.addEventListener('pointermove', event => {
++    const p = localPointer(event);
++    if (pointer && event.pointerId === pointer.id) {
++      if (Math.hypot(p.x - pointer.startX, p.y - pointer.startY) > 4) pointer.moved = true;
++      if (pointer.moved) {
++        camera.x -= (p.x - pointer.x) / camera.scale;
++        camera.y += (p.y - pointer.y) / camera.scale;
++        manualView();
++      }
++      pointer.x = p.x;
++      pointer.y = p.y;
++    }
++    coordinateReadout(p);
++  });
++  const endPointer = (event, cancelled) => {
++    if (!pointer || event.pointerId !== pointer.id) return;
++    const click = !cancelled && !pointer.moved;
++    pointer = null;
++    canvas.classList.remove('dragging');
++    if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
++    if (click) {
++      const record = hit(localPointer(event));
++      if (record) choose(record, false, true);
++    }
++  };
++  canvas.addEventListener('pointerup', event => endPointer(event, false));
++  canvas.addEventListener('pointercancel', event => endPointer(event, true));
++  canvas.addEventListener('lostpointercapture', () => { pointer = null; canvas.classList.remove('dragging'); });
++  canvas.addEventListener('keydown', event => {
++    const pan = (event.shiftKey ? 140 : 55) / camera.scale;
++    let handled = true;
++    if (event.key === 'ArrowLeft') camera.x -= pan;
++    else if (event.key === 'ArrowRight') camera.x += pan;
++    else if (event.key === 'ArrowUp') camera.y += pan;
++    else if (event.key === 'ArrowDown') camera.y -= pan;
++    else if (event.key === '+' || event.key === '=' || event.code === 'NumpadAdd') zoom(1.3, width / 2, height / 2);
++    else if (event.key === '-' || event.key === '−' || event.code === 'NumpadSubtract') zoom(1 / 1.3, width / 2, height / 2);
++    else if (event.key === 'Home') setView('full');
++    else handled = false;
++    if (handled) {
++      event.preventDefault();
++      if (event.key.startsWith('Arrow')) manualView();
++    }
++  });
++  resize();
++  const hilly = data.examples.findIndex(e => e.result.status === 'materialized' && e.label.includes('起伏'));
++  const materialized = data.examples.findIndex(e => e.result.status === 'materialized');
++  changeExample(hilly >= 0 ? hilly : materialized >= 0 ? materialized : 0);
++  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(resize).observe(canvas.parentElement);
++  else window.addEventListener('resize', resize);
++}
+--- /dev/null
++++ b/test/l2-settlement-surface.test.mjs
+@@ -0,0 +1,44 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {hashJson} from '../src/core/json-contract.mjs';
++import {createHash} from '../src/core/sha256.mjs';
++import {makeL2SettlementDetail,createL2SettlementSurface} from '../src/core/l2-settlement-surface.mjs';
++import {readL2SettlementCandidatePage} from '../src/core/l2-settlement-handoff.mjs';
++const {handoff} = JSON.parse(fs.readFileSync(new URL('../fixtures/l2-settlement-handoff.json',import.meta.url)));
++const origin = readL2SettlementCandidatePage(handoff,{offset:2,limit:1}).candidates[0];
++const digest = v => createHash('sha256').update(JSON.stringify(v)).digest('hex');
++function fixture(){
++  const candidate={schema:'shape-first-candidate@1',grid:{columns:5,rows:5,cellSizeM:100,cellSizeYM:100,row0:'north',yDirection:'south'},
++    elevation:Array.from({length:25},(_,i)=>20+(i%5)*.1),rivers:[[{xM:0,yM:0},{xM:400,yM:0}]],
++    riverDesign:{rivers:[{id:'r',parentId:null,order:1,designBedElevationM:[19,20]}]}};
++  const hashes={height:digest(candidate.elevation),rivers:digest(candidate.rivers)};
++  const water={schema:'shape-first-water-annotation@1',scenario:{kind:'synthetic-demonstration',runoffMmPerYear:0},
++    preservation:{before:hashes,after:hashes},rivers:[{id:'r',parent:null,segmentFlowM3PerSecond:[.1]}]};
++  return {candidate,water,center:{latDeg:origin.latDeg,lonDeg:origin.lonDeg},radiusM:6371000,elevationOffsetM:100,
++    provenance:{method:'controlled-synthetic-native-fixture'}};
++}
++test('saved native L2 terrain is shared and never falls back outside its domain',()=>{
++  const input=fixture(),detail=makeL2SettlementDetail(handoff,input),surface=createL2SettlementSurface(detail,handoff);
++  const center=surface.sampleSurfaceAt(origin.latDeg,origin.lonDeg);
++  assert.ok(center.groundElevationM>120&&center.groundElevationM<121);
++  assert.equal(center.waterDepthM,0);assert.equal(surface.layer,'L2');
++  const outside=surface.projection.toGeographic(300,0);
++  assert.equal(surface.sampleSurfaceAt(outside.latDeg,outside.lonDeg).unknown,true);
++  assert.ok(Number.isNaN(surface.groundElevationAt(outside.latDeg,outside.lonDeg)));
++  const snapshot=surface.toSnapshot();snapshot.candidate.elevation.fill(-1000);
++  input.candidate.elevation.fill(-2000);
++  assert.deepEqual(surface.sampleSurfaceAt(origin.latDeg,origin.lonDeg),center);
++  assert.deepEqual(createL2SettlementSurface(JSON.parse(JSON.stringify(detail)),handoff).toSnapshot(),detail);
++});
++test('native-grid, content identity, handoff and water-geometry mismatches fail closed',()=>{
++  const detail=makeL2SettlementDetail(handoff,fixture());
++  const corrupt=structuredClone(detail);corrupt.candidate.elevation[0]++;
++  assert.throws(()=>createL2SettlementSurface(corrupt,handoff),/identity/);
++  const tooCoarse=fixture();tooCoarse.candidate.grid.cellSizeM=101;
++  assert.throws(()=>makeL2SettlementDetail(handoff,tooCoarse),/spacing/);
++  const altered=structuredClone(detail);altered.parentLayerId='wrong';delete altered.id;altered.id=hashJson(altered);
++  assert.throws(()=>createL2SettlementSurface(altered,handoff),/geography/);
++  const badWater=fixture();badWater.water.preservation.before.height='bad';
++  assert.throws(()=>makeL2SettlementDetail(handoff,badWater),/height/);
++});
+--- /dev/null
++++ b/test/l2-settlement-materialization.test.mjs
+@@ -0,0 +1,298 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { readFileSync } from 'node:fs';
++import { CommittedMaterializer } from '../src/core/committed-materialization.mjs';
++import {
++  materializeL2SettlementCandidate,
++  saveL2SettlementMaterialization,
++  L2_SETTLEMENT_MATERIALIZATION_SCHEMA,
++} from '../src/core/l2-settlement-materialization.mjs';
++import { readL2SettlementCandidatePage } from '../src/core/l2-settlement-handoff.mjs';
++import { createSphericalProjection, offsetGeographic, greatCircle } from '../src/core/spherical.mjs';
++
++// The candidate example is a saved, real-world-shaped handoff; the surfaces
++// below are synthetic fixtures and are not a claim about that world.
++const RADIUS_M = 6371000;
++const example = JSON.parse(readFileSync(new URL('../fixtures/l2-settlement-handoff.json', import.meta.url), 'utf8'));
++const handoff = example.handoff;
++const population = { id: handoff.populationId, sourceWorldId: handoff.sourceWorldId };
++const VILLAGE_SLOT = handoff.budget.cities + handoff.budget.towns;
++const TOWN_SLOT = 0;
++
++const candidateAt = slot => readL2SettlementCandidatePage(handoff, { offset: slot, limit: 1 }).candidates[0];
++
++function baseSurface(overrides = {}) {
++  return {
++    worldId: handoff.sourceWorldId,
++    sourceLayerId: handoff.layerId,
++    surfaceId: 'test-native-l2@1',
++    layer: 'L2',
++    detailKind: 'native-l2-terrain@1',
++    nativeSpacingM: { east: 25, north: 25 },
++    frame: { radiusM: RADIUS_M },
++    method: 'test-flat-native@1',
++    sampleSurfaceAt: () => ({ groundElevationM: 100, waterDepthM: 0, waterLevelElevationM: 0, waterSourceIds: [], landReserved: false }),
++    groundElevationAt: () => 100,
++    ...overrides,
++  };
++}
++
++const flat = baseSurface();
++const wet = baseSurface({
++  sampleSurfaceAt: () => ({ groundElevationM: 50, waterDepthM: 2, waterLevelElevationM: 52, waterSourceIds: ['lake:x'], landReserved: false }),
++  groundElevationAt: () => 50,
++});
++const steep = baseSurface({
++  sampleSurfaceAt: (latDeg, lonDeg) => ({ groundElevationM: 100 + (latDeg-candidateAt(VILLAGE_SLOT).latDeg+lonDeg-candidateAt(VILLAGE_SLOT).lonDeg)*1e6, waterDepthM: 0, waterLevelElevationM: null, waterSourceIds: [], landReserved: false }),
++  groundElevationAt: (latDeg, lonDeg) => 100 + (latDeg-candidateAt(VILLAGE_SLOT).latDeg+lonDeg-candidateAt(VILLAGE_SLOT).lonDeg)*1e6,
++});
++const unknown = baseSurface({
++  sampleSurfaceAt: () => ({ groundElevationM: NaN, waterDepthM: NaN, waterLevelElevationM: NaN, waterSourceIds: [], landReserved: false }),
++  groundElevationAt: () => NaN,
++});
++
++function boundedSurface(origin, regionM) {
++  const inside = (latDeg, lonDeg) => greatCircle(origin, { latDeg, lonDeg }, RADIUS_M).distanceM <= regionM;
++  return baseSurface({
++    sampleSurfaceAt: (latDeg, lonDeg) => (inside(latDeg, lonDeg)
++      ? { groundElevationM: 100, waterDepthM: 0, waterLevelElevationM: 0, waterSourceIds: [], landReserved: false }
++      : { groundElevationM: NaN, waterDepthM: NaN, waterLevelElevationM: NaN, waterSourceIds: [], landReserved: false }),
++    groundElevationAt: (latDeg, lonDeg) => (inside(latDeg, lonDeg) ? 100 : NaN),
++  });
++}
++
++function memoryStore() {
++  const map = new Map();
++  return {
++    map,
++    get: async key => (map.has(key) ? map.get(key) : null),
++    putIfAbsent: async (key, record) => {
++      if (map.has(key)) return map.get(key);
++      map.set(key, record);
++      return record;
++    },
++  };
++}
++
++function assertFiniteJson(value, path = 'root') {
++  if (value === null) return;
++  const type = typeof value;
++  if (type === 'number') { assert.ok(Number.isFinite(value), `${path} must be finite`); return; }
++  if (type === 'string' || type === 'boolean') return;
++  if (Array.isArray(value)) { value.forEach((entry, i) => assertFiniteJson(entry, `${path}[${i}]`)); return; }
++  if (type === 'object') {
++    for (const key of Object.keys(value)) {
++      assert.notEqual(value[key], undefined, `${path}.${key} must not be undefined`);
++      assertFiniteJson(value[key], `${path}.${key}`);
++    }
++    return;
++  }
++  assert.fail(`${path} has unsupported type ${type}`);
++}
++
++test('flat detailed fixture materializes a village district and field page as finite JSON', () => {
++  const result = materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT });
++  const candidate = candidateAt(VILLAGE_SLOT);
++  assert.equal(result.schema, L2_SETTLEMENT_MATERIALIZATION_SCHEMA);
++  assert.equal(result.status, 'materialized');
++  assert.equal(result.candidateId, candidate.id);
++  assert.equal(result.kind, 'village');
++  assert.equal(result.origin.latDeg, candidate.latDeg);
++  assert.equal(result.origin.lonDeg, candidate.lonDeg);
++  assert.equal(result.housing.totalPopulation, candidate.population);
++  assert.ok(result.housing.placedDwellings > 0);
++  assert.ok(result.housing.representedPopulation > 0);
++  assert.equal(result.housing.totalPopulation, result.housing.requestedPopulation + result.housing.unvisitedPopulation);
++  assert.equal(result.housing.requestedPopulation, result.housing.representedPopulation + result.housing.unresolvedPopulation);
++  assert.ok(result.layout.buildings.length > 0);
++  assert.equal(result.fields.requestedM2, Math.min(16*40000,candidate.farmlandDemandM2));
++  assert.equal(result.fields.totalDemandM2, candidate.farmlandDemandM2);
++  assert.equal(result.fields.totalDemandM2, result.fields.requestedM2 + result.fields.outsidePageM2);
++  assert.equal(result.fields.requestedM2, result.fields.surveyedM2 + result.fields.unresolvedM2);
++  assert.equal(result.fields.surveyedM2, result.fields.accepted.reduce((sum, parcel) => sum + parcel.areaM2, 0));
++  assert.ok(result.fields.accepted.length > 0);
++  for (const parcel of result.fields.accepted) {
++    assert.ok(Number.isInteger(parcel.areaM2) && parcel.areaM2 > 0);
++    assert.equal(parcel.points.length, 4);
++  }
++  assert.ok(Number.isInteger(result.fields.requestedM2));
++  assertFiniteJson(result);
++});
++
++test('district and field pages keep stable ids and positions', () => {
++  const a = materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, fieldOffset: 0, fieldLimit: 16 });
++  const b = materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, fieldOffset: 0, fieldLimit: 16 });
++  assert.deepEqual(a, b);
++  const later = materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, fieldOffset: 16, fieldLimit: 16 });
++  assert.equal(a.layout.buildings[0].id, later.layout.buildings[0].id);
++  assert.notEqual(a.fields.accepted[0].id, later.fields.accepted[0].id);
++  assert.deepEqual(a.housing, later.housing);
++});
++
++test('dry corners do not hide water inside an accepted residential footprint',()=>{
++  const initial=materializeL2SettlementCandidate(flat,population,handoff,{slot:VILLAGE_SLOT,fieldLimit:1});
++  const house=initial.layout.buildings.find(b=>b.id.includes('/house:')),b=house.bounds;
++  const origin=candidateAt(VILLAGE_SLOT),projection=createSphericalProjection({centerLatDeg:origin.latDeg,centerLonDeg:origin.lonDeg,radiusM:RADIUS_M,maxRadiusM:RADIUS_M*.1});
++  const cx=(b.minXM+b.maxXM)/2,cy=(b.minYM+b.maxYM)/2;
++  const sample=(lat,lon)=>{const p=projection.toLocal(lat,lon);return {groundElevationM:100,waterDepthM:Math.abs(p.xM-cx)<2&&Math.abs(p.yM-cy)<2?1:0,waterLevelElevationM:null};};
++  const surface=baseSurface({sampleSurfaceAt:sample});
++  const result=materializeL2SettlementCandidate(surface,population,handoff,{slot:VILLAGE_SLOT,fieldLimit:1});
++  assert.ok(!result.layout.buildings.some(v=>v.id===house.id));
++  assert.ok(!result.layout.buildingPads.some(v=>v.id===house.id));
++  assert.ok(result.layout.geometryRejections.some(v=>v.id===house.id));
++  assert.equal(result.housing.placedDwellings,initial.housing.placedDwellings-1);
++  assert.equal(result.housing.requestedPopulation,result.housing.representedPopulation+result.housing.unresolvedPopulation);
++  assert.equal(result.layout.layoutStatus.placedDwellings,result.housing.placedDwellings);
++});
++
++test('every field page conserves the single candidate demand including the partial last parcel',()=>{
++  const candidate=candidateAt(VILLAGE_SLOT),ids=new Set();let requested=0;
++  const count=Math.ceil(candidate.farmlandDemandM2/40000);
++  for(let offset=0;offset<count;offset+=16){
++    const result=materializeL2SettlementCandidate(flat,population,handoff,{slot:VILLAGE_SLOT,fieldOffset:offset,fieldLimit:16});
++    requested+=result.fields.requestedM2;
++    assert.equal(result.fields.totalDemandM2,candidate.farmlandDemandM2);
++    assert.equal(result.fields.requestedM2,result.fields.surveyedM2+result.fields.unresolvedM2);
++    for(const parcel of [...result.fields.accepted,...result.fields.rejected]){
++      assert.ok(!ids.has(parcel.id));ids.add(parcel.id);
++      const b=parcel.bounds;assert.ok(Math.abs((b.maxXM-b.minXM)*(b.maxYM-b.minYM)-parcel.areaM2)<1e-7);
++    }
++  }
++  assert.equal(requested,candidate.farmlandDemandM2);assert.equal(ids.size,count);
++});
++
++test('the surveyed access corridor reserves its width before fields are accepted',()=>{
++  const candidate=candidateAt(VILLAGE_SLOT);
++  const target={id:'east-portal',provenance:'explicit boundary survey input',kind:'local-boundary-portal',
++    ...offsetGeographic(candidate,1500,0,RADIUS_M)};
++  const result=materializeL2SettlementCandidate(flat,population,handoff,{slot:VILLAGE_SLOT,accessTarget:target});
++  assert.equal(result.access.status,'surveyed-local-route');
++  assert.ok(result.fields.rejected.some(p=>p.reason==='occupied'));
++  const projection=createSphericalProjection({...result.access.recipe.projection});
++  const originProjection=createSphericalProjection({centerLatDeg:candidate.latDeg,centerLonDeg:candidate.lonDeg,radiusM:RADIUS_M,maxRadiusM:RADIUS_M*.1});
++  for(const road of result.access.recipe.roadCenterlineProfiles)for(const sample of road.samples){
++    const geo=projection.toGeographic(sample.xM,sample.yM),p=originProjection.toLocal(geo.latDeg,geo.lonDeg);
++    for(const parcel of result.fields.accepted){const b=parcel.bounds;
++      assert.ok(!(p.xM>b.minXM-road.halfWidthM&&p.xM<b.maxXM+road.halfWidthM&&p.yM>b.minYM-road.halfWidthM&&p.yM<b.maxYM+road.halfWidthM));
++    }
++  }
++});
++
++test('save commits once and reloads without regenerating', async () => {
++  const store = memoryStore();
++  const materializer = new CommittedMaterializer(store, { maxRecordBytes: 4 * 1024 * 1024 });
++  const first = await saveL2SettlementMaterialization(materializer, flat, population, handoff, { slot: VILLAGE_SLOT });
++  const second = await saveL2SettlementMaterialization(
++    materializer, flat, population, handoff, { slot: VILLAGE_SLOT },
++    { generate: () => { throw new Error('generator must not run on reload'); } },
++  );
++  assert.deepEqual(first, second);
++  assert.equal(store.map.size, 1);
++});
++
++test('a changed surface is rejected by the committed store', async () => {
++  const store = memoryStore();
++  const materializer = new CommittedMaterializer(store);
++  await saveL2SettlementMaterialization(materializer, flat, population, handoff, { slot: VILLAGE_SLOT });
++  const other = baseSurface({ surfaceId: 'different-native@1' });
++  await assert.rejects(() => saveL2SettlementMaterialization(materializer, other, population, handoff, { slot: VILLAGE_SLOT }));
++});
++
++for (const [name, surface, reason] of [['wet', wet, 'wet'], ['steep', steep, 'slope'], ['unknown', unknown, 'invalid-surface']]) {
++  test(`${name} candidate is held with a reason and its requirement`, () => {
++    const result = materializeL2SettlementCandidate(surface, population, handoff, { slot: VILLAGE_SLOT });
++    assert.equal(result.status, 'held');
++    assert.ok(result.reasons.some(entry => entry.includes(reason)), `expected ${reason} in ${JSON.stringify(result.reasons)}`);
++    assert.equal(result.layout, null);
++    assert.equal(result.housing.placedDwellings, 0);
++    assert.equal(result.housing.representedPopulation, 0);
++    assert.equal(result.housing.requestedPopulation, result.housing.unresolvedPopulation);
++    assert.equal(result.fields.accepted.length, 0);
++    assert.equal(result.fields.requestedM2, result.fields.unresolvedM2);
++    assert.equal(result.access.status, 'not-generated');
++    assertFiniteJson(result);
++  });
++}
++
++test('detail boundary never materializes houses or fields outside it', () => {
++  const candidate = candidateAt(VILLAGE_SLOT);
++  const origin = { latDeg: candidate.latDeg, lonDeg: candidate.lonDeg };
++  const surface = boundedSurface(origin, 1000);
++  const result = materializeL2SettlementCandidate(surface, population, handoff, { slot: VILLAGE_SLOT });
++  assert.equal(result.status, 'materialized');
++  const projection = createSphericalProjection({ centerLatDeg: origin.latDeg, centerLonDeg: origin.lonDeg, radiusM: RADIUS_M, maxRadiusM: RADIUS_M * 0.1 });
++  const within = (xM, yM) => greatCircle(origin, projection.toGeographic(xM, yM), RADIUS_M).distanceM <= 1000 + 1;
++  for (const building of result.layout.buildings) {
++    for (const [xM, yM] of [[building.bounds.minXM, building.bounds.minYM], [building.bounds.maxXM, building.bounds.minYM], [building.bounds.maxXM, building.bounds.maxYM], [building.bounds.minXM, building.bounds.maxYM]]) {
++      assert.ok(within(xM, yM));
++    }
++  }
++  for (const parcel of result.fields.accepted) for (const [xM, yM] of parcel.points) assert.ok(within(xM, yM));
++  assert.ok(result.fields.rejected.length > 0);
++  assert.ok(result.fields.accepted.length < result.fields.totalPlots);
++  assertFiniteJson(result);
++});
++
++test('an access target routes through the existing local road survey and stays unresolved', () => {
++  const candidate = candidateAt(VILLAGE_SLOT);
++  const target = {
++    id: 'portal-north',
++    provenance: 'input boundary portal',
++    kind: 'local-boundary-portal',
++    ...offsetGeographic({ latDeg: candidate.latDeg, lonDeg: candidate.lonDeg }, 0, 1500, RADIUS_M),
++  };
++  const result = materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, accessTarget: target });
++  assert.equal(result.access.status, 'surveyed-local-route');
++  assert.equal(result.access.receivingConnection, 'unresolved');
++  assert.ok(result.access.recipe.roadCenterlineProfiles.length > 0);
++  assertFiniteJson(result);
++});
++
++test('a target beyond the local survey budget leaves an empty invalid profile', () => {
++  const candidate = candidateAt(VILLAGE_SLOT);
++  const target = {
++    id: 'portal-far',
++    provenance: 'input boundary portal',
++    kind: 'local-boundary-portal',
++    ...offsetGeographic({ latDeg: candidate.latDeg, lonDeg: candidate.lonDeg }, 0, 7000, RADIUS_M),
++  };
++  const result = materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, accessTarget: target });
++  assert.notEqual(result.access.status, 'surveyed-local-route');
++  assert.equal(result.access.recipe.roadCenterlineProfiles.length, 0);
++});
++
++test('a town keeps its demand explicit without inventing local fields', () => {
++  const result = materializeL2SettlementCandidate(flat, population, handoff, { slot: TOWN_SLOT });
++  assert.equal(result.kind, 'town');
++  assert.equal(result.status, 'materialized');
++  assert.ok(result.layout.buildings.length > 0);
++  assert.equal(result.fields.requestedM2, 0);
++  assert.equal(result.fields.surveyedM2, 0);
++  assert.equal(result.fields.totalPlots, 0);
++  assert.equal(result.fields.accepted.length, 0);
++  assert.equal(result.fields.outsidePageM2, candidateAt(TOWN_SLOT).farmlandDemandM2);
++  assert.equal(result.fields.status,'regional-supply-unresolved');
++});
++
++test('surface contract mismatches are rejected before generation', () => {
++  const options = { slot: VILLAGE_SLOT };
++  assert.throws(() => materializeL2SettlementCandidate(baseSurface({ worldId: 'other' }), population, handoff, options), /world mismatch/);
++  assert.throws(() => materializeL2SettlementCandidate(baseSurface({ sourceLayerId: 'other' }), population, handoff, options), /parent L1 layer mismatch/);
++  assert.throws(() => materializeL2SettlementCandidate(baseSurface({ layer: 'L1' }), population, handoff, options), /L2 surface/);
++  assert.throws(() => materializeL2SettlementCandidate(baseSurface({ detailKind: 'other@1' }), population, handoff, options), /native L2 detail/);
++  assert.throws(() => materializeL2SettlementCandidate(baseSurface({ nativeSpacingM: { east: 101, north: 25 } }), population, handoff, options), /native spacing/);
++  assert.throws(() => materializeL2SettlementCandidate(baseSurface({ frame: { radiusM: 0 } }), population, handoff, options), /frame radius/);
++  assert.throws(() => materializeL2SettlementCandidate(flat, { id: 'x', sourceWorldId: handoff.sourceWorldId }, handoff, options), /population authority mismatch/);
++});
++
++test('options are strictly validated', () => {
++  assert.throws(() => materializeL2SettlementCandidate(flat, population, handoff, {}), /slot/);
++  assert.throws(() => materializeL2SettlementCandidate(flat, population, handoff, { slot: 999999 }), /slot/);
++  assert.throws(() => materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, fieldLimit: 0 }), /fieldLimit/);
++  assert.throws(() => materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, fieldLimit: 65 }), /fieldLimit/);
++  assert.throws(() => materializeL2SettlementCandidate(flat, population, handoff, { slot: VILLAGE_SLOT, districtIndex: 999 }), /district index/);
++  assert.throws(() => materializeL2SettlementCandidate(flat, population, handoff, {
++    slot: VILLAGE_SLOT,
++    accessTarget: { id: 'p', latDeg: 0, lonDeg: 0, provenance: 'p', kind: 'wrong' },
++  }), /local-boundary-portal/);
++});
+--- /dev/null
++++ b/test/l2-materialization-file-persistence.test.mjs
+@@ -0,0 +1,36 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import os from 'node:os';
++import path from 'node:path';
++import {CommittedMaterializer} from '../src/core/committed-materialization.mjs';
++import {createFileMaterializationStorage} from '../scripts/materialization-file-store.mjs';
++import {saveL2SettlementMaterialization,materializeL2SettlementCandidate} from '../src/core/l2-settlement-materialization.mjs';
++const {handoff}=JSON.parse(fs.readFileSync(new URL('../fixtures/l2-settlement-handoff.json',import.meta.url)));
++const population={id:handoff.populationId,sourceWorldId:handoff.sourceWorldId};
++const surface={worldId:handoff.sourceWorldId,sourceLayerId:handoff.layerId,surfaceId:'controlled-native-persistence',
++  layer:'L2',detailKind:'native-l2-terrain@1',nativeSpacingM:{east:50,north:50},frame:{radiusM:6371000},
++  sampleSurfaceAt:()=>({groundElevationM:100,waterDepthM:0,waterLevelElevationM:null}),groundElevationAt:()=>100};
++test('a new file-store instance reopens the exact layout and rejects changed detail without overwrite',async()=>{
++  const directory=fs.mkdtempSync(path.join(os.tmpdir(),'l2-native-persistence-'));
++  const options={slot:2,fieldLimit:2},maxRecordBytes=4*1024*1024;
++  const fresh=()=>new CommittedMaterializer(createFileMaterializationStorage(directory,{maxRecordBytes}),{maxRecordBytes});
++  const fail=()=>{throw Error('Cold reopening must not generate geometry');};
++  try{
++    const saved=await saveL2SettlementMaterialization(fresh(),surface,population,handoff,options);
++    assert.deepEqual(await saveL2SettlementMaterialization(fresh(),surface,population,handoff,options,{generate:fail}),saved);
++    await assert.rejects(saveL2SettlementMaterialization(fresh(),{...surface,surfaceId:'changed'},population,handoff,options),/conditions changed/);
++    assert.deepEqual(await saveL2SettlementMaterialization(fresh(),surface,population,handoff,options,{generate:fail}),saved);
++  }finally{fs.rmSync(directory,{recursive:true,force:true});}
++});
++test('district demand is partitioned exactly without duplicate residential IDs',()=>{
++  const first=materializeL2SettlementCandidate(surface,population,handoff,{slot:0,fieldLimit:1});
++  let represented=0,requested=0;const ids=new Set();
++  for(let districtIndex=0;districtIndex<first.districtCount;districtIndex++){
++    const r=materializeL2SettlementCandidate(surface,population,handoff,{slot:0,districtIndex,fieldLimit:1});
++    requested+=r.housing.requestedPopulation;represented+=r.housing.representedPopulation;
++    for(const b of r.layout?.buildings??[]){assert.ok(!ids.has(b.id));ids.add(b.id);}
++  }
++  assert.equal(requested,first.housing.totalPopulation);
++  assert.equal(represented,first.housing.totalPopulation);
++});
+--- /dev/null
++++ b/fixtures/l2-settlement-handoff.json
+@@ -0,0 +1,71 @@
++{
++  "handoff": {
++    "assumptions": [
++      "Candidate counts and populations come from the saved L1 cell budget and the saved sizePolicy",
++      "Farmland demand uses the L0 parent netFoodKg/cultivatedHa scenario yield and foodKgPerPersonYear",
++      "No house, road, field or surveyed site is created by this recipe"
++    ],
++    "bounds": {
++      "east": 268.59375,
++      "north": -1.40625,
++      "south": -2.8125,
++      "west": 267.1875
++    },
++    "budget": {
++      "cities": 0,
++      "cityPopulation": 0,
++      "population": 94874,
++      "ruralPopulation": 87129,
++      "townPopulation": 7745,
++      "towns": 2,
++      "villages": 291
++    },
++    "cellIndex": 16830,
++    "climateId": "sha256:a9ac7754d9bd8fdb41a4912178015e6e9fc8bf748233fcbe48c9031612887c40",
++    "distributionId": "sha256:44fb873500082e18e7bf610f829a965cbbaa21bdaddcc3e6a2799b7f6b96c37f",
++    "farmland": {
++      "foodKgPerPersonYear": 250,
++      "scenario": "netFoodKg per cultivatedHa from the saved L0 population authority, cut by foodKgPerPersonYear",
++      "totalDemandM2": 630213734,
++      "unresolved": false,
++      "yieldKgPerHa": 376.3564444444445
++    },
++    "grid": {
++      "columns": 256,
++      "rows": 128
++    },
++    "id": "sha256:1a04dc9291f5c14883e182763c16550a8b7d962bc89499dc74f30f3f72c385f1",
++    "interpretation": "Candidate settlement budget recipe for one L1 cell. Farmland area is a demand-only requirement, not secured land, and the candidate coordinates are unsurveyed strata.",
++    "layerId": "sha256:91e23026b49c207bebfae6dcc1aba9d6fc86c72b39475d39026a614e2c84dc53",
++    "limitations": [
++      "A positive population with a non-positive scenario yield is kept as an explicit unresolved farmland demand rather than hidden as zero",
++      "The sizePolicy magnitude model is provisional and not a historical calibration",
++      "This recipe is one cell; it does not create a global slot array or a new census"
++    ],
++    "parentCell": 4191,
++    "parentDistributionId": "sha256:a31dd28188f1f59a173b926cb98462a8d87d71fabffc6b465c78e1edaa0266c6",
++    "parentGrid": {
++      "columns": 128,
++      "rows": 64
++    },
++    "populationId": "sha256:8f17db5efb7b5720097e3fffa493e4e73d0923a139922e89b033884d39977b19",
++    "ruralFractionTarget": 0.9,
++    "schema": "l2-settlement-handoff@1",
++    "sizePolicy": {
++      "cityMax": 75000,
++      "cityMin": 25000,
++      "jitterAmplitudeFraction": 0.25,
++      "jitterPeriod": 16,
++      "meanCityPopulation": 50000,
++      "meanTownPopulation": 4000,
++      "meanVillagePopulation": 300,
++      "schema": "settlement-size-policy@1",
++      "townMax": 6000,
++      "townMin": 1000,
++      "villageMax": 450,
++      "villageMin": 1
++    },
++    "sourceWorldId": "l0-audit:planet-1:128:64",
++    "status": "candidate-budget-only"
++  }
++}
+--- /dev/null
++++ b/docs/L2_SETTLEMENT_MATERIALIZATION.md
+@@ -0,0 +1,48 @@
++# 集落候補をネイティブL2地形で具体化する
++
++2026-10-13。対象環境は **PC**。L0人口正本とL1配分から渡された候補一件を、保存された詳細地形上の住宅一区画・農地区画一ページ・地域端へのアクセス調査へ接続する。
++
++## 正本と生成範囲
++
++`makeL2SettlementDetail` / `createL2SettlementSurface` は、明示的に渡された `shape-first-candidate@1` のネイティブ格子と設計河床を、世界ID・親L1・handoff・球半径・配置・出典と一緒に識別する。最大32,768節点、格子間隔は各100m以下。詳細域外は高さ・水域とも未確認であり、粗いL1へ戻して建設可能と扱わない。
++
++`materializeL2SettlementCandidate(surface,population,handoff,options)` は固定slotから候補を取り出す。候補のID・人数・原点を変更せず、詳細面で立地を再調査する。立地保留なら住宅・農地・道路を生成しない。
++
++既存の住宅区画生成を使い、一区画は最大96戸、住宅一戸の人数仮定は5人。`housing.totalPopulation = requestedPopulation + unvisitedPopulation`、`requestedPopulation = representedPopulation + unresolvedPopulation`。公共建物を住宅数に数えない。別区画の参照は `districtIndex` で行い、全区画を一度に生成しない。
++
++村の農地は **候補一件の整数需要** を200×200mの固定区画slotへ配り、末尾区画の幅を縮めて実面積を一致させる。全住宅区画の外側に置き、指定ページのみ標本調査する。未知・水域・勾配・住宅・道路幅との重なりは理由付き保留。`fields.totalDemandM2 = requestedM2 + outsidePageM2`、`requestedM2 = surveyedM2 + unresolvedM2`。町・都市の後背地供給は未解決として需要を保持し、ローカル畑を作ったことにしない。
++
++地域端の入力済み調査点がある場合だけ、既存の局地道路探索を使う。橋は作らず、5kmまでの探索と道路幅の水域・敷地照合を行う。通過した道路を先に農地の阻害領域へ入れる。地域端までの道ができても、隣接地域の道路との接続は `receivingConnection: unresolved`。
++
++候補・区画・農地ページ・調査点の識別で `CommittedMaterializer` に確定保存する。詳細面と入力条件を保存条件に含め、同じ保存へ異なる地形を上書きしない。一レコードの上限は4MiB。再読込では初回の形状と保留を使う。
++
++## 再現と検査
++
++```powershell
++# 前段のL0/L1・候補資料がない場合
++npm run l2:baseline
++# 保存されたL1から固定三候補を詳細化
++npm run l2:materialize
++```
++
++入力は `reports/l2-settlement-baseline`、出力は `reports/l2-settlement-materialization`。CLIの二つの位置引数で入力・出力ディレクトリーを指定できる。既定の三候補のslotを固定しており、成功例を探すためにseedや原点を選び直さない。
++
++今回の地域地形例には既存のseed生成器を用い、161×129節点、約8.85×9.77km、55.30×76.35mのネイティブ形状を追加した。L1の一点の標高を配置時の基準として平行移動し、局地の形を保つ。設計河床と仮の400mm/年流出注釈を使い、外部流入・洪水・飲料水を成立済みとはしない。住宅の敷地判定はこの格子の補間と設計河床上で行う。格子未満の小地形・土壌・基礎耐力は未生成・未検証。
++
++固定三候補では、都市74,465人と村260人は詳細面の傾斜で保留。起伏地域の村284人では住宅27戸・135人分を配置し、149人を保留した。公共建物一棟は住宅数に含めない。この村の必要農地4,431,714m²のうち、今回のページ640,000m²で600,000m²が標本条件を通過、40,000m²が水域で保留、3,791,714m²がページ対象外。地域端への道は幅の水域・未知値確認で保留。
++
++`review.html` は保存結果の独立したPC向け検査画面。詳細地形と配置輪郭を見比べ、通過・保留・今回の対象外を区別する。表示格子も住宅・農地・道路と同じ詳細サンプラから作る。土壌・食料確保・権利・農道の完成を、この画面の農地輪郭で証明しない。
++
++## 現在のロードマップ
++
++**L0統計 → L1配分 → L2候補受け渡し → 参照候補の局地詳細化・条件調査・確定保存** まで。
++
++次は、固定原点で保留となった立地の扱い、農地への実アクセス、隣接するネイティブ地形と道路の接続、新しい候補から全球ランタイムで地域を参照する経路への採用。独立した三地域の地形例を、共有境界まで成立した全球地形と扱わない。長時間運用とPCのGPU描画・性能の受け入れも残る。
++
++今回の実測・自動試験・PCブラウザー操作・参考レビュー・未実行事項は `reports/l2-settlement-materialization/verification.json` に記録する。元配布ZIPのSOURCE-MANIFESTは現在の変更コードの証拠として更新しない。
++
++検証は全1,432試験PASS / 0 fail / 0 skip、buildはcore 160・完全一致alias 30・globe構文74が成功。最後の表記補正ではHTML内のJavaScript構文とPC実ブラウザーを再確認した。三候補切替、地図と一覧の連動、保留の絞り込み、キーボード・ホイール・ドラッグを確認し、コンソールエラー0・横overflow無し。Geminiは画像閲覧ツールで三枚を参照し、住宅容量・保留住宅需要・隣接未接続の表記を参考レビューした。人口需要まで住宅容量とする案は採用していない。
++
++全球ランタイムへの採用、PCのGPU globe、長時間運用、人間による景観・操作の受け入れは未実行・未完了。今回の実画面はCanvas2Dによる局地の保存結果検査。
++
++敷地の四隅だけでは狭い河川を見落とす例があったため、建物内部と内部道路の幅も2m間隔で標本調査する。該当する建物・padを保留へ戻し、住宅人数と保存状態を更新する。修正前の未受入資料はQA履歴に隔離した。具体化generatorは@2へ更新したため、@1の具体化レコードは再生成が必要。L0/L1とネイティブ地形の版・候補原点は変更していない。

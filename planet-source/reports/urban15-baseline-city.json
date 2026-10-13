@@ -1,0 +1,531 @@
+{
+  "worldId": "sha256:6c5dc7d74ff3b0c0b0fee1b8e718e6a13eced9ceab62410bfee26e8ec520bf77",
+  "homes": 9718,
+  "results": [
+    {
+      "districtIndex": 0,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 1,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 2,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 3,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 4,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 5,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 6,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 7,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 8,
+      "homes": 88,
+      "requested": 96
+    },
+    {
+      "districtIndex": 9,
+      "homes": 93,
+      "requested": 96
+    },
+    {
+      "districtIndex": 10,
+      "homes": 93,
+      "requested": 96
+    },
+    {
+      "districtIndex": 11,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 12,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 13,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 14,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 15,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 16,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 17,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 18,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 19,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 20,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 21,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 22,
+      "homes": 84,
+      "requested": 96
+    },
+    {
+      "districtIndex": 23,
+      "homes": 81,
+      "requested": 96
+    },
+    {
+      "districtIndex": 24,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 25,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 26,
+      "homes": 71,
+      "requested": 96
+    },
+    {
+      "districtIndex": 27,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 28,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 29,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 30,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 31,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 32,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 33,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 34,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 35,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 36,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 37,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 38,
+      "homes": 95,
+      "requested": 96
+    },
+    {
+      "districtIndex": 39,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 40,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 41,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 42,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 43,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 44,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 45,
+      "homes": 94,
+      "requested": 96
+    },
+    {
+      "districtIndex": 46,
+      "homes": 94,
+      "requested": 96
+    },
+    {
+      "districtIndex": 47,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 48,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 49,
+      "homes": 79,
+      "requested": 96
+    },
+    {
+      "districtIndex": 50,
+      "homes": 74,
+      "requested": 96
+    },
+    {
+      "districtIndex": 51,
+      "homes": 78,
+      "requested": 96
+    },
+    {
+      "districtIndex": 52,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 53,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 54,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 55,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 56,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 57,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 58,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 59,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 60,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 61,
+      "homes": 57,
+      "requested": 96
+    },
+    {
+      "districtIndex": 62,
+      "homes": 89,
+      "requested": 96
+    },
+    {
+      "districtIndex": 63,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 64,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 65,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 66,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 67,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 68,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 69,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 70,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 71,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 72,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 73,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 74,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 75,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 76,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 77,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 78,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 79,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 80,
+      "homes": 90,
+      "requested": 96
+    },
+    {
+      "districtIndex": 81,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 82,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 83,
+      "homes": 95,
+      "requested": 96
+    },
+    {
+      "districtIndex": 84,
+      "homes": 85,
+      "requested": 96
+    },
+    {
+      "districtIndex": 85,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 86,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 87,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 88,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 89,
+      "homes": 93,
+      "requested": 96
+    },
+    {
+      "districtIndex": 90,
+      "homes": 66,
+      "requested": 96
+    },
+    {
+      "districtIndex": 91,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 92,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 93,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 94,
+      "homes": 81,
+      "requested": 96
+    },
+    {
+      "districtIndex": 95,
+      "homes": 81,
+      "requested": 96
+    },
+    {
+      "districtIndex": 96,
+      "homes": 94,
+      "requested": 96
+    },
+    {
+      "districtIndex": 97,
+      "homes": 92,
+      "requested": 96
+    },
+    {
+      "districtIndex": 98,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 99,
+      "homes": 75,
+      "requested": 96
+    },
+    {
+      "districtIndex": 100,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 101,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 102,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 103,
+      "homes": 96,
+      "requested": 96
+    },
+    {
+      "districtIndex": 104,
+      "homes": 16,
+      "requested": 16
+    }
+  ]
+}

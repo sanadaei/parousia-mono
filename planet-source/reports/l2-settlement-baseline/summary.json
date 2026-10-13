@@ -1,0 +1,309 @@
+{
+  "schema": "l2-settlement-baseline@1",
+  "seed": "planet-1",
+  "census": {
+    "requestedPopulation": 100000000,
+    "supportedPopulation": 100000000,
+    "unplacedPopulation": 0
+  },
+  "l0Totals": {
+    "population": 100000000,
+    "ruralPopulation": 90180603,
+    "townPopulation": 7819397,
+    "cityPopulation": 2000000,
+    "villages": 301475,
+    "towns": 2724,
+    "cities": 40,
+    "populatedCells": 1754
+  },
+  "l1Totals": {
+    "population": 99898832,
+    "ruralPopulation": 90087694,
+    "townPopulation": 7811138,
+    "cityPopulation": 2000000,
+    "villages": 301165,
+    "towns": 2721,
+    "cities": 40,
+    "populatedCells": 6657
+  },
+  "l1Unallocated": {
+    "population": 101168,
+    "ruralPopulation": 92909,
+    "townPopulation": 8259,
+    "cityPopulation": 0,
+    "villages": 310,
+    "towns": 3,
+    "cities": 0,
+    "populatedCells": 1,
+    "parentCells": 1
+  },
+  "sourceLayerId": "sha256:91e23026b49c207bebfae6dcc1aba9d6fc86c72b39475d39026a614e2c84dc53",
+  "screeningSurfaceId": "sha256:ac150217d0aa436c07eddfc0069bc41c73b533ce17b64ea8d7618f6b3d348c46",
+  "screeningMethod": "l1-bilinear-ground-cell-water-mask@1",
+  "sizes": {
+    "l0Bytes": 4565645,
+    "l1Bytes": 4932059,
+    "summaryBytes": 1881
+  },
+  "regions": [
+    {
+      "label": "都市を含む地域",
+      "cellIndex": 15826,
+      "budget": {
+        "population": 89003,
+        "ruralPopulation": 10764,
+        "townPopulation": 3774,
+        "cityPopulation": 74465,
+        "villages": 36,
+        "towns": 1,
+        "cities": 1
+      },
+      "requestedCultivatedAreaM2": 505698864,
+      "pages": [
+        {
+          "offset": 0,
+          "total": 38,
+          "requested": {
+            "cities": 1,
+            "cityPopulation": 74465,
+            "population": 89003,
+            "ruralPopulation": 10764,
+            "townPopulation": 3774,
+            "towns": 1,
+            "villages": 36
+          },
+          "accepted": {
+            "cities": 1,
+            "cityPopulation": 74465,
+            "population": 89003,
+            "ruralPopulation": 10764,
+            "townPopulation": 3774,
+            "towns": 1,
+            "villages": 36
+          },
+          "unresolved": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          },
+          "unvisited": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "村が多い地域",
+      "cellIndex": 16830,
+      "budget": {
+        "population": 94874,
+        "ruralPopulation": 87129,
+        "townPopulation": 7745,
+        "cityPopulation": 0,
+        "villages": 291,
+        "towns": 2,
+        "cities": 0
+      },
+      "requestedCultivatedAreaM2": 630213734,
+      "pages": [
+        {
+          "offset": 0,
+          "total": 293,
+          "requested": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 26345,
+            "ruralPopulation": 18600,
+            "townPopulation": 7745,
+            "towns": 2,
+            "villages": 62
+          },
+          "accepted": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 26345,
+            "ruralPopulation": 18600,
+            "townPopulation": 7745,
+            "towns": 2,
+            "villages": 62
+          },
+          "unresolved": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          },
+          "unvisited": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 68529,
+            "ruralPopulation": 68529,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 229
+          }
+        },
+        {
+          "offset": 64,
+          "total": 293,
+          "requested": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 19194,
+            "ruralPopulation": 19194,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 64
+          },
+          "accepted": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 19194,
+            "ruralPopulation": 19194,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 64
+          },
+          "unresolved": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          },
+          "unvisited": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 75680,
+            "ruralPopulation": 67935,
+            "townPopulation": 7745,
+            "towns": 2,
+            "villages": 227
+          }
+        },
+        {
+          "offset": 256,
+          "total": 293,
+          "requested": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 11063,
+            "ruralPopulation": 11063,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 37
+          },
+          "accepted": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 11063,
+            "ruralPopulation": 11063,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 37
+          },
+          "unresolved": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          },
+          "unvisited": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 83811,
+            "ruralPopulation": 76066,
+            "townPopulation": 7745,
+            "towns": 2,
+            "villages": 254
+          }
+        }
+      ]
+    },
+    {
+      "label": "起伏が大きい地域",
+      "cellIndex": 12669,
+      "budget": {
+        "population": 8632,
+        "ruralPopulation": 8632,
+        "townPopulation": 0,
+        "cityPopulation": 0,
+        "villages": 29,
+        "towns": 0,
+        "cities": 0
+      },
+      "requestedCultivatedAreaM2": 134699143,
+      "pages": [
+        {
+          "offset": 0,
+          "total": 29,
+          "requested": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 8632,
+            "ruralPopulation": 8632,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 29
+          },
+          "accepted": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 8632,
+            "ruralPopulation": 8632,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 29
+          },
+          "unresolved": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          },
+          "unvisited": {
+            "cities": 0,
+            "cityPopulation": 0,
+            "population": 0,
+            "ruralPopulation": 0,
+            "townPopulation": 0,
+            "towns": 0,
+            "villages": 0
+          }
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "sevenBudgetsConserved": true,
+    "farmlandDemandConserved": true,
+    "savedPagesReopenedWithoutSurvey": true
+  },
+  "limitations": [
+    "Regional candidate screening on saved coarse L1 heights and water masks; local L2 relief and plots are unresolved",
+    "Cultivated area is demand only, not acquired or laid-out land",
+    "No houses, roads, flood certification or drinking-water evidence",
+    "Only selected representative pages are saved by this command; the core page API works for any valid L1 cell"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "accounting": {
+    "areaM2": 86467284.18703341,
+    "assignedCellCount": 20480,
+    "runoffM3PerSecond": 1.0959931577437245,
+    "externalM3PerSecond": 0,
+    "outletM3PerSecond": 1.0959931577437232,
+    "residualM3PerSecond": -1.3322676295501878e-15,
+    "closed": true
+  },
+  "preservation": {
+    "before": {
+      "height": "2f1fea3f5c4d3d2182b5604c835faa568f75dcfc906f1b9bc16eda04d7de7db6",
+      "rivers": "7eca764b8b205c72bb8688b1dded63110af0c80a062913a303462e85eb2292a5",
+      "terrain": "a555a3e8288a361e2cd08fa2dc4107b9baca36152f6faa66b99d39dcf2394993"
+    },
+    "after": {
+      "height": "2f1fea3f5c4d3d2182b5604c835faa568f75dcfc906f1b9bc16eda04d7de7db6",
+      "rivers": "7eca764b8b205c72bb8688b1dded63110af0c80a062913a303462e85eb2292a5",
+      "terrain": "a555a3e8288a361e2cd08fa2dc4107b9baca36152f6faa66b99d39dcf2394993"
+    },
+    "unchanged": true
+  },
+  "standardSuiteDiscovery": {
+    "wrapper": "test/shape-first-river-water.test.mjs",
+    "command": "node --test test/shape-first-river-water.test.mjs",
+    "passed": 17,
+    "failed": 0,
+    "note": "Wrapper added after the 1273-test full-suite run; the same 17 water tests passed through it. scripts/test-files.mjs includes this wrapper automatically in future npm test runs."
+  }
+}

@@ -1,0 +1,13 @@
+import fs from'node:fs';import path from'node:path';import assert from'node:assert/strict';
+import{restorePlanetWorld}from'../src/core/planet-world.mjs';
+const input=process.argv[2];if(!input)throw Error('Provide a saved browser runtime JSON');const report=JSON.parse(fs.readFileSync(input));
+const inspection=report.runStatus==='inspection-only';
+assert.equal(report.streaming.errors.length,0);
+if(inspection){assert.equal(report.streaming.displayedNeighborViolations,0);assert.ok(report.camera);}
+else{assert.equal(report.runStatus,'completed');assert.ok(report.durationMs>=report.requestedDurationMs);assert.equal(report.noGeometryFrames,0);assert.equal(report.maxDisplayedNeighborViolations,0);
+assert.ok(report.visibility.every(v=>v.state==='visible'),'A backgrounded tour is not a continuous visible-render test');}
+const root=path.resolve('.'),url=new URL(report.manifest),manifestPath=path.resolve(root,'.'+url.pathname);assert.ok(manifestPath.startsWith(root+path.sep));const manifest=JSON.parse(fs.readFileSync(manifestPath));assert.equal(report.worldId,manifest.worldId);
+const snapshotPath=path.resolve(path.dirname(manifestPath),manifest.planetSnapshot);assert.ok(snapshotPath.startsWith(root+path.sep));const world=restorePlanetWorld(fs.readFileSync(snapshotPath,'utf8'));assert.equal(world.worldId,manifest.canonicalWorldId);
+let maxElevationErrorM=0,maxWaterDepthErrorM=0;for(const w of report.witnesses){const s=world.sampleAt(w.latDeg,w.lonDeg);maxElevationErrorM=Math.max(maxElevationErrorM,Math.abs(w.groundElevationM-s.groundElevationM));if(w.waterDepthM!=null&&s.waterDepthM!=null)maxWaterDepthErrorM=Math.max(maxWaterDepthErrorM,Math.abs(w.waterDepthM-s.waterDepthM));else assert.equal(w.waterDepthM,s.waterDepthM);}
+assert.ok(report.witnesses.length>0);assert.ok(maxElevationErrorM<1e-6);assert.ok(maxWaterDepthErrorM<1e-6);
+console.log(JSON.stringify({input,runStatus:report.runStatus,durationSeconds:inspection?null:report.durationMs/1000,worldId:world.worldId,manifestWorldId:report.worldId,witnesses:report.witnesses.length,maxElevationErrorM,maxWaterDepthErrorM,actualDrawFPS:inspection?null:report.actualDrawFPS,fps30Gate:inspection?null:report.fps30Gate,rendererKind:report.rendererKind,peakRecordedWindowHeapBytes:inspection?null:Math.max(...report.memorySamples.map(m=>m.jsHeapBytes??0)),peakTrackedOwnedBytes:inspection?null:Math.max(...report.memorySamples.map(m=>m.trackedOwnedBytes)),scope:inspection?'static inspection only; Core witnesses and current adjacency verified, no tour/FPS/long-term memory claim':'completed visible tour; streamed sample witnesses match Core; GPU fps and whole-browser memory remain separate gates'},null,2));

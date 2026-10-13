@@ -1,0 +1,359 @@
+[
+  {
+    "stage": 0,
+    "grid": {
+      "cellSizeM": 56954.21094777909,
+      "cellSizeYM": 78183.93279695536,
+      "columns": 3,
+      "rows": 3
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 643.6596880555605,
+      "reliefM": 673.1597766206918,
+      "elevationP05P95M": [
+        -11.276869069634266,
+        525.4261050988785
+      ],
+      "slopeMedianDegrees": 0.28046779878611616,
+      "slopeP95Degrees": 0.4345210569508793,
+      "atOrBelowZeroNodes": 1,
+      "nodeCount": 9,
+      "fillMaxM": 0.0,
+      "fillPositiveNodes": 0,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 78.18393279695536,
+      "channelLinks": 1,
+      "maxContributingAreaKm2": 6679.35630186717,
+      "outletAreaSumKm2": 17811.61680497912
+    },
+    "generated": {
+      "elevationMinM": 40.42403070442034,
+      "elevationMaxM": 113.01724190438277,
+      "reliefM": 72.59321119996244,
+      "elevationP05P95M": [
+        44.1529054691012,
+        109.80646126592276
+      ],
+      "slopeMedianDegrees": 0.027521096184501943,
+      "slopeP95Degrees": 0.036172322961233044,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 9,
+      "fillMaxM": 0.0,
+      "fillPositiveNodes": 0,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 56.95421094777909,
+      "channelLinks": 1,
+      "maxContributingAreaKm2": 6679.35630186717,
+      "outletAreaSumKm2": 17811.61680497912
+    }
+  },
+  {
+    "stage": 1,
+    "grid": {
+      "columns": 5,
+      "rows": 5,
+      "cellSizeM": 28477.105473889544,
+      "cellSizeYM": 39091.96639847768
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1185.413112112221,
+      "reliefM": 1214.913200677352,
+      "elevationP05P95M": [
+        1.2697807116744113,
+        825.7766695404435
+      ],
+      "slopeMedianDegrees": 0.5202782115590274,
+      "slopeP95Degrees": 1.272998045483793,
+      "atOrBelowZeroNodes": 2,
+      "nodeCount": 25,
+      "fillMaxM": 0.0,
+      "fillPositiveNodes": 0,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 358.4156544755068,
+      "channelLinks": 9,
+      "maxContributingAreaKm2": 3896.2911760891825,
+      "outletAreaSumKm2": 17811.616804979123
+    },
+    "generated": {
+      "elevationMinM": 40.42403070442034,
+      "elevationMaxM": 138.38206842505238,
+      "reliefM": 97.95803772063203,
+      "elevationP05P95M": [
+        48.4722212867169,
+        123.02437466660524
+      ],
+      "slopeMedianDegrees": 0.038465870492964335,
+      "slopeP95Degrees": 0.10441075967507144,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 25,
+      "fillMaxM": 2.761843837161493,
+      "fillPositiveNodes": 1,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 326.5710717017424,
+      "channelLinks": 9,
+      "maxContributingAreaKm2": 7235.969327022767,
+      "outletAreaSumKm2": 17811.61680497912
+    }
+  },
+  {
+    "stage": 2,
+    "grid": {
+      "columns": 9,
+      "rows": 9,
+      "cellSizeM": 14238.552736944772,
+      "cellSizeYM": 19545.98319923884
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1185.413112112221,
+      "reliefM": 1214.913200677352,
+      "elevationP05P95M": [
+        -2.427264153809793,
+        837.3614703819993
+      ],
+      "slopeMedianDegrees": 0.6924903966902108,
+      "slopeP95Degrees": 1.8521566511824037,
+      "atOrBelowZeroNodes": 5,
+      "nodeCount": 81,
+      "fillMaxM": 63.19387662694365,
+      "fillPositiveNodes": 4,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 935.7287544045372,
+      "channelLinks": 49,
+      "maxContributingAreaKm2": 3478.8314072224844,
+      "outletAreaSumKm2": 17811.61680497912
+    },
+    "generated": {
+      "elevationMinM": 35.61775554097758,
+      "elevationMaxM": 154.7842565456989,
+      "reliefM": 119.16650100472131,
+      "elevationP05P95M": [
+        49.74621761612249,
+        127.28414324518573
+      ],
+      "slopeMedianDegrees": 0.04846074490773372,
+      "slopeP95Degrees": 0.16015176461839475,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 81,
+      "fillMaxM": 12.821215821380932,
+      "fillPositiveNodes": 6,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 934.3864530594104,
+      "channelLinks": 49,
+      "maxContributingAreaKm2": 8488.348633622862,
+      "outletAreaSumKm2": 17811.61680497912
+    }
+  },
+  {
+    "stage": 3,
+    "grid": {
+      "columns": 17,
+      "rows": 17,
+      "cellSizeM": 7119.276368472386,
+      "cellSizeYM": 9772.99159961942
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1347.7795598602124,
+      "reliefM": 1377.2796484253436,
+      "elevationP05P95M": [
+        0.05587109888477204,
+        836.6419664975413
+      ],
+      "slopeMedianDegrees": 0.9117593919967043,
+      "slopeP95Degrees": 2.5259233766978246,
+      "atOrBelowZeroNodes": 15,
+      "nodeCount": 289,
+      "fillMaxM": 153.4222542343864,
+      "fillPositiveNodes": 35,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 985.4531676331898,
+      "channelLinks": 96,
+      "maxContributingAreaKm2": 5322.6120530504,
+      "outletAreaSumKm2": 17811.61680497912
+    },
+    "generated": {
+      "elevationMinM": 35.61775554097758,
+      "elevationMaxM": 179.0236391104751,
+      "reliefM": 143.40588356949752,
+      "elevationP05P95M": [
+        48.870011874393356,
+        126.58094908997575
+      ],
+      "slopeMedianDegrees": 0.06997724448447173,
+      "slopeP95Degrees": 0.2627862964490794,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 289,
+      "fillMaxM": 11.607922106759617,
+      "fillPositiveNodes": 31,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 976.6560145833089,
+      "channelLinks": 95,
+      "maxContributingAreaKm2": 6227.108218928245,
+      "outletAreaSumKm2": 17811.616804979116
+    }
+  },
+  {
+    "stage": 4,
+    "grid": {
+      "columns": 33,
+      "rows": 33,
+      "cellSizeM": 3559.638184236193,
+      "cellSizeYM": 4886.49579980971
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1347.7795598602124,
+      "reliefM": 1377.2796484253436,
+      "elevationP05P95M": [
+        6.054995567154327,
+        879.7638713290602
+      ],
+      "slopeMedianDegrees": 1.3980924953751608,
+      "slopeP95Degrees": 4.59337610759183,
+      "atOrBelowZeroNodes": 47,
+      "nodeCount": 1089,
+      "fillMaxM": 209.53704200803537,
+      "fillPositiveNodes": 138,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1150.7513666935201,
+      "channelLinks": 218,
+      "maxContributingAreaKm2": 3818.017469426676,
+      "outletAreaSumKm2": 17811.61680497912
+    },
+    "generated": {
+      "elevationMinM": 33.65379231127166,
+      "elevationMaxM": 180.58756504419424,
+      "reliefM": 146.9337727329226,
+      "elevationP05P95M": [
+        51.815464815492284,
+        126.58094908997565
+      ],
+      "slopeMedianDegrees": 0.10830085646807004,
+      "slopeP95Degrees": 0.4842912808740347,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 1089,
+      "fillMaxM": 18.437841786473385,
+      "fillPositiveNodes": 215,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 977.8975128726797,
+      "channelLinks": 191,
+      "maxContributingAreaKm2": 6253.1994544824165,
+      "outletAreaSumKm2": 17811.616804979123
+    }
+  },
+  {
+    "stage": 5,
+    "grid": {
+      "columns": 65,
+      "rows": 65,
+      "cellSizeM": 1779.8190921180965,
+      "cellSizeYM": 2443.247899904855
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1447.4866385301825,
+      "reliefM": 1476.9867270953137,
+      "elevationP05P95M": [
+        7.669869712094791,
+        886.4799279130598
+      ],
+      "slopeMedianDegrees": 1.9465371494784447,
+      "slopeP95Degrees": 6.307141456099237,
+      "atOrBelowZeroNodes": 168,
+      "nodeCount": 4225,
+      "fillMaxM": 163.93717558674757,
+      "fillPositiveNodes": 393,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1226.4755367730006,
+      "channelLinks": 479,
+      "maxContributingAreaKm2": 3863.677131646473,
+      "outletAreaSumKm2": 17811.616804979123
+    },
+    "generated": {
+      "elevationMinM": 29.75394861573138,
+      "elevationMaxM": 180.58756504419424,
+      "reliefM": 150.83361642846285,
+      "elevationP05P95M": [
+        52.09250266290465,
+        126.88276275242302
+      ],
+      "slopeMedianDegrees": 0.143966822670289,
+      "slopeP95Degrees": 0.624407790352631,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 4225,
+      "fillMaxM": 20.5825542964472,
+      "fillPositiveNodes": 921,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1045.0747459123584,
+      "channelLinks": 423,
+      "maxContributingAreaKm2": 6542.377315207784,
+      "outletAreaSumKm2": 17811.616804979116
+    }
+  },
+  {
+    "stage": 6,
+    "grid": {
+      "columns": 129,
+      "rows": 129,
+      "cellSizeM": 889.9095460590482,
+      "cellSizeYM": 1221.6239499524274
+    },
+    "widthM": 113908.42189555817,
+    "heightM": 156367.8655939107,
+    "real": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1515.61788728502,
+      "reliefM": 1545.1179758501512,
+      "elevationP05P95M": [
+        8.642333371184986,
+        886.5783132366219
+      ],
+      "slopeMedianDegrees": 2.6816533658470973,
+      "slopeP95Degrees": 8.34587739317683,
+      "atOrBelowZeroNodes": 631,
+      "nodeCount": 16641,
+      "fillMaxM": 161.50906633554763,
+      "fillPositiveNodes": 1389,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1250.1789047754205,
+      "channelLinks": 975,
+      "maxContributingAreaKm2": 4451.2734990226445,
+      "outletAreaSumKm2": 17811.61680497912
+    },
+    "generated": {
+      "elevationMinM": 29.601929754197084,
+      "elevationMaxM": 183.77823094646993,
+      "reliefM": 154.17630119227286,
+      "elevationP05P95M": [
+        52.316034963936474,
+        126.90662972630277
+      ],
+      "slopeMedianDegrees": 0.16505019504031448,
+      "slopeP95Degrees": 0.6890474352066301,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 16641,
+      "fillMaxM": 21.19281698925689,
+      "fillPositiveNodes": 3759,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1121.549276624385,
+      "channelLinks": 877,
+      "maxContributingAreaKm2": 6589.66767964971,
+      "outletAreaSumKm2": 17811.616804979116
+    }
+  }
+]

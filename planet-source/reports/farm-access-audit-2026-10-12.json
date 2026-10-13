@@ -1,0 +1,40 @@
+{
+  "grid": 129,
+  "spacingM": 31.25,
+  "farmSamples": 2826,
+  "farmSamplesWithDryRoute": 2826,
+  "farmSamplesWithoutDryRouteInWindow": 0,
+  "searchedLandSamples": 13241,
+  "assumptions": [
+    "8-neighbour sampled terrain graph, no diagonal water corner-cutting",
+    "grade limit 0.2; woodland cost1.8; wet meadow cost5; these are diagnostic assumptions",
+    "No bridges, fords or boats included. Routes outside the 4km window and sub-grid obstacles unresolved",
+    "Not a declaration of actual farm accessibility or food capacity"
+  ],
+  "worldId": "sha256:0917de2c574ceeb106188c34ae301863eb9ec7902977d58d51c26904aeb53d4f",
+  "center": {
+    "latDeg": 9.120589799055045,
+    "lonDeg": 170.8704167956355
+  },
+  "extentM": 4000,
+  "farmRadiusQuantilesM": [
+    250,
+    817.8907705189,
+    1126.7347735824967,
+    1152.8666716060447
+  ],
+  "farmWeightedAccessQuantilesM": [
+    257.352438087466,
+    928.4735241384687,
+    1373.230162295046,
+    3855.645961803006
+  ],
+  "interpretation": "All sampled agricultural cells have a dry route in this bounded diagnostic. The circular footprint is confirmed, but inaccessible farms are not demonstrated here. Weighted route costs differ substantially even at similar radii. No production allocation was changed by this audit.",
+  "nextImplementationRequirements": [
+    "Derive a bounded access/suitability allocation from canonical terrain and water rather than only a radial cutoff.",
+    "Preserve existing saved allocations and persist first-reference decisions.",
+    "Use the same allocation for regional cover and local field parcels; do not add a second decorative field generator.",
+    "Report unresolved crossings, survey budgets and food-capacity deficits instead of inventing bridges or claiming sufficient yields.",
+    "Only materialize referenced regions; do not allocate farm grids for all planetary settlements."
+  ]
+}

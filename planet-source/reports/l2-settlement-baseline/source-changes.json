@@ -1,0 +1,179 @@
+{
+  "schema": "source-changes@1",
+  "baseline": "Current checkout before this L1/L2 slice; previous L0 implementation retained",
+  "gitRepository": false,
+  "files": [
+    {
+      "path": "docs/DEFERRED_WORLD_MATERIALIZATION.md",
+      "kind": "modified",
+      "beforeSha256": "f6faa5390eabee2287e139ea11120c1336a7aa4ef3a8e4b2f3f29b80ad2ecbfe",
+      "afterSha256": "ecde65bb6f0d4ba5607ed3199ff409a17c28b58a7369e46e1b35a935135f0260",
+      "bytes": 47436
+    },
+    {
+      "path": "docs/L0_REVIEW.md",
+      "kind": "modified",
+      "beforeSha256": "5521fdb34ab19583bbd9009afa397043045214645d9034fa288c8a66c7de9e1d",
+      "afterSha256": "505fe632ba36abe6eaadbe69c5a5e67f9e1de17c1f77ea8760abf1b38b26b5a1",
+      "bytes": 16972
+    },
+    {
+      "path": "docs/L2_SETTLEMENT_HANDOFF.md",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "2f53fb2bd83c82f019e34a3fde63f0903c5e3ad436a133dd4a35f3636192cf9c",
+      "bytes": 6562
+    },
+    {
+      "path": "docs/WORKING_BASELINE_ROADMAP.md",
+      "kind": "modified",
+      "beforeSha256": "c87c297de6896b3f6458a550a7a32b2f91401dbcf5cb922f6e1bf97943da5050",
+      "afterSha256": "6fb428e6f79ff5466aedc9acfbdaa3ed5d0bc057fdfdf356063c0e4778af2674",
+      "bytes": 13287
+    },
+    {
+      "path": "HANDOFF.md",
+      "kind": "modified",
+      "beforeSha256": "d45635debde6942fd0d85d1026474b732e1c0d61aa99e0792df64acec511b1a1",
+      "afterSha256": "a58ec3569df72de94bb6346ceb5c7ed5b9b5d736f9284a0dab0588da37becd2b",
+      "bytes": 55854
+    },
+    {
+      "path": "package.json",
+      "kind": "modified",
+      "beforeSha256": "d790ec80dbae21b09be8d8b18999908a6767c0185117a067a85d56ea5c9158cd",
+      "afterSha256": "4dc180e1f9928f3a958ce6c2707dfb9408f3bc99339688f58fa89fbc5c51bb87",
+      "bytes": 6710
+    },
+    {
+      "path": "README.md",
+      "kind": "modified",
+      "beforeSha256": "adfdfa45d1b9c4d58d6556f6b53ab06c9af8a52d41340fd4325a906c218265a8",
+      "afterSha256": "248f22e9b2f944a5e6fbe872902e6dc035204cd574eb0e27f961aaa715637d93",
+      "bytes": 28886
+    },
+    {
+      "path": "ROADMAP.md",
+      "kind": "modified",
+      "beforeSha256": "0dc795244f7ed3aea8f2c8f410d1e8be2871a9c8d439c1688b45cf6e89cfc7c0",
+      "afterSha256": "2c5dc425b70901c9f7867e1dcd56e01772bee8307005dc20418d36714853d954",
+      "bytes": 79303
+    },
+    {
+      "path": "scripts/build-l2-settlement-baseline.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "d9514b17731f1765024a123526847616da20ee23774c58e583d79cbc1b9b005d",
+      "bytes": 9607
+    },
+    {
+      "path": "scripts/build-l2-settlement-review.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "ca35ddd261c0a632ca5e00dc6e36a6e619eb481aa155678d8961fd76966031e9",
+      "bytes": 67771
+    },
+    {
+      "path": "scripts/planet-generation-api.mjs",
+      "kind": "modified",
+      "beforeSha256": "bc7f602bbbfd26f8daeccf7592c7472cf90022d388eb024007179ae7a982351e",
+      "afterSha256": "5f67fc5ef07861e3f1c90526d82f7c5b391ab12c6f0cca3c0a3af47d4b0a678f",
+      "bytes": 6965
+    },
+    {
+      "path": "src/core/index.mjs",
+      "kind": "modified",
+      "beforeSha256": "4a09ac9e5a221caafe53ffad8172a5239b78f4d1c348f60c3d8df2697d2e96c6",
+      "afterSha256": "49194641a175930305df959037641e941d6a053b85edb6ccc3ff0710e740c3d6",
+      "bytes": 18903
+    },
+    {
+      "path": "src/core/l1-settlement-survey-surface.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "1cba6ee8d3c430d53abb08c145b27177c5794e2d161e418f5137f5b144567cd3",
+      "bytes": 3002
+    },
+    {
+      "path": "src/core/l2-settlement-handoff.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "c914799e8174db0aa8bdd03060229e8f63dd23bebcd4c7dd872429962f2a83a3",
+      "bytes": 24980
+    },
+    {
+      "path": "src/core/planet-population.mjs",
+      "kind": "modified",
+      "beforeSha256": "4b75af13717e3361fdd4580053cc40fd7e7d080d6b52a8e4b6f93bfb2e8c850e",
+      "afterSha256": "1eb350c7e8229cc880a5ceb47bb8a5aff3e0de0cc3996b0b0cc31078243ca0d3",
+      "bytes": 7073
+    },
+    {
+      "path": "src/core/settlement-catalogue.mjs",
+      "kind": "modified",
+      "beforeSha256": "d6722c9f03e9d92448b8a42d8d43d7bb76fb868adf60beea0f7480325e81c82d",
+      "afterSha256": "d7bf745ac2b3ac7e1b7877bcc035360bb39de2ad2f10a4813f85d451200f943f",
+      "bytes": 13334
+    },
+    {
+      "path": "src/core/settlement-distribution.mjs",
+      "kind": "modified",
+      "beforeSha256": "898409a00d0e5f8d534411333e4154a83dbaa348b23e2550c56767a961ff6035",
+      "afterSha256": "f0bd0b472421ddff6fab98282fc04e140945f804231a57be5b2813f95d63d8b0",
+      "bytes": 27367
+    },
+    {
+      "path": "src/core/settlement-size-model.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "6f80d306e2df4a6d4460bca166db082b798607c80a2362926f0a71c77fe573fc",
+      "bytes": 10143
+    },
+    {
+      "path": "src/globe/index.html",
+      "kind": "modified",
+      "beforeSha256": "53206cdc589a8b50bfcb9b85a86faa1dea98f3aa1f9e5d19ddcb3cc8959d3509",
+      "afterSha256": "8a07e0af53bd16084edb51414bfc3c468a9ada5b9b7761a9c64db1e3535d87c8",
+      "bytes": 13609
+    },
+    {
+      "path": "test/l1-settlement-survey-surface.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "2bb773253354e81a7210e080637a94e7fab310f8f3dc217094c6551ee4a82a6f",
+      "bytes": 1624
+    },
+    {
+      "path": "test/l2-settlement-handoff.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "648ddf32fa2f4dd6774dcbd3dff8542e5dd8230664757ce433856826b974dc42",
+      "bytes": 21673
+    },
+    {
+      "path": "test/l2-settlement-persistence.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "89d8ae5e34e11e94bc10accccacc5f7cee950e427eb7232f97ba4c8ae4492283",
+      "bytes": 1788
+    },
+    {
+      "path": "test/planet-population.test.mjs",
+      "kind": "modified",
+      "beforeSha256": "d71923a61dbf5cf2fc48d8e461e4a926accde5d9a620e0949563750dcf2ae71e",
+      "afterSha256": "cb4d498f746250ce5eb53936c5f7c2f99f41210b980faab12084562d4dc4d680",
+      "bytes": 4323
+    },
+    {
+      "path": "test/settlement-size-model.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "6615d8b4ccc661313d90f4802d988739991fc3439102281645a4c955fdf0077d",
+      "bytes": 6574
+    }
+  ],
+  "patchesInOrder": [
+    "changes.patch",
+    "pc-scope.patch"
+  ]
+}

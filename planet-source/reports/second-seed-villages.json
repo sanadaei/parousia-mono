@@ -1,0 +1,249 @@
+{
+  "worldId": "sha256:d4fc87d6b1e430b0baa1f11844370257edb2f618a2ea4ed323b79ab8993abc38",
+  "scope": "Actual restored generated world, central communal pond physical sampling; not natural hydrology or visual acceptance",
+  "results": [
+    {
+      "siteId": "pop:2899:331",
+      "pond": {
+        "id": "pop:2899:331/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": 68,
+          "maxXM": 122,
+          "minYM": 45,
+          "maxYM": 85
+        },
+        "waterLevelElevationM": 487.5490757296217,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 26.54865343352199,
+        "lonDeg": -125.40460387949531
+      },
+      "sample": {
+        "groundElevationM": 486.0540757296217,
+        "waterLevelElevationM": 487.5490757296217,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:2899:331/district:0/communal-pond"
+        ],
+        "xM": 95.00000000238063,
+        "yM": 65.00000000041896,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "facilities": [
+        {
+          "id": "pop:2899:331/district:0/carpenter",
+          "type": "carpenter",
+          "bounds": {
+            "minXM": 9,
+            "maxXM": 23,
+            "minYM": 41,
+            "maxYM": 48
+          }
+        },
+        {
+          "id": "pop:2899:331/district:0/granary",
+          "type": "granary",
+          "bounds": {
+            "minXM": -36,
+            "maxXM": -24,
+            "minYM": -32,
+            "maxYM": -24
+          }
+        },
+        {
+          "id": "pop:2899:331/district:0/hall",
+          "type": "hall",
+          "bounds": {
+            "minXM": 24,
+            "maxXM": 32,
+            "minYM": -37,
+            "maxYM": -23
+          }
+        },
+        {
+          "id": "pop:2899:331/district:0/handmill",
+          "type": "handmill",
+          "bounds": {
+            "minXM": -34,
+            "maxXM": -26,
+            "minYM": 26,
+            "maxYM": 32
+          }
+        }
+      ],
+      "workyards": 4,
+      "accessPaths": 4,
+      "homes": 60,
+      "requested": 60
+    },
+    {
+      "siteId": "pop:2948:300",
+      "pond": {
+        "id": "pop:2948:300/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": -122,
+          "maxXM": -68,
+          "minYM": -85,
+          "maxYM": -45
+        },
+        "waterLevelElevationM": 413.44337655257976,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 23.90347708817773,
+        "lonDeg": 12.738469656658935
+      },
+      "sample": {
+        "groundElevationM": 411.94837655257976,
+        "waterLevelElevationM": 413.44337655257976,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:2948:300/district:0/communal-pond"
+        ],
+        "xM": -95.00000000520993,
+        "yM": -65.00000000041896,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "facilities": [
+        {
+          "id": "pop:2948:300/district:0/carpenter",
+          "type": "carpenter",
+          "bounds": {
+            "minXM": 9,
+            "maxXM": 23,
+            "minYM": 41,
+            "maxYM": 48
+          }
+        },
+        {
+          "id": "pop:2948:300/district:0/granary",
+          "type": "granary",
+          "bounds": {
+            "minXM": -32,
+            "maxXM": -24,
+            "minYM": -36,
+            "maxYM": -24
+          }
+        },
+        {
+          "id": "pop:2948:300/district:0/hall",
+          "type": "hall",
+          "bounds": {
+            "minXM": 24,
+            "maxXM": 32,
+            "minYM": -37,
+            "maxYM": -23
+          }
+        },
+        {
+          "id": "pop:2948:300/district:0/handmill",
+          "type": "handmill",
+          "bounds": {
+            "minXM": -34,
+            "maxXM": -26,
+            "minYM": 26,
+            "maxYM": 32
+          }
+        }
+      ],
+      "workyards": 4,
+      "accessPaths": 4,
+      "homes": 60,
+      "requested": 60
+    },
+    {
+      "siteId": "pop:2990:287",
+      "pond": {
+        "id": "pop:2990:287/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": 68,
+          "maxXM": 122,
+          "minYM": -85,
+          "maxYM": -45
+        },
+        "waterLevelElevationM": 594.3644733877996,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 23.974959315751,
+        "lonDeg": 130.81104510132866
+      },
+      "sample": {
+        "groundElevationM": 592.8694733877996,
+        "waterLevelElevationM": 594.3644733877996,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:2990:287/district:0/communal-pond"
+        ],
+        "xM": 95.00000000025867,
+        "yM": -65.0000000000653,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "facilities": [
+        {
+          "id": "pop:2990:287/district:0/carpenter",
+          "type": "carpenter",
+          "bounds": {
+            "minXM": 9,
+            "maxXM": 23,
+            "minYM": 41,
+            "maxYM": 48
+          }
+        },
+        {
+          "id": "pop:2990:287/district:0/granary",
+          "type": "granary",
+          "bounds": {
+            "minXM": 24,
+            "maxXM": 32,
+            "minYM": -36,
+            "maxYM": -24
+          }
+        },
+        {
+          "id": "pop:2990:287/district:0/hall",
+          "type": "hall",
+          "bounds": {
+            "minXM": -37,
+            "maxXM": -23,
+            "minYM": 24,
+            "maxYM": 32
+          }
+        },
+        {
+          "id": "pop:2990:287/district:0/handmill",
+          "type": "handmill",
+          "bounds": {
+            "minXM": -32,
+            "maxXM": -26,
+            "minYM": -34,
+            "maxYM": -26
+          }
+        }
+      ],
+      "workyards": 4,
+      "accessPaths": 4,
+      "homes": 60,
+      "requested": 60
+    }
+  ]
+}

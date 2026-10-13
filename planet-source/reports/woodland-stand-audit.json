@@ -1,0 +1,67 @@
+{
+  "inputWorldId": "sha256:3ae6a9011afd07b30672f8e17a9088f3b1dd53d71b52fd86d8a2a9e09c1158a0",
+  "policy": "patchy-woodland-stands@1",
+  "scope": "Actual terrain and climate; explicit48m canopy-gap scenario and independent per-cell positioning. These isolated stand audits do not include settlement or road clearance; the normal viewer supplies those. Not simulated age, forestry, species distribution or landscape acceptance.",
+  "results": [
+    {
+      "tile": "landscape:38484:19544",
+      "latDeg": 1.3986237593369424,
+      "lonDeg": -134.98992457827163,
+      "before": {
+        "trees": 400,
+        "heightRangeM": [
+          7.018923380412161,
+          16.95566993718967
+        ]
+      },
+      "after": {
+        "trees": 261,
+        "heightRangeM": [
+          7.141800113487989,
+          16.948416554834694
+        ]
+      },
+      "stable": true
+    },
+    {
+      "tile": "landscape:38486:19546",
+      "latDeg": 1.394019236672463,
+      "lonDeg": -134.98560663246377,
+      "before": {
+        "trees": 400,
+        "heightRangeM": [
+          7.025138547644019,
+          16.984073012601584
+        ]
+      },
+      "after": {
+        "trees": 267,
+        "heightRangeM": [
+          7.116336501669139,
+          16.981146878562868
+        ]
+      },
+      "stable": true
+    },
+    {
+      "tile": "landscape:38478:19538",
+      "latDeg": 1.4124373273303945,
+      "lonDeg": -135.00345445240532,
+      "before": {
+        "trees": 400,
+        "heightRangeM": [
+          7.010597035288811,
+          16.999578846618533
+        ]
+      },
+      "after": {
+        "trees": 290,
+        "heightRangeM": [
+          7.120579386129975,
+          16.96232243720442
+        ]
+      },
+      "stable": true
+    }
+  ]
+}

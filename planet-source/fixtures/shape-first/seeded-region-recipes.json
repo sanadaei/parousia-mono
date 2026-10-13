@@ -1,0 +1,42 @@
+{
+  "schema": "seeded-region-recipes@1",
+  "status": "shape previews; original A remains available",
+  "presets": [
+    {
+      "seed": 271828,
+      "generator": "seeded-river-region@1",
+      "widthM": 8847.575822166944,
+      "heightM": 9772.99159961942,
+      "columns": 161,
+      "rows": 129,
+      "reliefScale": 1,
+      "valleyWidthScale": 1,
+      "candidateSha256": "4941cd81eefb448858ad384bb326839dd3438d569ab5e013ac99e49b06dce7f7",
+      "riverCount": 28
+    },
+    {
+      "seed": 314159,
+      "generator": "seeded-river-region@1",
+      "widthM": 8847.575822166944,
+      "heightM": 9772.99159961942,
+      "columns": 161,
+      "rows": 129,
+      "reliefScale": 1,
+      "valleyWidthScale": 1,
+      "candidateSha256": "6283acf9be14dbe0af35b70664cede5346dee84d9c12f04c1c558556e791edcd",
+      "riverCount": 29
+    },
+    {
+      "seed": 161803,
+      "generator": "seeded-river-region@1",
+      "widthM": 8847.575822166944,
+      "heightM": 9772.99159961942,
+      "columns": 161,
+      "rows": 129,
+      "reliefScale": 1,
+      "valleyWidthScale": 1,
+      "candidateSha256": "3d655e8dc2e6d3a4ddb0881222da571f7b32a679cf1998ac9b87421a69adf2ff",
+      "riverCount": 32
+    }
+  ]
+}

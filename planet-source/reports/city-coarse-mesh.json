@@ -1,0 +1,849 @@
+{
+  "worldId": "sha256:f56d5df73db1085535d9bb6d9ae6cfbae86e9b29138b42df81782b7d54869ca2",
+  "siteId": "pop:3841:0",
+  "scope": "Actual runtime15 city, all105 district coarse feature meshes. Byte sums include height-lift buffer, not GPU/browser memory or distant scenery. No performance acceptance.",
+  "beforeBytes": 54109620,
+  "afterBytes": 9358740,
+  "results": [
+    {
+      "districtIndex": 0,
+      "beforeBytes": 550152,
+      "afterBytes": 96228,
+      "beforeTriangles": 3396,
+      "afterTriangles": 594,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 1,
+      "beforeBytes": 499932,
+      "afterBytes": 89100,
+      "beforeTriangles": 3086,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 2,
+      "beforeBytes": 502848,
+      "afterBytes": 89748,
+      "beforeTriangles": 3104,
+      "afterTriangles": 554,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 3,
+      "beforeBytes": 525528,
+      "afterBytes": 89424,
+      "beforeTriangles": 3244,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 4,
+      "beforeBytes": 486648,
+      "afterBytes": 89424,
+      "beforeTriangles": 3004,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 5,
+      "beforeBytes": 538488,
+      "afterBytes": 90720,
+      "beforeTriangles": 3324,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 6,
+      "beforeBytes": 554688,
+      "afterBytes": 92664,
+      "beforeTriangles": 3424,
+      "afterTriangles": 572,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 7,
+      "beforeBytes": 583848,
+      "afterBytes": 93960,
+      "beforeTriangles": 3604,
+      "afterTriangles": 580,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 8,
+      "beforeBytes": 550800,
+      "afterBytes": 91692,
+      "beforeTriangles": 3400,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 9,
+      "beforeBytes": 560844,
+      "afterBytes": 93312,
+      "beforeTriangles": 3462,
+      "afterTriangles": 576,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 10,
+      "beforeBytes": 528120,
+      "afterBytes": 90072,
+      "beforeTriangles": 3260,
+      "afterTriangles": 556,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 11,
+      "beforeBytes": 519048,
+      "afterBytes": 89424,
+      "beforeTriangles": 3204,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 12,
+      "beforeBytes": 553716,
+      "afterBytes": 93312,
+      "beforeTriangles": 3418,
+      "afterTriangles": 576,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 13,
+      "beforeBytes": 532656,
+      "afterBytes": 90720,
+      "beforeTriangles": 3288,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 14,
+      "beforeBytes": 513864,
+      "afterBytes": 90396,
+      "beforeTriangles": 3172,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 15,
+      "beforeBytes": 512892,
+      "afterBytes": 88776,
+      "beforeTriangles": 3166,
+      "afterTriangles": 548,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 16,
+      "beforeBytes": 518076,
+      "afterBytes": 91044,
+      "beforeTriangles": 3198,
+      "afterTriangles": 562,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 17,
+      "beforeBytes": 512568,
+      "afterBytes": 88452,
+      "beforeTriangles": 3164,
+      "afterTriangles": 546,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 18,
+      "beforeBytes": 540756,
+      "afterBytes": 91044,
+      "beforeTriangles": 3338,
+      "afterTriangles": 562,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 19,
+      "beforeBytes": 555660,
+      "afterBytes": 93636,
+      "beforeTriangles": 3430,
+      "afterTriangles": 578,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 20,
+      "beforeBytes": 510624,
+      "afterBytes": 91044,
+      "beforeTriangles": 3152,
+      "afterTriangles": 562,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 21,
+      "beforeBytes": 532980,
+      "afterBytes": 89100,
+      "beforeTriangles": 3290,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 22,
+      "beforeBytes": 462672,
+      "afterBytes": 85860,
+      "beforeTriangles": 2856,
+      "afterTriangles": 530,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 23,
+      "beforeBytes": 471096,
+      "afterBytes": 85212,
+      "beforeTriangles": 2908,
+      "afterTriangles": 526,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 24,
+      "beforeBytes": 552420,
+      "afterBytes": 94608,
+      "beforeTriangles": 3410,
+      "afterTriangles": 584,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 25,
+      "beforeBytes": 536868,
+      "afterBytes": 92988,
+      "beforeTriangles": 3314,
+      "afterTriangles": 574,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 26,
+      "beforeBytes": 505116,
+      "afterBytes": 86508,
+      "beforeTriangles": 3118,
+      "afterTriangles": 534,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 27,
+      "beforeBytes": 548856,
+      "afterBytes": 91044,
+      "beforeTriangles": 3388,
+      "afterTriangles": 562,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 28,
+      "beforeBytes": 532332,
+      "afterBytes": 91692,
+      "beforeTriangles": 3286,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 29,
+      "beforeBytes": 515484,
+      "afterBytes": 90396,
+      "beforeTriangles": 3182,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 30,
+      "beforeBytes": 516132,
+      "afterBytes": 89424,
+      "beforeTriangles": 3186,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 31,
+      "beforeBytes": 521964,
+      "afterBytes": 89424,
+      "beforeTriangles": 3222,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 32,
+      "beforeBytes": 520344,
+      "afterBytes": 91692,
+      "beforeTriangles": 3212,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 33,
+      "beforeBytes": 527472,
+      "afterBytes": 90396,
+      "beforeTriangles": 3256,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 34,
+      "beforeBytes": 520020,
+      "afterBytes": 90072,
+      "beforeTriangles": 3210,
+      "afterTriangles": 556,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 35,
+      "beforeBytes": 525528,
+      "afterBytes": 89748,
+      "beforeTriangles": 3244,
+      "afterTriangles": 554,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 36,
+      "beforeBytes": 525852,
+      "afterBytes": 91692,
+      "beforeTriangles": 3246,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 37,
+      "beforeBytes": 518400,
+      "afterBytes": 89748,
+      "beforeTriangles": 3200,
+      "afterTriangles": 554,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 38,
+      "beforeBytes": 513216,
+      "afterBytes": 88776,
+      "beforeTriangles": 3168,
+      "afterTriangles": 548,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 39,
+      "beforeBytes": 547884,
+      "afterBytes": 92340,
+      "beforeTriangles": 3382,
+      "afterTriangles": 570,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 40,
+      "beforeBytes": 515484,
+      "afterBytes": 90720,
+      "beforeTriangles": 3182,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 41,
+      "beforeBytes": 510948,
+      "afterBytes": 90396,
+      "beforeTriangles": 3154,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 42,
+      "beforeBytes": 476928,
+      "afterBytes": 86832,
+      "beforeTriangles": 2944,
+      "afterTriangles": 536,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 43,
+      "beforeBytes": 519048,
+      "afterBytes": 89748,
+      "beforeTriangles": 3204,
+      "afterTriangles": 554,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 44,
+      "beforeBytes": 522288,
+      "afterBytes": 90396,
+      "beforeTriangles": 3224,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 45,
+      "beforeBytes": 506736,
+      "afterBytes": 88452,
+      "beforeTriangles": 3128,
+      "afterTriangles": 546,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 46,
+      "beforeBytes": 516780,
+      "afterBytes": 89100,
+      "beforeTriangles": 3190,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 47,
+      "beforeBytes": 525204,
+      "afterBytes": 89424,
+      "beforeTriangles": 3242,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 48,
+      "beforeBytes": 514836,
+      "afterBytes": 90396,
+      "beforeTriangles": 3178,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 49,
+      "beforeBytes": 494100,
+      "afterBytes": 84240,
+      "beforeTriangles": 3050,
+      "afterTriangles": 520,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 50,
+      "beforeBytes": 454896,
+      "afterBytes": 79704,
+      "beforeTriangles": 2808,
+      "afterTriangles": 492,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 51,
+      "beforeBytes": 458784,
+      "afterBytes": 77112,
+      "beforeTriangles": 2832,
+      "afterTriangles": 476,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 52,
+      "beforeBytes": 533628,
+      "afterBytes": 91044,
+      "beforeTriangles": 3294,
+      "afterTriangles": 562,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 53,
+      "beforeBytes": 479844,
+      "afterBytes": 87156,
+      "beforeTriangles": 2962,
+      "afterTriangles": 538,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 54,
+      "beforeBytes": 479196,
+      "afterBytes": 87480,
+      "beforeTriangles": 2958,
+      "afterTriangles": 540,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 55,
+      "beforeBytes": 597456,
+      "afterBytes": 94608,
+      "beforeTriangles": 3688,
+      "afterTriangles": 584,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 56,
+      "beforeBytes": 478872,
+      "afterBytes": 87156,
+      "beforeTriangles": 2956,
+      "afterTriangles": 538,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 57,
+      "beforeBytes": 517752,
+      "afterBytes": 90720,
+      "beforeTriangles": 3196,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 58,
+      "beforeBytes": 474984,
+      "afterBytes": 86508,
+      "beforeTriangles": 2932,
+      "afterTriangles": 534,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 59,
+      "beforeBytes": 519372,
+      "afterBytes": 90720,
+      "beforeTriangles": 3206,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 60,
+      "beforeBytes": 533628,
+      "afterBytes": 92340,
+      "beforeTriangles": 3294,
+      "afterTriangles": 570,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 61,
+      "beforeBytes": 384588,
+      "afterBytes": 69336,
+      "beforeTriangles": 2374,
+      "afterTriangles": 428,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 62,
+      "beforeBytes": 546588,
+      "afterBytes": 91692,
+      "beforeTriangles": 3374,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 63,
+      "beforeBytes": 516456,
+      "afterBytes": 89100,
+      "beforeTriangles": 3188,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 64,
+      "beforeBytes": 493452,
+      "afterBytes": 88452,
+      "beforeTriangles": 3046,
+      "afterTriangles": 546,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 65,
+      "beforeBytes": 526824,
+      "afterBytes": 91368,
+      "beforeTriangles": 3252,
+      "afterTriangles": 564,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 66,
+      "beforeBytes": 471096,
+      "afterBytes": 85860,
+      "beforeTriangles": 2908,
+      "afterTriangles": 530,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 67,
+      "beforeBytes": 578340,
+      "afterBytes": 93636,
+      "beforeTriangles": 3570,
+      "afterTriangles": 578,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 68,
+      "beforeBytes": 534276,
+      "afterBytes": 92340,
+      "beforeTriangles": 3298,
+      "afterTriangles": 570,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 69,
+      "beforeBytes": 516132,
+      "afterBytes": 89424,
+      "beforeTriangles": 3186,
+      "afterTriangles": 552,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 70,
+      "beforeBytes": 524232,
+      "afterBytes": 88128,
+      "beforeTriangles": 3236,
+      "afterTriangles": 544,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 71,
+      "beforeBytes": 583200,
+      "afterBytes": 93636,
+      "beforeTriangles": 3600,
+      "afterTriangles": 578,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 72,
+      "beforeBytes": 448416,
+      "afterBytes": 86184,
+      "beforeTriangles": 2768,
+      "afterTriangles": 532,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 73,
+      "beforeBytes": 526824,
+      "afterBytes": 90396,
+      "beforeTriangles": 3252,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 74,
+      "beforeBytes": 491184,
+      "afterBytes": 86508,
+      "beforeTriangles": 3032,
+      "afterTriangles": 534,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 75,
+      "beforeBytes": 553392,
+      "afterBytes": 91692,
+      "beforeTriangles": 3416,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 76,
+      "beforeBytes": 530712,
+      "afterBytes": 92016,
+      "beforeTriangles": 3276,
+      "afterTriangles": 568,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 77,
+      "beforeBytes": 591624,
+      "afterBytes": 93636,
+      "beforeTriangles": 3652,
+      "afterTriangles": 578,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 78,
+      "beforeBytes": 441936,
+      "afterBytes": 84888,
+      "beforeTriangles": 2728,
+      "afterTriangles": 524,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 79,
+      "beforeBytes": 512568,
+      "afterBytes": 89100,
+      "beforeTriangles": 3164,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 80,
+      "beforeBytes": 550800,
+      "afterBytes": 94284,
+      "beforeTriangles": 3400,
+      "afterTriangles": 582,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 81,
+      "beforeBytes": 509004,
+      "afterBytes": 89100,
+      "beforeTriangles": 3142,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 82,
+      "beforeBytes": 544320,
+      "afterBytes": 90720,
+      "beforeTriangles": 3360,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 83,
+      "beforeBytes": 497664,
+      "afterBytes": 88452,
+      "beforeTriangles": 3072,
+      "afterTriangles": 546,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 84,
+      "beforeBytes": 555336,
+      "afterBytes": 92340,
+      "beforeTriangles": 3428,
+      "afterTriangles": 570,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 85,
+      "beforeBytes": 535896,
+      "afterBytes": 90396,
+      "beforeTriangles": 3308,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 86,
+      "beforeBytes": 551772,
+      "afterBytes": 90720,
+      "beforeTriangles": 3406,
+      "afterTriangles": 560,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 87,
+      "beforeBytes": 517428,
+      "afterBytes": 91692,
+      "beforeTriangles": 3194,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 88,
+      "beforeBytes": 555660,
+      "afterBytes": 93312,
+      "beforeTriangles": 3430,
+      "afterTriangles": 576,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 89,
+      "beforeBytes": 538488,
+      "afterBytes": 90396,
+      "beforeTriangles": 3324,
+      "afterTriangles": 558,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 90,
+      "beforeBytes": 459108,
+      "afterBytes": 74520,
+      "beforeTriangles": 2834,
+      "afterTriangles": 460,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 91,
+      "beforeBytes": 476280,
+      "afterBytes": 87480,
+      "beforeTriangles": 2940,
+      "afterTriangles": 540,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 92,
+      "beforeBytes": 538164,
+      "afterBytes": 92340,
+      "beforeTriangles": 3322,
+      "afterTriangles": 570,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 93,
+      "beforeBytes": 491508,
+      "afterBytes": 88128,
+      "beforeTriangles": 3034,
+      "afterTriangles": 544,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 94,
+      "beforeBytes": 525852,
+      "afterBytes": 90072,
+      "beforeTriangles": 3246,
+      "afterTriangles": 556,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 95,
+      "beforeBytes": 465588,
+      "afterBytes": 85212,
+      "beforeTriangles": 2874,
+      "afterTriangles": 526,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 96,
+      "beforeBytes": 534600,
+      "afterBytes": 92988,
+      "beforeTriangles": 3300,
+      "afterTriangles": 574,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 97,
+      "beforeBytes": 527148,
+      "afterBytes": 91692,
+      "beforeTriangles": 3254,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 98,
+      "beforeBytes": 504468,
+      "afterBytes": 88776,
+      "beforeTriangles": 3114,
+      "afterTriangles": 548,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 99,
+      "beforeBytes": 435456,
+      "afterBytes": 79380,
+      "beforeTriangles": 2688,
+      "afterTriangles": 490,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 100,
+      "beforeBytes": 515160,
+      "afterBytes": 91692,
+      "beforeTriangles": 3180,
+      "afterTriangles": 566,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 101,
+      "beforeBytes": 523908,
+      "afterBytes": 89100,
+      "beforeTriangles": 3234,
+      "afterTriangles": 550,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 102,
+      "beforeBytes": 513864,
+      "afterBytes": 88776,
+      "beforeTriangles": 3172,
+      "afterTriangles": 548,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 103,
+      "beforeBytes": 509652,
+      "afterBytes": 90072,
+      "beforeTriangles": 3146,
+      "afterTriangles": 556,
+      "buildingIdsUnchanged": true
+    },
+    {
+      "districtIndex": 104,
+      "beforeBytes": 283500,
+      "afterBytes": 50544,
+      "beforeTriangles": 1750,
+      "afterTriangles": 312,
+      "buildingIdsUnchanged": true
+    }
+  ]
+}

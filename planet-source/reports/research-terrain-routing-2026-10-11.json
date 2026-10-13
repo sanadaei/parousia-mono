@@ -1,0 +1,396 @@
+{
+  "kind": "unadopted-terrain-route-comparison@1",
+  "inputSha256": "517d77c58e2d43bac15fe3549ebbe67418613331035ebeae8475b0b21ec80b51",
+  "sourceFiles": [
+    {
+      "name": "terrain-cost-routing.mjs",
+      "sha256": "d136e144015717f76d8fb2639f92a7849bd6d9f6cd0327f1c036f470ec0c7ac8"
+    },
+    {
+      "name": "river-route-topology.mjs",
+      "sha256": "fe5a2fa468fa685e4d7bb79319a020ff51545402c80c7af9d6da50cb512abd16"
+    },
+    {
+      "name": "run-terrain-route-comparison.mjs",
+      "sha256": "11cbf4c7b706e232286a950b43fc00c9c35dda403a8f177378f9ad77c0c8652f"
+    }
+  ],
+  "conditions": {
+    "profileStepM": 500,
+    "corridorStepM": 3000,
+    "maxIncisionM": 600,
+    "incisionScaleM": 30,
+    "halfWidthM": 20000
+  },
+  "results": [
+    {
+      "id": "river:2156:2285",
+      "widthSensitivity": {
+        "adoptionReady": false,
+        "searchBoundaryResolved": false,
+        "selectedInteriorWidthM": null,
+        "limitations": [
+          "Fixed lateral spacing; forward-only search remains directional",
+          "Wider search may leave the source catchment; basin membership not certified",
+          "Centerline and bank clearance, hydraulic and visual checks remain required"
+        ],
+        "attempts": [
+          {
+            "halfWidthM": 20000,
+            "lateralSpacingM": 2500,
+            "cells": 2193,
+            "boundaryContactNodes": 109,
+            "selected": "rounded-terrain-corridor",
+            "scoreM": 1834976.6577627799,
+            "topology": {
+              "complete": true,
+              "pairs": 3,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          },
+          {
+            "halfWidthM": 40000,
+            "lateralSpacingM": 2500,
+            "cells": 4257,
+            "boundaryContactNodes": 94,
+            "selected": "rounded-terrain-corridor",
+            "scoreM": 1378581.4118358851,
+            "topology": {
+              "complete": true,
+              "pairs": 6,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          },
+          {
+            "halfWidthM": 80000,
+            "lateralSpacingM": 2500,
+            "cells": 8385,
+            "boundaryContactNodes": 62,
+            "selected": "rounded-terrain-corridor",
+            "scoreM": 1079717.792581209,
+            "topology": {
+              "complete": true,
+              "pairs": 10,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          }
+        ]
+      },
+      "selected": "rounded-terrain-corridor",
+      "adoptionReady": false,
+      "remainingChecks": [
+        "Other river crossings and confluence topology",
+        "Sub-sample terrain and water validation",
+        "Landscape morphology and local visual inspection"
+      ],
+      "cells": 2193,
+      "boundaryContactNodes": 109,
+      "boundaryContactFraction": 0.8449612403100775,
+      "candidates": [
+        {
+          "kind": "direct",
+          "topology": {
+            "complete": true,
+            "pairs": 12,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 780,
+          "lengthM": 389174.0634992246,
+          "maximumIncisionM": 118.36434313113828,
+          "incisionIntegralM2": 23881572.819341544,
+          "scoreM": 2669021.94449722,
+          "pathPoints": 2
+        },
+        {
+          "kind": "terrain-corridor",
+          "topology": {
+            "complete": true,
+            "pairs": 3,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 913,
+          "lengthM": 403505.82603662874,
+          "maximumIncisionM": 94.42755655228005,
+          "incisionIntegralM2": 18613192.835173097,
+          "scoreM": 1835258.5321141498,
+          "pathPoints": 129
+        },
+        {
+          "kind": "rounded-terrain-corridor",
+          "topology": {
+            "complete": true,
+            "pairs": 3,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 1522,
+          "lengthM": 403169.05176401715,
+          "maximumIncisionM": 94.62187234576821,
+          "incisionIntegralM2": 18612049.39489934,
+          "scoreM": 1834976.6577627799,
+          "pathPoints": 1129
+        }
+      ]
+    },
+    {
+      "id": "river:3552:3424",
+      "widthSensitivity": {
+        "adoptionReady": false,
+        "searchBoundaryResolved": true,
+        "selectedInteriorWidthM": 40000,
+        "limitations": [
+          "Fixed lateral spacing; forward-only search remains directional",
+          "Wider search may leave the source catchment; basin membership not certified",
+          "Centerline and bank clearance, hydraulic and visual checks remain required"
+        ],
+        "attempts": [
+          {
+            "halfWidthM": 20000,
+            "lateralSpacingM": 2500,
+            "cells": 1802,
+            "boundaryContactNodes": 4,
+            "selected": "rounded-terrain-corridor",
+            "scoreM": 680488.7252459283,
+            "topology": {
+              "complete": true,
+              "pairs": 2,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          },
+          {
+            "halfWidthM": 40000,
+            "lateralSpacingM": 2500,
+            "cells": 3498,
+            "boundaryContactNodes": 0,
+            "selected": "rounded-terrain-corridor",
+            "scoreM": 689240.3549095541,
+            "topology": {
+              "complete": true,
+              "pairs": 2,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          },
+          {
+            "halfWidthM": 80000,
+            "lateralSpacingM": 2500,
+            "cells": 6890,
+            "boundaryContactNodes": 0,
+            "selected": "rounded-terrain-corridor",
+            "scoreM": 689240.3549095541,
+            "topology": {
+              "complete": true,
+              "pairs": 2,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          }
+        ]
+      },
+      "selected": "rounded-terrain-corridor",
+      "adoptionReady": false,
+      "remainingChecks": [
+        "Other river crossings and confluence topology",
+        "Sub-sample terrain and water validation",
+        "Landscape morphology and local visual inspection"
+      ],
+      "cells": 1802,
+      "boundaryContactNodes": 4,
+      "boundaryContactFraction": 0.03773584905660377,
+      "candidates": [
+        {
+          "kind": "direct",
+          "topology": {
+            "complete": true,
+            "pairs": 3,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 627,
+          "lengthM": 312735.7311878218,
+          "maximumIncisionM": 140.39946487621498,
+          "incisionIntegralM2": 7597037.280675157,
+          "scoreM": 709608.614768675,
+          "pathPoints": 2
+        },
+        {
+          "kind": "terrain-corridor",
+          "topology": {
+            "complete": true,
+            "pairs": 2,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 717,
+          "lengthM": 352204.8404016755,
+          "maximumIncisionM": 99.96329677933997,
+          "incisionIntegralM2": 7629367.706489489,
+          "scoreM": 684614.2690459747,
+          "pathPoints": 106
+        },
+        {
+          "kind": "rounded-terrain-corridor",
+          "topology": {
+            "complete": true,
+            "pairs": 2,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 1136,
+          "lengthM": 347528.0500300893,
+          "maximumIncisionM": 101.54548400093674,
+          "incisionIntegralM2": 7659676.499042839,
+          "scoreM": 680488.7252459283,
+          "pathPoints": 842
+        }
+      ]
+    },
+    {
+      "id": "river:3670:3541",
+      "widthSensitivity": {
+        "adoptionReady": false,
+        "searchBoundaryResolved": true,
+        "selectedInteriorWidthM": 80000,
+        "limitations": [
+          "Fixed lateral spacing; forward-only search remains directional",
+          "Wider search may leave the source catchment; basin membership not certified",
+          "Centerline and bank clearance, hydraulic and visual checks remain required"
+        ],
+        "attempts": [
+          {
+            "halfWidthM": 20000,
+            "lateralSpacingM": 2500,
+            "cells": 2193,
+            "boundaryContactNodes": 89,
+            "selected": "direct",
+            "scoreM": 473433.8689198099,
+            "topology": {
+              "complete": true,
+              "pairs": 35,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          },
+          {
+            "halfWidthM": 40000,
+            "lateralSpacingM": 2500,
+            "cells": 4257,
+            "boundaryContactNodes": 56,
+            "selected": "direct",
+            "scoreM": 473433.8689198099,
+            "topology": {
+              "complete": true,
+              "pairs": 35,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          },
+          {
+            "halfWidthM": 80000,
+            "lateralSpacingM": 2500,
+            "cells": 8385,
+            "boundaryContactNodes": 0,
+            "selected": "direct",
+            "scoreM": 473433.8689198099,
+            "topology": {
+              "complete": true,
+              "pairs": 35,
+              "violations": [],
+              "valid": true,
+              "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+            }
+          }
+        ]
+      },
+      "selected": "direct",
+      "adoptionReady": false,
+      "remainingChecks": [
+        "Other river crossings and confluence topology",
+        "Sub-sample terrain and water validation",
+        "Landscape morphology and local visual inspection"
+      ],
+      "cells": 2193,
+      "boundaryContactNodes": 89,
+      "boundaryContactFraction": 0.689922480620155,
+      "candidates": [
+        {
+          "kind": "direct",
+          "topology": {
+            "complete": true,
+            "pairs": 35,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 878,
+          "lengthM": 438021.67844504386,
+          "maximumIncisionM": 35.58150189756756,
+          "incisionIntegralM2": 2702075.3274664036,
+          "scoreM": 473433.8689198099,
+          "pathPoints": 2
+        },
+        {
+          "kind": "terrain-corridor",
+          "topology": {
+            "complete": true,
+            "pairs": 3,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 939,
+          "lengthM": 455343.3336552968,
+          "maximumIncisionM": 36.60649954069922,
+          "incisionIntegralM2": 2945808.594889659,
+          "scoreM": 495269.52265710855,
+          "pathPoints": 129
+        },
+        {
+          "kind": "rounded-terrain-corridor",
+          "topology": {
+            "complete": true,
+            "pairs": 14,
+            "violations": [],
+            "valid": true,
+            "scope": "Centerline crossings only; bank overlap and hydraulics not certified"
+          },
+          "valid": true,
+          "points": 1555,
+          "lengthM": 454282.36998985463,
+          "maximumIncisionM": 43.31450500766559,
+          "incisionIntegralM2": 3022470.917574795,
+          "scoreM": 496033.01725149417,
+          "pathPoints": 1145
+        }
+      ]
+    }
+  ]
+}

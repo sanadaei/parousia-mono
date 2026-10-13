@@ -1,0 +1,60 @@
+{
+  "schema": "global-water-handoff-review@1",
+  "sourceLayerId": "sha256:343bd23a29779d6fb1005b43014963f79491358c933ee6f5aa9a28e66127aca9",
+  "handoffId": "sha256:b4a8cdab11b5288b2819f987e019ca911c62d49b3494e580d7085cc56f591022",
+  "overlayId": "sha256:32e6d2b5c9135224f1e8405a0eb8db4f3a490b0a5ddec4fcc14b1353dc359de0",
+  "contextId": "sha256:7d3b57f52ada658e6318b9bdd1e4e343b52905b97736822875964d2981973d4e",
+  "grid": {
+    "cellSizeM": 884.7575822166945,
+    "cellSizeYM": 1221.6239499524274,
+    "columns": 129,
+    "rows": 129
+  },
+  "diagnostics": {
+    "localAnnualM3": 785517528.9258443,
+    "importedAnnualM3": 2036593024.348401,
+    "outputAnnualM3": 2822110553.274345,
+    "relativeBudgetResidual": 3.53136293504959e-14,
+    "parentOwnedLocalMassM3": [
+      195232142.1688534,
+      195232142.16884235,
+      197526622.2941466,
+      197526622.29414415
+    ],
+    "physicalWidthM": 113248.97052373689,
+    "physicalHeightM": 156367.8655939107
+  },
+  "outletLedger": [
+    {
+      "parentEdgeId": "sha256:343bd23a29779d6fb1005b43014963f79491358c933ee6f5aa9a28e66127aca9/edge/33506/33507",
+      "fromCell": 33506,
+      "toCell": 33507,
+      "previousAnnualM3": 1567382049.412838,
+      "revisedAnnualM3": 2561440042.8557687,
+      "status": "provisional-global-corridor-budget"
+    },
+    {
+      "parentEdgeId": "sha256:343bd23a29779d6fb1005b43014963f79491358c933ee6f5aa9a28e66127aca9/edge/34018/34019",
+      "fromCell": 34018,
+      "toCell": 34019,
+      "previousAnnualM3": 1254728503.8615093,
+      "revisedAnnualM3": 260670510.41857603,
+      "status": "provisional-global-corridor-budget"
+    }
+  ],
+  "globalOverlay": {
+    "status": "accepted-in-this-overlay; base-L1-unchanged",
+    "downstreamUpdates": 8,
+    "maxExteriorRelativeResidual": 3.114423300145973e-16,
+    "terminalDeltaAnnualM3": -0.0000026226043701171875
+  },
+  "positiveLocalNodes": 16641,
+  "totalNodes": 16641,
+  "initialCellQuadrature": "tensor [1/4,1/2,1/4]; shared contributions sum",
+  "limitations": [
+    "Overlay-aware readers must be used for downstream flow",
+    "Selected coarse cells are superseded, never queried as old scalar flows",
+    "Existing adopted external constraints are unsupported",
+    "Sequential overlapping regional overlays require a composite-graph transaction"
+  ]
+}

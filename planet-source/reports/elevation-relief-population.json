@@ -1,0 +1,59 @@
+{
+  "scope": "New generator19 packages. One versus eight candidate site surveys. Same terrain, new catalogue method changes original slot seeds; compare the separate four-region audit for controlled same-slot evidence. Unplaced population is unresolved, not silently redistributed.",
+  "runs": [
+    {
+      "name": "local-landscape-19a",
+      "worldId": "sha256:c92c703f9f4b3e6e357fee99a7c67c8a525d06d0eafd28f11f5836ea00ee2c80",
+      "totals": {
+        "requested": 302798,
+        "placed": 163281,
+        "unplaced": 139517,
+        "placedPopulation": 53609128,
+        "unplacedPopulation": 46390872,
+        "bytes": 218299471
+      },
+      "rivers": {
+        "junctionLevelMethod": "surveyed-upstream-ceiling@3",
+        "loweredJunctionNodes": 26,
+        "valleySideRunPerRise": 3,
+        "bedScope": "C1 compact capsule incisions and absolute-width smooth maximum; inherited base regularity; water and graph connectivity assessed separately",
+        "sourceThreshold": 20,
+        "acceptedProfiles": 104,
+        "rejected": [],
+        "pointCount": 5769,
+        "rerouteAttempts": 0,
+        "maxIncisionM": 600,
+        "profileStepM": 5000,
+        "maxPoints": 32768,
+        "scope": "sampled spherical graph fits; between-profile hydraulic acceptance pending"
+      }
+    },
+    {
+      "name": "local-landscape-19b",
+      "worldId": "sha256:f08b5955fd05e8a1bed7d47881e53f1a9a1db0f3adf5349afff4864681e172a5",
+      "totals": {
+        "requested": 302798,
+        "placed": 263335,
+        "unplaced": 39463,
+        "placedPopulation": 86456292,
+        "unplacedPopulation": 13543708,
+        "bytes": 368899397
+      },
+      "rivers": {
+        "junctionLevelMethod": "surveyed-upstream-ceiling@3",
+        "loweredJunctionNodes": 26,
+        "valleySideRunPerRise": 3,
+        "bedScope": "C1 compact capsule incisions and absolute-width smooth maximum; inherited base regularity; water and graph connectivity assessed separately",
+        "sourceThreshold": 20,
+        "acceptedProfiles": 104,
+        "rejected": [],
+        "pointCount": 5769,
+        "rerouteAttempts": 0,
+        "maxIncisionM": 600,
+        "profileStepM": 5000,
+        "maxPoints": 32768,
+        "scope": "sampled spherical graph fits; between-profile hydraulic acceptance pending"
+      }
+    }
+  ]
+}

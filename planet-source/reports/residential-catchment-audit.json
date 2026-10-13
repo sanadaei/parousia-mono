@@ -1,0 +1,1294 @@
+{
+  "canonicalWorldId": "sha256:923b575de2f1811735d1fe74ce3e8e36e216f38381f73a0de5903b90d85e0b6b",
+  "results": [
+    {
+      "id": "pop:4048:65",
+      "latDeg": 1.4089754043008034,
+      "lonDeg": -134.94380254389114,
+      "kind": "village",
+      "population": 299,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:4047:4048/channel:8892:8374",
+      "approachM": 181.06063874384395,
+      "layout": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:4048:65",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 299,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:4048:65/district:0/commons",
+            "type": "village_green"
+          },
+          {
+            "id": "pop:4048:65/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:4048:65/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:4048:65/district:0/chapel/public-access",
+          "joinsRoadId": "pop:4048:65/district:0/terrain-street:0:residential:1344",
+          "entranceSide": "east",
+          "lengthM": 16
+        },
+        {
+          "targetId": "pop:4048:65/district:0/communal-pond",
+          "targetType": "communal_pond_bank",
+          "status": "connected",
+          "roadId": "pop:4048:65/district:0/communal-pond/public-access",
+          "joinsRoadId": "pop:4048:65/district:0/terrain-street:0:east",
+          "entranceSide": "north",
+          "lengthM": 24.75
+        }
+      ],
+      "waterFeatures": [
+        {
+          "id": "pop:4048:65/district:0/communal-pond",
+          "type": "constructed_communal_pond",
+          "bounds": {
+            "minXM": 61,
+            "maxXM": 99,
+            "minYM": -54,
+            "maxYM": -26
+          },
+          "waterLevelElevationM": 630.8423583061785,
+          "limitations": [
+            "Constructed communal storage under an explicit maintained-water scenario; not a natural pond",
+            "Supply, seepage and seasonal water balance are not simulated",
+            "Two-metre finite terrain survey, not a continuous ground certificate"
+          ],
+          "survey": {
+            "method": "surveyed-communal-pond@2",
+            "candidateBudget": 24,
+            "groundSamples": 634,
+            "reliefM": 1.168481127061682,
+            "requiredIncisionM": 2.6684811270617272,
+            "dimensions": {
+              "halfLengthM": 5,
+              "halfWidthM": 6,
+              "bankWidthM": 6,
+              "depthM": 1.3
+            }
+          }
+        }
+      ],
+      "residentialBranches": {
+        "method": "surveyed-residential-catchments@1",
+        "targets": [
+          {
+            "i": 825,
+            "xM": -150,
+            "yM": -30,
+            "reliefM": 0.88241780597059,
+            "distanceToStreetM": 56.568542494923804,
+            "score": 12.16732381021352
+          },
+          {
+            "i": 1344,
+            "xM": 120,
+            "yM": 90,
+            "reliefM": 1.4318306109123569,
+            "distanceToStreetM": 90,
+            "score": 14.318306109123569
+          }
+        ],
+        "scope": "Dry low-relief frontage candidates; actual house plots still require their own survey"
+      },
+      "pondPhysical": [
+        {
+          "id": "pop:4048:65/district:0/communal-pond",
+          "wetSamples": 211,
+          "maxDepthM": 1.294999999999959,
+          "rimWetSamples": 0,
+          "maxIncisionM": 2.369733357101495
+        }
+      ],
+      "householdFrontages": [
+        {
+          "id": "pop:4048:65/district:0/house:0",
+          "lengthM": 10.717835826799273,
+          "widthM": 7.733241677284241,
+          "frontage": {
+            "frontageM": 19.882368312682956,
+            "setbackM": 5.569025972858071,
+            "side": 1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:1",
+          "lengthM": 8.172832964919508,
+          "widthM": 7.25503727409523,
+          "frontage": {
+            "frontageM": 18.289020732045174,
+            "setbackM": 5.438277250621468,
+            "side": -1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:2",
+          "lengthM": 11.28367269411683,
+          "widthM": 6.838252626126632,
+          "frontage": {
+            "frontageM": 15.902819054899737,
+            "setbackM": 5.012806185521185,
+            "side": -1,
+            "slot": 4,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:3",
+          "lengthM": 8.04012021329254,
+          "widthM": 6.586845257785171,
+          "frontage": {
+            "frontageM": 17.82753011910245,
+            "setbackM": 5.722602985799313,
+            "side": 1,
+            "slot": 6,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:4",
+          "lengthM": 8.743104747496545,
+          "widthM": 6.5081207799958065,
+          "frontage": {
+            "frontageM": 19.786808447679505,
+            "setbackM": 5.676898492034525,
+            "side": -1,
+            "slot": 6,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:5",
+          "lengthM": 11.271110916510224,
+          "widthM": 8.43106631853152,
+          "frontage": {
+            "frontageM": 17.570608366513625,
+            "setbackM": 4.8764852080494165,
+            "side": 1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:6",
+          "lengthM": 9.062179430387914,
+          "widthM": 6.049483565380797,
+          "frontage": {
+            "frontageM": 15.84337736829184,
+            "setbackM": 5.281142367050052,
+            "side": -1,
+            "slot": 0,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:7",
+          "lengthM": 10.22733621392399,
+          "widthM": 7.296443008468486,
+          "frontage": {
+            "frontageM": 16.231631755363196,
+            "setbackM": 5.112769775558263,
+            "side": -1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:8",
+          "lengthM": 8.3078125519678,
+          "widthM": 8.369179964880459,
+          "frontage": {
+            "frontageM": 15.22411368903704,
+            "setbackM": 4.614291098900139,
+            "side": -1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:9",
+          "lengthM": 8.770976815372705,
+          "widthM": 6.694753386778757,
+          "frontage": {
+            "frontageM": 16.772937010973692,
+            "setbackM": 4.490511150564998,
+            "side": -1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:10",
+          "lengthM": 10.767285766080022,
+          "widthM": 6.619038497679867,
+          "frontage": {
+            "frontageM": 18.52212807862088,
+            "setbackM": 5.175179617945105,
+            "side": -1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:11",
+          "lengthM": 8.8513696026057,
+          "widthM": 7.593208099366166,
+          "frontage": {
+            "frontageM": 15.611893441528082,
+            "setbackM": 5.6442013517953455,
+            "side": -1,
+            "slot": 8,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:12",
+          "lengthM": 10.034623051062226,
+          "widthM": 8.151594944880344,
+          "frontage": {
+            "frontageM": 17.491427592467517,
+            "setbackM": 5.718976500444114,
+            "side": 1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:13",
+          "lengthM": 10.075316013768315,
+          "widthM": 7.757836220203899,
+          "frontage": {
+            "frontageM": 15.535747235408053,
+            "setbackM": 5.960961795877665,
+            "side": -1,
+            "slot": 8,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:14",
+          "lengthM": 11.813680245541036,
+          "widthM": 7.667683373088948,
+          "frontage": {
+            "frontageM": 18.453056301223114,
+            "setbackM": 4.526356194168329,
+            "side": -1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:15",
+          "lengthM": 9.272003889083862,
+          "widthM": 7.475968916201964,
+          "frontage": {
+            "frontageM": 16.326198420720175,
+            "setbackM": 5.208977175876498,
+            "side": -1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:65/district:0/house:16",
+          "lengthM": 8.116193242371082,
+          "widthM": 6.910929854726419,
+          "frontage": {
+            "frontageM": 15.309756620554253,
+            "setbackM": 5.120609832927585,
+            "side": 1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        }
+      ],
+      "roadSamples": 1134,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    },
+    {
+      "id": "pop:4048:78",
+      "latDeg": 1.4021613611664396,
+      "lonDeg": -134.9955264535966,
+      "kind": "village",
+      "population": 299,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:4047:4048/channel:7644:8293",
+      "approachM": 181.06135806568653,
+      "layout": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:4048:78",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 299,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:4048:78/district:0/commons",
+            "type": "village_green"
+          },
+          {
+            "id": "pop:4048:78/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:4048:78/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:4048:78/district:0/chapel/public-access",
+          "joinsRoadId": "pop:4048:78/district:0/terrain-street:0:east",
+          "entranceSide": "north",
+          "lengthM": 15
+        },
+        {
+          "targetId": "pop:4048:78/district:0/communal-pond",
+          "targetType": "communal_pond_bank",
+          "status": "connected",
+          "roadId": "pop:4048:78/district:0/communal-pond/public-access",
+          "joinsRoadId": "pop:4048:78/district:0/terrain-street:0:residential:603",
+          "entranceSide": "west",
+          "lengthM": 3.75
+        }
+      ],
+      "waterFeatures": [
+        {
+          "id": "pop:4048:78/district:0/communal-pond",
+          "type": "constructed_communal_pond",
+          "bounds": {
+            "minXM": 95,
+            "maxXM": 145,
+            "minYM": -58,
+            "maxYM": -22
+          },
+          "waterLevelElevationM": 660.2070268149407,
+          "limitations": [
+            "Constructed communal storage under an explicit maintained-water scenario; not a natural pond",
+            "Supply, seepage and seasonal water balance are not simulated",
+            "Two-metre finite terrain survey, not a continuous ground certificate"
+          ],
+          "survey": {
+            "method": "surveyed-communal-pond@2",
+            "candidateBudget": 24,
+            "groundSamples": 634,
+            "reliefM": 0.9814770379124411,
+            "requiredIncisionM": 2.6814770379124866,
+            "dimensions": {
+              "halfLengthM": 7,
+              "halfWidthM": 8,
+              "bankWidthM": 8,
+              "depthM": 1.5
+            }
+          }
+        }
+      ],
+      "residentialBranches": {
+        "method": "surveyed-residential-catchments@1",
+        "targets": [
+          {
+            "i": 603,
+            "xM": 90,
+            "yM": -90,
+            "reliefM": 0.7085284885589545,
+            "distanceToStreetM": 90,
+            "score": 7.0852848855895445
+          },
+          {
+            "i": 1338,
+            "xM": 60,
+            "yM": 90,
+            "reliefM": 0.982373703652911,
+            "distanceToStreetM": 90,
+            "score": 9.82373703652911
+          },
+          {
+            "i": 1347,
+            "xM": 150,
+            "yM": 90,
+            "reliefM": 1.1834437751466567,
+            "distanceToStreetM": 90,
+            "score": 11.834437751466567
+          }
+        ],
+        "scope": "Dry low-relief frontage candidates; actual house plots still require their own survey"
+      },
+      "pondPhysical": [
+        {
+          "id": "pop:4048:78/district:0/communal-pond",
+          "wetSamples": 395,
+          "maxDepthM": 1.4950000000000045,
+          "rimWetSamples": 0,
+          "maxIncisionM": 2.3014736331077756
+        }
+      ],
+      "householdFrontages": [
+        {
+          "id": "pop:4048:78/district:0/house:0",
+          "lengthM": 11.328538754023612,
+          "widthM": 7.692179256933741,
+          "frontage": {
+            "frontageM": 19.40964928478934,
+            "setbackM": 5.478794759139419,
+            "side": 1,
+            "slot": 0,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:1",
+          "lengthM": 11.039959254674613,
+          "widthM": 6.41933560220059,
+          "frontage": {
+            "frontageM": 18.850882874103263,
+            "setbackM": 5.148661954328418,
+            "side": 1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:2",
+          "lengthM": 10.208487213589251,
+          "widthM": 7.202390089747496,
+          "frontage": {
+            "frontageM": 17.739735437789932,
+            "setbackM": 4.001420390792191,
+            "side": -1,
+            "slot": 0,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:3",
+          "lengthM": 8.191777872852981,
+          "widthM": 6.426616335171275,
+          "frontage": {
+            "frontageM": 18.6070541839581,
+            "setbackM": 4.686828351113945,
+            "side": -1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:4",
+          "lengthM": 11.00233015511185,
+          "widthM": 7.749428783077747,
+          "frontage": {
+            "frontageM": 15.047816266305745,
+            "setbackM": 4.3293279954232275,
+            "side": 1,
+            "slot": 4,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:5",
+          "lengthM": 9.23377719335258,
+          "widthM": 7.510745801497251,
+          "frontage": {
+            "frontageM": 17.57352244341746,
+            "setbackM": 4.3579511642456055,
+            "side": -1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:6",
+          "lengthM": 8.735237903892994,
+          "widthM": 7.8159681861288846,
+          "frontage": {
+            "frontageM": 18.130275562871248,
+            "setbackM": 5.1341904127039015,
+            "side": -1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:7",
+          "lengthM": 9.464145693928003,
+          "widthM": 6.163610902382061,
+          "frontage": {
+            "frontageM": 17.82937427982688,
+            "setbackM": 4.081124741118401,
+            "side": 1,
+            "slot": 5,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:8",
+          "lengthM": 10.200305708684027,
+          "widthM": 7.886586257605813,
+          "frontage": {
+            "frontageM": 17.728489387081936,
+            "setbackM": 5.790965632535517,
+            "side": -1,
+            "slot": 5,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:9",
+          "lengthM": 8.229849746450782,
+          "widthM": 6.719727601972409,
+          "frontage": {
+            "frontageM": 19.226200064877048,
+            "setbackM": 5.769695746712387,
+            "side": 1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:10",
+          "lengthM": 11.849134585820138,
+          "widthM": 6.140274764271453,
+          "frontage": {
+            "frontageM": 19.591147052124143,
+            "setbackM": 4.318083348684013,
+            "side": 1,
+            "slot": 6,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:11",
+          "lengthM": 9.243614222854376,
+          "widthM": 7.456592195900157,
+          "frontage": {
+            "frontageM": 17.454274606425315,
+            "setbackM": 4.772294463124126,
+            "side": -1,
+            "slot": 6,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:12",
+          "lengthM": 9.118970577605069,
+          "widthM": 6.835905382409692,
+          "frontage": {
+            "frontageM": 19.86087208846584,
+            "setbackM": 5.341865451075137,
+            "side": 1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:13",
+          "lengthM": 9.124610187485814,
+          "widthM": 8.39911229989957,
+          "frontage": {
+            "frontageM": 16.506414113100618,
+            "setbackM": 5.799945413134992,
+            "side": -1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:14",
+          "lengthM": 9.202285574749112,
+          "widthM": 8.36799667822197,
+          "frontage": {
+            "frontageM": 17.59549472015351,
+            "setbackM": 4.344738569576293,
+            "side": 1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:15",
+          "lengthM": 8.081825276836753,
+          "widthM": 8.491772188805044,
+          "frontage": {
+            "frontageM": 19.861792610026896,
+            "setbackM": 5.5121793444268405,
+            "side": 1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:16",
+          "lengthM": 9.059841223061085,
+          "widthM": 6.630855051567778,
+          "frontage": {
+            "frontageM": 17.428936198120937,
+            "setbackM": 4.945204012095928,
+            "side": -1,
+            "slot": 0,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:17",
+          "lengthM": 9.120301943272352,
+          "widthM": 6.569244684302248,
+          "frontage": {
+            "frontageM": 16.35816866182722,
+            "setbackM": 4.091571948025376,
+            "side": -1,
+            "slot": 8,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:18",
+          "lengthM": 9.717002539895475,
+          "widthM": 6.184303787536919,
+          "frontage": {
+            "frontageM": 18.749996703118086,
+            "setbackM": 5.272106637712568,
+            "side": -1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:19",
+          "lengthM": 8.237449906766415,
+          "widthM": 7.953161768615246,
+          "frontage": {
+            "frontageM": 19.50048207072541,
+            "setbackM": 5.69752362370491,
+            "side": -1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:20",
+          "lengthM": 9.649530344642699,
+          "widthM": 7.647579083801247,
+          "frontage": {
+            "frontageM": 19.395529091125354,
+            "setbackM": 4.502366184722632,
+            "side": -1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:21",
+          "lengthM": 8.445940948091447,
+          "widthM": 7.842734537203796,
+          "frontage": {
+            "frontageM": 15.644758387934417,
+            "setbackM": 5.61811959464103,
+            "side": 1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:4048:78/district:0/house:22",
+          "lengthM": 11.586679300293326,
+          "widthM": 7.411836222978309,
+          "frontage": {
+            "frontageM": 19.611637787893414,
+            "setbackM": 5.536144693382084,
+            "side": -1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        }
+      ],
+      "roadSamples": 866,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    },
+    {
+      "id": "pop:4174:0",
+      "latDeg": -0.038249211382031474,
+      "lonDeg": -140.57783657950608,
+      "kind": "town",
+      "population": 3249,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:4045:4174/channel:3338:2560",
+      "approachM": 351.06857258725665,
+      "layout": {
+        "method": "urban-block-frontage@1",
+        "redistributedDwellings": 0,
+        "settlementId": "pop:4174:0",
+        "districtIndex": 0,
+        "districtCount": 7,
+        "totalRequestedDwellings": 650,
+        "requestedDwellings": 96,
+        "placedDwellings": 96,
+        "unplacedDwellings": 0,
+        "representedPopulation": 480,
+        "districtComplete": true,
+        "complete": false,
+        "blockedEdges": [],
+        "limitations": [
+          "Town-wide terrain-biased blocks, not simulated historical growth",
+          "Water/grade-rejected streets need connected-component acceptance",
+          "Unplaced households remain explicit; no forced housing on unsuitable land",
+          "Facility yards and external agriculture still require refinement"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:4174:0/church",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:4174:0/church/public-access",
+          "joinsRoadId": "pop:4174:0/urban-street:-39998,-41608|44794,-28482",
+          "entranceSide": "south",
+          "lengthM": 19.022445016785284
+        }
+      ],
+      "pondPhysical": [],
+      "householdFrontages": [],
+      "roadSamples": 797,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    },
+    {
+      "id": "pop:5368:0",
+      "latDeg": -25.319663863322134,
+      "lonDeg": -22.47545098638045,
+      "kind": "town",
+      "population": 3242,
+      "waterAccess": "sampled-river-approach",
+      "river": "tributary-region@2/river:5240:5367/channel:11451:12347",
+      "approachM": 351.00776950228044,
+      "layout": {
+        "method": "urban-block-frontage@1",
+        "redistributedDwellings": 0,
+        "settlementId": "pop:5368:0",
+        "districtIndex": 0,
+        "districtCount": 7,
+        "totalRequestedDwellings": 649,
+        "requestedDwellings": 96,
+        "placedDwellings": 96,
+        "unplacedDwellings": 0,
+        "representedPopulation": 480,
+        "districtComplete": true,
+        "complete": false,
+        "blockedEdges": [],
+        "limitations": [
+          "Town-wide terrain-biased blocks, not simulated historical growth",
+          "Water/grade-rejected streets need connected-component acceptance",
+          "Unplaced households remain explicit; no forced housing on unsuitable land",
+          "Facility yards and external agriculture still require refinement"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:5368:0/church",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:5368:0/church/public-access",
+          "joinsRoadId": "pop:5368:0/urban-street:36842,-35326|39477,25865",
+          "entranceSide": "east",
+          "lengthM": 17.0974152749948
+        }
+      ],
+      "pondPhysical": [],
+      "householdFrontages": [],
+      "roadSamples": 784,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    },
+    {
+      "id": "pop:2699:12",
+      "latDeg": 28.401107397300226,
+      "lonDeg": 31.185819683992918,
+      "kind": "village",
+      "population": 300,
+      "waterAccess": "sampled-river-approach",
+      "river": "river:2699:2826",
+      "approachM": 202.64155471448782,
+      "layout": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:2699:12",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 300,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:2699:12/district:0/commons",
+            "type": "village_green"
+          },
+          {
+            "id": "pop:2699:12/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "publicAccess": [
+        {
+          "targetId": "pop:2699:12/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:2699:12/district:0/chapel/public-access",
+          "joinsRoadId": "pop:2699:12/district:0/terrain-street:0:residential:954",
+          "entranceSide": "south",
+          "lengthM": 19
+        },
+        {
+          "targetId": "pop:2699:12/district:0/communal-pond",
+          "targetType": "communal_pond_bank",
+          "status": "connected",
+          "roadId": "pop:2699:12/district:0/communal-pond/public-access",
+          "joinsRoadId": "pop:2699:12/district:0/terrain-street:0:north",
+          "entranceSide": "east",
+          "lengthM": 24.75
+        }
+      ],
+      "waterFeatures": [
+        {
+          "id": "pop:2699:12/district:0/communal-pond",
+          "type": "constructed_communal_pond",
+          "bounds": {
+            "minXM": -54,
+            "maxXM": -26,
+            "minYM": 69,
+            "maxYM": 91
+          },
+          "waterLevelElevationM": 1385.4132496945522,
+          "limitations": [
+            "Constructed communal storage under an explicit maintained-water scenario; not a natural pond",
+            "Supply, seepage and seasonal water balance are not simulated",
+            "Two-metre finite terrain survey, not a continuous ground certificate"
+          ],
+          "survey": {
+            "method": "surveyed-communal-pond@2",
+            "candidateBudget": 24,
+            "groundSamples": 814,
+            "reliefM": 1.1496433403463016,
+            "requiredIncisionM": 2.349643340346347,
+            "dimensions": {
+              "halfLengthM": 3,
+              "halfWidthM": 4,
+              "bankWidthM": 5,
+              "depthM": 1
+            }
+          }
+        }
+      ],
+      "residentialBranches": {
+        "method": "surveyed-residential-catchments@1",
+        "targets": [
+          {
+            "i": 954,
+            "xM": -90,
+            "yM": 0,
+            "reliefM": 1.1083573942917155,
+            "distanceToStreetM": 90,
+            "score": 11.083573942917155
+          },
+          {
+            "i": 609,
+            "xM": 150,
+            "yM": -90,
+            "reliefM": 1.4118842112959555,
+            "distanceToStreetM": 100,
+            "score": 15.118842112959555
+          }
+        ],
+        "scope": "Dry low-relief frontage candidates; actual house plots still require their own survey"
+      },
+      "pondPhysical": [
+        {
+          "id": "pop:2699:12/district:0/communal-pond",
+          "wetSamples": 87,
+          "maxDepthM": 0.9949999999998909,
+          "rimWetSamples": 0,
+          "maxIncisionM": 1.7955070299235558
+        }
+      ],
+      "householdFrontages": [
+        {
+          "id": "pop:2699:12/district:0/house:0",
+          "lengthM": 8.579066987149417,
+          "widthM": 6.080793356755748,
+          "frontage": {
+            "frontageM": 15.996039602905512,
+            "setbackM": 5.683299796190113,
+            "side": 1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:1",
+          "lengthM": 10.93670248799026,
+          "widthM": 7.2931451154872775,
+          "frontage": {
+            "frontageM": 16.27270358381793,
+            "setbackM": 5.155698684975505,
+            "side": 1,
+            "slot": 1,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:2",
+          "lengthM": 10.372610825113952,
+          "widthM": 6.668980907648802,
+          "frontage": {
+            "frontageM": 15.39729476091452,
+            "setbackM": 4.143487691413611,
+            "side": 1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:3",
+          "lengthM": 11.375862062908709,
+          "widthM": 6.954972818726674,
+          "frontage": {
+            "frontageM": 16.714948539156467,
+            "setbackM": 5.226685101632029,
+            "side": 1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:4",
+          "lengthM": 11.941178806126118,
+          "widthM": 7.084205729421228,
+          "frontage": {
+            "frontageM": 15.025469164829701,
+            "setbackM": 5.133069588337094,
+            "side": -1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:5",
+          "lengthM": 8.609867812134326,
+          "widthM": 6.253762318170629,
+          "frontage": {
+            "frontageM": 18.721367212710902,
+            "setbackM": 5.0772456750273705,
+            "side": 1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:6",
+          "lengthM": 11.130815275013447,
+          "widthM": 8.215007051709108,
+          "frontage": {
+            "frontageM": 19.629158718744293,
+            "setbackM": 4.851081886328757,
+            "side": 1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:7",
+          "lengthM": 9.923325189389288,
+          "widthM": 8.21556018514093,
+          "frontage": {
+            "frontageM": 15.277508739382029,
+            "setbackM": 4.363925373181701,
+            "side": 1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:8",
+          "lengthM": 11.462620669044554,
+          "widthM": 6.8086740475846455,
+          "frontage": {
+            "frontageM": 16.40588207752444,
+            "setbackM": 4.483895777259022,
+            "side": -1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:9",
+          "lengthM": 10.649768958799541,
+          "widthM": 7.708657279377803,
+          "frontage": {
+            "frontageM": 18.28559613088146,
+            "setbackM": 5.816126172430813,
+            "side": -1,
+            "slot": 4,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:10",
+          "lengthM": 9.802808778360486,
+          "widthM": 6.372147665475495,
+          "frontage": {
+            "frontageM": 17.937626929488033,
+            "setbackM": 5.561173488385975,
+            "side": 1,
+            "slot": 5,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:11",
+          "lengthM": 10.843420272693038,
+          "widthM": 6.161079076351598,
+          "frontage": {
+            "frontageM": 18.33940595621243,
+            "setbackM": 4.6018020757474005,
+            "side": -1,
+            "slot": 5,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:12",
+          "lengthM": 11.41908610612154,
+          "widthM": 7.1820340261328965,
+          "frontage": {
+            "frontageM": 18.131294997874647,
+            "setbackM": 5.29745878232643,
+            "side": 1,
+            "slot": 6,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:13",
+          "lengthM": 11.615208277478814,
+          "widthM": 8.449636300443672,
+          "frontage": {
+            "frontageM": 17.072572415927425,
+            "setbackM": 5.979536218568683,
+            "side": -1,
+            "slot": 6,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:14",
+          "lengthM": 8.492555771023035,
+          "widthM": 6.411664607818238,
+          "frontage": {
+            "frontageM": 16.74750410253182,
+            "setbackM": 4.337261256761849,
+            "side": 1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:15",
+          "lengthM": 8.277844930067658,
+          "widthM": 6.493686183472164,
+          "frontage": {
+            "frontageM": 15.39439719519578,
+            "setbackM": 5.235362818930298,
+            "side": -1,
+            "slot": 7,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:16",
+          "lengthM": 11.20372086763382,
+          "widthM": 6.310519597842358,
+          "frontage": {
+            "frontageM": 16.076524248346686,
+            "setbackM": 5.773654819931835,
+            "side": -1,
+            "slot": 8,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:17",
+          "lengthM": 10.872749779373407,
+          "widthM": 6.225999366957694,
+          "frontage": {
+            "frontageM": 17.30413650162518,
+            "setbackM": 4.020068726036698,
+            "side": 1,
+            "slot": 8,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:18",
+          "lengthM": 9.720977132208645,
+          "widthM": 7.005376991815865,
+          "frontage": {
+            "frontageM": 17.91628834209405,
+            "setbackM": 4.851918365806341,
+            "side": -1,
+            "slot": 4,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:19",
+          "lengthM": 8.510243527591228,
+          "widthM": 6.736934795277193,
+          "frontage": {
+            "frontageM": 16.397092662518844,
+            "setbackM": 5.669125189073384,
+            "side": 1,
+            "slot": 2,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:20",
+          "lengthM": 11.487859008833766,
+          "widthM": 7.700903973542154,
+          "frontage": {
+            "frontageM": 16.353375946637243,
+            "setbackM": 5.473861093167216,
+            "side": 1,
+            "slot": 3,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:21",
+          "lengthM": 11.930131352506578,
+          "widthM": 6.22024244768545,
+          "frontage": {
+            "frontageM": 15.346625375095755,
+            "setbackM": 5.822156453505158,
+            "side": 1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:22",
+          "lengthM": 8.934628098271787,
+          "widthM": 6.764998407103121,
+          "frontage": {
+            "frontageM": 18.175887224497274,
+            "setbackM": 5.12370057310909,
+            "side": -1,
+            "slot": 9,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:23",
+          "lengthM": 11.755846720188856,
+          "widthM": 6.202631749561988,
+          "frontage": {
+            "frontageM": 16.65054475190118,
+            "setbackM": 4.108226756565273,
+            "side": 1,
+            "slot": 4,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:24",
+          "lengthM": 8.581497782841325,
+          "widthM": 7.684845142881386,
+          "frontage": {
+            "frontageM": 19.969966909848154,
+            "setbackM": 5.2560371877625585,
+            "side": 1,
+            "slot": 10,
+            "policy": "surveyed-household-frontages@2"
+          }
+        },
+        {
+          "id": "pop:2699:12/district:0/house:25",
+          "lengthM": 8.39519562292844,
+          "widthM": 6.745854591368698,
+          "frontage": {
+            "frontageM": 17.975017306162044,
+            "setbackM": 4.286781867034733,
+            "side": 1,
+            "slot": 11,
+            "policy": "surveyed-household-frontages@2"
+          }
+        }
+      ],
+      "roadSamples": 1046,
+      "wetRoadSamples": 0,
+      "combinedWetRoadSamples": 0,
+      "roadBuildingCollisions": 0,
+      "outsideChart": [],
+      "padContacts": []
+    }
+  ],
+  "layoutPolicy": "surveyed-residential-catchments@1, with household frontage, sloping commons and adaptive communal pond policies; fixed saved-site positions",
+  "scope": "Actual saved-site terrain and physical recipes. Lane destinations follow dry low-relief patches while external gateway contracts remain fixed. Candidate suitability is preliminary; final houses and public paths are separately surveyed. Finite sampled collision/water checks, not full geographic or visual acceptance."
+}

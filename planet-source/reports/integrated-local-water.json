@@ -1,0 +1,23 @@
+{
+  "canonicalWorldId": "sha256:6de3521667bae499e278dcf1629ca080285de4c514feab9d8450c43c6b682d54",
+  "baseWorldId": "sha256:64c469c46d4788bb99911d14eb3faffa0b5b96d0e3315cbc7033f7dbf59b212c",
+  "stats": {
+    "profiles": 269,
+    "samples": 5992,
+    "dry": 0,
+    "pagedMismatch": 0,
+    "minDepthM": 0.2949997046248427,
+    "maxGroundDifferenceM": 0
+  },
+  "pointCount": 32685,
+  "regionalScope": "Partial fixed river neighbourhoods; open boundaries and unmodeled depressions withheld. Scenario stream width/depth; no rainfall/discharge model.",
+  "population": {
+    "requested": 302871,
+    "placed": 259815,
+    "unplaced": 43056,
+    "placedPopulation": 85434478,
+    "unplacedPopulation": 14565522,
+    "bytes": 442867308
+  },
+  "scope": "Saved resident/paged base water agreement before settlement earthworks; finite samples, not visual or hydraulic acceptance"
+}

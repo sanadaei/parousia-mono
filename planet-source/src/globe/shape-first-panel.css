@@ -1,0 +1,31 @@
+/* Only the explicit shape-first sphere mode; adopted-world UI is unchanged. */
+.shape-first-mode .controls{width:300px;max-width:calc(100vw - 32px);padding:17px;top:76px;max-height:calc(100dvh - 136px);overflow-x:hidden;overflow-y:auto;scrollbar-gutter:stable;overscroll-behavior:contain;background:#102026eb;border-color:#57746b80}
+.shape-first-mode .controls[hidden]{display:none}
+.shape-first-mode .controls *{min-width:0;max-width:100%;box-sizing:border-box}
+.shape-first-mode .controls h1{font-size:21px;margin:0 0 4px}
+.shape-first-mode .controls p,.shape-first-mode .controls small,.shape-first-mode .controls pre{overflow-wrap:anywhere}
+.shape-first-mode .controls label{margin:11px 0;font-size:12px;color:#b8cfca}
+.shape-first-mode .controls select,.shape-first-mode .controls input:not([type=checkbox]):not([type=range]){display:block;width:100%;padding:7px 8px;margin-top:4px;border:1px solid #50736c;border-radius:5px;background:#152e32;color:#e3efeb;font:inherit;text-overflow:ellipsis}
+.shape-first-mode .controls input[type=file]{padding:6px 0!important;font-size:11px!important}
+.shape-first-mode .controls button{white-space:normal;overflow-wrap:anywhere}
+.shape-first-mode .controls details{padding:10px 0;border-top:1px solid #46635c65;margin-top:8px}
+.shape-first-mode .controls details details{padding:7px 0}
+.shape-first-mode .controls summary{font-weight:600;font-size:12px;line-height:1.6;color:#b9ddd0}
+.shape-first-mode .shape-first-source-name{font-size:11px;color:#98b6b0;margin:0 0 10px}
+.shape-first-mode #shape-first-planet-status{font-size:12px;line-height:1.7;white-space:pre-line;color:#d5e6df;margin:8px 0 2px}
+.shape-first-mode .shape-first-limit{display:block;color:#bdc5b3;font-size:11px;margin:0 0 12px}
+.shape-first-mode #shape-first-planet-status.shape-first-unsaved{color:#ffe0a0}
+.shape-first-mode .shape-first-actions{gap:8px;margin:10px 0 16px}
+.shape-first-mode .shape-first-actions>*{flex:1;text-align:center;padding:9px 5px;font-size:12px}
+.shape-first-mode .shape-first-action{border:1px solid #456b625c;border-radius:6px;background:#183333;color:#d7eeea;text-decoration:none}
+.shape-first-mode .shape-first-action:hover{background:#29504b}
+.shape-first-mode #sf-source-form small{display:block;font-size:11px;line-height:1.6;margin-top:8px}
+.shape-first-mode #sf-generate{width:100%}
+.shape-first-mode #shape-first-advanced p,.shape-first-mode #shape-first-explanation p{font-size:11px;line-height:1.7}
+.shape-first-mode #shape-first-panel-toggle{position:fixed;z-index:6;right:20px;top:18px;padding:7px 12px;background:#122b2be8;border:1px solid #67877a;font-size:12px}
+.shape-first-mode header{padding:18px 24px;padding-right:125px;gap:16px;min-width:0}
+.shape-first-mode header #world-name{min-width:0;max-width:50vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.shape-first-mode footer{max-width:100vw;overflow:hidden;gap:12px}
+.shape-first-mode footer span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shape-first-mode #error{max-width:calc(100vw - 40px);left:20px;right:20px;overflow-wrap:anywhere;z-index:7}
+@media(max-width:700px){.shape-first-mode .controls{left:12px;top:68px;width:270px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 116px);padding:14px}.shape-first-mode header{padding:14px 12px;padding-right:112px}.shape-first-mode header span{display:none}.shape-first-mode #shape-first-panel-toggle{top:12px;right:12px}.shape-first-mode header a{font-size:14px}}

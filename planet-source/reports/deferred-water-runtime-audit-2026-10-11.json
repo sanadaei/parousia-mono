@@ -1,0 +1,38 @@
+{
+  "schema": "deferred-water-runtime-audit@1",
+  "dateUTC": "2026-10-11",
+  "runtime": {
+    "output": "/tmp/planet-water-runtime-samples.json",
+    "plans": 2,
+    "points": 354,
+    "wet": 354,
+    "elapsedMs": 13562,
+    "heapMiB": 177.17330932617188,
+    "scope": "Actual PagedSource, one source under unchanged 256 MiB heap"
+  },
+  "reopen": {
+    "output": "/tmp/planet-water-runtime-reopened.json",
+    "plans": 2,
+    "points": 354,
+    "wet": 354,
+    "elapsedMs": 3781,
+    "heapMiB": 185.19982147216797,
+    "scope": "Actual PagedSource, one source under unchanged 256 MiB heap"
+  },
+  "parity": {
+    "points": 354,
+    "maxGroundErrorM": 0,
+    "maxWaterErrorM": 0,
+    "reopenIdentical": true,
+    "heapMiB": 162.43328857421875,
+    "scope": "Separate-process core/PagedSource/reopen comparison, unchanged 256 MiB heap"
+  },
+  "initialFailure": "Combined publisher, multiple PagedSources and comparison view exceeded unchanged256MiB heap. Removed redundant runtime sampler and separated audit processes.",
+  "scope": "Node production PagedSource, not browser/WebGL acceptance",
+  "policy": "settlement-zone-interior-water@1",
+  "limitations": [
+    "Populated owned leaf interiors only, not full global hydrology",
+    "64 plans/32768 points per resident source; safe eviction not yet implemented",
+    "Opt-in CLI/publication only; not default UI or old-world migration"
+  ]
+}

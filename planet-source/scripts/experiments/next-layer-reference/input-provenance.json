@@ -1,0 +1,8 @@
+{
+  "fullCandidateFile": "next-local-layer-review/fine-local-layer.json",
+  "fullCandidateSHA256": "df6794ba6f5d9a6e23ee4caf4332d0d49d66911e93fa468f08bdb33a0814652c",
+  "fullCandidateCanonicalContentHash": "sha256:2f32502224483aebc0868c81794cf0ce4bf4bfe63250097e047b6db2cdc4a40d",
+  "compactFile": "compared-input.json",
+  "compactSHA256": "b039c631da0073a9f97667ab7cd34f513aa4a485b36647a9df0c96a3bdadcd08",
+  "extraction": "Only exact parent crop and child grid/elevation arrays. No rounding, normalization, or geometry change."
+}

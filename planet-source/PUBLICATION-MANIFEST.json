@@ -1,0 +1,1847 @@
+{
+  "repository": "sanadaei/planet",
+  "branch": "work/research-led-relief-20261011",
+  "baseCommit": "43d0afaa9e18aff36ca8605cc77ab3881f59276b",
+  "baseTree": "88f6a8dcb200e8630d287684d1267739e27c5886",
+  "deletions": [],
+  "historicalSparseEntriesRetained": 609,
+  "createdAt": "2026-10-13T06:39:01.397365+00:00",
+  "freezeConfirmation": "Root final docs and QA final source recheck confirmed 2026-10-13 06:38 UTC",
+  "kind": "change-overlay",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 27802,
+      "sha": "0b65cf6d150fbffdf90b2a7fb273a24bbd6a4031",
+      "sha256": "bbd2fc0052e4c220c46991d8140bd6f3b66e968622235da3c54731796851a3ba",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/GLOBAL_WATER_HANDOFF.md",
+      "bytes": 3941,
+      "sha": "713edbd6868641f1c6a7439be55d0f42ccc23262",
+      "sha256": "c03ed5dfd2559b5260760908a7a206fe49e875fe4927dc2f78342511f084e447",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/NEXT_LOCAL_LAYER.md",
+      "bytes": 4147,
+      "sha": "becda262bed46e7cb11afb3f9157d4d782a70c71",
+      "sha256": "28b67f39d032422ade28dfb270df730e9bab67650d56c373961fd4e1024dadcf",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/PROGRESSIVE_LAYER_REFINEMENT.md",
+      "bytes": 16750,
+      "sha": "54fb983d2c7b7e56aa58fb36d3d4ab72af43a28b",
+      "sha256": "d1c5aec129bb1adda06a545ddcb0015673fc2d23f33616c6db740c70628f87e1",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/SHAPE_FIRST_REGION.md",
+      "bytes": 16611,
+      "sha": "d8bccdb75e89bba8aa1a25809bf3f2482078c270",
+      "sha256": "500cee98b77a8beedd4ba43e1054e03e19d0717ac33930f4db65896d9c325b41",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/WORKING_BASELINE_ROADMAP.md",
+      "bytes": 9917,
+      "sha": "84a89920713edcf2fd0275950d4bac8c81d5161a",
+      "sha256": "e87a84e74a367190dd24f26a0636b1dc158e593e90ade6fcb58cea4522bafd1f",
+      "mode": "100644"
+    },
+    {
+      "path": "docs/WORLD_LAYER_ROLES.md",
+      "bytes": 12739,
+      "sha": "b1094ee77e2c6eb0cd713cdd87f9e9f791f0c985",
+      "sha256": "a9214e87842500e0755f1afa763be529974c2a9064c9d7b3c8be66148e363937",
+      "mode": "100644"
+    },
+    {
+      "path": "examples/progressive-layer/l0-source.json",
+      "bytes": 2315199,
+      "sha": "5aca5c782f1f68a24bb1c8b585c2489a8f992ada",
+      "sha256": "5d1dd2020f1450c314694808508e3b09dbe544abc16a665e3ddf44d34cace481",
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/shape-first/river-first-candidate.json",
+      "bytes": 307895,
+      "sha": "160c359ed288f2b298544f4ae457bcd0ed015b92",
+      "sha256": "09cf1e8886ecb6b30fe7cf9cc1b0dbeb797c9488d73beb71a651a5cb14d8267f",
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/shape-first/river-first-terrain.json",
+      "bytes": 333366,
+      "sha": "0cf4b5fa379e4d6d3e48a6172cc7a94175084239",
+      "sha256": "d0ec0267bb0bd6fce8d9d6dc69eb3634b6e07ef66e752d008044295ec7d9efac",
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/shape-first/seeded-region-recipes.json",
+      "bytes": 1198,
+      "sha": "bb9b38df9288116939521b00f4a53b886505b186",
+      "sha256": "e4d0c018be5486e99c13833a0645ce09a16ed51cc542010cf32722d26f2e9661",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/broad-relief-methods-2026-10-12.json",
+      "bytes": 17716,
+      "sha": "0af27434d555325275c33c782e8ae1b73833fbbf",
+      "sha256": "0666059a1336781bc6d1961cd7b2c79e7a016b600970c648b119fa2a112434f2",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/fine-detail-selection-2026-10-12.json",
+      "bytes": 2608,
+      "sha": "19db6957a7d2f889ba1d30e7c4f2a9500c4005b8",
+      "sha256": "68e7a65a02488b75ffccaf4f77fb10b2b1741b44b79c65c771d10948665e0e1c",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/fine-relief-alternatives-2026-10-13.json",
+      "bytes": 8814,
+      "sha": "012fa70a21e6959f0edb73b60f7187213fca693f",
+      "sha256": "b43f3c31bbbd0d2eaff4be173cbd3aa00e56eb2aef6b6ef4ea3693ae64c5fea2",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/global-water-handoff-2026-10-12.json",
+      "bytes": 2292,
+      "sha": "e2d20155ba3aac7be66f6e87d25c34dd61d7f78c",
+      "sha256": "c4f0dd4e69e07be688142f75d4fdfdb611c09b5b73bf5227d5524470ca89de48",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/next-river-endpoint-audit-2026-10-13.json",
+      "bytes": 33261,
+      "sha": "9d6112f07cbefa66cc81a763c42335c76d9487a9",
+      "sha256": "9bd5c73bf9c6e25e9bcf7d82d112560913008a362dc10df8dcf83a0edacd4f94",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/selected-river-endpoint-audit-2026-10-13.json",
+      "bytes": 14561,
+      "sha": "b16047467630fdbf3e3f18bfd89bda1e8e119467",
+      "sha256": "3369afc10e363ba92a7f6624e7f9d085de0cb423f24b1041fea45d1e1430f6c6",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-channels/cross-section.png",
+      "bytes": 12603,
+      "sha": "0cda8ec2fba645aea8d6ec33aa908c15f64eb882",
+      "sha256": "07c556728e2e1e31448dd1b0e37dd80ba28c9670dd0723a4a0a7bea5ecad9583",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-channels/cross-section.svg",
+      "bytes": 20471,
+      "sha": "d1e53aba8b8c93f6c046b46efbc3f2f3e0817482",
+      "sha256": "f9ca6348d75207a634bdf93ce142e7e5ce2833cb9f5d8c8d7a392f2a60a2c8f6",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-channels/report.json",
+      "bytes": 93513,
+      "sha": "66bd97868dee713dec096a2e401f0c3f10b8df7c",
+      "sha256": "7809fbd5ae374cc9aaeb2a5f0d7fb881ff019e71e9da3bf593b1f1a2c949a14a",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-channels/surface-preview.png",
+      "bytes": 29584,
+      "sha": "d352cb97f826abdf251e91625c14a1dab84e0eca",
+      "sha256": "92fc3d400078e0abbf911d7c104720f92cc25bef12770d9e0ed2b94b336baa89",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-channels/surface-preview.svg",
+      "bytes": 3563580,
+      "sha": "c635772f63b2b8061fad3f5bcedb01a4e2c5a723",
+      "sha256": "333d2dfe5252302d13e79c90f6074689ebf31d785c205025198c92291647167e",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/adjacency-tests.log",
+      "bytes": 910,
+      "sha": "199251563e9b743049468ffef9112a464b868c20",
+      "sha256": "7668e72cbeff53bfbbd81dff890f2c61ad210d12c5f99653fdf8493fea1049cc",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/baseline-tests.log",
+      "bytes": 1784,
+      "sha": "fe9d6035ca9f3c1914fd1ad06b844cbc4c5d16c1",
+      "sha256": "74801c181c4bd2e2b7425d5d89fefaace4ed39953579098b11d522911f812da7",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-export-qa-region.json",
+      "bytes": 962639,
+      "sha": "a2e44d48aa273e9813f4381e8a2ca27233c142f3",
+      "sha256": "efaa57f11cf8cbebc6ba8516bd2cd656b4fb53fbe8a7f9cf97d6a79296158706",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-export-with-placement.json",
+      "bytes": 962949,
+      "sha": "29857ef403ece5ea2d195d635ab9bc3586d6df1b",
+      "sha256": "33c8bdc0439a35449d0248a132c5d906a6d4c7a5cb382a03d71a0e241989ac99",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-generated-region-3d.png",
+      "bytes": 78099,
+      "sha": "ec60f14311e3d2a1a8dc5671182ddd03867455da",
+      "sha256": "30346e3a70840d7b1acffd7c3bb6db9a266d18dc54a44740e44bd42a45183de9",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-globe-space.png",
+      "bytes": 65210,
+      "sha": "6ff901bae13ace25f75f2a26d6f5435f5133f19a",
+      "sha256": "10a5d40af502d21ec9f707e8b4e634837c1213ca5b7348407c12c1881f6f6e12",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-inspect-initial.png",
+      "bytes": 93917,
+      "sha": "b1e555d28ac8fac29353d188c2fefbcc599120ab",
+      "sha256": "e02e3a0b9211266e8858e2292b2f6b22f81a5d30e6199b404d35aa017f755f53",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-physical-channel-100m.png",
+      "bytes": 62648,
+      "sha": "c03600810c176cb49d137d495017c7d6a69ee9cc",
+      "sha256": "e18c0c53cd4eedea721b87eab1d4fd221820b9bb4627f6fde966df170a59b562",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/browser-river-symbols-fixed.png",
+      "bytes": 82833,
+      "sha": "efe6c62194b3075028b3958298b45bb5c88f2272",
+      "sha256": "a38e6b7452193447b7a404eaf21e04b96a698853e44b8ae1651f254ee15c7d38",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/build.log",
+      "bytes": 599,
+      "sha": "224e22ac70b99364b8b87a36d636a08dd5ba5f42",
+      "sha256": "0c2a624a70889a8d7fd4ab5f7dedca9680232f7370c9e7baf95ddc57a596dfe1",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/channel-independent-sampling.json",
+      "bytes": 740,
+      "sha": "22a0f4ea28b709e8a963b66fdc801333aedb393f",
+      "sha256": "be01e9aeef1c35b2df7bd3c8f1f89cdaf2adc2fadb40b8b27ef5108b5de85adf",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/channels-provider-tests.log",
+      "bytes": 1430,
+      "sha": "4eb9144e6da837ca66d493829db7ec97fd9904a6",
+      "sha256": "db3add66c469f0093c340823e3e209160720bfb9a38e91b93540b23831e02a5a",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-browser-channel-100m.png",
+      "bytes": 70347,
+      "sha": "e24b336b69729959e5a5b60188f0da27c34d2033",
+      "sha256": "2c7893f5386753038977638146cca909e9d18ff049b271ad8bcd35e7185bd711",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-browser-export.json",
+      "bytes": 963147,
+      "sha": "d3117947ba93e772e1ded5640e855c827e46c584",
+      "sha256": "fbb513f38e8f6178f9e3e7d7b812c479e85af92b57aa70d597788242e807761c",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-browser-receiver-300m.png",
+      "bytes": 58133,
+      "sha": "433506b22f231b111bdc5788c37ce26d929ca08a",
+      "sha256": "1715503feeb46d3b51edfd4240697ce86f2bf87e008f3f318ed57a3c266d36db",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-build.log",
+      "bytes": 599,
+      "sha": "e5c605ba27bdd734401130dd3dc49d82a53c70fc",
+      "sha256": "77ff4d11f5e5ed717eec8047ceb66ca4ed0eaffeeea8169f2173ef08d48f98ab",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-npm-test.log",
+      "bytes": 131143,
+      "sha": "2cdda942cad402cf826fd8aab00c452c44826815",
+      "sha256": "112662e5e61644060215aba8303ee26791407edf1ed0b9163309616b002ee417",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-source-hashes.json",
+      "bytes": 80054,
+      "sha": "5587de4bd59ba4024b36cd1e16ba5085a5a62418",
+      "sha256": "ebb4d6409bdde2d4d3464849d4f0c3a5d186858f504333af1fc751cf4c4f33ab",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/final-source-recheck.json",
+      "bytes": 119,
+      "sha": "1500a6979c300b4f7d017102988b048aabb1bbf9",
+      "sha256": "e11e3c39027780633e7b9c84efb95d5619c4fe6c22fbf4b68f28ef06cad4af41",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/focused-tests.log",
+      "bytes": 2315,
+      "sha": "7739e41f795dbed07269a6a11117e46ba7d6302f",
+      "sha256": "fdeebb3321016617ba02e3965ce3a4b1692210fcc0efef1eeded75a0e546be79",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/pre-final-integrated-tests.log",
+      "bytes": 3132,
+      "sha": "04fb19e777a994cee6c4ae2ef63e332d3364b277",
+      "sha256": "89ec03d2a06738e1a0dde5e5ba7602c4820ecc7e6b4172d907835dbc0ec29d52",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/receiver-routes-after-fix.json",
+      "bytes": 800,
+      "sha": "4ad5a0d803cc94c3a42f496ef417c2a4a5cb3c70",
+      "sha256": "307fc1634b07a314c08bc03c5cf0e042fad829401a8baf65f41f959437bbc2c7",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/receiver-routes-before-fix.json",
+      "bytes": 944,
+      "sha": "315a4a6120c75a995ea7880811de1ab63918a7d1",
+      "sha256": "4a26f0cbd6d7a8f1abfea606130202ae72299cb22a5934b78058d48c4554a2b1",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/runtime-provider-tests.log",
+      "bytes": 3475,
+      "sha": "0a1a7f4b8d1df535867a31ed9e71a113a8f47216",
+      "sha256": "411033bf441689dd167304c81e1eb5347a704c3233cf88358f6517e9b5356769",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/sphere-channel-tests.log",
+      "bytes": 1978,
+      "sha": "173fa1aff4da8b2466cb4808c0b5761275649e89",
+      "sha256": "f183bc1c0183f8a2f033d9b8b94df2a08f27024f5e00780966f909a77eb781bb",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/sphere-globe-tests.log",
+      "bytes": 13583,
+      "sha": "ac16d3cfbe571ffa1ef99f91e8221814e79f8582",
+      "sha256": "950d36bb8bef41865108f02b9e97d1e965562e751a63280aedc461cff062126b",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/sphere-integration.md",
+      "bytes": 4063,
+      "sha": "434130dca2179d3fbae9d778dc879f0074ede2b2",
+      "sha256": "7ce5ed5f7f5468c9526be07243cd126699d462bdbb929de18a6ffad9ff9e6985",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/status.json",
+      "bytes": 10886,
+      "sha": "c992a96f34260c9dee6e64949b6aebe42129683e",
+      "sha256": "01e0eaee69f661c9cb61034c388326f39b44642d667730dfece0874382b8f7ca",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/verify-receiver-routes.mjs",
+      "bytes": 1889,
+      "sha": "ae533974cb28f14b37bedaf168b8deea9543d0f1",
+      "sha256": "29c5432114a333132d5de7f66703cf522413c7d5b1bce9ad99d9a1b5c7107c46",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-after-314159-10000m-matched.png",
+      "bytes": 71564,
+      "sha": "8f37c0e8dfd5313056c0ecf08263c07579188b67",
+      "sha256": "70c823ffd8c68e275559353528dbdb865809533c96d7bc77344a7da4ba879f92",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-after-314159-10000m-oblique.png",
+      "bytes": 68617,
+      "sha": "076b244374981f6b01edad66a88c65d5aba97c9f",
+      "sha256": "d40247d461d551a03756d0eea4338b7c5b9396afa7abd430ac6c8c18bffa5d7d",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-after-314159-5000m-guides.png",
+      "bytes": 80942,
+      "sha": "df37b14e5770459989552ad00bbeef1df4c95096",
+      "sha256": "7fd6a4d1d83d36e05aaeac226ff946c09225abfae9ecafc6d5ce383dfdd15272",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-after-314159-5000m-oblique.png",
+      "bytes": 74064,
+      "sha": "d1a9fe501d2b2bc4cb8e09197ba5b538198a860c",
+      "sha256": "e051303406dba14fcdd7dd03b537b8802e5dbea74963dc6060b528b3e32f9412",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-before-314159-10000m.png",
+      "bytes": 67806,
+      "sha": "71e28cdf07f90acf859d0963fdb5ce1a823bcab6",
+      "sha256": "3483d9e037880ae2ca5a84da06d9ab63ec954ad7d6d805cccab65342f2b99571",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-before-A-10000m.png",
+      "bytes": 66979,
+      "sha": "549bd9758875584c3552ffb96e5ac9894952523e",
+      "sha256": "7c2b38aac48c7a066234e3e00a3fd01ca0771daf50192be6f5da2ecaa3ac09e6",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-before-qa-region-10000m.png",
+      "bytes": 68667,
+      "sha": "27b88c366f897d1aaebfe787716f93a4eaec1882",
+      "sha256": "cff29d4ca4171cd4900c8a29086ac6e5647f5e3ba7c976d2d046214749b2c30c",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-build.log",
+      "bytes": 599,
+      "sha": "824635dcaf870d2044d50278acce9a88a738c790",
+      "sha256": "4f033b3e2c505a7344cff1390d3a930d3d275fc63d9364c63318237479800361",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-314159-overview.png",
+      "bytes": 41116,
+      "sha": "2793805ac22cacc6a3158c2f5d40930a32c0aa62",
+      "sha256": "c9d902345f1053cb1129cd9918405ce99b787bc799765eef76584312164903cc",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-314159-panel.png",
+      "bytes": 64634,
+      "sha": "4d8bda690b4c4634aa24d4d12da132a27aeead89",
+      "sha256": "292b1ba8ff957d1ba0b25236e39e6c2a08083a6c0bd466ae257d6821a143f702",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-A-default-entry.png",
+      "bytes": 87991,
+      "sha": "aaacae0d3ced6febab11ef4b43c57058dbb525ee",
+      "sha256": "1c6e86ce14c70ec379462b49067dafb923f46dff68c4fc8bed64c9f30d1fc57d",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-A-overview.png",
+      "bytes": 44347,
+      "sha": "afa486121e922b63f56183f26f5e8a67329ddb14",
+      "sha256": "58301c661739df4a7f19fc922bb950e214adde5828b5dcdc851b49e4eb5d5f70",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-build.log",
+      "bytes": 599,
+      "sha": "232d8931e2219ad72812f0ec427b7844146b2128",
+      "sha256": "d564d2010a6e700cf052807a04321851e2c292f605f96c6eb4a384162118097e",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-channel-100m.png",
+      "bytes": 30633,
+      "sha": "42325e57b03627a8390e23831bf14d1cb1a6d08e",
+      "sha256": "259e4e9704db44fc1ab19de35cb84f9cbb1f3a0a58937b0db42efad3d1c71989",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-npm-test.log",
+      "bytes": 131876,
+      "sha": "74594129eacd00d287fe370c2054c19a451edb5b",
+      "sha256": "f68b088d9140b0d7a91292569ac2721da151d4649eaa685b82cca54a3a1f463a",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-source-hashes.json",
+      "bytes": 80590,
+      "sha": "c571ca3cd7781e5c554be5208a6f347050fd0f5e",
+      "sha256": "6608136a7a885941b9d80fd6bf580a4ede926934b8bad45f461df875d2046898",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-final-source-recheck.json",
+      "bytes": 119,
+      "sha": "151ad0a58b62abf4585ede051834551879b876b9",
+      "sha256": "86513094590591200d5e04af1f0952f28cb800e1e9e34cdc4842bf6a77aecb54",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-end-to-end-qa/visual-focused-tests.log",
+      "bytes": 2601,
+      "sha": "7b3947303f582f08d729b9c57f7087a2becf16e2",
+      "sha256": "d3e126943746faa2cddfe05608bffab568574ad36b69d54bee15c2479c9cf2d5",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-neighbors/adjacent-regions.json",
+      "bytes": 1189440,
+      "sha": "42e818a1f50ad9c32b18e0e61239d29ad6111bdf",
+      "sha256": "bc2007a274e2254d3d70f2a923b4f0b74f2ae3a2043aa3dc6a2600a211b9ae89",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-neighbors/preview.html",
+      "bytes": 1192972,
+      "sha": "93124f01656769e23eee9fc207378ea059cbd1e9",
+      "sha256": "3319e01841a76da11d939d7b92ae80f8ac56010c1b95a6894d9f79c62014515d",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-neighbors/verification.json",
+      "bytes": 4357,
+      "sha": "f5966255edaed5264368aeb5032705e9e14ec1c1",
+      "sha256": "abb45427883b76069d3ecf48cc0cd7a879f4c250799beeff33aeda72b444c012",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-outlet-connection.md",
+      "bytes": 2830,
+      "sha": "5f45486c3eaca7dc75e26c92877664154515aef5",
+      "sha256": "4e673ad97e3a4585c351ef17c9ad3ee45b7d821ae88160979967d779cd69b089",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-region/preview.html",
+      "bytes": 1318406,
+      "sha": "76c1477ee7032d7e6da0595a1b1d48c06c26cb02",
+      "sha256": "f35c7bdbf73a4d799b4502aef2737b519b75de7903f14f37935f6a299cdce8c6",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-region/pyramid.png",
+      "bytes": 1554810,
+      "sha": "ebb36b21e0a35b030f75b1f6063a40d75ac81c43",
+      "sha256": "53415297f319a4fec30092632fd9234dd9b26dc7682b543feba1ddf71db3fc71",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-region/region-pyramid.json",
+      "bytes": 1315025,
+      "sha": "c25713451d06a738398e0a611017c0f4b3a6772d",
+      "sha256": "e0a153a86a31abe5605e000bb3c5916323911dc88daf8a582c596310e48ee232",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-region/verification.json",
+      "bytes": 1940,
+      "sha": "805207f3f6a89cc8a53cec8aa8acfa914ecdd82f",
+      "sha256": "94619ecc02e453b7ac9cfe887261d0a19897d207bfc88c4e09d43a522dabbfb8",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-water/verification.json",
+      "bytes": 1263,
+      "sha": "f6c1f0804dd92f06c773773b3a85a55077b48c0e",
+      "sha256": "bb897d08b936fb78b22fe7d892de3724f1cb389678f2ef87d8f0705669062d61",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-water/water-annotation.json",
+      "bytes": 412117,
+      "sha": "f5636e63be28b0d155a9b5f5b9cc0cff6b6048a5",
+      "sha256": "c64496f75a114c423d4472f5208286c27233d52ff512cc74a38d837beb02c086",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-water/water-preview.png",
+      "bytes": 317565,
+      "sha": "cb31723e92db1d69cc7ea13ede278d5ca1ad1bd0",
+      "sha256": "849940867916c46efb55a89f5144011930e6be299e6045a8da9ff4c51a329cc1",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/shape-first-water/water-preview.svg",
+      "bytes": 3669502,
+      "sha": "0c315fb4c672880555f19e74257fa796aa46c6fe",
+      "sha256": "b51f6cce0e7f9be0ea9f94c95ba6306cd97aec2b8ac031ba755fea78817c2ca0",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/visual-finish/design-notes.md",
+      "bytes": 3391,
+      "sha": "3fb25a203a7a2147188fe3edcdf48be947b6bfa7",
+      "sha256": "92f011779e0bbcd584e8b2f751c9a85118faa4dc750a7a7ade02b6ade9f3850f",
+      "mode": "100644"
+    },
+    {
+      "path": "reports/visual-finish/focused-tests.log",
+      "bytes": 4052,
+      "sha": "563804ccbb8723b6292b03b6382bfc58a41c4078",
+      "sha256": "566ec267ce77f32654ebc51f1e51c6767f6fa6f68836baec8579a34f337fa1e6",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/anchored-regional-surface.mjs",
+      "bytes": 6691,
+      "sha": "ef8c26a6c97826dc46dc5eb680962df49b2bb344",
+      "sha256": "040d468a8e70e0d8ddfc3325f870e3ed4d277190d10b8aae5896c60e31872133",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-local-bridge.mjs",
+      "bytes": 9233,
+      "sha": "37531a4b2cb19f9c241f880b73066d99ca5975ec",
+      "sha256": "640200c2bf3938481b6eeb29348cb2b98d5480bf817f324e58844916fe24b22e",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/README.md",
+      "bytes": 8199,
+      "sha": "3aaad81a6369cce98675531ea57ccf98be3a5c6f",
+      "sha256": "cccad36f32fbeb6c757fec885a9aaa388e982cceec339aa6e86494810da70005",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/apennines-run.log",
+      "bytes": 10756,
+      "sha": "8eec20bfa5c82bdf2f5d52fef4cad38cb0e797ee",
+      "sha256": "0542e757107a22a7c2b967f8a3d33f6c8935d936e19d7604307852f6d8a5bbdf",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/apennines/comparison.json",
+      "bytes": 2015980,
+      "sha": "d92c37445b8e44dcab5e917f6cc2548a93a4a3fd",
+      "sha256": "910ed26e78a47760ab7d93803fce52afe3090cb6eaed293fa6539eb5790268f1",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/apennines/provenance.json",
+      "bytes": 1696,
+      "sha": "02d6e51d84095e82dc52cf06d205dabff5035286",
+      "sha256": "a8cfa282205ee94e1d1a8223f3dd0973ad5c59e0d9306f8fecff13305696e271",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/apennines/same-scale-drainage.png",
+      "bytes": 290210,
+      "sha": "582de0556adc43b06986ba4be5ecc88b5aae0f12",
+      "sha256": "627f30cade858a66d8fcc35f1f5435d05457197882b183de53602eddb58ae90a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/apennines/same-scale-stages.png",
+      "bytes": 263747,
+      "sha": "628dad32f0675331f7cbe70c3cbdba1a6e65092d",
+      "sha256": "bb93e7451b2d02ac33131c07d97ed62c49a3038cb47deed371feb6cf3e56a2ff",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/apennines/summary.json",
+      "bytes": 10755,
+      "sha": "7f4d206598b0d6cd1ab9ceabaf89b1d6de29c3e3",
+      "sha256": "08dd107c6504d0456f5f2d82638778af19a5a9f0807ab828ce6448a89c6f1c4f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/compare.py",
+      "bytes": 8450,
+      "sha": "edc4bfcdffa4f218cd1f9a4ddd4f9e81dcc949fe",
+      "sha256": "b57efb618ed0ffbdc9035195ab0c9b865581eaffcf3d08815e5da631a57f10cc",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/file-manifest.json",
+      "bytes": 2720,
+      "sha": "2ae7316aa07c33e95de2e58dc4afa1f9eed1e622",
+      "sha256": "c9e77a3ff6ce8845904f502a095533631f73301bdcf9ff7ff1bd88677bdbaa5f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/generated-bridge-storage.json",
+      "bytes": 1045,
+      "sha": "f536a360095903c90139413e41b60f0d3374bc16",
+      "sha256": "4093725b919d993f5cc3bf58d7028f00264cc280336ed66ec769563378c101f3",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/generated-bridge.json.gz.part000",
+      "bytes": 524288,
+      "sha": "2a7e46b7c58112d9bc93c794f0679ca6feb565a7",
+      "sha256": "bef7b233bfe954d05c495521d0ce61a681d5af0ec6d8869df207c4d068bb2707",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/generated-bridge.json.gz.part001",
+      "bytes": 524288,
+      "sha": "53fc73d9e13988983642dfff12b276f279037da1",
+      "sha256": "043a9f829cdbd323f7460f35cb25416de9f49148fb757b7e4030f0886fef7c98",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/generated-bridge.json.gz.part002",
+      "bytes": 524288,
+      "sha": "ce519acc5dd3a9cf51f87c664273de245e7783f2",
+      "sha256": "eb17e5a0dfb4685d43f448c393015dbfacd0c3a4f7384c0a1e9d32854f3ed09e",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/generated-bridge.json.gz.part003",
+      "bytes": 455287,
+      "sha": "9b9b7bb4148bbe32212df3020da1e03f417f98a0",
+      "sha256": "03e17ee3db11a98d953860654b1c35e4cf588611c2b6449c05415c330cf15a98",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris-run.log",
+      "bytes": 10780,
+      "sha": "186131cd476de9b5d1cfd0524ab39afdf3cfaac1",
+      "sha256": "bf8ccc541cfaeaabc20e7e0f6fd946e0e4df1c2f7a41a2b4287a0761ebe41d67",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris/comparison.json",
+      "bytes": 2019101,
+      "sha": "44bdefa2984f153d88505ddc5e6d98597b912d64",
+      "sha256": "60256b5eae0e78a7e417d0a99602916427de5f344db879c5d17bc6c8a08b321b",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris/lowland-detail.png",
+      "bytes": 337002,
+      "sha": "08779b6e930768949bae165027ac921c9a335f97",
+      "sha256": "cbcb5d8e5343de0751052ec190d1e5901f83fb4b4b87e67c78f8967204c17cbd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris/provenance.json",
+      "bytes": 1656,
+      "sha": "8e2735ca17eb30453f4a5b85accf544bf7188ea0",
+      "sha256": "0fde0a53a9a3bf246fad0a96857630c4345ea17c2801422235d7fabc424dda84",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris/same-scale-drainage.png",
+      "bytes": 255518,
+      "sha": "e4b4e32e0f22f28775c519cad025edc01b920481",
+      "sha256": "db70ecbb5a4470d481e754b06118537e8c823edfc367de93bf4627d14612529a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris/same-scale-stages.png",
+      "bytes": 241297,
+      "sha": "919c0b624827ac2fd8ddf1f92d23103b357e2da6",
+      "sha256": "942d6a3c527232baa2ef652c75208b0636748781b4cc083d6e1fbd031b61f843",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/paris/summary.json",
+      "bytes": 10779,
+      "sha": "be66cc9cbf8083a8879e5d205c31cb62930dec08",
+      "sha256": "c45a382e0c9eaf3a555a02e875c31b1e071b6ba8313a00d3140f80d3d2c6b661",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/primary-lowland-stages.png",
+      "bytes": 282876,
+      "sha": "721b5ceb578ee5763dc0bb3c470612b677ac9c88",
+      "sha256": "4174d6663dc35fc72b676f3a9c4dac94ba7609686697fd08c51fd73d7b85bef4",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/raw/etopo-paris.csv",
+      "bytes": 959656,
+      "sha": "e25008ec293bd8e1aa160cc15ba5579ed0c972f3",
+      "sha256": "d2ad145244a0ca96cfc1ef07b220f1333a3d27ad15f7b12db82a4c79d6569edb",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/raw/etopo-tuscany-apennines.csv",
+      "bytes": 954739,
+      "sha": "1212cbc9f5bc35c625e2d634fc98638e8a1a3f17",
+      "sha256": "b9fc923486c9a2b0dd475d01c6e21d44f321fe8424cdfb38861480e0c8074dc7",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/raw/paris-provenance.json",
+      "bytes": 854,
+      "sha": "ce0bfc1907b27361c75ac1e96a121e1cc1cb71d5",
+      "sha256": "09259fc1b1355c1e6b6f10caeffd11532e6c49292a15c1fcfc28fe6313ec4b29",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/raw/provenance.json",
+      "bytes": 892,
+      "sha": "7e9bceef4c2a0926abc0d553deb74acb96e27b99",
+      "sha256": "bbb174d6930acba27c2355f4006aae3e7287a72592253638f18fa8c1d15134ee",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/render-primary.py",
+      "bytes": 1284,
+      "sha": "ebd0ce8ba12bdb59daa8e9fd36a2ede35a1f7711",
+      "sha256": "783df1f58b5510187a0aa365a7cd58adbb3f3f37fecedd211ac8112cda66fdb6",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/validate.py",
+      "bytes": 2296,
+      "sha": "662da25ae8175b01319ec3c849c0c0cbb3b1e73a",
+      "sha256": "cf0a1d779dba5134a9c898126872150d39e0b01ff67e8773fbae6d54f61a8638",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/broad-real-reference/validation.json",
+      "bytes": 348,
+      "sha": "fd97ad4d9548e14144a0379d6c954b07fa74c4fe",
+      "sha256": "6949729ef6ad6f9a32518040044b104c79d711bf7b4312253746b846c7c95146",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/build-global-water-handoff.mjs",
+      "bytes": 2070,
+      "sha": "1c512c4f873232dc2d54ab6b4b7316a85af92b32",
+      "sha256": "4dd36b983f103aef948084554f4a5da2083608181d58da6840e68755e7c56ea8",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-local-layer.mjs",
+      "bytes": 11340,
+      "sha": "45667ab6b0c922514d62ec85cfab4fc069303018",
+      "sha256": "bbaa1c68212c89aff1f1a0c6b45bf619ec74a5546777d43b0ad3f019f201cf39",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/README.md",
+      "bytes": 3547,
+      "sha": "86dfb7585cdc0016754a033204778c70fc3ddbe5",
+      "sha256": "99bf4eb7d1be71d3278399beeb3a99ff5221dc47f9dcbfa1af85991a5f2fafec",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/RESULTS.md",
+      "bytes": 1059,
+      "sha": "2a7b06bee183efb356648b1be13b8790e604b235",
+      "sha256": "b403bf20663fcf3c8e7c708dd2002c0287adcdbb640eee4cec84c699ae178d9d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/acquire.py",
+      "bytes": 1549,
+      "sha": "f918f272c08b253b00aabeec2d55b960898e74a8",
+      "sha256": "77c0bee60d77fc6785bbc5046e0b524fda369ef0192474c521ed779d4c916ccd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/actual-target-grid.npz",
+      "bytes": 156448,
+      "sha": "a0712ba0244e03cbf4baf79ce8f2b7eb448f00b4",
+      "sha256": "511524a173445d748e299b1a52a7f8bd30a4c4d3a0f2312af81711e29154b908",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/compare.py",
+      "bytes": 8911,
+      "sha": "ab7c71bde8ed707eaeae420312ffb3fa17d3a8a1",
+      "sha256": "fc58c9f1cdcdd01ecef7d8e216f5b64926bb8b63e67df9920dc5f7197d8c3ddd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/file-manifest.json",
+      "bytes": 2729,
+      "sha": "6bfe38a6f27f589547c50f60fc39a0086d49d9da",
+      "sha256": "e65dc01675cdc47de44446657c7c221d1216cd35f1b0efd5b143a5003deecb42",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/input-provenance.json",
+      "bytes": 353,
+      "sha": "40f033461bbd59c3f4f5a0b4ce689004a8c6777d",
+      "sha256": "ca00122204b3bae177582640d925d144153e4e4486f23166bca6d5a4458cfe99",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/original/summary.json",
+      "bytes": 9020,
+      "sha": "467ece0010536d349bd8fe571a61c26604dbc128",
+      "sha256": "4fe171cbe5dc1559d76b17c27b17484ea122fb506fe57a7f3871fc6a9b0b5105",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/provenance.json",
+      "bytes": 10749,
+      "sha": "85732fc2831313781c8b1b334a1271c0e53303e3",
+      "sha256": "708e8df155eb41dd93de4499413397511124d38e89d19f98ec507a9ee0ee2044",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/raw/catalog.json",
+      "bytes": 53246,
+      "sha": "99a42e7e039f1927ef6505f5625ae95d21cdf6ea",
+      "sha256": "9e7b202f521839d8b5b5eff011f84ac72f64c815949e8f69278b8664eef9dc6e",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/raw/export-response.json",
+      "bytes": 358,
+      "sha": "7210d36462ab7467c07af2019005f57a349e8125",
+      "sha256": "4bde44137e56e65f6a5f61100cc9237b53f1e9a20d2dfbe89be6d39fdd7b7245",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/raw/service.json",
+      "bytes": 12988,
+      "sha": "62fabd9577c7a80306ae875b8c9ada4c44145a28",
+      "sha256": "74b4d74deceb9fc1728945ec27cec809bdcb7427e1949ed80c48a9bf60c0e777",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/raw/usgs13-maryland-10m.tif",
+      "bytes": 3671584,
+      "sha": "a07e4945f6082dd73c06501b6874171020f182e1",
+      "sha256": "e488187e523198878ce20d2686f510d8a45c369356029b0fccc896d66bbde1b1",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/request.json",
+      "bytes": 1403,
+      "sha": "304789eb77f5c42102be1961f3fcdb3a3602474f",
+      "sha256": "5ea78460b36cee7386ad9cb6b7d5c762d4031afda8a621d596ffcd3756822157",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/selected-input.json",
+      "bytes": 506988,
+      "sha": "6e1cc0f21f09877e4375f388b3d73222c8e7f777",
+      "sha256": "800f0c7b3d20405639883d39c2f558868b424e5326426405c525bec3d4111fdc",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/selected/actual-height-comparison.png",
+      "bytes": 343659,
+      "sha": "256abe62fcd54ad722fabb5c933ecb513fa728dc",
+      "sha256": "63624653988518d6d5c03c444ee5fa1291617bfb8f93411a523e3c585ee35d55",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/selected/comparison.json",
+      "bytes": 2629985,
+      "sha": "477a7249d57138c6dd07b9eb611bc9676693bc6f",
+      "sha256": "ad9b681971eb0113f0646ce5b94bb3b03b326e2086e60ba40cbf121bbf312607",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/selected/summary.json",
+      "bytes": 9015,
+      "sha": "5925488a7d0aa71ac4ce444695f375c258aa56e5",
+      "sha256": "89d151c395b8ad4470a1b67f4a4b4cc81f16d786263d43c5898969fe017fb8e3",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/validate.py",
+      "bytes": 2018,
+      "sha": "3e8794230f0e89649d26b221d6a7bc93312750f6",
+      "sha256": "934edbfda8f92f865f1d2ce10a1aefb2d7d9d946631dcc9cadc0fd9f38171613",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/fine-real-reference/validation.json",
+      "bytes": 551,
+      "sha": "ddd44d88c1064eb37a59918566a88973e6ed7811",
+      "sha256": "e72ff5676a14175329ec322abe19ddf80e20281a15362a8e335b56571721e1ba",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/flow-aware-detail.mjs",
+      "bytes": 3723,
+      "sha": "00a8953fe648cc40e8f3a02a3015d72caaa94cd3",
+      "sha256": "bb5d30a2eceb5c81279deef5c5dad5cab7aadeabac41d357e13d5c7a97c5db37",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/global-water-handoff.mjs",
+      "bytes": 23184,
+      "sha": "6f63434bbabd43a28c403c35e2bb3d8dd98bf703",
+      "sha256": "93e3ccab0e34a1a08079c5cb1e44f04a027c51564ae3fe41590a8f43ce19edb8",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/README.md",
+      "bytes": 4976,
+      "sha": "403aabf257524c5786b197b1ccbb06fb1cc412b8",
+      "sha256": "1c514d4c5184e01303159fb5bab5e06de331126b80d8e3c1c647f7336b2ca8ea",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/actual-height-comparison.png",
+      "bytes": 241719,
+      "sha": "176fa6f840d40a9cce4dc3715cf67d0017e8382f",
+      "sha256": "08f282f5497042ae6353b411f728fdc69039ad07b26a4d726dce01bb359043fd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/compare.py",
+      "bytes": 8110,
+      "sha": "ea7a25804175141b11628a5ec4828adcd0e3e663",
+      "sha256": "f8bb61d60eb93003a1ee013135d213dd08f766bf646554cfb8714407e252bdd1",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/compared-input.json",
+      "bytes": 88895,
+      "sha": "828e7854238258d92be863ad52b7b6a0716bfaf2",
+      "sha256": "b039c631da0073a9f97667ab7cd34f513aa4a485b36647a9df0c96a3bdadcd08",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/comparison-arrays.npz",
+      "bytes": 180147,
+      "sha": "4bc654066939f1fba10dbd9319b5e8c25bb03fdb",
+      "sha256": "d80bb3d7a5a564a405e9fc004671d0ebc2a4ab126f3c89bc5b6ae48487994e90",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/diagnostic.py",
+      "bytes": 2175,
+      "sha": "9968a75942fdf8635b86d1dcfe41484759f2f1f0",
+      "sha256": "dde161504faecce7f2e249e727a30de492f7ef32fdd98bca1ff8a20736e4e1fd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/file-manifest.json",
+      "bytes": 1705,
+      "sha": "2d692594db751a2ee68e8dad24070e2562548fd0",
+      "sha256": "02fa9b63005fd81faa6f41f90729174914685dbc7c9f8f1ddfb7b86c4ffbb000",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/independent-validation.json",
+      "bytes": 740,
+      "sha": "357242b56fa87a0159dcb58123d0e763f33f1b09",
+      "sha256": "72ac29f397402d1e222086c2931c5b6cc8c1f3246bfc871f969373df98c07770",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/input-provenance.json",
+      "bytes": 531,
+      "sha": "9b352a59940e6408a1aacad39f6ed15ecb5e0e0b",
+      "sha256": "a64e5f678fd1bddc7548a9f940a74382bba13949cbb57d9d4fc72e134280b88f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/provenance.json",
+      "bytes": 3161,
+      "sha": "eb8ae6f7f2bc7bc114a37cf016475e862ab21653",
+      "sha256": "6008d9cd988c05a95d53b00141563461a03ea95b47926255ace92cc53167ce4b",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/summary.json",
+      "bytes": 4951,
+      "sha": "7714c3ccd2930c6982ec3fa216cbbf1bb81da265",
+      "sha256": "8b71f6c3eaf480a5c5e3edb052a62c7c2eb024b461bbaef7e7773b4bdc98e82c",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/validate.py",
+      "bytes": 2126,
+      "sha": "bd4ca6601236d1f7f1b6a58efcc8161ad5d1fc7d",
+      "sha256": "c0382644bb05dd62e51546adf4caeaef9e6dff8d07e92bb1a1448ad3896074ca",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-layer-reference/validation.json",
+      "bytes": 729,
+      "sha": "a24ba9608e8ef981f629e2d18bc6f8c133078e81",
+      "sha256": "cda7903ee8a07944e66156db952e897f8aa8a186fb7e77dc8ba36e385102a8de",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/next-local-layer.mjs",
+      "bytes": 12864,
+      "sha": "a95691119774b41fe10ff4c3147b854c85714ec3",
+      "sha256": "8dbaf8fbeef5942dbd50ae2479ecb2a35c204be8774b53ff114cdb9e38e005bd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/.gitignore",
+      "bytes": 48,
+      "sha": "6973749dfffc272e12842f1f32917d9e16df77eb",
+      "sha256": "945f5d3e098d1c1a953c74f83a5d79648887209780e388903f6eae78d7c464da",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/REPORT.md",
+      "bytes": 9790,
+      "sha": "40352773bc5250e7e6d9551c52f090a01ab31903",
+      "sha256": "54d2f0475e44099ff255940a1af4d15df5a27db093ca33e25f105b7d574f51c8",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/benchmark.mjs",
+      "bytes": 8951,
+      "sha": "9f77c6936c2ba4d0b1f902afc91a99fe3eca49c8",
+      "sha256": "2e1c70ea496de5d1017cfad13a6e81ab108ca964fb1087ed8694510ab2f41f8c",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/data/inputs.json",
+      "bytes": 384154,
+      "sha": "84be6ad3324649815111e1d7656027b8161bfe7c",
+      "sha256": "1a3edf27c38c9a37b0c4a953b667da27eb5d2b33d668b6fa76eda6e471ca0733",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/data/tuscany.csv",
+      "bytes": 595395,
+      "sha": "39f36861e3f22be14955d8f35aab85e8266b3b55",
+      "sha256": "eb3784fb884aeeddee74fd3f46abfeddf2c355db3c7c894d003b0d753e6a5dd1",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/file-manifest.json",
+      "bytes": 1785,
+      "sha": "82e02c45bbb3504bdc0f3b47d6fce28ad65ab3c6",
+      "sha256": "41c9695c9824a8034364a6193b9783be7e108ac621e8e4ee045b808007ad1997",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/prepare.py",
+      "bytes": 1804,
+      "sha": "f04748ce3da93acf6cbafcee671253100ebc3230",
+      "sha256": "6e770f33c1f31ac4e139dd499d7dfe8ede8567179a8f02f5f304c6e616ae1227",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/provisional-boundary.mjs",
+      "bytes": 3269,
+      "sha": "1ccbd1e25380a6e048fc6a727db2278e1bb8076d",
+      "sha256": "d79c3331b0dc9c8ce9f3dfc8ba85e692a688cc5f1fa2d53d1b4cd9635d5ac26e",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/report.py",
+      "bytes": 12883,
+      "sha": "3b4a22bfea563f6e7d1f4981a14ecd53d05bf363",
+      "sha256": "d8065ea8fe88642500b0e390af177bd8a402aa13bcbaf4b48fedc055fdf43e1c",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/results/provisional-boundary.json",
+      "bytes": 10458,
+      "sha": "7650b48fde7c73e0a4e94e88ae54ce2d6e36681f",
+      "sha256": "2079d75eeb9cece0f11e2833902364c145b953af0c9416a4ac8550bc7c7647e1",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/results/sequential.json",
+      "bytes": 27866,
+      "sha": "75363834d908ea16c0a788b12ba9f528575b28d4",
+      "sha256": "355615f04a41a8e8ad60eb78e38a7f52fc0c8c4cf99168f89afe23256cf72254",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/results/summary.json",
+      "bytes": 505321,
+      "sha": "f2f613aaeda77ff6537b5b217c5ad29d1e1fec4e",
+      "sha256": "4305c55c0678d89f1bf3eaa0b944388d2573751a616d40f51e3bc9b8f8e5e52c",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/results/validation.json",
+      "bytes": 756,
+      "sha": "8f8225895b1fa77d43e642160f556a861be8e034",
+      "sha256": "02d6fab9afa304b9315cdd5d0b23f3bb3a9fc06f31a25e18cbcb75148ea2d9b9",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/sequential.mjs",
+      "bytes": 3417,
+      "sha": "8e277978bbeb749543936d5eff1760b612cda54e",
+      "sha256": "9caa06ef6bea5ac766162fdfe98e495d65ec616b93bcdfe47dd5018a229469e5",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/source-manifest.json",
+      "bytes": 573,
+      "sha": "69ad52c40d45f8187ba981c8693eba8dcb534c53",
+      "sha256": "bbde9c3d713aef27bb895a3155e99d9101762677612cb336960893cf91793c1d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/candidate/json-contract.mjs",
+      "bytes": 1210,
+      "sha": "6aee784d2637f0dd7c9cff40422a8512287ac0f2",
+      "sha256": "6f785d1afc0dd5680b41e745edbd6cf705868edd5d98a1e25e88d4a1fd996eae",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/candidate/refine-water-candidates.mjs",
+      "bytes": 11087,
+      "sha": "d9a4a32ec12b138f7af860c91ea091acb7ea9d18",
+      "sha256": "264a00740be1e961d7e3275b6cf0ad397ad9a2565501cf9ccb4b739cf4fad68b",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/candidate/regional-drainage.mjs",
+      "bytes": 8109,
+      "sha": "2f4a7b52b6aa39495c53f08820418928a32c4bc7",
+      "sha256": "efb772c69bca3cb25363445cf462a27378047ad5718415b6b5072a879914f067",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/candidate/regional-water-context.mjs",
+      "bytes": 8239,
+      "sha": "44cc32ffce79b842796d3ba31302141edf1637d3",
+      "sha256": "8d1c56c38001923771e748936f23b3ce92b45f17365f94545676ce73c3295650",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/candidate/sha256.mjs",
+      "bytes": 3811,
+      "sha": "17251bba3b258688217b0d90bca5d16250841835",
+      "sha256": "7edd7c80fdaf2d92ec4592e021c9da5459f12a45d04aa0db085354ad515e0f61",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/core/json-contract.mjs",
+      "bytes": 1210,
+      "sha": "6aee784d2637f0dd7c9cff40422a8512287ac0f2",
+      "sha256": "6f785d1afc0dd5680b41e745edbd6cf705868edd5d98a1e25e88d4a1fd996eae",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/core/refine-regional-water-gap8.mjs",
+      "bytes": 6884,
+      "sha": "5b90a6ee47ee03edeeb4499cd3329b5e3e713db8",
+      "sha256": "8772d4578c779c2a29294cdd56b1e0516fcb4b8a98f1f703e53338d280d0189f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/core/refine-regional-water.mjs",
+      "bytes": 6884,
+      "sha": "c566f8d4ebe80f00daf177043504c43b5f3d438a",
+      "sha256": "bd09df68c95d3c48f58b1ac892de83191299ea839d927d3c0297b4e7d7b17e53",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/core/regional-drainage.mjs",
+      "bytes": 6726,
+      "sha": "07d0b94f8fbfa2b590aeb2ce0508cafbf7c9ad30",
+      "sha256": "711a7d37aec39eea64ec75fb49b8ee80c7f59aad5b52792f844cbdcbca3e9642",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/core/regional-water-context.mjs",
+      "bytes": 6287,
+      "sha": "b5ad92ff044aeed92158e6d65f3490f7518a3d9a",
+      "sha256": "eff1262b7f91e43c9edc91df4eb27c69f802b3bdfd632558769d0a16a48b4c43",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/src/core/sha256.mjs",
+      "bytes": 3811,
+      "sha": "17251bba3b258688217b0d90bca5d16250841835",
+      "sha256": "7edd7c80fdaf2d92ec4592e021c9da5459f12a45d04aa0db085354ad515e0f61",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/real-dem-layer-gap/validate.py",
+      "bytes": 2233,
+      "sha": "26828b060197fbbf6081c9ac497f0a10a0d2ee1d",
+      "sha256": "7b209588783773d48e3a42378b8a815141dcc2ca9afda8f8b9ea4b1ad1c011d7",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/render-fine-local-layer.py",
+      "bytes": 4032,
+      "sha": "a67382f7fe94233b776ceb1eef45b60b41d6a492",
+      "sha256": "966289d2dca06f787766ba7da311aa21c9c897a1633336a3456b37e73c28969f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/review-fine-local-layer.mjs",
+      "bytes": 4990,
+      "sha": "35e70e292ad9d26578050b37b3903d02853e2660",
+      "sha256": "1f4812a1b9c840a0ce030b15c3d0a0f2e5b9141ee3261529a2c79241c6093709",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/review-generated-layer-handoff.mjs",
+      "bytes": 6655,
+      "sha": "6794b36f148203b1dce26863e1c7a46cbeeedcb6",
+      "sha256": "586e68aad02818e7cc048aefbafc1db8af7637f8adcfc7b409c55e9dd1b6a8f0",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/review-next-local-layer.mjs",
+      "bytes": 2556,
+      "sha": "4cede5ccf929846163bcc975f53ed11699841b8e",
+      "sha256": "30eaa522138eb143e2fd21af8c2cc740aabe6ded214de3b6fe06b0611e9b5c50",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/.gitignore",
+      "bytes": 50,
+      "sha": "e9e8afaffb6dd800d0ef8e8218792c94476a63e9",
+      "sha256": "548b7f3b1396fed1c13c8e1bc2fa0c00b25b72e1a0af1027519184c3832eb270",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/WATER.md",
+      "bytes": 4287,
+      "sha": "1b3edf74995d0b08550213b8958558929056f8c8",
+      "sha256": "5f7a63982895ffa431559c5e3e44332ea2d04cc94203d9dfaec1448ba6da4821",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/alternatives/eroded/candidate.json",
+      "bytes": 535309,
+      "sha": "bfda43de72f32960a1951275a7736f0ed6593a7c",
+      "sha256": "85cd3b0db41e7c6d492a8822d39815d1679d716fbe5f5a60a7da6763dd290749",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/alternatives/eroded/generate.py",
+      "bytes": 10081,
+      "sha": "009158956bb35778576bdc04f1b529ac687fbb1a",
+      "sha256": "74343e2ff50f34e951500e959029bfb3ee9da7926bd1da6bf51259b2f0769386",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/alternatives/valley/candidate.json",
+      "bytes": 653906,
+      "sha": "ee51fa50c47adfdb0ed8560ff2953d99857a5e3d",
+      "sha256": "7216b5d8aea9629d1517fe5f13a3ec779a36d6abd7017bcf741567af24febc1c",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/alternatives/valley/generate.py",
+      "bytes": 8396,
+      "sha": "7ca4ecea20da5506eb1b97695b83eb7ed101d23c",
+      "sha256": "2c72e4c863f6b381445dae5021adff39f53def86fe1f24e5a9beafae6342894a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/build-adjacent-regions.mjs",
+      "bytes": 5706,
+      "sha": "2827bd4b6b8709d530121cab84e7b8d02bd5705e",
+      "sha256": "31b640462fcebb1c9e86bce13114f8ac06f1d73778d07eda376103336652bf54",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/build-region-pyramid.mjs",
+      "bytes": 2027,
+      "sha": "1aa364b7b7ec3987472dcc3504ad9b4cefbb7d94",
+      "sha256": "4d5070de55293479f390ef0196059e939d900307f16121dd934757b5ed333255",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/comparison/diagnostic.py",
+      "bytes": 2175,
+      "sha": "9968a75942fdf8635b86d1dcfe41484759f2f1f0",
+      "sha256": "dde161504faecce7f2e249e727a30de492f7ef32fdd98bca1ff8a20736e4e1fd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/comparison/display-conditions.json",
+      "bytes": 275,
+      "sha": "3064a43adaca2a26638c0444ab10d30fcd4b6a57",
+      "sha256": "388d52bb0bc797f6d3f27ca67f8fc30a4154a6327e1d86f12b421970b7e59ae4",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/comparison/render.py",
+      "bytes": 2869,
+      "sha": "95b76b2980841103d738be3c97909ad558882dcb",
+      "sha256": "bd2bf3d301cfd82329cdfb4d8017ab8802b32e828ce8c484131f74acc235e26f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/comparison/shape-first-four-way.png",
+      "bytes": 706140,
+      "sha": "ff22010f656a99ecaa79758459afdf2745869401",
+      "sha256": "350bec71ab4094573af8526f6482fc3c925bc72a7d7a25e2f4a9d5414ef9c719",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/fit-river-water.mjs",
+      "bytes": 3096,
+      "sha": "bc08be28032be4f7dc5d864755025aea03bf87ef",
+      "sha256": "004911e08463ad92f55c0ae06243f37f7171d617d85f69338efab8b552beb050",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/fit-river-water.test.mjs",
+      "bytes": 3755,
+      "sha": "aaf2472911b211b2589d0533e47bdc586a858e88",
+      "sha256": "9dd29dd5d56ad3141710bd5b5aa2436467cdf59bcdfbf262cc9e8b85c5dc6c9a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/preview-channels.mjs",
+      "bytes": 4232,
+      "sha": "e2cae10e7b224336c241e42d9c9e4f914f919f9f",
+      "sha256": "3442776163ac54d0da75d255a4946fe1a3c9dc97341a4c9dce94670c34c11ade",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/region-pyramid.mjs",
+      "bytes": 199,
+      "sha": "d5aa210f9f2c98f3a52deea4fced9b1515107882",
+      "sha256": "006ca29718d29f54142e62c9a9ae7ab471a16d157b2f64d03e049ef7971f17a7",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/render-pyramid.py",
+      "bytes": 1905,
+      "sha": "e905b61129b9752320069cc38a93cad5b5e9f8e0",
+      "sha256": "865acffc23b1a216d086ba94efa75e5c0c6c70648c279bf7b3d0e98c1fc78b4f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/river-first.py",
+      "bytes": 10007,
+      "sha": "84cd27c42bbd61bf32054cb1be6cd2b89f70b4cf",
+      "sha256": "8ae434a55e066be9cf0960668394f9dc933fe59cd1705440f832a499f51d6383",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/seeded/README.md",
+      "bytes": 3213,
+      "sha": "42fba1ca0d5d0093b3f77ff723d63c4aa884b03d",
+      "sha256": "a34e7523b9e1869b4ef700083c295b0f342fb24c35f9d097c269b38f10ba0d4d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/seeded/generate.mjs",
+      "bytes": 863,
+      "sha": "02bd845d33ee11e484fa81e931cd6df28353ed64",
+      "sha256": "c40a9155cb56a3630df2ce8a8945adeb3d97ac612b5ac124bda920462ed66f21",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/seeded/render.py",
+      "bytes": 2145,
+      "sha": "91b1e793a6b4760718b66886ff6c2131aa15932a",
+      "sha256": "48441d51d7f4f6c590758183b0936ba104990988e027b998984a332c805eef90",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/shape-first/synthetic-water-scenario.json",
+      "bytes": 155,
+      "sha": "bcd8ddd6d88c2108ce558bb36ce53f4d6fac001c",
+      "sha256": "b4d8d60b58732f39fb8b6a671960170b564422a34f12c59dceebe38f44d2aa4a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/experiments/staged-layer-handoff.mjs",
+      "bytes": 2961,
+      "sha": "72317494a4fd5f4b04628eda3736688165fd706e",
+      "sha256": "40c6377f656400139728302a4ea2852bdaf933d3a07b2cbeb3b18b37c398f10d",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/index.mjs",
+      "bytes": 18605,
+      "sha": "fe38c3b4a2c5598d3030db6940c98becabc78fe4",
+      "sha256": "82d9058ee0b6b9fd458cfcf95517774aa4046f62fe3dad59e40d4f7cb1cb2f10",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/refine-water-candidates.mjs",
+      "bytes": 11512,
+      "sha": "59f9683995c402451abcc91365cbeb8365b7e370",
+      "sha256": "bf21dbd5cfb458ef0c589ccd8a2beec63387f97814c7cf95683ce4b4015eee85",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/regional-drainage.mjs",
+      "bytes": 8189,
+      "sha": "2e2146bdf8ce9ec1d6212eec30c37c2864aec580",
+      "sha256": "f729becb7d83b3cebddd1c53b0376bcac7637641b5c5ced5ac3f3d2c5630957c",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/regional-water-context.mjs",
+      "bytes": 8239,
+      "sha": "44cc32ffce79b842796d3ba31302141edf1637d3",
+      "sha256": "8d1c56c38001923771e748936f23b3ce92b45f17365f94545676ce73c3295650",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/seeded-river-region.mjs",
+      "bytes": 9575,
+      "sha": "daa0fce94100e05c0e98b6e0362db178a638ff2f",
+      "sha256": "329af4e60c601ee0fe0ae23fc8c05022059206e88641f4c64d8ef7c43597848e",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/shape-first-channels.mjs",
+      "bytes": 11227,
+      "sha": "159bbba1c9760a3efa278bafa741cdc556f49970",
+      "sha256": "dd3013024205260337362e1f229739fcf9918f84c86ec3db7443c280390bf2e4",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/shape-first-outlet-connection.mjs",
+      "bytes": 12149,
+      "sha": "20c2a63faf7943b2067ed254c2904632c7c6f36b",
+      "sha256": "889bb5b8dee01c12539c34a7edd311504a4861e0d0ce8984968f4d8ed65832ba",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/shape-first-pyramid.mjs",
+      "bytes": 9456,
+      "sha": "d2d06fbeedf3d5adf974057461d0c37767b4723c",
+      "sha256": "2064debfd37abbb106b71f9818e8f9b7eaeeb32efbc444f77298cbc9f062d156",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/shape-first-regions.mjs",
+      "bytes": 11270,
+      "sha": "06d415a7d3338173ac84c459e84932df2b39295c",
+      "sha256": "afd5ff18f33e6a24f894d8a9148f681dcdfc96f3aa80e5cdd1a0bb9599c4e6c7",
+      "mode": "100644"
+    },
+    {
+      "path": "src/core/shape-first-water.mjs",
+      "bytes": 8146,
+      "sha": "0552b1611deebbe421b6c3722fbfb22f0a56e0dc",
+      "sha256": "82664aec0a1149942c345b5e2809c1f9af9f91ed121ab1046785e50c9e5c404e",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/app.mjs",
+      "bytes": 57102,
+      "sha": "8871a6cab38ac5be934b4b79680468d964378319",
+      "sha256": "942a6338279595869b96c56e916c357e3e913c9b82d3c40fd90a76150e9d1f02",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/index.html",
+      "bytes": 13031,
+      "sha": "c5f5cccae416d3da89f88d31def0666449cc470c",
+      "sha256": "e0591a896666ab729a27a416b134f04fb9a69264da3b35e26d9664d561c3ee80",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/lod.mjs",
+      "bytes": 8385,
+      "sha": "6dd0c983b9e81e0a2cca6e55aa1d9e6b92b25733",
+      "sha256": "ef09d53a17f74060e9744a48261b3150d85545b3f63f83d5b29e0de08afba719",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/mesh.mjs",
+      "bytes": 36399,
+      "sha": "8e9024d6dcdb722f5a98385361831f82170b1094",
+      "sha256": "96fcde0ff27117db7b66532336ae05761cbe3388ba50d4e9f40774b28a8a63df",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/paged-source.mjs",
+      "bytes": 44342,
+      "sha": "ef15f759b4aae3d28a927a9f67ae962638e20e34",
+      "sha256": "42da8ad96e4bc9f431ceb028c4a744abbdbc4e6a783c53ed2a2a9e1584fb1a09",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-controls.mjs",
+      "bytes": 5500,
+      "sha": "54c6b895b03839ef51c8cc4eedaedf2e90dd1097",
+      "sha256": "62737a2285eb590d82654160492892873ab6180ab586eabffc5f61acb53f437a",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-draft-storage.mjs",
+      "bytes": 2399,
+      "sha": "39b10f358ba7720e5d1b16715b866ba8dac6758f",
+      "sha256": "79397d3fab5c2b757c033cdc974fc27b55081bfa01df788f95f13e36c1b54c8e",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-drafts.mjs",
+      "bytes": 3318,
+      "sha": "bf748d8d0780ba78bb7d69b1ddff5fd2ce078e01",
+      "sha256": "ee381a31514b63b60ac7570c8f81e68dac60b2cb523e1cfb42a35938817b7d60",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-generated.mjs",
+      "bytes": 2457,
+      "sha": "8d819ce4f69a916737d6ed5fbe19805ff5f74372",
+      "sha256": "d5fc0ae73e443610dc23b7514dc4097ef4f1a5b2a115dfefc116a0c512d09e09",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-generation-worker.mjs",
+      "bytes": 248,
+      "sha": "8e77d1c6045d8c966535e208b9fc267d878ad5b9",
+      "sha256": "f55d9cc12176ea92a00177fd1f821821e27df391e32b39f9a7bf1e65a3c0a5c4",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-loader.mjs",
+      "bytes": 3418,
+      "sha": "49ead5e532e3eabe40ef8adc66f93d0217b90425",
+      "sha256": "95f8e2d57db3479d578314e934386a1c69f028d08b5b3f223c4f005a319a1cff",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-model.mjs",
+      "bytes": 9589,
+      "sha": "d9136a8e78c9183334d9d7e7979099d7af856d83",
+      "sha256": "01a28bfd6c4b4dacd5bdd7dbfe7aa976fbb9abbcc6c763b13dc0dab3edd700e4",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-panel.css",
+      "bytes": 3493,
+      "sha": "c8eee4a154241fdb3f4806a38d675200c0664ab9",
+      "sha256": "7402d1629e7866953f5198f6b88471554a9af14bc433b070390023f570805024",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-panel.mjs",
+      "bytes": 4023,
+      "sha": "ff46aadb19c21f11435e513a0853cdcd8608ecaf",
+      "sha256": "eca23e924c605ca001c5254a1f573e2ec2718aba188f12ec4ee34898dada92bb",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-placement.mjs",
+      "bytes": 3750,
+      "sha": "cc873d2d1771c74235876a51f23dcb678d6f94c2",
+      "sha256": "3a3d8323905d4964f52d4c6343dccea2241fdc008d40d52d51d04ecbb1989a2a",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-planet-overlay.mjs",
+      "bytes": 2805,
+      "sha": "4ceec4900b2ca2608d76cd0bce4fa419b7bbfc83",
+      "sha256": "82ca45ed8213bb2beb5b68acd249bf78bae8c44a7526a9bf772fe06a42949352",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-planet-placement.mjs",
+      "bytes": 2922,
+      "sha": "d4d68d532cb2b4eaf84cb442406b072ee708cf0e",
+      "sha256": "58cccb5ba497a84310158315f5994862456b5865f46a70df05ad094cc33ee52c",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-planet.mjs",
+      "bytes": 7608,
+      "sha": "e289bcc8235b3927d74dfc57da29261880e28919",
+      "sha256": "e268635f139b89c256e4add5aae53a006227d1c7437f6a16f29e6f6fa7a86024",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-raster.mjs",
+      "bytes": 1625,
+      "sha": "3305e73f42217fe961738a4e5fbd3e2cc1a4983e",
+      "sha256": "933e775203ca873b4f6ec923d6a72e4e335772b0088a04c135e7229a6ad94a93",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-view.mjs",
+      "bytes": 20321,
+      "sha": "8044c1d60c67ab9f8d2dcf65c88328721c144dfd",
+      "sha256": "955cf02efb8bf262081539243973d4493a21d12bb79720039964ec28f2d78369",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/shape-first-water-mesh.mjs",
+      "bytes": 2769,
+      "sha": "f13cd4d797595818a99de7b668a7af71435a74ac",
+      "sha256": "48297f7e03f105b9f4e8bca46285855cd4db3e524447516c5c63412ff81889d8",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/terrain-appearance.mjs",
+      "bytes": 2129,
+      "sha": "99b71a961f9d488b92594200e213b888f6afd7d7",
+      "sha256": "7f2bf088a44df661ac2b09077e72bd72b1b2c74a642d0cbcd64fe0e3309334a0",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/viewer-entry.mjs",
+      "bytes": 1979,
+      "sha": "18deb6e5ffba1bdb3682291e4b8245473d362488",
+      "sha256": "73a531a53976c88c3d5eef63dd884b45912c0da60c7a9ca5d7d0b2bb7759a28b",
+      "mode": "100644"
+    },
+    {
+      "path": "src/globe/world-link.mjs",
+      "bytes": 7703,
+      "sha": "d4a4796f8a1bc2bc903912a154b6585a942ebb3c",
+      "sha256": "ffdb62927434c0cfb2d4614e1ecfcac7cadc76c8348c74dadeb93e8458a94fa1",
+      "mode": "100644"
+    },
+    {
+      "path": "src/ui/index.html",
+      "bytes": 6082,
+      "sha": "5f6055fbe52d521c9f1aaed0bc815406019a547e",
+      "sha256": "5e197e11a0313d05a0a4a07cee95988c743f8fb6ef1869e0f6226fb2ad4ce641",
+      "mode": "100644"
+    },
+    {
+      "path": "test/broad-local-bridge.test.mjs",
+      "bytes": 3437,
+      "sha": "017f0e7b8e5d5a5b2b0b2c3b9ec59b3a836f4487",
+      "sha256": "fdc688a51dfbca6851617d990349707135efff6c6495c5361dc19250efed043e",
+      "mode": "100644"
+    },
+    {
+      "path": "test/fine-local-layer.test.mjs",
+      "bytes": 10913,
+      "sha": "c92d3f189a7cb9058c0d7aa6bed3341b4d80f25b",
+      "sha256": "8d8719bd986150b53427b752a0231636ee829454f1127ae55875f70528b73ccc",
+      "mode": "100644"
+    },
+    {
+      "path": "test/generated-layer-handoff.test.mjs",
+      "bytes": 7396,
+      "sha": "b2826018cf9188d2c06d1ef5beebb27e6c8c5212",
+      "sha256": "a24cbbd2cd8088bf5c41c8751c947073764b3a0b9028d9dd406935b212461bd6",
+      "mode": "100644"
+    },
+    {
+      "path": "test/global-water-handoff.test.mjs",
+      "bytes": 7659,
+      "sha": "723b82deed317ae79d70fc9ff425dc8e5c23f161",
+      "sha256": "bc262d4a21eff5c69da612921ba4bd1901e985c09988bb79a21ade729acb8752",
+      "mode": "100644"
+    },
+    {
+      "path": "test/next-local-layer.test.mjs",
+      "bytes": 5579,
+      "sha": "8995ddfc71226783028db7a657291f6328bd24e8",
+      "sha256": "d0d3359a6e894b5e613d6eae6576f314adf1d5b7e4e3c67ce2cf7952ebb7a514",
+      "mode": "100644"
+    },
+    {
+      "path": "test/real-dem-layer-scale.test.mjs",
+      "bytes": 3192,
+      "sha": "f16c0b768c8e43bdf222845e0228306eb30a5d59",
+      "sha256": "83d2c878ec6b0829a2fbeb631be1234a4584be2fcd552416624a8f1538d02e14",
+      "mode": "100644"
+    },
+    {
+      "path": "test/seeded-river-region.test.mjs",
+      "bytes": 4215,
+      "sha": "84d2c769fe044feecdd2b53b372b223c1a9fab84",
+      "sha256": "8b1adbdbd61bf3b2cb77a5868a96f7cc1e2f83caaf84dda68806562c559f45d1",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-channels.test.mjs",
+      "bytes": 6291,
+      "sha": "a5a94378de2f1fa9475b404f8322af32c963d79f",
+      "sha256": "e5c9e6f34ad5f77e9b32cc15418d21b88d0d4e566763554d4920e9ba1521a518",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-outlet-connection.test.mjs",
+      "bytes": 7034,
+      "sha": "7213e3dfa53740b364f2a0f53a02e50a2c5f723c",
+      "sha256": "378051980ba0fdbfbd0b446758a11297f367953fc39639355f15627f7f0cd523",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-panel.test.mjs",
+      "bytes": 5010,
+      "sha": "b82995e3fc863aa76cb662f5099caad7c9efcd18",
+      "sha256": "39f409dc2b739c3369da8a6ea4f7d5cfa2ac8475594b8f52210b1ae9fdf9e1a2",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-planet.test.mjs",
+      "bytes": 8425,
+      "sha": "fa7adae47f520083a1320c47e63d128a9d5f6127",
+      "sha256": "879ed9b61e93fd47070c9dd9aca01e40b94c69c76fb55fb7cfb33831cb18b44e",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-region-pyramid.test.mjs",
+      "bytes": 7034,
+      "sha": "75d99f6c632ee51ccfd4e532e53b95ffcf391404",
+      "sha256": "230ec2e7320d25c9ea720997797a0f090e03a82488422c7aa0c3153c3fa36223",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-regions.test.mjs",
+      "bytes": 6662,
+      "sha": "436f03ebef1f70b337f8897ff408484c6ed507e2",
+      "sha256": "9da7de3a819e8179519000d47e355085505d6ac5f2da2c80af494b674fd5ee7c",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-river-water.test.mjs",
+      "bytes": 150,
+      "sha": "e5c3432071e7d7b88c4af514f40b0fc0aa1bfdeb",
+      "sha256": "94c4495a4a16cb66d3d57be33003733486549fc9fe57d49e98e44df2eb0199fb",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-runtime.test.mjs",
+      "bytes": 13527,
+      "sha": "0ef8fe00fd8e9937b7f51e98032c96d21370d6c1",
+      "sha256": "de609bfe95d223ba2ed32a0623b6cb3a2c84ef592c0343c7c5112dbe9c44980a",
+      "mode": "100644"
+    },
+    {
+      "path": "test/shape-first-seeded-adjacency.test.mjs",
+      "bytes": 1919,
+      "sha": "c5d53d3c80dbd4de4f74366a8686a59759cfd18d",
+      "sha256": "a7da3f088a8c09993b30eeff1c4f1d5982e9743f097a50674db595d4df631d7a",
+      "mode": "100644"
+    },
+    {
+      "path": "test/terrain-appearance.test.mjs",
+      "bytes": 2365,
+      "sha": "9ae2c37bc90028f3cfb71b4c452958861cedfab5",
+      "sha256": "18657a8a78289a346a95d3186b8c4aa2a20bc49129c35fedc8489438a93b8ac6",
+      "mode": "100644"
+    },
+    {
+      "path": "test/water-candidates-imported-inlets.test.mjs",
+      "bytes": 3662,
+      "sha": "eff640f850dcaa00bd8638b134a6546dd660e2e6",
+      "sha256": "a86945522302a14d20425439a324e177fc4e475431c391ca9fe1d6f9f549040a",
+      "mode": "100644"
+    },
+    {
+      "path": "test/water-candidates-invariants.test.mjs",
+      "bytes": 3521,
+      "sha": "621f3e652710e397e46986831580aa289ea178cc",
+      "sha256": "bdb9ca21d71215e9ab44108d1bb7c09f5aff8997f51bee15c9ceb1cd00aa3671",
+      "mode": "100644"
+    },
+    {
+      "path": "test/water-candidates-legacy-identity.test.mjs",
+      "bytes": 1554,
+      "sha": "77080612558537b562cdc372cb3dd2e9758409ac",
+      "sha256": "93a99b0b555c239909d8a205fbd2ce1688b8606c5075af76147549fb8661206c",
+      "mode": "100644"
+    },
+    {
+      "path": "test/water-candidates-provisional-boundary.test.mjs",
+      "bytes": 2639,
+      "sha": "b265db19fc11c558c9f868cfce6602fcf63611ea",
+      "sha256": "43c6ef1cb04644a6a7ebfe31bfaafad415d308c8719adb0f46c8fb86f30557b4",
+      "mode": "100644"
+    }
+  ]
+}

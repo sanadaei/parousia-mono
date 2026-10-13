@@ -1,0 +1,639 @@
+{
+  "worldId": "sha256:32113196192c54521ad49bccafc0d6e0e20d0ab3f559b8e78a77fe6249e4eb0f",
+  "scope": "Paired fixed-site runtime12 to proposed external-link street policy; no saved world mutation, no global road construction guarantee",
+  "results": [
+    {
+      "id": "pop:2706:508",
+      "context": {
+        "streetPolicy": "network-led-village-streets@1",
+        "streetGates": [
+          "west"
+        ],
+        "streetDemandSource": "Saved regional settlement road links; construction still requires local survey"
+      },
+      "cases": [
+        {
+          "newPolicy": false,
+          "ms": 1596.139866,
+          "homes": 60,
+          "requested": 60,
+          "connections": [
+            {
+              "gate": "west",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "east",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "south",
+              "status": "connected",
+              "lengthM": 246.5685424949238
+            },
+            {
+              "gate": "north",
+              "status": "connected",
+              "lengthM": 230
+            },
+            {
+              "gate": "north-west",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "north-east",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "south-west",
+              "status": "connected",
+              "lengthM": 148.99494936611666
+            },
+            {
+              "gate": "south-east",
+              "status": "connected",
+              "lengthM": 80
+            }
+          ],
+          "publicAccess": [
+            {
+              "targetId": "pop:2706:508/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:2706:508/district:0/chapel/public-access",
+              "joinsRoadId": "pop:2706:508/district:0/terrain-street:0:west",
+              "entranceSide": "south",
+              "lengthM": 20.75
+            }
+          ],
+          "roads": [
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:west",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:east",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:south",
+              "lengthM": 246.5685424949238
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:north",
+              "lengthM": 230
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:north-west",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:north-east",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:south-west",
+              "lengthM": 148.99494936611666
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:south-east",
+              "lengthM": 80
+            },
+            {
+              "id": "pop:2706:508/district:0/carpenter/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:2706:508/district:0/granary/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:2706:508/district:0/hall/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:2706:508/district:0/handmill/access",
+              "lengthM": 15
+            }
+          ],
+          "chapels": [
+            {
+              "minXM": -66,
+              "maxXM": -54,
+              "minYM": 22,
+              "maxYM": 46
+            }
+          ]
+        },
+        {
+          "newPolicy": true,
+          "ms": 939.8353719999998,
+          "homes": 60,
+          "requested": 60,
+          "connections": [
+            {
+              "gate": "west",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "south-west",
+              "status": "connected",
+              "lengthM": 160
+            },
+            {
+              "gate": "north-west",
+              "status": "connected",
+              "lengthM": 160
+            },
+            {
+              "gate": "north-east",
+              "status": "connected",
+              "lengthM": 209.7056274847714
+            }
+          ],
+          "publicAccess": [
+            {
+              "targetId": "pop:2706:508/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:2706:508/district:0/chapel/public-access",
+              "joinsRoadId": "pop:2706:508/district:0/terrain-street:0:west",
+              "entranceSide": "south",
+              "lengthM": 20.75
+            }
+          ],
+          "roads": [
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:west",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:south-west",
+              "lengthM": 160
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:north-west",
+              "lengthM": 160
+            },
+            {
+              "id": "pop:2706:508/district:0/terrain-street:0:north-east",
+              "lengthM": 209.7056274847714
+            },
+            {
+              "id": "pop:2706:508/district:0/carpenter/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:2706:508/district:0/granary/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:2706:508/district:0/hall/access",
+              "lengthM": 17.636038969321067
+            },
+            {
+              "id": "pop:2706:508/district:0/handmill/access",
+              "lengthM": 17.636038969321067
+            }
+          ],
+          "chapels": [
+            {
+              "minXM": -66,
+              "maxXM": -54,
+              "minYM": 22,
+              "maxYM": 46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pop:3649:273",
+      "context": {
+        "streetPolicy": "network-led-village-streets@1",
+        "streetGates": [
+          "west"
+        ],
+        "streetDemandSource": "Saved regional settlement road links; construction still requires local survey"
+      },
+      "cases": [
+        {
+          "newPolicy": false,
+          "ms": 3262.9534679999997,
+          "homes": 60,
+          "requested": 60,
+          "connections": [
+            {
+              "gate": "west",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "east",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "south",
+              "status": "connected",
+              "lengthM": 230
+            },
+            {
+              "gate": "north",
+              "status": "connected",
+              "lengthM": 230
+            },
+            {
+              "gate": "north-west",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "north-east",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "south-west",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "south-east",
+              "status": "connected",
+              "lengthM": 120
+            }
+          ],
+          "publicAccess": [
+            {
+              "targetId": "pop:3649:273/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3649:273/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3649:273/district:0/terrain-street:0:south",
+              "entranceSide": "west",
+              "lengthM": 20.75
+            }
+          ],
+          "roads": [
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:west",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:east",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:south",
+              "lengthM": 230
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:north",
+              "lengthM": 230
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:north-west",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:north-east",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:south-west",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:south-east",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3649:273/district:0/granary/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:3649:273/district:0/hall/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:3649:273/district:0/handmill/access",
+              "lengthM": 15
+            }
+          ],
+          "chapels": [
+            {
+              "minXM": 22,
+              "maxXM": 46,
+              "minYM": -66,
+              "maxYM": -54
+            }
+          ]
+        },
+        {
+          "newPolicy": true,
+          "ms": 2287.514265,
+          "homes": 60,
+          "requested": 60,
+          "connections": [
+            {
+              "gate": "west",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "south-east",
+              "status": "connected",
+              "lengthM": 209.7056274847714
+            },
+            {
+              "gate": "north-west",
+              "status": "connected",
+              "lengthM": 160
+            },
+            {
+              "gate": "north-east",
+              "status": "connected",
+              "lengthM": 209.7056274847714
+            }
+          ],
+          "publicAccess": [
+            {
+              "targetId": "pop:3649:273/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3649:273/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3649:273/district:0/terrain-street:0:west",
+              "entranceSide": "south",
+              "lengthM": 20.75
+            }
+          ],
+          "roads": [
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:west",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:south-east",
+              "lengthM": 209.7056274847714
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:north-west",
+              "lengthM": 160
+            },
+            {
+              "id": "pop:3649:273/district:0/terrain-street:0:north-east",
+              "lengthM": 209.7056274847714
+            },
+            {
+              "id": "pop:3649:273/district:0/granary/access",
+              "lengthM": 17.636038969321067
+            },
+            {
+              "id": "pop:3649:273/district:0/hall/access",
+              "lengthM": 17.636038969321067
+            },
+            {
+              "id": "pop:3649:273/district:0/handmill/access",
+              "lengthM": 15
+            }
+          ],
+          "chapels": [
+            {
+              "minXM": -66,
+              "maxXM": -54,
+              "minYM": 22,
+              "maxYM": 46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pop:3392:261",
+      "context": {
+        "streetPolicy": "network-led-village-streets@1",
+        "streetGates": [
+          "west",
+          "north"
+        ],
+        "streetDemandSource": "Saved regional settlement road links; construction still requires local survey"
+      },
+      "cases": [
+        {
+          "newPolicy": false,
+          "ms": 4025.386984999999,
+          "homes": 60,
+          "requested": 60,
+          "connections": [
+            {
+              "gate": "west",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "east",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "south",
+              "status": "connected",
+              "lengthM": 230
+            },
+            {
+              "gate": "north",
+              "status": "connected",
+              "lengthM": 230
+            },
+            {
+              "gate": "north-west",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "north-east",
+              "status": "connected",
+              "lengthM": 132.42640687119285
+            },
+            {
+              "gate": "south-west",
+              "status": "connected",
+              "lengthM": 120
+            },
+            {
+              "gate": "south-east",
+              "status": "connected",
+              "lengthM": 120
+            }
+          ],
+          "publicAccess": [
+            {
+              "targetId": "pop:3392:261/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:east",
+              "entranceSide": "north",
+              "lengthM": 20.75
+            },
+            {
+              "targetId": "pop:3392:261/district:0/communal-pond",
+              "targetType": "communal_pond_bank",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/communal-pond/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:east",
+              "entranceSide": "south",
+              "lengthM": 43.75
+            }
+          ],
+          "roads": [
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:west",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:east",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:south",
+              "lengthM": 230
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:north",
+              "lengthM": 230
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:north-west",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:north-east",
+              "lengthM": 132.42640687119285
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:south-west",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:south-east",
+              "lengthM": 120
+            },
+            {
+              "id": "pop:3392:261/district:0/granary/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:3392:261/district:0/hall/access",
+              "lengthM": 15
+            },
+            {
+              "id": "pop:3392:261/district:0/handmill/access",
+              "lengthM": 15
+            }
+          ],
+          "chapels": [
+            {
+              "minXM": 54,
+              "maxXM": 66,
+              "minYM": -46,
+              "maxYM": -22
+            }
+          ]
+        },
+        {
+          "newPolicy": true,
+          "ms": 3153.466706000001,
+          "homes": 60,
+          "requested": 60,
+          "connections": [
+            {
+              "gate": "west",
+              "status": "connected",
+              "lengthM": 200
+            },
+            {
+              "gate": "north",
+              "status": "connected",
+              "lengthM": 230
+            },
+            {
+              "gate": "north-east",
+              "status": "connected",
+              "lengthM": 132.42640687119285
+            },
+            {
+              "gate": "south-east",
+              "status": "connected",
+              "lengthM": 209.7056274847714
+            }
+          ],
+          "publicAccess": [
+            {
+              "targetId": "pop:3392:261/district:0/chapel",
+              "targetType": "chapel",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/chapel/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:north",
+              "entranceSide": "west",
+              "lengthM": 20.75
+            },
+            {
+              "targetId": "pop:3392:261/district:0/communal-pond",
+              "targetType": "communal_pond_bank",
+              "status": "connected",
+              "roadId": "pop:3392:261/district:0/communal-pond/public-access",
+              "joinsRoadId": "pop:3392:261/district:0/terrain-street:0:north-east",
+              "entranceSide": "north",
+              "lengthM": 44.03478738452134
+            }
+          ],
+          "roads": [
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:west",
+              "lengthM": 200
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:north",
+              "lengthM": 230
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:north-east",
+              "lengthM": 132.42640687119285
+            },
+            {
+              "id": "pop:3392:261/district:0/terrain-street:0:south-east",
+              "lengthM": 209.7056274847714
+            },
+            {
+              "id": "pop:3392:261/district:0/granary/access",
+              "lengthM": 17.636038969321067
+            },
+            {
+              "id": "pop:3392:261/district:0/hall/access",
+              "lengthM": 17.636038969321067
+            },
+            {
+              "id": "pop:3392:261/district:0/handmill/access",
+              "lengthM": 15
+            }
+          ],
+          "chapels": [
+            {
+              "minXM": 22,
+              "maxXM": 46,
+              "minYM": 54,
+              "maxYM": 66
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

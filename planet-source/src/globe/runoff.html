@@ -1,0 +1,25 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>集落の雨と排水</title>
+<style>body{background:#13202a;color:#e1e9ee;font:16px system-ui;max-width:1000px;margin:25px auto;padding:12px}a{color:#9cdefa}canvas{width:min(100%,650px);image-rendering:pixelated;border:1px solid #567}button,select,input{font:inherit;padding:8px;margin:5px}pre{white-space:pre-wrap;font-size:13px}label{display:inline-block}p{line-height:1.6}</style>
+<a id="globe-link" href="./index.html">全球表示へ戻る</a><h1>同じ村に雨を降らせる</h1>
+<p>保存済みの地形・川・道路・家屋をそのまま使う、300m四方の排水実験です。青は水深、茶色は地盤・建物です。全球表示の水面を書き換える操作ではありません。</p>
+<label>集落 <select id="place" disabled></select></label><label>雨量（mm/時）<input id="rain" type="number" min="0" max="500" value="50"></label>
+<label><input id="drainage" type="checkbox" checked>排水通路を開く</label>
+<label><input id="supports" type="checkbox" checked>細い橋脚の遮りを計算する</label>
+<label><input id="storage" type="checkbox" checked>橋脚の体積を水の入れ物から除く（遮り有効時）</label>
+<button id="reset" disabled>最初から</button><button id="run" disabled>10分進める</button><button id="stop" disabled>中断</button>
+<p id="status" role="status">世界を読み込んでいます</p><canvas id="map" width="600" height="600" aria-label="集落の水深分布"></canvas><p>水深：薄い青 0〜0.1m、青 0.1〜1m、濃い青 1m以上。1セル5m、画面の拡大率では変わりません。黄色の線は保存済みの排水通路、橙色は橋脚が水を遮るセル境界です。開閉を切り替えると、同じ初期状態からやり直します。</p>
+<section><h2>この地形に集まる雨と、管の大きさ</h2>
+<p>村全体の造成前の地盤を5m刻みで調べ、管の入口へ下る範囲を集めます。範囲が地図の端まで続く場合や平らで流向が決まらない場合は、管径を決めず未確定と表示します。さらに10m刻みでも調べ、面積が25%を超えて変わる管は候補径を確定しません。下記は比較実験の仮定で、地域の気象・土壌から得た値ではありません。</p>
+<label>雨が続く時間（分）<input id="storm-minutes" type="number" min="1" max="1440" value="60"></label>
+<label>流出する割合（0〜1）<input id="runoff-coefficient" type="number" min="0.01" max="1" step="0.05" value="0.6"></label>
+<label>流れる速さの仮定（m/秒）<input id="travel-speed" type="number" min="0.01" max="20" step="0.1" value="0.2"></label>
+<label>入口の許容水深（m）<input id="design-upstream" type="number" min="0.01" step="0.1" value="0.6"></label>
+<label>出口の水深（m）<input id="design-downstream" type="number" min="0" step="0.1" value="0.1"></label>
+<label>理想集水線の幅（m、0で従来の入口セル）<input id="collector-width" type="number" min="0" max="200" step="5" value="0"></label>
+<p>幅を与えると、管の入口を通る横向きの線が水をすべて集める仮定で比較します。緑の破線で仮の集水線を表示します。側溝を実際に生成する機能ではなく、勾配・貯留・集水能力は未検証です。</p>
+<button id="assess-catchment" disabled>集水範囲と管径候補を調べる</button>
+<p id="catchment-status" role="status">まだ調べていません。雨量は上の設定を使います。</p><ul id="catchment-results"></ul>
+<details><summary>集水の実入力・結果・制限</summary><pre id="catchment-details"></pre></details>
+<p>結果は保存済みの管を変更しません。水が池などにたまる過程、外からの流入、地下水、豪雨の発生頻度は未対応です。</p></section>
+<details><summary>計算条件と限界</summary><p>水位差に応じた貯留・移送モデルです。外周では元の世界の水位を固定します。新しい保存の排水管は直径・長さ・粗度・入口/出口損失を使います。満管ではエネルギー損失式、部分的な流れでは断面と入口エネルギーによるゲーム用近似です。地形取得と雨水計算は画面とは別の計算スレッドで行います。「中断」は計算を打ち切り、最後に完了した1分刻みの状態を保持します。直径0.4mは施工プリセットであり、豪雨に耐える設計径の保証ではありません。旧保存の通路は従来の係数式を保持します。運動量・波・侵食・洗掘は扱いません。家屋はセル中心で判定します。橋脚の遮りを有効にすると、保存済みの橋脚とセル境界の交差幅・高さから水の通り道を減らします。体積の設定を有効にすると、回転した橋脚と各セルの重なる面積・高さから水の入る体積を差し引き、水量から水位を逆算します。セル内に収まる橋脚も体積には反映されます。セル内の地面は標本の高さで平坦と仮定し、橋脚上への雨も同じセルへ流入します。重なり合う立体、セル全体を塞ぐ柱、セル内の渦は未対応です。無効時は旧来のセル中心判定です。橋面の上と下に別々の水を持つ多層流れも未対応です。</p><pre id="details"></pre></details>
+<script type="module" src="./runoff-view.mjs"></script></html>

@@ -1,0 +1,200 @@
+{
+  "acquiredAt": "2026-10-11T13:32:17.507476+00:00",
+  "source": "Geospatial Information Authority of Japan, DEM5A PNG elevation tiles",
+  "specification": "https://maps.gsi.go.jp/development/demtile.html",
+  "tileCatalogue": "https://maps.gsi.go.jp/development/ichiran.html",
+  "license": "https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html",
+  "processing": "decode signed 24-bit centimetres; retain NoData; stitch 3x3 tiles without filling; approximate local metric scale at centre latitude",
+  "sites": [
+    {
+      "name": "numata",
+      "centre": [
+        36.649159,
+        139.078805
+      ],
+      "referenceLandform": "river terraces",
+      "exampleSource": "https://www.gsi.go.jp/kikaku/tenkei_kasen.html",
+      "sourceResolutionM": 5,
+      "zoom": 15,
+      "approxPixelSpacingM": 3.832866118651318,
+      "shape": [
+        768,
+        768
+      ],
+      "centreTile": [
+        29043,
+        12794
+      ],
+      "tiles": [
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29042/12793.png",
+          "file": "numata-dem5a-15-29042-12793.png",
+          "bytes": 69464,
+          "sha256": "2698556fd18ccafabe0e7c68540d310d9a6ac48564e4d5a1aa84a8a113acbf24",
+          "finiteCells": 65536
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29043/12793.png",
+          "file": "numata-dem5a-15-29043-12793.png",
+          "bytes": 75586,
+          "sha256": "e21b660ed3fe33aa573bab99222102c9e939e61592b83bcf78d95876b3546a2f",
+          "finiteCells": 64059
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29044/12793.png",
+          "file": "numata-dem5a-15-29044-12793.png",
+          "bytes": 75780,
+          "sha256": "d2bb9a9c95e78ca5b63d9c8675bf387f4c2c5166f9fbc7f87f34554ffd5690dc",
+          "finiteCells": 62841
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29042/12794.png",
+          "file": "numata-dem5a-15-29042-12794.png",
+          "bytes": 77837,
+          "sha256": "c44c9df028c88c3ef975a1903dc4710a8ca07e44f7a3082889be0ed9410c5e81",
+          "finiteCells": 63720
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29043/12794.png",
+          "file": "numata-dem5a-15-29043-12794.png",
+          "bytes": 82068,
+          "sha256": "b45ca736bb35f510b894f4e41460c5891055b2524ba24b56d24f5e22e52f28bc",
+          "finiteCells": 64286
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29044/12794.png",
+          "file": "numata-dem5a-15-29044-12794.png",
+          "bytes": 73162,
+          "sha256": "3d21cc635a8a6f7c04eafc221230e6b7ef58d363b829271867f421b5ffbe0e84",
+          "finiteCells": 65536
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29042/12795.png",
+          "file": "numata-dem5a-15-29042-12795.png",
+          "bytes": 79331,
+          "sha256": "fa221fd5ce8eb3107709136c189ce9c9848cf391e6038a68c6477e7f1ad08e28",
+          "finiteCells": 65207
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29043/12795.png",
+          "file": "numata-dem5a-15-29043-12795.png",
+          "bytes": 71693,
+          "sha256": "6438e6433b4c1f37ed6239755a46f939e029bbc356f28f6cc4050f726fcd9e19",
+          "finiteCells": 65536
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29044/12795.png",
+          "file": "numata-dem5a-15-29044-12795.png",
+          "bytes": 73909,
+          "sha256": "023e692862eb41eda8e1fa054d2a93cde74509cbe8a22be5a94a5f10fbaa3baf",
+          "finiteCells": 65536
+        }
+      ],
+      "statistics": {
+        "finiteCells": 582257,
+        "missingCells": 7567,
+        "minM": 323.3,
+        "maxM": 559.3000000000001,
+        "reliefM": 236.00000000000006,
+        "slopeMedianDeg": 3.189711713879871,
+        "slopeP95Deg": 34.376918264132996,
+        "slopeValidCells": 579469
+      }
+    },
+    {
+      "name": "byobugaura",
+      "centre": [
+        35.71655239188316,
+        140.78885078430176
+      ],
+      "referenceLandform": "sea cliff",
+      "exampleSource": "https://www.gsi.go.jp/kikaku/tenkei_umi.html",
+      "sourceResolutionM": 5,
+      "zoom": 15,
+      "approxPixelSpacingM": 3.87877269146719,
+      "shape": [
+        768,
+        768
+      ],
+      "centreTile": [
+        29198,
+        12899
+      ],
+      "tiles": [
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29197/12898.png",
+          "file": "byobugaura-dem5a-15-29197-12898.png",
+          "bytes": 80946,
+          "sha256": "5c40b78979d0e53946bac45ec2ae775d3b4f7c6250562e0d2a05511b9657c945",
+          "finiteCells": 64816
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29198/12898.png",
+          "file": "byobugaura-dem5a-15-29198-12898.png",
+          "bytes": 69690,
+          "sha256": "77996041d2e40d9f84d0cef7ea5cda5aa1e097171cb79fb79166294c7eb5a154",
+          "finiteCells": 65324
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29199/12898.png",
+          "file": "byobugaura-dem5a-15-29199-12898.png",
+          "bytes": 65202,
+          "sha256": "d2892bebf702797e8dde1d54e4fb1882809efede8f08cfa0da4ded2840314312",
+          "finiteCells": 64978
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29197/12899.png",
+          "file": "byobugaura-dem5a-15-29197-12899.png",
+          "bytes": 65362,
+          "sha256": "b91729d7d5c0629c99862ee28fef822ad00b7a0b89a796f4a35372b7487ac3f1",
+          "finiteCells": 65536
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29198/12899.png",
+          "file": "byobugaura-dem5a-15-29198-12899.png",
+          "bytes": 70435,
+          "sha256": "c63f9a9182f48bcc025bfa63bc97707e65f26f3100a230d2bb57cad1a6a3821d",
+          "finiteCells": 65536
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29199/12899.png",
+          "file": "byobugaura-dem5a-15-29199-12899.png",
+          "bytes": 74116,
+          "sha256": "560f6e460f778136d66f73275693a71283aae9c16e012762a451b02e3527d172",
+          "finiteCells": 64641
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29197/12900.png",
+          "file": "byobugaura-dem5a-15-29197-12900.png",
+          "bytes": 64251,
+          "sha256": "40a78eb9c2ed81a4996e3ecb3a7d788eed680230e7c9e9eb1ea89f07fe8045ce",
+          "finiteCells": 63521
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29198/12900.png",
+          "file": "byobugaura-dem5a-15-29198-12900.png",
+          "bytes": 43722,
+          "sha256": "d92774d09670b82a6572c364422b15bc3cc579667fdfe84f6e17789ce22d83c9",
+          "finiteCells": 41816
+        },
+        {
+          "url": "https://cyberjapandata.gsi.go.jp/xyz/dem5a_png/15/29199/12900.png",
+          "file": "byobugaura-dem5a-15-29199-12900.png",
+          "bytes": 25610,
+          "sha256": "f1516cc09e0c3c06217cfd62582c54fb24b541dfa10f59ced378942d18efc853",
+          "finiteCells": 18464
+        }
+      ],
+      "statistics": {
+        "finiteCells": 514632,
+        "missingCells": 75192,
+        "minM": -0.19,
+        "maxM": 63.43,
+        "reliefM": 63.62,
+        "slopeMedianDeg": 1.8160613777360872,
+        "slopeP95Deg": 30.219101061755904,
+        "slopeValidCells": 511946
+      }
+    }
+  ]
+}

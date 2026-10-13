@@ -1,0 +1,21 @@
+{
+  "canonicalWorldId": "sha256:3cdee46fd793325f9fd24b8636be30e3bbc57be11caa73bb912b473fa900e14d",
+  "siteId": "pop:2948:595",
+  "scope": "Counterfactual partial field triangles against the actual village physical chart; finite vertices and triangle centroid samples only",
+  "stats": {
+    "vertices": {
+      "n": 2238,
+      "buried": 0,
+      "minGap": 0.04499999997845805,
+      "maxGap": 0.04500000002236959,
+      "wet": 0
+    },
+    "centroids": {
+      "n": 3258,
+      "buried": 0,
+      "minGap": 0.01303699815365178,
+      "maxGap": 0.07635735306283209,
+      "wet": 0
+    }
+  }
+}

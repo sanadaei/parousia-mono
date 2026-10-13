@@ -1,0 +1,921 @@
+{
+  "worldId": "sha256:3ae6a9011afd07b30672f8e17a9088f3b1dd53d71b52fd86d8a2a9e09c1158a0",
+  "siteId": "pop:4048:78",
+  "scope": "Saved terrain sample colours and complete regional settlement influences, not detailed parcel ownership/production proof",
+  "results": [
+    {
+      "bearingDeg": 0,
+      "distanceM": 500,
+      "point": {
+        "latDeg": 1.4021613568474762,
+        "lonDeg": -134.99102849873276
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.54171786001519,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.54171786001519,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "retained-fuelwood-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 90,
+      "distanceM": 500,
+      "point": {
+        "latDeg": 1.4066579691960335,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "water",
+        "treeCover": 0,
+        "color": [
+          0.12,
+          0.35,
+          0.43
+        ],
+        "reasons": [
+          "canonical-water-surface"
+        ]
+      },
+      "after": {
+        "kind": "water",
+        "treeCover": 0,
+        "color": [
+          0.12,
+          0.35,
+          0.43
+        ],
+        "reasons": [
+          "canonical-water-surface"
+        ],
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 180,
+      "distanceM": 500,
+      "point": {
+        "latDeg": 1.402161356847476,
+        "lonDeg": -135.00002440846043
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.23417111072081,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "arable",
+        "treeCover": 0,
+        "color": [
+          0.54,
+          0.48,
+          0.29
+        ],
+        "temperatureC": 23.23417111072081,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 270,
+      "distanceM": 500,
+      "point": {
+        "latDeg": 1.397664753136846,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.371471658078995,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "pasture",
+        "treeCover": 0,
+        "color": [
+          0.39,
+          0.46,
+          0.23
+        ],
+        "temperatureC": 23.371471658078995,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "grazing-reserve-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 0,
+      "distanceM": 1000,
+      "point": {
+        "latDeg": 1.4021613438905864,
+        "lonDeg": -134.98653054386898
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.61103614663708,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "pasture",
+        "treeCover": 0,
+        "color": [
+          0.39,
+          0.46,
+          0.23
+        ],
+        "temperatureC": 23.61103614663708,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "grazing-reserve-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 90,
+      "distanceM": 1000,
+      "point": {
+        "latDeg": 1.411154577225627,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.478356423172546,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "arable",
+        "treeCover": 0,
+        "color": [
+          0.54,
+          0.48,
+          0.29
+        ],
+        "temperatureC": 23.478356423172546,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 180,
+      "distanceM": 1000,
+      "point": {
+        "latDeg": 1.4021613438905867,
+        "lonDeg": -135.0045223633242
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.338623373057786,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.338623373057786,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "retained-fuelwood-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 270,
+      "distanceM": 1000,
+      "point": {
+        "latDeg": 1.3931681451072522,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.482326252374587,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.482326252374587,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "retained-fuelwood-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 0,
+      "distanceM": 1500,
+      "point": {
+        "latDeg": 1.4021613222957705,
+        "lonDeg": -134.98203258900526
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.470334353272907,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "pasture",
+        "treeCover": 0,
+        "color": [
+          0.39,
+          0.46,
+          0.23
+        ],
+        "temperatureC": 23.470334353272907,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "grazing-reserve-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 90,
+      "distanceM": 1500,
+      "point": {
+        "latDeg": 1.4156511852552207,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.562618184390065,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "pasture",
+        "treeCover": 0,
+        "color": [
+          0.39,
+          0.46,
+          0.23
+        ],
+        "temperatureC": 23.562618184390065,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "grazing-reserve-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 180,
+      "distanceM": 1500,
+      "point": {
+        "latDeg": 1.4021613222957705,
+        "lonDeg": -135.00902031818794
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.31754287407226,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "pasture",
+        "treeCover": 0,
+        "color": [
+          0.39,
+          0.46,
+          0.23
+        ],
+        "temperatureC": 23.31754287407226,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "grazing-reserve-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 2,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 270,
+      "distanceM": 1500,
+      "point": {
+        "latDeg": 1.3886715370776588,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.482731393707923,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.482731393707923,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field",
+          "settlement-food-hinterland",
+          "rain-fed-grain-scenario",
+          "retained-fuelwood-scenario",
+          "allocation-scenario-not-verified-food-capacity"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 0,
+      "distanceM": 2000,
+      "point": {
+        "latDeg": 1.4021612920630282,
+        "lonDeg": -134.97753463414165
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.426789987788332,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.426789987788332,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 90,
+      "distanceM": 2000,
+      "point": {
+        "latDeg": 1.4201477932848143,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.607863702615333,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.607863702615333,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 180,
+      "distanceM": 2000,
+      "point": {
+        "latDeg": 1.4021612920630282,
+        "lonDeg": -135.01351827305155
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.265532841591465,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.265532841591465,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 2,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 270,
+      "distanceM": 2000,
+      "point": {
+        "latDeg": 1.3841749290480652,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.499954491089902,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.499954491089902,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 0,
+      "distanceM": 2500,
+      "point": {
+        "latDeg": 1.4021612531923595,
+        "lonDeg": -134.97303667927815
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.41849376910905,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.41849376910905,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 2,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 90,
+      "distanceM": 2500,
+      "point": {
+        "latDeg": 1.424644401314408,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.577392520068003,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.577392520068003,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 180,
+      "distanceM": 2500,
+      "point": {
+        "latDeg": 1.4021612531923597,
+        "lonDeg": -135.01801622791504
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.46532784224522,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.46532784224522,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 2,
+      "sameAfterEvictionAndDifferentTile": true
+    },
+    {
+      "bearingDeg": 270,
+      "distanceM": 2500,
+      "point": {
+        "latDeg": 1.379678321018471,
+        "lonDeg": -134.9955264535966
+      },
+      "before": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.48557995340739,
+        "ownerId": null,
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1"
+      },
+      "after": {
+        "kind": "woodland",
+        "treeCover": 1,
+        "color": [
+          0.2,
+          0.34,
+          0.15
+        ],
+        "temperatureC": 23.48557995340739,
+        "ownerId": "pop:4048:78",
+        "reasons": [
+          "climate-potential-vegetation",
+          "fixed-spherical-patch-field"
+        ],
+        "profile": "medieval-regional-landscape@1",
+        "contextStatus": "regional-settlement-influences"
+      },
+      "context": true,
+      "sites": 3,
+      "sameAfterEvictionAndDifferentTile": true
+    }
+  ]
+}

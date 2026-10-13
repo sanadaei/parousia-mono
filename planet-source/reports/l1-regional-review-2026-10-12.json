@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-12",
+  "status": "L1 work in progress; candidate review, not production adoption",
+  "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+  "atlas": {
+    "assignedCells": 2782,
+    "landCells": 2782,
+    "maxRelativeBudgetResidual": 2.654488443322091e-16,
+    "oversizedSourceCells": 0,
+    "portCount": 1409,
+    "regionCount": 748
+  },
+  "parentSamplingFailures": [
+    {
+      "outletCell": 4358,
+      "grid": {
+        "columns": 60,
+        "rows": 84,
+        "latTop": 2.8125,
+        "lonLeft": 19.6875,
+        "latStep": 0.234375,
+        "lonStep": 0.234375,
+        "cellSizeM": 25865.31774513969,
+        "cellSizeYM": 26061.310932318454
+      },
+      "diagnostics": {
+        "activeCells": 2880,
+        "totalInputM3PerYear": 72661146254.86511,
+        "totalOutputM3PerYear": 72661146254.86526,
+        "relativeBudgetResidual": 2.0999928915212136e-15,
+        "depressionCells": 181,
+        "maxRoutingFillM": 735.2335326274351
+      }
+    },
+    {
+      "outletCell": 4700,
+      "grid": {
+        "columns": 60,
+        "rows": 72,
+        "latTop": 0,
+        "lonLeft": 247.5,
+        "latStep": 0.234375,
+        "lonStep": 0.234375,
+        "cellSizeM": 25779.23659313776,
+        "cellSizeYM": 26061.310932318454
+      },
+      "diagnostics": {
+        "activeCells": 2736,
+        "totalInputM3PerYear": 351443040022.4944,
+        "totalOutputM3PerYear": 351443040022.49347,
+        "relativeBudgetResidual": 2.605051856173908e-15,
+        "depressionCells": 338,
+        "maxRoutingFillM": 1583.3736647825021
+      }
+    },
+    {
+      "outletCell": 2371,
+      "grid": {
+        "columns": 72,
+        "rows": 72,
+        "latTop": 39.375,
+        "lonLeft": 191.25,
+        "latStep": 0.234375,
+        "lonStep": 0.234375,
+        "cellSizeM": 22353.5320007624,
+        "cellSizeYM": 26061.310932318454
+      },
+      "diagnostics": {
+        "activeCells": 2592,
+        "totalInputM3PerYear": 0,
+        "totalOutputM3PerYear": 0,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 211,
+        "maxRoutingFillM": 230.8990753670393
+      }
+    }
+  ],
+  "rejectedForcedRectangularCatchments": [
+    {
+      "seed": "muna-atlas-001",
+      "conditioning": {
+        "maxCutM": 183.9683583327017,
+        "maxRaiseM": 2.9030039573056428,
+        "cutCells": 1058,
+        "raisedCells": 18,
+        "maxGradeViolationM": 0,
+        "anchors": 1
+      },
+      "water": {
+        "activeCells": 6912,
+        "totalInputM3PerYear": 19906560,
+        "totalOutputM3PerYear": 19906560,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "seed": "planet-1",
+      "conditioning": {
+        "maxCutM": 209.80396739232825,
+        "maxRaiseM": 4.525197485754688,
+        "cutCells": 808,
+        "raisedCells": 59,
+        "maxGradeViolationM": 0,
+        "anchors": 1
+      },
+      "water": {
+        "activeCells": 6912,
+        "totalInputM3PerYear": 19906560,
+        "totalOutputM3PerYear": 19906560,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "seed": "planet-2",
+      "conditioning": {
+        "maxCutM": 209.7182277031345,
+        "maxRaiseM": 0,
+        "cutCells": 2024,
+        "raisedCells": 0,
+        "maxGradeViolationM": 0,
+        "anchors": 1
+      },
+      "water": {
+        "activeCells": 6912,
+        "totalInputM3PerYear": 19906560,
+        "totalOutputM3PerYear": 19906560,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "seed": "planet-3",
+      "conditioning": {
+        "maxCutM": 117.48419483758951,
+        "maxRaiseM": 0,
+        "cutCells": 993,
+        "raisedCells": 0,
+        "maxGradeViolationM": 0,
+        "anchors": 1
+      },
+      "water": {
+        "activeCells": 6912,
+        "totalInputM3PerYear": 19906560,
+        "totalOutputM3PerYear": 19906560,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    }
+  ],
+  "candidate": {
+    "grid": {
+      "columns": 192,
+      "rows": 144,
+      "cellSizeM": 60
+    },
+    "conditioning": {
+      "maxCutM": 9.323739800180022,
+      "maxRaiseM": 8.622898507395888,
+      "cutCells": 487,
+      "raisedCells": 416,
+      "maxGradeViolationM": 0,
+      "anchors": 668
+    },
+    "water": {
+      "activeCells": 27648,
+      "totalInputM3PerYear": 19906560,
+      "totalOutputM3PerYear": 19906560,
+      "relativeBudgetResidual": 0,
+      "depressionCells": 0,
+      "maxRoutingFillM": 0
+    },
+    "coverAssumptions": {
+      "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+      "sourceClimateId": "sha256:1d639e72674f2896b32a6bcb813fee20b25c251eaefe78d00390315206c46cb7",
+      "sourceCell": 1933,
+      "temperatureC": 8.14,
+      "rainMm": 1362.1,
+      "soilMoisture": 1,
+      "status": "One L0 climate context, not geographic placement; prescribed soil patches; water yield remains an independent 200mm/year test input"
+    }
+  },
+  "earthReference": {
+    "source": "NOAA ETOPO2022",
+    "bounds": [
+      43.2,
+      43.3,
+      11.15,
+      11.3
+    ],
+    "csvSha256": "692707a850ae372ddba0b2b0f2438a6f28b82e422f4b2e1cda4c89373dba66cf",
+    "grid": {
+      "columns": 37,
+      "rows": 24,
+      "cellSizeM": 337.4631523587291,
+      "cellSizeYM": 463.31219435190667
+    },
+    "scope": "Original measured/modelled relief product. Rivers derived by our routing, not observed river geometry."
+  },
+  "verification": {
+    "focusedTests": 16,
+    "fileReplayExact": true,
+    "browserVerification": "not run; plots are offline data renders"
+  },
+  "unimplemented": [
+    "planet regional placement and adaptive generator selection",
+    "committed neighbour border geometry and river ports",
+    "physical channel width/depth and lake storage",
+    "global viewer integration",
+    "regional precipitation and vegetation refinement"
+  ],
+  "finalVerification": {
+    "npmTest": {
+      "pass": 1163,
+      "fail": 0,
+      "skipped": 0
+    },
+    "build": {
+      "passed": true,
+      "coreModules": 142,
+      "legacyEntryPoints": 30,
+      "globeModules": 57
+    },
+    "browserQA": "not run; attached figures are offline data plots"
+  }
+}

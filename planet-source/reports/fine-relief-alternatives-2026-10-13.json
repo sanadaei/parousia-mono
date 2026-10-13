@@ -1,0 +1,240 @@
+{
+  "inputSHA256": "sha256:f76ee9e35ad95c9cb82bea69b8bcd8c843c0daf848d23c73067a6d9400242cf9",
+  "scope": "Only final 2x stage; earlier stages unchanged, source never replaced by DEM",
+  "summaries": [
+    {
+      "method": "selected-quarter",
+      "details": {
+        "type": "unchanged control"
+      },
+      "contextId": "sha256:56459e696bb4bb458e5b8e3c7ea287f14fdbad97541d26fbeb2276ff1090ec31",
+      "parentId": "sha256:bfbb427d04edabd9865e0b714337b1604cc72fd7ab2530b9bea056b8ce8f8bb8",
+      "sourceId": "sha256:7e554192bae7d9f40a8b6ca6667df57453d92f2d120f01e15c22dfe94141d3dc",
+      "grid": {
+        "cellSizeM": 55.297348888543404,
+        "cellSizeYM": 76.35149687202671,
+        "columns": 161,
+        "rows": 129
+      },
+      "checks": {
+        "exactAnchors": 5265,
+        "importCount": 29,
+        "exactSupplyOwnership": true,
+        "exactOutletIdNodeLevel": true,
+        "unchangedCoarserStages": 3
+      },
+      "budgets": {
+        "exportAnnualM3": 15701094.135237385,
+        "importAnnualM3": 10982348.511527749,
+        "localAnnualM3": 4718745.62370963,
+        "residualAnnualM3": -5.587935447692871e-9,
+        "finalExportAnnualM3": 15701094.135237379
+      },
+      "ground": {
+        "headBasis": "solver-routing-head",
+        "maxRoutingCorrectionM": 8.755286299674275,
+        "p95RoutingCorrectionM": 5.657367594149797,
+        "positiveCorrectionFraction": 0.39809331214791277,
+        "importedFlowPaths": {
+          "edges": 1069,
+          "uphillEdges": 377,
+          "uphillFraction": 0.35266604303086996,
+          "maxGroundRiseM": 4.49370338630515
+        },
+        "mainChannel": {
+          "edges": 938,
+          "uphillEdges": 287,
+          "uphillFraction": 0.30597014925373134,
+          "maxGroundRiseM": 4.49370338630515
+        },
+        "mainChannelThresholdAnnualM3": 157010.9413523738,
+        "physicalRiverCertified": false
+      },
+      "detail": {
+        "rmsAboveParentInterpolationM": 0.22778984683361117,
+        "minChangeFromSelectedM": 0,
+        "maxChangeFromSelectedM": 0,
+        "maxAbsParentCellMeanShiftM": 0.8818280850457718,
+        "integratedElevationChangeAboveInterpolationM3": -30869.62001917795
+      }
+    },
+    {
+      "method": "zero-mean-half",
+      "details": {
+        "type": "cell-trapezoid-mean-zero residual",
+        "amplitude": 0.5,
+        "maxResidualBoundM": 3.62,
+        "uniformBoundScale": 0.9850416166902031
+      },
+      "contextId": "sha256:a11c487900d4bf3db35ef13eb48d2be6b009c826c7b634865bb5f5567e427d24",
+      "parentId": "sha256:bfbb427d04edabd9865e0b714337b1604cc72fd7ab2530b9bea056b8ce8f8bb8",
+      "sourceId": "sha256:7e554192bae7d9f40a8b6ca6667df57453d92f2d120f01e15c22dfe94141d3dc",
+      "grid": {
+        "cellSizeM": 55.297348888543404,
+        "cellSizeYM": 76.35149687202671,
+        "columns": 161,
+        "rows": 129
+      },
+      "checks": {
+        "exactAnchors": 5265,
+        "importCount": 29,
+        "exactSupplyOwnership": true,
+        "exactOutletIdNodeLevel": true,
+        "unchangedCoarserStages": 3
+      },
+      "budgets": {
+        "exportAnnualM3": 15701094.135237385,
+        "importAnnualM3": 10982348.511527749,
+        "localAnnualM3": 4718745.62370963,
+        "residualAnnualM3": -5.587935447692871e-9,
+        "finalExportAnnualM3": 15701094.13523738
+      },
+      "ground": {
+        "headBasis": "solver-routing-head",
+        "maxRoutingCorrectionM": 9.405004733435085,
+        "p95RoutingCorrectionM": 5.204539150886156,
+        "positiveCorrectionFraction": 0.395878472723771,
+        "importedFlowPaths": {
+          "edges": 1067,
+          "uphillEdges": 378,
+          "uphillFraction": 0.3542642924086223,
+          "maxGroundRiseM": 3.2213491861906434
+        },
+        "mainChannel": {
+          "edges": 898,
+          "uphillEdges": 295,
+          "uphillFraction": 0.3285077951002227,
+          "maxGroundRiseM": 3.2213491861906434
+        },
+        "mainChannelThresholdAnnualM3": 157010.9413523738,
+        "physicalRiverCertified": false
+      },
+      "detail": {
+        "rmsAboveParentInterpolationM": 0.4374584320942697,
+        "minChangeFromSelectedM": -5.195433983075702,
+        "maxChangeFromSelectedM": 4.4555596336677326,
+        "maxAbsParentCellMeanShiftM": 7.105427357601002e-15,
+        "integratedElevationChangeAboveInterpolationM3": -5.537401648325613e-9
+      }
+    },
+    {
+      "method": "corridor-symmetric-half",
+      "details": {
+        "type": "both-sign drainage-corridor attenuation",
+        "nearAmplitude": 0.125,
+        "farAmplitude": 0.5,
+        "radiusM": 188.5454626205616,
+        "thresholdAnnualM3": 157010.94135237386
+      },
+      "contextId": "sha256:495b7ce6a8aac448697b9229c027e02c901deb8f24fac6fa24fe04e6cc5a7cb3",
+      "parentId": "sha256:bfbb427d04edabd9865e0b714337b1604cc72fd7ab2530b9bea056b8ce8f8bb8",
+      "sourceId": "sha256:7e554192bae7d9f40a8b6ca6667df57453d92f2d120f01e15c22dfe94141d3dc",
+      "grid": {
+        "cellSizeM": 55.297348888543404,
+        "cellSizeYM": 76.35149687202671,
+        "columns": 161,
+        "rows": 129
+      },
+      "checks": {
+        "exactAnchors": 5265,
+        "importCount": 29,
+        "exactSupplyOwnership": true,
+        "exactOutletIdNodeLevel": true,
+        "unchangedCoarserStages": 3
+      },
+      "budgets": {
+        "exportAnnualM3": 15701094.135237385,
+        "importAnnualM3": 10982348.511527749,
+        "localAnnualM3": 4718745.62370963,
+        "residualAnnualM3": -5.587935447692871e-9,
+        "finalExportAnnualM3": 15701094.135237372
+      },
+      "ground": {
+        "headBasis": "solver-routing-head",
+        "maxRoutingCorrectionM": 9.425901178186933,
+        "p95RoutingCorrectionM": 5.476943089780022,
+        "positiveCorrectionFraction": 0.39741923058404355,
+        "importedFlowPaths": {
+          "edges": 1078,
+          "uphillEdges": 379,
+          "uphillFraction": 0.3515769944341373,
+          "maxGroundRiseM": 4.315851284500553
+        },
+        "mainChannel": {
+          "edges": 967,
+          "uphillEdges": 293,
+          "uphillFraction": 0.3029989658738366,
+          "maxGroundRiseM": 4.315851284500553
+        },
+        "mainChannelThresholdAnnualM3": 157010.94135237372,
+        "physicalRiverCertified": false
+      },
+      "detail": {
+        "rmsAboveParentInterpolationM": 0.4145726309410777,
+        "minChangeFromSelectedM": -1.6533753274723466,
+        "maxChangeFromSelectedM": 1.8077468580751344,
+        "maxAbsParentCellMeanShiftM": 1.7636561700915445,
+        "integratedElevationChangeAboveInterpolationM3": 739212.7246130464
+      }
+    },
+    {
+      "method": "graph-constrained-half",
+      "details": {
+        "type": "half residual projected onto preserved-ground-edge rise limits",
+        "iterations": 1000,
+        "maxConstraintViolationM": 9.871143902273616e-10,
+        "notErosion": true
+      },
+      "contextId": "sha256:0c55e706106e61fee86d36ce71f79f4b85d841b6da95fdf03b377a9208d48516",
+      "parentId": "sha256:bfbb427d04edabd9865e0b714337b1604cc72fd7ab2530b9bea056b8ce8f8bb8",
+      "sourceId": "sha256:7e554192bae7d9f40a8b6ca6667df57453d92f2d120f01e15c22dfe94141d3dc",
+      "grid": {
+        "cellSizeM": 55.297348888543404,
+        "cellSizeYM": 76.35149687202671,
+        "columns": 161,
+        "rows": 129
+      },
+      "checks": {
+        "exactAnchors": 5265,
+        "importCount": 29,
+        "exactSupplyOwnership": true,
+        "exactOutletIdNodeLevel": true,
+        "unchangedCoarserStages": 3
+      },
+      "budgets": {
+        "exportAnnualM3": 15701094.135237385,
+        "importAnnualM3": 10982348.511527749,
+        "localAnnualM3": 4718745.62370963,
+        "residualAnnualM3": -5.587935447692871e-9,
+        "finalExportAnnualM3": 15701094.135237383
+      },
+      "ground": {
+        "headBasis": "solver-routing-head",
+        "maxRoutingCorrectionM": 9.099418444224533,
+        "p95RoutingCorrectionM": 5.664201501293981,
+        "positiveCorrectionFraction": 0.39973036737445233,
+        "importedFlowPaths": {
+          "edges": 1089,
+          "uphillEdges": 361,
+          "uphillFraction": 0.3314967860422406,
+          "maxGroundRiseM": 4.281390725947048
+        },
+        "mainChannel": {
+          "edges": 982,
+          "uphillEdges": 268,
+          "uphillFraction": 0.2729124236252546,
+          "maxGroundRiseM": 4.281390725947048
+        },
+        "mainChannelThresholdAnnualM3": 157010.94135237383,
+        "physicalRiverCertified": false
+      },
+      "detail": {
+        "rmsAboveParentInterpolationM": 0.41233237233334624,
+        "minChangeFromSelectedM": -1.4880466472029497,
+        "maxChangeFromSelectedM": 1.8077468580751344,
+        "maxAbsParentCellMeanShiftM": 1.7636561700915436,
+        "integratedElevationChangeAboveInterpolationM3": 625370.7918608263
+      }
+    }
+  ]
+}

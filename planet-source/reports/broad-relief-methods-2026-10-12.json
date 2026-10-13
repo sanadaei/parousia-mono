@@ -1,0 +1,531 @@
+{
+  "date": "2026-10-12",
+  "scope": "bounded broad detail alternatives; unchanged coarse anchors and physical extent",
+  "metrics": {
+    "baseline": {
+      "elevationMinM": 29.601929754197084,
+      "elevationMaxM": 183.77823094646993,
+      "reliefM": 154.17630119227286,
+      "elevationP05P95M": [
+        52.316034963936474,
+        126.90662972630277
+      ],
+      "slopeMedianDegrees": 0.16505019504031448,
+      "slopeP95Degrees": 0.6890474352066301,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 16641,
+      "fillMaxM": 21.19281698925689,
+      "fillPositiveNodes": 3759,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1121.549276624385,
+      "channelLinks": 877,
+      "maxContributingAreaKm2": 6589.66767964971,
+      "outletAreaSumKm2": 17811.616804979116,
+      "channelsByThreshold": {
+        "25": {
+          "links": 1467,
+          "junctions": 130,
+          "lengthKm": 1860.2449180763326,
+          "valleySupportedLinkFraction": 0.5794137695978187
+        },
+        "100": {
+          "links": 877,
+          "junctions": 24,
+          "lengthKm": 1121.549276624385,
+          "valleySupportedLinkFraction": 0.5461801596351197
+        },
+        "400": {
+          "links": 438,
+          "junctions": 8,
+          "lengthKm": 566.9601106846422,
+          "valleySupportedLinkFraction": 0.4703196347031963
+        }
+      },
+      "valleyProxyNodeFraction": 0.26855357250165257,
+      "groundDeltaVersusBaselineM": {
+        "min": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "stageEnvelopeAlphas": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "spectral": {
+      "elevationMinM": 1.2332917656606028,
+      "elevationMaxM": 199.0132748083643,
+      "reliefM": 197.7799830427037,
+      "elevationP05P95M": [
+        38.331261936488495,
+        135.16270270282487
+      ],
+      "slopeMedianDegrees": 0.32024989213855765,
+      "slopeP95Degrees": 0.7906065414575,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 16641,
+      "fillMaxM": 43.698085036197114,
+      "fillPositiveNodes": 4052,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1070.5007054288972,
+      "channelLinks": 860,
+      "maxContributingAreaKm2": 6483.128467803523,
+      "outletAreaSumKm2": 17811.616804979116,
+      "channelsByThreshold": {
+        "25": {
+          "links": 1610,
+          "junctions": 122,
+          "lengthKm": 2011.7855847515102,
+          "valleySupportedLinkFraction": 0.7807453416149068
+        },
+        "100": {
+          "links": 860,
+          "junctions": 28,
+          "lengthKm": 1070.5007054288972,
+          "valleySupportedLinkFraction": 0.8104651162790698
+        },
+        "400": {
+          "links": 427,
+          "junctions": 3,
+          "lengthKm": 535.2095049165125,
+          "valleySupportedLinkFraction": 0.7845433255269321
+        }
+      },
+      "valleyProxyNodeFraction": 0.3647617330689261,
+      "groundDeltaVersusBaselineM": {
+        "min": -52.9602700744789,
+        "max": 50.90401274532121,
+        "rms": 18.81459978101392
+      },
+      "stageEnvelopeAlphas": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "drainage_incised": {
+      "elevationMinM": -14.91053912917273,
+      "elevationMaxM": 200.4485852419128,
+      "reliefM": 215.35912437108553,
+      "elevationP05P95M": [
+        33.565498618388624,
+        141.05463257699986
+      ],
+      "slopeMedianDegrees": 0.37470550323578394,
+      "slopeP95Degrees": 0.8809879411154174,
+      "atOrBelowZeroNodes": 33,
+      "nodeCount": 16641,
+      "fillMaxM": 38.788398512752664,
+      "fillPositiveNodes": 2310,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1096.6031761759882,
+      "channelLinks": 885,
+      "maxContributingAreaKm2": 6460.2986366936275,
+      "outletAreaSumKm2": 17811.616804979123,
+      "channelsByThreshold": {
+        "25": {
+          "links": 1562,
+          "junctions": 115,
+          "lengthKm": 1913.178503290072,
+          "valleySupportedLinkFraction": 0.9167733674775929
+        },
+        "100": {
+          "links": 885,
+          "junctions": 33,
+          "lengthKm": 1096.6031761759882,
+          "valleySupportedLinkFraction": 0.9661016949152542
+        },
+        "400": {
+          "links": 419,
+          "junctions": 3,
+          "lengthKm": 519.4314289945537,
+          "valleySupportedLinkFraction": 0.9761336515513126
+        }
+      },
+      "valleyProxyNodeFraction": 0.377801814794784,
+      "groundDeltaVersusBaselineM": {
+        "min": -69.506223215661,
+        "max": 55.91364410809706,
+        "rms": 21.920608581731024
+      },
+      "stageEnvelopeAlphas": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "paris": {
+      "elevationMinM": 18.81594898277069,
+      "elevationMaxM": 228.7997061249154,
+      "reliefM": 209.9837571421447,
+      "elevationP05P95M": [
+        45.425802900801756,
+        171.34353111834895
+      ],
+      "slopeMedianDegrees": 0.5202293418455184,
+      "slopeP95Degrees": 1.7131213806896302,
+      "atOrBelowZeroNodes": 0,
+      "nodeCount": 16641,
+      "fillMaxM": 42.37545471699379,
+      "fillPositiveNodes": 2217,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1186.3116589813567,
+      "channelLinks": 988,
+      "maxContributingAreaKm2": 9882.599033548742,
+      "outletAreaSumKm2": 17811.616804979112,
+      "channelsByThreshold": {
+        "25": {
+          "links": 1896,
+          "junctions": 136,
+          "lengthKm": 2284.582093123181,
+          "valleySupportedLinkFraction": 0.9166666666666666
+        },
+        "100": {
+          "links": 988,
+          "junctions": 36,
+          "lengthKm": 1186.3116589813567,
+          "valleySupportedLinkFraction": 0.978744939271255
+        },
+        "400": {
+          "links": 478,
+          "junctions": 7,
+          "lengthKm": 577.6514090475188,
+          "valleySupportedLinkFraction": 0.9916317991631799
+        }
+      },
+      "valleyProxyNodeFraction": 0.3692686737575867
+    },
+    "apennines": {
+      "elevationMinM": -29.50008856513125,
+      "elevationMaxM": 1515.61788728502,
+      "reliefM": 1545.1179758501512,
+      "elevationP05P95M": [
+        8.642333371184986,
+        886.5783132366219
+      ],
+      "slopeMedianDegrees": 2.6816533658470973,
+      "slopeP95Degrees": 8.34587739317683,
+      "atOrBelowZeroNodes": 631,
+      "nodeCount": 16641,
+      "fillMaxM": 161.50906633554763,
+      "fillPositiveNodes": 1389,
+      "channelAreaThresholdKm2": 100,
+      "channelLengthKm": 1250.1789047754205,
+      "channelLinks": 975,
+      "maxContributingAreaKm2": 4451.2734990226445,
+      "outletAreaSumKm2": 17811.61680497912,
+      "channelsByThreshold": {
+        "25": {
+          "links": 2003,
+          "junctions": 134,
+          "lengthKm": 2553.1047697115696,
+          "valleySupportedLinkFraction": 0.91063404892661
+        },
+        "100": {
+          "links": 975,
+          "junctions": 27,
+          "lengthKm": 1250.1789047754205,
+          "valleySupportedLinkFraction": 0.9333333333333333
+        },
+        "400": {
+          "links": 407,
+          "junctions": 5,
+          "lengthKm": 527.4924477956268,
+          "valleySupportedLinkFraction": 0.9066339066339066
+        }
+      },
+      "valleyProxyNodeFraction": 0.5478637101135749
+    }
+  },
+  "workerRecommendation": {
+    "recommendation": "drainage_incised_for_new_entity_only",
+    "status": "bounded-morphology-candidate-not-integrated",
+    "rationale": [
+      "More coherent valley corridors than baseline and fewer isolated smooth bumps than spectral-only in shared-scale visual review.",
+      "Median slope and 100 km2 branching move toward this lowland reference without fitting its heights or crop.",
+      "Do not treat matching relief or channel support as independent validation: the incision process directly promotes the support diagnostic."
+    ],
+    "limits": [
+      "Exactly one seed, one crop, two variants; no parameter search; no universal naturalness ranking.",
+      "Junction count does not improve at every scale: 25 km2 baseline130/candidate115/Paris136; 400 km2 baseline8/candidate3/Paris7.",
+      "Candidate P95 slope remains 0.881 degrees versus Paris1.713; major diagonal ridge remains.",
+      "Routing fills are diagnostic heads, not altered ground or lake depths; candidate max fill38.79m versus baseline21.19m.",
+      "Incision is a one-pass shape prior: no time integration, sediment budget, lithology or physical erosion-rate calibration.",
+      "Source incision max18m is not a ground lowering guarantee: anchor conditioning redistributes the residual; candidate ground delta vs baseline is -69.506 to +55.914m, RMS21.921m.",
+      "Native proposal delta is bounded53m and final telescope bound106m when all stage alphas1, as verified here.",
+      "The current saved bridge and committed stage anchors are unchanged. New entity preserves its own successive anchors and the identical nine L1 anchors.",
+      "Apennines is higher-relief context, not an intended matching target.",
+      "Paris ETOPO is sampled at about912x1390m before bilinear interpolation, not new fine surveyed detail.",
+      "No water-budget, outlet or old entity adoption is performed."
+    ],
+    "metrics": {
+      "baseline": {
+        "elevationMinM": 29.601929754197084,
+        "elevationMaxM": 183.77823094646993,
+        "reliefM": 154.17630119227286,
+        "elevationP05P95M": [
+          52.316034963936474,
+          126.90662972630277
+        ],
+        "slopeMedianDegrees": 0.16505019504031448,
+        "slopeP95Degrees": 0.6890474352066301,
+        "atOrBelowZeroNodes": 0,
+        "nodeCount": 16641,
+        "fillMaxM": 21.19281698925689,
+        "fillPositiveNodes": 3759,
+        "channelAreaThresholdKm2": 100,
+        "channelLengthKm": 1121.549276624385,
+        "channelLinks": 877,
+        "maxContributingAreaKm2": 6589.66767964971,
+        "outletAreaSumKm2": 17811.616804979116,
+        "channelsByThreshold": {
+          "25": {
+            "links": 1467,
+            "junctions": 130,
+            "lengthKm": 1860.2449180763326,
+            "valleySupportedLinkFraction": 0.5794137695978187
+          },
+          "100": {
+            "links": 877,
+            "junctions": 24,
+            "lengthKm": 1121.549276624385,
+            "valleySupportedLinkFraction": 0.5461801596351197
+          },
+          "400": {
+            "links": 438,
+            "junctions": 8,
+            "lengthKm": 566.9601106846422,
+            "valleySupportedLinkFraction": 0.4703196347031963
+          }
+        },
+        "valleyProxyNodeFraction": 0.26855357250165257,
+        "groundDeltaVersusBaselineM": {
+          "min": 0.0,
+          "max": 0.0,
+          "rms": 0.0
+        },
+        "stageEnvelopeAlphas": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "spectral": {
+        "elevationMinM": 1.2332917656606028,
+        "elevationMaxM": 199.0132748083643,
+        "reliefM": 197.7799830427037,
+        "elevationP05P95M": [
+          38.331261936488495,
+          135.16270270282487
+        ],
+        "slopeMedianDegrees": 0.32024989213855765,
+        "slopeP95Degrees": 0.7906065414575,
+        "atOrBelowZeroNodes": 0,
+        "nodeCount": 16641,
+        "fillMaxM": 43.698085036197114,
+        "fillPositiveNodes": 4052,
+        "channelAreaThresholdKm2": 100,
+        "channelLengthKm": 1070.5007054288972,
+        "channelLinks": 860,
+        "maxContributingAreaKm2": 6483.128467803523,
+        "outletAreaSumKm2": 17811.616804979116,
+        "channelsByThreshold": {
+          "25": {
+            "links": 1610,
+            "junctions": 122,
+            "lengthKm": 2011.7855847515102,
+            "valleySupportedLinkFraction": 0.7807453416149068
+          },
+          "100": {
+            "links": 860,
+            "junctions": 28,
+            "lengthKm": 1070.5007054288972,
+            "valleySupportedLinkFraction": 0.8104651162790698
+          },
+          "400": {
+            "links": 427,
+            "junctions": 3,
+            "lengthKm": 535.2095049165125,
+            "valleySupportedLinkFraction": 0.7845433255269321
+          }
+        },
+        "valleyProxyNodeFraction": 0.3647617330689261,
+        "groundDeltaVersusBaselineM": {
+          "min": -52.9602700744789,
+          "max": 50.90401274532121,
+          "rms": 18.81459978101392
+        },
+        "stageEnvelopeAlphas": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "drainage_incised": {
+        "elevationMinM": -14.91053912917273,
+        "elevationMaxM": 200.4485852419128,
+        "reliefM": 215.35912437108553,
+        "elevationP05P95M": [
+          33.565498618388624,
+          141.05463257699986
+        ],
+        "slopeMedianDegrees": 0.37470550323578394,
+        "slopeP95Degrees": 0.8809879411154174,
+        "atOrBelowZeroNodes": 33,
+        "nodeCount": 16641,
+        "fillMaxM": 38.788398512752664,
+        "fillPositiveNodes": 2310,
+        "channelAreaThresholdKm2": 100,
+        "channelLengthKm": 1096.6031761759882,
+        "channelLinks": 885,
+        "maxContributingAreaKm2": 6460.2986366936275,
+        "outletAreaSumKm2": 17811.616804979123,
+        "channelsByThreshold": {
+          "25": {
+            "links": 1562,
+            "junctions": 115,
+            "lengthKm": 1913.178503290072,
+            "valleySupportedLinkFraction": 0.9167733674775929
+          },
+          "100": {
+            "links": 885,
+            "junctions": 33,
+            "lengthKm": 1096.6031761759882,
+            "valleySupportedLinkFraction": 0.9661016949152542
+          },
+          "400": {
+            "links": 419,
+            "junctions": 3,
+            "lengthKm": 519.4314289945537,
+            "valleySupportedLinkFraction": 0.9761336515513126
+          }
+        },
+        "valleyProxyNodeFraction": 0.377801814794784,
+        "groundDeltaVersusBaselineM": {
+          "min": -69.506223215661,
+          "max": 55.91364410809706,
+          "rms": 21.920608581731024
+        },
+        "stageEnvelopeAlphas": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "paris": {
+        "elevationMinM": 18.81594898277069,
+        "elevationMaxM": 228.7997061249154,
+        "reliefM": 209.9837571421447,
+        "elevationP05P95M": [
+          45.425802900801756,
+          171.34353111834895
+        ],
+        "slopeMedianDegrees": 0.5202293418455184,
+        "slopeP95Degrees": 1.7131213806896302,
+        "atOrBelowZeroNodes": 0,
+        "nodeCount": 16641,
+        "fillMaxM": 42.37545471699379,
+        "fillPositiveNodes": 2217,
+        "channelAreaThresholdKm2": 100,
+        "channelLengthKm": 1186.3116589813567,
+        "channelLinks": 988,
+        "maxContributingAreaKm2": 9882.599033548742,
+        "outletAreaSumKm2": 17811.616804979112,
+        "channelsByThreshold": {
+          "25": {
+            "links": 1896,
+            "junctions": 136,
+            "lengthKm": 2284.582093123181,
+            "valleySupportedLinkFraction": 0.9166666666666666
+          },
+          "100": {
+            "links": 988,
+            "junctions": 36,
+            "lengthKm": 1186.3116589813567,
+            "valleySupportedLinkFraction": 0.978744939271255
+          },
+          "400": {
+            "links": 478,
+            "junctions": 7,
+            "lengthKm": 577.6514090475188,
+            "valleySupportedLinkFraction": 0.9916317991631799
+          }
+        },
+        "valleyProxyNodeFraction": 0.3692686737575867
+      },
+      "apennines": {
+        "elevationMinM": -29.50008856513125,
+        "elevationMaxM": 1515.61788728502,
+        "reliefM": 1545.1179758501512,
+        "elevationP05P95M": [
+          8.642333371184986,
+          886.5783132366219
+        ],
+        "slopeMedianDegrees": 2.6816533658470973,
+        "slopeP95Degrees": 8.34587739317683,
+        "atOrBelowZeroNodes": 631,
+        "nodeCount": 16641,
+        "fillMaxM": 161.50906633554763,
+        "fillPositiveNodes": 1389,
+        "channelAreaThresholdKm2": 100,
+        "channelLengthKm": 1250.1789047754205,
+        "channelLinks": 975,
+        "maxContributingAreaKm2": 4451.2734990226445,
+        "outletAreaSumKm2": 17811.61680497912,
+        "channelsByThreshold": {
+          "25": {
+            "links": 2003,
+            "junctions": 134,
+            "lengthKm": 2553.1047697115696,
+            "valleySupportedLinkFraction": 0.91063404892661
+          },
+          "100": {
+            "links": 975,
+            "junctions": 27,
+            "lengthKm": 1250.1789047754205,
+            "valleySupportedLinkFraction": 0.9333333333333333
+          },
+          "400": {
+            "links": 407,
+            "junctions": 5,
+            "lengthKm": 527.4924477956268,
+            "valleySupportedLinkFraction": 0.9066339066339066
+          }
+        },
+        "valleyProxyNodeFraction": 0.5478637101135749
+      }
+    },
+    "tests": "6/6 passed; tests.log",
+    "reproduce": [
+      "python broad-relief-trials/trial.py",
+      "node broad-relief-trials/replay.mjs",
+      "MPLCONFIGDIR=/tmp/mpl python broad-relief-trials/compare.py",
+      "python broad-relief-trials/test_trials.py"
+    ]
+  },
+  "adoptionDecision": "Retain baseline runtime source. Drainage-guided alternative improves the 100 km2 branching statistic but worsens 25 and 400 km2 statistics; not a consistently superior default. Preserve as an experimental alternative.",
+  "limits": [
+    "Real reference agreement is not proof of geological realism",
+    "Max routing-head correction also worsens relative to baseline",
+    "No saved world or default generator changed"
+  ]
+}

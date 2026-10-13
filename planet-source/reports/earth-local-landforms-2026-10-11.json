@@ -1,0 +1,36 @@
+{
+  "method": "central finite differences on valid 3x3-tile samples; local centre-latitude metric approximation",
+  "sourceResolutionM": 5,
+  "limitations": [
+    "PNG pixels are interpolated from 5m-source data, not independent finer measurements",
+    "Missing values are not sea level",
+    "Modern ground includes modifications and is not a medieval reconstruction",
+    "Height fields do not represent overhangs"
+  ],
+  "sites": [
+    {
+      "name": "numata",
+      "pixelSpacingM": 3.832866118651318,
+      "finiteCells": 582257,
+      "missingCells": 7567,
+      "minM": 323.3,
+      "maxM": 559.3000000000001,
+      "reliefM": 236.00000000000006,
+      "slopeMedianDeg": 3.189711713879871,
+      "slopeP95Deg": 34.376918264132996,
+      "slopeValidCells": 579469
+    },
+    {
+      "name": "byobugaura",
+      "pixelSpacingM": 3.87877269146719,
+      "finiteCells": 514632,
+      "missingCells": 75192,
+      "minM": -0.19,
+      "maxM": 63.43,
+      "reliefM": 63.62,
+      "slopeMedianDeg": 1.8160613777360872,
+      "slopeP95Deg": 30.219101061755904,
+      "slopeValidCells": 511946
+    }
+  ]
+}

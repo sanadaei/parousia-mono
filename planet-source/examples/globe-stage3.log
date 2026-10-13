@@ -1,0 +1,6 @@
+Legacy contracts: 40 snapshots restored with exact witnesses
+audit-a: 4 simultaneous charts, 2072 river probes, 336 exact frames
+audit-b: 4 simultaneous charts, 2072 river probes, 336 exact frames
+world-a-c1: new smooth banks, 8720 river probes, 49 exact frames
+world-b-c1: new smooth banks, 8020 river probes, 49 exact frames
+{"unitTests":{"tests":268,"pass":268},"multipleChartWorlds":2,"charts":8,"sourceCenters":2304,"centerlineProbes":4144,"multipleChartFrames":672,"legacySnapshots":40,"sourceFilesUnchanged":true,"inputSnapshotsUnchanged":true}

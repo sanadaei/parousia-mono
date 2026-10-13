@@ -1,0 +1,358 @@
+{
+  "schema": "l2-settlement-materialization-verification@1",
+  "createdAt": "2026-10-13T14:08:15.533Z",
+  "status": "Bounded regional L2 materialization, persistence and PC inspection verified; global adoption remains open",
+  "platform": "PC",
+  "sourceChanges": {
+    "modified": 5,
+    "added": 10,
+    "manifest": "source-changes.json",
+    "patch": "changes.patch",
+    "gitRepository": false,
+    "distributedZipManifest": "Original SOURCE-MANIFEST retained as historical evidence, not updated to certify this checkout"
+  },
+  "implementation": {
+    "native": "Explicit 161x129 native shape and designed channels; 55.30x76.35m spacing; no coarse fallback outside domain",
+    "materialization": "Stable candidate ID/origin/population, one residential district, one field page, optional boundary access, 4MiB record cap",
+    "conservation": "Candidate population and this-page farmland demand partition exactly into represented/surveyed, unresolved and outside-page budgets",
+    "corrections": [
+      "Separated single-candidate farmland demand from region-wide demand and partitioned the requested field page",
+      "Reserved surveyed access-road width before accepting fields; segment/footprint intersections are checked",
+      "Actual PC inspection exposed a residential footprint crossed by designed river water despite dry corners; 2m building-interior and internal-road corridor surveys added, one house/pad withheld",
+      "Housing capacity, deferred housing demand and unresolved neighbouring roads clarified after reference review"
+    ],
+    "compatibility": "Generator method is l2-settlement-materialization@2. Initial unaccepted @1 proof records are archived under qa/pre-footprint-fix and regenerated; no L0/L1 or native terrain regeneration was needed"
+  },
+  "examples": [
+    {
+      "label": "都市を含む地域",
+      "cellIndex": 15826,
+      "slot": 0,
+      "file": "cell-15826-slot-0.json",
+      "candidateId": "sha256:4851dd9a7e2186d52d353661b9a8c8d5f6fc85b9619524702b4377d364b41b79/slot:0",
+      "nativeSurfaceId": "sha256:ad5c90b4c2ff32b0883450a96013e0a97cb081c9c8799ab14a8804b390a06141",
+      "origin": {
+        "latDeg": 2.916329111631739,
+        "lonDeg": -64.62424378287841
+      },
+      "population": 74465,
+      "housing": {
+        "districtCount": 156,
+        "districtIndex": 0,
+        "placedDwellings": 0,
+        "representedPopulation": 0,
+        "requestedDwellings": 96,
+        "requestedPopulation": 480,
+        "totalPopulation": 74465,
+        "unresolvedPopulation": 480,
+        "unvisitedPopulation": 73985
+      },
+      "fields": {
+        "accepted": 0,
+        "limit": 16,
+        "offset": 0,
+        "outsidePageM2": 423096591,
+        "rejected": 0,
+        "requestedM2": 0,
+        "status": "regional-supply-unresolved",
+        "surveyedM2": 0,
+        "totalDemandM2": 423096591,
+        "totalPlots": 0,
+        "unresolvedM2": 0
+      },
+      "accessStatus": "not-generated"
+    },
+    {
+      "label": "村が多い地域",
+      "cellIndex": 16830,
+      "slot": 2,
+      "file": "cell-16830-slot-2.json",
+      "candidateId": "sha256:1a04dc9291f5c14883e182763c16550a8b7d962bc89499dc74f30f3f72c385f1/slot:2",
+      "nativeSurfaceId": "sha256:0e833d215484db81bdbfa960122ce15d3dc6d4b3a5ab3c291e6d8159eaa2d8ec",
+      "origin": {
+        "latDeg": -2.768378528830875,
+        "lonDeg": -92.62599687649526
+      },
+      "population": 260,
+      "housing": {
+        "districtCount": 1,
+        "districtIndex": 0,
+        "placedDwellings": 0,
+        "representedPopulation": 0,
+        "requestedDwellings": 52,
+        "requestedPopulation": 260,
+        "totalPopulation": 260,
+        "unresolvedPopulation": 260,
+        "unvisitedPopulation": 0
+      },
+      "fields": {
+        "accepted": 0,
+        "limit": 16,
+        "offset": 0,
+        "outsidePageM2": 1087086,
+        "rejected": 0,
+        "requestedM2": 640000,
+        "status": "local-field-page",
+        "surveyedM2": 0,
+        "totalDemandM2": 1727086,
+        "totalPlots": 44,
+        "unresolvedM2": 640000
+      },
+      "accessStatus": "not-generated"
+    },
+    {
+      "label": "起伏が大きい地域",
+      "cellIndex": 12669,
+      "slot": 0,
+      "file": "cell-12669-slot-0.json",
+      "candidateId": "sha256:aa5114cc742de8d404b74dec1645bcbb816a50626a51dc45cc5752e2298ecb90/slot:0",
+      "nativeSurfaceId": "sha256:6b088a90dd9a63d81fe5bee8d1b7672a5961a2da9650755ca04607468b7090b5",
+      "origin": {
+        "latDeg": 19.806063131678666,
+        "lonDeg": 175.90167377128637
+      },
+      "population": 284,
+      "housing": {
+        "districtCount": 1,
+        "districtIndex": 0,
+        "placedDwellings": 27,
+        "representedPopulation": 135,
+        "requestedDwellings": 57,
+        "requestedPopulation": 284,
+        "totalPopulation": 284,
+        "unresolvedPopulation": 149,
+        "unvisitedPopulation": 0
+      },
+      "fields": {
+        "accepted": 15,
+        "limit": 16,
+        "offset": 0,
+        "outsidePageM2": 3791714,
+        "rejected": 1,
+        "requestedM2": 640000,
+        "status": "local-field-page",
+        "surveyedM2": 600000,
+        "totalDemandM2": 4431714,
+        "totalPlots": 111,
+        "unresolvedM2": 40000
+      },
+      "accessStatus": "blocked-invalid-profile"
+    }
+  ],
+  "tests": {
+    "full": {
+      "passed": 1432,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 216500.1824,
+      "workers": 1,
+      "heapMiB": 256,
+      "phase": "After final numerical/core/footprint changes; before wording-only GUI clarification"
+    },
+    "dedicatedAfterFootprintFix": {
+      "passed": 18,
+      "failed": 0
+    },
+    "relatedCoveredByFullSuite": 20,
+    "persistence": "Fresh file-store reopen uses the exact saved layout without generator; changed surface rejects without overwriting",
+    "representativeReopen": {
+      "populationAndAreaConserved": true,
+      "reopenedWithoutRegeneration": true
+    },
+    "build": {
+      "passed": true,
+      "core": 160,
+      "exactAliases": 30,
+      "globeSyntax": 74
+    },
+    "afterWording": {
+      "moduleSyntaxPassed": true,
+      "inlineScriptSyntaxPassed": true,
+      "actualPcBrowserRechecked": true
+    }
+  },
+  "browser": {
+    "platform": "PC",
+    "steps": [
+      {
+        "candidate": "都市を含む地域｜都市 74,465 人｜立地保留",
+        "fields": "この固定候補の全需要\t423,096,591 m²\n今回の一ページの要求\t0 m²\nうち標本調査通過\t0 m²\nうち今回の保留\t0 m²\n今回の対象外（保存範囲外）\t423,096,591 m²",
+        "population": "この固定候補の全需要\t74,465 人\t—\n今回の住宅区画の要求\t480 人\t96 戸\nうち配置済み\t0 人\t0 戸\nうち今回の保留\t480 人\t96 戸\n今回の対象外（保存範囲外）\t73,985 人\t—"
+      },
+      {
+        "candidate": "村が多い地域｜村 260 人｜立地保留",
+        "fields": "この固定候補の全需要\t1,727,086 m²\n今回の一ページの要求\t640,000 m²\nうち標本調査通過\t0 m²\nうち今回の保留\t640,000 m²\n今回の対象外（保存範囲外）\t1,087,086 m²",
+        "population": "この固定候補の全需要\t260 人\t—\n今回の住宅区画の要求\t260 人\t52 戸\nうち配置済み\t0 人\t0 戸\nうち今回の保留\t260 人\t52 戸\n今回の対象外（保存範囲外）\t0 人\t—"
+      },
+      {
+        "candidate": "起伏が大きい地域｜村 284 人｜部分詳細化",
+        "fields": "この固定候補の全需要\t4,431,714 m²\n今回の一ページの要求\t640,000 m²\nうち標本調査通過\t600,000 m²\nうち今回の保留\t40,000 m²\n今回の対象外（保存範囲外）\t3,791,714 m²",
+        "population": "この固定候補の全需要\t284 人\t—\n今回の住宅区画の要求\t284 人\t57 戸\nうち配置済み\t135 人\t27 戸\nうち今回の保留\t149 人\t30 戸\n今回の対象外（保存範囲外）\t0 人\t—"
+      },
+      {
+        "filter": "対象を選択してください\n農地 15｜保留・水域"
+      },
+      {
+        "mapClick": "住宅 20｜配置済み\n\n中心位置\n東 -132 m / 北 96 m\n輪郭寸法\n12 × 12 m\n用途\n住宅（戸数に算入）\n基礎標高\n2,653.3 m\n建物高\n3.2 m ＋ 屋根 1.8 m"
+      },
+      {
+        "keyboardHome": "true"
+      },
+      {
+        "wheelBefore": "表示幅 905.6 m · 原点から東/北 m",
+        "wheelAfter": "表示幅 427.8 m · 原点から東/北 m"
+      },
+      {
+        "dragReadout": "東 -11.8 m / 北 43.3 m · 格子補間標高 2,650.7 m / 水深 0 m"
+      }
+    ],
+    "consoleErrors": [],
+    "dimensions": {
+      "candidate": "起伏が大きい地域｜村 284 人｜部分詳細化",
+      "clientWidth": 1265,
+      "scrollWidth": 1265
+    },
+    "afterWording": {
+      "state": {
+        "capacity": "この固定候補の全需要\t284 人\t—\n今回の住宅区画の要求\t284 人\t57 戸\nうち配置住宅の容量\t135 人\t27 戸\nうち今回の保留\t149 人\t30 戸\n今回の対象外（保存範囲外）\t0 人\t—",
+        "clientWidth": 1265,
+        "housing": "保存住宅 27 戸、公共施設 1 棟。住宅要求には未配置分が残っています。 保留 30 戸分は今回配置しなかった需要です。地図・一覧には配置した住宅輪郭だけを表示しています。",
+        "scrollWidth": 1265
+      },
+      "consoleErrors": [],
+      "selectionRechecked": true
+    }
+  },
+  "models": {
+    "backend": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "sessionId": "ses_ecac8c303ffe2EyYwVCnn2RZSf",
+      "route": "Native OpenCode Go 2.0.26, isolated 48 non-confidential modules; only new implementation/test writable",
+      "execution": "Initial path/write permission mismatch interrupted; same session continued once after correcting the allowlist. Shell, external-directory, redelegation denied. Worker tests were written; orchestrator executed and corrected them"
+    },
+    "ui": {
+      "requestedModel": "gpt-6.1-sol",
+      "requestedReasoningEffort": "xhigh",
+      "account": "Existing authenticated .codex-account-b",
+      "threadId": "01a1354e-849f-74e3-9a49-eb0377fe84f3",
+      "route": "Native Codex CLI, ephemeral, isolated one-file GUI feature",
+      "modelMetadataReturned": false
+    },
+    "reference": {
+      "model": "gemini-3.8-flash-medium",
+      "conversationId": "a6588f21-597c-4ec2-81e6-17e085ca114f",
+      "route": "Native agy 1.3.4; sandbox; scoped view_file reads",
+      "status": "SUCCESS",
+      "viewFileCallsCompleted": 3,
+      "decisions": {
+        "accepted": [
+          "Show assigned population as demand/capacity slots; label placed housing as capacity",
+          "Clarify that deferred housing demand has no accepted outline in the map/list",
+          "Clarify internal design lines and unresolved neighbouring access in the legend"
+        ],
+        "rejected": [
+          "Using housing capacity for the entire population column would mislabel statistical demand as built capacity"
+        ],
+        "scope": "Reference review used these archived pre-wording images; orchestrator rechecked the later wording in the PC browser"
+      },
+      "evidence": "qa/gemini-review.json and qa/gemini-reviewed; final later wording rechecked by orchestrator"
+    },
+    "orchestrator": "Specified contracts, supplied native terrain/persistent CLI/review data, checked implementation and callers, corrected area/corridor/interior-footprint issues, ran tests and real PC inspection, judged reference findings",
+    "orchestrationRuntime": "The running chat account/model cannot be switched by these CLI invocations; account B verified and used for the GUI worker",
+    "costAndRemainingQuota": "Not verified; no estimated savings claim"
+  },
+  "assets": "No image-gen or Tripo production assets were required; screenshots show saved geometric footprints in Canvas2D, not finished 3D art",
+  "resources": {
+    "measurements": [
+      {
+        "stage": "representative-materialization",
+        "physicalGiB": 12.57,
+        "commitHeadroomGiB": 14.5
+      },
+      {
+        "stage": "full-tests",
+        "physicalGiB": 12.09,
+        "commitHeadroomGiB": 13.76
+      },
+      {
+        "stage": "build",
+        "physicalGiB": 11.58,
+        "commitHeadroomGiB": 13.44
+      },
+      {
+        "stage": "pc-browser",
+        "physicalGiB": 11.72,
+        "commitHeadroomGiB": 13.72
+      },
+      {
+        "stage": "full-tests-after-footprint-fix",
+        "physicalGiB": 10.65,
+        "commitHeadroomGiB": 12.39
+      },
+      {
+        "stage": "final-build",
+        "physicalGiB": 9.46,
+        "commitHeadroomGiB": 11.21
+      },
+      {
+        "stage": "final-pc-browser",
+        "physicalGiB": 10.09,
+        "commitHeadroomGiB": 11.91
+      }
+    ],
+    "gpuBeforeInitialPcBrowser": {
+      "totalMiB": 8192,
+      "freeMiB": 6642
+    },
+    "execution": "Heavy tests, build and browser checks executed sequentially; task temporary files and artifacts on G",
+    "cDrive": "Only existing CLI authentication/application-managed state and normal runtime metadata; no task build/data download placed on C"
+  },
+  "cleanup": {
+    "ownBrowserTabsClosed": true,
+    "previewServersStopped": true,
+    "matchingProcesses": [],
+    "remainingListeners": [],
+    "workerClientsExited": true,
+    "taskTemporaryFiles": "Removed after source hashes, patches, review images and metadata were archived"
+  },
+  "artifacts": [
+    {
+      "file": "summary.json",
+      "bytes": 4354,
+      "sha256": "f0c83fc4749062dc2ffd489fadc5f3e5c55dad461d2e832210d987597cccf186"
+    },
+    {
+      "file": "review-data.json",
+      "bytes": 1560861,
+      "sha256": "1018188df1402e0b8170044b0e86101f806b3334c36d680a2381d96d51fe5018"
+    },
+    {
+      "file": "review.html",
+      "bytes": 1620116,
+      "sha256": "b44b6a7916270f59e56b603e8acc485fe19c3e757548f637d32af68d3ba706e8"
+    },
+    {
+      "file": "cell-15826-slot-0.json",
+      "bytes": 380022,
+      "sha256": "308a26085c87a8980bf2e931fede5495539639c45a91ba29c104dcb3df691344"
+    },
+    {
+      "file": "cell-16830-slot-2.json",
+      "bytes": 376586,
+      "sha256": "01956a89be5d0a252ec827e1b71e2264f1cef11c284399b978c624781dd46cb0"
+    },
+    {
+      "file": "cell-12669-slot-0.json",
+      "bytes": 470196,
+      "sha256": "68e2bbfb7c995005bb25921d6c68002ac70417b382b8829a4030ac5c5864a8a7"
+    }
+  ],
+  "limitations": [
+    "Independent local native examples are not joined to neighbouring terrain and are not adopted into the global renderer",
+    "Deferred original siting, complete agricultural access and neighbouring road connections remain unresolved",
+    "Sampled land footprints do not secure rights, annual food yield, drinking water or flood recurrence",
+    "Native terrain spacing is 55.30x76.35m; smaller terrain features, soil and foundation strength remain ungenerated/unverified",
+    "PC GPU globe, endurance, packaging/release and human visual/interaction acceptance were not run"
+  ],
+  "roadmap": "L0 statistical distribution -> conservative L1 budgets -> L2 fixed candidate handoff -> bounded native local materialization/survey/persistent records and PC inspection. Next deferred siting, agricultural access, neighbouring terrain/roads and global runtime adoption"
+}

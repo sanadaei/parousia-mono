@@ -1,0 +1,126 @@
+{
+  "schema": "nearfield-production-scene-audit@1",
+  "worldId": "sha256:9f77ea6d556fc7ea385502457a7091c8a25adeb7392db867368bbea2fc1f3a74",
+  "region": 3237,
+  "waterCandidateCoverage": {
+    "populatedRegions": 744,
+    "regionsWithCandidate": 12,
+    "index": {
+      "stations": 2293,
+      "candidates": 13758,
+      "withheld": 0,
+      "maxCandidates": 32768,
+      "spacingM": 500
+    },
+    "scope": "Saved river-based siting proposals, not an inventory of all water or proof of an accepted access route"
+  },
+  "scenes": [
+    {
+      "siteId": "pop:3237:5",
+      "kind": "village",
+      "location": {
+        "latDeg": 19.635742257006864,
+        "lonDeg": 104.63664339257474
+      },
+      "population": 300,
+      "waterAccess": {
+        "status": "not-established"
+      },
+      "status": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:3237:5",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 300,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:3237:5/district:0/commons",
+            "type": "village_green"
+          },
+          {
+            "id": "pop:3237:5/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "buildings": 66,
+      "roads": 43,
+      "parcels": 19,
+      "geometrySha256": "f769ba682e8bdc03e9b810a1ab95316baddd86e97f79573e424f9a42dea4a65d"
+    },
+    {
+      "siteId": "pop:3237:0",
+      "kind": "town",
+      "location": {
+        "latDeg": 19.632003158596792,
+        "lonDeg": 104.10119568833278
+      },
+      "population": 3996,
+      "waterAccess": {
+        "status": "not-established"
+      },
+      "status": {
+        "method": "urban-block-frontage@1",
+        "redistributedDwellings": 0,
+        "settlementId": "pop:3237:0",
+        "districtIndex": 0,
+        "districtCount": 9,
+        "totalRequestedDwellings": 800,
+        "requestedDwellings": 96,
+        "placedDwellings": 96,
+        "unplacedDwellings": 0,
+        "representedPopulation": 480,
+        "districtComplete": true,
+        "complete": false,
+        "blockedEdges": [],
+        "limitations": [
+          "Town-wide terrain-biased blocks, not simulated historical growth",
+          "Water/grade-rejected streets need connected-component acceptance",
+          "Unplaced households remain explicit; no forced housing on unsuitable land",
+          "Facility yards and external agriculture still require refinement"
+        ]
+      },
+      "buildings": 103,
+      "roads": 47,
+      "parcels": 45,
+      "geometrySha256": "706dc3dcb4e26178eaf4341e7b324dc6ef2c860774ad91bdb519a1cf0259864b"
+    }
+  ],
+  "limitations": [
+    "Selected region only, town district zero is not a complete town",
+    "SVG draws actual oriented footprints, sampled roads and parcels only; blank background does not mean vegetation, water or terrain are absent",
+    "No browser, visual LOD, continuous collision or universal historical-plausibility acceptance",
+    "Locations come from the production planner and saved world policies; no alternate inspection-only siting"
+  ],
+  "inputSha256": "1ad4635a350ce921e524225190f962ddb712fc681c2327c200d3f9b872cc786a",
+  "sourceFiles": [
+    {
+      "path": "scripts/audit-nearfield-scene.mjs",
+      "sha256": "6f8f403dd8a2c0227934f13983767167bb4c52b89eee7695ea2f4855464f19a6"
+    },
+    {
+      "path": "scripts/package-settlements.mjs",
+      "sha256": "c7ade8dd78c6ec4083367f3aa7bf747a238f59793100100b920c1d8687a6e933"
+    },
+    {
+      "path": "src/core/settlement-layout.mjs",
+      "sha256": "1b359f1e9f49558381a0b66a0779cac9c0840692c3a4dd4a6c7bb2572287f0e0"
+    },
+    {
+      "path": "src/core/settlement-catalogue.mjs",
+      "sha256": "1c26a2d9b23ed21abfe43eea8a6661b677fe49c3b3597053a484b160b246675d"
+    }
+  ]
+}

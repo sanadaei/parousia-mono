@@ -1,0 +1,2246 @@
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,6 @@
+-> 2026-10-13: **L0の全球人口・集落分布からL1への予算受け渡し**を追加しました。`npm run l0:baseline` で人口正本・L0/L1 JSONと[全球の分布確認画面](reports/l0-settlement-baseline/review.html)を作れます。人口と村・町・都市の7項目を保存し、適地のない分は未配分として保持します。通常の気候付き惑星生成・世界保存にも同じL0分布を接続しています。家や街の実配置、旧保存世界・形状優先ドラフトへの配置追加は次の段階です。[仕様と再現手順](docs/L0_REVIEW.md)。
++> 2026-10-13: **集落規模を整え、L1からL2へ地域候補を渡す段階**まで進めました。`npm run l2:baseline` で[集落候補と農地の見積もり](reports/l2-settlement-baseline/review.html)を作れます。町・都市の最小規模、固定IDの候補ページ、必要耕地面積、広域地形による選別と確定保存を接続しています。候補の敷地・農地・道路は次の段階です。[仕様と再現手順](docs/L2_SETTLEMENT_HANDOFF.md)。
++
++> 前段: **L0の全球人口・集落分布からL1への予算受け渡し**。`npm run l0:baseline` で人口正本・L0/L1 JSONと[全球の分布確認画面](reports/l0-settlement-baseline/review.html)を作れます。人口と村・町・都市の7項目を保存し、適地のない分は未配分として保持します。通常の気候付き惑星生成・世界保存にも同じL0分布を接続しています。[仕様](docs/L0_REVIEW.md)。
+ 
+ > 2026-10-13: 当面の目標は、**今までのベストを組み合わせ、「それらしい」見た目で動く一式を先に仕上げること**です。現在の採用案・仕上げの完了条件・次の順序は [作業用ベースラインのロードマップ](docs/WORKING_BASELINE_ROADMAP.md) を参照してください。形状優先の地形・水系は `/src/globe/index.html?terrain=shape-first`、操作と保存は [実行ガイド](docs/SHAPE_FIRST_REGION.md)。以下の日時付き記録は各時点の履歴です。
+ 
+--- a/docs/L0_REVIEW.md
++++ b/docs/L0_REVIEW.md
+@@ -145,6 +145,8 @@
+ 通常UIの気候入力欄は今回の対象外。APIまたは比較スクリプトから値を渡す。
+ 
+ ## 人口・集落予算の分布のみレイヤー（2026-10-13追補）
++
++後続段階で人口正本を@2へ更新し、保存する規模仮定と、集落個数に結び付いた人数の継承を追加した。下記の数値例は前段の記録。現在のL1→L2候補、農地需要、再現手順は [L2_SETTLEMENT_HANDOFF](L2_SETTLEMENT_HANDOFF.md) を参照。
+ 
+ `src/core/settlement-distribution.mjs` を追加した。全球の人口・村町都市数を
+ 「分布のみ」として保存し、L1の細かい格子へ整数予算を失わず受け渡す。家・村の
+--- /dev/null
++++ b/docs/L2_SETTLEMENT_HANDOFF.md
+@@ -0,0 +1,77 @@
++# 集落規模とL1からL2への候補受け渡し
++
++2026-10-13。全球の人口統計を、参照した地域だけの集落候補へつなぐ段階。
++人口正本は `planAgriculturePopulation`。L0/L1分布とは別の人口計算を作らない。
++
++## 規模の仮定
++
++新人口は `agriculture-population@2` とし、`population.sizePolicy` を規模仮定の正本として保存する。
++既定の平均は村300人・町4,000人・都市50,000人。村には100人未満の小集落も含み、個別表示では小集落と区別する。
++町の下限は1,000人、都市の下限は25,000人。各上限は平均の1.5倍。
++町になれない比例配分人数は村側へ戻し、セルの総人口と食料容量は変えない。
++都市は地域の人口と適性の順位を使い、安定したhashから仮の規模を選ぶ。
++農村比率は目標値であり、最小規模・整数丸め後の実際の比率とは区別する。
++
++L0→L1では集落の個数を面積・適性で配った後、親の一集落あたりの整数基本人数と余りを
++その個数に結び付ける。人数を再び面積で独立配分し、極小の町を作ることを避ける。
++親＝全子＋未配分は、総人口・村人口・町人口・都市人口・村数・町数・都市数の全7項目で検査する。
++
++個別候補の人数には整数基本値と余りに、固定周期のゼロ和ペア変動を加える。
++全候補を生成せずに人数のprefixを計算でき、ページや参照順を変えても人数・ID・原点は変わらない。
++これは仮の規模ばらつきモデル。歴史的な較正、交易圏、都市階層の完成ではない。
++
++## 地域の受け渡し
++
++- `createL2SettlementHandoff(l1, population, cellIndex)`：L1の1セルを、7整数予算・地理境界・親区画・規模仮定・農地需要のコンパクトなレシピへ。
++- `validateL2SettlementHandoff(handoff)`：版・内容ID・整数予算・規模の実現可能性・格子と地理的親・農地需要を照合。hashを付け直した算術や境界の矛盾も拒否。
++- `readL2SettlementCandidatePage(handoff, {offset, limit})`：都市→町→村の固定slot順で、最大256件。等面積緯度の層化候補原点。座標は未調査の候補で、敷地・建物を作らない。
++- `createL1SettlementSurveySurface(l1)`：保存されたL1高さの双線形補間とセル水域マスクを使う、識別付きの広域選別面。
++- `surveyL2SettlementCandidates(surface, population, handoff, {offset, limit})`：既存集落サーベイの水域・標本勾配・既存集落との距離条件を再利用し、候補採用・立地保留・このページでは未調査の7予算を分ける。
++
++農地は親の `netFoodKg / cultivatedHa` と `foodKgPerPersonYear` から求める必要耕地面積。
++全候補の需要面積和は地域の整数m²需要と一致する。非正収量で正人口がある場合は未解決を明示する。
++面積は土地の取得・適地の存在・造成・農業区画の確保を意味しない。
++
++広域条件を通過した候補にも、L2の詳細地形、水源・洪水、敷地、生活圏・農地・接続道路の確認が残る。
++画面は地域の境界と候補点を表示し、詳細地形を作った表示にしない。
++
++## 再現と保存
++
++```powershell
++npm run l2:baseline
++# 出力先や人口・seed・L1解像度を変える場合
++npm run l2:baseline -- reports/my-l2-baseline --seed=planet-2 --population=100000000
++```
++
++出力先は `reports/l2-settlement-baseline`。L0/L1の実データ、L0概要、全球分布画面、
++代表地域の候補ページ、`manifest.json`、`summary.json`、独立した `review.html` を保存する。
++このCLIは代表地域の先頭・次・末尾などの限定ページを確認用に保存する。
++coreのページAPIは、任意の妥当なL1セルから候補を取り出せる。
++
++`saveL2SettlementCandidateSurvey` は既存の `CommittedMaterializer` と原子的ファイル保存を使う。
++同じ保存ページを再参照するとサンプラを再実行せず、初回の候補選別を返す。
++保存条件にはhandoff ID・選別面ID・L1レイヤーID・ページ範囲を含め、地形の変更を同じ保存へ黙って上書きしない。
++候補レコードの上限は1MiB、L1の上限は従来の24MiBを維持する。
++
++新しい生成と規模仮定には新しい人口・分布・候補IDが付く。旧統計例を新しいL2レシピとして使う場合は再生成する。
++通常の生成キャッシュ版も更新した。旧保存世界や形状優先の地域ドラフトへ家屋・集落を自動追加する変更ではない。
++
++現在のロードマップは **L0統計・L1配分から、規模付きの地域候補とL2への受け渡しまで**。
++次は候補に対するL2詳細地形の立地調査、実際の敷地・農地・接続道路の統合。
++全球の家屋生成、水文・食料経済、長時間運用、GPU・実モバイル端末の受入は別の残件。
++
++## 今回の検証
++
++数値・保存・関連回帰は63件PASS、全試験は1,412件PASS / 0 fail / 0 skip。
++buildはcore 158 import・30完全一致alias・74 globe構文が成功。
++その後の表示文言・モバイル見出しだけの補正について、構文検査、代表保存再読込1件、実ブラウザーを再確認した。
++512×256の最大L1確定保存は19,666,546 bytesで従来24MiB枠内。
++
++ローカルのCanvas2Dで3地域・保存ページの切替、地図と一覧の選択連動、キーボード、360px幅を確認。
++今回の3代表地域で表示した候補は広域条件をすべて通過した。水域・急勾配・非有限値の保留は別のコア試験で確認したもので、実地域の保留例を確認したとはしない。
++Geminiは画像閲覧ツールで実画面3枚を参照し、人口配分段階とページ対象外の表記を参考レビューした。
++敷地の完成・他ページ収録済みと誤読する提案は採用していない。
++
++実GPU globe・実モバイル端末のtouch・読み上げ・長時間運用・公開は未実行。
++検証前の重い処理には空き物理メモリ15.13〜16.45GiB、コミット余裕15.67〜17.10GiBを確認し、重い検証を順に実行した。
++詳細は `reports/l2-settlement-baseline/verification.json` と `qa`。元ZIPのSOURCE-MANIFESTは更新していない。
+--- a/docs/WORKING_BASELINE_ROADMAP.md
++++ b/docs/WORKING_BASELINE_ROADMAP.md
+@@ -51,7 +51,15 @@
+ 
+ 通常の気候付き惑星生成・世界保存にもL0分布を接続し、人口正本と一致しない分布を拒否する。L1の識別と保存条件に親分布IDを含め、通常の世界セーブのキー整列後も分布IDが一致する。現行の24MiB保存枠を維持する。今回の変更は旧配布ZIPのSOURCE-MANIFESTと一致しない開発差分であり、旧ZIPの検証記録を新コードの証拠として更新しない。
+ 
+-**現在位置**: L0の統計分布・保存・L1配分・確認画面まで。次は集落規模の統計（平均規模からの丸めによる極小の町など）、L1の集落候補域と農地予算、隣接地域の交通候補、L2の実際の立地・敷地へ進む。L1からL2への分布再配分と、既存の参照時集落生成への統合は未完了。下記の地形改善と両立させる。根拠は[仕様](L0_REVIEW.md)と新しい`reports/l0-settlement-baseline`の検証資料。
++**前段の完了範囲**: L0の統計分布・保存・L1配分・確認画面まで。上の集落数は前段の仮定と検証例。根拠は[仕様](L0_REVIEW.md)と`reports/l0-settlement-baseline`の検証資料。
++
++### 2026-10-13: 集落規模と地域のL2候補
++
++人口正本を`agriculture-population@2`へ進め、規模仮定を保存した。既定では町1,000人以上、都市25,000人以上。極小の町になる人数は村側へ戻し、L0→L1では集落個数に人数を結び付ける。総人口・容量を変えず、村町都市の内訳を更新した。個別候補はゼロ和の仮ばらつきモデルを使い、人数・ID・原点はページと参照順で変わらない。
++
++`npm run l2:baseline`は全球分布と3代表地域の限定候補ページを保存する。既定のL0人口1億、村301,475、町2,724、都市40。L1へ99,898,832人を配分し、101,168人を親の未配分として保持する。農地は必要面積の見積もり。保存L1高さ・水域マスクによる広域選別を通しても、L2の敷地成立を確定したことにはしない。保存ページの再読込では初回の選別を使い、7整数予算と耕地需要を保持する。
++
++**現在位置**: L0統計・L1配分から、規模付きの地域候補・農地需要・L2受け渡しまで。次はL2の詳細地形上での立地・敷地、実際の農地と生活圏、隣接地域への交通候補・接続道路。通常の参照時集落生成にも新規模仮定を適用したが、新しいL1候補を全球ランタイムで実敷地へ採用する統合は残る。下記の地形改善と両立させる。[契約](L2_SETTLEMENT_HANDOFF.md)と`reports/l2-settlement-baseline`の新検証資料を参照。
+ 
+ ## 3. 次の限定改善: 形の豊かさと必要な細部
+ 
+--- a/package.json
++++ b/package.json
+@@ -60,6 +60,7 @@
+   },
+   "scripts": {
+     "l0:baseline": "node --max-old-space-size=256 scripts/build-l0-settlement-baseline.mjs",
++    "l2:baseline": "node --max-old-space-size=256 scripts/build-l2-settlement-baseline.mjs",
+     "build": "node --max-old-space-size=256 scripts/build.mjs",
+     "test": "node --max-old-space-size=256 scripts/test.mjs",
+     "verify": "node --max-old-space-size=256 scripts/verify.mjs",
+--- /dev/null
++++ b/scripts/build-l2-settlement-baseline.mjs
+@@ -0,0 +1,106 @@
++import fs from 'node:fs';
++import path from 'node:path';
++import assert from 'node:assert/strict';
++import {fileURLToPath} from 'node:url';
++import {buildL0SettlementBaseline,parseBaselineArgs,saveBaseline,SETTLEMENT_BUDGETS} from './build-l0-settlement-baseline.mjs';
++import {createL2SettlementHandoff,validateL2SettlementHandoff,readL2SettlementCandidatePage,surveyL2SettlementCandidates,settlementKindBounds} from '../src/core/l2-settlement-handoff.mjs';
++import {createL1SettlementSurveySurface} from '../src/core/l1-settlement-survey-surface.mjs';
++import {CommittedMaterializer} from '../src/core/committed-materialization.mjs';
++import {createFileMaterializationStorage} from './materialization-file-store.mjs';
++import {renderSavedSettlementDistributionReview} from './build-settlement-distribution-review.mjs';
++import {buildL2SettlementReview} from './build-l2-settlement-review.mjs';
++import {requireVerificationMemory} from './verification-runtime.mjs';
++
++/** Persist a bounded regional handoff and its screening result. An existing
++ * committed page is read without running the sampler or changing its sites. */
++export async function saveL2SettlementCandidateSurvey(l1,population,cellIndex,{offset=0,limit=64,directory,surface=createL1SettlementSurveySurface(l1),generateSurvey=surveyL2SettlementCandidates}={}) {
++  const handoff=createL2SettlementHandoff(l1,population,cellIndex);
++  if(!surface.surfaceId||surface.sourceLayerId!==handoff.layerId)throw new RangeError('Identified matching L1 screening surface required');
++  if(typeof directory!=='string'||!directory)throw new TypeError('A persistent regional output directory is required');
++  const page=readL2SettlementCandidatePage(handoff,{offset,limit});
++  const maxRecordBytes=1024*1024;
++  const store=new CommittedMaterializer(createFileMaterializationStorage(directory,{maxRecordBytes}),{maxRecordBytes});
++  return store.resolve({worldId:handoff.sourceWorldId,entityId:`L2-candidates:${handoff.id}/${page.offset}/${page.limit}`,
++    conditions:{handoffId:handoff.id,surfaceId:surface.surfaceId,sourceLayerId:surface.sourceLayerId,offset:page.offset,limit:page.limit},
++    generator:'l2-settlement-screening@1',generate:()=>({handoff,page,survey:generateSurvey(surface,population,handoff,{offset:page.offset,limit:page.limit})})});
++}
++
++function checkRecord(record) {
++  const {handoff,page,survey}=record;validateL2SettlementHandoff(handoff);
++  assert.deepEqual(page,readL2SettlementCandidatePage(handoff,{offset:page.offset,limit:page.limit}));
++  for(const key of SETTLEMENT_BUDGETS){
++    assert.equal(survey.budgets.requested[key],survey.budgets.adopted[key]+survey.budgets.unresolved[key]);
++    assert.equal(handoff.budget[key],survey.budgets.requested[key]+survey.budgets.unvisited[key]);
++  }
++  const f=survey.farmlandDemandM2;
++  assert.equal(f.requested,f.adopted+f.unresolved);assert.equal(f.total,f.requested+f.unvisited);
++}
++
++function selectRegions(l1) {
++  const d=l1.settlementDistribution,w=d.grid.columns,h=d.grid.rows,z=l1.snapshot.fields.groundElevationM;
++  const occupied=d.fields.population.map((p,i)=>p?i:-1).filter(i=>i>=0), used=new Set();
++  const choices=[];
++  const choose=(label,compare,filter=()=>true)=>{const i=occupied.filter(i=>!used.has(i)&&filter(i)).sort(compare)[0];if(i!==undefined){used.add(i);choices.push({cellIndex:i,label});}};
++  choose('都市を含む地域',(a,b)=>d.fields.cityPopulation[b]-d.fields.cityPopulation[a]||a-b,i=>d.fields.cities[i]>0);
++  choose('村が多い地域',(a,b)=>d.fields.villages[b]-d.fields.villages[a]||a-b);
++  const relief=i=>{const x=i%w,y=Math.floor(i/w),neighbours=[y*w+(x+w-1)%w,y*w+(x+1)%w,...(y?[i-w]:[]),...(y<h-1?[i+w]:[])];return Math.max(...neighbours.map(j=>Math.abs(z[j]-z[i])));};
++  choose('起伏が大きい地域',(a,b)=>relief(b)-relief(a)||a-b);
++  if(!choices.length)choose('人口0の地域',()=>0); // Fully empty scenarios still have a valid empty handoff.
++  if(!choices.length)choices.push({cellIndex:0,label:'人口0の地域'});
++  return choices;
++}
++
++export async function buildL2SettlementBaseline(options) {
++  const {seed,population,columns,rows,levels,outputDir}=options;
++  const baseline=buildL0SettlementBaseline({seed,targetPopulation:population,columns,rows,levels});
++  const saved=saveBaseline(baseline,outputDir);
++  renderSavedSettlementDistributionReview(outputDir,path.join(outputDir,'distribution.html'));
++  fs.copyFileSync(path.join(outputDir,'summary.json'),path.join(outputDir,'l0-summary.json'));
++  const {l0,l1}=baseline,surface=createL1SettlementSurveySurface(l1),regions=[],manifest=[];
++  const committedDir=path.join(outputDir,'committed');
++  for(const selection of selectRegions(l1)){
++    const handoff=createL2SettlementHandoff(l1,l0.population,selection.cellIndex),total=handoff.budget.villages+handoff.budget.towns+handoff.budget.cities;
++    const offsets=[...new Set([0,...(total>64?[64,Math.floor((total-1)/64)*64]:[])])];
++    const pages=[];
++    for(const offset of offsets){
++      const record=await saveL2SettlementCandidateSurvey(l1,l0.population,selection.cellIndex,{offset,limit:64,directory:committedDir,surface});
++      checkRecord(record);
++      const reopened=await saveL2SettlementCandidateSurvey(l1,l0.population,selection.cellIndex,{offset,limit:64,directory:committedDir,surface,generateSurvey:()=>{throw new Error('Saved screening must not run again');}});
++      assert.deepEqual(reopened,record);
++      const file=`cell-${selection.cellIndex}-page-${offset}.json`;
++      fs.writeFileSync(path.join(outputDir,file),JSON.stringify(record));
++      assert.deepEqual(JSON.parse(fs.readFileSync(path.join(outputDir,file),'utf8')),record);
++      manifest.push({cellIndex:selection.cellIndex,label:selection.label,handoffId:handoff.id,offset,file});
++      const siteById=new Map(record.survey.sites.map(s=>[s.id,s]));
++      const reasons=new Map((record.survey.unresolvedCandidates??[]).map(c=>[c.id,c.reason]));
++      const unknown=handoff.farmland.unresolved;
++      pages.push({offset:record.page.offset,total:record.page.total,requestedBudget:record.survey.budgets.requested,
++        acceptedBudget:record.survey.budgets.adopted,unresolvedBudget:record.survey.budgets.unresolved,unvisitedBudget:record.survey.budgets.unvisited,
++        requestedAgricultureM2:unknown?null:record.survey.farmlandDemandM2.requested,
++        acceptedAgricultureM2:unknown?null:record.survey.farmlandDemandM2.adopted,unresolvedAgricultureM2:unknown?null:record.survey.farmlandDemandM2.unresolved,
++        candidates:record.page.candidates.map(c=>{const site=siteById.get(c.id);return {id:c.id,slot:c.slot,kind:c.kind,settlementClass:c.settlementClass,population:c.population,
++          latDeg:c.latDeg,lonDeg:c.lonDeg,requestedCultivatedAreaM2:unknown?null:c.farmlandDemandM2,status:site?'sited-needs-local-layout':'unresolved',reason:site?null:reasons.get(c.id)??'not-established'};})});
++    }
++    regions.push({id:handoff.id,label:selection.label,cellIndex:selection.cellIndex,rootCell:handoff.parentCell,bounds:handoff.bounds,budget:handoff.budget,
++      agriculture:{status:handoff.farmland.unresolved?'unresolved':'demand-only',requestedCultivatedAreaM2:handoff.farmland.unresolved?null:handoff.farmland.totalDemandM2},pages});
++  }
++  const data={schema:'l2-settlement-review@1',seed,census:{requestedPopulation:l0.population.totals.targetPopulation,supportedPopulation:l0.population.totals.supportedPopulation,unplacedPopulation:l0.population.totals.unplacedPopulation},
++    global:{grid:l1.snapshot.grid,population:l1.settlementDistribution.fields.population,cellAreaM2:l1.climate.cellAreaM2,surface:l1.snapshot.fields.landMask.map((v,i)=>!v?'sea':l1.snapshot.fields.lakeFillDepthM[i]>0?'lake':'land')},
++    sizePolicy:Object.fromEntries(['village','town','city'].map(kind=>[kind,settlementKindBounds(l0.population.sizePolicy,kind)])),regions};
++  const summary={schema:'l2-settlement-baseline@1',seed,census:data.census,l0Totals:l0.settlementDistribution.totals,l1Totals:l1.settlementDistribution.totals,l1Unallocated:l1.settlementDistribution.unallocated.totals,
++    sourceLayerId:l1.id,screeningSurfaceId:surface.surfaceId,screeningMethod:surface.method,sizes:saved.sizes,
++    regions:regions.map(r=>({label:r.label,cellIndex:r.cellIndex,budget:r.budget,requestedCultivatedAreaM2:r.agriculture.requestedCultivatedAreaM2,pages:r.pages.map(p=>({offset:p.offset,total:p.total,requested:p.requestedBudget,accepted:p.acceptedBudget,unresolved:p.unresolvedBudget,unvisited:p.unvisitedBudget}))})),
++    checks:{sevenBudgetsConserved:true,farmlandDemandConserved:true,savedPagesReopenedWithoutSurvey:true},
++    limitations:['Regional candidate screening on saved coarse L1 heights and water masks; local L2 relief and plots are unresolved','Cultivated area is demand only, not acquired or laid-out land','No houses, roads, flood certification or drinking-water evidence','Only selected representative pages are saved by this command; the core page API works for any valid L1 cell']};
++  fs.writeFileSync(path.join(outputDir,'manifest.json'),JSON.stringify(manifest,null,2));
++  fs.writeFileSync(path.join(outputDir,'summary.json'),JSON.stringify(summary,null,2));
++  fs.writeFileSync(path.join(outputDir,'review-data.json'),JSON.stringify(data));
++  fs.writeFileSync(path.join(outputDir,'review.html'),buildL2SettlementReview(data));
++  return summary;
++}
++
++if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
++  requireVerificationMemory();
++  const options=parseBaselineArgs(['reports/l2-settlement-baseline',...process.argv.slice(2)]);
++  console.log(JSON.stringify(await buildL2SettlementBaseline(options),null,2));
++}
+--- /dev/null
++++ b/scripts/build-l2-settlement-review.mjs
+@@ -0,0 +1,576 @@
++const BUDGET_KEYS = ['population', 'ruralPopulation', 'townPopulation', 'cityPopulation', 'villages', 'towns', 'cities'];
++const KIND_BUDGETS = {village: ['ruralPopulation', 'villages'], town: ['townPopulation', 'towns'], city: ['cityPopulation', 'cities']};
++
++// Validate and copy the presentation contract. Nothing is generated, repaired,
++// fetched, or written here; extra properties never enter the standalone HTML.
++function validateReviewData(input) {
++  const fail = (path, message) => { throw new TypeError('L2集落確認: ' + path + ' — ' + message); };
++  const check = (condition, path, message) => { if (!condition) fail(path, message); };
++  const object = (value, path) => {
++    check(value !== null && typeof value === 'object' && !Array.isArray(value) &&
++      (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null), path, 'オブジェクトが必要です');
++    return value;
++  };
++  const text = (value, path) => { check(typeof value === 'string' && value.trim().length > 0, path, '空でない文字列が必要です'); return value; };
++  const integer = (value, path, min = 0) => { check(Number.isSafeInteger(value) && value >= min, path, min + '以上の安全な整数が必要です'); return value; };
++  const finite = (value, path, min, max = Infinity) => { check(Number.isFinite(value) && value >= min && value <= max, path, '範囲内の有限数が必要です'); return value; };
++  const area = (value, path) => value === null ? null : finite(value, path, 0);
++  const list = (value, path) => {
++    check(Array.isArray(value), path, '配列が必要です');
++    for (let index = 0; index < value.length; index++) check(Object.hasOwn(value, index), path + '[' + index + ']', '配列の要素が欠けています');
++    return value;
++  };
++  const sum = (values, path) => { const result = values.reduce((a, b) => a + b, 0); return integer(result, path); };
++  const close = (a, b) => Number.isFinite(a) && Number.isFinite(b) && Math.abs(a - b) <= Math.max(1e-6, Math.max(Math.abs(a), Math.abs(b)) * 1e-9);
++  const longitude = value => ((value % 360) + 360) % 360;
++  const span = bounds => bounds.east > bounds.west ? bounds.east - bounds.west : 360 - bounds.west + bounds.east;
++  const inside = (bounds, lon, lat) => {
++    const delta = longitude(longitude(lon) - longitude(bounds.west));
++    return lat >= bounds.south - 1e-9 && lat <= bounds.north + 1e-9 && delta <= span(bounds) + 1e-9;
++  };
++  const budget = (value, path) => {
++    object(value, path);
++    const result = Object.fromEntries(BUDGET_KEYS.map(key => [key, integer(value[key], path + '.' + key)]));
++    check(result.population === sum([result.ruralPopulation, result.townPopulation, result.cityPopulation], path), path, '総人口と村・町・都市の人口合計が一致しません');
++    for (const [population, count] of Object.values(KIND_BUDGETS)) {
++      check((result[population] === 0) === (result[count] === 0), path, population + 'と' + count + 'のゼロ／非ゼロが一致しません');
++      check(result[population] >= result[count], path, '集落数がその人口を超えています');
++    }
++    sum([result.villages, result.towns, result.cities], path + '.集落数合計');
++    return result;
++  };
++  const candidateBudget = candidates => {
++    const result = Object.fromEntries(BUDGET_KEYS.map(key => [key, 0]));
++    for (const candidate of candidates) {
++      const [population, count] = KIND_BUDGETS[candidate.kind];
++      result.population += candidate.population;
++      result[population] += candidate.population;
++      result[count]++;
++    }
++    return result;
++  };
++  const compareBudget = (actual, expected, path) => {
++    for (const key of BUDGET_KEYS) check(actual[key] === expected[key], path + '.' + key, '候補の整数集計と一致しません');
++  };
++  const compareArea = (actual, candidates, path) => {
++    if (actual === null) return; // null means an explicitly unavailable estimate, never zero.
++    check(candidates.every(candidate => candidate.requestedCultivatedAreaM2 !== null), path, '需要が不明な候補から面積を確定集計できません');
++    const expected = candidates.reduce((total, candidate) => total + candidate.requestedCultivatedAreaM2, 0);
++    check(Number.isFinite(expected) && close(actual, expected), path, '候補の農地需要合計と一致しません');
++  };
++
++  const data = object(input, 'data');
++  check(data.schema === 'l2-settlement-review@1', 'schema', 'l2-settlement-review@1 が必要です');
++  check(typeof data.seed === 'string', 'seed', '文字列が必要です');
++  const seed = data.seed;
++  object(data.census, 'census');
++  const census = Object.fromEntries(['requestedPopulation', 'supportedPopulation', 'unplacedPopulation'].map(key => [key, integer(data.census[key], 'census.' + key)]));
++  check(census.requestedPopulation === sum([census.supportedPopulation, census.unplacedPopulation], 'census'), 'census', '要求人口＝割り当て人口＋容量で割り当てられない人口、が成立しません');
++  object(data.global, 'global');
++  object(data.global.grid, 'global.grid');
++  const grid = {columns: integer(data.global.grid.columns, 'global.grid.columns', 1), rows: integer(data.global.grid.rows, 'global.grid.rows', 1)};
++  const cellCount = integer(grid.columns * grid.rows, 'global.grid.セル数', 1);
++  for (const key of ['population', 'surface', 'cellAreaM2']) check(list(data.global[key], 'global.' + key).length === cellCount, 'global.' + key, 'グリッドのセル数と長さが一致しません');
++  const global = {grid, population: [], surface: [], cellAreaM2: []};
++  for (let i = 0; i < cellCount; i++) {
++    const population = integer(data.global.population[i], 'global.population[' + i + ']');
++    const surface = data.global.surface[i];
++    check(['land', 'sea', 'lake'].includes(surface), 'global.surface[' + i + ']', 'land / sea / lake が必要です');
++    const cellArea = finite(data.global.cellAreaM2[i], 'global.cellAreaM2[' + i + ']', Number.MIN_VALUE);
++    check(Number.isFinite(population / cellArea * 1e6), 'global.cellAreaM2[' + i + ']', '人口密度が有限数になりません');
++    check(surface === 'land' || population === 0, 'global.population[' + i + ']', '海・湖のセルには人口を割り当てられません');
++    global.population.push(population); global.surface.push(surface); global.cellAreaM2.push(cellArea);
++  }
++  const globalPopulation = sum(global.population, 'global.population.合計');
++  // L1 can still have budgets not distributed down from L0. Do not invent them.
++  check(globalPopulation <= census.supportedPopulation, 'global.population', 'L1セルの人口合計が割り当て人口を超えています');
++  object(data.sizePolicy, 'sizePolicy');
++  const sizePolicy = {};
++  for (const kind of Object.keys(KIND_BUDGETS)) {
++    const source = object(data.sizePolicy[kind], 'sizePolicy.' + kind);
++    const min = integer(source.min, 'sizePolicy.' + kind + '.min', 1);
++    const max = integer(source.max, 'sizePolicy.' + kind + '.max', min);
++    const mean = finite(source.mean, 'sizePolicy.' + kind + '.mean', min, max);
++    sizePolicy[kind] = {min, max, mean};
++  }
++  const regionIds = new Set(), regionCells = new Set();
++  const sources = list(data.regions, 'regions');
++  check(sources.length > 0, 'regions', '代表地域を一つ以上保存してください');
++  const regions = sources.map((source, regionIndex) => {
++    const path = 'regions[' + regionIndex + ']';
++    object(source, path);
++    const id = text(source.id, path + '.id'), label = text(source.label, path + '.label');
++    check(!regionIds.has(id), path + '.id', '地域IDが重複しています'); regionIds.add(id);
++    const cellIndex = integer(source.cellIndex, path + '.cellIndex');
++    check(cellIndex < cellCount && !regionCells.has(cellIndex), path + '.cellIndex', '範囲外または重複した代表セルです'); regionCells.add(cellIndex);
++    const rootCell = integer(source.rootCell, path + '.rootCell');
++    const b = object(source.bounds, path + '.bounds');
++    const bounds = {west: finite(b.west, path + '.bounds.west', 0, 360), east: finite(b.east, path + '.bounds.east', 0, 360), south: finite(b.south, path + '.bounds.south', -90, 90), north: finite(b.north, path + '.bounds.north', -90, 90)};
++    check(bounds.north > bounds.south && bounds.east !== bounds.west && span(bounds) > 0 && span(bounds) <= 360, path + '.bounds', '正の幅と高さが必要です');
++    const centerLon = (cellIndex % grid.columns + 0.5) * 360 / grid.columns;
++    const centerLat = 90 - (Math.floor(cellIndex / grid.columns) + 0.5) * 180 / grid.rows;
++    check(inside(bounds, centerLon, centerLat), path + '.bounds', '代表セルの中心が地域の境界内にありません');
++    const regionBudget = budget(source.budget, path + '.budget');
++    check(regionBudget.population === global.population[cellIndex], path + '.budget.population', '代表L1セルの人口と一致しません');
++    const a = object(source.agriculture, path + '.agriculture');
++    check(['demand-only', 'unresolved'].includes(a.status), path + '.agriculture.status', 'demand-only / unresolved が必要です');
++    const agriculture = {status: a.status, requestedCultivatedAreaM2: area(a.requestedCultivatedAreaM2, path + '.agriculture.requestedCultivatedAreaM2')};
++    const pageSources = list(source.pages, path + '.pages');
++    check(pageSources.length > 0, path + '.pages', '確認用の保存ページが必要です');
++    const offsets = new Set(), bySlot = new Map(), candidateIds = new Map();
++    let slotBase = null;
++    const totalSettlements = sum([regionBudget.villages, regionBudget.towns, regionBudget.cities], path + '.集落数合計');
++    const pages = pageSources.map((pageSource, pageIndex) => {
++      const pp = path + '.pages[' + pageIndex + ']';
++      object(pageSource, pp);
++      const offset = integer(pageSource.offset, pp + '.offset');
++      const total = integer(pageSource.total, pp + '.total');
++      check(total === totalSettlements && offset <= total && !offsets.has(offset), pp, '全候補数、ページ位置または重複が不正です'); offsets.add(offset);
++      const candidates = list(pageSource.candidates, pp + '.candidates').map((raw, index) => {
++        const cp = pp + '.candidates[' + index + ']';
++        object(raw, cp);
++        const candidateId = text(raw.id, cp + '.id');
++        const slot = integer(raw.slot, cp + '.slot');
++        const base = slot - offset - index;
++        check(base === 0 || base === 1, cp + '.slot', 'offsetから連続する0始まりまたは1始まりのslotが必要です');
++        if (slotBase === null) slotBase = base;
++        check(base === slotBase, cp + '.slot', '地域内でslotの起点が一致しません');
++        const kind = raw.kind, settlementClass = raw.settlementClass;
++        check(Object.hasOwn(KIND_BUDGETS, kind), cp + '.kind', 'village / town / city が必要です');
++        check(kind === 'village' ? ['hamlet', 'village'].includes(settlementClass) : settlementClass === kind, cp + '.settlementClass', 'kindと集落区分が一致しません');
++        const population = integer(raw.population, cp + '.population', 1);
++        const latDeg = finite(raw.latDeg, cp + '.latDeg', -90, 90), lonDeg = finite(raw.lonDeg, cp + '.lonDeg', -180, 360);
++        check(inside(bounds, lonDeg, latDeg), cp, '候補の座標が地域の境界外です');
++        const requestedCultivatedAreaM2 = area(raw.requestedCultivatedAreaM2, cp + '.requestedCultivatedAreaM2');
++        const status = raw.status;
++        check(['sited-needs-local-layout', 'unresolved'].includes(status), cp + '.status', '未対応の調査状態です');
++        check(raw.reason === null || typeof raw.reason === 'string', cp + '.reason', '文字列またはnullが必要です');
++        const reason = raw.reason;
++        const candidate = {id: candidateId, slot, kind, settlementClass, population, latDeg, lonDeg, requestedCultivatedAreaM2, status, reason};
++        const signature = JSON.stringify(candidate);
++        check(!bySlot.has(slot) || bySlot.get(slot).signature === signature, cp, '同じslotの保存候補がページ間で矛盾しています');
++        check(!candidateIds.has(candidateId) || candidateIds.get(candidateId) === slot, cp + '.id', '候補IDが別のslotと重複しています');
++        bySlot.set(slot, {signature, candidate}); candidateIds.set(candidateId, slot);
++        return candidate;
++      });
++      check(candidates.length <= total - offset && (total === 0 ? offset === 0 && candidates.length === 0 : candidates.length > 0 && offset < total), pp + '.candidates', '候補数がページ範囲と一致しません');
++      const requestedBudget = budget(pageSource.requestedBudget, pp + '.requestedBudget');
++      const acceptedBudget = budget(pageSource.acceptedBudget, pp + '.acceptedBudget');
++      const unresolvedBudget = budget(pageSource.unresolvedBudget, pp + '.unresolvedBudget');
++      const unvisitedBudget = budget(pageSource.unvisitedBudget, pp + '.unvisitedBudget');
++      const accepted = candidates.filter(candidate => candidate.status === 'sited-needs-local-layout');
++      const unresolved = candidates.filter(candidate => candidate.status === 'unresolved');
++      compareBudget(requestedBudget, candidateBudget(candidates), pp + '.requestedBudget');
++      compareBudget(acceptedBudget, candidateBudget(accepted), pp + '.acceptedBudget');
++      compareBudget(unresolvedBudget, candidateBudget(unresolved), pp + '.unresolvedBudget');
++      for (const key of BUDGET_KEYS) {
++        check(requestedBudget[key] === sum([acceptedBudget[key], unresolvedBudget[key]], pp + '.' + key), pp + '.' + key, '今回＝通過＋保留、が成立しません');
++        check(regionBudget[key] === sum([requestedBudget[key], unvisitedBudget[key]], pp + '.' + key), pp + '.' + key, '地域全体＝今回＋このページの対象外、が成立しません');
++      }
++      const requestedAgricultureM2 = area(pageSource.requestedAgricultureM2, pp + '.requestedAgricultureM2');
++      const acceptedAgricultureM2 = area(pageSource.acceptedAgricultureM2, pp + '.acceptedAgricultureM2');
++      const unresolvedAgricultureM2 = area(pageSource.unresolvedAgricultureM2, pp + '.unresolvedAgricultureM2');
++      compareArea(requestedAgricultureM2, candidates, pp + '.requestedAgricultureM2');
++      compareArea(acceptedAgricultureM2, accepted, pp + '.acceptedAgricultureM2');
++      compareArea(unresolvedAgricultureM2, unresolved, pp + '.unresolvedAgricultureM2');
++      if ([requestedAgricultureM2, acceptedAgricultureM2, unresolvedAgricultureM2].every(value => value !== null)) {
++        check(close(requestedAgricultureM2, acceptedAgricultureM2 + unresolvedAgricultureM2), pp, '今回の農地需要＝通過分＋保留分、が成立しません');
++      }
++      if (agriculture.requestedCultivatedAreaM2 !== null && requestedAgricultureM2 !== null) check(requestedAgricultureM2 <= agriculture.requestedCultivatedAreaM2 || close(requestedAgricultureM2, agriculture.requestedCultivatedAreaM2), pp, 'ページの農地需要が地域全体を超えています');
++      return {offset, total, requestedBudget, acceptedBudget, unresolvedBudget, unvisitedBudget, requestedAgricultureM2, acceptedAgricultureM2, unresolvedAgricultureM2, candidates};
++    }).sort((left, right) => left.offset - right.offset);
++    const savedCandidates = [...bySlot.values()].map(value => value.candidate);
++    const savedBudget = candidateBudget(savedCandidates);
++    for (const key of BUDGET_KEYS) check(savedBudget[key] <= regionBudget[key], path + '.pages', '保存された異なる候補の合計が地域の' + key + 'を超えています');
++    if (savedCandidates.length === totalSettlements) compareBudget(savedBudget, regionBudget, path + '.pages.全候補');
++    if (agriculture.requestedCultivatedAreaM2 !== null) {
++      const knownArea = savedCandidates.reduce((total, candidate) => total + (candidate.requestedCultivatedAreaM2 ?? 0), 0);
++      check(Number.isFinite(knownArea) && (knownArea <= agriculture.requestedCultivatedAreaM2 || close(knownArea, agriculture.requestedCultivatedAreaM2)), path + '.agriculture', '保存候補の既知の農地需要が地域全体を超えています');
++      if (savedCandidates.length === totalSettlements && savedCandidates.every(candidate => candidate.requestedCultivatedAreaM2 !== null)) check(close(knownArea, agriculture.requestedCultivatedAreaM2), path + '.agriculture', '全候補の農地需要が地域全体と一致しません');
++    }
++    return {id, label, cellIndex, rootCell, bounds, budget: regionBudget, agriculture, pages};
++  });
++  return {schema: data.schema, seed, census, global, sizePolicy, regions};
++}
++
++// This entire runtime is embedded below; it has no imports or network calls.
++function l2ReviewRuntime(data) {
++  const $ = id => document.getElementById(id);
++  const report = error => {
++    const target = $('l2-error');
++    target.hidden = false;
++    target.textContent = '表示を続けられません。' + (error instanceof Error ? error.message : String(error));
++    console.error('L2集落確認の表示エラー', error);
++  };
++  const guard = action => (...args) => { try { return action(...args); } catch (error) { report(error); } };
++  guard(() => {
++    const number = value => value.toLocaleString('ja-JP');
++    const decimal = value => value.toLocaleString('ja-JP', {maximumSignificantDigits: 4, ...(value >= 1e12 ? {notation: 'scientific'} : {})});
++    const area = value => value === null ? '見積もり不明' : value < 10000 ? decimal(value) + ' m²' : decimal(value / 1e6) + ' km²';
++    const longitude = value => ((value % 360) + 360) % 360;
++    const lonLabel = value => { const n = longitude(value); return n === 0 ? '0°' : n <= 180 ? '東経' + decimal(n) + '°' : '西経' + decimal(360 - n) + '°'; };
++    const latLabel = value => value === 0 ? '0°' : (value > 0 ? '北緯' : '南緯') + decimal(Math.abs(value)) + '°';
++    const kindNames = {village: '村・小集落', town: '町', city: '都市'};
++    const classNames = {hamlet: '小集落', village: '村', town: '町', city: '都市'};
++    const shapes = {village: '●', town: '▲', city: '◆'};
++    const colors = {village: '#196452', town: '#a64b18', city: '#5a46a2'};
++    const rows = [['population', '人口合計', '人'], ['ruralPopulation', '村・小集落の人口', '人'], ['townPopulation', '町の人口', '人'], ['cityPopulation', '都市の人口', '人'], ['villages', '村・小集落の数', 'か所'], ['towns', '町の数', 'か所'], ['cities', '都市の数', 'か所']];
++    const make = (tag, className, content) => {
++      const node = document.createElement(tag);
++      if (className) node.className = className;
++      if (content !== undefined) node.textContent = content;
++      return node;
++    };
++    const writeNumber = (id, value) => {
++      const target = $(id), formatted = number(value);
++      target.textContent = formatted;
++      target.style.setProperty('--digits', String(formatted.length));
++      if (target.parentElement.tagName === 'DD') target.parentElement.style.setProperty('--digits', String(formatted.length));
++    };
++    let regionIndex = 0, pageIndex = 0, candidateIndex = 0;
++    let worldPoints = [], localPoints = [], candidateButtons = [], worldCache = null, frame = 0;
++    const currentRegion = () => data.regions[regionIndex];
++    const currentPage = () => currentRegion().pages[pageIndex];
++    const pageRange = page => page.candidates.length ? '候補 ' + number(page.offset + 1) + '–' + number(page.offset + page.candidates.length) + ' / 全' + number(page.total) + '件' : '候補なし / 全0件';
++    const announce = message => { $('selection-live').textContent = message; };
++    const worldCanvas = $('world-map'), localCanvas = $('local-map');
++    const worldContext = worldCanvas.getContext('2d'), localContext = localCanvas.getContext('2d');
++    if (!worldContext || !localContext) throw new Error('Canvas 2Dを利用できません。地図を含む確認にはCanvas対応ブラウザーが必要です。');
++    const setupCanvas = (canvas, context) => {
++      const box = canvas.getBoundingClientRect(), ratio = window.devicePixelRatio || 1;
++      if (!(box.width > 0 && box.height > 0 && Number.isFinite(ratio) && ratio > 0)) throw new Error('Canvasの表示寸法または解像度を取得できません。');
++      const width = Math.max(1, Math.round(box.width * ratio)), height = Math.max(1, Math.round(box.height * ratio));
++      if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
++      context.setTransform(ratio, 0, 0, ratio, 0, 0);
++      context.clearRect(0, 0, box.width, box.height);
++      return {width: box.width, height: box.height, ratio};
++    };
++    const latitudeY = lat => (1 - Math.sin(lat * Math.PI / 180)) / 2;
++    const densityLimits = [1, 10, 50, 200, 1000];
++    const densityColors = ['#e8edc8', '#b8d5a0', '#73af87', '#34847b', '#286375', '#253b65'];
++    const drawWorld = () => {
++      const {width, height, ratio} = setupCanvas(worldCanvas, worldContext);
++      if (!worldCache || worldCache.width !== worldCanvas.width || worldCache.height !== worldCanvas.height || worldCache.ratio !== ratio) {
++        const canvas = document.createElement('canvas');
++        canvas.width = worldCanvas.width; canvas.height = worldCanvas.height;
++        const context = canvas.getContext('2d');
++        if (!context) throw new Error('全球地図の描画領域を作成できません。');
++        context.setTransform(ratio, 0, 0, ratio, 0, 0);
++        context.fillStyle = '#d6e6ef'; context.fillRect(0, 0, width, height);
++        const {columns, rows: gridRows} = data.global.grid;
++        for (let row = 0; row < gridRows; row++) {
++          const top = latitudeY(90 - row * 180 / gridRows) * height;
++          const bottom = latitudeY(90 - (row + 1) * 180 / gridRows) * height;
++          for (let column = 0; column < columns; column++) {
++            const index = row * columns + column, surface = data.global.surface[index];
++            const density = data.global.population[index] / data.global.cellAreaM2[index] * 1e6;
++            let bin = densityLimits.findIndex(limit => density < limit); if (bin < 0) bin = densityColors.length - 1;
++            context.fillStyle = surface === 'sea' ? '#d6e6ef' : surface === 'lake' ? '#78b1c9' : data.global.population[index] === 0 ? '#f0f0e8' : densityColors[bin];
++            context.fillRect(column / columns * width, top, width / columns + 0.15, bottom - top + 0.15);
++          }
++        }
++        context.strokeStyle = 'rgba(24,50,69,.15)'; context.lineWidth = 0.7;
++        for (const lat of [-60, -30, 0, 30, 60]) { const y = latitudeY(lat) * height; context.beginPath(); context.moveTo(0, y); context.lineTo(width, y); context.stroke(); }
++        for (const lon of [90, 180, 270]) { const x = lon / 360 * width; context.beginPath(); context.moveTo(x, 0); context.lineTo(x, height); context.stroke(); }
++        worldCache = {canvas, width: canvas.width, height: canvas.height, ratio};
++      }
++      worldContext.drawImage(worldCache.canvas, 0, 0, width, height);
++      const bounds = currentRegion().bounds;
++      const west = longitude(bounds.west), lonSpan = bounds.east > bounds.west ? bounds.east - bounds.west : 360 - bounds.west + bounds.east;
++      const segments = west + lonSpan <= 360 ? [[west, west + lonSpan]] : [[west, 360], [0, west + lonSpan - 360]];
++      const top = latitudeY(bounds.north) * height, bottom = latitudeY(bounds.south) * height;
++      for (const [start, end] of segments) {
++        worldContext.strokeStyle = '#fff'; worldContext.lineWidth = 4; worldContext.strokeRect(start / 360 * width, top, (end - start) / 360 * width, bottom - top);
++        worldContext.strokeStyle = '#172e3b'; worldContext.lineWidth = 1.5; worldContext.strokeRect(start / 360 * width, top, (end - start) / 360 * width, bottom - top);
++      }
++      worldPoints = data.regions.map((region, index) => {
++        const {columns, rows: gridRows} = data.global.grid;
++        const lon = (region.cellIndex % columns + 0.5) * 360 / columns;
++        const lat = 90 - (Math.floor(region.cellIndex / columns) + 0.5) * 180 / gridRows;
++        const actualX = lon / 360 * width, actualY = latitudeY(lat) * height;
++        return {index, actualX, actualY, x: Math.max(13, Math.min(width - 13, actualX)), y: Math.max(13, Math.min(height - 13, actualY))};
++      });
++      const ordered = [...worldPoints.filter(point => point.index !== regionIndex), worldPoints[regionIndex]];
++      for (const point of ordered) {
++        const selected = point.index === regionIndex;
++        worldContext.strokeStyle = '#172e3b'; worldContext.lineWidth = 1;
++        worldContext.beginPath(); worldContext.moveTo(point.actualX, point.actualY); worldContext.lineTo(point.x, point.y); worldContext.stroke();
++        worldContext.fillStyle = '#172e3b'; worldContext.beginPath(); worldContext.arc(point.actualX, point.actualY, 2, 0, Math.PI * 2); worldContext.fill();
++        worldContext.beginPath(); worldContext.arc(point.x, point.y, selected ? 12 : 10, 0, Math.PI * 2);
++        worldContext.fillStyle = selected ? '#152c3a' : '#fff'; worldContext.fill();
++        worldContext.strokeStyle = selected ? '#fff' : '#152c3a'; worldContext.lineWidth = 2; worldContext.stroke();
++        worldContext.fillStyle = selected ? '#fff' : '#152c3a'; worldContext.font = 'bold 12px system-ui'; worldContext.textAlign = 'center'; worldContext.textBaseline = 'middle';
++        worldContext.fillText(String(point.index + 1), point.x, point.y);
++      }
++      worldCanvas.setAttribute('aria-label', 'L1全球人口密度。代表地域' + data.regions.length + 'か所。選択中は' + currentRegion().label);
++    };
++    const drawShape = (context, candidate, x, y, size) => {
++      context.beginPath();
++      if (candidate.kind === 'village') context.arc(x, y, size, 0, Math.PI * 2);
++      else if (candidate.kind === 'town') { context.moveTo(x, y - size - 1); context.lineTo(x + size, y + size); context.lineTo(x - size, y + size); context.closePath(); }
++      else { context.moveTo(x, y - size - 1); context.lineTo(x + size + 1, y); context.lineTo(x, y + size + 1); context.lineTo(x - size - 1, y); context.closePath(); }
++      const held = candidate.status === 'unresolved';
++      context.fillStyle = held ? '#fff' : colors[candidate.kind]; context.fill();
++      context.strokeStyle = colors[candidate.kind]; context.lineWidth = 2; context.stroke();
++      if (held) {
++        context.strokeStyle = '#172e3b'; context.lineWidth = 1.5; context.beginPath();
++        context.moveTo(x - 2.5, y - 2.5); context.lineTo(x + 2.5, y + 2.5); context.moveTo(x + 2.5, y - 2.5); context.lineTo(x - 2.5, y + 2.5); context.stroke();
++      }
++    };
++    const drawLocal = () => {
++      const {width, height} = setupCanvas(localCanvas, localContext), bounds = currentRegion().bounds;
++      const paddingX = Math.min(40, width * 0.12), paddingY = 33;
++      const left = paddingX, top = paddingY, plotWidth = width - 2 * paddingX, plotHeight = height - 2 * paddingY;
++      if (!(plotWidth > 0 && plotHeight > 0)) throw new Error('地域の図を表示する余白が足りません。');
++      const lonSpan = bounds.east > bounds.west ? bounds.east - bounds.west : 360 - bounds.west + bounds.east;
++      localContext.fillStyle = '#fbfaf6'; localContext.fillRect(0, 0, width, height);
++      localContext.fillStyle = '#f0f1eb'; localContext.fillRect(left, top, plotWidth, plotHeight);
++      localContext.strokeStyle = '#697b79'; localContext.lineWidth = 1.5; localContext.strokeRect(left, top, plotWidth, plotHeight);
++      localContext.fillStyle = '#506167'; localContext.font = '11px system-ui'; localContext.textBaseline = 'middle';
++      localContext.textAlign = 'left'; localContext.fillText(lonLabel(bounds.west), left, height - 13);
++      localContext.textAlign = 'right'; localContext.fillText(lonLabel(bounds.east), left + plotWidth, height - 13);
++      localContext.textAlign = 'left'; localContext.fillText(latLabel(bounds.north), left, 15); localContext.fillText(latLabel(bounds.south), left, height - 29);
++      localPoints = currentPage().candidates.map((candidate, index) => ({index, x: left + longitude(longitude(candidate.lonDeg) - longitude(bounds.west)) / lonSpan * plotWidth, y: top + (bounds.north - candidate.latDeg) / (bounds.north - bounds.south) * plotHeight}));
++      for (const point of localPoints) if (point.index !== candidateIndex) drawShape(localContext, currentPage().candidates[point.index], point.x, point.y, 5);
++      if (localPoints[candidateIndex]) {
++        const point = localPoints[candidateIndex];
++        localContext.beginPath(); localContext.arc(point.x, point.y, 12, 0, Math.PI * 2); localContext.strokeStyle = '#fff'; localContext.lineWidth = 5; localContext.stroke();
++        localContext.strokeStyle = '#172e3b'; localContext.lineWidth = 2; localContext.stroke();
++        drawShape(localContext, currentPage().candidates[candidateIndex], point.x, point.y, 6);
++      }
++      localCanvas.setAttribute('aria-label', currentRegion().label + 'の境界と、このページの仮候補' + currentPage().candidates.length + '件。詳細地形は含みません。');
++    };
++    const scheduleDraw = () => {
++      if (frame) return;
++      frame = requestAnimationFrame(guard(() => { frame = 0; drawWorld(); drawLocal(); }));
++    };
++    const selectCandidate = (index, scroll = false) => {
++      if (!currentPage().candidates.length) return;
++      candidateIndex = Math.max(0, Math.min(currentPage().candidates.length - 1, index));
++      candidateButtons.forEach((button, i) => { button.setAttribute('aria-pressed', String(i === candidateIndex)); button.closest('li').classList.toggle('selected', i === candidateIndex); });
++      const candidate = currentPage().candidates[candidateIndex];
++      const status = candidate.status === 'unresolved' ? '地形条件で保留' : '広域条件を通過';
++      $('candidate-current').textContent = '選択中：候補' + number(currentPage().offset + candidateIndex + 1) + '・' + classNames[candidate.settlementClass] + '・' + number(candidate.population) + '人・' + status;
++      announce($('candidate-current').textContent);
++      drawLocal();
++      if (scroll) candidateButtons[candidateIndex].scrollIntoView({block: 'nearest', behavior: 'auto'});
++    };
++    const renderBudget = () => {
++      const page = currentPage(), body = $('budget-body'); body.replaceChildren();
++      const columns = [currentRegion().budget, page.requestedBudget, page.acceptedBudget, page.unresolvedBudget, page.unvisitedBudget];
++      const columnNames = ['地域全体', '今回', '広域条件を通過', '地形条件で保留', 'このページの対象外'];
++      for (const [key, label, unit] of rows) {
++        const row = make('tr'); row.setAttribute('role', 'row'); const heading = make('th', '', label + '（' + unit + '）'); heading.scope = 'row'; heading.setAttribute('role', 'rowheader'); row.append(heading);
++        columns.forEach((column, index) => { const cell = make('td', 'integer', number(column[key])); cell.setAttribute('role', 'cell'); cell.dataset.label = columnNames[index]; row.append(cell); });
++        body.append(row);
++      }
++      const regionArea = currentRegion().agriculture.requestedCultivatedAreaM2;
++      const unvisitedArea = regionArea === null || page.requestedAgricultureM2 === null ? null : Math.max(0, regionArea - page.requestedAgricultureM2);
++      const measures = [['この地域全体の需要', regionArea], ['今回の候補の需要', page.requestedAgricultureM2], ['広域条件を通過した候補の需要', page.acceptedAgricultureM2], ['地形条件で保留した候補の需要', page.unresolvedAgricultureM2], ['このページの対象外の需要（差し引き）', unvisitedArea]];
++      const target = $('agriculture-values'); target.replaceChildren();
++      for (const [label, value] of measures) { const group = make('div', 'measure'); group.append(make('dt', '', label), make('dd', 'area-value', area(value))); target.append(group); }
++      $('agriculture-state').textContent = currentRegion().agriculture.status === 'unresolved' ? 'この地域の農地需要には未解決の条件があります。数値があっても、面積の確保を示しません。' : '需要の面積だけを見積もっています。耕地の場所と確保はこれからです。';
++    };
++    const renderPolicy = () => {
++      const body = $('policy-body'); body.replaceChildren();
++      for (const kind of Object.keys(kindNames)) {
++        const samples = currentPage().candidates.filter(candidate => candidate.kind === kind).map(candidate => candidate.population);
++        const min = samples.length ? samples.reduce((a, b) => Math.min(a, b)) : null;
++        const max = samples.length ? samples.reduce((a, b) => Math.max(a, b)) : null;
++        const row = make('tr'), heading = make('th', '', shapes[kind] + ' ' + kindNames[kind]); row.setAttribute('role', 'row'); heading.setAttribute('role', 'rowheader'); heading.scope = 'row'; row.append(heading);
++        const values = [number(data.sizePolicy[kind].min) + '–' + number(data.sizePolicy[kind].max) + '人', min === null ? 'このページに候補なし' : number(min) + '–' + number(max) + '人（' + samples.length + '件）'];
++        values.forEach((value, index) => { const cell = make('td', '', value); cell.setAttribute('role', 'cell'); cell.dataset.label = index ? 'このページの候補人口' : 'モデルの下限–上限'; row.append(cell); }); body.append(row);
++      }
++    };
++    const renderCandidates = () => {
++      const target = $('candidate-list'); target.replaceChildren(); candidateButtons = [];
++      const page = currentPage(), maxPopulation = page.candidates.reduce((max, candidate) => Math.max(max, candidate.population), 0);
++      $('candidate-empty').hidden = page.candidates.length !== 0;
++      $('candidate-current').textContent = page.candidates.length ? '' : 'このページに候補はありません。';
++      page.candidates.forEach((candidate, index) => {
++        const item = make('li', 'candidate-card'), ordinal = page.offset + index + 1;
++        const button = make('button', 'candidate-choice'); button.type = 'button'; button.id = 'candidate-choice-' + index;
++        button.setAttribute('aria-pressed', 'false');
++        const held = candidate.status === 'unresolved';
++        button.append(make('span', 'candidate-name', shapes[candidate.kind] + ' 候補' + number(ordinal) + ' · ' + classNames[candidate.settlementClass]), make('strong', 'candidate-population integer', number(candidate.population) + '人'), make('span', 'status ' + (held ? 'held' : 'passed'), held ? '× 地形条件で保留' : '● 広域条件を通過'));
++        const bar = make('span', 'population-bar'); bar.setAttribute('aria-hidden', 'true');
++        const fill = make('span', 'population-fill'); fill.style.width = String(candidate.population / maxPopulation * 100) + '%'; fill.style.backgroundColor = colors[candidate.kind]; bar.append(fill); button.append(bar);
++        button.addEventListener('click', guard(() => selectCandidate(index)));
++        item.append(button);
++        item.append(make('p', 'candidate-demand', '必要耕地の見積もり：' + area(candidate.requestedCultivatedAreaM2) + ' · 土地は未確保'));
++        item.append(make('p', 'candidate-coordinates', latLabel(candidate.latDeg) + ' / ' + lonLabel(candidate.lonDeg)));
++        if (held || candidate.reason) item.append(make('p', 'candidate-reason', (held ? '保留理由：' : '調査補足：') + (candidate.reason?.trim() || '詳細理由は保存されていません。条件は未解決です。')));
++        const detail = make('details', 'candidate-technical'); detail.append(make('summary', '', '候補の技術情報'));
++        const code = make('p', 'technical', 'ID: ' + candidate.id + ' / slot: ' + candidate.slot + ' / kind: ' + candidate.kind + ' / class: ' + candidate.settlementClass + ' / status: ' + candidate.status + ' / world経度: ' + candidate.lonDeg + '°'); detail.append(code); item.append(detail);
++        target.append(item); candidateButtons.push(button);
++      });
++    };
++    const renderPage = () => {
++      const region = currentRegion(), page = currentPage();
++      $('saved-page-select').value = String(pageIndex);
++      $('page-range').textContent = pageRange(page);
++      $('page-position').textContent = '保存ページ ' + (pageIndex + 1) + ' / ' + region.pages.length;
++      $('page-first').disabled = $('page-prev').disabled = pageIndex === 0;
++      $('page-next').disabled = $('page-last').disabled = pageIndex === region.pages.length - 1;
++      writeNumber('page-passed', page.acceptedBudget.villages + page.acceptedBudget.towns + page.acceptedBudget.cities);
++      writeNumber('page-held', page.unresolvedBudget.villages + page.unresolvedBudget.towns + page.unresolvedBudget.cities);
++      writeNumber('page-unvisited', page.unvisitedBudget.villages + page.unvisitedBudget.towns + page.unvisitedBudget.cities);
++      renderBudget(); renderPolicy(); renderCandidates(); drawLocal();
++      if (page.candidates.length) selectCandidate(0);
++      announce(region.label + '、' + pageRange(page) + '。保留' + number(page.unresolvedBudget.villages + page.unresolvedBudget.towns + page.unresolvedBudget.cities) + '件。');
++    };
++    const renderRegion = () => {
++      const region = currentRegion();
++      $('region-select').value = String(regionIndex);
++      document.querySelectorAll('#region-buttons button').forEach((button, index) => button.setAttribute('aria-pressed', String(index === regionIndex)));
++      $('region-name').textContent = region.label;
++      writeNumber('region-population', region.budget.population);
++      $('region-counts').textContent = '村・小集落 ' + number(region.budget.villages) + 'か所 / 町 ' + number(region.budget.towns) + 'か所 / 都市 ' + number(region.budget.cities) + 'か所';
++      $('region-area').textContent = area(region.agriculture.requestedCultivatedAreaM2);
++      $('region-technical').textContent = '地域ID: ' + region.id + ' / L1 cell: ' + region.cellIndex + ' / L0 rootCell: ' + region.rootCell + ' / world bounds: ' + JSON.stringify(region.bounds) + ' / agriculture.status: ' + region.agriculture.status;
++      const selector = $('saved-page-select'); selector.replaceChildren();
++      region.pages.forEach((page, index) => { const option = make('option', '', '保存' + (index + 1) + ' · ' + pageRange(page)); option.value = String(index); selector.append(option); });
++      pageIndex = 0; candidateIndex = 0; renderPage(); drawWorld();
++    };
++    const selectRegion = index => { regionIndex = Math.max(0, Math.min(data.regions.length - 1, index)); renderRegion(); };
++    const selectPage = index => { pageIndex = Math.max(0, Math.min(currentRegion().pages.length - 1, index)); candidateIndex = 0; renderPage(); };
++    const nearest = (event, canvas, points) => {
++      const box = canvas.getBoundingClientRect(), x = event.clientX - box.left, y = event.clientY - box.top;
++      let result = null, distance = 22 * 22;
++      for (const point of points) { const d = (point.x - x) ** 2 + (point.y - y) ** 2; if (d < distance) { result = point.index; distance = d; } }
++      return result;
++    };
++    const keyboardIndex = (event, index, count, select) => {
++      if (!count) return;
++      const actions = {ArrowLeft: () => (index + count - 1) % count, ArrowUp: () => (index + count - 1) % count, ArrowRight: () => (index + 1) % count, ArrowDown: () => (index + 1) % count, Home: () => 0, End: () => count - 1};
++      if (Object.hasOwn(actions, event.key)) { event.preventDefault(); select(actions[event.key]()); }
++    };
++    data.regions.forEach((region, index) => {
++      const option = make('option', '', (index + 1) + ' · ' + region.label); option.value = String(index); $('region-select').append(option);
++      const button = make('button', 'region-choice', (index + 1) + ' · ' + region.label); button.type = 'button'; button.setAttribute('aria-pressed', 'false'); button.addEventListener('click', guard(() => selectRegion(index))); $('region-buttons').append(button);
++    });
++    $('region-select').addEventListener('change', guard(event => selectRegion(Number(event.target.value))));
++    $('saved-page-select').addEventListener('change', guard(event => selectPage(Number(event.target.value))));
++    $('page-first').addEventListener('click', guard(() => selectPage(0)));
++    $('page-prev').addEventListener('click', guard(() => selectPage(pageIndex - 1)));
++    $('page-next').addEventListener('click', guard(() => selectPage(pageIndex + 1)));
++    $('page-last').addEventListener('click', guard(() => selectPage(currentRegion().pages.length - 1)));
++    worldCanvas.addEventListener('click', guard(event => {
++      const index = nearest(event, worldCanvas, worldPoints);
++      if (index !== null) selectRegion(index); else announce('番号を付けた代表地点から選んでください。他のセルの候補は、この確認用HTMLには保存されていません。');
++    }));
++    worldCanvas.addEventListener('keydown', guard(event => keyboardIndex(event, regionIndex, data.regions.length, selectRegion)));
++    localCanvas.addEventListener('click', guard(event => { const index = nearest(event, localCanvas, localPoints); if (index !== null) selectCandidate(index, true); }));
++    localCanvas.addEventListener('keydown', guard(event => {
++      keyboardIndex(event, candidateIndex, currentPage().candidates.length, index => selectCandidate(index, true));
++      if (event.key === 'Enter' && candidateButtons[candidateIndex]) { event.preventDefault(); candidateButtons[candidateIndex].focus(); }
++    }));
++    writeNumber('census-requested', data.census.requestedPopulation);
++    writeNumber('census-supported', data.census.supportedPopulation);
++    writeNumber('census-unplaced', data.census.unplacedPopulation);
++    $('minimum-policy').textContent = '町・都市の最小規模は更新後の仮定です：町 ' + number(data.sizePolicy.town.min) + '人、都市 ' + number(data.sizePolicy.city.min) + '人。点は仮候補、土地は未確保です。';
++    $('source-info').textContent = 'schema: ' + data.schema + ' / seed: ' + data.seed;
++    const l1AssignedPopulation = data.global.population.reduce((a,b)=>a+b,0);
++    $('global-total').textContent = 'L1へ配分済み：' + number(l1AssignedPopulation) + '人\nL1への未配分：' + number(data.census.supportedPopulation-l1AssignedPopulation) + '人。';
++    $('policy-means').textContent = Object.keys(kindNames).map(kind => kindNames[kind] + 'のモデル平均 ' + decimal(data.sizePolicy[kind].mean) + '人').join(' / ');
++    renderRegion();
++    window.addEventListener('resize', guard(scheduleDraw));
++    if (typeof ResizeObserver !== 'undefined') { const observer = new ResizeObserver(guard(scheduleDraw)); observer.observe(worldCanvas.parentElement); observer.observe(localCanvas.parentElement); }
++    const watchResolution = () => {
++      if (typeof window.matchMedia !== 'function') return;
++      const query = window.matchMedia('(resolution: ' + (window.devicePixelRatio || 1) + 'dppx)');
++      const change = guard(() => { query.removeEventListener('change', change); worldCache = null; scheduleDraw(); watchResolution(); });
++      if (typeof query.addEventListener === 'function') query.addEventListener('change', change);
++    };
++    watchResolution();
++  })();
++}
++
++const REVIEW_STYLE = String.raw`
++:root{color-scheme:light;--ink:#172e3b;--muted:#506167;--line:#d3dcd7;--paper:#fff;--soft:#f3f5ef;--accent:#196452;--held:#875014;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;color:var(--ink);background:#f0f2ec;font-size:16px;line-height:1.65}
++*{box-sizing:border-box}body{margin:0}main{max-width:1220px;margin:auto;padding:32px 28px 56px}h1,h2,h3,p,figure,dl{margin:0}h1{font-size:clamp(1.65rem,3.8vw,2.8rem);line-height:1.35;letter-spacing:.02em}h2{font-size:1.35rem;line-height:1.5}h3{font-size:1.03rem}p+p{margin-top:.5rem}button,select{font:inherit;color:inherit}button{cursor:pointer;min-height:44px;border:1px solid #83958b;border-radius:8px;background:#fff;padding:9px 14px;line-height:1.5}button:hover:not(:disabled){background:#e9f1e9}button[aria-pressed=true]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:#e7f0e8}button:disabled{cursor:default;color:#6d756f;background:#f1f1ed;border-color:#cdd3cd}select{min-width:0;max-width:100%;min-height:44px;border:1px solid #83958b;border-radius:8px;background:#fff;padding:8px;width:100%}a{color:#185e55;text-underline-offset:3px}:focus-visible{outline:3px solid #b45219;outline-offset:4px}canvas:focus-visible{outline-offset:-4px}[hidden]{display:none!important}.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--accent);margin-bottom:8px}.lead{margin-top:12px;max-width:850px}.warning{margin-top:14px;padding:14px 16px;background:#fff4dc;border-left:4px solid #b76c18;border-radius:0 8px 8px 0}.warning strong{display:block}.small{font-size:.85rem;color:var(--muted)}.roadmap{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:20px 0 0}.roadmap li{padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#f8faf6;font-size:.87rem}.roadmap .current{background:#e4efe5;border-color:#61836d;font-weight:700}.roadmap span{display:block;font-size:.76rem;color:var(--muted)}.panel{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}.panel-head{display:flex;gap:12px;align-items:baseline;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}.stat{min-width:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.stat dt{font-size:.83rem;color:var(--muted)}.stat dd{margin:6px 0 0;display:flex;gap:6px;align-items:baseline;min-width:0}.stat-number{font-size:clamp(1rem,calc(25rem / var(--digits,11)),2.35rem);line-height:1.4;letter-spacing:-.025em;font-weight:750;white-space:nowrap;font-variant-numeric:tabular-nums}.stat .unit{font-size:.82rem}.integer{font-variant-numeric:tabular-nums;white-space:nowrap}.map-wrap{position:relative;aspect-ratio:2/1;overflow:hidden;border:1px solid #b7c5c7;border-radius:10px;background:#e6ebea}.map-wrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}.local-wrap{aspect-ratio:4/3;min-height:250px;max-height:470px;margin-top:12px}.map-caption{margin-top:8px}.density-legend,.point-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:.78rem}.density-legend span{display:inline-flex;align-items:center;gap:5px}.swatch{display:inline-block;width:14px;height:14px;border:1px solid #71817e;border-radius:3px}.region-controls{display:grid;grid-template-columns:minmax(200px,1fr) 2fr;gap:14px;align-items:end;margin-top:18px}.field-label{display:block;font-size:.85rem;font-weight:700;margin-bottom:6px}.region-buttons{display:flex;flex-wrap:wrap;gap:8px}.region-choice{font-size:.85rem;max-width:100%;overflow-wrap:anywhere}.region-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:12px}.summary-block{padding:16px;background:var(--soft);border-radius:9px;min-width:0}.summary-label{font-size:.82rem;color:var(--muted)}.summary-value{font-size:1.45rem;font-weight:750;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.region-person{font-size:clamp(1rem,calc(24rem / var(--digits,11)),1.8rem);white-space:nowrap;letter-spacing:-.02em}.page-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end;margin-top:16px}.page-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.page-buttons button{font-size:.85rem;padding:9px 12px}.range{margin-top:16px;font-size:1.1rem;font-weight:750;overflow-wrap:anywhere}.sample-totals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.sample-total{padding:12px;border:1px solid var(--line);border-radius:8px;min-width:0}.sample-total dt{font-size:.78rem}.sample-total dd{margin:4px 0 0;font-size:clamp(.95rem,calc(17rem / var(--digits,10)),1.35rem);white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:750}.explanation{margin-top:12px;font-size:.88rem}.budget-table,.policy-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.81rem;margin-top:16px}.budget-table caption,.policy-table caption{text-align:left;font-weight:700;margin-bottom:8px}.budget-table th,.budget-table td,.policy-table th,.policy-table td{border-bottom:1px solid var(--line);padding:11px 7px;vertical-align:top;overflow-wrap:anywhere}.budget-table thead th,.policy-table thead th{background:#f0f4ee;font-weight:650}.budget-table thead th:first-child{width:19%}.budget-table th[scope=row],.policy-table th[scope=row]{text-align:left;font-weight:600}.budget-table td{text-align:right;font-size:clamp(.58rem,.85vw,.83rem)}.budget-table th:nth-child(4),.budget-table td:nth-child(4){background:#edf4ed}.budget-table th:nth-child(5),.budget-table td:nth-child(5){background:#fff6e9}.agriculture{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}.agriculture-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.measure{background:var(--soft);padding:12px;border-radius:8px;min-width:0}.measure dt{font-size:.8rem;color:var(--muted)}.measure dd{margin:3px 0 0;font-size:1.17rem;font-weight:700;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.sample-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}.sample-layout>div{min-width:0}.candidate-list{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.candidate-card{min-width:0;border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff;scroll-margin:14px}.candidate-card.selected{border:2px solid var(--accent);padding:11px;background:#f7faf5}.candidate-choice{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;text-align:left;width:100%;border:0;border-radius:6px;padding:6px;box-shadow:none!important;background:transparent!important}.candidate-name{font-size:.88rem;font-weight:700;overflow-wrap:anywhere;flex:1 1 auto}.candidate-population{font-size:clamp(.9rem,2.1vw,1.15rem);letter-spacing:-.02em}.status{display:block;font-size:.77rem;font-weight:650;flex:1 0 100%;padding:3px 7px;border-radius:4px}.passed{color:#1a5947;background:#e5f0e7}.held{color:#70400c;background:#fff0d9}.population-bar{display:block;flex:1 0 100%;height:7px;background:#e4e8e3;border-radius:4px;margin-top:5px;overflow:hidden}.population-fill{height:100%;display:block;min-width:2px;border-radius:4px}.candidate-demand,.candidate-coordinates,.candidate-reason{font-size:.81rem;margin-top:8px;overflow-wrap:anywhere}.candidate-coordinates{color:var(--muted)}.candidate-reason{padding:7px 8px;background:#fff4e2;border-radius:5px}.candidate-technical{margin-top:8px;font-size:.77rem}.candidate-technical summary{min-height:32px}details>summary{cursor:pointer;min-height:44px;display:list-item;padding:10px 0;font-weight:600}details p{margin:6px 0 12px;font-size:.86rem;overflow-wrap:anywhere}.technical{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;overflow-wrap:anywhere}.model-details{margin-top:16px;border-top:1px solid var(--line)}.footer{margin-top:22px}.footer a+a{margin-left:18px}.error{padding:16px;border:2px solid #a82d28;background:#ffefeb;margin:16px 0;border-radius:8px;font-weight:650;overflow-wrap:anywhere}.live{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
++@media(max-width:1000px){.budget-table{display:block}.budget-table caption{display:block}.budget-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.budget-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.budget-table tr{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden}.budget-table th[scope=row]{display:block;background:#edf1eb;padding:9px 12px}.budget-table td{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:.86rem;padding:8px 12px;border-bottom:1px solid #e7ebe6;white-space:nowrap}.budget-table td::before{content:attr(data-label);font-size:.75rem;white-space:normal;text-align:left;max-width:53%;font-variant-numeric:normal}.sample-layout{grid-template-columns:1fr}.local-wrap{aspect-ratio:2/1}.candidate-population{font-size:1.05rem}}
++@media(max-width:640px){main{padding:20px 14px 36px}.panel{padding:16px;border-radius:10px;margin-top:18px}.stats{grid-template-columns:1fr;gap:8px}.stat{padding:13px 16px}.roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}.roadmap li{padding:8px;font-size:.8rem}.region-controls,.region-summary,.page-controls{grid-template-columns:1fr}.region-buttons{gap:6px}.region-choice{padding:7px 10px;font-size:.8rem}.page-buttons{grid-template-columns:repeat(4,minmax(0,1fr))}.page-buttons button{padding:9px 5px}.sample-totals{grid-template-columns:1fr}.sample-total{display:flex;gap:8px;justify-content:space-between;align-items:baseline}.sample-total dt{max-width:65%}.sample-total dd{margin:0}.budget-table tbody{grid-template-columns:1fr}.budget-table td{font-size:.9rem}.agriculture-values{grid-template-columns:1fr}.candidate-list{grid-template-columns:1fr}.candidate-population{font-size:1.05rem}.local-wrap{aspect-ratio:1/1;min-height:260px}.map-wrap:not(.local-wrap){aspect-ratio:1.8/1}.policy-table{display:block}.policy-table caption{display:block}.policy-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.policy-table tbody{display:block}.policy-table tr{display:block;margin-top:8px;border:1px solid var(--line);border-radius:8px;overflow:hidden}.policy-table th[scope=row]{display:block;padding:8px 10px;background:#f0f4ee}.policy-table td{display:block;padding:8px 10px}.policy-table td::before{content:attr(data-label);display:block;color:var(--muted);font-size:.74rem;margin-bottom:2px}.point-legend{gap:5px 12px}.panel-head{gap:4px}.warning{padding:12px}.summary-value{font-size:1.3rem}}
++@media(max-width:450px){h1{font-size:1.5rem;letter-spacing:0}}
++@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
++`;
++
++/** Return an offline, read-only review document; reject missing or inconsistent input. */
++export function buildL2SettlementReview(data) {
++  const validated = validateReviewData(data);
++  const json = JSON.stringify(validated).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
++  return `<!doctype html>
++<html lang="ja">
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width,initial-scale=1">
++<meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
++<meta name="color-scheme" content="light">
++<title>集落候補と農地の見積もり</title>
++<style>${REVIEW_STYLE}</style>
++</head>
++<body>
++<main>
++<header>
++<p class="eyebrow">L1 代表地域 · L2へ進むための確認</p>
++<h1>集落候補と農地の見積もり</h1>
++<p id="minimum-policy" class="lead">町・都市の最小規模は更新後の仮定です。点は仮候補、土地は未確保です。</p>
++<p class="small lead">保存されたL1の高さと水域から集落候補を選別しています。地域を選び、人数と必要農地を確認できます。</p>
++<div class="warning"><strong>現在は広域条件で選んだ候補まで</strong>敷地・農地・接続道路はL2で具体化します。水源と洪水条件の確認もこれからです。</div>
++<ol class="roadmap" aria-label="開発段階">
++<li>1 · L0/L1の統計<span>人口と集落数を配分</span></li>
++<li>2 · この地域の候補<span>仮の人口と候補点</span></li>
++<li class="current" aria-current="step">3 · L1で候補を選別<span>現在：通過・保留を確認</span></li>
++<li>4 · L2の敷地<span>土地・建物・道路はこれから</span></li>
++</ol>
++</header>
++<div id="l2-error" class="error" role="alert" hidden></div>
++<noscript><p class="error">このHTMLはJavaScriptを有効にして開いてください。データと表示処理はファイル内に含まれ、外部通信は不要です。</p></noscript>
++<section aria-label="全球の人口統計">
++<dl class="stats">
++<div class="stat"><dt>要求人口</dt><dd><span id="census-requested" class="stat-number">—</span><span class="unit">人</span></dd></div>
++<div class="stat"><dt>L0での割り当て人口</dt><dd><span id="census-supported" class="stat-number">—</span><span class="unit">人</span></dd></div>
++<div class="stat"><dt>容量で割り当てられない人口</dt><dd><span id="census-unplaced" class="stat-number">—</span><span class="unit">人</span></dd></div>
++</dl>
++<p class="small" style="margin-top:8px">全球の人口統計です。候補ページの「保留」「対象外」は、この容量の値とは別です。</p>
++</section>
++<section class="panel" aria-labelledby="global-title">
++<div class="panel-head"><h2 id="global-title">L1 全球の人口密度</h2><p class="small">番号が、今回保存した代表地域</p></div>
++<p id="global-total" class="small" style="margin-bottom:8px;white-space:pre-line"></p><p class="small" style="margin-bottom:12px">未配分はL0親に保持しています。<a href="distribution.html">L0とL1の分布を比較</a></p>
++<figure>
++<div class="map-wrap"><canvas id="world-map" tabindex="0" role="group" aria-label="L1全球人口密度" aria-describedby="world-help">代表地域は下の選択欄から選べます。</canvas></div>
++<figcaption class="map-caption small">密度＝人口 ÷ 各セルの実面積（人/km²）。横は経度0–360°、縦はsin緯度で面積を反映しています。上が北です。</figcaption>
++</figure>
++<div class="density-legend" aria-label="人口密度の凡例">
++<span><i class="swatch" style="background:#f0f0e8"></i>人口0の陸地</span><span><i class="swatch" style="background:#e8edc8"></i>1未満</span><span><i class="swatch" style="background:#b8d5a0"></i>1–10未満</span><span><i class="swatch" style="background:#73af87"></i>10–50未満</span><span><i class="swatch" style="background:#34847b"></i>50–200未満</span><span><i class="swatch" style="background:#286375"></i>200–1,000未満</span><span><i class="swatch" style="background:#253b65"></i>1,000以上</span><span><i class="swatch" style="background:#d6e6ef"></i>海</span><span><i class="swatch" style="background:#78b1c9"></i>湖</span>
++</div>
++<p id="world-help" class="small" style="margin-top:10px">番号の地点か地域名を選択。地図にフォーカスして矢印キーでも切り替えられます。候補を保存したのは代表地域だけで、ほかのセルの候補はこのHTMLにありません。</p>
++<div class="region-controls"><div><label class="field-label" for="region-select">代表地域を選ぶ</label><select id="region-select"></select></div><div id="region-buttons" class="region-buttons" role="group" aria-label="代表地域の一覧"></div></div>
++</section>
++<section class="panel" aria-labelledby="region-name">
++<p class="eyebrow">選択した代表地域</p><h2 id="region-name">—</h2>
++<div class="region-summary"><div class="summary-block"><p class="summary-label">この地域の人口</p><p><strong id="region-population" class="region-person">—</strong> 人</p><p id="region-counts" class="small">—</p></div><div class="summary-block"><p class="summary-label">必要耕地の面積見積もり</p><p id="region-area" class="summary-value">—</p><p class="small">需要の数値 · 土地は未確保</p></div></div>
++<p class="small" style="margin-top:10px">「村」の数には、100人未満の小集落も含みます。</p>
++<h3 style="margin-top:22px">確認用に保存したページ</h3>
++<p class="small">全ページを保存したものではありません。先頭・次・末尾などの代表ページを切り替えます。ボタンは保存分の中を移動し、保存されていない候補を新しく調査しません。</p>
++<div class="page-controls"><div><label class="field-label" for="saved-page-select">保存ページを選ぶ</label><select id="saved-page-select"></select></div><div class="page-buttons" role="group" aria-label="保存ページの移動"><button id="page-first" type="button" aria-label="保存分の先頭ページ">先頭</button><button id="page-prev" type="button" aria-label="一つ前の保存ページ">前</button><button id="page-next" type="button" aria-label="次の保存ページ">次</button><button id="page-last" type="button" aria-label="保存分の末尾ページ">末尾</button></div></div>
++<p id="page-range" class="range">—</p><p id="page-position" class="small">—</p>
++<dl class="sample-totals"><div class="sample-total"><dt>広域条件を通過</dt><dd><span id="page-passed">—</span> 件</dd></div><div class="sample-total"><dt>地形条件で保留</dt><dd><span id="page-held">—</span> 件</dd></div><div class="sample-total"><dt>このページの対象外</dt><dd><span id="page-unvisited">—</span> 件</dd></div></dl>
++<p class="explanation"><strong>通過</strong>：広域条件を満たした仮候補。敷地は未成立です。<br><strong>保留</strong>：地形条件が解決していない候補。理由は各候補に表示します。<br><strong>このページの対象外</strong>：地域全体から今回の候補を除いた分。他の保存ページで調べた候補も含みます。</p>
++<table class="budget-table" role="table" aria-describedby="budget-help"><caption>地域に割り当てた人口と集落数の内訳（整数）</caption><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">項目</th><th scope="col" role="columnheader">地域全体<br>総計</th><th scope="col" role="columnheader">今回<br>調査した候補</th><th scope="col" role="columnheader">広域条件を通過</th><th scope="col" role="columnheader">地形条件で保留</th><th scope="col" role="columnheader">このページの対象外</th></tr></thead><tbody id="budget-body" role="rowgroup"></tbody></table>
++<p id="budget-help" class="small" style="margin-top:10px">7項目とも「今回＝通過＋保留」「地域全体＝今回＋このページの対象外」です。別ページへ移動すると「今回」の範囲が変わります。表示操作で人口や配分は変更しません。</p>
++<div class="agriculture"><h3>農地需要 · 面積の見積もり</h3><p id="agriculture-state" class="small">—</p><dl id="agriculture-values" class="agriculture-values"></dl><p class="small" style="margin-top:10px">通過分も保留分も「必要になる面積」です。確保できた面積ではありません。「見積もり不明」は0 m²を意味しません。未調査分は地域全体から今回を差し引いた値で、いずれかの見積もりが不明なら表示できません。</p></div>
++</section>
++<section class="panel" aria-labelledby="local-title">
++<div class="sample-layout"><div><h2 id="local-title">地域の境界と候補点</h2><p class="small">このページの仮候補だけを描いた座標図です。詳細地形・道路・農地は含みません。縦横の距離比は模式的です。</p><figure><div class="map-wrap local-wrap"><canvas id="local-map" tabindex="0" role="group" aria-label="地域の境界と候補点" aria-describedby="local-help">各候補は下の一覧から選べます。</canvas></div><figcaption class="small map-caption">○系＝村・小集落、△＝町、◇＝都市。塗りつぶし＝通過、白抜き＋×＝保留。外側の二重円＝選択中。</figcaption></figure><div class="point-legend" aria-label="候補点の凡例"><span>● 村・小集落</span><span>▲ 町</span><span>◆ 都市</span><span>塗りつぶし：通過</span><span>白抜き＋×：保留</span></div><p id="local-help" class="small" style="margin-top:10px">点と一覧は連動します。地図にフォーカスし矢印キーで候補選択、Home/Endで先頭/末尾、Enterで選択候補のボタンへ移動できます。</p></div>
++<div><h2>仮の規模モデルと候補人口</h2><p class="small">仮定の下限・上限と、このページに保存された候補の人口範囲を分けて表示します。候補人口は生成結果の数値で、現地の人口調査ではありません。</p><table class="policy-table" role="table"><caption>規模の仮定と、このページの値</caption><thead role="rowgroup"><tr role="row"><th scope="col">種類</th><th scope="col">モデルの下限–上限</th><th scope="col">このページの候補人口</th></tr></thead><tbody id="policy-body" role="rowgroup"></tbody></table><details class="model-details"><summary>モデル仮定と制限</summary><p id="policy-means"></p><p>モデルの下限・上限・平均は規模の仮定です。人口の端数配分や小集落の扱いを含む候補値とは区別し、画面では再生成・補正しません。村には100人未満の小集落も含まれます。</p><p>この調査は保存された代表地域・代表ページの標本です。世界全体の住宅完成率や、すべての候補の合否を示すものではありません。広域条件の通過後も、L2の区画、建物、耕地、道路、洪水・飲料水の確認が必要です。</p></details></div></div>
++<h3 style="margin-top:22px">このページの候補一覧</h3><p class="small">カード内の棒は候補人口の比較です。このページの最大人口を100%とし、種類によらず同じ目盛りを使います。通過・保留の両方を含みます。</p><p id="candidate-current" class="small" style="margin-top:8px">—</p><p id="candidate-empty" class="small" hidden>このページに候補はありません。</p><ol id="candidate-list" class="candidate-list"></ol>
++</section>
++<section class="panel" aria-label="技術情報と結果ファイル"><details><summary>技術ID・座標・表示上の制限</summary><p id="source-info" class="technical"></p><p id="region-technical" class="technical"></p><p>全球グリッドは行優先、北から南、経度0–360°です。地域の局所図は西端から経度を巻き戻して投影し、日付変更線や0°をまたぐ境界にも対応します。L1への配分が残っている場合、全球図のセル人口合計は上部の割り当て人口を下回ることがあります。</p><p>候補slotは入力の0始まり／1始まりを保持し、画面の「候補」番号はoffsetに基づく1始まりです。農地はm²またはkm²の数値見積もりで、土地の取得や面積の成立を保証しません。画面解像度や選択操作で保存データは変更しません。</p></details><p class="footer small"><a href="manifest.json">manifest.json を開く</a><a href="summary.json">summary.json を開く</a></p></section>
++<div id="selection-live" class="live" role="status" aria-live="polite" aria-atomic="true"></div>
++</main>
++<script id="l2-review-data" type="application/json">${json}</script>
++<script>(${l2ReviewRuntime.toString()})(JSON.parse(document.getElementById('l2-review-data').textContent));</script>
++</body>
++</html>`;
++}
+--- a/scripts/planet-generation-api.mjs
++++ b/scripts/planet-generation-api.mjs
+@@ -15,7 +15,7 @@
+  if(typeof deferredWater!=='boolean')throw new RangeError('deferredWater must be boolean');
+  if(deferredWater&&!deferredPopulation)throw new RangeError('deferredWater requires deferredPopulation');
+  if(typeof localTributaries!=='boolean')throw new RangeError('localTributaries must be boolean');
+- return 'examples/planet/seeds/'+createHash('sha256').update('planet-ui-generator@18-l0-settlement-distribution\0'+SETTLEMENT_RUNTIME_VERSION+'\0'+JSON.stringify([seed,sites,settlements,population,localTributaries,riverDetail,...(landformShape==='rounded'?[]:[landformShape]),...(deferredPopulation?['on-reference-population@1','adjacent-committed-sites@1']:[]),...(deferredWater?[unpopulatedWater?'shared-regional-water-regions@1':'settlement-zone-interior-water@1']:[])])).digest('hex').slice(0,24);
++ return 'examples/planet/seeds/'+createHash('sha256').update('planet-ui-generator@19-l2-settlement-handoff\0'+SETTLEMENT_RUNTIME_VERSION+'\0'+JSON.stringify([seed,sites,settlements,population,localTributaries,riverDetail,...(landformShape==='rounded'?[]:[landformShape]),...(deferredPopulation?['on-reference-population@1','adjacent-committed-sites@1']:[]),...(deferredWater?[unpopulatedWater?'shared-regional-water-regions@1':'settlement-zone-interior-water@1']:[])])).digest('hex').slice(0,24);
+ }
+ export function populationUpgradeRequest(root,pathname){
+  if(typeof pathname!=='string'||!pathname.startsWith('/examples/planet/')||!pathname.endsWith('/manifest.json')||pathname.includes('\\')||pathname.includes('\0'))throw new Error('Invalid saved-world path');
+--- a/src/core/index.mjs
++++ b/src/core/index.mjs
+@@ -304,6 +304,8 @@
+ 
+ export {createPlanetMacroTerrain,describeL0Region,EARTHLIKE_L0} from './planet-macro.mjs';
+ export {createL0SettlementDistribution,validateSettlementDistribution,describeSettlementDistribution,refineSettlementDistribution} from './settlement-distribution.mjs';
++export * from './l2-settlement-handoff.mjs';
++export {createL1SettlementSurveySurface} from './l1-settlement-survey-surface.mjs';
+ 
+ export {planRegionalDomains} from "./regional-domains.mjs";
+ 
+--- /dev/null
++++ b/src/core/l1-settlement-survey-surface.mjs
+@@ -0,0 +1,46 @@
++import {copyJson, hashJson} from './json-contract.mjs';
++
++/** A coarse, explicitly identified L1 screening surface. Bilinear heights and
++ * saved cell water masks support candidate screening; they are not new local
++ * terrain, flood levels, soil evidence or a certificate for a building site. */
++export function createL1SettlementSurveySurface(l1) {
++  const s=l1?.snapshot, {columns:w,rows:h}=s?.grid??{}, n=w*h;
++  if(l1?.schema!=='l1-broad-region@1'||s?.layer!=='L1'||l1.id!==s.layerId
++    ||l1.sourceWorldId!==s.worldId||!Number.isSafeInteger(w)||!Number.isSafeInteger(h)
++    ||w<2||h<2||n>131072||!Number.isFinite(s.frame?.radiusM)||s.frame.radiusM<=0)
++    throw new RangeError('A bounded identified L1 surface is required');
++  const fields=s.fields;
++  for(const k of ['groundElevationM','landMask','lakeFillDepthM'])
++    if(!Array.isArray(fields?.[k])||fields[k].length!==n)
++      throw new RangeError('Complete L1 screening fields are required');
++  const z=[...fields.groundElevationM],land=[...fields.landMask],lake=[...fields.lakeFillDepthM];
++  if(!z.every(Number.isFinite)||!land.every(v=>v===0||v===1)
++    ||!lake.every(v=>Number.isFinite(v)&&v>=0))throw new RangeError('Invalid L1 screening fields');
++  const sea=s.references?.sea?.levelElevationM??0;
++  if(!Number.isFinite(sea))throw new RangeError('Invalid L1 sea level');
++  const provenance={method:'l1-bilinear-ground-cell-water-mask@1',sourceWorldId:s.worldId,
++    sourceLayerId:l1.id,grid:{columns:w,rows:h},frame:s.frame,groundElevationM:z,landMask:land,lakeFillDepthM:lake,seaLevelM:sea};
++  const surfaceId=hashJson(copyJson(provenance));
++  const coords=(lat,lon)=>{
++    if(!Number.isFinite(lat)||!Number.isFinite(lon)||lat< -90||lat>90)throw new RangeError('Invalid screening coordinates');
++    const longitude=((lon%360)+360)%360;
++    return {x:longitude/360*w-.5,y:Math.max(0,Math.min(h-1,(90-lat)/180*h-.5)),
++      cell:Math.min(h-1,Math.floor((90-lat)/180*h))*w+Math.floor(longitude/360*w)};
++  };
++  const groundElevationAt=(lat,lon)=>{
++    const {x,y}=coords(lat,lon),ix=Math.floor(x),iy=Math.floor(y),u=x-ix,v=y-iy;
++    const at=(dx,dy)=>z[Math.min(h-1,iy+dy)*w+((ix+dx)%w+w)%w];
++    return at(0,0)*(1-u)*(1-v)+at(1,0)*u*(1-v)+at(0,1)*(1-u)*v+at(1,1)*u*v;
++  };
++  const sampleSurfaceAt=(lat,lon)=>{
++    const {cell}=coords(lat,lon),ground=groundElevationAt(lat,lon),wet=!land[cell]||lake[cell]>0;
++    const waterLevel=!land[cell]?sea:lake[cell]>0?z[cell]+lake[cell]:sea;
++    return {groundElevationM:ground,waterLevelElevationM:waterLevel,
++      waterDepthM:wet?Math.max(0,waterLevel-ground):0,sitingWet:wet,sourceCellIndex:cell,
++      sourceLayerId:l1.id,surfaceId};
++  };
++  return Object.freeze({worldId:s.worldId,sourceLayerId:l1.id,surfaceId,method:provenance.method,
++    frame:Object.freeze({...s.frame}),groundElevationAt,sampleSurfaceAt,
++    limitations:Object.freeze(['Coarse bilinear L1 heights and cell water masks only',
++      'Local relief, flood safety, drinking water and parcel suitability remain unresolved'])});
++}
+--- /dev/null
++++ b/src/core/l2-settlement-handoff.mjs
+@@ -0,0 +1,363 @@
++import {copyJson, hashJson} from './json-contract.mjs';
++import {validateSettlementDistribution} from './settlement-distribution.mjs';
++import {
++  validateSettlementSizePolicy, validateSettlementApportionment,
++  settlementSlotPopulation, settlementSlotPeoplePrefix, settlementClassFor, settlementStableUnit,
++} from './settlement-size-model.mjs';
++import {sitePopulationRegion, SETTLEMENT_CATALOGUE_METHOD} from './settlement-catalogue.mjs';
++
++export * from './settlement-size-model.mjs';
++
++/** A compact, saved, per-cell recipe for reading L2 settlement candidates out of
++ * one L1 cell budget. It carries the L1 cell budget, the L0 population authority
++ * identity, the parent cell, the world/climate/distribution/layer identity, the
++ * geographic bounds and the saved size policy. It is candidate-budget-only: no
++ * house, road, field or surveyed site is created or claimed here. */
++export const L2_SETTLEMENT_HANDOFF_SCHEMA = 'l2-settlement-handoff@1';
++export const L2_SETTLEMENT_HANDOFF_STATUS = 'candidate-budget-only';
++export const L2_SETTLEMENT_PAGE_SCHEMA = 'l2-settlement-candidate-page@1';
++export const L2_SETTLEMENT_SURVEY_SCHEMA = 'l2-settlement-survey@1';
++export const L2_MAX_PAGE_SIZE = 256;
++export const L2_DEFAULT_PAGE_SIZE = 64;
++
++const BUDGET_KEYS = ['population', 'ruralPopulation', 'townPopulation', 'cityPopulation', 'villages', 'towns', 'cities'];
++const PEOPLE_COUNTS = [['ruralPopulation', 'villages'], ['townPopulation', 'towns'], ['cityPopulation', 'cities']];
++const GRID_MAX_CELLS = 1048576;
++const MAX_BUDGET = 10000000000;
++
++// Handoff identity follows the distribution convention: canonical key order via
++// copyJson, so a versioned id survives object key normalisation.
++const handoffHash = content => hashJson(copyJson(content));
++const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
++
++function integer(value, name, max = MAX_BUDGET) {
++  if (!Number.isSafeInteger(value) || value < 0 || value > max) throw new RangeError(`Invalid ${name}`);
++  return value;
++}
++function gridOf(grid, name) {
++  const columns = grid?.columns, rows = grid?.rows;
++  if (!Number.isSafeInteger(columns) || columns < 1 || !Number.isSafeInteger(rows) || rows < 1) throw new RangeError(`Invalid ${name}`);
++  const cells = columns * rows;
++  if (!Number.isSafeInteger(cells) || cells > GRID_MAX_CELLS) throw new RangeError(`${name} exceeds the bounded cell budget`);
++  return { columns, rows, cells };
++}
++/** Re-derive the target L1 cell's geographic parent and bounds from the grids,
++ * so a saved handoff can be checked against its own geometry. */
++function deriveL1Cell(columns, rows, parentColumns, parentRows, cellIndex) {
++  if (columns % parentColumns !== 0 || rows % parentRows !== 0) throw new RangeError('L2 handoff parent grid must divide the L1 grid');
++  const scaleX = columns / parentColumns, scaleY = rows / parentRows;
++  if (scaleX !== scaleY || scaleX < 1 || (scaleX & (scaleX - 1)) !== 0) throw new RangeError('L2 handoff parent grid must be an equal power-of-two multiple');
++  const row = Math.floor(cellIndex / columns), col = cellIndex % columns;
++  return {
++    scale: scaleX,
++    parent: Math.floor(row / scaleX) * parentColumns + Math.floor(col / scaleX),
++    bounds: { west: col * 360 / columns, east: (col + 1) * 360 / columns, north: 90 - row * 180 / rows, south: 90 - (row + 1) * 180 / rows },
++  };
++}
++function sameJson(a, b) { return JSON.stringify(copyJson(a)) === JSON.stringify(copyJson(b)); }
++function budgetShape(budget) {
++  for (const [people, count] of PEOPLE_COUNTS) {
++    if ((budget[people] === 0) !== (budget[count] === 0) || budget[count] > budget[people]) throw new RangeError('Inconsistent L2 handoff budget');
++  }
++  if (budget.ruralPopulation + budget.townPopulation + budget.cityPopulation !== budget.population) throw new RangeError('L2 handoff budget does not sum to its population');
++}
++function slotSeed(handoffId, kind) { return `${handoffId}|${kind}`; }
++function zeroBudget() { return { population: 0, ruralPopulation: 0, townPopulation: 0, cityPopulation: 0, villages: 0, towns: 0, cities: 0 }; }
++function addBudget(budget, kind, population) {
++  budget.population += population;
++  if (kind === 'city') { budget.cityPopulation += population; budget.cities += 1; }
++  else if (kind === 'town') { budget.townPopulation += population; budget.towns += 1; }
++  else { budget.ruralPopulation += population; budget.villages += 1; }
++}
++function subtractBudget(a, b) {
++  const out = {};
++  for (const key of BUDGET_KEYS) out[key] = a[key] - b[key];
++  return out;
++}
++function farmlandCut(handoff, k) {
++  const total = handoff.farmland.totalDemandM2, totalPeople = handoff.budget.population, budget = handoff.budget, policy = handoff.sizePolicy;
++  if (!total || !totalPeople) return 0;
++  let prefix = settlementSlotPeoplePrefix(policy, 'city', budget.cityPopulation, budget.cities, Math.min(k, budget.cities), slotSeed(handoff.id, 'city'));
++  prefix += settlementSlotPeoplePrefix(policy, 'town', budget.townPopulation, budget.towns, clamp(k - budget.cities, 0, budget.towns), slotSeed(handoff.id, 'town'));
++  prefix += settlementSlotPeoplePrefix(policy, 'village', budget.ruralPopulation, budget.villages, clamp(k - budget.cities - budget.towns, 0, budget.villages), slotSeed(handoff.id, 'village'));
++  return Number(BigInt(total) * BigInt(prefix) / BigInt(totalPeople));
++}
++/** One shared stratification over all candidate slots (count = every slot of
++ * every kind, rank = the global slot), so city, town and village origins do not
++ * collapse onto the same point. No full slot array is ever built. */
++function candidateOrigin(handoff, slot, total) {
++  const b = handoff.bounds, lonSpan = b.east - b.west, middle = (b.north + b.south) / 2;
++  const sinN = Math.sin(b.north * Math.PI / 180), sinS = Math.sin(b.south * Math.PI / 180);
++  const aspect = Math.max(0.05, lonSpan / Math.max(1e-9, b.north - b.south) * Math.cos(middle * Math.PI / 180));
++  const nx = Math.max(1, Math.ceil(Math.sqrt(Math.max(1, total) * aspect))), ny = Math.max(1, Math.ceil(total / nx));
++  const u = ((slot % nx) + 0.25 + 0.5 * settlementStableUnit(`${handoff.id}|coord|${slot}|u`)) / nx;
++  const v = (Math.floor(slot / nx) + 0.25 + 0.5 * settlementStableUnit(`${handoff.id}|coord|${slot}|v`)) / ny;
++  const latDeg = Math.asin(sinS + (sinN - sinS) * clamp(v, 0, 1)) * 180 / Math.PI;
++  const lonDeg = ((b.west + clamp(u, 0, 1) * lonSpan + 180) % 360) - 180;
++  return { latDeg, lonDeg };
++}
++
++/** Validate a saved handoff in isolation. A mismatched identity hash, an
++ * out-of-range grid/parent mapping, a non-integer budget, an apportionment the
++ * policy cannot realise, a farmland demand that does not re-derive from its own
++ * budget, or a slot population that does not conserve its type budget is
++ * rejected even when the content hash was recomputed by the caller. */
++export function validateL2SettlementHandoff(handoff) {
++  if (!handoff || typeof handoff !== 'object') throw new TypeError('L2 settlement handoff required');
++  if (handoff.schema !== L2_SETTLEMENT_HANDOFF_SCHEMA) throw new RangeError('Unsupported L2 settlement handoff schema');
++  if (handoff.status !== L2_SETTLEMENT_HANDOFF_STATUS) throw new RangeError('L2 settlement handoff must be candidate-budget-only');
++  for (const key of ['sourceWorldId', 'populationId', 'climateId', 'distributionId', 'layerId']) {
++    if (typeof handoff[key] !== 'string' || !handoff[key]) throw new RangeError(`L2 settlement handoff ${key} required`);
++  }
++  if (handoff.parentDistributionId !== undefined && (typeof handoff.parentDistributionId !== 'string' || !handoff.parentDistributionId)) {
++    throw new RangeError('L2 settlement handoff parentDistributionId must be a non-empty string');
++  }
++  const { columns, rows, cells: n } = gridOf(handoff.grid, 'L2 handoff grid');
++  const parentGrid = gridOf(handoff.parentGrid, 'L2 handoff parent grid');
++  const cellIndex = integer(handoff.cellIndex, 'cellIndex', n - 1);
++  const parentCell = integer(handoff.parentCell, 'parentCell', parentGrid.cells - 1);
++  const derived = deriveL1Cell(columns, rows, parentGrid.columns, parentGrid.rows, cellIndex);
++  if (parentCell !== derived.parent) throw new RangeError('L2 handoff parent cell does not match the geographic parent');
++  const b = handoff.bounds;
++  const e = derived.bounds;
++  if (!b || b.west !== e.west || b.east !== e.east || b.south !== e.south || b.north !== e.north) {
++    throw new RangeError('L2 handoff bounds do not match the target L1 cell');
++  }
++  const sizePolicy = validateSettlementSizePolicy(handoff.sizePolicy);
++  const budget = handoff.budget;
++  if (!budget || typeof budget !== 'object' || Object.getPrototypeOf(budget) !== Object.prototype) throw new RangeError('L2 handoff budget required');
++  for (const key of BUDGET_KEYS) integer(budget[key], `budget '${key}'`);
++  budgetShape(budget);
++  validateSettlementApportionment(sizePolicy, 'village', budget.ruralPopulation, budget.villages);
++  validateSettlementApportionment(sizePolicy, 'town', budget.townPopulation, budget.towns);
++  validateSettlementApportionment(sizePolicy, 'city', budget.cityPopulation, budget.cities);
++  const farmland = handoff.farmland;
++  if (!farmland || typeof farmland !== 'object') throw new RangeError('L2 handoff farmland demand required');
++  if (!Number.isFinite(farmland.yieldKgPerHa) || farmland.yieldKgPerHa < 0) throw new RangeError('Invalid L2 handoff farmland yield');
++  if (!Number.isFinite(farmland.foodKgPerPersonYear) || farmland.foodKgPerPersonYear <= 0) throw new RangeError('Invalid L2 handoff food reference');
++  integer(farmland.totalDemandM2, 'farmland totalDemandM2', Number.MAX_SAFE_INTEGER);
++  const unresolved = budget.population > 0 && !(farmland.yieldKgPerHa > 0);
++  if (farmland.unresolved !== unresolved) throw new RangeError('L2 handoff farmland unresolved flag contradicts its budget');
++  // Zero population always needs zero farmland; only a positive population with a
++  // non-positive yield keeps the explicit unresolved flag.
++  const expectedDemand = (budget.population === 0 || unresolved) ? 0 : Math.round(budget.population * farmland.foodKgPerPersonYear / farmland.yieldKgPerHa * 10000);
++  if (farmland.totalDemandM2 !== expectedDemand) throw new RangeError('L2 handoff farmland demand does not match its budget');
++  for (const [kind, people, count] of [['city', budget.cityPopulation, budget.cities], ['town', budget.townPopulation, budget.towns], ['village', budget.ruralPopulation, budget.villages]]) {
++    if (count === 0) continue;
++    if (settlementSlotPeoplePrefix(sizePolicy, kind, people, count, count, slotSeed(handoff.id, kind)) !== people) {
++      throw new Error('L2 handoff slot population does not conserve its type budget');
++    }
++  }
++  const { id, ...content } = handoff;
++  if (typeof id !== 'string' || id !== handoffHash(content)) throw new Error('L2 settlement handoff identity mismatch');
++  return handoff;
++}
++
++/** Build the L2 handoff hypothesis for a single L1 cell. `l1` is the L1 broad
++ * region (or the L1 distribution carrying a `parentCell` array). The inputs are
++ * not modified. Only an L1 layer may be turned into a handoff. */
++export function createL2SettlementHandoff(l1, population, cellIndex) {
++  const region = l1 && l1.settlementDistribution ? l1 : null;
++  const distribution = region ? region.settlementDistribution : l1;
++  validateSettlementDistribution(distribution);
++  if (distribution.layer !== 'L1') throw new RangeError('createL2SettlementHandoff requires an L1 settlement distribution');
++  if (region) {
++    const { snapshot, climate } = region;
++    if (snapshot) {
++      if (snapshot.worldId !== distribution.sourceWorldId) throw new RangeError('L2 handoff region world does not match its distribution');
++      if (snapshot.layerId !== undefined && snapshot.layerId !== distribution.sourceLayerId) throw new RangeError('L2 handoff region layer does not match its distribution');
++      if (snapshot.grid && (snapshot.grid.columns !== distribution.grid.columns || snapshot.grid.rows !== distribution.grid.rows)) throw new RangeError('L2 handoff region grid does not match its distribution');
++    }
++    if (climate) {
++      if (climate.id !== distribution.climateId) throw new RangeError('L2 handoff region climate does not match its distribution');
++      if (climate.sourceWorldId !== undefined && climate.sourceWorldId !== distribution.sourceWorldId) throw new RangeError('L2 handoff region climate world does not match its distribution');
++    }
++  }
++  const parentCell = region ? region.parentCell : l1?.parentCell;
++  const { columns, rows, cells: n } = gridOf(distribution.grid, 'L2 handoff grid');
++  if (!Number.isSafeInteger(cellIndex) || cellIndex < 0 || cellIndex >= n) throw new RangeError('L2 handoff cell index out of range');
++  if (!Array.isArray(parentCell) || parentCell.length !== n) throw new RangeError('L2 handoff requires an L1 parent-cell mapping');
++  if (population?.sourceWorldId !== distribution.sourceWorldId || population?.id !== distribution.populationId) throw new RangeError('L2 handoff population authority mismatch');
++  // Re-derive the population authority identity, so a tampered population that
++  // merely kept the same id is rejected.
++  const { id: populationId, ...populationContent } = population;
++  if (typeof populationId !== 'string' || populationId !== hashJson(copyJson(populationContent))) throw new Error('L2 handoff population authority identity mismatch');
++  const parentGrid = gridOf(population.grid, 'L2 handoff parent grid');
++  const parent = parentCell[cellIndex];
++  if (!Number.isSafeInteger(parent) || parent < 0 || parent >= parentGrid.cells) throw new RangeError('L2 handoff parent cell out of range');
++  const derived = deriveL1Cell(columns, rows, parentGrid.columns, parentGrid.rows, cellIndex);
++  if (parent !== derived.parent) throw new RangeError('L2 handoff parent-cell mapping does not match the geographic parent');
++  if (region?.climate?.parentClimateId !== undefined) {
++    if (typeof region.climate.parentClimateId !== 'string' || !region.climate.parentClimateId) throw new RangeError('L2 handoff region parent climate identity must be a non-empty string');
++    if (population.climateId !== undefined && region.climate.parentClimateId !== population.climateId) throw new RangeError('L2 handoff region parent climate does not match the population authority');
++  }
++  const parentData = population.cells?.[parent];
++  if (!parentData) throw new RangeError('L2 handoff requires the matching L0 population authority');
++  if (!Number.isSafeInteger(parentData.cellIndex) || parentData.cellIndex !== parent) throw new RangeError('L2 handoff population authority cells are not index ordered');
++  for (const key of ['cultivatedHa', 'netFoodKg']) {
++    if (!Number.isFinite(parentData[key]) || parentData[key] < 0) throw new RangeError(`L2 handoff parent '${key}' must be finite and nonnegative`);
++  }
++  const sizePolicy = validateSettlementSizePolicy(population.sizePolicy);
++  if (distribution.sizePolicy !== undefined && !sameJson(distribution.sizePolicy, sizePolicy)) throw new RangeError('L2 handoff distribution size policy disagrees with the population authority');
++  const budget = {};
++  for (const key of BUDGET_KEYS) {
++    const value = distribution.fields[key][cellIndex];
++    integer(value, `budget '${key}'`);
++    budget[key] = value;
++  }
++  budgetShape(budget);
++  validateSettlementApportionment(sizePolicy, 'village', budget.ruralPopulation, budget.villages);
++  validateSettlementApportionment(sizePolicy, 'town', budget.townPopulation, budget.towns);
++  validateSettlementApportionment(sizePolicy, 'city', budget.cityPopulation, budget.cities);
++  const bounds = derived.bounds;
++  const yieldKgPerHa = parentData.cultivatedHa > 0 ? parentData.netFoodKg / parentData.cultivatedHa : 0;
++  const foodKgPerPersonYear = population.settings?.foodKgPerPersonYear;
++  if (!Number.isFinite(foodKgPerPersonYear) || foodKgPerPersonYear <= 0) throw new RangeError('L2 handoff requires a positive food reference');
++  const unresolved = budget.population > 0 && !(yieldKgPerHa > 0);
++  const totalDemandM2 = (budget.population === 0 || unresolved) ? 0 : Math.round(budget.population * foodKgPerPersonYear / yieldKgPerHa * 10000);
++  const content = {
++    schema: L2_SETTLEMENT_HANDOFF_SCHEMA,
++    status: L2_SETTLEMENT_HANDOFF_STATUS,
++    sourceWorldId: distribution.sourceWorldId,
++    populationId: distribution.populationId,
++    climateId: distribution.climateId,
++    distributionId: distribution.id,
++    layerId: distribution.sourceLayerId,
++    ...(distribution.parentDistributionId ? { parentDistributionId: distribution.parentDistributionId } : {}),
++    grid: { columns, rows },
++    parentGrid: { columns: parentGrid.columns, rows: parentGrid.rows },
++    cellIndex,
++    parentCell: parent,
++    bounds,
++    sizePolicy,
++    ruralFractionTarget: population.settings?.ruralFraction ?? null,
++    budget,
++    farmland: {
++      yieldKgPerHa,
++      foodKgPerPersonYear,
++      totalDemandM2,
++      unresolved,
++      scenario: 'netFoodKg per cultivatedHa from the saved L0 population authority, cut by foodKgPerPersonYear',
++    },
++    interpretation: 'Candidate settlement budget recipe for one L1 cell. Farmland area is a demand-only requirement, not secured land, and the candidate coordinates are unsurveyed strata.',
++    assumptions: [
++      'Candidate counts and populations come from the saved L1 cell budget and the saved sizePolicy',
++      'Farmland demand uses the L0 parent netFoodKg/cultivatedHa scenario yield and foodKgPerPersonYear',
++      'No house, road, field or surveyed site is created by this recipe',
++    ],
++    limitations: [
++      'A positive population with a non-positive scenario yield is kept as an explicit unresolved farmland demand rather than hidden as zero',
++      'The sizePolicy magnitude model is provisional and not a historical calibration',
++      'This recipe is one cell; it does not create a global slot array or a new census',
++    ],
++  };
++  const handoff = { ...content, id: handoffHash(content) };
++  validateL2SettlementHandoff(handoff);
++  return handoff;
++}
++
++/** Read at most 256 candidates in the fixed city -> town -> village slot order.
++ * Each candidate's id, population and stratified equal-area coordinate depends
++ * only on the handoff id and its own slot, never on a previous slot's random
++ * consumption or the visitation order. Village populations under 100 people are
++ * shown as hamlets. Nothing here is surveyed. */
++export function readL2SettlementCandidatePage(handoff, { offset = 0, limit = L2_DEFAULT_PAGE_SIZE } = {}) {
++  validateL2SettlementHandoff(handoff);
++  if (!Number.isSafeInteger(offset) || offset < 0) throw new RangeError('Invalid L2 candidate page offset');
++  if (!Number.isSafeInteger(limit) || limit < 0) throw new RangeError('Invalid L2 candidate page limit');
++  const size = Math.min(limit, L2_MAX_PAGE_SIZE);
++  const budget = handoff.budget, total = budget.cities + budget.towns + budget.villages;
++  const start = Math.min(offset, total), end = Math.min(total, start + size);
++  const candidates = [];
++  for (let slot = start; slot < end; slot++) {
++    const kind = slot < budget.cities ? 'city' : slot < budget.cities + budget.towns ? 'town' : 'village';
++    const rank = kind === 'city' ? slot : kind === 'town' ? slot - budget.cities : slot - budget.cities - budget.towns;
++    const people = kind === 'city' ? budget.cityPopulation : kind === 'town' ? budget.townPopulation : budget.ruralPopulation;
++    const count = kind === 'city' ? budget.cities : kind === 'town' ? budget.towns : budget.villages;
++    const population = settlementSlotPopulation(handoff.sizePolicy, kind, people, count, rank, slotSeed(handoff.id, kind));
++    const origin = candidateOrigin(handoff, slot, total);
++    candidates.push({
++      id: `${handoff.id}/slot:${slot}`,
++      handoffId: handoff.id,
++      cellIndex: handoff.cellIndex,
++      slot,
++      kind,
++      settlementClass: settlementClassFor(kind, population),
++      population,
++      latDeg: origin.latDeg,
++      lonDeg: origin.lonDeg,
++      origin: { ...origin },
++      status: 'unsurveyed-candidate',
++      farmlandDemandM2: farmlandCut(handoff, slot + 1) - farmlandCut(handoff, slot),
++    });
++  }
++  return {
++    schema: L2_SETTLEMENT_PAGE_SCHEMA,
++    handoffId: handoff.id,
++    status: handoff.status,
++    cellIndex: handoff.cellIndex,
++    bounds: { ...handoff.bounds },
++    offset: start,
++    limit: end - start,
++    total,
++    unvisited: total - (end - start),
++    candidates,
++    farmlandDemandM2: farmlandCut(handoff, end) - farmlandCut(handoff, start),
++    interpretation: 'Unsurveyed stratified candidate origins inside the saved bounds; no buildings, roads, fields or terrain claims are made.',
++  };
++}
++
++/** Survey the candidate page through the existing population-region siting path.
++ * Candidate population, id and origin match the page exactly. The seven budgets
++ * are partitioned into requested, adopted, siting-unresolved and unvisited, and
++ * the farmland demand is partitioned the same way, so each partition sums
++ * exactly to the handoff budget and total demand. A survey failure never moves a
++ * budget to another region. */
++export function surveyL2SettlementCandidates(base, population, handoff, { offset = 0, limit = L2_DEFAULT_PAGE_SIZE, anchors = [], waterIndex = null } = {}) {
++  const page = readL2SettlementCandidatePage(handoff, { offset, limit });
++  if (!base || typeof base.sampleSurfaceAt !== 'function' || typeof base.groundElevationAt !== 'function') throw new TypeError('Surface sampling base required');
++  if (base.worldId !== handoff.sourceWorldId) throw new Error('L2 survey geography mismatch');
++  if (base.sourceLayerId !== undefined && base.sourceLayerId !== handoff.layerId) throw new Error('L2 survey layer mismatch');
++  if (!population || population.id !== handoff.populationId || population.sourceWorldId !== handoff.sourceWorldId) throw new Error('L2 survey population mismatch');
++  const surveyed = sitePopulationRegion(base, population, handoff.cellIndex, { candidates: page.candidates, anchors, waterIndex });
++  const candidateById = new Map(page.candidates.map(candidate => [candidate.id, candidate]));
++  const demandById = new Map(page.candidates.map(candidate => [candidate.id, candidate.farmlandDemandM2]));
++  const requested = zeroBudget(), adopted = zeroBudget();
++  let requestedFarmland = 0, adoptedFarmland = 0;
++  for (const candidate of page.candidates) { addBudget(requested, candidate.kind, candidate.population); requestedFarmland += candidate.farmlandDemandM2; }
++  for (const site of surveyed.sites) { addBudget(adopted, site.kind, site.population); adoptedFarmland += demandById.get(site.id) ?? 0; }
++  const unresolved = subtractBudget(requested, adopted);
++  const cellTotal = zeroBudget();
++  for (const key of BUDGET_KEYS) cellTotal[key] = handoff.budget[key];
++  const unvisited = subtractBudget(cellTotal, requested);
++  for (const key of BUDGET_KEYS) {
++    if (adopted[key] + unresolved[key] + unvisited[key] !== cellTotal[key]) throw new Error(`L2 survey did not conserve '${key}'`);
++  }
++  const totalFarmland = handoff.farmland.totalDemandM2;
++  const unresolvedFarmland = requestedFarmland - adoptedFarmland, unvisitedFarmland = totalFarmland - requestedFarmland;
++  if (adoptedFarmland + unresolvedFarmland + unvisitedFarmland !== totalFarmland) throw new Error('L2 survey farmland demand did not conserve');
++  // A surveyed-and-rejected candidate is a siting-unresolved candidate, not an
++  // unsurveyed one. Only budgets.unvisited marks slots that were never read.
++  const unresolvedCandidates = surveyed.rejections.map(({ id, reason }) => ({ ...candidateById.get(id), status: 'siting-unresolved', reason }));
++  return {
++    schema: L2_SETTLEMENT_SURVEY_SCHEMA,
++    handoffId: handoff.id,
++    status: handoff.status,
++    cellIndex: handoff.cellIndex,
++    bounds: { ...handoff.bounds },
++    page: { offset: page.offset, limit: page.limit, total: page.total },
++    sites: surveyed.sites,
++    unresolvedCandidates,
++    rejected: surveyed.rejected,
++    populations: surveyed.populations,
++    budgets: { requested, adopted, unresolved, unvisited },
++    farmlandDemandM2: { requested: requestedFarmland, adopted: adoptedFarmland, unresolved: unresolvedFarmland, unvisited: unvisitedFarmland, total: totalFarmland, unresolvedYield: handoff.farmland.unresolved },
++    survey: { ...surveyed.survey, method: waterIndex ? waterIndex.method : SETTLEMENT_CATALOGUE_METHOD },
++    sampling: { sourceLayerId: base.sourceLayerId ?? null, surfaceId: base.surfaceId ?? null, method: base.method ?? (waterIndex ? waterIndex.method : SETTLEMENT_CATALOGUE_METHOD), worldId: base.worldId },
++    interpretation: 'Surveyed real sites are distinguished from siting-unresolved candidates and from unvisited slots. Survey failure leaves the budget explicitly unresolved and never moves it to another region.',
++    limitations: [
++      'No house, road or field geometry is generated; adopted sites still need a local layout',
++      'Rejected candidates stay unresolved at their own origin, not proof that the surrounding land is unusable',
++    ],
++  };
++}
+--- a/src/core/planet-population.mjs
++++ b/src/core/planet-population.mjs
+@@ -1,11 +1,19 @@
+-import {hashJson} from './json-contract.mjs';
++import {copyJson,hashJson} from './json-contract.mjs';
++import {createSettlementSizePolicy, settlementStableUnit, settlementCountFor} from './settlement-size-model.mjs';
+ const clamp=v=>Math.max(0,Math.min(1,v));
+ /** Explicit rain-fed cereal scenario, not inferred soil or historical census.
+- * Population lives in bounded regional aggregates; no village meshes allocated. */
++ * Population lives in bounded regional aggregates; no village meshes allocated.
++ *
++ * @2 additionally saves an explicit settlement sizePolicy and uses it to derive
++ * the village/town/city population split. The cell total population and the food
++ * capacity are unchanged from @1; only the assumed settlement magnitudes are
++ * made explicit. This still places no house, road, field or settlement site. */
++export const AGRICULTURE_POPULATION_SCHEMA = 'agriculture-population@2';
+ export function planAgriculturePopulation(snapshot,climate,{targetPopulation=100000000,cultivatedFraction=.15,soilMultiplier=1,grainKgPerHa=800,foodKgPerPersonYear=250,retainedHarvestFraction=.55,ruralFraction=.9,meanVillagePopulation=300,meanTownPopulation=4000,meanCityPopulation=50000}={}){
+  const {columns:w,rows:h}=snapshot.grid,n=w*h;
+  if(n>32768||climate.grid.columns!==w||climate.grid.rows!==h||climate.sourceWorldId!==snapshot.worldId)throw new Error('Climate and geography must match');
+  if(!Number.isSafeInteger(targetPopulation)||targetPopulation<0||targetPopulation>1e10||![cultivatedFraction,retainedHarvestFraction,ruralFraction].every(v=>Number.isFinite(v)&&v>=0&&v<=1)||![soilMultiplier,grainKgPerHa,foodKgPerPersonYear,meanVillagePopulation,meanTownPopulation,meanCityPopulation].every(v=>Number.isFinite(v)&&v>0))throw new RangeError('Invalid population scenario');
++ const sizePolicy=createSettlementSizePolicy({meanVillagePopulation,meanTownPopulation,meanCityPopulation});
+  const settings={targetPopulation,cultivatedFraction,soilMultiplier,grainKgPerHa,foodKgPerPersonYear,retainedHarvestFraction,ruralFraction,meanVillagePopulation,meanTownPopulation,meanCityPopulation};
+  const z=snapshot.fields.groundElevationM,radius=snapshot.frame.radiusM;
+  const cells=z.map((height,i)=>{
+@@ -24,16 +32,31 @@
+  const totalCapacity=cells.reduce((s,c)=>s+c.capacity,0),supportedPopulation=Math.min(targetPopulation,totalCapacity);
+  // Largest-remainder allocation is deterministic and cannot exceed cell capacity.
+  if(totalCapacity&&supportedPopulation){let left=supportedPopulation;const remainder=[];for(const c of cells){const raw=supportedPopulation*c.capacity/totalCapacity;c.population=Math.floor(raw);left-=c.population;remainder.push({i:c.cellIndex,r:raw-c.population});}remainder.sort((a,b)=>b.r-a.r||a.i-b.i);for(const q of remainder){if(!left)break;if(cells[q.i].population<cells[q.i].capacity){cells[q.i].population++;left--;}}}
+- // Concentrate the largest centres first within regional population budgets.
+- // No coordinates/buildings are invented for these aggregate centres.
+- let urbanBudget=Math.floor(supportedPopulation*(1-ruralFraction)+1e-7),cityBudget=Math.floor(urbanBudget*.2),usedCity=0;
++ // Cities keep the existing regional population x suitability priority. Each
++ // cell's city target is a stable-hash value in [0.5,1.5]x the city mean, limited
++ // by the remaining city budget (at most 20% of the urban budget) and cell
++ // population. A city smaller than the policy minimum is not created at all, and
++ // the unused city budget returns to the towns.
++ const urbanBudget=Math.floor(supportedPopulation*(1-ruralFraction)+1e-7),cityBudgetCap=Math.floor(urbanBudget*.2);let cityUsed=0;
+  for(const c of [...cells].sort((a,b)=>b.population*b.suitability-a.population*a.suitability||a.cellIndex-b.cellIndex)){
+-  c.cityPopulation=0;if(cityBudget>=meanCityPopulation&&c.population>=meanCityPopulation){c.cities=1;c.cityPopulation=meanCityPopulation;cityBudget-=meanCityPopulation;usedCity+=meanCityPopulation;}
++  c.cityPopulation=0;c.cities=0;
++  const factor=.5+settlementStableUnit(`${snapshot.worldId}|city-target|${c.cellIndex}`);
++  const target=Math.round(factor*sizePolicy.meanCityPopulation);
++  const population=Math.min(target,cityBudgetCap-cityUsed,c.population);
++  if(population<sizePolicy.cityMin)continue;
++  c.cities=1;c.cityPopulation=population;cityUsed+=population;
+  }
+- const townBudget=urbanBudget-usedCity,remaining=supportedPopulation-usedCity;let townLeft=townBudget;const shares=[];
++ const townBudget=urbanBudget-cityUsed,remaining=supportedPopulation-cityUsed;let townLeft=townBudget;const shares=[];
+  for(const c of cells){const raw=remaining?townBudget*(c.population-c.cityPopulation)/remaining:0;c.townPopulation=Math.floor(raw);townLeft-=c.townPopulation;shares.push({c,r:raw-c.townPopulation});}
+  shares.sort((a,b)=>b.r-a.r||a.c.cellIndex-b.c.cellIndex);for(const {c} of shares){if(!townLeft)break;if(c.townPopulation<c.population-c.cityPopulation){c.townPopulation++;townLeft--;}}
+- for(const c of cells){c.ruralPopulation=c.population-c.cityPopulation-c.townPopulation;c.villages=c.ruralPopulation?Math.ceil(c.ruralPopulation/meanVillagePopulation):0;c.towns=c.townPopulation?Math.ceil(c.townPopulation/meanTownPopulation):0;}
++ // A proportional town population below the town minimum is returned to the
++ // village side instead of forming an undersized town.
++ for(const c of cells){
++  if(c.townPopulation>0&&c.townPopulation<sizePolicy.townMin)c.townPopulation=0;
++  c.ruralPopulation=c.population-c.cityPopulation-c.townPopulation;
++  c.towns=settlementCountFor(sizePolicy,'town',c.townPopulation);
++  c.villages=settlementCountFor(sizePolicy,'village',c.ruralPopulation);
++ }
+  const totals={targetPopulation,supportedPopulation,unplacedPopulation:targetPopulation-supportedPopulation,totalCapacity,villages:cells.reduce((s,c)=>s+c.villages,0),towns:cells.reduce((s,c)=>s+c.towns,0),cities:cells.reduce((s,c)=>s+c.cities,0)};
+- const content={schema:'agriculture-population@1',sourceWorldId:snapshot.worldId,climateId:climate.id,grid:{columns:w,rows:h},settings,cells,totals,assumptions:['rain-fed cereal economy','soil fertility explicitly assumed, not measured','regional counts are aggregate estimates; towns and villages are not all placed or built'],limitations:['No trade, irrigation, fisheries, migration or political boundaries','Coarse relief and climate cannot certify individual fields','Settlement counts depend on assumed mean size; no urban hierarchy simulation']};return{...content,id:hashJson(content)};
++ const content={schema:AGRICULTURE_POPULATION_SCHEMA,sourceWorldId:snapshot.worldId,climateId:climate.id,grid:{columns:w,rows:h},settings,sizePolicy,cells,totals,assumptions:['rain-fed cereal economy','soil fertility explicitly assumed, not measured','regional counts are aggregate estimates; towns and villages are not all placed or built','village/town/city sizes follow the saved sizePolicy bounds; villages aggregate small settlements (under 100 people shown as hamlets)','ruralFraction is a target split; the realised rural/urban ratio changes with rounding and minimum settlement size'],limitations:['No trade, irrigation, fisheries, migration or political boundaries','Coarse relief and climate cannot certify individual fields','Settlement counts depend on assumed mean size; no urban hierarchy simulation','The sizePolicy is a provisional magnitude model, not a historical calibration, a natural urban hierarchy or a political/trade model']};return{...content,id:hashJson(copyJson(content))};
+ }
+--- a/src/core/settlement-catalogue.mjs
++++ b/src/core/settlement-catalogue.mjs
+@@ -1,15 +1,22 @@
+ import {validatePopulationZone} from './population-zones.mjs';
+-export const SETTLEMENT_RUNTIME_VERSION='settlement-runtime@28';
++export const SETTLEMENT_RUNTIME_VERSION='settlement-runtime@29';
+ import {isWaterLedSiting,surveySettlementWaterAccess} from './settlement-water-access.mjs';
+ import {createHash} from './sha256.mjs';
+ import {sphereBasis,offsetGeographic,greatCircle} from './spherical.mjs';
+-export const SETTLEMENT_CATALOGUE_METHOD='population-sited-settlements@2';
++import {validateSettlementSizePolicy,settlementSlotPopulation,settlementClassFor} from './settlement-size-model.mjs';
++export const SETTLEMENT_CATALOGUE_METHOD='population-sited-settlements@3';
+ /** Regional, bounded allocation. Every slot has a stable ID independent of LOD,
+  * page visitation, rejection of other slots, or the number of detailed meshes.
+  * Rejected slots remain explicitly unplaced, never silently moved to another region. */
+-export function sitePopulationRegion(base,population,cellIndex,{anchors=[],maxSites=2048,maxCandidateSurveys=8,waterIndex=null,zone=null}={}){
++export function sitePopulationRegion(base,population,cellIndex,options={}){
++ const {anchors=[],maxSites=2048,maxCandidateSurveys=8,waterIndex=null,zone=null,sizePolicy=null,candidates=null}=options;
++ // A saved L2 handoff page can be surveyed through this same regional siting
++ // path. Candidate origins, ids and populations are taken from the page, so no
++ // slot consumes another slot's randomness and no site is relocated.
++ if(Array.isArray(candidates))return siteCandidateOrigins(base,population,candidates,{anchors,waterIndex});
+  if(!Number.isSafeInteger(maxCandidateSurveys)||maxCandidateSurveys<1||maxCandidateSurveys>16)throw new RangeError('Invalid site candidate survey budget');
+  if(waterIndex&&!isWaterLedSiting(waterIndex.method))throw new TypeError('Unknown water siting policy');
++ const policy=sizePolicy?validateSettlementSizePolicy(sizePolicy):(zone?.sizePolicy?validateSettlementSizePolicy(zone.sizePolicy):(population?.sizePolicy?validateSettlementSizePolicy(population.sizePolicy):null));
+  const waterStats=waterIndex?{proposed:0,accepted:0,rejected:0,approachSamples:0,maxRelocationM:20000,maxCandidateSurveys:4}:null;
+  const {columns:w,rows:h}=population.grid,c=zone?{...population.cells[cellIndex],...zone,cellIndex}:population.cells[cellIndex];
+  if(zone)validatePopulationZone(zone);
+@@ -33,7 +40,7 @@
+   const kind=slot<c.cities?'city':slot<c.cities+c.towns?'town':'village';
+   const start=kind==='city'?0:kind==='town'?c.cities:c.cities+c.towns,number=kind==='city'?c.cities:kind==='town'?c.towns:c.villages;
+   const people=kind==='city'?c.cityPopulation:kind==='town'?c.townPopulation:c.ruralPopulation;
+-  const count=Math.floor(people/number)+(slot-start<people%number?1:0);
++  const count=policy?settlementSlotPopulation(policy,kind,people,number,slot-start,`${base.worldId}/${SETTLEMENT_CATALOGUE_METHOD}/${zone?.id??cellIndex}`):Math.floor(people/number)+(slot-start<people%number?1:0);
+   // Jitter stays in the middle half of its own stratum. Equal-area latitude.
+   const u=((slot%nx)+.25+.5*random())/nx,v=(Math.floor(slot/nx)+.25+.5*random())/ny;
+   const origin={latDeg:Math.asin(sinN+(sinS-sinN)*v)*180/Math.PI,lonDeg:((west+u*lonSpan+180)%360)-180};
+@@ -65,10 +72,55 @@
+   if(!p){rejected[reason??'slope']++;populations.unplaced+=count;continue;}
+   if(chosenAttempt||waterAccess)relocatedSites++;
+   const id=zone?`${zone.id}/site:${slot}`:`pop:${cellIndex}:${slot}`;
+-  result.push({id,name:`${kind==='city'?'都市':kind==='town'?'町':'村'} ${cellIndex}-${slot}`,cellIndex,slot,kind,population:count,...p,elevationM:sample.groundElevationM,siting:{candidateIndex:chosenAttempt,gradeMPerM:chosenGrade,...(waterIndex?{waterAccess:waterAccess??{status:'not-established'}}:{})},status:'sited-needs-local-layout'});populations.placed+=count;
++  result.push({id,name:`${kind==='city'?'都市':kind==='town'?'町':'村'} ${cellIndex}-${slot}`,cellIndex,slot,kind,population:count,...(policy?{settlementClass:settlementClassFor(kind,count)}:{}),...p,elevationM:sample.groundElevationM,siting:{candidateIndex:chosenAttempt,gradeMPerM:chosenGrade,...(waterIndex?{waterAccess:waterAccess??{status:'not-established'}}:{})},status:'sited-needs-local-layout'});populations.placed+=count;
+  }
+  populations.unplaced=c.population-populations.placed;
+  return{cellIndex,...(zone?{zoneId:zone.id,bounds:zone.bounds}:{}),sites:result,requested:total,rejected,populations,survey:{method:waterIndex?waterIndex.method:SETTLEMENT_CATALOGUE_METHOD,...(waterStats?{water:waterStats}:{}),maxCandidateSurveys,candidateSurveys,relocatedSites,maxSearchRadiusM:1200}};
+ }
++/** Survey a saved candidate page at its own fixed origins. This is the L2 hook
++ * into the existing terrain, water and slope survey: each candidate keeps the
++ * page's id, population and origin, a rejected candidate stays explicitly
++ * unplaced, and nothing is moved to another region. No house, road or field is
++ * generated. */
++function siteCandidateOrigins(base,population,candidates,{anchors=[],waterIndex=null}={}){
++ if(!Array.isArray(candidates))throw new RangeError('L2 survey candidates required');
++ if(!base||typeof base.sampleSurfaceAt!=='function'||typeof base.groundElevationAt!=='function')throw new TypeError('Surface sampling base required');
++ if(population?.sourceWorldId!==base.worldId)throw new Error('Population geography mismatch');
++ if(waterIndex&&!isWaterLedSiting(waterIndex.method))throw new TypeError('Unknown water siting policy');
++ const radius=base.frame?.radiusM;
++ if(!Number.isFinite(radius)||radius<=0)throw new RangeError('Survey sphere radius required');
++ const sites=[],rejections=[],rejected={wet:0,slope:0,anchor:0,invalid:0},populations={placed:0,unplaced:0};
++ let candidateSurveys=0,relocatedSites=0;
++ for(const candidate of candidates){
++  if(!candidate||typeof candidate.id!=='string'||!candidate.id)throw new RangeError('Invalid L2 survey candidate identity');
++  if(candidate.kind!=='city'&&candidate.kind!=='town'&&candidate.kind!=='village')throw new RangeError('Invalid L2 survey candidate kind');
++  if(!Number.isSafeInteger(candidate.population)||candidate.population<0)throw new RangeError('Invalid L2 survey candidate population');
++  if(!Number.isFinite(candidate.latDeg)||!Number.isFinite(candidate.lonDeg))throw new RangeError('Invalid L2 survey candidate origin');
++  const {id,kind,population:count,latDeg,lonDeg}=candidate,origin={latDeg,lonDeg};
++  candidateSurveys++;
++  const q=base.sampleSurfaceAt(latDeg,lonDeg);let failed=null,grade=0;
++  const waterDepth=q?.waterDepthM;
++  // A non-finite or negative surface value is withheld as invalid; it is never
++  // silently adopted as a valid site.
++  if(!q||!Number.isFinite(q.groundElevationM)||(waterDepth!==undefined&&(!Number.isFinite(waterDepth)||waterDepth<0)))failed='invalid-surface';
++  else if(q.sitingWet===true||waterDepth>0||q.groundElevationM<=(q.waterLevelElevationM??-Infinity)+2)failed='wet';
++  else if(anchors.some(a=>greatCircle(a,origin,radius).distanceM<3000))failed='anchor';
++  else{const east=offsetGeographic(origin,30,0,radius),northP=offsetGeographic(origin,0,30,radius);
++   const eastZ=base.groundElevationAt(east.latDeg,east.lonDeg),northZ=base.groundElevationAt(northP.latDeg,northP.lonDeg);
++   if(!Number.isFinite(eastZ)||!Number.isFinite(northZ))failed='invalid-surface';
++   else{grade=Math.hypot((eastZ-q.groundElevationM)/30,(northZ-q.groundElevationM)/30);if(!Number.isFinite(grade))failed='invalid-surface';else if(grade>.06)failed='slope';}}
++  let waterAccess=null;
++  if(!failed&&waterIndex){
++   const list=waterIndex.forCell(candidate.cellIndex??0,kind)??[];let best=null;
++   for(const proposal of list){const distance=greatCircle(origin,proposal,radius).distanceM;if(distance<=2000&&(!best||distance<best.distance))best={proposal,distance};}
++   if(best){const access=surveySettlementWaterAccess(base,best.proposal);if(access.status==='sampled-river-approach')waterAccess=access;}
++  }
++  if(failed){rejected[failed==='invalid-surface'?'invalid':failed]++;rejections.push({id,reason:failed});populations.unplaced+=count;continue;}
++  if(waterAccess)relocatedSites++;
++  sites.push({id,cellIndex:candidate.cellIndex,slot:candidate.slot,kind,settlementClass:candidate.settlementClass,population:count,latDeg,lonDeg,origin:{...origin},elevationM:q.groundElevationM,siting:{gradeMPerM:grade,...(waterIndex?{waterAccess:waterAccess??{status:'not-established'}}:{})},status:'sited-needs-local-layout'});
++  populations.placed+=count;
++ }
++ return {sites,rejections,rejected,populations,survey:{method:waterIndex?waterIndex.method:SETTLEMENT_CATALOGUE_METHOD,candidateSurveys,relocatedSites,scope:'Page candidates are surveyed at their saved origins; rejected candidates stay unresolved at their own origin and are never moved to another region'}};
++}
+ export function catalogueRegionBound(grid,cellIndex){const {columns:w,rows:h}=grid,row=Math.floor(cellIndex/w),col=cellIndex%w;return{center:sphereBasis({latDeg:90-(row+.5)*180/h,lonDeg:(col+.5)*360/w}).up,angularRadius:Math.PI/h/2+Math.PI/w};}
+ export function intersectsCatalogueRegion(region,bound,padding=0){return Math.acos(Math.max(-1,Math.min(1,region.center.reduce((s,v,i)=>s+v*bound.center[i],0))))<=region.angularRadius+bound.angular+padding;}
+--- a/src/core/settlement-distribution.mjs
++++ b/src/core/settlement-distribution.mjs
+@@ -1,4 +1,5 @@
+ import {copyJson, hashJson} from './json-contract.mjs';
++import {validateSettlementSizePolicy, validateSettlementApportionment} from './settlement-size-model.mjs';
+ 
+ // Planet saves canonicalize object key order. Distribution identity must survive
+ // that serialization, while retaining exact array order and numerical budgets.
+@@ -131,8 +132,18 @@
+   requireIdentity(distribution);
+   if (distribution.layer === 'L1' && (typeof distribution.parentDistributionId !== 'string' || !distribution.parentDistributionId)) throw new RangeError('L1 settlement distribution requires a parent distribution id');
+   if (distribution.suitabilityScale !== SUITABILITY_SCALE) throw new RangeError('Unsupported settlement distribution suitability scale');
++  // A distribution that carries a size policy must also have that policy's own
++  // bounds re-derived, so a re-hashed contradictory policy is rejected here.
++  const policy = distribution.sizePolicy !== undefined ? validateSettlementSizePolicy(distribution.sizePolicy) : null;
+   const { cells } = gridOf(distribution.grid, 'Settlement distribution grid');
+   validateFields(distribution.fields, cells);
++  if (policy) {
++    for (let i = 0; i < cells; i++) {
++      validateSettlementApportionment(policy, 'village', distribution.fields.ruralPopulation[i], distribution.fields.villages[i]);
++      validateSettlementApportionment(policy, 'town', distribution.fields.townPopulation[i], distribution.fields.towns[i]);
++      validateSettlementApportionment(policy, 'city', distribution.fields.cityPopulation[i], distribution.fields.cities[i]);
++    }
++  }
+   const fieldsTotals = totalsFor(distribution.fields, cells);
+   validateTotals(distribution.totals, fieldsTotals, cells);
+   let unallocatedTotals = null;
+@@ -155,6 +166,11 @@
+         sum += p;
+       }
+       if (sum !== integer(unallocated.population[i], 'unallocated population')) throw new RangeError('Unallocated population does not match its parts');
++      if (policy) {
++        validateSettlementApportionment(policy, 'village', unallocated.ruralPopulation[i], unallocated.villages[i]);
++        validateSettlementApportionment(policy, 'town', unallocated.townPopulation[i], unallocated.towns[i]);
++        validateSettlementApportionment(policy, 'city', unallocated.cityPopulation[i], unallocated.cities[i]);
++      }
+     }
+     unallocatedTotals = totalsFor(unallocated, n);
+     const declared = unallocated.totals;
+@@ -200,6 +216,10 @@
+     throw new RangeError('L0 settlement distribution requires the matching climate');
+   }
+   if (!Array.isArray(population.cells) || population.cells.length !== n) throw new RangeError('Population authority cells must match the L0 grid');
++  // The canonical size policy lives at population.sizePolicy; @2 authorities must
++  // carry it. settings only keeps the original input values.
++  if (population.schema === 'agriculture-population@2' && population.sizePolicy === undefined) throw new RangeError('Population authority @2 requires a size policy');
++  const sizePolicy = population.sizePolicy !== undefined ? validateSettlementSizePolicy(population.sizePolicy) : null;
+   const land = snapshot.fields?.landMask, lake = snapshot.fields?.lakeFillDepthM;
+   if (!Array.isArray(land) || land.length !== n) throw new RangeError('L0 land mask required');
+   const fields = { population: [], ruralPopulation: [], townPopulation: [], cityPopulation: [], villages: [], towns: [], cities: [], wet: [], suitability: [] };
+@@ -231,6 +251,7 @@
+     grid: { columns, rows },
+     status: SETTLEMENT_DISTRIBUTION_STATUS,
+     suitabilityScale: SUITABILITY_SCALE,
++    ...(sizePolicy ? { sizePolicy } : {}),
+     fields, totals, summary,
+     interpretation: 'Aggregate settlement budget per L0 cell. Locations, roads, fields and buildings remain unresolved.',
+     assumptions: [
+@@ -343,12 +364,16 @@
+       const totalPeople = distribution.fields[people][p], totalCount = distribution.fields[count][p];
+       const counts = allocateIntegerBudget(totalCount, weights);
+       if (totalCount === 0) { kids.forEach((k, i) => { fields[count][k] = 0; fields[people][k] = 0; }); continue; }
+-      const active = kids.map((_, i) => (counts[i] > 0 ? 1 : 0));
+-      const activeCount = active.reduce((s, v) => s + v, 0);
+-      if (activeCount === 0) throw new Error('Settlement count allocation produced no child');
+-      const personWeights = weights.map((w, i) => (counts[i] > 0 ? w : 0n));
+-      const extra = allocateIntegerBudget(totalPeople - activeCount, personWeights);
+-      kids.forEach((k, i) => { fields[count][k] = counts[i]; fields[people][k] = counts[i] > 0 ? 1 + extra[i] : 0; });
++      // First distribute the settlement counts by area and suitability. The
++      // matching people are then the parent's floor(people/count) base plus the
++      // remainder spread over a contiguous run of settlements. People are not
++      // independently redistributed by area weight, so a town's mean size is not
++      // distorted; parent = children + unallocated still holds for all seven
++      // budgets. This global apportionment is deliberately not generalised to
++      // L1 -> L2.
++      const small = Math.floor(totalPeople / totalCount), extra = totalPeople % totalCount;
++      let offset = 0;
++      kids.forEach((k, i) => { const n = counts[i]; fields[count][k] = n; fields[people][k] = n > 0 ? small * n + Math.max(0, Math.min(n, extra - offset)) : 0; offset += n; });
+     }
+     kids.forEach(k => { fields.population[k] = fields.ruralPopulation[k] + fields.townPopulation[k] + fields.cityPopulation[k]; });
+   }
+@@ -376,12 +401,14 @@
+     grid: { columns, rows },
+     status: SETTLEMENT_DISTRIBUTION_STATUS,
+     suitabilityScale: SUITABILITY_SCALE,
++    ...(distribution.sizePolicy ? { sizePolicy: distribution.sizePolicy } : {}),
+     fields, unallocated, totals, summary,
+     interpretation: 'Refined aggregate settlement budget per L1 cell. Coarse suitability is a relative weight, not a certified local food capacity. No site, road or building is fixed yet.',
+     assumptions: [
+       'Parent = allocated children + explicit unallocated for every one of the seven budgets',
+       'Child area is the actual L1 cell area; suitability is projected from the parent distribution unless overridden',
+       'A child may only receive a population type when it also receives a settlement count of that type',
++      'People are the parent floor(people/count) base plus a contiguous remainder run, never an independent area-weighted redistribution',
+     ],
+     limitations: [
+       'Sea and lake cells carry zero population and zero settlements',
+--- /dev/null
++++ b/src/core/settlement-size-model.mjs
+@@ -0,0 +1,191 @@
++import {createHash} from './sha256.mjs';
++
++/** Explicit, saved settlement magnitude assumptions. These are named policy
++ * bounds for a provisional size-variation model, not a historical calibration,
++ * a trade model or a finished natural urban hierarchy.
++ *
++ * A town is at least a quarter of its mean and a city at least half of its mean;
++ * every type is capped at 1.5x its mean. Custom means are converted to these
++ * integer boundaries, and abnormal (non-integer or extreme) means are rejected. */
++export const SETTLEMENT_SIZE_POLICY_SCHEMA = 'settlement-size-policy@1';
++export const HAMLET_MAX_POPULATION = 100;
++const MAX_MEAN = 100000000;
++const DEFAULT_JITTER_PERIOD = 16;
++const MAX_JITTER_PERIOD = 32;
++export const SETTLEMENT_KINDS = ['city', 'town', 'village'];
++
++function meanValue(value, name) {
++  if (!Number.isSafeInteger(value) || value < 1 || value > MAX_MEAN) throw new RangeError(`Invalid ${name}`);
++  return value;
++}
++function periodValue(value, name, max = MAX_JITTER_PERIOD) {
++  if (!Number.isSafeInteger(value) || value < 1 || value > max) throw new RangeError(`Invalid ${name}`);
++  return value;
++}
++function amplitudeFraction(value) {
++  if (!Number.isFinite(value) || value < 0 || value > 0.5) throw new RangeError('Invalid settlement size policy jitter amplitude');
++  return value;
++}
++function townMinFor(mean) { return Math.max(1, Math.round(mean / 4)); }
++function boundFor(mean, factor) { return Math.round(mean * factor); }
++
++/** Re-derive every boundary from the saved means, so a tampered policy is
++ * rejected even when its content hash (if any) was recomputed by the caller. */
++export function validateSettlementSizePolicy(policy) {
++  if (!policy || typeof policy !== 'object' || Object.getPrototypeOf(policy) !== Object.prototype) throw new TypeError('Settlement size policy required');
++  if (policy.schema !== SETTLEMENT_SIZE_POLICY_SCHEMA) throw new RangeError('Unsupported settlement size policy schema');
++  const meanVillage = meanValue(policy.meanVillagePopulation, 'meanVillagePopulation');
++  const meanTown = meanValue(policy.meanTownPopulation, 'meanTownPopulation');
++  const meanCity = meanValue(policy.meanCityPopulation, 'meanCityPopulation');
++  if (policy.villageMin !== 1) throw new RangeError('Settlement size policy village minimum must be 1');
++  const expected = {
++    villageMax: boundFor(meanVillage, 1.5),
++    townMin: townMinFor(meanTown),
++    townMax: boundFor(meanTown, 1.5),
++    cityMin: boundFor(meanCity, 0.5),
++    cityMax: boundFor(meanCity, 1.5),
++  };
++  for (const [key, value] of Object.entries(expected)) {
++    if (policy[key] !== value) throw new RangeError(`Settlement size policy '${key}' is inconsistent with its means`);
++    if (!Number.isSafeInteger(value) || value < 1) throw new RangeError(`Invalid settlement size policy '${key}'`);
++  }
++  if (expected.villageMax < 1 || expected.townMin > expected.townMax || expected.cityMin > expected.cityMax) throw new RangeError('Settlement size policy bounds are not ordered');
++  amplitudeFraction(policy.jitterAmplitudeFraction);
++  periodValue(policy.jitterPeriod, 'jitterPeriod');
++  return policy;
++}
++
++export function createSettlementSizePolicy({
++  meanVillagePopulation = 300,
++  meanTownPopulation = 4000,
++  meanCityPopulation = 50000,
++  jitterAmplitudeFraction = 0.25,
++  jitterPeriod = DEFAULT_JITTER_PERIOD,
++} = {}) {
++  meanValue(meanVillagePopulation, 'meanVillagePopulation');
++  meanValue(meanTownPopulation, 'meanTownPopulation');
++  meanValue(meanCityPopulation, 'meanCityPopulation');
++  amplitudeFraction(jitterAmplitudeFraction);
++  periodValue(jitterPeriod, 'jitterPeriod');
++  const policy = {
++    schema: SETTLEMENT_SIZE_POLICY_SCHEMA,
++    meanVillagePopulation,
++    meanTownPopulation,
++    meanCityPopulation,
++    villageMin: 1,
++    villageMax: boundFor(meanVillagePopulation, 1.5),
++    townMin: townMinFor(meanTownPopulation),
++    townMax: boundFor(meanTownPopulation, 1.5),
++    cityMin: boundFor(meanCityPopulation, 0.5),
++    cityMax: boundFor(meanCityPopulation, 1.5),
++    jitterAmplitudeFraction,
++    jitterPeriod,
++  };
++  return validateSettlementSizePolicy(policy);
++}
++
++export function settlementKindBounds(policy, kind) {
++  validateSettlementSizePolicy(policy);
++  if (kind === 'city') return { min: policy.cityMin, max: policy.cityMax, mean: policy.meanCityPopulation };
++  if (kind === 'town') return { min: policy.townMin, max: policy.townMax, mean: policy.meanTownPopulation };
++  if (kind === 'village') return { min: policy.villageMin, max: policy.villageMax, mean: policy.meanVillagePopulation };
++  throw new RangeError('Unknown settlement kind');
++}
++
++/** A stable unit interval value from an arbitrary textual seed. */
++export function settlementStableUnit(seed) {
++  const hex = createHash('sha256').update(String(seed)).digest('hex').slice(0, 8);
++  return parseInt(hex, 16) / 4294967296;
++}
++
++function pairDelta(policy, seed, kind, pairIndex, cap) {
++  if (cap <= 0) return 0;
++  const { mean } = settlementKindBounds(policy, kind);
++  const amplitude = Math.round(mean * policy.jitterAmplitudeFraction);
++  if (amplitude <= 0) return 0;
++  const period = policy.jitterPeriod;
++  const residue = ((pairIndex % period) + period) % period;
++  const unit = settlementStableUnit(`${seed}|${kind}|delta|${residue}`);
++  const raw = Math.round((2 * unit - 1) * amplitude);
++  return Math.max(-cap, Math.min(cap, raw));
++}
++
++function slotJitter(policy, seed, kind, people, count, rank) {
++  const { min, max } = settlementKindBounds(policy, kind);
++  const small = Math.floor(people / count);
++  const cap = Math.max(0, Math.min(small - min, max - small - 1));
++  // The trailing slot of an odd count has no partner, so it is left unvaried and
++  // the whole type still sums to its people budget exactly.
++  if (count % 2 === 1 && rank === count - 1) return 0;
++  const delta = pairDelta(policy, seed, kind, Math.floor(rank / 2), cap);
++  return (rank & 1) ? -delta : delta;
++}
++
++/** Individual slot population: the integer base + remainder plus a fixed-period,
++ * zero-sum pairwise variation. Every slot stays inside the kind's min/max. */
++export function settlementSlotPopulation(policy, kind, people, count, rank, seed) {
++  validateSettlementSizePolicy(policy);
++  if (!Number.isSafeInteger(people) || people < 0 || !Number.isSafeInteger(count) || count < 0) throw new RangeError('Invalid settlement slot budget');
++  if ((people === 0) !== (count === 0)) throw new RangeError('Settlement slot people and count must agree on zero');
++  if (count === 0) throw new RangeError('No settlement slot exists for a zero count');
++  if (!Number.isSafeInteger(rank) || rank < 0 || rank >= count) throw new RangeError('Settlement slot rank out of range');
++  // An impossible people/count split is rejected explicitly instead of being
++  // smoothed toward the mean.
++  validateSettlementApportionment(policy, kind, people, count);
++  const small = Math.floor(people / count);
++  const remainder = people % count;
++  return small + (rank < remainder ? 1 : 0) + slotJitter(policy, seed, kind, people, count, rank);
++}
++
++/** Population of the first `m` slots of one type, computed in O(period) without
++ * building the per-slot array. Complete adjacent pairs cancel exactly. */
++export function settlementSlotPeoplePrefix(policy, kind, people, count, m, seed) {
++  validateSettlementSizePolicy(policy);
++  if (!Number.isSafeInteger(people) || people < 0 || !Number.isSafeInteger(count) || count < 0) throw new RangeError('Invalid settlement slot budget');
++  if ((people === 0) !== (count === 0)) throw new RangeError('Settlement slot people and count must agree on zero');
++  if (!Number.isSafeInteger(m) || m < 0 || m > count) throw new RangeError('Settlement slot prefix out of range');
++  if (count === 0) return 0;
++  validateSettlementApportionment(policy, kind, people, count);
++  const small = Math.floor(people / count);
++  const remainder = people % count;
++  let total = m * small + Math.min(m, remainder);
++  if (m % 2 === 1) total += slotJitter(policy, seed, kind, people, count, m - 1);
++  return total;
++}
++
++/** How many settlements of a kind a people budget should hold so that the mean
++ * size stays inside the kind's bounds. Zero people means zero settlements. */
++export function settlementCountFor(policy, kind, people) {
++  validateSettlementSizePolicy(policy);
++  if (!Number.isSafeInteger(people) || people < 0) throw new RangeError('Invalid settlement people budget');
++  if (people === 0) return 0;
++  const { min, max, mean } = settlementKindBounds(policy, kind);
++  // A people budget below a single settlement's minimum cannot form any
++  // settlement of this kind. The caller returns those people to a smaller kind.
++  if (people < min) return 0;
++  const minCount = Math.ceil(people / max);
++  const maxCount = Math.floor(people / min);
++  const base = Math.ceil(people / mean);
++  return Math.max(minCount, Math.min(maxCount, base));
++}
++
++/** Whether a saved people/count pair can be realised inside the policy bounds. */
++export function validateSettlementApportionment(policy, kind, people, count) {
++  validateSettlementSizePolicy(policy);
++  const { min, max } = settlementKindBounds(policy, kind);
++  if (!Number.isSafeInteger(people) || people < 0 || !Number.isSafeInteger(count) || count < 0) throw new RangeError('Invalid settlement apportionment');
++  if ((people === 0) !== (count === 0)) throw new RangeError('Settlement apportionment people and count must agree on zero');
++  if (count === 0) return true;
++  if (BigInt(people) > BigInt(count) * BigInt(max)) throw new RangeError(`Settlement ${kind} average exceeds its size policy maximum`);
++  if (BigInt(people) < BigInt(count) * BigInt(min)) throw new RangeError(`Settlement ${kind} average is below its size policy minimum`);
++  const small = Math.floor(people / count);
++  if (small < min || small > max) throw new RangeError(`Settlement ${kind} size policy cannot realise this apportionment`);
++  return true;
++}
++
++/** Villages aggregate small settlements; a village under 100 people is shown as
++ * a hamlet. This is a display class, not a separate budget. */
++export function settlementClassFor(kind, population) {
++  if (kind === 'village' && population < HAMLET_MAX_POPULATION) return 'hamlet';
++  return kind;
++}
+--- a/src/globe/index.html
++++ b/src/globe/index.html
+@@ -21,6 +21,7 @@
+ <div class="row"><button id="save-view" disabled>この視点を保存</button><button id="restore-view" disabled>保存した視点へ</button><button id="restart-workers" disabled>地形読込を再起動</button></div>
+ <p><a href="./relief.html">保存した三角地形の地域ビュー（試験）</a></p>
+ <p><a href="../../reports/l0-settlement-baseline/review.html">新しいL0人口・集落分布を確認</a><br><small><code>npm run l0:baseline</code> で作成する独立の分布確認用です。現在表示中の保存世界そのものの分布ではありません。</small></p>
++<p><a href="../../reports/l2-settlement-baseline/review.html">集落候補と農地の見積もりを確認</a><br><small><code>npm run l2:baseline</code> で作成する地域候補の確認用です。候補の敷地・農地・接続道路はこれから具体化します。</small></p>
+ <p><a id="climate-link" href="./climate.html">気温・降水・バイオームを見る</a></p><p><a id="network-link" href="./network.html">居住適性と広域の道の候補を見る</a></p><p><a href="./settlement.html?recipe=/examples/settlement-planning/actual-village-recipe.json">施設配置の保存済み実例（条件付き）</a></p>
+ <p><a id="settlement-plan-link" href="./settlement.html">集落の配置理由を見る</a></p>
+ <p><a id="vehicle-link" href="./vehicle.html">選択中の集落の車両通行を試す</a></p>
+--- /dev/null
++++ b/test/l1-settlement-survey-surface.test.mjs
+@@ -0,0 +1,23 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {createL1SettlementSurveySurface} from '../src/core/l1-settlement-survey-surface.mjs';
++const fixture=()=>({schema:'l1-broad-region@1',id:'l1',sourceWorldId:'world',snapshot:{layer:'L1',layerId:'l1',worldId:'world',grid:{columns:4,rows:2},frame:{radiusM:6371000},fields:{groundElevationM:[100,120,140,160,100,120,140,160],landMask:[1,1,1,0,1,1,1,0],lakeFillDepthM:[0,0,10,0,0,0,0,0]},references:{sea:{levelElevationM:0}}}});
++test('L1 screening uses saved heights and masks and identifies the exact surface',()=>{
++  const l1=fixture(),before=JSON.stringify(l1),s=createL1SettlementSurveySurface(l1);
++  assert.equal(s.groundElevationAt(45,45),100);
++  assert.equal(s.groundElevationAt(45,90),110);
++  assert.equal(s.sampleSurfaceAt(45,225).sitingWet,true);
++  assert.equal(s.sampleSurfaceAt(-45,225).sitingWet,false);
++  assert.equal(s.sampleSurfaceAt(45,315).sitingWet,true);
++  assert.equal(s.groundElevationAt(30,0),s.groundElevationAt(30,360));
++  assert.equal(s.surfaceId,createL1SettlementSurveySurface(JSON.parse(before)).surfaceId);
++  l1.snapshot.fields.groundElevationM[0]++;
++  assert.notEqual(s.surfaceId,createL1SettlementSurveySurface(l1).surfaceId);
++  assert.equal(s.groundElevationAt(45,45),100);
++});
++test('L1 screening rejects incomplete fields and invalid coordinates',()=>{
++  const l1=fixture();l1.snapshot.fields.landMask.pop();
++  assert.throws(()=>createL1SettlementSurveySurface(l1));
++  const s=createL1SettlementSurveySurface(fixture());
++  assert.throws(()=>s.sampleSurfaceAt(91,0));assert.throws(()=>s.groundElevationAt(0,NaN));
++});
+--- /dev/null
++++ b/test/l2-settlement-handoff.test.mjs
+@@ -0,0 +1,339 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { planAgriculturePopulation } from '../src/core/planet-population.mjs';
++import { createL0SettlementDistribution, refineSettlementDistribution } from '../src/core/settlement-distribution.mjs';
++import { createL2SettlementHandoff, validateL2SettlementHandoff, readL2SettlementCandidatePage, surveyL2SettlementCandidates, L2_MAX_PAGE_SIZE } from '../src/core/l2-settlement-handoff.mjs';
++import { copyJson, hashJson } from '../src/core/json-contract.mjs';
++
++const RADIUS = 6371000;
++
++function buildWorld({ worldId = 'world-a', columns = 8, rows = 8 } = {}) {
++  const n = columns * rows;
++  const groundElevationM = Array.from({ length: n }, (_, i) => (i % columns) * 4);
++  const landMask = Array.from({ length: n }, (_, i) => (i === 5 ? 0 : 1));
++  const lakeFillDepthM = new Array(n).fill(0);
++  const snapshot = { worldId, grid: { columns, rows }, frame: { radiusM: RADIUS }, fields: { groundElevationM, landMask, lakeFillDepthM } };
++  const monthlyTemperatureC = Array.from({ length: 12 }, () => new Array(n).fill(15));
++  const monthlyPrecipitationMm = Array.from({ length: 12 }, () => new Array(n).fill(60));
++  const cellAreaM2 = new Array(n).fill(1000000000);
++  const climate = { id: 'climate-1', sourceWorldId: worldId, grid: { columns, rows }, monthlyTemperatureC, monthlyPrecipitationMm, cellAreaM2 };
++  return { snapshot, climate, columns, rows, n };
++}
++
++function buildFixture() {
++  const { snapshot, climate, columns, rows, n } = buildWorld();
++  const population = planAgriculturePopulation(snapshot, climate, { targetPopulation: 20000000 });
++  const l0 = createL0SettlementDistribution(snapshot, climate, population);
++  const parentCell = Array.from({ length: n }, (_, i) => i);
++  const cellAreaM2 = climate.cellAreaM2;
++  const landMask = snapshot.fields.landMask;
++  const lakeFillDepthM = snapshot.fields.lakeFillDepthM;
++  const l1 = refineSettlementDistribution(l0, { sourceWorldId: snapshot.worldId, climateId: climate.id, sourceLayerId: 'layer-l1', grid: { columns, rows }, parentCell, cellAreaM2, landMask, lakeFillDepthM });
++  const region = { settlementDistribution: l1, parentCell };
++  return { snapshot, climate, population, l0, l1, region, n };
++}
++
++function findCell(population, predicate) {
++  const index = population.cells.findIndex(predicate);
++  assert.ok(index >= 0, 'expected a matching cell');
++  return index;
++}
++
++function fakeBase({ worldId = 'world-a', wet = () => false, height = () => 10, sitingWet = () => false, sourceLayerId = undefined, surfaceId = undefined, surface = null } = {}) {
++  return {
++    worldId,
++    ...(sourceLayerId !== undefined ? { sourceLayerId } : {}),
++    ...(surfaceId !== undefined ? { surfaceId } : {}),
++    frame: { radiusM: RADIUS },
++    sampleSurfaceAt: surface ?? ((latDeg, lonDeg) => ({
++      waterDepthM: wet(latDeg, lonDeg) ? 1 : 0,
++      groundElevationM: height(latDeg, lonDeg),
++      waterLevelElevationM: wet(latDeg, lonDeg) ? 5 : undefined,
++      sitingWet: sitingWet(latDeg, lonDeg),
++    })),
++    groundElevationAt: (latDeg, lonDeg) => height(latDeg, lonDeg),
++  };
++}
++
++function reorder(value) {
++  if (Array.isArray(value)) return value.map(reorder);
++  if (value && typeof value === 'object') {
++    const keys = Object.keys(value).reverse();
++    return Object.fromEntries(keys.map(key => [key, reorder(value[key])]));
++  }
++  return value;
++}
++
++function rehash(content) { return { ...content, id: hashJson(copyJson(content)) }; }
++function rehashPopulation(population) { const { id, ...rest } = population; return { ...rest, id: hashJson(copyJson(rest)) }; }
++
++test('the population authority saves a canonical top-level size policy and keeps population = its parts', () => {
++  const { population } = buildFixture();
++  assert.equal(population.schema, 'agriculture-population@2');
++  // The canonical size policy lives at population.sizePolicy; settings keeps only
++  // the original input values.
++  assert.equal(population.sizePolicy.townMin, 1000);
++  assert.equal(population.sizePolicy.cityMin, 25000);
++  assert.equal(population.settings.sizePolicy, undefined);
++  assert.equal(population.settings.meanTownPopulation, 4000);
++  for (const cell of population.cells) {
++    assert.equal(cell.population, cell.ruralPopulation + cell.townPopulation + cell.cityPopulation);
++    assert.equal((cell.cityPopulation === 0), (cell.cities === 0));
++    assert.equal((cell.townPopulation === 0), (cell.towns === 0));
++    assert.equal((cell.ruralPopulation === 0), (cell.villages === 0));
++    if (cell.towns) assert.ok(cell.townPopulation / cell.towns >= population.sizePolicy.townMin && cell.townPopulation / cell.towns <= population.sizePolicy.townMax);
++    if (cell.cities) assert.ok(cell.cityPopulation / cell.cities >= population.sizePolicy.cityMin && cell.cityPopulation / cell.cities <= population.sizePolicy.cityMax);
++  }
++});
++
++test('the size policy propagates from the population authority to L0 and L1', () => {
++  const { population, l0, l1 } = buildFixture();
++  assert.equal(l0.sizePolicy.townMin, population.sizePolicy.townMin);
++  assert.equal(l1.sizePolicy.townMin, population.sizePolicy.townMin);
++  const tampered = { ...l1, sizePolicy: { ...l1.sizePolicy, townMin: l1.sizePolicy.townMin + 1 } };
++  assert.throws(() => refineSettlementDistribution(tampered, { sourceWorldId: population.sourceWorldId, climateId: l1.climateId, sourceLayerId: 'x', grid: l1.grid, parentCell: [], cellAreaM2: [], landMask: [], lakeFillDepthM: [] }), RangeError);
++});
++
++test('the L0 to L1 refinement keeps parents = children + unallocated and preserves town means', () => {
++  const { l0, l1, population } = buildFixture();
++  for (const key of ['population', 'ruralPopulation', 'townPopulation', 'cityPopulation', 'villages', 'towns', 'cities']) {
++    assert.equal(l1.totals[key] + l1.unallocated.totals[key], l0.totals[key]);
++  }
++  assert.equal(l1.fields.population.reduce((a, b) => a + b, 0), population.totals.supportedPopulation);
++  const populated = findCell(population, c => c.townPopulation > 0);
++  assert.equal(l1.fields.townPopulation[populated], l0.fields.townPopulation[populated]);
++});
++
++test('createL2SettlementHandoff is pure, L1-only and identity stable under key reordering', () => {
++  const { population, l0, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const before = JSON.stringify(population);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  assert.equal(JSON.stringify(population), before, 'inputs must not be modified');
++  assert.equal(handoff.status, 'candidate-budget-only');
++  assert.equal(handoff.cellIndex, cellIndex);
++  assert.equal(handoff.budget.population, population.cells[cellIndex].population);
++  assert.equal(validateL2SettlementHandoff(handoff), handoff);
++  const reordered = reorder(handoff);
++  assert.equal(reordered.id, handoff.id);
++  assert.equal(validateL2SettlementHandoff(reordered), reordered);
++  assert.throws(() => createL2SettlementHandoff({ settlementDistribution: l0, parentCell: Array.from({ length: population.cells.length }, (_, i) => i) }, population, 0), /L1/);
++});
++
++test('create rejects a tampered population that kept the same id', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const tampered = { ...population, cells: population.cells.map((cell, i) => (i === 0 ? { ...cell, netFoodKg: cell.netFoodKg + 1 } : cell)) };
++  assert.throws(() => createL2SettlementHandoff(region, tampered, cellIndex), /identity/);
++});
++
++test('create rejects mismatched region world, layer, grid and climate identities', () => {
++  const { snapshot, population, l1, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const good = {
++    ...region,
++    snapshot: { worldId: snapshot.worldId, layerId: l1.sourceLayerId, grid: { columns: l1.grid.columns, rows: l1.grid.rows } },
++    climate: { id: l1.climateId, sourceWorldId: snapshot.worldId, parentClimateId: population.climateId },
++  };
++  assert.ok(createL2SettlementHandoff(good, population, cellIndex).id);
++  assert.throws(() => createL2SettlementHandoff({ ...good, snapshot: { ...good.snapshot, worldId: 'other' } }, population, cellIndex), /world/);
++  assert.throws(() => createL2SettlementHandoff({ ...good, snapshot: { ...good.snapshot, layerId: 'other' } }, population, cellIndex), /layer/);
++  assert.throws(() => createL2SettlementHandoff({ ...good, snapshot: { ...good.snapshot, grid: { columns: 1, rows: 1 } } }, population, cellIndex), /grid/);
++  assert.throws(() => createL2SettlementHandoff({ ...good, climate: { ...good.climate, id: 'other' } }, population, cellIndex), /climate/);
++  assert.throws(() => createL2SettlementHandoff({ ...good, climate: { ...good.climate, parentClimateId: 'other' } }, population, cellIndex), /parent climate/);
++});
++
++test('a tampered parent mapping, bounds, granularity or policy is rejected even after rehashing', () => {
++  const { population, region, l1 } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  const { id, ...content } = handoff;
++
++  const badBudgets = rehash({ ...content, budget: { ...content.budget, population: content.budget.population + 1 } });
++  assert.throws(() => validateL2SettlementHandoff(badBudgets), /sum to its population/);
++
++  const badGrid = rehash({ ...content, cellIndex: content.grid.columns * content.grid.rows + 5 });
++  assert.throws(() => validateL2SettlementHandoff(badGrid), /cellIndex/);
++
++  const badParent = rehash({ ...content, parentCell: (content.parentCell + 1) % (content.parentGrid.columns * content.parentGrid.rows) });
++  assert.throws(() => validateL2SettlementHandoff(badParent), /geographic parent/);
++
++  const badBounds = rehash({ ...content, bounds: { ...content.bounds, east: content.bounds.east + 360 / content.grid.columns } });
++  assert.throws(() => validateL2SettlementHandoff(badBounds), /bounds/);
++
++  const badGranularity = rehash({ ...content, parentGrid: { columns: content.parentGrid.columns + 1, rows: content.parentGrid.rows } });
++  assert.throws(() => validateL2SettlementHandoff(badGranularity), RangeError);
++
++  const badPolicy = rehash({ ...content, sizePolicy: { ...content.sizePolicy, townMin: content.sizePolicy.townMin + 1 } });
++  assert.throws(() => validateL2SettlementHandoff(badPolicy), /inconsistent/);
++
++  const badFarmland = rehash({ ...content, farmland: { ...content.farmland, totalDemandM2: content.farmland.totalDemandM2 + 7 } });
++  assert.throws(() => validateL2SettlementHandoff(badFarmland), /farmland/);
++
++  const badHash = { ...handoff, id: 'sha256:0000' };
++  assert.throws(() => validateL2SettlementHandoff(badHash), /identity/);
++  // The L0 policy is also asserted for local re-derivation.
++  assert.equal(l1.sizePolicy.cityMin, 25000);
++});
++
++test('a zero-population, zero-yield cell yields zero farmland demand without NaN', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = population.cells.findIndex(c => c.population === 0 && c.capacity === 0);
++  assert.ok(cellIndex >= 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  assert.equal(handoff.budget.population, 0);
++  assert.equal(handoff.farmland.yieldKgPerHa, 0);
++  assert.equal(handoff.farmland.totalDemandM2, 0);
++  assert.equal(handoff.farmland.unresolved, false);
++  assert.equal(validateL2SettlementHandoff(handoff), handoff);
++  const page = readL2SettlementCandidatePage(handoff, { offset: 0, limit: 64 });
++  assert.equal(page.total, 0);
++  assert.deepEqual(page.candidates, []);
++});
++
++test('a positive population with a zero scenario yield keeps the explicit unresolved flag', () => {
++  const { population, snapshot, climate } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const zeroed = rehashPopulation({ ...population, cells: population.cells.map((cell, i) => (i === cellIndex ? { ...cell, netFoodKg: 0 } : cell)) });
++  const l0=createL0SettlementDistribution(snapshot,climate,zeroed);
++  const parentCell=zeroed.cells.map(c=>c.cellIndex);
++  const l1=refineSettlementDistribution(l0,{sourceWorldId:snapshot.worldId,climateId:climate.id,sourceLayerId:'layer-l1',grid:snapshot.grid,parentCell,cellAreaM2:climate.cellAreaM2,landMask:snapshot.fields.landMask,lakeFillDepthM:snapshot.fields.lakeFillDepthM});
++  const region={settlementDistribution:l1,parentCell};
++  const handoff = createL2SettlementHandoff(region, zeroed, cellIndex);
++  assert.ok(handoff.budget.population > 0);
++  assert.equal(handoff.farmland.yieldKgPerHa, 0);
++  assert.equal(handoff.farmland.totalDemandM2, 0);
++  assert.equal(handoff.farmland.unresolved, true);
++});
++
++test('a non-finite or negative parent agricultural value is rejected, not silently zeroed', () => {
++  const { population, snapshot, climate } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  for (const bad of [NaN, -1]) {
++    assert.throws(() => {
++      const broken = rehashPopulation({ ...population, cells: population.cells.map((cell, i) => (i === cellIndex ? { ...cell, netFoodKg: bad } : cell)) });
++      const l0=createL0SettlementDistribution(snapshot,climate,broken),parentCell=broken.cells.map(c=>c.cellIndex);
++      const l1=refineSettlementDistribution(l0,{sourceWorldId:snapshot.worldId,climateId:climate.id,sourceLayerId:'layer-l1',grid:snapshot.grid,parentCell,cellAreaM2:climate.cellAreaM2,landMask:snapshot.fields.landMask,lakeFillDepthM:snapshot.fields.lakeFillDepthM});
++      return createL2SettlementHandoff({settlementDistribution:l1,parentCell},broken,cellIndex);
++    }, /finite/);
++  }
++});
++
++test('pages are bounded, ordered city then town then village, and stable on revisit', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.towns > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  const first = readL2SettlementCandidatePage(handoff, { offset: 0, limit: 64 });
++  const again = readL2SettlementCandidatePage(JSON.parse(JSON.stringify(handoff)), { offset: 0, limit: 64 });
++  assert.deepEqual(again, first);
++  const kinds = first.candidates.map(c => c.kind);
++  const order = { city: 0, town: 1, village: 2 };
++  for (let i = 1; i < kinds.length; i++) assert.ok(order[kinds[i]] >= order[kinds[i - 1]]);
++  const all = readL2SettlementCandidatePage(handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE }).candidates;
++  const page2 = readL2SettlementCandidatePage(handoff, { offset: 64, limit: 64 });
++  for (let i = 0; i < page2.candidates.length; i++) {
++    assert.equal(page2.candidates[i].id, all[64 + i]?.id);
++  }
++  const wide = readL2SettlementCandidatePage(handoff, { offset: 0, limit: 100000 });
++  assert.ok(wide.limit <= L2_MAX_PAGE_SIZE);
++  assert.throws(() => readL2SettlementCandidatePage(handoff, { offset: -1 }), RangeError);
++  assert.throws(() => readL2SettlementCandidatePage(handoff, { offset: 1.5 }), RangeError);
++});
++
++test('page candidates keep their population, id and a unique shared-stratum coordinate', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.villages > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  const page = readL2SettlementCandidatePage(handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  const seen = new Set();
++  for (const candidate of page.candidates) {
++    assert.equal(candidate.id, `${handoff.id}/slot:${candidate.slot}`);
++    assert.ok(candidate.latDeg <= handoff.bounds.north && candidate.latDeg >= handoff.bounds.south);
++    assert.ok(candidate.population > 0);
++    if (candidate.kind === 'village') assert.equal(candidate.settlementClass, candidate.population < 100 ? 'hamlet' : 'village');
++    const key = `${candidate.latDeg},${candidate.lonDeg}`;
++    assert.equal(seen.has(key), false, 'candidate origins must not overlap within a page');
++    seen.add(key);
++  }
++});
++
++test('farmland demand is an integer, matches the page and slices exactly across pages', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  if (!handoff.farmland.unresolved) assert.ok(handoff.farmland.totalDemandM2 > 0);
++  const pageA = readL2SettlementCandidatePage(handoff, { offset: 0, limit: 4 });
++  const pageB = readL2SettlementCandidatePage(handoff, { offset: 4, limit: Math.max(1, pageA.total - 4) });
++  const pageAll = readL2SettlementCandidatePage(handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  assert.equal(pageA.farmlandDemandM2 + pageB.farmlandDemandM2, handoff.farmland.totalDemandM2);
++  assert.equal(pageAll.farmlandDemandM2, handoff.farmland.totalDemandM2);
++  assert.equal(Number.isSafeInteger(handoff.farmland.totalDemandM2), true);
++});
++
++test('survey adopts real sites and partitions the seven budgets and farmland exactly', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  const base = fakeBase();
++  const survey = surveyL2SettlementCandidates(base, population, handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  assert.equal('unsurveyed' in survey, false);
++  assert.deepEqual(survey.unresolvedCandidates, []);
++  for (const key of Object.keys(survey.budgets.requested)) {
++    assert.equal(survey.budgets.adopted[key] + survey.budgets.unresolved[key] + survey.budgets.unvisited[key], handoff.budget[key]);
++    assert.equal(survey.budgets.requested[key] + survey.budgets.unvisited[key], handoff.budget[key]);
++  }
++  assert.equal(survey.budgets.adopted.population, survey.budgets.requested.population);
++  assert.equal(survey.budgets.unresolved.population, 0);
++  assert.equal(survey.budgets.unvisited.population, 0);
++  assert.equal(survey.farmlandDemandM2.adopted + survey.farmlandDemandM2.unresolved + survey.farmlandDemandM2.unvisited, handoff.farmland.totalDemandM2);
++  assert.equal(survey.farmlandDemandM2.adopted, survey.farmlandDemandM2.requested);
++  for (const site of survey.sites) {
++    const candidate = readL2SettlementCandidatePage(handoff, { offset: site.slot, limit: 1 }).candidates[0];
++    assert.equal(site.id, candidate.id);
++    assert.equal(site.population, candidate.population);
++    assert.equal(site.origin.latDeg, candidate.latDeg);
++    assert.equal(site.origin.lonDeg, candidate.lonDeg);
++  }
++});
++
++test('wet, steep and invalid candidates become siting-unresolved candidates with reasons', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  const wet = surveyL2SettlementCandidates(fakeBase({ wet: () => true }), population, handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  assert.equal(wet.budgets.adopted.population, 0);
++  assert.equal(wet.budgets.unresolved.population, wet.budgets.requested.population);
++  assert.ok(wet.rejected.wet > 0);
++  assert.equal(wet.unresolvedCandidates.length, wet.page.limit);
++  assert.ok(wet.unresolvedCandidates.every(candidate => candidate.status === 'siting-unresolved' && candidate.reason === 'wet'));
++  const steep = surveyL2SettlementCandidates(fakeBase({ height: latDeg => latDeg * 100000 }), population, handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  assert.ok(steep.rejected.slope > 0 && steep.unresolvedCandidates.every(candidate => candidate.reason === 'slope'));
++  const sitingWet = surveyL2SettlementCandidates(fakeBase({ sitingWet: () => true }), population, handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  assert.ok(sitingWet.rejected.wet > 0);
++  const invalid = surveyL2SettlementCandidates(fakeBase({ surface: () => ({ waterDepthM: 0, groundElevationM: NaN }) }), population, handoff, { offset: 0, limit: L2_MAX_PAGE_SIZE });
++  assert.equal(invalid.budgets.adopted.population, 0);
++  assert.equal(invalid.rejected.invalid, invalid.page.limit);
++  assert.ok(invalid.unresolvedCandidates.every(candidate => candidate.reason === 'invalid-surface'));
++});
++
++test('survey rejects a mismatched sampling layer and records its sampling source', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.population > 0);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  assert.throws(() => surveyL2SettlementCandidates(fakeBase({ sourceLayerId: 'other' }), population, handoff), /layer/);
++  const survey = surveyL2SettlementCandidates(fakeBase({ sourceLayerId: handoff.layerId, surfaceId: 'surface-1' }), population, handoff, { offset: 0, limit: 4 });
++  assert.equal(survey.sampling.sourceLayerId, handoff.layerId);
++  assert.equal(survey.sampling.surfaceId, 'surface-1');
++  assert.equal(survey.sampling.worldId, handoff.sourceWorldId);
++  assert.ok(typeof survey.sampling.method === 'string');
++});
++
++test('a small page leaves the rest of the cell budget explicitly unvisited', () => {
++  const { population, region } = buildFixture();
++  const cellIndex = findCell(population, c => c.villages > 1);
++  const handoff = createL2SettlementHandoff(region, population, cellIndex);
++  const survey = surveyL2SettlementCandidates(fakeBase(), population, handoff, { offset: 0, limit: 1 });
++  assert.equal(survey.budgets.requested.villages + survey.budgets.requested.towns + survey.budgets.requested.cities, 1);
++  assert.equal(survey.budgets.adopted.population + survey.budgets.unresolved.population + survey.budgets.unvisited.population, handoff.budget.population);
++  assert.ok(survey.budgets.unvisited.population > 0);
++});
+--- /dev/null
++++ b/test/l2-settlement-persistence.test.mjs
+@@ -0,0 +1,24 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import os from 'node:os';
++import path from 'node:path';
++import {buildL0SettlementBaseline} from '../scripts/build-l0-settlement-baseline.mjs';
++import {saveL2SettlementCandidateSurvey} from '../scripts/build-l2-settlement-baseline.mjs';
++import {createL1SettlementSurveySurface} from '../src/core/l1-settlement-survey-surface.mjs';
++
++test('L2 candidate pages reopen with the original screening and reject a changed surface',async()=>{
++  const {l0,l1}=buildL0SettlementBaseline({seed:'settlement-reopen',targetPopulation:100000,columns:16,rows:8,levels:2});
++  const cell=l1.settlementDistribution.fields.population.findIndex(n=>n>0),surface=createL1SettlementSurveySurface(l1);
++  const directory=fs.mkdtempSync(path.join(os.tmpdir(),'l2-candidate-reopen-'));
++  try{
++    const saved=await saveL2SettlementCandidateSurvey(l1,l0.population,cell,{limit:2,directory,surface});
++    const reopened=await saveL2SettlementCandidateSurvey(l1,l0.population,cell,{limit:2,directory,surface,
++      generateSurvey:()=>{throw new Error('A saved page must never be screened again');}});
++    assert.deepEqual(reopened,saved);
++    assert.ok(saved.page.candidates.length>0);
++    assert.equal(saved.survey.farmlandDemandM2.requested+saved.survey.farmlandDemandM2.unvisited,saved.handoff.farmland.totalDemandM2);
++    await assert.rejects(saveL2SettlementCandidateSurvey(l1,l0.population,cell,{limit:2,directory,surface:{...surface,surfaceId:'changed-surface'}}),/conditions changed/);
++    await assert.rejects(saveL2SettlementCandidateSurvey(l1,l0.population,cell,{limit:2,directory,surface:{...surface,sourceLayerId:'other-layer'}}),/matching L1/);
++  }finally{fs.rmSync(directory,{recursive:true,force:true});}
++});
+--- a/test/planet-population.test.mjs
++++ b/test/planet-population.test.mjs
+@@ -6,4 +6,4 @@
+ test('thematic fields stable across world seam, temperature month, contours explicit',()=>{const s=fixture(),c=generateClimate(s),p=planAgriculturePopulation(s,c);for(const mode of ['biome','temperature','agriculture','population']){const m=makeThematicMap(c,p,mode);assert.equal(m.rgba.length,512);assert.ok(mapColorAt(m,1,0,0).every(v=>v>=0&&v<=1));}assert.equal(climateCell(c,0,0),climateCell(c,0,360));assert.notDeepEqual(makeThematicMap(c,p,'temperature',0).rgba,makeThematicMap(c,p,'temperature',6).rgba);assert.equal(contourFactor(100,100,1),.25);assert.equal(contourFactor(150,100,1),1);assert.equal(contourFactor(-100,100,1),1);});
+ import {generatePlanet} from '../src/core/planet-generation.mjs';import {snapshotPlanetWorld,restorePlanetWorld} from '../src/core/planet-world.mjs';import {planSettlementNetwork} from '../src/core/settlement-network.mjs';
+ test('connected world selects habitable populated sites and restores same identities',()=>{const options={seed:'population-acceptance',columns:16,rows:8,settlementCount:2,climatePlanning:true},a=generatePlanet(options),snapshot=snapshotPlanetWorld(a);assert.ok(a.population);for(const s of a.settlements){const c=a.population.cells[s.climateCellIndex];assert.ok(c.suitability>=.1&&c.population>0);}assert.deepEqual(restorePlanetWorld(snapshot).population,a.population);assert.equal(snapshotPlanetWorld(generatePlanet(options)).worldId,snapshot.worldId);const zero=generatePlanet({...options,targetPopulation:0});assert.equal(zero.settlements.length,0);assert.equal(planSettlementNetwork(zero.base.toSnapshot(),{population:zero.population}).sites.length,0);});
+-test('population classes add exactly, city centres never exceed regional people',()=>{const s=fixture(),c=generateClimate(s),p=planAgriculturePopulation(s,c);for(const r of p.cells)assert.equal(r.ruralPopulation+r.townPopulation+r.cityPopulation,r.population);assert.equal(p.cells.reduce((s,r)=>s+r.cityPopulation,0),p.totals.cities*50000);});
++test('population classes add exactly and variable city centres respect the saved size policy',()=>{const s=fixture(),c=generateClimate(s),p=planAgriculturePopulation(s,c);for(const r of p.cells){assert.equal(r.ruralPopulation+r.townPopulation+r.cityPopulation,r.population);if(r.cities){assert.ok(r.cityPopulation>=p.sizePolicy.cityMin*r.cities);assert.ok(r.cityPopulation<=p.sizePolicy.cityMax*r.cities);}}assert.ok(p.cells.reduce((s,r)=>s+r.cityPopulation,0)<=Math.floor(Math.floor(p.totals.supportedPopulation*(1-p.settings.ruralFraction)+1e-7)*.2));assert.ok(new Set(p.cells.filter(r=>r.cities).map(r=>r.cityPopulation)).size>1);});
+--- /dev/null
++++ b/test/settlement-size-model.test.mjs
+@@ -0,0 +1,128 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {
++  createSettlementSizePolicy, validateSettlementSizePolicy, settlementKindBounds,
++  settlementCountFor, settlementSlotPopulation, settlementSlotPeoplePrefix,
++  validateSettlementApportionment, settlementClassFor, SETTLEMENT_SIZE_POLICY_SCHEMA,
++} from '../src/core/settlement-size-model.mjs';
++
++test('size policy derives and re-derives the default integer bounds', () => {
++  const policy = createSettlementSizePolicy();
++  assert.equal(policy.schema, SETTLEMENT_SIZE_POLICY_SCHEMA);
++  assert.equal(policy.villageMin, 1);
++  assert.equal(policy.villageMax, 450);
++  assert.equal(policy.townMin, 1000);
++  assert.equal(policy.townMax, 6000);
++  assert.equal(policy.cityMin, 25000);
++  assert.equal(policy.cityMax, 75000);
++  assert.equal(validateSettlementSizePolicy(policy), policy);
++});
++
++test('size policy converts custom integer means and rejects abnormal means', () => {
++  const policy = createSettlementSizePolicy({ meanVillagePopulation: 200, meanTownPopulation: 2000, meanCityPopulation: 40000 });
++  assert.equal(policy.townMin, 500);
++  assert.equal(policy.townMax, 3000);
++  assert.equal(policy.cityMin, 20000);
++  assert.equal(policy.cityMax, 60000);
++  assert.throws(() => createSettlementSizePolicy({ meanTownPopulation: 4000.5 }), RangeError);
++  assert.throws(() => createSettlementSizePolicy({ meanCityPopulation: 1e9 }), RangeError);
++  assert.throws(() => createSettlementSizePolicy({ meanVillagePopulation: 0 }), RangeError);
++  assert.throws(() => createSettlementSizePolicy({ jitterPeriod: 64 }), RangeError);
++});
++
++test('a re-hashed contradictory policy is rejected by self-consistency', () => {
++  const policy = createSettlementSizePolicy();
++  assert.throws(() => validateSettlementSizePolicy({ ...policy, townMin: 5 }), /inconsistent/);
++  assert.throws(() => validateSettlementSizePolicy({ ...policy, schema: 'other' }), RangeError);
++});
++
++test('town and city counts keep the mean inside the policy bounds', () => {
++  const policy = createSettlementSizePolicy();
++  const town = settlementCountFor(policy, 'town', 9000);
++  assert.ok(town >= Math.ceil(9000 / policy.townMax) && town <= Math.floor(9000 / policy.townMin));
++  assert.ok(9000 / town >= policy.townMin && 9000 / town <= policy.townMax);
++  const tiny = settlementCountFor(policy, 'town', 999);
++  assert.equal(tiny, 0);
++  const city = settlementCountFor(policy, 'city', 30000);
++  assert.ok(30000 / city >= policy.cityMin && 30000 / city <= policy.cityMax);
++  assert.equal(settlementCountFor(policy, 'village', 0), 0);
++  assert.equal(settlementCountFor(policy, 'village', 1), 1);
++});
++
++test('slot populations conserve the type budget and respect min/max', () => {
++  const policy = createSettlementSizePolicy();
++  const { min, max } = settlementKindBounds(policy, 'town');
++  const people = 2000000, count = 1000, seed = 'seed';
++  let sum = 0, prefixSum = 0;
++  for (let rank = 0; rank < count; rank++) {
++    const value = settlementSlotPopulation(policy, 'town', people, count, rank, seed);
++    assert.ok(value >= min && value <= max, `slot ${rank} out of range: ${value}`);
++    assert.equal(settlementSlotPeoplePrefix(policy, 'town', people, count, rank + 1, seed) - prefixSum, value);
++    prefixSum += value;
++    sum += value;
++  }
++  assert.equal(sum, people);
++  assert.equal(settlementSlotPeoplePrefix(policy, 'town', people, count, count, seed), people);
++});
++
++test('an odd trailing slot is left unvaried so the sum is exact', () => {
++  const policy = createSettlementSizePolicy();
++  const people = 5001, count = 3;
++  const slots = [0, 1, 2].map(rank => settlementSlotPopulation(policy, 'town', people, count, rank, 'odd'));
++  assert.equal(slots[2], settlementSlotPopulation(policy, 'town', people, count, 2, 'odd'));
++  assert.equal(slots.reduce((a, b) => a + b, 0), people);
++});
++
++test('a village slot is never below one person', () => {
++  const policy = createSettlementSizePolicy();
++  for (let rank = 0; rank < 64; rank++) {
++    assert.ok(settlementSlotPopulation(policy, 'village', 64, 64, rank, 'v') >= 1);
++  }
++});
++
++test('prefix population at billions of people is exact without a slot array', () => {
++  const policy = createSettlementSizePolicy();
++  const people = 2000000000, count = 500000;
++  assert.equal(settlementSlotPeoplePrefix(policy, 'town', people, count, count, 'huge'), people);
++  assert.equal(settlementSlotPeoplePrefix(policy, 'town', people, count, 0, 'huge'), 0);
++  assert.equal(settlementSlotPeoplePrefix(policy, 'town', people, count, 2, 'huge'), 8000);
++});
++
++test('apportionment validation rejects impossible people/count pairs', () => {
++  const policy = createSettlementSizePolicy();
++  assert.equal(validateSettlementApportionment(policy, 'town', 3000, 1), true);
++  assert.throws(() => validateSettlementApportionment(policy, 'town', 1000, 2), /below/);
++  assert.throws(() => validateSettlementApportionment(policy, 'city', 30000, 2), /below/);
++  assert.throws(() => validateSettlementApportionment(policy, 'town', 100, 0), /agree on zero/);
++});
++
++test('a zero jitter amplitude produces no variation at all', () => {
++  const policy = createSettlementSizePolicy({ jitterAmplitudeFraction: 0 });
++  const people = 2000000, count = 1000;
++  for (let rank = 0; rank < count; rank++) {
++    assert.equal(settlementSlotPopulation(policy, 'town', people, count, rank, 'zero'), Math.floor(people / count) + (rank < people % count ? 1 : 0));
++  }
++  assert.equal(settlementSlotPeoplePrefix(policy, 'town', people, count, count, 'zero'), people);
++});
++
++test('a small integer town mean still yields a positive derived town minimum', () => {
++  const policy = createSettlementSizePolicy({ meanVillagePopulation: 1, meanTownPopulation: 1, meanCityPopulation: 1 });
++  assert.equal(policy.townMin, 1);
++  assert.ok(policy.townMax >= 1);
++  assert.ok(policy.cityMin >= 1);
++  assert.ok(policy.villageMax >= 1);
++});
++
++test('slot and prefix APIs reject an impossible people/count apportionment', () => {
++  const policy = createSettlementSizePolicy();
++  assert.throws(() => settlementSlotPopulation(policy, 'town', 1000, 2, 0, 'bad'), /below/);
++  assert.throws(() => settlementSlotPeoplePrefix(policy, 'town', 1000, 2, 1, 'bad'), /below/);
++  assert.throws(() => settlementSlotPopulation(policy, 'city', 30000, 2, 0, 'bad'), /below/);
++});
++
++test('villages under 100 people are shown as hamlets', () => {
++  assert.equal(settlementClassFor('village', 99), 'hamlet');
++  assert.equal(settlementClassFor('village', 100), 'village');
++  assert.equal(settlementClassFor('town', 99), 'town');
++  assert.equal(settlementClassFor('city', 99), 'city');
++});

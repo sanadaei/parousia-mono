@@ -1,0 +1,16 @@
+✔ A partitions into native same-scale neighbors with exact 2× levels and common elevations (32.105066ms)
+✔ crossing ports share exact identity, coordinates and provisional flow without adding supply (76.695198ms)
+✔ every tile elevation is an original node, no invented terrain beyond source (16.494588ms)
+✔ crossing at an existing vertex produces one port; tangency and collinear runs produce no transfers (0.908787ms)
+✔ multiple exit and reentry produces separate river fragments and matching ports (0.376596ms)
+✔ invalid partitions, oversized coordinates and mismatched water are rejected (16.431113ms)
+✔ diagonal corner crossing is one transfer between occupied tiles only (0.919153ms)
+✔ water annotations reject same-length but changed river or height sources (20.588137ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 694.785584

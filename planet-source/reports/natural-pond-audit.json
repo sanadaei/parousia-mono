@@ -1,0 +1,272 @@
+{
+  "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+  "policy": {
+    "fillFraction": 0.65,
+    "minAnnualPrecipitationMm": 500,
+    "season": "wet-season-static-scenario",
+    "waterBalance": "not-simulated"
+  },
+  "diagnostics": {
+    "accepted": 19,
+    "coarseSamples": 232974,
+    "refinedCandidates": 24,
+    "regionsConsidered": 39,
+    "regionsSurveyed": 14,
+    "rejections": {
+      "depth-or-area-limit": 2,
+      "dry-or-frozen-climate-scenario": 25,
+      "no-refined-hollow": 2,
+      "open-or-low-rim": 1
+    }
+  },
+  "results": [
+    {
+      "id": "tributary-region@2/river:3396:3267/pond:3440",
+      "wetSamples": 217,
+      "marginSamples": 89,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.0422172837333221,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 0,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:3396:3267/pond:13589",
+      "wetSamples": 213,
+      "marginSamples": 89,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.0227654921697535,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 0,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:3396:3267/pond:11415",
+      "wetSamples": 307,
+      "marginSamples": 102,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.305489201106667,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 0,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:3396:3267/pond:4601",
+      "wetSamples": 96,
+      "marginSamples": 66,
+      "marginClassWrong": 0,
+      "maxDepthM": 0.3343115397977954,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 0,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4045:4174/pond:9976",
+      "wetSamples": 229,
+      "marginSamples": 80,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.9875849685604408,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 194,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4045:4174/pond:11550",
+      "wetSamples": 124,
+      "marginSamples": 68,
+      "marginClassWrong": 0,
+      "maxDepthM": 0.9931810909713477,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 230,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4045:4174/pond:3409",
+      "wetSamples": 278,
+      "marginSamples": 83,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.7537346759622778,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 179,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4045:4174/pond:1729",
+      "wetSamples": 175,
+      "marginSamples": 81,
+      "marginClassWrong": 0,
+      "maxDepthM": 0.9011475777194846,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 223,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4047:4048/pond:6926",
+      "wetSamples": 163,
+      "marginSamples": 80,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.176808566810223,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 237,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4047:4048/pond:10546",
+      "wetSamples": 159,
+      "marginSamples": 68,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.3341602108465622,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 249,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4047:4048/pond:5155",
+      "wetSamples": 291,
+      "marginSamples": 99,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.6737131750107892,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 245,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4047:4048/pond:10461",
+      "wetSamples": 287,
+      "marginSamples": 93,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.7630281629510591,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 162,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4048:4049/pond:6552",
+      "wetSamples": 296,
+      "marginSamples": 82,
+      "marginClassWrong": 0,
+      "maxDepthM": 2.950079220996628,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 169,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4048:4049/pond:14893",
+      "wetSamples": 261,
+      "marginSamples": 90,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.8121192253442757,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 195,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4048:4049/pond:5813",
+      "wetSamples": 233,
+      "marginSamples": 83,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.6683205662965293,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 254,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4174:4047/pond:4088",
+      "wetSamples": 269,
+      "marginSamples": 85,
+      "marginClassWrong": 0,
+      "maxDepthM": 2.186175096557804,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 175,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4174:4047/pond:12415",
+      "wetSamples": 301,
+      "marginSamples": 85,
+      "marginClassWrong": 0,
+      "maxDepthM": 3,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 273,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4174:4047/pond:15648",
+      "wetSamples": 103,
+      "marginSamples": 62,
+      "marginClassWrong": 0,
+      "maxDepthM": 0.5924321339209655,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 287,
+      "wetTrees": 0
+    },
+    {
+      "id": "tributary-region@2/river:4174:4047/pond:2265",
+      "wetSamples": 285,
+      "marginSamples": 97,
+      "marginClassWrong": 0,
+      "maxDepthM": 1.3084180976270545,
+      "rimWet": 0,
+      "classificationWrong": 0,
+      "pagedDifference": 0,
+      "trees": 202,
+      "wetTrees": 0
+    }
+  ],
+  "nearPondSettlementCenters": {
+    "checked": 0,
+    "wet": 0
+  },
+  "scope": "Finite 8 m bed,4 m rim,5 resident/paged samples per pond and centre/tree checks. Not every house/road footprint, continuous leak proof or perennial water balance.",
+  "browser": {
+    "fixture": "local-landscape-31a",
+    "observedAtUTC": "2026-10-11T02:29:50Z",
+    "view": "Natural hollow pond13,500m,55degree tilt,noon,1xheight,cloud CPU renderer",
+    "visible": "horizontal water in existing hollow and wet-meadow rim",
+    "acceptance": "Not overall scenery or performance acceptance"
+  },
+  "syntheticLandUseTest": "Additional explicit pond-village fixture exercises nonempty house/road and cereal-triangle placement against the same water sampler; passed. This is not an actual saved village near a pond.",
+  "actualNearPondVillageSearch": {
+    "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+    "nearbyVillageCount": 0,
+    "results": [],
+    "scope": "Four nearest actual village recipes within1km,2m building-bound samples and road vertices, combining base pond water and local ground. Not every footprint edge, bridge reach or whole-world acceptance."
+  },
+  "auditCorrection": "First audit attempted an exterior point300m away in a200m projection and failed. Corrected to190m, still outside128m footprint; rerun results above."
+}

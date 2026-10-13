@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "cases": 15,
+  "routingArraysChecked": 105,
+  "checks": [
+    "Exact raw DEM SHA256",
+    "Every target elevation equals source crop",
+    "Every coarse node exactly samples fine DEM",
+    "Same fixed physical extent for all cases",
+    "Every method has same declared receiving endpoints per gap",
+    "Global water supply conservation",
+    "All routing edges are8-neighbor adjacent",
+    "No routing cycles",
+    "Every route reaches its declared endpoint",
+    "Soft candidates add no routing-head fill vs joint reference"
+  ],
+  "notValidated": [
+    "Observed rivers",
+    "Physical flood hydraulics",
+    "Independent global terrain regions",
+    "Below-source spatial detail",
+    "Production repository integration"
+  ]
+}

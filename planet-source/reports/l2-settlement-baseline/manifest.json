@@ -1,0 +1,37 @@
+[
+  {
+    "cellIndex": 15826,
+    "label": "都市を含む地域",
+    "handoffId": "sha256:4851dd9a7e2186d52d353661b9a8c8d5f6fc85b9619524702b4377d364b41b79",
+    "offset": 0,
+    "file": "cell-15826-page-0.json"
+  },
+  {
+    "cellIndex": 16830,
+    "label": "村が多い地域",
+    "handoffId": "sha256:1a04dc9291f5c14883e182763c16550a8b7d962bc89499dc74f30f3f72c385f1",
+    "offset": 0,
+    "file": "cell-16830-page-0.json"
+  },
+  {
+    "cellIndex": 16830,
+    "label": "村が多い地域",
+    "handoffId": "sha256:1a04dc9291f5c14883e182763c16550a8b7d962bc89499dc74f30f3f72c385f1",
+    "offset": 64,
+    "file": "cell-16830-page-64.json"
+  },
+  {
+    "cellIndex": 16830,
+    "label": "村が多い地域",
+    "handoffId": "sha256:1a04dc9291f5c14883e182763c16550a8b7d962bc89499dc74f30f3f72c385f1",
+    "offset": 256,
+    "file": "cell-16830-page-256.json"
+  },
+  {
+    "cellIndex": 12669,
+    "label": "起伏が大きい地域",
+    "handoffId": "sha256:aa5114cc742de8d404b74dec1645bcbb816a50626a51dc45cc5752e2298ecb90",
+    "offset": 0,
+    "file": "cell-12669-page-0.json"
+  }
+]

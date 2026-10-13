@@ -1,0 +1,495 @@
+{
+  "schema": "l2-settlement-verification@1",
+  "createdAt": "2026-10-13T11:35:59.277103+00:00",
+  "status": "L1 statistical candidate handoff foundation complete; detailed L2 sites remain unresolved",
+  "changes": {
+    "modified": 14,
+    "added": 10,
+    "sourceManifest": "Original SOURCE-MANIFEST/VERIFICATION remain the frozen distributed ZIP baseline, not proof for this changed checkout"
+  },
+  "data": {
+    "schema": "l2-settlement-baseline@1",
+    "seed": "planet-1",
+    "census": {
+      "requestedPopulation": 100000000,
+      "supportedPopulation": 100000000,
+      "unplacedPopulation": 0
+    },
+    "l0Totals": {
+      "population": 100000000,
+      "ruralPopulation": 90180603,
+      "townPopulation": 7819397,
+      "cityPopulation": 2000000,
+      "villages": 301475,
+      "towns": 2724,
+      "cities": 40,
+      "populatedCells": 1754
+    },
+    "l1Totals": {
+      "population": 99898832,
+      "ruralPopulation": 90087694,
+      "townPopulation": 7811138,
+      "cityPopulation": 2000000,
+      "villages": 301165,
+      "towns": 2721,
+      "cities": 40,
+      "populatedCells": 6657
+    },
+    "l1Unallocated": {
+      "population": 101168,
+      "ruralPopulation": 92909,
+      "townPopulation": 8259,
+      "cityPopulation": 0,
+      "villages": 310,
+      "towns": 3,
+      "cities": 0,
+      "populatedCells": 1,
+      "parentCells": 1
+    },
+    "sourceLayerId": "sha256:91e23026b49c207bebfae6dcc1aba9d6fc86c72b39475d39026a614e2c84dc53",
+    "screeningSurfaceId": "sha256:ac150217d0aa436c07eddfc0069bc41c73b533ce17b64ea8d7618f6b3d348c46",
+    "screeningMethod": "l1-bilinear-ground-cell-water-mask@1",
+    "sizes": {
+      "l0Bytes": 4565645,
+      "l1Bytes": 4932059,
+      "summaryBytes": 1881
+    },
+    "regions": [
+      {
+        "label": "都市を含む地域",
+        "cellIndex": 15826,
+        "budget": {
+          "population": 89003,
+          "ruralPopulation": 10764,
+          "townPopulation": 3774,
+          "cityPopulation": 74465,
+          "villages": 36,
+          "towns": 1,
+          "cities": 1
+        },
+        "requestedCultivatedAreaM2": 505698864,
+        "pages": [
+          {
+            "offset": 0,
+            "total": 38,
+            "requested": {
+              "cities": 1,
+              "cityPopulation": 74465,
+              "population": 89003,
+              "ruralPopulation": 10764,
+              "townPopulation": 3774,
+              "towns": 1,
+              "villages": 36
+            },
+            "accepted": {
+              "cities": 1,
+              "cityPopulation": 74465,
+              "population": 89003,
+              "ruralPopulation": 10764,
+              "townPopulation": 3774,
+              "towns": 1,
+              "villages": 36
+            },
+            "unresolved": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            },
+            "unvisited": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            }
+          }
+        ]
+      },
+      {
+        "label": "村が多い地域",
+        "cellIndex": 16830,
+        "budget": {
+          "population": 94874,
+          "ruralPopulation": 87129,
+          "townPopulation": 7745,
+          "cityPopulation": 0,
+          "villages": 291,
+          "towns": 2,
+          "cities": 0
+        },
+        "requestedCultivatedAreaM2": 630213734,
+        "pages": [
+          {
+            "offset": 0,
+            "total": 293,
+            "requested": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 26345,
+              "ruralPopulation": 18600,
+              "townPopulation": 7745,
+              "towns": 2,
+              "villages": 62
+            },
+            "accepted": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 26345,
+              "ruralPopulation": 18600,
+              "townPopulation": 7745,
+              "towns": 2,
+              "villages": 62
+            },
+            "unresolved": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            },
+            "unvisited": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 68529,
+              "ruralPopulation": 68529,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 229
+            }
+          },
+          {
+            "offset": 64,
+            "total": 293,
+            "requested": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 19194,
+              "ruralPopulation": 19194,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 64
+            },
+            "accepted": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 19194,
+              "ruralPopulation": 19194,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 64
+            },
+            "unresolved": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            },
+            "unvisited": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 75680,
+              "ruralPopulation": 67935,
+              "townPopulation": 7745,
+              "towns": 2,
+              "villages": 227
+            }
+          },
+          {
+            "offset": 256,
+            "total": 293,
+            "requested": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 11063,
+              "ruralPopulation": 11063,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 37
+            },
+            "accepted": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 11063,
+              "ruralPopulation": 11063,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 37
+            },
+            "unresolved": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            },
+            "unvisited": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 83811,
+              "ruralPopulation": 76066,
+              "townPopulation": 7745,
+              "towns": 2,
+              "villages": 254
+            }
+          }
+        ]
+      },
+      {
+        "label": "起伏が大きい地域",
+        "cellIndex": 12669,
+        "budget": {
+          "population": 8632,
+          "ruralPopulation": 8632,
+          "townPopulation": 0,
+          "cityPopulation": 0,
+          "villages": 29,
+          "towns": 0,
+          "cities": 0
+        },
+        "requestedCultivatedAreaM2": 134699143,
+        "pages": [
+          {
+            "offset": 0,
+            "total": 29,
+            "requested": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 8632,
+              "ruralPopulation": 8632,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 29
+            },
+            "accepted": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 8632,
+              "ruralPopulation": 8632,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 29
+            },
+            "unresolved": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            },
+            "unvisited": {
+              "cities": 0,
+              "cityPopulation": 0,
+              "population": 0,
+              "ruralPopulation": 0,
+              "townPopulation": 0,
+              "towns": 0,
+              "villages": 0
+            }
+          }
+        ]
+      }
+    ],
+    "checks": {
+      "sevenBudgetsConserved": true,
+      "farmlandDemandConserved": true,
+      "savedPagesReopenedWithoutSurvey": true
+    },
+    "limitations": [
+      "Regional candidate screening on saved coarse L1 heights and water masks; local L2 relief and plots are unresolved",
+      "Cultivated area is demand only, not acquired or laid-out land",
+      "No houses, roads, flood certification or drinking-water evidence",
+      "Only selected representative pages are saved by this command; the core page API works for any valid L1 cell"
+    ]
+  },
+  "tests": {
+    "related": {
+      "passed": 63,
+      "failed": 0
+    },
+    "full": {
+      "passed": 1412,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 181611.743,
+      "workers": 1,
+      "childHeapMiB": 256,
+      "execution": "native Windows; TEMP/TMP in G task area",
+      "phase": "After all numerical/core changes; before presentation-only wording and title corrections"
+    },
+    "afterPresentationOnlyEdits": {
+      "persistentReopenTestPassed": 1,
+      "nodeSyntaxCheckPassed": true,
+      "actualBrowserRechecked": true
+    },
+    "build": {
+      "passed": true,
+      "core": 158,
+      "exactLegacyAliases": 30,
+      "globeSyntax": 74
+    }
+  },
+  "maximumGrid": {
+    "grid": {
+      "columns": 512,
+      "rows": 256
+    },
+    "jsonBytes": 19666179,
+    "recordBytes": 19666546,
+    "maxRecordBytes": 25165824,
+    "withinLimit": true,
+    "sizePolicySaved": true,
+    "sevenBudgetsConserved": true
+  },
+  "browser": {
+    "renderer": "Canvas2D in local Codex in-app browser",
+    "regionsSwitched": 3,
+    "savedPages": "first / next / last exercised in 293-candidate village region",
+    "selection": "map click -> list, list click -> map, map Arrow/Home keys, world-map Arrow region selection",
+    "consoleErrors": [],
+    "viewportOverrideReset": true,
+    "actualExampleResult": "All candidates in the three selected example regions passed coarse screening; wet/steep/invalid rejection exercised with controlled core tests, not claimed as a real example rejection",
+    "platform": "PC"
+  },
+  "models": {
+    "backend": {
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "sessionId": "ses_ecb48eefaffey0YI7P6ANaleGl",
+      "route": "Native OpenCode Go, custom restricted agent, 11 non-confidential copied modules; shell/external_directory/subagent/network tools denied",
+      "work": "Size policy, count-coupled refinement, bounded candidates and screening; initial plus one consolidated correction",
+      "workerTests": "Implemented but not run under denied shell; orchestrator ran tests"
+    },
+    "ui": {
+      "requestedModel": "gpt-6.1-sol",
+      "requestedReasoningEffort": "xhigh",
+      "account": "Existing authenticated .codex-account-b",
+      "threadId": "01a134c5-fb0b-7261-8e7f-be3446baad24",
+      "route": "Native Codex CLI, ephemeral, isolated folder",
+      "work": "Standalone Japanese confirmation UI",
+      "modelMetadataReturned": false
+    },
+    "referenceReview": {
+      "model": "gemini-3.8-flash-medium",
+      "conversationId": "a2182ad0-d0c2-40bd-979a-a5f7d8470043",
+      "route": "Native agy, scoped view_file image reads",
+      "imagesConfirmedByToolEvents": 3,
+      "status": "SUCCESS",
+      "authorization": "Explicit user permission on 2026-10-13 for Gemini images and internal verification material"
+    },
+    "orchestrator": "This chat specified interfaces, applied and reviewed source changes, supplied L1 screening adapter, persistent CLI, representative checks, final UI corrections, and documentation",
+    "costAndRemainingQuota": "Not verified; no estimated savings claim"
+  },
+  "resources": {
+    "initialPhysicalGiB": 13.39,
+    "initialCommitHeadroomGiB": 13.89,
+    "heavyStages": [
+      {
+        "stage": "baseline",
+        "freePhysicalGiB": 15.76,
+        "commitHeadroomGiB": 16.46
+      },
+      {
+        "stage": "full-test",
+        "freePhysicalGiB": 15.6,
+        "commitHeadroomGiB": 16.25,
+        "otherHeavyCount": 0
+      },
+      {
+        "stage": "build",
+        "freePhysicalGiB": 16.45,
+        "commitHeadroomGiB": 17.1
+      },
+      {
+        "stage": "maximum-grid",
+        "freePhysicalGiB": 15.77,
+        "commitHeadroomGiB": 16.34
+      },
+      {
+        "stage": "browser",
+        "freePhysicalGiB": 15.13,
+        "commitHeadroomGiB": 15.67
+      }
+    ],
+    "heavyJobsRunSequentially": true,
+    "resourceDeferredJobs": []
+  },
+  "cleanup": {
+    "previewPid": 30580,
+    "previewPort": 53201,
+    "previewProcessExists": false,
+    "previewListenerExists": false,
+    "ownWorkerProcessesRemaining": [],
+    "browserTab3Closed": true,
+    "browserTabsAfterClose": 0,
+    "temporaryDirectory": "G task folder removed; source diff and verification artifacts retained",
+    "cDriveUse": "Existing CLI authentication/state metadata and small initial sandbox test temporary data; tests clean those in finally. All final test TEMP/TMP, source backups, task logs, artifacts and screenshots were on G.",
+    "temporaryDirectoryRemoved": true,
+    "checkedAt": "2026-10-13T11:36:32.015Z"
+  },
+  "limitations": [
+    "Coarse L1 screening does not certify detailed L2 plots, water access, flood safety, agricultural land availability or roads",
+    "Normal on-reference siting uses the new size policy, but adopting L1 candidate handoffs into the global L2 renderer remains next work",
+    "PC GPU globe rendering, spoken screen reader, endurance and remote release not run",
+    "Old population examples must be regenerated for the new @2 handoff; no save migration implemented"
+  ],
+  "roadmap": "L0 statistical distribution/save -> L1 conservative budgets -> size-aware regional candidates/agricultural demand/persistent L2 handoff complete; next detailed L2 siting, plots, agricultural land and neighbouring road connections",
+  "platformScope": {
+    "target": "PC",
+    "input": "Mouse and keyboard",
+    "acceptance": "PC browser rendering and PC CPU/GPU/memory performance",
+    "authority": "Explicit user instruction on 2026-10-13"
+  },
+  "historicalBrowserObservations": {
+    "status": "Past optional observations, outside current product scope and acceptance requirements",
+    "narrowViewport": {
+      "width": 360,
+      "height": 740,
+      "clientWidth": 345,
+      "documentScrollWidth": 345,
+      "titleHeightPx": 32.390625,
+      "numbers": "100,000,000 remained on one line"
+    }
+  },
+  "platformScopeCorrection": {
+    "date": "2026-10-13",
+    "reason": "User confirmed PC as the intended platform",
+    "changedDocumentation": [
+      "README.md",
+      "ROADMAP.md",
+      "HANDOFF.md",
+      "docs/WORKING_BASELINE_ROADMAP.md",
+      "docs/L2_SETTLEMENT_HANDOFF.md",
+      "docs/DEFERRED_WORLD_MATERIALIZATION.md"
+    ],
+    "changes": "PC scope is authoritative; former non-PC checks are historical observations and impose no pending acceptance gate",
+    "verification": "Documentation scope and saved verification JSON checked; no runtime code change or new full test/build/browser run",
+    "changePatch": "pc-scope.patch",
+    "checks": {
+      "correctedDocsContainNoNonPcScope": true,
+      "numericalAndRuntimeSourceHashesUnchanged": true,
+      "currentSourceManifestHashesVerified": true
+    },
+    "sourceHashes": {
+      "README.md": "248f22e9b2f944a5e6fbe872902e6dc035204cd574eb0e27f961aaa715637d93",
+      "ROADMAP.md": "2c5dc425b70901c9f7867e1dcd56e01772bee8307005dc20418d36714853d954",
+      "HANDOFF.md": "a58ec3569df72de94bb6346ceb5c7ed5b9b5d736f9284a0dab0588da37becd2b",
+      "docs/WORKING_BASELINE_ROADMAP.md": "6fb428e6f79ff5466aedc9acfbdaa3ed5d0bc057fdfdf356063c0e4778af2674",
+      "docs/L2_SETTLEMENT_HANDOFF.md": "2f53fb2bd83c82f019e34a3fde63f0903c5e3ad436a133dd4a35f3636192cf9c",
+      "docs/DEFERRED_WORLD_MATERIALIZATION.md": "ecde65bb6f0d4ba5607ed3199ff409a17c28b58a7369e46e1b35a935135f0260"
+    }
+  }
+}

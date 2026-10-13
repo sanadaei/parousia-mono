@@ -1,0 +1,24 @@
+{
+  "method": "saved-drainage-domain-partition@1",
+  "id": "sha256:8cefa97d1f68934dbb41ca332eeafd54f278935cc24777c6f4125bbcdc199869",
+  "sourceBaseWorldId": "sha256:7de4f2cbe4d19aa9250a4d88cb8f4574e4a5c1af6efe826d28507427cf762a35",
+  "maxCells": 64,
+  "sourceCells": 8192,
+  "domains": 4011,
+  "domainsRequiringDryLandRelief": 775,
+  "waterOnlyDomains": 3236,
+  "portals": 263,
+  "portalStatuses": {
+    "coarse-ground-downhill": 210,
+    "source-fill-routed-not-ground-downhill": 53
+  },
+  "elapsedMs": 72.28410300000002,
+  "status": "planning-only; no regional height field generated",
+  "limitations": [
+    "Grid-adjacent region borders are not yet shared ridge geometry",
+    "Portals retain source heights; they do not invent water levels or guarantee detailed hydraulic continuity",
+    "A fixed cell budget is not a fixed physical area, particularly near poles",
+    "All source cells are retained; explicit ocean-only or lake-only domains require no dry-land relief work",
+    "Source lake-fill routing heights are not replacement ground or inferred current water surfaces"
+  ]
+}

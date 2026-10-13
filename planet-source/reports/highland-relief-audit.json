@@ -1,0 +1,114 @@
+{
+  "worldId": "sha256:3d90e6d128d92d0cce4c5d4437433c2ac75e60b24b902c110f4ace73b760877d",
+  "scope": "10 km windows around 32 highest source cells, 1 km samples; not visible hill certification",
+  "sites": [
+    {
+      "id": "highland:5495",
+      "latDeg": -29.53125,
+      "lonDeg": 336.09375,
+      "minM": 7258.529690521694,
+      "maxM": 7427.743477892572,
+      "reliefM": 169.21378737087798,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:4117",
+      "latDeg": -1.40625,
+      "lonDeg": 60.46875,
+      "minM": 7085.213316487458,
+      "maxM": 7235.458013390652,
+      "reliefM": 150.24469690319438,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:5751",
+      "latDeg": -35.15625,
+      "lonDeg": 336.09375,
+      "minM": 7149.356540862557,
+      "maxM": 7297.106050656631,
+      "reliefM": 147.74950979407367,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:5110",
+      "latDeg": -21.09375,
+      "lonDeg": 333.28125,
+      "minM": 7801.920787362717,
+      "maxM": 7944.1646272988055,
+      "reliefM": 142.24383993608808,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:5111",
+      "latDeg": -21.09375,
+      "lonDeg": 336.09375,
+      "minM": 8229.353505151937,
+      "maxM": 8361.78850080032,
+      "reliefM": 132.43499564838203,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:3082",
+      "latDeg": 21.09375,
+      "lonDeg": 29.53125,
+      "minM": 8584.059131726333,
+      "maxM": 8716.235899194091,
+      "reliefM": 132.1767674677576,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:5225",
+      "latDeg": -23.90625,
+      "lonDeg": 296.71875,
+      "minM": 7266.15333632695,
+      "maxM": 7398.0227009145565,
+      "reliefM": 131.86936458760647,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:4982",
+      "latDeg": -18.28125,
+      "lonDeg": 333.28125,
+      "minM": 7008.056477567854,
+      "maxM": 7131.649978753089,
+      "reliefM": 123.59350118523525,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:5623",
+      "latDeg": -32.34375,
+      "lonDeg": 336.09375,
+      "minM": 7044.725797365586,
+      "maxM": 7163.761844801551,
+      "reliefM": 119.03604743596497,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:3988",
+      "latDeg": 1.40625,
+      "lonDeg": 57.65625,
+      "minM": 7318.675298743221,
+      "maxM": 7435.198790829849,
+      "reliefM": 116.52349208662781,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:3156",
+      "latDeg": 21.09375,
+      "lonDeg": 237.65625,
+      "minM": 7034.882689884687,
+      "maxM": 7149.823054583686,
+      "reliefM": 114.94036469899856,
+      "wetSamples": 0
+    },
+    {
+      "id": "highland:5621",
+      "latDeg": -32.34375,
+      "lonDeg": 330.46875,
+      "minM": 7100.046021208712,
+      "maxM": 7199.6251209636175,
+      "reliefM": 99.57909975490566,
+      "wetSamples": 0
+    }
+  ]
+}

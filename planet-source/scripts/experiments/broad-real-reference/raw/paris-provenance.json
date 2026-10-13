@@ -1,0 +1,21 @@
+{
+  "predeterminedCenterLatitude": 49.0,
+  "predeterminedCenterLongitude": 2.5,
+  "requestedBboxDegrees": [
+    1.45,
+    48.25,
+    3.55,
+    49.75
+  ],
+  "query": "z[(48.25):3:(49.75)][(1.45):3:(3.55)]",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2848.25%29%3A3%3A%2849.75%29%5D%5B%281.45%29%3A3%3A%283.55%29%5D",
+  "source": "NOAA NCEI ETOPO2022 via NOAA CoastWatch ERDDAP",
+  "doi": "10.25921/fd45-gt74",
+  "nativeSpacingArcsec": 15,
+  "queryStride": 3,
+  "querySpacingArcsec": 45,
+  "selection": "Single Paris Basin lowland-context reference requested after first unmatched comparison. Center/bbox fixed before acquisition; no relief matching or crop optimization.",
+  "bytes": 959656,
+  "sha256": "d2ad145244a0ca96cfc1ef07b220f1333a3d27ad15f7b12db82a4c79d6569edb",
+  "acquiredUTC": "2026-10-12T18:52:45Z"
+}

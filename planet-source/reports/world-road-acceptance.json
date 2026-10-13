@@ -1,0 +1,60 @@
+{
+  "worldId": "sha256:fcafb9c95bb87d9eb61243834fd4ac6cf599ee4b82120b7dc5f235c1873829f7",
+  "completeAudit": true,
+  "censusSites": 287877,
+  "legacyAnchorNodes": 4,
+  "totalNodes": 287881,
+  "acceptedRegionalLinks": 287112,
+  "acceptedTrunks": 766,
+  "totalAcceptedLinks": 287878,
+  "unresolvedLinks": 0,
+  "totalSurveyedLengthKm": 4336518.656665377,
+  "bridgeStructures": 325,
+  "connectedComponents": [
+    {
+      "nodes": 279110,
+      "censusPopulation": 91935075,
+      "examples": [
+        "pop:2386:0",
+        "pop:2386:1",
+        "pop:2386:2",
+        "pop:2386:3",
+        "pop:2387:0"
+      ]
+    },
+    {
+      "nodes": 8308,
+      "censusPopulation": 2696469,
+      "examples": [
+        "pop:4919:227",
+        "pop:4919:228",
+        "pop:4919:229",
+        "pop:4919:230",
+        "pop:4919:231"
+      ]
+    },
+    {
+      "nodes": 463,
+      "censusPopulation": 138443,
+      "examples": [
+        "pop:5565:101",
+        "pop:5565:102",
+        "pop:5565:103",
+        "pop:5565:104",
+        "pop:5565:111"
+      ]
+    }
+  ],
+  "plannedComponentCount": 3,
+  "plannedRootsRemainConnected": true,
+  "isolatedNodeCount": 0,
+  "isolatedExamples": [],
+  "validation": {
+    "regionalImplementationDigest": "5beca775295a24a82b4dde7d1c0b8634bd1aa29032cd9cdde5f160955fd9372d",
+    "trunkImplementationDigest": "5beca775295a24a82b4dde7d1c0b8634bd1aa29032cd9cdde5f160955fd9372d",
+    "reusedUnchangedRegionalLinks": 287085,
+    "newlyExecutedRegionalLinks": 27
+  },
+  "failures": [],
+  "scope": "External settlement-road graph and per-route terrain/bridge surveys. Internal settlement street reachability, omitted residential lots, sub-probe obstacles, bridge foundations and hydraulic obstruction are not certified by this graph. Water-separated land components are not forced into a single road graph."
+}

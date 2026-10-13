@@ -1,0 +1,550 @@
+{
+  "scope": "Actual region 3716 repair probes; these use canonical terrain but omit neighboring housing reservations. Final paged acceptance remains required.",
+  "results": [
+    {
+      "id": "road:pop:3716:435|pop:3716:436",
+      "results": [
+        {
+          "id": "road:pop:3716:435|pop:3716:436",
+          "status": "surveyed-local-route",
+          "bridges": 1
+        }
+      ],
+      "elapsedMs": 15058
+    },
+    {
+      "id": "road:pop:3716:436|pop:3716:458",
+      "results": [
+        {
+          "id": "road:pop:3716:436|pop:3716:458",
+          "status": "surveyed-local-route",
+          "bridges": 1
+        }
+      ],
+      "elapsedMs": 15855
+    },
+    {
+      "id": "road:pop:3716:391|pop:3716:412",
+      "results": [
+        {
+          "id": "road:pop:3716:391|pop:3716:412",
+          "status": "surveyed-local-route",
+          "bridges": 1
+        }
+      ],
+      "elapsedMs": 14441
+    },
+    {
+      "id": "road:pop:3716:144|pop:3716:183",
+      "results": [
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:0",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:1",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:2",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:3",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:4",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:5",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:6",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:7",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:8",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:9",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:10",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:11",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:12",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:13",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:14",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:15",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:16",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:17",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:18",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:19",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:20",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:21",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:22",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:23",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:24",
+          "status": "surveyed-local-route",
+          "bridges": 1
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:25",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:26",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:27",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:28",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:29",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:30",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:31",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:32",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:33",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:34",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:35",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:36",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:37",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:38",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:39",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:40",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:41",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:42",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:43",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:44",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:45",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:46",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:47",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:48",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:49",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:50",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:51",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:52",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:53",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:54",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:55",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:56",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:57",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:58",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:59",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:60",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:144|pop:3716:183/segment:61",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        }
+      ],
+      "elapsedMs": 370
+    },
+    {
+      "id": "road:pop:3716:79|pop:3716:95",
+      "results": [
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:0",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:1",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:2",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:3",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:4",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:5",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:6",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:7",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:8",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:9",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:10",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:11",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:12",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:13",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:14",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:15",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:16",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:17",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:18",
+          "status": "surveyed-local-route",
+          "bridges": 1
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:19",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:20",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:21",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:22",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:23",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:24",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:25",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:26",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:27",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:28",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:29",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:30",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:31",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:32",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:33",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:34",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:35",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:36",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        },
+        {
+          "id": "road:pop:3716:79|pop:3716:95/segment:37",
+          "status": "surveyed-local-route",
+          "bridges": 0
+        }
+      ],
+      "elapsedMs": 1013
+    }
+  ]
+}

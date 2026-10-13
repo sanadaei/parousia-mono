@@ -1,0 +1,65 @@
+{
+  "schema": "coarse-drainage-audit@1",
+  "inputWorldId": "sha256:2198794e7ae51885d172d11d217095b977b5db516fb1e5b8d5a5e81f693510b5",
+  "grid": {
+    "columns": 64,
+    "rows": 32
+  },
+  "ms": 213,
+  "landCells": 1075,
+  "terminals": 261,
+  "inlandTerminals": 0,
+  "largestCatchments": [
+    {
+      "terminalCell": 1400,
+      "kind": "non-land-receiver",
+      "landAreaM2": 33087645036956.88,
+      "cells": 98
+    },
+    {
+      "terminalCell": 733,
+      "kind": "non-land-receiver",
+      "landAreaM2": 31816490612177.53,
+      "cells": 98
+    },
+    {
+      "terminalCell": 71,
+      "kind": "non-land-receiver",
+      "landAreaM2": 12886493064694.84,
+      "cells": 163
+    },
+    {
+      "terminalCell": 1159,
+      "kind": "non-land-receiver",
+      "landAreaM2": 6055514378151.16,
+      "cells": 16
+    },
+    {
+      "terminalCell": 1014,
+      "kind": "non-land-receiver",
+      "landAreaM2": 4180493186146.2993,
+      "cells": 11
+    },
+    {
+      "terminalCell": 984,
+      "kind": "non-land-receiver",
+      "landAreaM2": 3868320979393.2446,
+      "cells": 10
+    }
+  ],
+  "preexistingWaterFieldsUnchanged": true,
+  "terrainUnmodified": true,
+  "limits": [
+    "Coarse existing downstream graph; local river locations are not determined by the colors",
+    "Climate supply is a heuristic, not actual discharge",
+    "No browser/WebGL acceptance"
+  ],
+  "sharedWorldAudit": {
+    "sameManifestSharesDecodedWorld": true,
+    "labelOnlyReferenceDoesNotSurveyRoads": true,
+    "focusedChecksPassed": 10,
+    "originalMultiCopyAuditAfterFix": "completed at unchanged 256 MiB heap limit",
+    "routeStatus": "surveyed-local-route",
+    "routeLengthM": 19443.381300769957
+  }
+}

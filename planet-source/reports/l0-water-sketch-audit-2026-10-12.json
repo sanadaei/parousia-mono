@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-12",
+  "status": "diagnostic implemented; new world water plan not accepted",
+  "parentCommit": "09858e91913762e4734e8226f8ce8cf1b2c3c460",
+  "sketchDiagnostics": {
+    "landCells": 2782,
+    "drainageLinks": 2672,
+    "detailedProfiles": 5,
+    "linksWithDetailedProfile": 5,
+    "uphillCoarseLinks": 32
+  },
+  "support": {
+    "cell": 2104,
+    "sourceWidthM": 226497.94104747378,
+    "sourceHeightM": 312735.7311878214,
+    "localWidthM": 11520,
+    "localHeightM": 8640,
+    "parentToLocalWidthRatio": 19.661279604815434,
+    "parentToLocalHeightRatio": 36.19626518377563,
+    "destination": "sea-cell:2234",
+    "outgoing": [
+      {
+        "id": "sketch-flow:2104:2233",
+        "from": 2104,
+        "to": 2233,
+        "start": {
+          "latDeg": 43.59375,
+          "lonDeg": 158.90625
+        },
+        "end": {
+          "latDeg": 40.78125,
+          "lonDeg": 161.71875
+        },
+        "potentialFlowM3PerSecond": 314.2905713079857,
+        "geometryStatus": "coarse corridor, exact path unresolved",
+        "levelStatus": "coarse sampled descent",
+        "destination": "sea-cell:2234"
+      }
+    ],
+    "incoming": [],
+    "readyForIndependentLocalCommit": false,
+    "reason": "Schematic connectivity exists, but subcell receiver locations, valley bed levels and shared divides are not committed"
+  },
+  "routingComparison": [
+    {
+      "label": "Generated planet",
+      "routingMode": "flood-tree",
+      "metrics": {
+        "confluences": 494,
+        "straightTwoStepFraction": 0.43502135448444174
+      },
+      "limitations": [
+        "Eight-neighbour directions remain",
+        "No new subcell valleys",
+        "Point sampling is not cartographic river simplification",
+        "Single dataset; metrics are not naturalness scores"
+      ]
+    },
+    {
+      "label": "Generated planet",
+      "routingMode": "steepest-filled",
+      "metrics": {
+        "confluences": 589,
+        "straightTwoStepFraction": 0.49229979466119095
+      },
+      "limitations": [
+        "Eight-neighbour directions remain",
+        "No new subcell valleys",
+        "Point sampling is not cartographic river simplification",
+        "Single dataset; metrics are not naturalness scores"
+      ]
+    },
+    {
+      "label": "Earth ETOPO2022 point samples",
+      "routingMode": "flood-tree",
+      "metrics": {
+        "confluences": 621,
+        "straightTwoStepFraction": 0.3984280532043531
+      },
+      "limitations": [
+        "Eight-neighbour directions remain",
+        "No new subcell valleys",
+        "Point sampling is not cartographic river simplification",
+        "Single dataset; metrics are not naturalness scores"
+      ]
+    },
+    {
+      "label": "Earth ETOPO2022 point samples",
+      "routingMode": "steepest-filled",
+      "metrics": {
+        "confluences": 646,
+        "straightTwoStepFraction": 0.4217506631299735
+      },
+      "limitations": [
+        "Eight-neighbour directions remain",
+        "No new subcell valleys",
+        "Point sampling is not cartographic river simplification",
+        "Single dataset; metrics are not naturalness scores"
+      ]
+    }
+  ],
+  "earthSource": {
+    "dataset": "NOAA ETOPO2022",
+    "sampling": "point samples, not area averages",
+    "columns": 128,
+    "rows": 64,
+    "csv": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%28-88.59375%29%3A675%3A%2888.59375%29%5D%5B%28-178.59375%29%3A675%3A%28178.59375%29%5D",
+    "ordering": "latitude descending; longitude modulo 360 ascending"
+  },
+  "cartographicControl": {
+    "dataset": "Natural Earth 1:110 million river/lake centre lines",
+    "features": 13,
+    "limitation": "major mapped features only, not equal-density comparison"
+  },
+  "verification": {
+    "focusedNewTests": 10,
+    "fullSuite": {
+      "tests": 1179,
+      "pass": 1179,
+      "fail": 0,
+      "skipped": 0
+    },
+    "browser": "not run; offline array plots only",
+    "build": "passed core import, compatibility exports, UI import and globe syntax"
+  },
+  "conclusion": "Changing receiver choice alone does not reconstruct lost valleys. Separate planning from display and preserve receiving-water topology before regional detail."
+}

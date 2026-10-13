@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-12",
+  "scope": "L1 parent river network to saved L2 inland through-river trial",
+  "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+  "sourceLayerId": "sha256:9050149f607f44c97dca4e3a1cd1d73b4cfeb22ca3bc5914db7aae5c911444a5",
+  "waterNetworkId": "sha256:0d3d48acb794ab6aca76ee68ba0eab47eb5eba6a388ae7efc4359ecfa966a3ab",
+  "settings": {
+    "cellSizeM": 60,
+    "columns": 192,
+    "detailAmplitude": 0.5,
+    "latDeg": 43.59375,
+    "lonDeg": 158.203125,
+    "rows": 144,
+    "seed": "muna-atlas-001"
+  },
+  "networkDiagnostics": {
+    "edges": 42835,
+    "uphillGroundEdges": 452,
+    "terminalBasins": 4000
+  },
+  "diagnostics": {
+    "activeCells": 27648,
+    "depressionCells": 0,
+    "importedSupplyM3PerYear": 1220975155.0027323,
+    "localSupplyM3PerYear": 13928553.676806165,
+    "maxCutM": 147.60151134858404,
+    "maxRaiseM": 3.030272905731806,
+    "maxRoutingFillM": 0,
+    "relativeBudgetResidual": 3.127677853988665e-14,
+    "totalInputM3PerYear": 1234903708.6794903,
+    "totalOutputM3PerYear": 1234903708.679529
+  },
+  "valleyConstruction": {
+    "maxCutM": 147.60151134858404,
+    "maxRaiseM": 3.030272905731806,
+    "method": "parent-bounded first-use bed anchors; corridor paths, transverse valley and tributary conditioning",
+    "tributaryConditioning": {
+      "anchors": 149,
+      "cutCells": 7664,
+      "maxCutM": 106.06705574406237,
+      "maxGradeViolationM": 0,
+      "maxRaiseM": 3.030272905731806,
+      "raisedCells": 288
+    }
+  },
+  "waterBoundaryAnchors": [
+    {
+      "edgeId": "sha256:9050149f607f44c97dca4e3a1cd1d73b4cfeb22ca3bc5914db7aae5c911444a5:water:33505:34016",
+      "elevationM": 375.8696873091168,
+      "id": "sha256:0b3f72ced445814bc1e7b1bd1f92f5f776ab04fdeb51cefb191a0d028c80ed84",
+      "latDeg": 43.63233089689391,
+      "lonDeg": 158.2417058968939,
+      "t": 0.445129391084
+    },
+    {
+      "edgeId": "sha256:9050149f607f44c97dca4e3a1cd1d73b4cfeb22ca3bc5914db7aae5c911444a5:water:33505:34016",
+      "elevationM": 353.92890279847677,
+      "id": "sha256:2d9799c59ac3151cab61fb84ef5f994d03752df0e5ae307684b2bc32252d8c61",
+      "latDeg": 43.55516910310609,
+      "lonDeg": 158.1645441031061,
+      "t": 0.554870608916
+    }
+  ],
+  "inputBudget": {
+    "inflows": [
+      {
+        "cell": 147,
+        "id": "sha256:0b3f72ced445814bc1e7b1bd1f92f5f776ab04fdeb51cefb191a0d028c80ed84",
+        "supplyM3PerYear": 1220975155.0027323
+      }
+    ],
+    "localYieldDebits": [
+      {
+        "localYieldDebitM3": 3482138.4191998397,
+        "parentAnnualSupplyM3": 1224457293.4219322,
+        "portId": "sha256:0b3f72ced445814bc1e7b1bd1f92f5f776ab04fdeb51cefb191a0d028c80ed84"
+      }
+    ]
+  },
+  "routes": [
+    {
+      "inletId": "sha256:0b3f72ced445814bc1e7b1bd1f92f5f776ab04fdeb51cefb191a0d028c80ed84",
+      "outletId": "sha256:2d9799c59ac3151cab61fb84ef5f994d03752df0e5ae307684b2bc32252d8c61",
+      "steps": 148
+    }
+  ],
+  "outlets": [
+    {
+      "cell": 27500,
+      "id": "sha256:2d9799c59ac3151cab61fb84ef5f994d03752df0e5ae307684b2bc32252d8c61",
+      "kind": "river",
+      "levelM": 353.92890279847677,
+      "supplyM3PerYear": 1234903708.679529
+    }
+  ],
+  "contentHash": "sha256:902a44d8d8906653cdab2b47bfca131648dc7a354b6ac961630fc519985b6d8d",
+  "reopenIdentical": true,
+  "failedTrials": [
+    {
+      "method": "linear coarse bed with detailAmplitude 1",
+      "result": "Rejected for exceeding 150 m construction bound; required 151.1 m cut"
+    },
+    {
+      "method": "linear coarse bed with detailAmplitude 0.5",
+      "result": "Flow ledger closed but 19410 routing depression cells and 108.066 m maximum head fill; not accepted as water terrain"
+    }
+  ],
+  "finalMethod": "First-use bed anchors inside coarse endpoint envelope; terrain-guided paths, valley construction and downhill tributary conditioning",
+  "visualEvidence": {
+    "image": "connected-water.png",
+    "kind": "offline plot of actual generated fields",
+    "browserScreenshot": false,
+    "observations": [
+      "Main river connected to parent and imported annual water",
+      "Visible grid-direction bias remains in L1",
+      "Some local tributaries and main channel remain angular",
+      "Large terrain edits up to 147.6 m remain a modelling concern",
+      "Cover mostly forest because this is one coarse-climate region; not global environmental diversity"
+    ]
+  },
+  "limits": [
+    "Parent water topology and exact geographic crossings retained; raster endpoints are snapped",
+    "Throughflow uses annual potential yield with local-yield debit, not seasonal hydraulics",
+    "Channel width and valley shape are explicit uncalibrated priors",
+    "Depression routing heads are not automatically physical lakes",
+    "All land in this bounded trial drains to its adopted river exits; unresolved neighbouring divides may require a larger joint domain",
+    "Previous L0 refinement topology and new coastline climate remain unresolved",
+    "No settlement placement or physical water-surface simulation",
+    "Not globally reconciled subcell runoff",
+    "No independent neighbouring terrain seam acceptance",
+    "No full legacy globe UI adoption",
+    "This review adopts one resolved inland reach; it is not a completed planetary hydrology system"
+  ],
+  "researchContext": [
+    {
+      "url": "https://doi.org/10.1145/2461912.2461996",
+      "use": "Network-before-terrain design direction; this implementation is not a reproduction of the complete paper"
+    },
+    {
+      "url": "https://doi.org/10.1029/96WR03137",
+      "use": "Known grid-direction bias; D-infinity routing is not implemented"
+    }
+  ],
+  "schema": "l2-parent-water-trial@4",
+  "checks": [
+    "Shared clipping ports keep identical geographic ID and annual parent flow",
+    "Prescribed channels reject uphill steps, cycles and outlet overrides",
+    "Imported coarse yield debits fine local contributions before adding local supply",
+    "Saved region reload matches; changed conditions reject without migration",
+    "Caller JSON property order does not change region identity",
+    "Mixed unresolved parent catchments reject rather than merging into an artificial rectangular basin"
+  ],
+  "verification": {
+    "tests": 1198,
+    "pass": 1198,
+    "fail": 0,
+    "skipped": 0,
+    "build": "PASS: 145 core, 30 legacy, 57 globe; UI import",
+    "browser": "not run",
+    "pythonRenderer": "syntax checked, executed and image inspected"
+  }
+}

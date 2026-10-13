@@ -1,0 +1,147 @@
+{
+  "retrievedAt": "2026-10-11",
+  "elevation": [
+    {
+      "id": "alps",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2846%29%3A1%3A%2846.5%29%5D%5B%287.5%29%3A1%3A%288%29%5D",
+      "bounds": [
+        46,
+        46.5,
+        7.5,
+        8
+      ],
+      "bytes": 592294,
+      "sha256": "175f1b008ef800fec462ec78c65a692e927aed9a778637876817c0257bcc0c98",
+      "file": "alps.csv",
+      "status": "downloaded",
+      "source": "NOAA NCEI ETOPO 2022; NOAA CoastWatch ERDDAP",
+      "spacingArcsec": 15
+    },
+    {
+      "id": "grand-canyon",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2836%29%3A1%3A%2836.5%29%5D%5B%28-112.5%29%3A1%3A%28-112%29%5D",
+      "bounds": [
+        36,
+        36.5,
+        -112.5,
+        -112
+      ],
+      "bytes": 616264,
+      "sha256": "303be0eea4b5f587e103802588b3929feae987d9c10c58ede8ee89e24a524d27",
+      "file": "grand-canyon.csv",
+      "status": "downloaded",
+      "source": "NOAA NCEI ETOPO 2022; NOAA CoastWatch ERDDAP",
+      "spacingArcsec": 15
+    },
+    {
+      "id": "netherlands",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2852%29%3A1%3A%2852.5%29%5D%5B%285%29%3A1%3A%285.5%29%5D",
+      "bounds": [
+        52,
+        52.5,
+        5,
+        5.5
+      ],
+      "bytes": 580887,
+      "sha256": "1d626ee78d5138c48ac934bce15cabe74de9f772e374ae35b96a96026832f05f",
+      "file": "netherlands.csv",
+      "status": "downloaded",
+      "source": "NOAA NCEI ETOPO 2022; NOAA CoastWatch ERDDAP",
+      "spacingArcsec": 15
+    },
+    {
+      "id": "tuscany",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2843%29%3A1%3A%2843.5%29%5D%5B%2811%29%3A1%3A%2811.5%29%5D",
+      "bounds": [
+        43,
+        43.5,
+        11,
+        11.5
+      ],
+      "bytes": 595395,
+      "sha256": "eb3784fb884aeeddee74fd3f46abfeddf2c355db3c7c894d003b0d753e6a5dd1",
+      "file": "tuscany.csv",
+      "status": "downloaded",
+      "source": "NOAA NCEI ETOPO 2022; NOAA CoastWatch ERDDAP",
+      "spacingArcsec": 15
+    },
+    {
+      "id": "fuji",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%2835.2%29%3A1%3A%2835.7%29%5D%5B%28138.5%29%3A1%3A%28139%29%5D",
+      "bounds": [
+        35.2,
+        35.7,
+        138.5,
+        139
+      ],
+      "bytes": 599009,
+      "sha256": "4c6d088aeb5641b8dc535a82165c672fee5823401e0d4ebf1af651c92f90b96b",
+      "file": "fuji.csv",
+      "status": "downloaded",
+      "source": "NOAA NCEI ETOPO 2022; NOAA CoastWatch ERDDAP",
+      "spacingArcsec": 15
+    },
+    {
+      "id": "fiordland",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ETOPO_2022_v1_15s.csv?z%5B%28-45.3%29%3A1%3A%28-44.8%29%5D%5B%28167.5%29%3A1%3A%28168%29%5D",
+      "bounds": [
+        -45.3,
+        -44.8,
+        167.5,
+        168
+      ],
+      "bytes": 609192,
+      "sha256": "828d6edf93208c53b3a7333d024e974eb7bc20ed28546c3f867766a2878b4e29",
+      "file": "fiordland.csv",
+      "status": "downloaded",
+      "source": "NOAA NCEI ETOPO 2022; NOAA CoastWatch ERDDAP",
+      "spacingArcsec": 15
+    }
+  ],
+  "classification": [
+    {
+      "region": 21,
+      "url": "https://gisstar.gsi.go.jp/terrain2021/Terrain22_21.zip",
+      "bytes": 28163490,
+      "sha256": "2b026da0b189873abed9367500b749530835dcfdfd0b9d7d95aced1e820f2f5d",
+      "entries": [
+        {
+          "name": "Ras_21_terrain22_by_Gcluster15_Sinks.tif",
+          "size": 29664167
+        }
+      ],
+      "status": "downloaded"
+    },
+    {
+      "region": 23,
+      "url": "https://gisstar.gsi.go.jp/terrain2021/Terrain22_23.zip",
+      "bytes": 35537825,
+      "sha256": "e7d53fa55dd41a66c2e506acd14f9a62297797cba6c9d0aa8be9f39106c848fc",
+      "entries": [
+        {
+          "name": "Ras_23_terrain22_by_Gcluster15_Sinks.tif",
+          "size": 37935071
+        }
+      ],
+      "status": "downloaded"
+    },
+    {
+      "region": 57,
+      "url": "https://gisstar.gsi.go.jp/terrain2021/Terrain22_57.zip",
+      "bytes": 6675624,
+      "sha256": "6c2e9c1797a6037633b0143e0f8b226a85b8295bef2e58dda88867716a42b2d6",
+      "entries": [
+        {
+          "name": "Ras_57_terrain22_by_Gcluster15_Sinks.tif",
+          "size": 8038104
+        }
+      ],
+      "status": "downloaded"
+    }
+  ],
+  "localRawCache": "External to repository; raw files are not bundled. URLs, sizes and hashes permit independent recovery.",
+  "sourceNotices": {
+    "etopo": "NOAA NCEI (2022), ETOPO 2022 15 Arc-Second Global Relief Model, DOI 10.25921/fd45-gt74. ERDDAP licence permits free use and redistribution without warranty.",
+    "terrain22": "Iwahashi and Yamazaki (2022), DOI 10.1186/s40645-022-00487-2; Terrain22 https://gisstar.gsi.go.jp/terrain2021/ ; CC-BY-4.0. Cropped/reprojected derivatives must identify changes and retain attribution."
+  }
+}

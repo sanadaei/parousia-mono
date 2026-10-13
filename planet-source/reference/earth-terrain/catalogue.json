@@ -1,0 +1,359 @@
+{
+  "schema": "planet-earth-terrain-reference@1",
+  "status": "reference catalogue, not a generator or production classifier",
+  "sourceClassifications": {
+    "terrain22": {
+      "source": "https://gisstar.gsi.go.jp/terrain2021/",
+      "paper": "https://doi.org/10.1186/s40645-022-00487-2",
+      "license": "CC-BY-4.0, as stated by publisher",
+      "labelSource": "Terrain22_colors4tiff.zip / Terrain22_colors4tiff.qml",
+      "translation": "Japanese labels are project translations; retain source labels and IDs. Sinks is a DEM-derived depression flag, not proof of wetland or karst.",
+      "classes": [
+        {
+          "id": 0,
+          "label": "NoData",
+          "labelJa": "未分類・欠測・マスク",
+          "color": "#3ccf97"
+        },
+        {
+          "id": 1,
+          "label": "1 Mountain summit",
+          "labelJa": "山頂部",
+          "color": "#704f29"
+        },
+        {
+          "id": 2,
+          "label": "2 Cliff slope",
+          "labelJa": "崖斜面",
+          "color": "#ac5232"
+        },
+        {
+          "id": 3,
+          "label": "3 Lower/hilly mountain",
+          "labelJa": "低山・丘陵状の山地",
+          "color": "#998353"
+        },
+        {
+          "id": 4,
+          "label": "4 Steep hills/dissected cliff slope",
+          "labelJa": "急な丘陵・開析された崖斜面",
+          "color": "#fb9a99"
+        },
+        {
+          "id": 5,
+          "label": "5 Large highland slope (steep)",
+          "labelJa": "大規模高地の急斜面",
+          "color": "#f803cc"
+        },
+        {
+          "id": 6,
+          "label": "6 Large highland slope (moderate)",
+          "labelJa": "大規模高地の中程度の斜面",
+          "color": "#f3a2f3"
+        },
+        {
+          "id": 7,
+          "label": "7 Mountain valley slope",
+          "labelJa": "山間の谷斜面",
+          "color": "#9196b9"
+        },
+        {
+          "id": 8,
+          "label": "8 Moderate hills",
+          "labelJa": "中程度の丘陵",
+          "color": "#28876c"
+        },
+        {
+          "id": 9,
+          "label": "9 Terrace/fan/plateau (high, dissected, Sinks not predominant)",
+          "labelJa": "高い段丘・扇状地・台地（開析、凹地非優勢）",
+          "color": "#14ac84"
+        },
+        {
+          "id": 10,
+          "label": "10 Terrace/fan/plateau (high, dissected, Sinks predominant)",
+          "labelJa": "高い段丘・扇状地・台地（開析、凹地優勢）",
+          "color": "#1fc369"
+        },
+        {
+          "id": 11,
+          "label": "11 Terrace/fan/plateau (high, surface, Sinks not predominant)",
+          "labelJa": "高い段丘・扇状地・台地（平坦面、凹地非優勢）",
+          "color": "#df861f"
+        },
+        {
+          "id": 12,
+          "label": "12 Terrace/fan/plateau (high, surface, Sinks predominant)",
+          "labelJa": "高い段丘・扇状地・台地（平坦面、凹地優勢）",
+          "color": "#1eda4a"
+        },
+        {
+          "id": 13,
+          "label": "13 Valley slope  (Sinks not predominant)",
+          "labelJa": "谷斜面（凹地非優勢）",
+          "color": "#7da28f"
+        },
+        {
+          "id": 14,
+          "label": "14 Valley slope  (Sinks predominant)",
+          "labelJa": "谷斜面（凹地優勢）",
+          "color": "#9b8da9"
+        },
+        {
+          "id": 15,
+          "label": "15 Terrace/fan/plateau (low, dissected, Sinks not predominant)",
+          "labelJa": "低い段丘・扇状地・台地（開析、凹地非優勢）",
+          "color": "#fb9300"
+        },
+        {
+          "id": 16,
+          "label": "16 Terrace/fan/plateau (low, dissected, Sinks predominant)",
+          "labelJa": "低い段丘・扇状地・台地（開析、凹地優勢）",
+          "color": "#7aec28"
+        },
+        {
+          "id": 17,
+          "label": "17 Terrace/fan/plateau (low, surface, Sinks not predominant)",
+          "labelJa": "低い段丘・扇状地・台地（平坦面、凹地非優勢）",
+          "color": "#f9b404"
+        },
+        {
+          "id": 18,
+          "label": "18 Terrace/fan/plateau (low, surface, Sinks predominant)",
+          "labelJa": "低い段丘・扇状地・台地（平坦面、凹地優勢）",
+          "color": "#c2fb47"
+        },
+        {
+          "id": 19,
+          "label": "19 High plain  (Sinks not predominant)",
+          "labelJa": "高位平野（凹地非優勢）",
+          "color": "#fbd80f"
+        },
+        {
+          "id": 20,
+          "label": "20 High plain (Sinks predominant)",
+          "labelJa": "高位平野（凹地優勢）",
+          "color": "#9affff"
+        },
+        {
+          "id": 21,
+          "label": "21 Low plain (Sinks not predominant)",
+          "labelJa": "低位平野（凹地非優勢）",
+          "color": "#fdfd78"
+        },
+        {
+          "id": 22,
+          "label": "22 Low plain (Sinks predominant)",
+          "labelJa": "低位平野（凹地優勢）",
+          "color": "#00b7ff"
+        }
+      ]
+    },
+    "geomorphons": {
+      "source": "https://grass.osgeo.org/grass-stable/manuals/r.geomorphon.html",
+      "role": "local relative shape, dependent on search radius and flatness threshold",
+      "implemented": false,
+      "classes": [
+        {
+          "key": "flat",
+          "labelJa": "平坦部"
+        },
+        {
+          "key": "peak",
+          "labelJa": "頂部"
+        },
+        {
+          "key": "ridge",
+          "labelJa": "尾根"
+        },
+        {
+          "key": "shoulder",
+          "labelJa": "斜面上端"
+        },
+        {
+          "key": "spur",
+          "labelJa": "張り出し尾根"
+        },
+        {
+          "key": "slope",
+          "labelJa": "斜面"
+        },
+        {
+          "key": "hollow",
+          "labelJa": "斜面のくぼみ"
+        },
+        {
+          "key": "footslope",
+          "labelJa": "斜面下端"
+        },
+        {
+          "key": "valley",
+          "labelJa": "谷"
+        },
+        {
+          "key": "pit",
+          "labelJa": "閉じたくぼ地"
+        }
+      ]
+    }
+  },
+  "projectDescriptionAxes": {
+    "scales": [
+      "region",
+      "landform",
+      "component",
+      "microfeature"
+    ],
+    "regionalForms": [
+      "plain",
+      "rolling-hills",
+      "dissected-hills",
+      "mountain-range",
+      "plateau",
+      "topographic-depression"
+    ],
+    "processFamilies": [
+      "fluvial",
+      "glacial",
+      "coastal",
+      "aeolian",
+      "volcanic",
+      "tectonic",
+      "karst",
+      "gravity-driven",
+      "weathering",
+      "biogenic",
+      "anthropogenic"
+    ],
+    "rules": [
+      "Multiple labels may coexist at different scales.",
+      "Do not equate geometric similarity with proven formation history.",
+      "A high plain need not be steep; a cliff can border a plateau or valley.",
+      "NoData is not flat land or water.",
+      "Do not infer historical settlement suitability solely from modern modified Earth topography.",
+      "Classification does not itself implement generation."
+    ]
+  },
+  "generationCoverageExamples": [
+    {
+      "family": "fluvial",
+      "examples": [
+        "valley",
+        "gorge",
+        "floodplain",
+        "river-terrace",
+        "alluvial-fan",
+        "delta"
+      ],
+      "need": "Connected drainage, graded longitudinal profile, erosion/deposition context"
+    },
+    {
+      "family": "glacial",
+      "examples": [
+        "U-shaped-valley",
+        "cirque",
+        "arete",
+        "moraine",
+        "fjord"
+      ],
+      "need": "Ice-flow context distinct from ordinary river erosion"
+    },
+    {
+      "family": "structural",
+      "examples": [
+        "fault-scarp",
+        "cuesta",
+        "mesa",
+        "butte",
+        "fold-ridge"
+      ],
+      "need": "Coherent regional structure and resistant/weak material contrasts"
+    },
+    {
+      "family": "coastal",
+      "examples": [
+        "sea-cliff",
+        "shore-platform",
+        "beach",
+        "spit",
+        "lagoon"
+      ],
+      "need": "Sea level, coastal exposure and sediment context"
+    },
+    {
+      "family": "volcanic",
+      "examples": [
+        "cone",
+        "crater",
+        "caldera",
+        "lava-field"
+      ],
+      "need": "Localized volcanic structure rather than circular shelves everywhere"
+    },
+    {
+      "family": "aeolian",
+      "examples": [
+        "dune",
+        "loess-hills",
+        "yardang"
+      ],
+      "need": "Wind, sediment supply, moisture and exposed material"
+    },
+    {
+      "family": "karst",
+      "examples": [
+        "sinkhole",
+        "karst-tower",
+        "cave"
+      ],
+      "need": "Soluble substrate and drainage; caves need more than a single-valued height field"
+    },
+    {
+      "family": "slope",
+      "examples": [
+        "talus",
+        "landslide-scar",
+        "debris-fan"
+      ],
+      "need": "Material-dependent slope stability and deposition"
+    }
+  ],
+  "measurementContract": {
+    "cellSpacing": "Record actual horizontal metres in both directions; arcseconds are not constant metres.",
+    "window": "Record radius/scale for slope, relief, curvature and relative elevation.",
+    "validity": "Preserve missing-data and water masks separately.",
+    "comparability": "Compare generated and Earth terrain at matched horizontal resolution and comparable landform context.",
+    "metrics": [
+      "slope-distribution",
+      "local-relief",
+      "relative-topographic-position",
+      "profile-and-plan-curvature",
+      "ridge-valley-connectivity",
+      "drainage-density",
+      "height-above-drainage",
+      "flat-surface-and-scarp-adjacency"
+    ],
+    "limitations": "Slope alone is neither a landform classifier nor a realism score."
+  },
+  "generatedSurfaceShapeInspection": {
+    "method": "finite-eight-ray-ground-shape@1",
+    "reference": "https://grass.osgeo.org/grass-stable/manuals/r.geomorphon.html",
+    "relationship": "Uses the published ten-form count grouping with an independently written finite continuous-ground ray sampler. Not a GRASS implementation or validation against its raster output.",
+    "radiiM": [
+      250,
+      2500,
+      25000
+    ],
+    "stepsPerRay": 16,
+    "flatThresholdDeg": 1,
+    "queryBudgetPerTarget": 385,
+    "unknownPolicy": "Any non-finite sample withholds the entire scale label.",
+    "limits": [
+      "Selected hill/mountain navigation targets are not an unbiased regional inventory.",
+      "No geological cause, land cover, lake or river is inferred from the label.",
+      "Subsample features can be missed; labels change with explicit observation radius, not camera LOD.",
+      "Direct radial height differences neglect planetary curvature, as local shape measurements.",
+      "Older saved manifests without shapeContext remain supported."
+    ]
+  }
+}

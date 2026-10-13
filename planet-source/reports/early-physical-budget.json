@@ -1,0 +1,81 @@
+{
+  "manifestWorldId": "sha256:889a63f2059ed60e1d967baaff75808ecd9c6d9a2157df9f59e0948817bccad8",
+  "siteId": "pop:3841:0",
+  "boundRadiusM": 12000,
+  "descriptorCount": 143,
+  "result": {
+    "loaded": 16,
+    "deferred": 123
+  },
+  "ms": 19442.484529,
+  "physicalBytes": 8388608,
+  "budget": 8388608,
+  "requests": [
+    {
+      "id": "procedural:pop:3713:462/district:0",
+      "ms": 11434.231988
+    },
+    {
+      "id": "procedural:pop:3841:0/district:0",
+      "ms": 630.9421280000006
+    },
+    {
+      "id": "procedural:pop:3841:0/district:1",
+      "ms": 476.54557099999874
+    },
+    {
+      "id": "procedural:pop:3841:0/district:2",
+      "ms": 667.1399039999997
+    },
+    {
+      "id": "procedural:pop:3841:0/district:3",
+      "ms": 492.3483180000003
+    },
+    {
+      "id": "procedural:pop:3841:0/district:4",
+      "ms": 448.2172620000001
+    },
+    {
+      "id": "procedural:pop:3841:0/district:5",
+      "ms": 468.64428099999895
+    },
+    {
+      "id": "procedural:pop:3841:0/district:6",
+      "ms": 480.3642579999996
+    },
+    {
+      "id": "procedural:pop:3841:0/district:7",
+      "ms": 521.683884
+    },
+    {
+      "id": "procedural:pop:3841:0/district:8",
+      "ms": 626.5396950000013
+    },
+    {
+      "id": "procedural:pop:3841:0/district:9",
+      "ms": 514.5062720000024
+    },
+    {
+      "id": "procedural:pop:3841:0/district:10",
+      "ms": 409.367331999998
+    },
+    {
+      "id": "procedural:pop:3841:0/district:11",
+      "ms": 417.3123659999983
+    },
+    {
+      "id": "procedural:pop:3841:0/district:12",
+      "ms": 538.2443530000019
+    },
+    {
+      "id": "procedural:pop:3841:0/district:13",
+      "ms": 457.0885760000019
+    },
+    {
+      "id": "procedural:pop:3841:0/district:14",
+      "ms": 414.78290600000037
+    }
+  ],
+  "canonicalWorldId": "sha256:3cdee46fd793325f9fd24b8636be30e3bbc57be11caa73bb912b473fa900e14d",
+  "scope": "12km bound around actual runtime15 city in new road-cutout world; 123 deferrals preserve uncertainty and require finer tiles. Timing includes concurrent work, not a controlled benchmark."
+}

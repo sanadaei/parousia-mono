@@ -1,0 +1,392 @@
+{
+  "sourceWorldId": "sha256:3d90e6d128d92d0cce4c5d4437433c2ac75e60b24b902c110f4ace73b760877d",
+  "scope": "Uncarved candidate terrain, 10 km windows / 250 m samples; river refit and visual acceptance NOT established",
+  "results": [
+    {
+      "name": "existing",
+      "bands": [
+        {
+          "id": "ground-roughness",
+          "wavelengthM": 8,
+          "amplitudeM": 0.04
+        },
+        {
+          "id": "local-hills",
+          "wavelengthM": 8000,
+          "amplitudeM": 140
+        },
+        {
+          "id": "mountain-massifs",
+          "wavelengthM": 38000,
+          "amplitudeM": 450
+        },
+        {
+          "id": "regional-relief",
+          "wavelengthM": 1800,
+          "amplitudeM": 18
+        }
+      ],
+      "samples": [
+        {
+          "site": "cell:3082",
+          "latDeg": 21.09375,
+          "lonDeg": 29.53125,
+          "minM": 8584.059131726333,
+          "maxM": 8716.235899194091,
+          "reliefM": 132.1767674677576,
+          "maxGridSlope": 0.021682245270530986,
+          "wet": 0
+        },
+        {
+          "site": "cell:5367",
+          "latDeg": -26.71875,
+          "lonDeg": 336.09375,
+          "minM": 8306.372652249656,
+          "maxM": 8367.595531797566,
+          "reliefM": 61.22287954790954,
+          "maxGridSlope": 0.01451092704700568,
+          "wet": 0
+        },
+        {
+          "site": "cell:5111",
+          "latDeg": -21.09375,
+          "lonDeg": 336.09375,
+          "minM": 8229.353505151937,
+          "maxM": 8361.78850080032,
+          "reliefM": 132.43499564838203,
+          "maxGridSlope": 0.019407866748035303,
+          "wet": 0
+        },
+        {
+          "site": "cell:4983",
+          "latDeg": -18.28125,
+          "lonDeg": 336.09375,
+          "minM": 7818.9535605604615,
+          "maxM": 7906.857110278526,
+          "reliefM": 87.90354971806482,
+          "maxGridSlope": 0.021979779915996915,
+          "wet": 0
+        },
+        {
+          "site": "cell:5110",
+          "latDeg": -21.09375,
+          "lonDeg": 333.28125,
+          "minM": 7801.7829452121005,
+          "maxM": 7946.099133742743,
+          "reliefM": 144.31618853064265,
+          "maxGridSlope": 0.026469849222907214,
+          "wet": 0
+        },
+        {
+          "site": "cell:5238",
+          "latDeg": -23.90625,
+          "lonDeg": 333.28125,
+          "minM": 7596.269630459207,
+          "maxM": 7689.850408185289,
+          "reliefM": 93.58077772608158,
+          "maxGridSlope": 0.022576208474820305,
+          "wet": 0
+        },
+        {
+          "site": "cell:2951",
+          "latDeg": 23.90625,
+          "lonDeg": 21.09375,
+          "minM": 7593.685968452934,
+          "maxM": 7639.942928737308,
+          "reliefM": 46.256960284374145,
+          "maxGridSlope": 0.014239584841452596,
+          "wet": 0
+        },
+        {
+          "site": "cell:3029",
+          "latDeg": 23.90625,
+          "lonDeg": 240.46875,
+          "minM": 7547.616048219512,
+          "maxM": 7608.574295620402,
+          "reliefM": 60.958247400890286,
+          "maxGridSlope": 0.016069711081272545,
+          "wet": 0
+        },
+        {
+          "site": "settlement:4491",
+          "latDeg": -11.253806438200295,
+          "lonDeg": 33.74260806745008,
+          "minM": 443.8926849661062,
+          "maxM": 476.50828226902803,
+          "reliefM": 32.615597302921856,
+          "maxGridSlope": 0.011624275330907267,
+          "wet": 0
+        },
+        {
+          "site": "settlement:4054",
+          "latDeg": 1.40625,
+          "lonDeg": 243.28125,
+          "minM": 216.97726679354764,
+          "maxM": 232.44825532281547,
+          "reliefM": 15.470988529267828,
+          "maxGridSlope": 0.0119589598558548,
+          "wet": 0
+        },
+        {
+          "site": "settlement:3093",
+          "latDeg": 21.09375,
+          "lonDeg": 60.46875,
+          "minM": 26.566498700550728,
+          "maxM": 48.10180936255995,
+          "reliefM": 21.53531066200922,
+          "maxGridSlope": 0.002590001318029124,
+          "wet": 0
+        },
+        {
+          "site": "settlement:4780",
+          "latDeg": -15.46875,
+          "lonDeg": 125.15625,
+          "minM": 30.11804858964507,
+          "maxM": 55.16120485322544,
+          "reliefM": 25.04315626358037,
+          "maxGridSlope": 0.0035744907354249163,
+          "wet": 0
+        },
+        {
+          "site": "cell:1909",
+          "latDeg": 49.21875,
+          "lonDeg": 330.46875,
+          "minM": 34.21651083140982,
+          "maxM": 98.6485112536841,
+          "reliefM": 64.43200042227429,
+          "maxGridSlope": 0.011124711181225166,
+          "wet": 0
+        },
+        {
+          "site": "cell:1938",
+          "latDeg": 46.40625,
+          "lonDeg": 52.03125,
+          "minM": 77.1278572165734,
+          "maxM": 174.48547167506513,
+          "reliefM": 97.35761445849172,
+          "maxGridSlope": 0.015259284606717188,
+          "wet": 0
+        },
+        {
+          "site": "cell:2029",
+          "latDeg": 46.40625,
+          "lonDeg": 307.96875,
+          "minM": -12.43678637612314,
+          "maxM": 97.45994704810593,
+          "reliefM": 109.89673342422907,
+          "maxGridSlope": 0.009258840876479098,
+          "wet": 53
+        },
+        {
+          "site": "cell:2182",
+          "latDeg": 40.78125,
+          "lonDeg": 18.28125,
+          "minM": 21.24041907394352,
+          "maxM": 54.82767022288312,
+          "reliefM": 33.5872511489396,
+          "maxGridSlope": 0.005410927797367293,
+          "wet": 0
+        }
+      ]
+    },
+    {
+      "name": "elevation-activated",
+      "bands": [
+        {
+          "id": "mountain-massifs",
+          "wavelengthM": 2500,
+          "amplitudeM": 900,
+          "shoreBudgetFraction": 0.55,
+          "elevationActivationM": [
+            400,
+            1800
+          ]
+        },
+        {
+          "id": "local-hills",
+          "wavelengthM": 900,
+          "amplitudeM": 100,
+          "shoreBudgetFraction": 0.35,
+          "elevationActivationM": [
+            30,
+            600
+          ]
+        },
+        {
+          "id": "regional-relief",
+          "wavelengthM": 180,
+          "amplitudeM": 12,
+          "shoreBudgetFraction": 0.09
+        },
+        {
+          "id": "ground-roughness",
+          "wavelengthM": 8,
+          "amplitudeM": 0.04,
+          "shoreBudgetFraction": 0.01
+        }
+      ],
+      "samples": [
+        {
+          "site": "cell:3082",
+          "latDeg": 21.09375,
+          "lonDeg": 29.53125,
+          "minM": 8215.389397714518,
+          "maxM": 9049.016202273875,
+          "reliefM": 833.626804559357,
+          "maxGridSlope": 0.5606819140840453,
+          "wet": 0
+        },
+        {
+          "site": "cell:5367",
+          "latDeg": -26.71875,
+          "lonDeg": 336.09375,
+          "minM": 7855.408959528148,
+          "maxM": 8553.442694528647,
+          "reliefM": 698.0337350004984,
+          "maxGridSlope": 0.4482242939072457,
+          "wet": 0
+        },
+        {
+          "site": "cell:5111",
+          "latDeg": -21.09375,
+          "lonDeg": 336.09375,
+          "minM": 7757.3111598969135,
+          "maxM": 8577.627788361933,
+          "reliefM": 820.3166284650197,
+          "maxGridSlope": 0.4501428001908425,
+          "wet": 0
+        },
+        {
+          "site": "cell:4983",
+          "latDeg": -18.28125,
+          "lonDeg": 336.09375,
+          "minM": 7629.363701178182,
+          "maxM": 8358.637669521755,
+          "reliefM": 729.273968343573,
+          "maxGridSlope": 0.43384106621717,
+          "wet": 0
+        },
+        {
+          "site": "cell:5110",
+          "latDeg": -21.09375,
+          "lonDeg": 333.28125,
+          "minM": 7838.605622487522,
+          "maxM": 8504.979650952502,
+          "reliefM": 666.3740284649803,
+          "maxGridSlope": 0.38249743810447034,
+          "wet": 0
+        },
+        {
+          "site": "cell:5238",
+          "latDeg": -23.90625,
+          "lonDeg": 333.28125,
+          "minM": 7464.716678769273,
+          "maxM": 8192.708809041524,
+          "reliefM": 727.9921302722505,
+          "maxGridSlope": 0.39991211358717194,
+          "wet": 0
+        },
+        {
+          "site": "cell:2951",
+          "latDeg": 23.90625,
+          "lonDeg": 21.09375,
+          "minM": 7397.9757560651415,
+          "maxM": 8183.897834822099,
+          "reliefM": 785.9220787569575,
+          "maxGridSlope": 0.398708660601802,
+          "wet": 0
+        },
+        {
+          "site": "cell:3029",
+          "latDeg": 23.90625,
+          "lonDeg": 240.46875,
+          "minM": 7207.077551943901,
+          "maxM": 8006.720202725046,
+          "reliefM": 799.6426507811448,
+          "maxGridSlope": 0.48630223281115104,
+          "wet": 0
+        },
+        {
+          "site": "settlement:4491",
+          "latDeg": -11.253806438200295,
+          "lonDeg": 33.74260806745008,
+          "minM": 430.644269108158,
+          "maxM": 495.6760176625098,
+          "reliefM": 65.0317485543518,
+          "maxGridSlope": 0.09775657405493257,
+          "wet": 0
+        },
+        {
+          "site": "settlement:4054",
+          "latDeg": 1.40625,
+          "lonDeg": 243.28125,
+          "minM": 218.02848116014098,
+          "maxM": 235.96187700827193,
+          "reliefM": 17.933395848130942,
+          "maxGridSlope": 0.04070970065891061,
+          "wet": 0
+        },
+        {
+          "site": "settlement:3093",
+          "latDeg": 21.09375,
+          "lonDeg": 60.46875,
+          "minM": 26.446970828579445,
+          "maxM": 48.836137042669606,
+          "reliefM": 22.38916621409016,
+          "maxGridSlope": 0.004166104760853699,
+          "wet": 0
+        },
+        {
+          "site": "settlement:4780",
+          "latDeg": -15.46875,
+          "lonDeg": 125.15625,
+          "minM": 30.110149177872582,
+          "maxM": 52.266037176029,
+          "reliefM": 22.15588799815642,
+          "maxGridSlope": 0.004175641219988819,
+          "wet": 0
+        },
+        {
+          "site": "cell:1909",
+          "latDeg": 49.21875,
+          "lonDeg": 330.46875,
+          "minM": 34.10431187918097,
+          "maxM": 101.29159455273975,
+          "reliefM": 67.18728267355878,
+          "maxGridSlope": 0.013309577324655606,
+          "wet": 0
+        },
+        {
+          "site": "cell:1938",
+          "latDeg": 46.40625,
+          "lonDeg": 52.03125,
+          "minM": 78.82090840210459,
+          "maxM": 172.28883835882053,
+          "reliefM": 93.46792995671593,
+          "maxGridSlope": 0.030216860598984225,
+          "wet": 0
+        },
+        {
+          "site": "cell:2029",
+          "latDeg": 46.40625,
+          "lonDeg": 307.96875,
+          "minM": -12.388266719899145,
+          "maxM": 97.92992863258978,
+          "reliefM": 110.31819535248893,
+          "maxGridSlope": 0.013002470653119132,
+          "wet": 53
+        },
+        {
+          "site": "cell:2182",
+          "latDeg": 40.78125,
+          "lonDeg": 18.28125,
+          "minM": 21.667749369497404,
+          "maxM": 56.02593857713102,
+          "reliefM": 34.358189207633615,
+          "maxGridSlope": 0.006269148957856459,
+          "wet": 0
+        }
+      ]
+    }
+  ]
+}

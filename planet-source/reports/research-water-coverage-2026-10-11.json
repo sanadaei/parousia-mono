@@ -1,0 +1,272 @@
+{
+  "schema": "bounded-regional-river-coverage-comparison@1",
+  "inputWorldId": "sha256:9f77ea6d556fc7ea385502457a7091c8a25adeb7392db867368bbea2fc1f3a74",
+  "inputSha256": "1ad4635a350ce921e524225190f962ddb712fc681c2327c200d3f9b872cc786a",
+  "inputRecipe": {
+    "seed": "planet-1",
+    "climatePlanning": true,
+    "localTributaries": true,
+    "settlementCount": 0,
+    "targetPopulation": 100000000
+  },
+  "scope": "Uncarved canonical base reconstructed from saved world; source drainage graph retained. Allocation comparison uses the same 32768 candidate budget. This is not visual or continuous hydraulic acceptance.",
+  "densityResults": [
+    {
+      "threshold": 20,
+      "profiles": 39,
+      "pointCount": 1893,
+      "rejected": 0,
+      "coveredPopulatedCells": 12,
+      "index": {
+        "stations": 1893,
+        "candidates": 11358,
+        "withheld": 0,
+        "maxCandidates": 32768,
+        "spacingM": 500
+      },
+      "runtimeMs": 1426.5069409999999
+    },
+    {
+      "threshold": 5,
+      "profiles": 344,
+      "pointCount": 25683,
+      "rejected": 0,
+      "coveredPopulatedCells": 12,
+      "index": {
+        "stations": 25683,
+        "candidates": 32768,
+        "withheld": 121330,
+        "maxCandidates": 32768,
+        "spacingM": 500
+      },
+      "runtimeMs": 27192.670911
+    },
+    {
+      "threshold": 2,
+      "profiles": 493,
+      "pointCount": 32766,
+      "rejected": 1568,
+      "coveredPopulatedCells": 0,
+      "index": {
+        "stations": 32766,
+        "candidates": 32768,
+        "withheld": 163828,
+        "maxCandidates": 32768,
+        "spacingM": 500
+      },
+      "runtimeMs": 24107.474323
+    }
+  ],
+  "allocationResults": [
+    {
+      "threshold": 20,
+      "method": "river-access-siting@1",
+      "coveredPopulatedRegions": 12,
+      "stations": 1893,
+      "candidates": 11358,
+      "withheld": 0,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "runtimeMs": 54.089882999999986
+    },
+    {
+      "threshold": 20,
+      "method": "river-access-siting@2",
+      "coveredPopulatedRegions": 12,
+      "stations": 1893,
+      "candidates": 11358,
+      "withheld": 0,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "allocation": "cell-kind-stratified-identity-rank@1",
+      "eligibleStrata": 183,
+      "coveredStrata": 183,
+      "eligibleCells": 61,
+      "coveredCells": 61,
+      "scope": "Balanced finite station proposals; coverage is not water accessibility, supply or potability",
+      "runtimeMs": 173.92255999999998
+    },
+    {
+      "threshold": 5,
+      "method": "river-access-siting@1",
+      "coveredPopulatedRegions": 12,
+      "stations": 25683,
+      "candidates": 32768,
+      "withheld": 121330,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "runtimeMs": 394.51752899999985
+    },
+    {
+      "threshold": 5,
+      "method": "river-access-siting@2",
+      "coveredPopulatedRegions": 195,
+      "stations": 25683,
+      "candidates": 32768,
+      "withheld": 121330,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "allocation": "cell-kind-stratified-identity-rank@1",
+      "eligibleStrata": 1945,
+      "coveredStrata": 1945,
+      "eligibleCells": 659,
+      "coveredCells": 659,
+      "scope": "Balanced finite station proposals; coverage is not water accessibility, supply or potability",
+      "runtimeMs": 1353.0419069999998
+    },
+    {
+      "threshold": 2,
+      "method": "river-access-siting@1",
+      "coveredPopulatedRegions": 0,
+      "stations": 32766,
+      "candidates": 32768,
+      "withheld": 163828,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "runtimeMs": 141.29049300000042
+    },
+    {
+      "threshold": 2,
+      "method": "river-access-siting@2",
+      "coveredPopulatedRegions": 0,
+      "stations": 32766,
+      "candidates": 32768,
+      "withheld": 163828,
+      "maxCandidates": 32768,
+      "spacingM": 500,
+      "allocation": "cell-kind-stratified-identity-rank@1",
+      "eligibleStrata": 2172,
+      "coveredStrata": 2172,
+      "eligibleCells": 724,
+      "coveredCells": 724,
+      "scope": "Balanced finite station proposals; coverage is not water accessibility, supply or potability",
+      "runtimeMs": 1069.7508829999997
+    }
+  ],
+  "newGeneration": {
+    "worldId": "sha256:cd942a93f46d2982b38a3e9d87668f88139878a82c6fe23f976149344ae4f428",
+    "runtimeMs": 34722.047898,
+    "rivers": {
+      "acceptedProfiles": 344,
+      "bedScope": "C1 compact capsule incisions and absolute-width smooth maximum; inherited base regularity; water and graph connectivity assessed separately",
+      "junctionLevelMethod": "surveyed-upstream-ceiling@3",
+      "loweredJunctionNodes": 84,
+      "maxIncisionM": 600,
+      "maxPoints": 32768,
+      "pointCount": 25683,
+      "profileStepM": 5000,
+      "rejected": [],
+      "rerouteAttempts": 22,
+      "scope": "sampled spherical graph fits; between-profile hydraulic acceptance pending",
+      "sourceThreshold": 5,
+      "valleySideRunPerRise": 3
+    },
+    "waterSiting": "river-access-siting@2"
+  },
+  "newGenerationRecipe": {
+    "seed": "planet-1",
+    "riverDetail": "regional",
+    "climatePlanning": true,
+    "localTributaries": false,
+    "settlementCount": 0
+  },
+  "decisions": [
+    "Expose threshold 5 as explicit regional detail for new worlds; retain major-river default and existing saved geography",
+    "Use geographic cell/kind-balanced finite candidate allocation for new water-led worlds; preserve legacy @1 saved policy",
+    "Reject threshold 2 as a demonstrated improvement: river-profile budget is consumed before populated regions, even balanced siting cannot recover omitted waterways",
+    "195 candidate-covered populated regions is not 195 accepted water-access settlements; actual approach surveys remain mandatory"
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/core/planet-rivers.mjs",
+      "sha256": "93d60d0e4b2f8c53a0244ba7f2820e16ec7e646d48d6c65aca68b30d67b38b42"
+    },
+    {
+      "path": "src/core/settlement-water-access.mjs",
+      "sha256": "c0f18b31dabf27b60724761982e8a4127d686a62ac2d4cb914f16203f0278798"
+    },
+    {
+      "path": "src/core/planet-generation.mjs",
+      "sha256": "bb76df552273489f72afbbf448e4351f43cbd72741861565747cf624979290a8"
+    },
+    {
+      "path": "scripts/package-settlements.mjs",
+      "sha256": "c7ade8dd78c6ec4083367f3aa7bf747a238f59793100100b920c1d8687a6e933"
+    }
+  ],
+  "actualSitingAudit": {
+    "worldId": "sha256:cd942a93f46d2982b38a3e9d87668f88139878a82c6fe23f976149344ae4f428",
+    "selection": "Up to eight highest-suitability populated regions with river candidates; stop after first actual accepted approach",
+    "regions": [
+      {
+        "cellIndex": 5010,
+        "sites": 734,
+        "survey": {
+          "method": "river-access-siting@2",
+          "water": {
+            "proposed": 20,
+            "accepted": 4,
+            "rejected": 14,
+            "approachSamples": 133,
+            "maxRelocationM": 20000,
+            "maxCandidateSurveys": 4
+          },
+          "maxCandidateSurveys": 8,
+          "candidateSurveys": 1145,
+          "relocatedSites": 255,
+          "maxSearchRadiusM": 1200
+        },
+        "accepted": [
+          {
+            "id": "pop:5010:26",
+            "kind": "village",
+            "sourceId": "river:5010:4883",
+            "distanceM": 187.68270110087593,
+            "maxObservedGrade": 0.05007385400208391,
+            "samples": 11
+          },
+          {
+            "id": "pop:5010:384",
+            "kind": "village",
+            "sourceId": "river:5009:5010",
+            "distanceM": 187.51771434748912,
+            "maxObservedGrade": 0.052199253631711726,
+            "samples": 11
+          },
+          {
+            "id": "pop:5010:387",
+            "kind": "village",
+            "sourceId": "river:5009:5010",
+            "distanceM": 187.51771434715786,
+            "maxObservedGrade": 0.018574638276479687,
+            "samples": 11
+          },
+          {
+            "id": "pop:5010:391",
+            "kind": "village",
+            "sourceId": "river:5009:5010",
+            "distanceM": 187.51771434728468,
+            "maxObservedGrade": 0.019093664070173502,
+            "samples": 11
+          }
+        ]
+      }
+    ],
+    "limitation": "Finite natural-ground approach survey; not yet a generated pedestrian path from the internal village streets."
+  },
+  "verification": {
+    "fullSuite": {
+      "pass": 898,
+      "fail": 0,
+      "skip": 0,
+      "durationMs": 262856.653222
+    },
+    "subsequentIntegration": {
+      "pass": 17,
+      "fail": 0,
+      "includesTwoNewTestsAfterFullSuite": true
+    },
+    "build": "passed: 116 core / 47 globe modules",
+    "browser": "blocked, not verified"
+  }
+}

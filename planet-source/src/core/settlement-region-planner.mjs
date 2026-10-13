@@ -1,0 +1,24 @@
+import {createSettlementWaterIndex,isWaterLedSiting} from './settlement-water-access.mjs';
+import {villageStreetContexts} from './village-street-context.mjs';
+import {planLandRoadCorridor} from './lake-road-corridor.mjs';
+import {planSettlementRoadTree} from './settlement-road-tree.mjs';
+import {sitePopulationRegion} from './settlement-catalogue.mjs';
+/** The identical bounded regional planner used by packaging and scene audits.
+ * Planning one region never allocates every village or any house geometry. */
+export function createSettlementRegionPlanner(world,{surface=world.base,waterNetwork=null}={}){
+ if(surface.worldId!==world.base.worldId||surface.frame.radiusM!==world.base.frame.radiusM)throw new Error('Settlement surface must belong to the same base world');
+ if(!world.population)throw new Error('Population required for regional planning');
+ const terrain=world.base.toSnapshot(),waterCells=new Set((terrain.references.lakes??[]).flatMap(l=>l.cells)),sensitive=new Set(),columns=terrain.grid.columns,rows=terrain.grid.rows;for(let i=0;i<columns*rows;i++)if(!terrain.fields.landMask[i]||waterCells.has(i)){const x=i%columns,y=Math.floor(i/columns);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)if(y+dy>=0&&y+dy<rows)sensitive.add((y+dy)*columns+(x+dx+columns)%columns);}
+ const waterIndex=isWaterLedSiting(world.landscape?.settlementSiting)?createSettlementWaterIndex(waterNetwork??terrain.references.rivers,world.population.grid,world.base.frame.radiusM,{method:world.landscape.settlementSiting}):null;
+ function plan(cellIndex,{zone=null}={}){
+  if(!Number.isSafeInteger(cellIndex)||cellIndex<0||cellIndex>=world.population.cells.length)throw new RangeError('Invalid population region');
+  const c=zone?{...world.population.cells[cellIndex],...zone,cellIndex}:world.population.cells[cellIndex];
+  const region=sitePopulationRegion(surface,world.population,c.cellIndex,{anchors:world.settlements,waterIndex,zone});
+  for(const site of region.sites)site.economicContext={method:'regional-cereal-woodland@1',institutionPolicy:'medieval-communal@1',...(world.landscape?{...(world.landscape.earthworkEnvelopePolicy?{earthworkEnvelopePolicy:world.landscape.earthworkEnvelopePolicy}:{}),...(world.landscape.riverbankAccessPolicy?{riverbankAccessPolicy:world.landscape.riverbankAccessPolicy}:{}),...(world.landscape.urbanPublicSitePolicy?{urbanPublicSitePolicy:world.landscape.urbanPublicSitePolicy}:{}),...(world.landscape.gardenParcelPolicy?{gardenParcelPolicy:world.landscape.gardenParcelPolicy}:{}),...(world.landscape.urbanBlockSeedPolicy?{urbanBlockSeedPolicy:world.landscape.urbanBlockSeedPolicy}:{}),...(world.landscape.householdAccessPolicy?{householdAccessPolicy:world.landscape.householdAccessPolicy}:{}),...(world.landscape.streetRefinementPolicy?{streetRefinementPolicy:world.landscape.streetRefinementPolicy}:{}),...(world.landscape.residentialStreetPolicy?{residentialStreetPolicy:world.landscape.residentialStreetPolicy}:{}),...(world.landscape.householdFrontagePolicy?{householdFrontagePolicy:world.landscape.householdFrontagePolicy}:{}),...(world.landscape.publicGreenPolicy?{publicGreenPolicy:world.landscape.publicGreenPolicy}:{}),...(world.landscape.roadPadClearance?{roadPadClearance:world.landscape.roadPadClearance}:{}),layoutPolicy:'terrain-led-neighborhood@2',pondPolicy:world.landscape.pondPolicy??'surveyed-communal-pond@1',streetPolicy:'terrain-led-branches@2',facilityPolicy:'frontage-service-parcels@2',publicAccessPolicy:'surveyed-public-footpaths@1',publicSitePolicy:'surveyed-street-public-sites@1',housingInfillPolicy:'surveyed-residential-infill@2',urbanFacilityPolicy:'surveyed-urban-service-parcels@1'}:{}),infillPolicy:'fixed-terrain-adaptive-infill@1',populationId:world.population.id,agricultureSuitability:c.suitability,agriculturalDependentPopulation:site.kind==='village'&&c.ruralPopulation?site.population*c.population/c.ruralPopulation:0,netGrainKgPerHa:world.population.settings.grainKgPerHa*world.population.settings.retainedHarvestFraction*c.suitability,foodKgPerPersonYear:world.population.settings.foodKgPerPersonYear,grainKgPerPersonYear:c.population?c.netFoodKg/c.population:0,biome:world.climate?.biome?.[c.cellIndex]??null,woodland:/forest|woodland|taiga/i.test(world.climate?.biome?.[c.cellIndex]??'')};
+  region.roadNetwork=planSettlementRoadTree(region.sites,world.base.frame.radiusM);
+  if(sensitive.has(c.cellIndex))region.roadNetwork.links=region.roadNetwork.links.map(link=>planLandRoadCorridor(surface,link));
+  if(world.landscape){const contexts=villageStreetContexts(region.sites,region.roadNetwork,world.base.frame.radiusM,{bearingPortals:world.landscape.villagePortalPolicy==='bearing-led-boundary-portals@1'});for(const site of region.sites)if(contexts.has(site.id))Object.assign(site.economicContext,contexts.get(site.id));}
+  return region;
+ }
+ return {plan,waterIndex,terrain};
+}

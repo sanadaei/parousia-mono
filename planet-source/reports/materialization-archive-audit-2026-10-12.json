@@ -1,0 +1,155 @@
+{
+  "schema": "materialization-archive-audit@1",
+  "export": {
+    "records": 300,
+    "bytes": 5220848,
+    "worldIds": [
+      "sha256:c67a41ae0d54b6a08530c316584b394aabff4dafe780fae93862206c69225b1e",
+      "sha256:328b174ad5c6ac08af888bb1c9ad922337d01e48194c55824c41b8b769836b2a/sha256:a17e99a773e7e821ad2cb89f8164653e50c900319b13402befdad1b508c43f69"
+    ]
+  },
+  "restore": {
+    "records": 300,
+    "worldIds": [
+      "sha256:c67a41ae0d54b6a08530c316584b394aabff4dafe780fae93862206c69225b1e",
+      "sha256:328b174ad5c6ac08af888bb1c9ad922337d01e48194c55824c41b8b769836b2a/sha256:a17e99a773e7e821ad2cb89f8164653e50c900319b13402befdad1b508c43f69"
+    ],
+    "requiresOriginalPlanet": true
+  },
+  "identicalRecordBytes": 300,
+  "archiveSha256": "d7f12681806a6e08b026837ffc1d7cd53aed79fe4bca8a002f2aa0f756c60909",
+  "reopenedProductionRecipes": 9,
+  "recipeRegenerationDisabled": true,
+  "limitations": [
+    "Original planet publication required",
+    "File adapter only; browser IndexedDB export not implemented",
+    "Readers and writers stopped during export/import",
+    "Interrupted import may leave partial target, retry to new path",
+    "Maximum16MiB transfer"
+  ],
+  "crossingApproaches": {
+    "inspections": [
+      {
+        "candidateId": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:-1000:334",
+        "offsetM": -1000,
+        "approaches": [
+          {
+            "lengthM": 10782.704418405217,
+            "samples": 1080,
+            "wetSamples": 0,
+            "maxGrade": 0.012905779656209307
+          },
+          {
+            "lengthM": 1168.8563916814692,
+            "samples": 118,
+            "wetSamples": 0,
+            "maxGrade": 0.004835884836856492
+          }
+        ]
+      },
+      {
+        "candidateId": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:-500:278",
+        "offsetM": -500,
+        "approaches": [
+          {
+            "lengthM": 10468.24281159605,
+            "samples": 1048,
+            "wetSamples": 0,
+            "maxGrade": 0.012505973803555972
+          },
+          {
+            "lengthM": 542.4076353958895,
+            "samples": 56,
+            "wetSamples": 0,
+            "maxGrade": 0.006180193625165673
+          }
+        ]
+      },
+      {
+        "candidateId": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:0:238",
+        "offsetM": 0,
+        "approaches": [
+          {
+            "lengthM": 10256.338968265274,
+            "samples": 1027,
+            "wetSamples": 0,
+            "maxGrade": 0.013861140650300637
+          },
+          {
+            "lengthM": 44.691143723879854,
+            "samples": 6,
+            "wetSamples": 0,
+            "maxGrade": 0.0002789229317994668
+          }
+        ]
+      },
+      {
+        "candidateId": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:500:206",
+        "offsetM": 500,
+        "approaches": [
+          {
+            "lengthM": 10108.747150452193,
+            "samples": 1012,
+            "wetSamples": 0,
+            "maxGrade": 0.012980441257667785
+          },
+          {
+            "lengthM": 548.149722228636,
+            "samples": 56,
+            "wetSamples": 0,
+            "maxGrade": 0.004327270898652608
+          }
+        ]
+      },
+      {
+        "candidateId": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:1000:176",
+        "offsetM": 1000,
+        "approaches": [
+          {
+            "lengthM": 9996.549954256352,
+            "samples": 1001,
+            "wetSamples": 0,
+            "maxGrade": 0.01597741502968899
+          },
+          {
+            "lengthM": 1069.6301042373059,
+            "samples": 108,
+            "wetSamples": 0,
+            "maxGrade": 0.004768331258805102
+          }
+        ]
+      }
+    ],
+    "scope": "Straight bank access probes only; no obstacle or road corridor acceptance, no transport construction"
+  },
+  "arbitraryFirstChoiceRace": {
+    "candidates": [
+      {
+        "nonce": "c6ebf3aa-779f-4fd7-822c-9128a762c6ac",
+        "source": "B"
+      },
+      {
+        "nonce": "5e214c91-c9a8-4b0f-aac4-9f91e61fedae",
+        "source": "A"
+      }
+    ],
+    "results": [
+      {
+        "nonce": "c6ebf3aa-779f-4fd7-822c-9128a762c6ac",
+        "source": "B"
+      },
+      {
+        "nonce": "c6ebf3aa-779f-4fd7-822c-9128a762c6ac",
+        "source": "B"
+      }
+    ],
+    "replay": {
+      "nonce": "c6ebf3aa-779f-4fd7-822c-9128a762c6ac",
+      "source": "B"
+    },
+    "candidatesDiffer": true,
+    "sameCommittedWinner": true,
+    "records": 1,
+    "scope": "Two real processes, file storage; randomized diagnostic value, not generated village geometry or browser IndexedDB"
+  }
+}

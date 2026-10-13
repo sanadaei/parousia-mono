@@ -1,0 +1,11 @@
+{
+  "canonicalWorldId": "sha256:36dc278278b024ec96f6ef75852be85089302f0e531178aa542efc02e191e374",
+  "tile": "procedural:landscape:29300:77639",
+  "scope": "Every eighth triangle approximately, barycentric grid of28 samples; canonical ground, not rendered terrain LOD",
+  "stats": {
+    "n": 5796,
+    "buried": 0,
+    "minGap": 0.012828290848645452,
+    "maxGap": 0.0697596722942535
+  }
+}

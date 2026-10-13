@@ -1,0 +1,119 @@
+{
+  "capturedAtUTC": "2026-10-09T14:44:16.316Z",
+  "heightM": 14.4,
+  "coverage": [
+    {
+      "tile": {
+        "face": 2,
+        "level": 20,
+        "x": 1048575,
+        "y": 1043460
+      },
+      "morph": 1,
+      "overlays": 2895,
+      "witness": {
+        "latDeg": 35.000011777868785,
+        "lonDeg": 134.9999726792303,
+        "groundElevationM": 598.0485756884558,
+        "waterLevelElevationM": 599.337567968481,
+        "waterDepthM": 1.2889922800252407,
+        "roadSurface": {
+          "roadId": "demo-road",
+          "structureKind": "bridge-deck",
+          "surfaceKind": "road",
+          "roadElevationM": 603.6991480211826,
+          "slopeMPerM": 0,
+          "roughness": 0
+        },
+        "waterSourceIds": [
+          "demo-river"
+        ],
+        "xM": -2.4885270199116714,
+        "yM": 1.3096395951351238,
+        "buildingId": null,
+        "structureKind": null,
+        "vertexGroundElevationM": 598.0485756884558,
+        "normalECEF": [
+          -0.7510379752662517,
+          0.36252419053686696,
+          0.5518316509439796
+        ],
+        "maxVertexFloat32ErrorM": 2.329415930642946e-7,
+        "float32PositionErrorM": 0
+      }
+    },
+    {
+      "tile": {
+        "face": 1,
+        "level": 20,
+        "x": 0,
+        "y": 1043460
+      },
+      "morph": 1,
+      "overlays": 2847,
+      "witness": {
+        "latDeg": 35.000011777868785,
+        "lonDeg": 135.0000273207697,
+        "groundElevationM": 598.0485756883548,
+        "waterLevelElevationM": 599.3375679684812,
+        "waterDepthM": 1.2889922801263083,
+        "roadSurface": {
+          "roadId": "demo-road",
+          "structureKind": "bridge-deck",
+          "surfaceKind": "road",
+          "roadElevationM": 603.6991480211826,
+          "slopeMPerM": 0,
+          "roughness": 0
+        },
+        "waterSourceIds": [
+          "demo-river"
+        ],
+        "xM": 2.4885270195580103,
+        "yM": 1.309639595135124,
+        "buildingId": null,
+        "structureKind": null,
+        "vertexGroundElevationM": 598.0485756883548,
+        "normalECEF": [
+          -0.3625241907521377,
+          0.7510379751007651,
+          0.5518316510277841
+        ],
+        "maxVertexFloat32ErrorM": 2.329415930642946e-7,
+        "float32PositionErrorM": 0
+      }
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 20,
+        "x": 1048575,
+        "y": 1043459
+      },
+      "morph": 1,
+      "overlays": 2034,
+      "witness": {
+        "latDeg": 34.99995992567767,
+        "lonDeg": 134.9999726792303,
+        "groundElevationM": 598.0509478460297,
+        "waterLevelElevationM": 599.339939675591,
+        "waterDepthM": 1.2889918295613825,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "demo-river"
+        ],
+        "xM": -2.488528596535022,
+        "yM": -4.456060990825105,
+        "buildingId": null,
+        "structureKind": null,
+        "vertexGroundElevationM": 598.0509478460297,
+        "normalECEF": [
+          -0.7510383279301704,
+          0.3625245444713531,
+          0.5518309384546066
+        ],
+        "maxVertexFloat32ErrorM": 2.3406081941154033e-7,
+        "float32PositionErrorM": 0
+      }
+    }
+  ]
+}

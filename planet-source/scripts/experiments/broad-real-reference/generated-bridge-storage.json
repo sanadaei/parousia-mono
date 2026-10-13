@@ -1,0 +1,29 @@
+{
+  "encoding": "gzip; deterministic mtime=0; byte-concatenate parts in listed order before decompressing",
+  "uncompressedBytes": 9196749,
+  "uncompressedSha256": "84543e06bf60dc046ca9c031e4473ec87c3cde290bdd62839671a028a61c9804",
+  "compressedBytes": 2028151,
+  "compressedSha256": "15cce754af9265fd4ea2a0e5a673c22bfbf079670b861e7348a44d63d83dd27a",
+  "parts": [
+    {
+      "file": "generated-bridge.json.gz.part000",
+      "bytes": 524288,
+      "sha256": "bef7b233bfe954d05c495521d0ce61a681d5af0ec6d8869df207c4d068bb2707"
+    },
+    {
+      "file": "generated-bridge.json.gz.part001",
+      "bytes": 524288,
+      "sha256": "043a9f829cdbd323f7460f35cb25416de9f49148fb757b7e4030f0886fef7c98"
+    },
+    {
+      "file": "generated-bridge.json.gz.part002",
+      "bytes": 524288,
+      "sha256": "eb17e5a0dfb4685d43f448c393015dbfacd0c3a4f7384c0a1e9d32854f3ed09e"
+    },
+    {
+      "file": "generated-bridge.json.gz.part003",
+      "bytes": 455287,
+      "sha256": "03e17ee3db11a98d953860654b1c35e4cf588611c2b6449c05415c330cf15a98"
+    }
+  ]
+}

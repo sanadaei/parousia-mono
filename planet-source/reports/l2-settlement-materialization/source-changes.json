@@ -1,0 +1,112 @@
+{
+  "schema": "source-changes@1",
+  "gitRepository": false,
+  "baseline": "L1/L2 candidate-handoff checkpoint after the user PC-scope correction; earlier changes retained",
+  "files": [
+    {
+      "path": "README.md",
+      "kind": "modified",
+      "beforeSha256": "248f22e9b2f944a5e6fbe872902e6dc035204cd574eb0e27f961aaa715637d93",
+      "afterSha256": "6ec2dc6a6eb117bd47fd85e0a744848f0ff663bd0129fc1346a3537dc9bdf2ae",
+      "bytes": 29301
+    },
+    {
+      "path": "package.json",
+      "kind": "modified",
+      "beforeSha256": "4dc180e1f9928f3a958ce6c2707dfb9408f3bc99339688f58fa89fbc5c51bb87",
+      "afterSha256": "1bcbce2a6037c42d1a446d02f97497a82ee04796f91f2cc2136e867da86ca93d",
+      "bytes": 6813
+    },
+    {
+      "path": "src/core/index.mjs",
+      "kind": "modified",
+      "beforeSha256": "49194641a175930305df959037641e941d6a053b85edb6ccc3ff0710e740c3d6",
+      "afterSha256": "355d299eaca4de1197543293d88c60b0d000aa25b7f6f58744919c56e70c7f68",
+      "bytes": 19180
+    },
+    {
+      "path": "docs/WORKING_BASELINE_ROADMAP.md",
+      "kind": "modified",
+      "beforeSha256": "6fb428e6f79ff5466aedc9acfbdaa3ed5d0bc057fdfdf356063c0e4778af2674",
+      "afterSha256": "4af6589dd680a003f28c9a03bf7435cb44db23289df3ba4704d94c84b9654ad6",
+      "bytes": 14324
+    },
+    {
+      "path": "docs/L2_SETTLEMENT_HANDOFF.md",
+      "kind": "modified",
+      "beforeSha256": "2f53fb2bd83c82f019e34a3fde63f0903c5e3ad436a133dd4a35f3636192cf9c",
+      "afterSha256": "67d5461186e22ca0c5bb5623653c5b72b6b4c694374dca333f2a60f375da4294",
+      "bytes": 6786
+    },
+    {
+      "path": "src/core/l2-settlement-surface.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "25702f5cd9f2db5ebecfc84307c8b88698042f1c679bf4a7c3930077a9a83120",
+      "bytes": 6182
+    },
+    {
+      "path": "src/core/l2-settlement-materialization.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "47140f108c38fad8cf7735b293f83f7e457a97aa7888e2f8b7b362664e58379f",
+      "bytes": 26051
+    },
+    {
+      "path": "scripts/build-l2-settlement-materialization.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "7ecdaba494cf0f14eada4dd389393b0e73cb5acef5982368a5fd60fa6b4b6c54",
+      "bytes": 7084
+    },
+    {
+      "path": "scripts/l2-materialization-review-data.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "3639e52ad058accf6ffa9ef71cd11682ad343e7421641100356d502db109dd89",
+      "bytes": 2327
+    },
+    {
+      "path": "scripts/build-l2-materialization-review.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "31895ede4eaa7436998a856aba35f24e63e28bfbbae400b7de859acfa5a3cf4c",
+      "bytes": 82295
+    },
+    {
+      "path": "test/l2-settlement-surface.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "a75a7b26fefe75fad347d4eeff93948df9f482a2b104120fcca8e39db6a22e15",
+      "bytes": 3258
+    },
+    {
+      "path": "test/l2-settlement-materialization.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "454bdbb9eba58f31a306c3850c22fde00bf4a9308a3ca70d358fcbbd0f580129",
+      "bytes": 17443
+    },
+    {
+      "path": "test/l2-materialization-file-persistence.test.mjs",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "dd9548a9e2f19c1d43923163c3b70621da665bf0dbd482bf799cdcb82eebaddb",
+      "bytes": 2750
+    },
+    {
+      "path": "fixtures/l2-settlement-handoff.json",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "cfea91f3ede2b0af3f2672c5c08fb2d76906f9156822e23d5660a2929d135b62",
+      "bytes": 2742
+    },
+    {
+      "path": "docs/L2_SETTLEMENT_MATERIALIZATION.md",
+      "kind": "added",
+      "beforeSha256": null,
+      "afterSha256": "c3fcd3934022ece0463274f4d799484d0f40b4f33823de5b0472377a70ea5907",
+      "bytes": 6480
+    }
+  ]
+}

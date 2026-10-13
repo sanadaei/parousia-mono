@@ -1,0 +1,39 @@
+{
+  "scope": "Actual saved base river receiver; four generated outlet sides; sampled polyline interiors",
+  "results": [
+    {
+      "side": "north",
+      "receiver": "river:2640:2769",
+      "routeLengthM": 18983.131892619098,
+      "reenterSamples": 145,
+      "firstReentry": {
+        "xM": 5080.77151905842,
+        "yM": 14.892226497846039
+      }
+    },
+    {
+      "side": "east",
+      "receiver": "river:2640:2769",
+      "routeLengthM": 12330.863621320763,
+      "reenterSamples": 0,
+      "firstReentry": null
+    },
+    {
+      "side": "south",
+      "receiver": "river:2640:2769",
+      "routeLengthM": 11433.906435715557,
+      "reenterSamples": 0,
+      "firstReentry": null
+    },
+    {
+      "side": "west",
+      "receiver": "river:2640:2769",
+      "routeLengthM": 18202.09309073431,
+      "reenterSamples": 128,
+      "firstReentry": {
+        "xM": 14.692761341177746,
+        "yM": 5911.133678577232
+      }
+    }
+  ]
+}

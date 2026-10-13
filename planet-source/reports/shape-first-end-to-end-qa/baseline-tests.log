@@ -1,0 +1,33 @@
+✔ shape-first: native-first pyramid is deterministic and preserves the detailed field (50.458844ms)
+✔ shape-first: every parent is an exact child-node subsample with shared metre coordinates (6.974274ms)
+✔ shape-first: shared river concept is bounded and every projection reverses to metres (10.834112ms)
+✔ shape-first: only structural requirements gate drafts; no old anchors or physics thresholds (34.189554ms)
+✔ shape-first: generic rectangular import retains row-major orientation and bounded native extent (0.632872ms)
+✔ shape-first: CLI writes a reproducible saved pyramid and a self-contained preview (209.442793ms)
+✔ shape-first: all three isolated alternatives import through the same contract (99.008866ms)
+✔ shape-first: bilinear reconstruction is descriptive and exact on an affine plane (0.50498ms)
+✔ mass, exact footprint, tree direction, joins, immutable inputs and preview (3.182719ms)
+✔ named external input travels downstream only and enters correct confluence segment (0.585711ms)
+✔ zero supply yields zero flows and finite line weights (0.426772ms)
+✔ determinism and proportional runoff (1.061397ms)
+✔ reject cycle (0.622787ms)
+✔ reject unknown parent (0.25928ms)
+✔ reject duplicate ID (0.187812ms)
+✔ reject direction (0.273252ms)
+✔ reject negative runoff (0.296736ms)
+✔ reject nonfinite runoff (0.217407ms)
+✔ reject negative external (0.242365ms)
+✔ reject unknown external (1.057902ms)
+✔ reject duplicate input name (0.302145ms)
+✔ reject changed candidate height (0.129545ms)
+✔ reject changed geometry (0.102484ms)
+✔ reject disconnected join (0.206591ms)
+✔ reject unlabelled scenario (0.153441ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 495.72601

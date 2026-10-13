@@ -1,0 +1,13 @@
+{
+  "scope": "3038 identical point queries on actual20a network; isolated microbenchmark, not frame-time acceptance",
+  "before": {
+    "samples": 3038,
+    "ms": 2098.8760580000003,
+    "checksum": 5979144.840929193
+  },
+  "after": {
+    "samples": 3038,
+    "ms": 154.75338499999998,
+    "checksum": 5979144.840929193
+  }
+}

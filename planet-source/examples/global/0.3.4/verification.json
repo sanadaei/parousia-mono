@@ -1,0 +1,280 @@
+{
+  "schema": "minimal-world-global-terrain-verification@1",
+  "verificationDateJST": "2026-10-09",
+  "measuredAtUTC": "2026-10-09T07:31:15.915Z",
+  "node": "v22.23.1",
+  "limits": {
+    "childHeapMiB": 256,
+    "timeoutPerChildMs": 30000,
+    "workersConcurrent": 1
+  },
+  "freeMemoryBeforeMiB": 12782.62890625,
+  "unitTests": {
+    "tests": 107,
+    "pass": 107
+  },
+  "cases": [
+    {
+      "seed": "audit-a",
+      "worldId": "sha256:3afb0ef0ab9cf1eb80cb2ed6b68edf89cfe3e9bbb8e5509ab01703c3cb718d18",
+      "sourceWorldId": "sha256:d0971aab0903dc746e6d4ab17958632c687ce5644b79d5bae69d278351c5636c",
+      "physicalGrid": [
+        48,
+        24
+      ],
+      "generationMs": 238.01380000000003,
+      "totalMs": 886.0414999999999,
+      "maxRssMiB": 96.9453125,
+      "sourceCentersCompared": 1152,
+      "drainageOutletsCompared": 1152,
+      "boundedDetailSamples": 2048,
+      "maxAbsDetailM": 14.467097764812753,
+      "maxProjectionRoundTripErrorM": 7.556222447488644e-9,
+      "globalWitnessCount": 69,
+      "sourceInputUnchanged": true,
+      "recordedLakeFillCells": 11,
+      "sourceSeamMeanDifferenceM": 1506.9583333333333,
+      "sourceSeamMaxDifferenceM": 2647,
+      "regionalReports": [
+        {
+          "name": "macro-boundary-and-date-line",
+          "regionId": "sha256:4ea145a6f1a0f0141868ae5e5dd9c7aafaaa53f4cc1abdc264665910be6c9806",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "source-longitude-seam",
+          "regionId": "sha256:59e1f90d60568d684f2dab57ace57add1755bfc519aeaa1e1e8d265672869ae5",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "source-coast-site",
+          "regionId": "sha256:1437dcd601689495a86003cbf1ec07bef2fb78a12e4a16125c1dcdd96664e8b2",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "source-lake-fill-site",
+          "regionId": "sha256:c69bcd8fd87b002c7217bb4eecc999758297028731322bdbd407b66f8ee574f4",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "north-pole",
+          "regionId": "sha256:916055d98180eb72f619a64f23c66d2a63e702c9126a359374aea3eddce886a3",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "south-pole",
+          "regionId": "sha256:76a251d321377f9914524bbc2e202ce2f03bb391ad872aaae1385272982c5865",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        }
+      ],
+      "reopened": {
+        "worldId": "sha256:3afb0ef0ab9cf1eb80cb2ed6b68edf89cfe3e9bbb8e5509ab01703c3cb718d18",
+        "globalSamplesCompared": 69,
+        "regionalFramesCompared": 480,
+        "traceSamplesCompared": 114,
+        "roadInspectionsCompared": 6,
+        "regionsCompared": 6,
+        "separateProcess": true,
+        "durationMs": 161.4389,
+        "maxRssMiB": 70.6484375
+      }
+    },
+    {
+      "seed": "audit-b",
+      "worldId": "sha256:8d9b6e4f2c805119c375979ae25d394d4e4acfe47904fcf67c912138818d4cd6",
+      "sourceWorldId": "sha256:4680064daef46a36000b162278afd0b069a131c6eee8b63f0c9822d731fdf9d3",
+      "physicalGrid": [
+        48,
+        24
+      ],
+      "generationMs": 221.9713,
+      "totalMs": 939.0922,
+      "maxRssMiB": 96.62109375,
+      "sourceCentersCompared": 1152,
+      "drainageOutletsCompared": 1152,
+      "boundedDetailSamples": 2048,
+      "maxAbsDetailM": 15.82450102960034,
+      "maxProjectionRoundTripErrorM": 9.385017832695842e-9,
+      "globalWitnessCount": 69,
+      "sourceInputUnchanged": true,
+      "recordedLakeFillCells": 9,
+      "sourceSeamMeanDifferenceM": 446.7916666666667,
+      "sourceSeamMaxDifferenceM": 1456,
+      "regionalReports": [
+        {
+          "name": "macro-boundary-and-date-line",
+          "regionId": "sha256:fe02e53f455c78a4e9f28cf0eea1130c9b4f78f9a478a707ef36b2c9b8a07bb9",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "source-longitude-seam",
+          "regionId": "sha256:9e8467ac49ad1f9526b0e8ab91e939add7eecccf5f676462532e3a0fcf137747",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "source-coast-site",
+          "regionId": "sha256:a9f0f7d8f35e49d28b470efd4833cfd7384e7e10b8044eaed14fab79356ff71b",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "source-lake-fill-site",
+          "regionId": "sha256:04aae9f9161c8ec708e6c8e4fe573a1c81c0668b836cb9da0cadd15d662127ee",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "north-pole",
+          "regionId": "sha256:4d14e647662bb4d65dd7d42da4e287af3031a57e1c2e910e2108353454beda02",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        },
+        {
+          "name": "south-pole",
+          "regionId": "sha256:9b27123f8fdb248acdda2254a16bcc39365b2b9d2393cf43141b0f5c84c6a23e",
+          "lodComparedPoints": 49,
+          "adjacentBoundaryPoints": 31,
+          "globalBasinComparedPoints": 49,
+          "persistedFrames": 80,
+          "hydrologyStatus": "unresolved",
+          "persistedTraceSamples": 19,
+          "unresolvedRoadWaterSamples": 19
+        }
+      ],
+      "reopened": {
+        "worldId": "sha256:8d9b6e4f2c805119c375979ae25d394d4e4acfe47904fcf67c912138818d4cd6",
+        "globalSamplesCompared": 69,
+        "regionalFramesCompared": 480,
+        "traceSamplesCompared": 114,
+        "roadInspectionsCompared": 6,
+        "regionsCompared": 6,
+        "separateProcess": true,
+        "durationMs": 354.73929999999996,
+        "maxRssMiB": 68.34375
+      }
+    }
+  ],
+  "sourceFilesUnchanged": true,
+  "sourceHashes": [
+    {
+      "module": "geography-lite",
+      "file": "src/geography.mjs",
+      "expectedSha256": "63a45e0cf8b48f072ae72966fc58061dcb09d6324560a5c08da7846f2017fa5b",
+      "observedSha256": "63a45e0cf8b48f072ae72966fc58061dcb09d6324560a5c08da7846f2017fa5b"
+    },
+    {
+      "module": "geography-lite",
+      "file": "src/noise.mjs",
+      "expectedSha256": "304e6aa9d02cf7702a747c843ca14cc4cc1d432e9e0027ccadf68d64deeb8980",
+      "observedSha256": "304e6aa9d02cf7702a747c843ca14cc4cc1d432e9e0027ccadf68d64deeb8980"
+    },
+    {
+      "module": "geography-lite",
+      "file": "src/rng.mjs",
+      "expectedSha256": "2025fcd3deffffe37a5a81e34b15c45dc53bfc3f0dc812d83a0e57e54d864da8",
+      "observedSha256": "2025fcd3deffffe37a5a81e34b15c45dc53bfc3f0dc812d83a0e57e54d864da8"
+    },
+    {
+      "module": "geography-lite",
+      "file": "src/names.mjs",
+      "expectedSha256": "8d833fa967d0a9d0f36ed6704cf9898a6ad26fe92eafa402b2eae107ca869d30",
+      "observedSha256": "8d833fa967d0a9d0f36ed6704cf9898a6ad26fe92eafa402b2eae107ca869d30"
+    },
+    {
+      "module": "geography-lite",
+      "file": "src/geographic-places.mjs",
+      "expectedSha256": "ce8310d288c6f6d0d19023f2ce2caf0fab9c4f56aaff9789ca2d0072749a113d",
+      "observedSha256": "ce8310d288c6f6d0d19023f2ce2caf0fab9c4f56aaff9789ca2d0072749a113d"
+    },
+    {
+      "module": "geography-lite",
+      "file": "src/settlement-affordances.mjs",
+      "expectedSha256": "aea96298e9f847bdcb92a05f91f0692c0a775300fe0064671169f1f2469d1922",
+      "observedSha256": "aea96298e9f847bdcb92a05f91f0692c0a775300fe0064671169f1f2469d1922"
+    },
+    {
+      "module": "dynamic-terrain-runtime",
+      "file": "source/prototype-core.mjs",
+      "expectedSha256": "aacff0d1638134657c29660ccc03eaf0f5c8bbd95f238788ada052046c74a46d",
+      "observedSha256": "aacff0d1638134657c29660ccc03eaf0f5c8bbd95f238788ada052046c74a46d"
+    },
+    {
+      "module": "dynamic-terrain-runtime",
+      "file": "source/fallback-failure-domain-core.mjs",
+      "expectedSha256": "e8ef451427de8080c8e821b8bb11f9f80167fbf3b07d270da65a2a98cd1fe3a2",
+      "observedSha256": "e8ef451427de8080c8e821b8bb11f9f80167fbf3b07d270da65a2a98cd1fe3a2"
+    }
+  ],
+  "unverified": [
+    "Automatic water bodies deferred by user; no generated water surfaces/shoreline constraints",
+    "Ellipsoid/geoid transformations or measured fine terrain",
+    "Correction of large source seam differences and geographic-place centroids",
+    "Recomputed drainage after detail, physically calibrated rivers, full global water topology",
+    "C1 continuity of carved channels; explicit global-water proof is a separate verify:global-water report",
+    "Building/road grounding, rendering and human acceptance",
+    "All seeds/resolutions and full legacy module suites"
+  ]
+}

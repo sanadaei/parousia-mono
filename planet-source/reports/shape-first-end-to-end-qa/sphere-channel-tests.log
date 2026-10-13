@@ -1,0 +1,28 @@
+✔ sea and river queries reuse one exact base evaluation outside feature charts (3.625805ms)
+✔ old no-sea sources retain their original local sampling route (0.262004ms)
+✔ published crossing policy v2 reaches the actual paged road and bridge builder (11.460564ms)
+✔ actual channel field is finite, wet at every designed centre and bounded (32.140049ms)
+✔ designed confluences share exact water, width and bed depth; reload agrees (22.386333ms)
+✔ isolated cross section has designed centre, wet bank and exactly unchanged exterior (1.809382ms)
+✔ tile seams sample one source-global analytic field and reject bad inputs (9.167909ms)
+✔ seeded designs use the same wet field and finite bounded depths (2788.295304ms)
+✔ local interval bounds enclose actual source-centre samples and converge in wet core (12.420549ms)
+✔ overlapping river bounds follow normalized blend, not a fixed union (2.028953ms)
+✔ reported qa-region midpoint bounds converge instead of forcing extreme LOD (766.681317ms)
+✔ explicit sphere draft has stable separate persisted identity and original untouched (70.324066ms)
+✔ sphere queries and camera ground follow original native shape at geographic placement (33.121586ms)
+✔ exterior collar joins the saved planet without moving native rectangle (44.585635ms)
+✔ normal globe mesh uses selected heights and draped design river symbols (232.683036ms)
+✔ recorded vertical placement preserves all native relative heights and reloads (44.086604ms)
+✔ seed-generated shape uses the same sphere field contract (965.440635ms)
+✔ post-shape channel water, bed, camera and exact-width strips share one field (432.705799ms)
+✔ explicit below-sea placement is consistently wet rather than dry hidden ocean (37.705348ms)
+✔ automatic outlet placement reaches a verified saved river with wet bed continuity (127.763396ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3775.868365

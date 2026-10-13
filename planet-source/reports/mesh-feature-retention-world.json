@@ -1,0 +1,164 @@
+{
+  "worldId": "sha256:5781305fde93e8598d8dafbcbc74078af441d7b9143233d3169702ee31aa5965",
+  "scope": "One actual second-seed level-10 tile; bounded physical retention and repeated mesh, not global landscape acceptance",
+  "samples": [
+    {
+      "tile": {
+        "face": 3,
+        "level": 10,
+        "x": 148,
+        "y": 825
+      },
+      "site": "pop:2899:331"
+    },
+    {
+      "feature": "procedural:pop:2899:331/district:0",
+      "ms": 2439.121204,
+      "cache": 524288
+    },
+    {
+      "feature": "procedural:pop:2899:332/district:0",
+      "ms": 1976.5091920000004,
+      "cache": 1048576
+    },
+    {
+      "feature": "procedural:pop:2899:354/district:0",
+      "ms": 2085.4958779999997,
+      "cache": 1572864
+    },
+    {
+      "feature": "procedural:pop:2899:355/district:0",
+      "ms": 2136.375769000001,
+      "cache": 2097152
+    },
+    {
+      "feature": "procedural:regional-road:pop:2899:0|pop:3027:0/segment:11",
+      "ms": 348.15183799999977,
+      "cache": 3145728
+    },
+    {
+      "totalMs": 9849.429965,
+      "featureMs": 9713.447857000003,
+      "calls": 35,
+      "descriptors": 39,
+      "stats": {
+        "featureFootprintBytes": 8960,
+        "featureFootprintLimitBytes": 131072,
+        "settlementLandBytes": 0,
+        "settlementLandLimitBytes": 8388608,
+        "roadClearanceBytes": 9364,
+        "roadClearanceLimitBytes": 8388608,
+        "settlementPageBytesEstimated": 4694529,
+        "settlementPageLimitBytes": 8388608,
+        "requests": 1,
+        "downloadBytes": 526336,
+        "fieldBytes": 2048,
+        "anchorBytes": 4032,
+        "meshNormalBytesEstimated": 0,
+        "meshNormalEntries": 0,
+        "meshNormalHits": 0,
+        "meshNormalMisses": 0,
+        "meshNormalEvictions": 0,
+        "patchBytesEstimated": 2560,
+        "featureBytesEstimated": 8388608,
+        "fieldEvictions": 0,
+        "peakCacheBytes": 2048
+      },
+      "sampling": {
+        "cooperativeYield": "setImmediate",
+        "physicalFeatureLoad": {
+          "loaded": 10,
+          "deferred": 2
+        },
+        "surfaceQueries": 298,
+        "surfaceCacheHits": 81,
+        "edgeSearches": 0,
+        "edgeCacheHits": 0,
+        "edgeCachePeak": 0,
+        "bisectionSamples": 0,
+        "avoidedFixedBisectionSamples": 0,
+        "groundBreaklines": {
+          "available": 0,
+          "splitTriangles": 0,
+          "wallTriangles": 0,
+          "maxHorizontalGapM": 0
+        },
+        "featureSubdivision": {
+          "water": 1200,
+          "bank": 300,
+          "minimumWaterPerTriangle": 8,
+          "minimumBankPerTriangle": 1,
+          "waterTaskCount": 2,
+          "bankTaskCount": 56,
+          "waterTaskBudget": 600,
+          "bankTaskBudget": 5
+        },
+        "vertexCompaction": {
+          "groundBefore": 357,
+          "groundAfter": 353,
+          "overlayBefore": 0,
+          "overlayAfter": 0,
+          "removedBytes": 196
+        }
+      },
+      "vertices": 353,
+      "resident": [
+        "procedural:pop:2899:331/district:0",
+        "procedural:pop:2899:332/district:0",
+        "procedural:pop:2899:354/district:0",
+        "procedural:pop:2899:355/district:0",
+        "procedural:regional-road:pop:2899:0|pop:3027:0/segment:11",
+        "procedural:road:pop:2899:353|pop:2899:377",
+        "procedural:road:pop:2899:331|pop:2899:354",
+        "procedural:road:pop:2899:353|pop:2899:354",
+        "procedural:road:pop:2899:333|pop:2899:355",
+        "procedural:road:pop:2899:355|pop:2899:356"
+      ]
+    },
+    {
+      "repeatMs": 90.76847300000009,
+      "physical": {
+        "loaded": 10,
+        "deferred": 2
+      },
+      "same": true
+    },
+    {
+      "pondAfterMesh": {
+        "groundElevationM": 486.0540757296217,
+        "waterLevelElevationM": 487.5490757296217,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:2899:331/district:0/communal-pond"
+        ],
+        "xM": 95.00000000238063,
+        "yM": 65.00000000041896,
+        "buildingId": null,
+        "structureKind": null,
+        "surfaceKind": "local-water",
+        "waterSurfaceElevationM": 487.5490757296217,
+        "hydrologyStatus": "modeled",
+        "groundCover": {
+          "kind": "water",
+          "treeCover": 0,
+          "color": [
+            0.12,
+            0.35,
+            0.43
+          ],
+          "reasons": [
+            "canonical-water-surface"
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Two over-budget coarse physical charts are explicitly deferred to refinement",
+    "Cold generation remains about ten seconds on this cloud CPU",
+    "This is not a visual or frame-rate acceptance result"
+  ],
+  "canonicalWorldId": "sha256:d4fc87d6b1e430b0baa1f11844370257edb2f618a2ea4ed323b79ab8993abc38",
+  "worldIdScope": "Paged manifest world identity; canonicalWorldId identifies the generated source world"
+}

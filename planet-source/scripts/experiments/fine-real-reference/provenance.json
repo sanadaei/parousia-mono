@@ -1,0 +1,465 @@
+{
+  "schema": "fine-real-provenance@1",
+  "selection": "Center and modest rolling-hill class predetermined before elevation download; no outcome search.",
+  "centerLonLat": [
+    -77.1,
+    39.1
+  ],
+  "source": {
+    "OBJECTID": 5276,
+    "Name": "n40w078",
+    "MinPS": 0,
+    "MaxPS": 27,
+    "LowPS": 10.307360350155633,
+    "HighPS": 16,
+    "Category": 1,
+    "Tag": "Dataset",
+    "GroupName": "",
+    "ProductName": "USGS_3DEP",
+    "CenterX": -8627260.812195651,
+    "CenterY": 4793808.641141766,
+    "ZOrder": null,
+    "Shape_Length": 511748.5570000002,
+    "Shape_Area": 16095862056.139395,
+    "Dataset_ID": "usgs",
+    "Best": 12633,
+    "DEM_Type": 1,
+    "Source": "USGS",
+    "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+    "AcquisitionDate": 1735603200000,
+    "URL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/n40w078/USGS_13_n40w078.tif",
+    "Metadata": "D:\\USGS_3DEP\\data\\13\\n40w078\\USGS_13_n40w078.xml",
+    "pubdate": 20260512,
+    "title": "USGS 1/3 Arc Second n40w078 20260512",
+    "Resolution_X": "9.25925926922017E-05",
+    "Resolution_Y": -9.259259269220233e-05,
+    "Cdate": null,
+    "StartDate": 20140101,
+    "EndDate": "20241231"
+  },
+  "sourceFootprint": {
+    "rings": [
+      [
+        [
+          -8682982.416,
+          4721593.106600001
+        ],
+        [
+          -8682982.4164,
+          4728423.956200004
+        ],
+        [
+          -8682982.4167,
+          4735259.417599998
+        ],
+        [
+          -8682982.417,
+          4742099.501599997
+        ],
+        [
+          -8682982.4174,
+          4748944.219300002
+        ],
+        [
+          -8682982.4177,
+          4755793.581699997
+        ],
+        [
+          -8682982.4181,
+          4762647.599799998
+        ],
+        [
+          -8682982.4184,
+          4769506.2848000005
+        ],
+        [
+          -8682982.4188,
+          4776369.647699997
+        ],
+        [
+          -8682982.4191,
+          4783237.6998
+        ],
+        [
+          -8682982.4194,
+          4790110.452100001
+        ],
+        [
+          -8682982.4198,
+          4796987.915799998
+        ],
+        [
+          -8682982.4201,
+          4803870.102300003
+        ],
+        [
+          -8682982.4205,
+          4810757.022699997
+        ],
+        [
+          -8682982.4208,
+          4817648.6884
+        ],
+        [
+          -8682982.4212,
+          4824545.110699996
+        ],
+        [
+          -8682982.4215,
+          4831446.300800003
+        ],
+        [
+          -8682982.4219,
+          4838352.270300001
+        ],
+        [
+          -8682982.4222,
+          4845263.030500002
+        ],
+        [
+          -8682982.4226,
+          4852178.5929000005
+        ],
+        [
+          -8682982.423,
+          4859098.968900003
+        ],
+        [
+          -8682982.4233,
+          4866024.1701000035
+        ],
+        [
+          -8677410.2626,
+          4866024.170400001
+        ],
+        [
+          -8671838.1018,
+          4866024.170599997
+        ],
+        [
+          -8666265.9411,
+          4866024.170900002
+        ],
+        [
+          -8660693.7803,
+          4866024.1712
+        ],
+        [
+          -8655121.6196,
+          4866024.171499997
+        ],
+        [
+          -8649549.4588,
+          4866024.171800002
+        ],
+        [
+          -8643977.2981,
+          4866024.1721
+        ],
+        [
+          -8638405.1373,
+          4866024.172399998
+        ],
+        [
+          -8632832.9766,
+          4866024.172700003
+        ],
+        [
+          -8627260.8158,
+          4866024.172899999
+        ],
+        [
+          -8621688.6551,
+          4866024.173199996
+        ],
+        [
+          -8616116.4943,
+          4866024.173500001
+        ],
+        [
+          -8610544.3336,
+          4866024.173799999
+        ],
+        [
+          -8604972.1728,
+          4866024.174099997
+        ],
+        [
+          -8599400.0121,
+          4866024.174400002
+        ],
+        [
+          -8593827.8513,
+          4866024.174599998
+        ],
+        [
+          -8588255.6906,
+          4866024.174900003
+        ],
+        [
+          -8582683.5298,
+          4866024.1752
+        ],
+        [
+          -8577111.3691,
+          4866024.175499998
+        ],
+        [
+          -8571539.2083,
+          4866024.175800003
+        ],
+        [
+          -8571539.208,
+          4859098.974600002
+        ],
+        [
+          -8571539.2076,
+          4852178.5986
+        ],
+        [
+          -8571539.2073,
+          4845263.036200002
+        ],
+        [
+          -8571539.207,
+          4838352.276000001
+        ],
+        [
+          -8571539.2066,
+          4831446.306500003
+        ],
+        [
+          -8571539.2063,
+          4824545.116300002
+        ],
+        [
+          -8571539.2059,
+          4817648.693999998
+        ],
+        [
+          -8571539.2056,
+          4810757.028300002
+        ],
+        [
+          -8571539.2053,
+          4803870.107900001
+        ],
+        [
+          -8571539.2049,
+          4796987.921400003
+        ],
+        [
+          -8571539.2046,
+          4790110.4575999975
+        ],
+        [
+          -8571539.2043,
+          4783237.705300003
+        ],
+        [
+          -8571539.2039,
+          4776369.653300002
+        ],
+        [
+          -8571539.2036,
+          4769506.290299997
+        ],
+        [
+          -8571539.2033,
+          4762647.6054000035
+        ],
+        [
+          -8571539.2029,
+          4755793.587200001
+        ],
+        [
+          -8571539.2026,
+          4748944.224799998
+        ],
+        [
+          -8571539.2023,
+          4742099.507100001
+        ],
+        [
+          -8571539.2019,
+          4735259.423
+        ],
+        [
+          -8571539.2016,
+          4728423.9617
+        ],
+        [
+          -8571539.2013,
+          4721593.112000003
+        ],
+        [
+          -8577111.362,
+          4721593.111699998
+        ],
+        [
+          -8582683.5228,
+          4721593.111500002
+        ],
+        [
+          -8588255.6835,
+          4721593.111199997
+        ],
+        [
+          -8593827.8442,
+          4721593.1109
+        ],
+        [
+          -8599400.005,
+          4721593.110699996
+        ],
+        [
+          -8604972.1657,
+          4721593.110399999
+        ],
+        [
+          -8610544.3265,
+          4721593.110100001
+        ],
+        [
+          -8616116.4872,
+          4721593.109899998
+        ],
+        [
+          -8621688.6479,
+          4721593.1096
+        ],
+        [
+          -8627260.8087,
+          4721593.109300002
+        ],
+        [
+          -8632832.9694,
+          4721593.108999997
+        ],
+        [
+          -8638405.1302,
+          4721593.108800001
+        ],
+        [
+          -8643977.2909,
+          4721593.108499996
+        ],
+        [
+          -8649549.4516,
+          4721593.108199999
+        ],
+        [
+          -8655121.6124,
+          4721593.107900001
+        ],
+        [
+          -8660693.7731,
+          4721593.107699998
+        ],
+        [
+          -8666265.9338,
+          4721593.1074
+        ],
+        [
+          -8671838.0946,
+          4721593.1071000025
+        ],
+        [
+          -8677410.2553,
+          4721593.106799997
+        ],
+        [
+          -8682982.416,
+          4721593.106600001
+        ]
+      ]
+    ],
+    "spatialReference": {
+      "wkid": 102100,
+      "latestWkid": 3857
+    }
+  },
+  "sourceNativeSpacingMAtCenter": [
+    8.00966067515003,
+    10.279387963349158
+  ],
+  "sourceNativeArcSeconds": 0.3333333333333333,
+  "rawFile": "raw/usgs13-maryland-10m.tif",
+  "rawSHA256": "e488187e523198878ce20d2686f510d8a45c369356029b0fccc896d66bbde1b1",
+  "downloadBytes": 3671584,
+  "exportGrid": {
+    "shape": [
+      986,
+      893
+    ],
+    "geoTransform": [
+      313940.1526075908,
+      10.0,
+      0.0,
+      4334903.133862447,
+      0.0,
+      -10.0
+    ],
+    "epsg": 32618,
+    "units": "metres",
+    "nodata": null,
+    "allPixelsValid": true
+  },
+  "targetGrid": {
+    "cellSizeM": 55.297348888543404,
+    "cellSizeYM": 76.35149687202671,
+    "columns": 161,
+    "rows": 129
+  },
+  "targetPointExtentM": [
+    8847.575822166944,
+    9772.99159961942
+  ],
+  "targetCornerLonLat": [
+    [
+      -77.15246352329594,
+      39.14306945521553
+    ],
+    [
+      -77.05014896818005,
+      39.144914853405886
+    ],
+    [
+      -77.14978807144973,
+      39.055065248940686
+    ],
+    [
+      -77.04760046826733,
+      39.05690490183674
+    ]
+  ],
+  "targetSupportMarginsM": [
+    36.21208891650895,
+    36.21208891650895,
+    38.50420019030571,
+    38.50420019030571
+  ],
+  "targetGeodesicTopAndLeftLengthM": [
+    8847.521515206654,
+    9772.736644179377
+  ],
+  "method": "Service bilinear resampling of locked 1/3-arc-second DEM to 10 m Float32 UTM; local bilinear point sampling at exact generated grid spacings. Projected metres retained; geodesic discrepancy disclosed. No vertical offset, fitted amplitude, fill of source NoData, or extrapolation.",
+  "waterDiagnostic": "Same independent priority-flood and D8, all perimeter nodes open on both fields, uniform unit runoff, no inherited fixed outlets, imported flows or climate fields; reports contributing area and fill burden, not mapped rivers.",
+  "limitations": [
+    "One predetermined suburban Maryland Piedmont reference, not an ensemble or pristine landscape. Bare-earth product can retain roads, embankments, grading and drainage engineering.",
+    "Regional Piedmont setting supported by MGS; exact local landform class and match to fictional generated class not independently verified. No morphology ranking permitted.",
+    "NAVD88 real absolute elevations versus fictional generated datum; no elevation equality expected.",
+    "Bilinear point downsampling is not an area-average or anti-aliasing filter; subgrid features may alias.",
+    "10 m export grid does not imply new 10 m surveyed information beyond native 1/3-arc-second DEM; service source overviews are not separately documented."
+  ],
+  "permissions": "USGS states 3DEP products are free of charge and without use restrictions.",
+  "sources": [
+    "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+    "https://www.usgs.gov/3d-elevation-program/about-3dep-products-services",
+    "https://www.usgs.gov/faqs/what-types-elevation-datasets-are-available-what-formats-do-they-come-and-where-can-i-download",
+    "https://developers.arcgis.com/rest/services-reference/enterprise/export-image/",
+    "https://developers.arcgis.com/rest/services-reference/enterprise/mosaic-rules/",
+    "https://www.mgs.md.gov/geology/physiographic_map.html",
+    "https://www.mgs.md.gov/geology/EarthMRI_PotomacTerrane.html"
+  ]
+}

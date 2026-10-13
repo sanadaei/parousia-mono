@@ -1,0 +1,174 @@
+{
+  "worldId": "sha256:a8b35f0ea35cd4e9f3393904f329c78865dd814f8f08f8fcd1bf226272bb3561",
+  "parentWorldId": "sha256:cd942a93f46d2982b38a3e9d87668f88139878a82c6fe23f976149344ae4f428",
+  "scope": "Explicit new snapshot adds the riverbank policy to unchanged geography; four actual water-sited villages in region 5010. Shared physical sampler checks, not browser or continuous certificates.",
+  "results": [
+    {
+      "siteId": "pop:5010:26",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5010:4883",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -19.75843042171499,
+          "lonDeg": 53.3844966628119
+        },
+        "waterPoint": {
+          "latDeg": -19.758409099266487,
+          "lonDeg": 53.384472617830966
+        },
+        "shoreSamples": 37,
+        "roadId": "pop:5010:26/riverbank/public-access",
+        "joinsRoadId": "pop:5010:26/district:0/terrain-street:0:west",
+        "lengthM": 108.61996772486262,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 44,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 6595.770237000001
+    },
+    {
+      "siteId": "pop:5010:384",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5009:5010",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -21.098406255530456,
+          "lonDeg": 51.26855167112876
+        },
+        "waterPoint": {
+          "latDeg": -21.098375190718592,
+          "lonDeg": 51.268551546468984
+        },
+        "shoreSamples": 37,
+        "roadId": "pop:5010:384/riverbank/public-access",
+        "joinsRoadId": "pop:5010:384/district:0/terrain-street:0:residential:1344",
+        "lengthM": 153.01487069085698,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 44,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 6566.165589999999
+    },
+    {
+      "siteId": "pop:5010:387",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5009:5010",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -21.096541422349393,
+          "lonDeg": 51.649907057918426
+        },
+        "waterPoint": {
+          "latDeg": -21.096510357905334,
+          "lonDeg": 51.649906853486755
+        },
+        "shoreSamples": 37,
+        "roadId": "pop:5010:387/riverbank/public-access",
+        "joinsRoadId": "pop:5010:387/district:0/terrain-street:0:residential:1329",
+        "lengthM": 98.39079752345664,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 50,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 4233.080149999998
+    },
+    {
+      "siteId": "pop:5010:391",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5009:5010",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -21.09406202761968,
+          "lonDeg": 51.983582208871326
+        },
+        "waterPoint": {
+          "latDeg": -21.094093091595713,
+          "lonDeg": 51.983582483090686
+        },
+        "shoreSamples": 37,
+        "roadId": "pop:5010:391/riverbank/public-access",
+        "joinsRoadId": "pop:5010:391/district:0/terrain-street:0:north",
+        "lengthM": 184.0634406620181,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 42,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 4718.0258509999985
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/core/riverbank-access.mjs",
+      "sha256": "e8271d81571f1489b78d2626db4b1c02716b0586860addf6b94ce5dc7a587fb1"
+    },
+    {
+      "path": "src/core/public-access.mjs",
+      "sha256": "e0cdc5d45be74e9b892c1c7814818947e569e211dd315168304aad3a95e2990a"
+    },
+    {
+      "path": "src/core/communal-pond.mjs",
+      "sha256": "5924f8465972e7afdefda0c58928b56070424097ed1fe4bc99f8d61ce5e02533"
+    },
+    {
+      "path": "src/core/terrain-led-neighborhood.mjs",
+      "sha256": "1503e79565475e369afa94c633abe98899692a383587307c95dcbbf9e0769186"
+    },
+    {
+      "path": "scripts/package-settlements.mjs",
+      "sha256": "c30664b8b8ecdcaa1fa627514c5425ea7be9129a27b233f925c2d7967d30feea"
+    }
+  ],
+  "findings": [
+    "All four actual selected river-sited villages have a shared physical pedestrian road, 98\u2013184 m long",
+    "All four retain 60 requested dwellings; sampled path positions have no water or building obstruction",
+    "Initial audit rejected all four because the communal pond overlay discarded the original river source ID outside its own footprint; source identity is now preserved",
+    "This is a bounded direct-path planner; blocked paths are withheld, not forced through terrain or buildings",
+    "Old saved worlds without the explicit riverbank policy retain their layout decisions"
+  ],
+  "verification": {
+    "fullSuite": {
+      "pass": 906,
+      "fail": 0,
+      "skip": 0,
+      "durationMs": 276036.491904
+    },
+    "focused": {
+      "pass": 16,
+      "fail": 0
+    },
+    "build": "117 core and 47 globe modules passed",
+    "browser": "not verified"
+  }
+}

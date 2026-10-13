@@ -1,0 +1,156 @@
+{
+  "result": {
+    "built": false,
+    "candidates": [
+      {
+        "farBank": {
+          "groundElevationM": 64.9777466002241,
+          "latDeg": 9.077009310582165,
+          "lonDeg": 170.93510500159994,
+          "sourceIds": [],
+          "stationM": 11815.996924142746,
+          "waterDepthM": 0
+        },
+        "farBankGrade": 0.00039391455662252003,
+        "id": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:-1000:334",
+        "maximumSampledDepthM": 15.281006966564377,
+        "nearBank": {
+          "groundElevationM": 64.95537482741868,
+          "latDeg": 9.076800795002248,
+          "lonDeg": 170.92527358271866,
+          "sourceIds": [],
+          "stationM": 10736.23372392397,
+          "waterDepthM": 0
+        },
+        "nearBankGrade": 0.00031045621352484746,
+        "offsetM": -1000,
+        "runIndex": 0,
+        "sampledWetLengthM": 1069.7653928093441,
+        "sourceId": "river:926:861",
+        "status": "geographic-candidate-only"
+      },
+      {
+        "farBank": {
+          "groundElevationM": 64.91494397729865,
+          "latDeg": 9.08142864759678,
+          "lonDeg": 170.93141148438963,
+          "sourceIds": [],
+          "stationM": 11421.083531470138,
+          "waterDepthM": 0
+        },
+        "farBankGrade": 0.0018343297850721512,
+        "id": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:-500:278",
+        "maximumSampledDepthM": 15.172564475983116,
+        "nearBank": {
+          "groundElevationM": 64.50339399373236,
+          "latDeg": 9.081242259687288,
+          "lonDeg": 170.92262682262117,
+          "sourceIds": [],
+          "stationM": 10456.295116459842,
+          "waterDepthM": 0
+        },
+        "nearBankGrade": 0.0010257163748821423,
+        "offsetM": -500,
+        "runIndex": 0,
+        "sampledWetLengthM": 954.7906076008621,
+        "sourceId": "river:926:861",
+        "status": "geographic-candidate-only"
+      },
+      {
+        "farBank": {
+          "groundElevationM": 64.47948816902331,
+          "latDeg": 9.085874983873346,
+          "lonDeg": 170.92899235141135,
+          "sourceIds": [],
+          "stationM": 11166.139442529593,
+          "waterDepthM": 0
+        },
+        "farBankGrade": 0.0001752718048351815,
+        "id": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:0:238",
+        "maximumSampledDepthM": 15.172188143425423,
+        "nearBank": {
+          "groundElevationM": 64.33481667338167,
+          "latDeg": 9.085699170579298,
+          "lonDeg": 170.92070826799113,
+          "sourceIds": [],
+          "stationM": 10256.33896827118,
+          "waterDepthM": 0
+        },
+        "nearBankGrade": 0.00220952776962715,
+        "offsetM": 0,
+        "runIndex": 0,
+        "sampledWetLengthM": 899.8026668489802,
+        "sourceId": "river:926:861",
+        "status": "geographic-candidate-only"
+      },
+      {
+        "farBank": {
+          "groundElevationM": 63.81360629734365,
+          "latDeg": 9.090335790682273,
+          "lonDeg": 170.9272559216688,
+          "sourceIds": [],
+          "stationM": 10986.178909159797,
+          "waterDepthM": 0
+        },
+        "farBankGrade": 0.002945668650573271,
+        "id": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:500:206",
+        "maximumSampledDepthM": 15.632755358040846,
+        "nearBank": {
+          "groundElevationM": 63.68101602016364,
+          "latDeg": 9.090163805480879,
+          "lonDeg": 170.91915380586192,
+          "sourceIds": [],
+          "stationM": 10096.37404972025,
+          "waterDepthM": 0
+        },
+        "nearBankGrade": 0.001728491722774697,
+        "offsetM": 500,
+        "runIndex": 0,
+        "sampledWetLengthM": 879.8070520301135,
+        "sourceId": "river:926:861",
+        "status": "geographic-candidate-only"
+      },
+      {
+        "farBank": {
+          "groundElevationM": 63.53212347270821,
+          "latDeg": 9.094801418969057,
+          "lonDeg": 170.92574703952528,
+          "sourceIds": [],
+          "stationM": 10831.212894313583,
+          "waterDepthM": 0
+        },
+        "farBankGrade": 0.0003584695758507588,
+        "id": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0/crossing-candidate:0:1000:176",
+        "maximumSampledDepthM": 15.349296787030596,
+        "nearBank": {
+          "groundElevationM": 63.53134439550547,
+          "latDeg": 9.09463036772441,
+          "lonDeg": 170.91769034144534,
+          "sourceIds": [],
+          "stationM": 9946.406938578753,
+          "waterDepthM": 0
+        },
+        "nearBankGrade": 0.0002449201144602386,
+        "offsetM": 1000,
+        "runIndex": 0,
+        "sampledWetLengthM": 874.8081483253973,
+        "sourceId": "river:926:861",
+        "status": "geographic-candidate-only"
+      }
+    ],
+    "connectionId": "zone-road:population-zone:926/0/3/2/1/1|population-zone:926/0/3/3/0/0",
+    "limitations": [
+      "Finite transects; no optimum crossing guarantee",
+      "Bank slopes are sampled, not certified landing foundations",
+      "No currents, flood, navigation, operating rights or approach-road assessment",
+      "No ferry, bridge, landing or traversable connection constructed"
+    ],
+    "sampleSpacingM": 5,
+    "sampled": 3285,
+    "schema": "river-crossing-sites@1",
+    "withheld": []
+  },
+  "elapsedMs": 1083,
+  "reopenedIdentically": true,
+  "resurveyDisabled": true
+}

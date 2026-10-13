@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Locally generated immutable seed worlds (not source changes)
+/examples/planet/seeds/
+
+# Reproducible large settlement QA package, generated locally.
+/examples/planet/settlement-streaming/
+
+# Regenerable terrain outputs (see terrain/HANDOFF.md)
+/terrain/out/
+/tmp/
+# Legacy asset archive kept outside git (433 MB)
+/old_ideas/

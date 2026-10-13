@@ -1,0 +1,11 @@
+{
+  "status": "UNADOPTED synthetic material comparison; not calibrated geology",
+  "forcing": {"steps":80,"dtYears":5000,"erodibility":0.0001,"areaExponent":0.4,"upliftMPerYear":0.001},
+  "cases": [
+    {"name":"uniform","lithology":null},
+    {"name":"resistant-cap","lithology":{"boundariesM":[150],"multipliers":[1,0.05]}},
+    {"name":"resistant-band","lithology":{"boundariesM":[50,150],"multipliers":[1,0.05,1]}}
+  ],
+  "reference":"https://doi.org/10.5194/gmd-12-1267-2019",
+  "differenceFromReference":"Sharp advected contacts and piecewise implicit incision, not Terrainbento smooth contacts; no diffusion, deposition or lake overflow"
+}

@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: portable SHA-256 preserves Node hashes including UTF-8 and binary pages
+ok 1 - portable SHA-256 preserves Node hashes including UTF-8 and binary pages
+  ---
+  duration_ms: 1.4908
+  type: 'test'
+  ...
+# Subtest: paged Hermite is bit-identical at seam, centers, caps and fractional coordinates
+ok 2 - paged Hermite is bit-identical at seam, centers, caps and fractional coordinates
+  ---
+  duration_ms: 1.1607
+  type: 'test'
+  ...
+# Subtest: global paging reproduces resident anchored detail at 500 points with bounded caches
+ok 3 - global paging reproduces resident anchored detail at 500 points with bounded caches
+  ---
+  duration_ms: 731.7425
+  type: 'test'
+  ...
+# Subtest: legacy bounded detail uses the same paged evaluator without changing witnesses
+ok 4 - legacy bounded detail uses the same paged evaluator without changing witnesses
+  ---
+  duration_ms: 15.509
+  type: 'test'
+  ...
+# Subtest: field corruption and cancellation fail rather than silently rendering a different world
+ok 5 - field corruption and cancellation fail rather than silently rendering a different world
+  ---
+  duration_ms: 1.6851
+  type: 'test'
+  ...
+# Subtest: real generated multi-chart worlds retain Core ground, water and seam values when paged
+ok 6 - real generated multi-chart worlds retain Core ground, water and seam values when paged
+  ---
+  duration_ms: 1125.9671
+  type: 'test'
+  ...
+# Subtest: explicit river, bridge and pad recipes agree with the resident Core composition
+ok 7 - explicit river, bridge and pad recipes agree with the resident Core composition
+  ---
+  duration_ms: 14.1806
+  type: 'test'
+  ...
+# Subtest: Cube-Sphere faces have exactly matching edge directions and sibling nodes
+ok 8 - Cube-Sphere faces have exactly matching edge directions and sibling nodes
+  ---
+  duration_ms: 0.5495
+  type: 'test'
+  ...
+# Subtest: meter-scale tile vertices retain Core elevation and camera-relative float precision
+ok 9 - meter-scale tile vertices retain Core elevation and camera-relative float precision
+  ---
+  duration_ms: 107.7336
+  type: 'test'
+  ...
+# Subtest: paged local and polar height hulls conservatively contain Core samples
+ok 10 - paged local and polar height hulls conservatively contain Core samples
+  ---
+  duration_ms: 4.5575
+  type: 'test'
+  ...
+# Subtest: LRU evicts in access order, disposes buffers, and never exceeds its byte cap
+ok 11 - LRU evicts in access order, disposes buffers, and never exceeds its byte cap
+  ---
+  duration_ms: 0.6949
+  type: 'test'
+  ...
+# Subtest: LOD traversal and prioritized wanted metadata stay bounded during space-to-ground travel
+ok 12 - LOD traversal and prioritized wanted metadata stay bounded during space-to-ground travel
+  ---
+  duration_ms: 24.3295
+  type: 'test'
+  ...
+# Subtest: cube-edge refinement reaches both faces under the bounded request budget
+ok 13 - cube-edge refinement reaches both faces under the bounded request budget
+  ---
+  duration_ms: 7.6676
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2654.8536

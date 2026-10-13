@@ -1,0 +1,292 @@
+{
+  "schema": "minimal-world-globe-verification@1",
+  "version": "0.4.0",
+  "measuredAtUTC": "2026-10-09T14:44:29.655Z",
+  "freeMemoryBeforeMiB": 12696.34765625,
+  "node": "v22.23.1",
+  "unitTests": {
+    "tests": 270,
+    "pass": 270
+  },
+  "legacySnapshots": 40,
+  "sourceFilesUnchanged": true,
+  "inputSnapshotsUnchanged": true,
+  "build": "PASS; 35 core modules, 30 alias identities, 8 globe syntax checks",
+  "fieldAndFeaturePagesVerified": 533,
+  "browserWitnesses": 131,
+  "localNormalWitnesses": 3,
+  "centerProbe": "Core ground/water/road match within 1e-9m across Node/Chromium",
+  "localNormals": "within 1e-9 of Core stencil",
+  "maxLocalVertexFloat32ErrorM": 2.3406081941154033e-7,
+  "maxBrowserCoreElevationErrorM": 1.1368683772161603e-12,
+  "maxBrowserCoreNormalError": 9.307176006945212e-11,
+  "settledChecks": [
+    {
+      "tile": {
+        "face": 2,
+        "level": 20,
+        "x": 1048575,
+        "y": 1043460
+      },
+      "maxGridStepM": 0.3603562730065125,
+      "overlayIndices": 2895
+    },
+    {
+      "tile": {
+        "face": 1,
+        "level": 20,
+        "x": 0,
+        "y": 1043460
+      },
+      "maxGridStepM": 0.3603562730065125,
+      "overlayIndices": 2847
+    },
+    {
+      "tile": {
+        "face": 2,
+        "level": 20,
+        "x": 1048575,
+        "y": 1043459
+      },
+      "maxGridStepM": 0.3603567299372281,
+      "overlayIndices": 2034
+    }
+  ],
+  "runtime": {
+    "file": "runtime-final-120s.json",
+    "sha256": "a164015c72af3706a92284be387d75c29e9e3b3830bc665fa6b2e92f266103fb",
+    "averageFPS": 143.91474780336262,
+    "intervalMs": {
+      "p50": 6.900000000008731,
+      "p95": 7,
+      "p99": 7.100000000005821,
+      "max": 13.900000000008731
+    },
+    "framesOver33ms": 0,
+    "noGeometryFrames": 0,
+    "streaming": {
+      "cacheTiles": 2263,
+      "gpuBytes": 67088538,
+      "peakGpuBytes": 67098084,
+      "cacheEvictions": 746,
+      "allocations": 3009,
+      "deletions": 746,
+      "wantedTiles": 18,
+      "visitedNodes": 18,
+      "pendingUploads": 0,
+      "activeWorkers": 0,
+      "completedMeshes": 3044,
+      "cancelled": 127,
+      "workerStats": [
+        {
+          "requests": 1683,
+          "downloadBytes": 3451869,
+          "fieldBytes": 262144,
+          "anchorBytes": 131040,
+          "featureBytesEstimated": 81360,
+          "fieldEvictions": 1555,
+          "peakCacheBytes": 262144
+        },
+        {
+          "requests": 1644,
+          "downloadBytes": 3371997,
+          "fieldBytes": 262144,
+          "anchorBytes": 131040,
+          "featureBytesEstimated": 81360,
+          "fieldEvictions": 1516,
+          "peakCacheBytes": 262144
+        }
+      ],
+      "errors": []
+    },
+    "fps30P95Gate": true,
+    "strictEveryFrame30FPSGate": true,
+    "totalBrowserMemoryGate": "not-measured; requires browser process/driver measurement"
+  },
+  "implementationHashes": [
+    {
+      "file": "src/core/bernstein.mjs",
+      "sha256": "ac7927715dbc2797848a81606dd8d3a163ca317dc8bb80eb87972c7eb7371479"
+    },
+    {
+      "file": "src/core/building-pad.mjs",
+      "sha256": "34e7d6691b45bc0e9b452104058afd70cab4475016c92e22d6d7edaa4f5b272c"
+    },
+    {
+      "file": "src/core/channel-sizing.mjs",
+      "sha256": "ea6569271c6438af3fbf7a6348fac12b4532a290309f559d09c282022bf58ee9"
+    },
+    {
+      "file": "src/core/contract-validation.mjs",
+      "sha256": "e7aa2b3ac7aed09ac64e914371cc1c0d00f9aff43a2895495175f920c28d4301"
+    },
+    {
+      "file": "src/core/dynamic-drainage.mjs",
+      "sha256": "e11557a27fbeeb37f26ff9dc3140a7bcbc2ed650317ecf2089a980b7c4ddd96f"
+    },
+    {
+      "file": "src/core/dynamic-regional.mjs",
+      "sha256": "036af97b0014c2c846d4f809397d18caa2488358c4a202b60d43fe8a279c3e6e"
+    },
+    {
+      "file": "src/core/earthwork-drainage.mjs",
+      "sha256": "0536e5244a890f3ae8e75bfc348a7e85cde562e0233a57ae2115746800a50be1"
+    },
+    {
+      "file": "src/core/field-math.mjs",
+      "sha256": "855a2940976de27150bd000b3cd6a8b336e8cc2ff741fc16067d39aa5bfa04d6"
+    },
+    {
+      "file": "src/core/global-field-evaluator.mjs",
+      "sha256": "658bbd3a6ba8cbaa5bc1b6daeb1883bd26e309416b977c2cd3f4a04586c55830"
+    },
+    {
+      "file": "src/core/global-interchart-rivers.mjs",
+      "sha256": "c23175537f1d16e9f376a3d017cb120912f2bf8fd6aa591f051b83a6eb80a4e6"
+    },
+    {
+      "file": "src/core/global-terrain.mjs",
+      "sha256": "1abdf378a6ca0d36343d099396a9e72dcf4af32e1339ca39c4399a5c7ac78ac7"
+    },
+    {
+      "file": "src/core/global-water-charts.mjs",
+      "sha256": "5b8085db7a2c3680d0aef702097fd7b725e62b0d0487b833bc7b575c5712e164"
+    },
+    {
+      "file": "src/core/global-water.mjs",
+      "sha256": "4c6c36fbbc0e1ff7fd6c76861d80f829f4d944c7002bef732058aad2ff0e6cd5"
+    },
+    {
+      "file": "src/core/globe-features.mjs",
+      "sha256": "c2f2b191757b9d920947ff18540dfaa77e724be028cc60b7ddc8cec718e8e497"
+    },
+    {
+      "file": "src/core/hermite-field.mjs",
+      "sha256": "eaa0ed463311dbd15c255ec8c4ee51ac0fb31c1ffc610df7a90ff82db273a9a7"
+    },
+    {
+      "file": "src/core/hermite-kernel.mjs",
+      "sha256": "407a36d4d6e46b267e767bbea3c08832947793633200936ddbecc96a8e4ab657"
+    },
+    {
+      "file": "src/core/index.mjs",
+      "sha256": "2076905d15d89e64e3d6512c92515be7e0d6a7b84fc5db00452c41ad90b8a5bd"
+    },
+    {
+      "file": "src/core/json-contract.mjs",
+      "sha256": "6f785d1afc0dd5680b41e745edbd6cf705868edd5d98a1e25e88d4a1fd996eae"
+    },
+    {
+      "file": "src/core/periodic-field.mjs",
+      "sha256": "840d58e6588bd8552d4d4da637fa8eea1939496ef3632f0eadbb924e08825c8f"
+    },
+    {
+      "file": "src/core/post-detail-drainage.mjs",
+      "sha256": "e1a2b81f1bde33b24480b4191e5d6a89f03539b0251b939840e03f3243dacb34"
+    },
+    {
+      "file": "src/core/projected-canonical.mjs",
+      "sha256": "1c10b2cd7230b08f291b3fe45afd33bded167f00ba40b28d78cf0e48be423796"
+    },
+    {
+      "file": "src/core/projected-ground-bounds.mjs",
+      "sha256": "a04bc88dca07e3f911a02f1de2c6df83a5466540ff13e6c59354aad73aa1100d"
+    },
+    {
+      "file": "src/core/road-crossings.mjs",
+      "sha256": "75014d0a32a21844fc699fc044c073e5fd68ee1138e9093d6fa60605867d3c97"
+    },
+    {
+      "file": "src/core/road-earthwork.mjs",
+      "sha256": "266ede593aa5cf4e11d3a2f86aa6106b32d80a6a0558a2355c201ca1f8e02f7e"
+    },
+    {
+      "file": "src/core/road-geometry.mjs",
+      "sha256": "37e85c267bacad252e8e1ea5d6563aeae61e84ce1def8a74c80551538d803df8"
+    },
+    {
+      "file": "src/core/road-junctions.mjs",
+      "sha256": "160276f756c8ad9daae0a59a5f0883b0c15716ce9b2c22de522582ab45984c57"
+    },
+    {
+      "file": "src/core/sha256.mjs",
+      "sha256": "7edd7c80fdaf2d92ec4592e021c9da5459f12a45d04aa0db085354ad515e0f61"
+    },
+    {
+      "file": "src/core/spherical-detail.mjs",
+      "sha256": "5ec9d47e5d251a5b61baf7c4fbd0506fd9b7c5adfe422dacffabe756869483e8"
+    },
+    {
+      "file": "src/core/spherical-noise.mjs",
+      "sha256": "b0958c8f50dc76531684d4f069a7cf507b25659167e25d4e54625c2317ce9540"
+    },
+    {
+      "file": "src/core/spherical.mjs",
+      "sha256": "e80939d29c5e09ea7aa46e0cf0b48fb2bc728e60a977b3ceb8206bae964ff830"
+    },
+    {
+      "file": "src/core/surface-derivatives.mjs",
+      "sha256": "f56f554a96b7ff2d9a52cb931318fcd3ff18ee04138e9a4bf82808734f0e24ea"
+    },
+    {
+      "file": "src/core/surface-trace.mjs",
+      "sha256": "c5dcb76fde48e0891d01e60d4839bdd9e0a6dd307838955df4daa602e62b3a0b"
+    },
+    {
+      "file": "src/core/surface-water.mjs",
+      "sha256": "0086068b9e630538d0ce8483eb2eda5fc8b7567fac8cd0302883d6d9719c92e7"
+    },
+    {
+      "file": "src/core/trafficability.mjs",
+      "sha256": "e6d423ad87223f0e8b2eb2efcba2f7e4e9b2e1242e252aaf5cfdd2d5e9e823f3"
+    },
+    {
+      "file": "src/core/water-model.mjs",
+      "sha256": "8654f565891f1b135570e625b1d5e72dc7cd40411d7484e815ffcdce24aea552"
+    },
+    {
+      "file": "src/globe/app.mjs",
+      "sha256": "6c13fde1ac8b1f935628d5fffee6ab5abc148694ed5440af55c7f69b9e5a3e33"
+    },
+    {
+      "file": "src/globe/cube.mjs",
+      "sha256": "2fd6a4d388bfdcfd1a5eb01629bde3615e97732d52bd9dbaba4bbad65b6315e9"
+    },
+    {
+      "file": "src/globe/lru.mjs",
+      "sha256": "985a152eca845a8bd6de65b97ae7a8302562a2d2631fdb28efb550b07d3e24a2"
+    },
+    {
+      "file": "src/globe/mesh.mjs",
+      "sha256": "962364910f19d6c1e4e2511da3883ab7702f6928bc73b4f184b0ff5d2ef5bbd7"
+    },
+    {
+      "file": "src/globe/paged-source.mjs",
+      "sha256": "eae15c7be66cf52d69abb7d01971ad45030d9d671904b860b3078fc83845ee09"
+    },
+    {
+      "file": "src/globe/renderer.mjs",
+      "sha256": "88a9c2890b3f5cbdab8d5cd9da555b5b8cfa8ddc268603e992a68ecc6ef93f30"
+    },
+    {
+      "file": "src/globe/stream.mjs",
+      "sha256": "14bfe5d5c772a5ead17c40276c2696c38a5c95cb1f8dea2f0f327b9be62dd4b1"
+    },
+    {
+      "file": "src/globe/worker.mjs",
+      "sha256": "c497d6b30988e56af1650c1d1170bd0d351b9637c00ced898f9178debaaf56f0"
+    },
+    {
+      "file": "scripts/package-globe.mjs",
+      "sha256": "83659f7c414f6da65123001552224eb35493214d4e73fc11837e5cd7ef08c4be"
+    },
+    {
+      "file": "scripts/verify-globe.mjs",
+      "sha256": "a41de24da22442b53826fa66a77272fbbb760d72f688e86ac3dab9f4fc963e9f"
+    },
+    {
+      "file": "test/globe.test.mjs",
+      "sha256": "1ce8c1bfb2beebb0f63188c5f2971a690c59e71fa30ad2fa3257bb47fb5f10e0"
+    }
+  ]
+}

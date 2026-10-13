@@ -1,0 +1,23 @@
+{
+  "worldId": "sha256:b356a7010c6ebf24f6c35c2b89567b4e2285e4e152b3586e3c41a9e2ce9d1e89",
+  "observedAtUTC": "2026-10-10T23:53:54Z",
+  "browser": "dot cloud browser",
+  "renderer": "software diagnostic, 420px internal width",
+  "target": "tributary-region@2/river:5078:4950/channel:2777:4198",
+  "camera": {
+    "latDeg": -19.686403,
+    "lonDeg": -116.71683,
+    "heightM": 150,
+    "tiltDeg": 45,
+    "localHour": 12
+  },
+  "observations": [
+    "Near stream visible continuously beside woodland",
+    "Two previously sharp grid bends now visibly rounded",
+    "No claim of erosion-derived morphology or discharge",
+    "Terrain still refining; distant visibility and performance not accepted"
+  ],
+  "reportedMaximumLOD": 21,
+  "reportedShapeMiB": 56.4,
+  "localNoonButton": "Clicked through visible UI, local hour12.0 confirmed; no automatic time change on movement"
+}

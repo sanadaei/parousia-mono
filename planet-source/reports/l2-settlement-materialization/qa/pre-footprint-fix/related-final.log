@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: flat detailed fixture materializes a village district and field page as finite JSON
+ok 1 - flat detailed fixture materializes a village district and field page as finite JSON
+  ---
+  duration_ms: 22.7368
+  type: 'test'
+  ...
+# Subtest: district and field pages keep stable ids and positions
+ok 2 - district and field pages keep stable ids and positions
+  ---
+  duration_ms: 28.3433
+  type: 'test'
+  ...
+# Subtest: every field page conserves the single candidate demand including the partial last parcel
+ok 3 - every field page conserves the single candidate demand including the partial last parcel
+  ---
+  duration_ms: 15.62
+  type: 'test'
+  ...
+# Subtest: the surveyed access corridor reserves its width before fields are accepted
+ok 4 - the surveyed access corridor reserves its width before fields are accepted
+  ---
+  duration_ms: 18.8457
+  type: 'test'
+  ...
+# Subtest: save commits once and reloads without regenerating
+ok 5 - save commits once and reloads without regenerating
+  ---
+  duration_ms: 9.6958
+  type: 'test'
+  ...
+# Subtest: a changed surface is rejected by the committed store
+ok 6 - a changed surface is rejected by the committed store
+  ---
+  duration_ms: 11.7814
+  type: 'test'
+  ...
+# Subtest: wet candidate is held with a reason and its requirement
+ok 7 - wet candidate is held with a reason and its requirement
+  ---
+  duration_ms: 1.2494
+  type: 'test'
+  ...
+# Subtest: steep candidate is held with a reason and its requirement
+ok 8 - steep candidate is held with a reason and its requirement
+  ---
+  duration_ms: 3.4498
+  type: 'test'
+  ...
+# Subtest: unknown candidate is held with a reason and its requirement
+ok 9 - unknown candidate is held with a reason and its requirement
+  ---
+  duration_ms: 1.6687
+  type: 'test'
+  ...
+# Subtest: detail boundary never materializes houses or fields outside it
+ok 10 - detail boundary never materializes houses or fields outside it
+  ---
+  duration_ms: 11.9881
+  type: 'test'
+  ...
+# Subtest: an access target routes through the existing local road survey and stays unresolved
+ok 11 - an access target routes through the existing local road survey and stays unresolved
+  ---
+  duration_ms: 9.5272
+  type: 'test'
+  ...
+# Subtest: a target beyond the local survey budget leaves an empty invalid profile
+ok 12 - a target beyond the local survey budget leaves an empty invalid profile
+  ---
+  duration_ms: 6.474
+  type: 'test'
+  ...
+# Subtest: a town keeps its demand explicit without inventing local fields
+ok 13 - a town keeps its demand explicit without inventing local fields
+  ---
+  duration_ms: 6.4602
+  type: 'test'
+  ...
+# Subtest: surface contract mismatches are rejected before generation
+ok 14 - surface contract mismatches are rejected before generation
+  ---
+  duration_ms: 1.7448
+  type: 'test'
+  ...
+# Subtest: options are strictly validated
+ok 15 - options are strictly validated
+  ---
+  duration_ms: 2.2029
+  type: 'test'
+  ...
+# Subtest: saved native L2 terrain is shared and never falls back outside its domain
+ok 16 - saved native L2 terrain is shared and never falls back outside its domain
+  ---
+  duration_ms: 15.4628
+  type: 'test'
+  ...
+# Subtest: native-grid, content identity, handoff and water-geometry mismatches fail closed
+ok 17 - native-grid, content identity, handoff and water-geometry mismatches fail closed
+  ---
+  duration_ms: 4.8072
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 475.5822

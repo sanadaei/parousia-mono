@@ -1,0 +1,131 @@
+{
+  "worldId": "sha256:9266cdd064f415dcdd9c4cded30d29a94cf8c6bd210d9e76f1949662348311ef",
+  "parentWorldId": "sha256:9266cdd064f415dcdd9c4cded30d29a94cf8c6bd210d9e76f1949662348311ef",
+  "scope": "Explicit new snapshot adds the riverbank policy to unchanged geography; four actual water-sited villages in region 5010. Shared physical sampler checks, not browser or continuous certificates.",
+  "results": [
+    {
+      "siteId": "pop:5010:26",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5010:4883",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -19.75843042171499,
+          "lonDeg": 53.3844966628119
+        },
+        "waterPoint": {
+          "latDeg": -19.758409099266487,
+          "lonDeg": 53.384472617830966
+        },
+        "shoreSamples": 37,
+        "roadId": "pop:5010:26/riverbank/public-access",
+        "joinsRoadId": "pop:5010:26/district:0/terrain-street:0:residential:1077",
+        "lengthM": 105.94334357925644,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 43,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 4855.038879000001
+    },
+    {
+      "siteId": "pop:5010:384",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5009:5010",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -21.098406199777727,
+          "lonDeg": 51.268551670905026
+        },
+        "waterPoint": {
+          "latDeg": -21.098375190718592,
+          "lonDeg": 51.268551546468984
+        },
+        "shoreSamples": 38,
+        "roadId": "pop:5010:384/riverbank/public-access",
+        "joinsRoadId": "pop:5010:384/district:0/terrain-street:0:east",
+        "lengthM": 207.86961731226114,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 42,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 5899.908708000001
+    },
+    {
+      "siteId": "pop:5010:387",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5009:5010",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -21.09654139594861,
+          "lonDeg": 51.6499070577446
+        },
+        "waterPoint": {
+          "latDeg": -21.096510357905334,
+          "lonDeg": 51.649906853486755
+        },
+        "shoreSamples": 38,
+        "roadId": "pop:5010:387/riverbank/public-access",
+        "joinsRoadId": "pop:5010:387/district:0/terrain-street:0:residential:1329",
+        "lengthM": 121.50607550396877,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 41,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 3876.426135999998
+    },
+    {
+      "siteId": "pop:5010:391",
+      "status": {
+        "policy": "surveyed-riverbank-footpath@1",
+        "sourceId": "river:5009:5010",
+        "status": "connected",
+        "reason": null,
+        "bankPoint": {
+          "latDeg": -21.094061947935153,
+          "lonDeg": 51.98358220816783
+        },
+        "waterPoint": {
+          "latDeg": -21.094093091595713,
+          "lonDeg": 51.983582483090686
+        },
+        "shoreSamples": 36,
+        "roadId": "pop:5010:391/riverbank/public-access",
+        "joinsRoadId": "pop:5010:391/district:0/terrain-street:0:west",
+        "lengthM": 141.07945020519423,
+        "limitations": "Half-metre finite dry/grade/footprint survey, 1.3 m pedestrian strip; no flood, erosion, drinking quality or water-yield guarantee"
+      },
+      "physicalChecks": {
+        "sampled": 41,
+        "wet": 0,
+        "blocked": 0,
+        "missingSurface": 0
+      },
+      "homes": 60,
+      "requested": 60,
+      "runtimeMs": 5185.907988999999
+    }
+  ]
+}

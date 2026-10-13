@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": {
+    "parentNativeFinerThanTarget": true,
+    "parentWithinLockedSourceFootprint": true,
+    "parentExportSupportNoExtrapolation": true,
+    "parentArraysFinite": true,
+    "parentrealAreaClosure": true,
+    "parentgeneratedAreaClosure": true,
+    "childNativeFinerThanTarget": true,
+    "childWithinLockedSourceFootprint": true,
+    "childExportSupportNoExtrapolation": true,
+    "childArraysFinite": true,
+    "childrealAreaClosure": true,
+    "childgeneratedAreaClosure": true,
+    "SameParentChildExtent": true,
+    "RealChildCoincidentParentNodesExact": true,
+    "GeneratedChildCoincidentParentNodesExact": true,
+    "RawHashMatchesRetained": true,
+    "RawAllPixelsFiniteValid": true
+  }
+}

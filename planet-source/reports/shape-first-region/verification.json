@@ -1,0 +1,72 @@
+{
+  "sourceSha256": "09cf1e8886ecb6b30fe7cf9cc1b0dbeb797c9488d73beb71a651a5cb14d8267f",
+  "fullSuite": {
+    "command": "npm test",
+    "passed": 1273,
+    "failed": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "passed": true
+  },
+  "shapeFirstFocusedTests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "reproduction": {
+    "riverFirstCandidate": "byte-identical",
+    "eroded": "schema/grid/seed/elevation/rivers exact",
+    "valley": "schema/grid/seed/elevation/rivers exact"
+  },
+  "previewScript": "all five selections and river toggle executed using mock canvas; no errors",
+  "browserQA": "not completed: Chromium launch denied socket access in sandbox",
+  "visualQA": "five-panel saved-pyramid PNG inspected",
+  "physicsCertification": false,
+  "designFidelity": [
+    {
+      "grid": [
+        11,
+        9
+      ],
+      "comparison": "bilinear reconstruction versus native chosen shape; descriptive only",
+      "rmsErrorM": 13.563574672953047,
+      "maxAbsoluteErrorM": 45.58514160156247
+    },
+    {
+      "grid": [
+        21,
+        17
+      ],
+      "comparison": "bilinear reconstruction versus native chosen shape; descriptive only",
+      "rmsErrorM": 6.315187780140098,
+      "maxAbsoluteErrorM": 32.62973968749998
+    },
+    {
+      "grid": [
+        41,
+        33
+      ],
+      "comparison": "bilinear reconstruction versus native chosen shape; descriptive only",
+      "rmsErrorM": 2.5373587855201456,
+      "maxAbsoluteErrorM": 21.458887500000003
+    },
+    {
+      "grid": [
+        81,
+        65
+      ],
+      "comparison": "bilinear reconstruction versus native chosen shape; descriptive only",
+      "rmsErrorM": 0.8950948279967877,
+      "maxAbsoluteErrorM": 21.95635500000003
+    },
+    {
+      "grid": [
+        161,
+        129
+      ],
+      "comparison": "bilinear reconstruction versus native chosen shape; descriptive only",
+      "rmsErrorM": 0,
+      "maxAbsoluteErrorM": 0
+    }
+  ]
+}

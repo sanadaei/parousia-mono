@@ -1,0 +1,243 @@
+{
+  "checkedAt": "2026-10-13T06:38:35.576744+00:00",
+  "status": "passed-with-documented-limitations",
+  "scope": "Shape-first terrain and designed water; multi-seed source, adjacent region/layer continuity, spherical app integration, verified legacy river receiver, saved source and placement roundtrip; bounded landscape appearance finish and compact working controls",
+  "wholePlanetRoadmapComplete": false,
+  "aggregate": {
+    "test": {
+      "command": "npm test",
+      "passed": 1356,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 159033.090236,
+      "log": "visual-final-npm-test.log"
+    },
+    "build": {
+      "command": "npm run build",
+      "passed": true,
+      "coreModules": 154,
+      "exactLegacyExports": 30,
+      "globeSyntaxModules": 74,
+      "log": "visual-final-build.log"
+    }
+  },
+  "source": {
+    "inventory": "visual-final-source-hashes.json",
+    "capturedAt": "2026-10-13T06:34:20.498746+00:00",
+    "recheck": "visual-final-source-recheck.json",
+    "verifiedAt": "2026-10-13T06:38:35.576744+00:00",
+    "files": 725,
+    "changed": [],
+    "added": [],
+    "removed": []
+  },
+  "reproduction": {
+    "pyramidByteIdentical": true,
+    "pyramidSha256": "e0a153a86a31abe5605e000bb3c5916323911dc88daf8a582c596310e48ee232",
+    "waterAnnotationByteIdentical": true,
+    "waterSha256": "c64496f75a114c423d4472f5208286c27233d52ff512cc74a38d837beb02c086"
+  },
+  "browser": {
+    "environment": "Supported CUA cloud browser; existing Node server launched in cloud Terminal on localhost:3037. No user computer used.",
+    "renderer": "Canvas2D companion and CPU software-diagnostic spherical renderer",
+    "webgl2Available": false,
+    "passed": [
+      "initial real app render",
+      "five saved resolution selections plus auto",
+      "river selection and focus",
+      "zoom, reset and keyboard pan across seam",
+      "river/supply/seam overlay toggles",
+      "selected resolution and zoom survive reload",
+      "space to region navigation",
+      "generated seed actually changes terrain",
+      "saved seed reload retains source SHA",
+      "mode roundtrip and Back/Forward preserve seed and globe placement",
+      "export and restore source archive",
+      "updated export includes exact globe placement and parent identity",
+      "updated import restores exact placement",
+      "interrupted generation honors latest seed request",
+      "physical designed channel rendered with inspection symbols off; banks and water visible",
+      "actual receiver navigation and probe match preexisting wet river",
+      "final version-bound source+placement export and file-chooser reimport preserve source SHA, first-created timestamp, model versions and receiver identity",
+      "postconnector source changes from QA seed to 42 to saved A clear stale placement/receiver binding",
+      "return to ordinary globe clears shape-first query fields; fresh shaped draft entry works",
+      "old insufficient placement rejected explicitly rather than silently moved",
+      "final receiver settles with zero pending loads and no app error",
+      "final compact panel preserves river/view/source controls, hides/reopens correctly, desktop scrollWidth283 equals clientWidth283",
+      "default saved A loads40 rivers and verified receiver after visual finish",
+      "final100m canonical channel depth0.713730m and placement/model/receiver identities unchanged after display-only edits"
+    ],
+    "screenshots": [
+      "browser-inspect-initial.png",
+      "browser-globe-space.png",
+      "browser-physical-channel-100m.png",
+      "final-browser-receiver-300m.png",
+      "final-browser-channel-100m.png",
+      "visual-before-314159-10000m.png",
+      "visual-after-314159-10000m-matched.png",
+      "visual-final-314159-overview.png",
+      "visual-final-A-default-entry.png",
+      "visual-final-A-overview.png",
+      "visual-final-channel-100m.png"
+    ],
+    "screenshotNotes": "Physical-channel-100m is intermediate before receiver-aware auto-placement. Final receiver capture uses frozen source and final model bindings. Earlier symbol-only screenshots are historical evidence, not physical water acceptance. Final-browser-channel-100m.png uses frozen source, final receiver-aware placement, physical water only, and contours disabled.",
+    "receiver": {
+      "latitude": 30.826437875204128,
+      "longitude": -132.04839511275225,
+      "riverId": "river:2640:2769",
+      "pointIndex": 45,
+      "groundMetres": 553.847289,
+      "depthMetres": 2.213008,
+      "legacyDepthMetres": 2.21300756598,
+      "settledTiles": 119,
+      "maxLod": 20,
+      "meshMiB": 63.0,
+      "pendingLoads": 0,
+      "error": ""
+    },
+    "boundedPerformance": {
+      "observed": "Seed 42 at 100m: 326 visible tiles, max L27, 55.2 MiB mesh, zero pending, about 7.6 CPU diagnostic fps while updating. Final receiver settled at119 tiles/L20/63MiB.",
+      "formalBenchmark": false
+    },
+    "finalNearfield": {
+      "heightMetres": 100,
+      "visibleTiles": 249,
+      "maxLod": 26,
+      "meshMiB": 53.6,
+      "pendingLoads": 0,
+      "error": "",
+      "symbols": "off",
+      "contours": "off"
+    }
+  },
+  "independentChecks": {
+    "channelSampling": "channel-independent-sampling.json",
+    "channelSampleCount": 68691,
+    "channelSeeds": 3,
+    "nonfinite": 0,
+    "dryCenters": 0,
+    "invalidDepths": 0,
+    "outletRoutes": "receiver-routes-after-fix.json",
+    "outletSides": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "interiorReentriesAfterFix": 0,
+    "outletRouteMethod": "Independent center and quarter/mid/threequarter segment samples against native rectangle; caught and verified repair of north/west reentry."
+  },
+  "savedSeed": {
+    "seed": "qa-region-20261013",
+    "sourceSha256": "a6a88accc8afc7607d964f1618e677659123c52ae5ac3ba4869c14567c991138",
+    "firstCreatedAt": "2026-10-13T05:48:07.999Z",
+    "archive": "final-browser-export.json",
+    "archiveSha256": "fbb513f38e8f6178f9e3e7d7b812c479e85af92b57aa70d597788242e807761c",
+    "riverCount": 33,
+    "view": {
+      "schema": "shape-first-view@1",
+      "terrain": "shape-first",
+      "world": "/examples/planet/generated/manifest.json",
+      "sfLat": 30.927694805805604,
+      "sfLon": -132.15050771196172,
+      "sfTransition": 4000,
+      "sfElevation": 522.26370589066,
+      "sfParentWorld": "sha256:53da9e09d563029d61d180b0a1e6e524e916e60ecb78d17a85d0910fb3852318",
+      "sfOutletIdentity": "2953174576fa610f88c142ecad00426d5c414730e155e77565d4719dea21c4b6",
+      "sfChannelVersion": "shape-first-designed-channels@2",
+      "sfRuntimeVersion": "shape-first-sphere@2",
+      "sfSymbols": "off"
+    },
+    "browserExportAndImportVerified": true
+  },
+  "limitations": [
+    "WebGL2 unavailable in cloud; no GPU rendering or GPU performance claim. Software images are low-resolution CPU diagnostics with some staircase edges and isolated dark bank pixels.",
+    "High maximum nearfield LOD remains observable. No long-duration memory, formal 120-second benchmark, or low-end hardware validation.",
+    "Supplied checkout lacks examples/planet/catalog.json. Catalog selection is disabled with nonfatal404; alternate saved-world browser selection was not exercised. Navigation regressions and live ordinary-to-fresh-draft path pass; default generated world opens.",
+    "Water supply and widths/depths are provisional static design annotations, not calibrated hydraulic equilibrium, weather simulation, true catchment delineation, or global receiving-river flow response.",
+    "Legacy roads/buildings are intentionally suppressed in the inserted draft area; broader planet/ecosystem/city roadmap is not declared complete.",
+    "Some early logs and screenshots predate final channel/receiver integration; aggregate final logs and source inventory supersede those intermediate failures.",
+    "Mobile responsive CSS was inspected; actual narrow/mobile viewport rendering not exercised with available supported browser tools.",
+    "Browser extension emitted metadata delivery errors; app error panel remained empty. These extension messages are not application renderer failures."
+  ],
+  "remainingTaskBlockers": [],
+  "delivery": "Final working-baseline QA artifacts frozen for release packaging. Clean-extracted package verification and authorized delivery remain release-owner responsibilities.",
+  "functionalCheckpointAggregate": {
+    "test": {
+      "command": "npm test",
+      "passed": 1348,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 163154.97159,
+      "log": "final-npm-test.log"
+    },
+    "build": {
+      "command": "npm run build",
+      "passed": true,
+      "coreModules": 154,
+      "exactLegacyExports": 30,
+      "globeSyntaxModules": 72,
+      "log": "final-build.log"
+    }
+  },
+  "visualFinish": {
+    "accepted": "Subdued local-relief terrain colors, measured-grade bank tone, calmer physical water, muted inspection guides, compact optional panel. Selected45-degree/noon/extent-based~10km view.",
+    "geometryChanged": false,
+    "heightExaggeration": 1,
+    "defaultSource": "Saved A; seed314159 is an optional comparison example, not a silently substituted source.",
+    "matchedComparison": {
+      "before": "visual-before-314159-10000m.png",
+      "after": "visual-after-314159-10000m-matched.png",
+      "seed": "314159",
+      "heightMetres": 10000,
+      "tiltDegrees": 45,
+      "localHour": 12,
+      "guides": false,
+      "contours": false,
+      "finding": "Terrain hills and valley floor more readable; no new large holes apparent. Existing bank flecks remain."
+    },
+    "selectedOverview": {
+      "screenshot": "visual-final-314159-overview.png",
+      "heightMetres": 10261.6,
+      "tiltDegrees": 45,
+      "localHour": 12,
+      "guides": true,
+      "guideNote": "48m inspection depiction, distinct from actual channel width.",
+      "contours": false,
+      "panel": "hidden",
+      "tiles": 243,
+      "maxLod": 14,
+      "meshMiB": 62.0,
+      "pending": 0
+    },
+    "defaultA": {
+      "actualEntry": "visual-final-A-default-entry.png",
+      "unobstructed": "visual-final-A-overview.png",
+      "rivers": 40,
+      "tiles": 218,
+      "maxLod": 14,
+      "meshMiB": 62.8,
+      "pending": 0,
+      "error": ""
+    },
+    "physicalWater": {
+      "screenshot": "visual-final-channel-100m.png",
+      "guides": false,
+      "contours": false,
+      "depthMetres": 0.71373,
+      "groundMetres": 602.45183,
+      "unchangedReceiverIdentity": "2953174576fa610f88c142ecad00426d5c414730e155e77565d4719dea21c4b6",
+      "tiles": 249,
+      "maxLod": 26,
+      "meshMiB": 53.6,
+      "pending": 0,
+      "error": ""
+    },
+    "rejectedDefault": "55-degree09:30 view exposes coarse triangular shading; selected45-degree/noon retained.",
+    "notes": "../visual-finish/design-notes.md"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "beforeWorld": "sha256:b6c3928c38766aa1c86bbe75ab67ce6722dcefaa3520d2cd9829fcfd783132b5",
+  "afterWorld": "sha256:9f4ce27c0a43356cde0ebe39986be38e66ebda535026693bc902fcc7eb4cf1b7",
+  "scope": "Actual restored worlds, 30 km by 30 km windows sampled every 500 m. Detail is realized residual, not configured amplitude. Ground includes shared river incision. Not a visual acceptance or a statement that every site should be hilly.",
+  "locations": [
+    {
+      "name": "previous city vicinity",
+      "latDeg": 5.567875272668681,
+      "lonDeg": 8.490236523923528,
+      "before": {
+        "samples": 3721,
+        "ground": {
+          "minM": 2382.4900362622193,
+          "maxM": 2423.1401962204654,
+          "spanM": 40.65015995824615
+        },
+        "actualDetail": {
+          "minM": -2.6538880054197627,
+          "maxM": 2.353452264456046,
+          "spanM": 5.007340269875808
+        },
+        "wetSamples": 0
+      },
+      "after": {
+        "samples": 3721,
+        "ground": {
+          "minM": 2376.435216314916,
+          "maxM": 2419.7657637365837,
+          "spanM": 43.33054742166769
+        },
+        "actualDetail": {
+          "minM": -16.438405640955,
+          "maxM": 14.760452113362827,
+          "spanM": 31.198857754317828
+        },
+        "wetSamples": 0
+      }
+    },
+    {
+      "name": "riverbank vicinity",
+      "latDeg": 15.781927,
+      "lonDeg": -178.899141,
+      "before": {
+        "samples": 3721,
+        "ground": {
+          "minM": 124.63928970586402,
+          "maxM": 236.3082092754594,
+          "spanM": 111.66891956959539
+        },
+        "actualDetail": {
+          "minM": -3.3207120042074747,
+          "maxM": 5.762500312261803,
+          "spanM": 9.083212316469279
+        },
+        "wetSamples": 4
+      },
+      "after": {
+        "samples": 3721,
+        "ground": {
+          "minM": 120.82089986074746,
+          "maxM": 242.91587956978364,
+          "spanM": 122.09497970903618
+        },
+        "actualDetail": {
+          "minM": -14.81056592283147,
+          "maxM": 8.062507180036377,
+          "spanM": 22.87307310286785
+        },
+        "wetSamples": 4
+      }
+    },
+    {
+      "name": "settlement:4491",
+      "latDeg": -11.253806438200295,
+      "lonDeg": 33.74260806745008,
+      "before": {
+        "samples": 3721,
+        "ground": {
+          "minM": 422.2183083290778,
+          "maxM": 500.2541149784171,
+          "spanM": 78.03580664933929
+        },
+        "actualDetail": {
+          "minM": -10.415285190672202,
+          "maxM": 6.310270915271018,
+          "spanM": 16.72555610594322
+        },
+        "wetSamples": 10
+      },
+      "after": {
+        "samples": 3721,
+        "ground": {
+          "minM": 424.95055845824396,
+          "maxM": 501.3063393658676,
+          "spanM": 76.35578090762363
+        },
+        "actualDetail": {
+          "minM": -21.354411854912712,
+          "maxM": 13.043485188450514,
+          "spanM": 34.39789704336323
+        },
+        "wetSamples": 10
+      }
+    },
+    {
+      "name": "settlement:4054",
+      "latDeg": 1.40625,
+      "lonDeg": 243.28125,
+      "before": {
+        "samples": 3721,
+        "ground": {
+          "minM": 220.58934996728095,
+          "maxM": 232.203384945292,
+          "spanM": 11.614034978011034
+        },
+        "actualDetail": {
+          "minM": -0.5710025451922967,
+          "maxM": 0.4369709859229318,
+          "spanM": 1.0079735311152285
+        },
+        "wetSamples": 0
+      },
+      "after": {
+        "samples": 3721,
+        "ground": {
+          "minM": 210.19961436121707,
+          "maxM": 240.71345184742722,
+          "spanM": 30.51383748621015
+        },
+        "actualDetail": {
+          "minM": -12.695955639725895,
+          "maxM": 12.854561216202537,
+          "spanM": 25.550516855928432
+        },
+        "wetSamples": 0
+      }
+    },
+    {
+      "name": "settlement:3093",
+      "latDeg": 21.09375,
+      "lonDeg": 60.46875,
+      "before": {
+        "samples": 3721,
+        "ground": {
+          "minM": 4.643388768684301,
+          "maxM": 77.94679216624478,
+          "spanM": 73.30340339756047
+        },
+        "actualDetail": {
+          "minM": -0.1078332744083605,
+          "maxM": 0.10508208504762905,
+          "spanM": 0.21291535945598955
+        },
+        "wetSamples": 0
+      },
+      "after": {
+        "samples": 3721,
+        "ground": {
+          "minM": 4.649529580721537,
+          "maxM": 77.98404618510725,
+          "spanM": 73.33451660438571
+        },
+        "actualDetail": {
+          "minM": -3.763639291309377,
+          "maxM": 2.754690742490529,
+          "spanM": 6.518330033799906
+        },
+        "wetSamples": 0
+      }
+    },
+    {
+      "name": "settlement:4780",
+      "latDeg": -15.46875,
+      "lonDeg": 125.15625,
+      "before": {
+        "samples": 3721,
+        "ground": {
+          "minM": 8.195292564337691,
+          "maxM": 76.1835632351843,
+          "spanM": 67.9882706708466
+        },
+        "actualDetail": {
+          "minM": -0.06499765943692808,
+          "maxM": 0.16499888712702276,
+          "spanM": 0.22999654656395085
+        },
+        "wetSamples": 0
+      },
+      "after": {
+        "samples": 3721,
+        "ground": {
+          "minM": 8.196611575577297,
+          "maxM": 77.76135706806578,
+          "spanM": 69.56474549248848
+        },
+        "actualDetail": {
+          "minM": -3.0731948248590593,
+          "maxM": 3.812873544054127,
+          "spanM": 6.886068368913186
+        },
+        "wetSamples": 0
+      }
+    }
+  ]
+}

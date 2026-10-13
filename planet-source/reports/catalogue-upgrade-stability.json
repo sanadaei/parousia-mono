@@ -1,0 +1,17 @@
+{
+  "checks": [
+    {
+      "worldId": "sha256:140c1afbcdc61c136426c1ac431778e66f3eacccf81bc4c34a2877bb7432f68a",
+      "baseWorldId": "sha256:7bfbbad9c8c59c4b91455a8a98ed413937abf0ac8b5d6836e2c75bda4be2452a",
+      "positionCount": 287877,
+      "positionHash": "50f4ec52abcdda4d309100c4362bd4b56b0032b72e6b7e0b9f38ed6f0841e68b"
+    },
+    {
+      "worldId": "sha256:975c8fdf94dcb239a8b0594f5aa9680591e0b8a5eb7726f3dfdd9a15b49a7caa",
+      "baseWorldId": "sha256:7bfbbad9c8c59c4b91455a8a98ed413937abf0ac8b5d6836e2c75bda4be2452a",
+      "positionCount": 287877,
+      "positionHash": "50f4ec52abcdda4d309100c4362bd4b56b0032b72e6b7e0b9f38ed6f0841e68b"
+    }
+  ],
+  "result": "all positions and populations unchanged"
+}

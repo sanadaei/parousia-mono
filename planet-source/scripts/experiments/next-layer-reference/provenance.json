@@ -1,0 +1,68 @@
+{
+  "schema": "next-local-real-reference@1",
+  "candidateFile": "compared-input.json",
+  "candidateSHA256": "b039c631da0073a9f97667ab7cd34f513aa4a485b36647a9df0c96a3bdadcd08",
+  "fullCandidateSHA256": "df6794ba6f5d9a6e23ee4caf4332d0d49d66911e93fa468f08bdb33a0814652c",
+  "fullCandidateCanonicalContentHash": "sha256:2f32502224483aebc0868c81794cf0ce4bf4bfe63250097e047b6db2cdc4a40d",
+  "rawFile": "../fine-real-reference/raw/usgs13-maryland-10m.tif",
+  "rawSHA256": "e488187e523198878ce20d2686f510d8a45c369356029b0fccc896d66bbde1b1",
+  "centerLonLat": [
+    -77.1,
+    39.1
+  ],
+  "centerUTM18N": [
+    318405.1526075908,
+    4329973.133862447
+  ],
+  "selection": "Locked inherited reference center before observing child or sampling elevations; no outcome search.",
+  "sourceNativeSpacingMAtCenter": [
+    8.00966067515003,
+    10.279387963349158
+  ],
+  "sourceNativeAngularSpacing": [
+    "9.25925926922017E-05",
+    -9.259259269220233e-05
+  ],
+  "sourceNativeGridCoordinates": "Not available from retained export: native raster pixel origin and indices were not retained. Export pixel-center coordinates are explicitly recorded; never presented as native indices.",
+  "sourceExport": {
+    "shape": [
+      986,
+      893
+    ],
+    "geoTransform": [
+      313940.1526075908,
+      10.0,
+      0.0,
+      4334903.133862447,
+      0.0,
+      -10.0
+    ],
+    "epsg": 32618,
+    "noData": null,
+    "allPixelsValid": true
+  },
+  "sourceObjectId": 5276,
+  "upstreamProvenance": "../fine-real-reference/provenance.json",
+  "sampling": "Bilinear point sample from retained service-resampled 10m export; no extrapolation, NoData fill, vertical fitting or height injection into generator.",
+  "hydrology": "Identical independent priority-flood / steepest D8 with all perimeter nodes open, area-weighted uniform unit runoff. No inherited outlets, imported upstream flow, climate, or generator routing head.",
+  "figureBounds": {
+    "elevationM": [
+      30.0,
+      150.0
+    ],
+    "slopeDegrees": [
+      0,
+      20.0
+    ]
+  },
+  "limitations": [
+    "One predetermined suburban Maryland Piedmont reference, not an ensemble or pristine landscape. Bare-earth product can retain roads, embankments, grading and drainage engineering.",
+    "Regional Piedmont setting supported by MGS; exact local landform class and match to fictional generated class not independently verified. No morphology ranking permitted.",
+    "NAVD88 real absolute elevations versus fictional generated datum; no elevation equality expected.",
+    "Bilinear point downsampling is not an area-average or anti-aliasing filter; subgrid features may alias.",
+    "10 m export grid does not imply new 10 m surveyed information beyond native 1/3-arc-second DEM; service source overviews are not separately documented.",
+    "Parent and child have different resolutions on identical point extent; real DEM is evaluated at each exact resolution. Figure displays real at child resolution.",
+    "Generated axes are domain coordinates, not claimed real-world georeferencing.",
+    "All-open diagnostics are separate from inherited-outlet constrained generator metrics; no claim of class match."
+  ]
+}

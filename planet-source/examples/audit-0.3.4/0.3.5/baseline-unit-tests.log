@@ -1,0 +1,1490 @@
+
+> minimal-world-continuous-terrain-adapter@0.3.4 test
+> node --max-old-space-size=256 --test test/adapter.test.mjs test/surface-water.test.mjs test/audit-regressions.test.mjs test/refinement.test.mjs test/global-terrain.test.mjs test/integration.test.mjs test/global-water.test.mjs test/audit-0.3.2.test.mjs test/audit-0.3.3.test.mjs test/road-earthwork.test.mjs test/building-pad.test.mjs test/ui.test.mjs test/trafficability.test.mjs test/global-interchart.test.mjs test/road-junctions.test.mjs
+
+TAP version 13
+# Subtest: arbitrary metric coordinates reproduce an analytic height and fixed-distance gradient
+ok 1 - arbitrary metric coordinates reproduce an analytic height and fixed-distance gradient
+  ---
+  duration_ms: 3.5158
+  type: 'test'
+  ...
+# Subtest: water surface, bed and depth agree; dry land and missing water data differ
+ok 2 - water surface, bed and depth agree; dry land and missing water data differ
+  ---
+  duration_ms: 3.9022
+  type: 'test'
+  ...
+# Subtest: LOD changes sample density only, including slopes and water quantities
+ok 3 - LOD changes sample density only, including slopes and water quantities
+  ---
+  duration_ms: 7.534
+  type: 'test'
+  ...
+# Subtest: adjacent tiles and a larger window return identical values along their shared edge
+ok 4 - adjacent tiles and a larger window return identical values along their shared edge
+  ---
+  duration_ms: 43.8318
+  type: 'test'
+  ...
+# Subtest: exact cell centers and finite outer edges use the documented half-cell extension
+ok 5 - exact cell centers and finite outer edges use the documented half-cell extension
+  ---
+  duration_ms: 1.3034
+  type: 'test'
+  ...
+# Subtest: input edits, returned snapshots and returned sample edits cannot contaminate the adapter
+ok 6 - input edits, returned snapshots and returned sample edits cannot contaminate the adapter
+  ---
+  duration_ms: 2.3025
+  type: 'test'
+  ...
+# Subtest: world identity covers field contents, water data and generation revision, independent of JSON key order
+ok 7 - world identity covers field contents, water data and generation revision, independent of JSON key order
+  ---
+  duration_ms: 1.0486
+  type: 'test'
+  ...
+# Subtest: JSON restoration reconstructs sampling, derivatives and water, and rejects tampered content
+ok 8 - JSON restoration reconstructs sampling, derivatives and water, and rejects tampered content
+  ---
+  duration_ms: 0.7159
+  type: 'test'
+  ...
+# Subtest: invalid scalar fields, coordinate contracts and oversized windows are rejected before sampling
+ok 9 - invalid scalar fields, coordinate contracts and oversized windows are rejected before sampling
+  ---
+  duration_ms: 4.2278
+  type: 'test'
+  ...
+# Subtest: legacy bridge preserves IDs and metric positions with an explicit origin and unresolved hydrology
+ok 10 - legacy bridge preserves IDs and metric positions with an explicit origin and unresolved hydrology
+  ---
+  duration_ms: 2.5477
+  type: 'test'
+  ...
+# Subtest: irregular fields are continuous across raster boundaries and gradients use the same world stencil
+ok 11 - irregular fields are continuous across raster boundaries and gradients use the same world stencil
+  ---
+  duration_ms: 0.6579
+  type: 'test'
+  ...
+# Subtest: coordinate precision and overflowing derived values fail explicitly
+ok 12 - coordinate precision and overflowing derived values fail explicitly
+  ---
+  duration_ms: 0.5608
+  type: 'test'
+  ...
+# Subtest: canonical export preserves exact source centers, datum and source IDs at seams and poles
+ok 13 - canonical export preserves exact source centers, datum and source IDs at seams and poles
+  ---
+  duration_ms: 261.6344
+  type: 'test'
+  ...
+# Subtest: exported finite terrain accepts explicit groundwater and the existing river builder
+ok 14 - exported finite terrain accepts explicit groundwater and the existing river builder
+  ---
+  duration_ms: 1214.8254
+  type: 'test'
+  ...
+# Subtest: exported caller surface-water grid composes after carving and has a separate identity
+ok 15 - exported caller surface-water grid composes after carving and has a separate identity
+  ---
+  duration_ms: 179.4952
+  type: 'test'
+  ...
+# Subtest: export rejects unsupported coverage, invalid grids and unsafe references before sampling
+ok 16 - export rejects unsupported coverage, invalid grids and unsafe references before sampling
+  ---
+  duration_ms: 105.4509
+  type: 'test'
+  ...
+# Subtest: each corner continues north/south and east/west arrivals without axis priority
+ok 17 - each corner continues north/south and east/west arrivals without axis priority
+  ---
+  duration_ms: 3.3649
+  type: 'test'
+  ...
+# Subtest: diagonal corner and side outlets are collinear with the incoming D8 segment
+ok 18 - diagonal corner and side outlets are collinear with the incoming D8 segment
+  ---
+  duration_ms: 0.6623
+  type: 'test'
+  ...
+# Subtest: weighted arrivals and absent directions have explicit outflow authority
+ok 19 - weighted arrivals and absent directions have explicit outflow authority
+  ---
+  duration_ms: 0.4612
+  type: 'test'
+  ...
+# Subtest: the repaired corner outlet remains open and wet through finite water save/reopen
+ok 20 - the repaired corner outlet remains open and wet through finite water save/reopen
+  ---
+  duration_ms: 31.8861
+  type: 'test'
+  ...
+# Subtest: diagonal side and corner cuts keep both perimeter sides wet and restore identically
+ok 21 - diagonal side and corner cuts keep both perimeter sides wet and restore identically
+  ---
+  duration_ms: 428.5972
+  type: 'test'
+  ...
+# Subtest: a 100km projection adapts rectangle probes while preserving conservative detailed bounds
+ok 22 - a 100km projection adapts rectangle probes while preserving conservative detailed bounds
+  ---
+  duration_ms: 1681.0106
+  type: 'test'
+  ...
+# Subtest: long segments adapt their budget and include the linear level gradient in both bounds
+ok 23 - long segments adapt their budget and include the linear level gradient in both bounds
+  ---
+  duration_ms: 943.4201
+  type: 'test'
+  ...
+# Subtest: strict JSON clones retain canonical order and reject non-JSON values in river inputs
+ok 24 - strict JSON clones retain canonical order and reject non-JSON values in river inputs
+  ---
+  duration_ms: 9.1932
+  type: 'test'
+  ...
+# Subtest: new adaptive global snapshots restore fitted channels and reject stale bounds/identity
+ok 25 - new adaptive global snapshots restore fitted channels and reject stale bounds/identity
+  ---
+  duration_ms: 240.8044
+  type: 'test'
+  ...
+# Subtest: equal-level self crossing within one edge is rejected, including legacy constructions
+ok 26 - equal-level self crossing within one edge is rejected, including legacy constructions
+  ---
+  duration_ms: 57.4943
+  type: 'test'
+  ...
+# Subtest: nonadjacent wet corridors on the same edge cannot return through their own width
+ok 27 - nonadjacent wet corridors on the same edge cannot return through their own width
+  ---
+  duration_ms: 10.6273
+  type: 'test'
+  ...
+# Subtest: nonoverlapping bends and adjacent mesh faces remain valid and survive saving
+ok 28 - nonoverlapping bends and adjacent mesh faces remain valid and survive saving
+  ---
+  duration_ms: 86.2283
+  type: 'test'
+  ...
+# Subtest: smooth bank joins match the base normal derivative while keeping positive center depth
+ok 29 - smooth bank joins match the base normal derivative while keeping positive center depth
+  ---
+  duration_ms: 21.1107
+  type: 'test'
+  ...
+# Subtest: new detail preserves centers, source identity and fixed amplitude even on flat ground
+ok 30 - new detail preserves centers, source identity and fixed amplitude even on flat ground
+  ---
+  duration_ms: 42.4476
+  type: 'test'
+  ...
+# Subtest: detail survives source grid lines and both polar caps without a longitude seam
+ok 31 - detail survives source grid lines and both polar caps without a longitude seam
+  ---
+  duration_ms: 4.8723
+  type: 'test'
+  ...
+# Subtest: anchored noise retains matching one-sided derivatives across grid, seam and cap joins
+ok 32 - anchored noise retains matching one-sided derivatives across grid, seam and cap joins
+  ---
+  duration_ms: 1.405
+  type: 'test'
+  ...
+# Subtest: new detail participates in conservative projected ground bounds, including polar charts
+ok 33 - new detail participates in conservative projected ground bounds, including polar charts
+  ---
+  duration_ms: 7.9981
+  type: 'test'
+  ...
+# Subtest: noise method is saved and tampering cannot reuse the old global identity
+ok 34 - noise method is saved and tampering cannot reuse the old global identity
+  ---
+  duration_ms: 3.038
+  type: 'test'
+  ...
+# Subtest: four independent charts share one source sphere and preserve unknown coverage elsewhere
+ok 35 - four independent charts share one source sphere and preserve unknown coverage elsewhere
+  ---
+  duration_ms: 704.0949
+  type: 'test'
+  ...
+# Subtest: same-projection disjoint charts contribute both coverage and road crossing events
+ok 36 - same-projection disjoint charts contribute both coverage and road crossing events
+  ---
+  duration_ms: 300.8479
+  type: 'test'
+  ...
+# Subtest: overlap, touching coverage, duplicate IDs and excessive chart counts fail explicitly
+ok 37 - overlap, touching coverage, duplicate IDs and excessive chart counts fail explicitly
+  ---
+  duration_ms: 22.82
+  type: 'test'
+  ...
+# Subtest: multiple chart IDs are independent of input order and saved contents are owned
+ok 38 - multiple chart IDs are independent of input order and saved contents are owned
+  ---
+  duration_ms: 147.6927
+  type: 'test'
+  ...
+# Subtest: regional cuts retain open wet cross-sections with meshes inside all four edges and a corner
+ok 39 - regional cuts retain open wet cross-sections with meshes inside all four edges and a corner
+  ---
+  duration_ms: 699.2046
+  type: 'test'
+  ...
+# Subtest: source caps near a cut are clipped without inventing internal boundary nodes
+ok 40 - source caps near a cut are clipped without inventing internal boundary nodes
+  ---
+  duration_ms: 112.9132
+  type: 'test'
+  ...
+# Subtest: concave bodies fill both arms while leaving the excluded depression dry in either orientation
+ok 41 - concave bodies fill both arms while leaving the excluded depression dry in either orientation
+  ---
+  duration_ms: 8.1694
+  type: 'test'
+  ...
+# Subtest: concave segment clipping returns disjoint wet-region intervals, including tangencies and collinear edges
+ok 42 - concave segment clipping returns disjoint wet-region intervals, including tangencies and collinear edges
+  ---
+  duration_ms: 0.6924
+  type: 'test'
+  ...
+# Subtest: concave polygons still reject self intersections and wet search-envelope boundaries
+ok 43 - concave polygons still reject self intersections and wet search-envelope boundaries
+  ---
+  duration_ms: 3.9308
+  type: 'test'
+  ...
+# Subtest: surface grids compose with carved channels and groundwater remains a separate quantity
+ok 44 - surface grids compose with carved channels and groundwater remains a separate quantity
+  ---
+  duration_ms: 35.3618
+  type: 'test'
+  ...
+# Subtest: background gradients, LOD and mutation isolation survive combined water models
+ok 45 - background gradients, LOD and mutation isolation survive combined water models
+  ---
+  duration_ms: 104.7138
+  type: 'test'
+  ...
+# Subtest: a groundwater-only grid does not claim resolved dry surface water
+ok 46 - a groundwater-only grid does not claim resolved dry surface water
+  ---
+  duration_ms: 0.7673
+  type: 'test'
+  ...
+# Subtest: saved topology certificates are checked, while old water hashes and all 353 witnesses remain unchanged
+ok 47 - saved topology certificates are checked, while old water hashes and all 353 witnesses remain unchanged
+  ---
+  duration_ms: 2876.5039
+  type: 'test'
+  ...
+# Subtest: roads find a narrow channel between coarse probes and carry caller-specified deck heights
+ok 48 - roads find a narrow channel between coarse probes and carry caller-specified deck heights
+  ---
+  duration_ms: 482.7469
+  type: 'test'
+  ...
+# Subtest: concave water bodies produce distinct road crossings and a dry notch
+ok 49 - concave water bodies produce distinct road crossings and a dry notch
+  ---
+  duration_ms: 6.9097
+  type: 'test'
+  ...
+# Subtest: bridge approvals reject stale worlds, unknown crossings and unbounded traces
+ok 50 - bridge approvals reject stale worlds, unknown crossings and unbounded traces
+  ---
+  duration_ms: 68.3255
+  type: 'test'
+  ...
+# Subtest: root exports point to the core implementation and flat ground has zero earthwork
+ok 51 - root exports point to the core implementation and flat ground has zero earthwork
+  ---
+  duration_ms: 36.5768
+  type: 'test'
+  ...
+# Subtest: the area-weighted median minimizes absolute earthwork rather than selecting the mean
+ok 52 - the area-weighted median minimizes absolute earthwork rather than selecting the mean
+  ---
+  duration_ms: 263.7955
+  type: 'test'
+  ...
+# Subtest: sloping ground becomes level throughout the polygon, including its perimeter
+ok 53 - sloping ground becomes level throughout the polygon, including its perimeter
+  ---
+  duration_ms: 12.6859
+  type: 'test'
+  ...
+# Subtest: explicit elevations are honored and platform volume estimates integrate a constant offset
+ok 54 - explicit elevations are honored and platform volume estimates integrate a constant offset
+  ---
+  duration_ms: 8.0093
+  type: 'test'
+  ...
+# Subtest: concave polygons retain their notch and triangle quadrature uses their actual area
+ok 55 - concave polygons retain their notch and triangle quadrature uses their actual area
+  ---
+  duration_ms: 14.6605
+  type: 'test'
+  ...
+# Subtest: settlement point references accept explicit dimensions and anonymous footprints have stable IDs
+ok 56 - settlement point references accept explicit dimensions and anonymous footprints have stable IDs
+  ---
+  duration_ms: 4.7859
+  type: 'test'
+  ...
+# Subtest: smooth cut and fill batters join both platform and natural ground with zero end slope
+ok 57 - smooth cut and fill batters join both platform and natural ground with zero end slope
+  ---
+  duration_ms: 17.6061
+  type: 'test'
+  ...
+# Subtest: Euclidean distance produces rounded polygon corner batters and separate cut/fill settings
+ok 58 - Euclidean distance produces rounded polygon corner batters and separate cut/fill settings
+  ---
+  duration_ms: 1.0957
+  type: 'test'
+  ...
+# Subtest: a pad equal to sloping natural ground at its perimeter still joins with a zero outer grade
+ok 59 - a pad equal to sloping natural ground at its perimeter still joins with a zero outer grade
+  ---
+  duration_ms: 1.0239
+  type: 'test'
+  ...
+# Subtest: known water levels raise the optimal pad for clearance and reject an unsafe explicit elevation
+ok 60 - known water levels raise the optimal pad for clearance and reject an unsafe explicit elevation
+  ---
+  duration_ms: 13.0386
+  type: 'test'
+  ...
+# Subtest: perimeter water probes include vertices and unknown water remains unresolved
+ok 61 - perimeter water probes include vertices and unknown water remains unresolved
+  ---
+  duration_ms: 1.812
+  type: 'test'
+  ...
+# Subtest: cutting below known potential surface water recomputes depth and source IDs
+ok 62 - cutting below known potential surface water recomputes depth and source IDs
+  ---
+  duration_ms: 4.9057
+  type: 'test'
+  ...
+# Subtest: modeled river levels and provenance survive platform fill without re-solving hydrology
+ok 63 - modeled river levels and provenance survive platform fill without re-solving hydrology
+  ---
+  duration_ms: 170.2532
+  type: 'test'
+  ...
+# Subtest: building pads compose over road earthwork and preserve road samples outside the pad influence
+ok 64 - building pads compose over road earthwork and preserve road samples outside the pad influence
+  ---
+  duration_ms: 23.523
+  type: 'test'
+  ...
+# Subtest: direct sampling, windows, adjacent windows and LOD return exactly matching complete samples
+ok 65 - direct sampling, windows, adjacent windows and LOD return exactly matching complete samples
+  ---
+  duration_ms: 132.7861
+  type: 'test'
+  ...
+# Subtest: pad ordering and query ordering cannot change overlapping platform or batter precedence
+ok 66 - pad ordering and query ordering cannot change overlapping platform or batter precedence
+  ---
+  duration_ms: 5.636
+  type: 'test'
+  ...
+# Subtest: designs and overlays own their inputs; source terrain and returned data remain isolated
+ok 67 - designs and overlays own their inputs; source terrain and returned data remain isolated
+  ---
+  duration_ms: 3.4242
+  type: 'test'
+  ...
+# Subtest: overlay recipes reproduce identical IDs and samples in a fresh Node process
+ok 68 - overlay recipes reproduce identical IDs and samples in a fresh Node process
+  ---
+  duration_ms: 1311.0635
+  type: 'test'
+  ...
+# Subtest: validation rejects invalid geometry, dimensions, budgets, stale identities and queries
+ok 69 - validation rejects invalid geometry, dimensions, budgets, stale identities and queries
+  ---
+  duration_ms: 10.7098
+  type: 'test'
+  ...
+# Subtest: adjacent charts open their declared endpoints with equal level, depth and fitted width
+ok 70 - adjacent charts open their declared endpoints with equal level, depth and fitted width
+  ---
+  duration_ms: 241.8153
+  type: 'test'
+  ...
+# Subtest: the whole wet seam cross-section is continuous, including dry outer banks
+ok 71 - the whole wet seam cross-section is continuous, including dry outer banks
+  ---
+  duration_ms: 172.2946
+  type: 'test'
+  ...
+# Subtest: an oblique river shares the complete wet opening across adjacent chart cuts
+ok 72 - an oblique river shares the complete wet opening across adjacent chart cuts
+  ---
+  duration_ms: 29.5976
+  type: 'test'
+  ...
+# Subtest: three charts retain a connected downhill chain across two declared seams
+ok 73 - three charts retain a connected downhill chain across two declared seams
+  ---
+  duration_ms: 486.9005
+  type: 'test'
+  ...
+# Subtest: distinct spherical projections meet at an internal junction without chart-order dependence
+ok 74 - distinct spherical projections meet at an internal junction without chart-order dependence
+  ---
+  duration_ms: 48.2958
+  type: 'test'
+  ...
+# Subtest: connected river sampling is deterministic across LOD, windows and projected snapshot restoration
+ok 75 - connected river sampling is deterministic across LOD, windows and projected snapshot restoration
+  ---
+  duration_ms: 505.8284
+  type: 'test'
+  ...
+# Subtest: multiple connected charts restore profiles, samples and event-driven seam crossings
+ok 76 - multiple connected charts restore profiles, samples and event-driven seam crossings
+  ---
+  duration_ms: 61.1503
+  type: 'test'
+  ...
+# Subtest: connected charts cross the date line with the same source world and continuous water
+ok 77 - connected charts cross the date line with the same source world and continuous water
+  ---
+  duration_ms: 80.8545
+  type: 'test'
+  ...
+# Subtest: declared chart seams carry continuous river profiles through both spherical poles
+ok 78 - declared chart seams carry continuous river profiles through both spherical poles
+  ---
+  duration_ms: 78.0447
+  type: 'test'
+  ...
+# Subtest: unrelated disjoint water bodies remain usable in river-connected charts
+ok 79 - unrelated disjoint water bodies remain usable in river-connected charts
+  ---
+  duration_ms: 62.5339
+  type: 'test'
+  ...
+# Subtest: connected chart input and returned snapshot mutations cannot change the live world
+ok 80 - connected chart input and returned snapshot mutations cannot change the live world
+  ---
+  duration_ms: 15.4502
+  type: 'test'
+  ...
+# Subtest: undeclared touching charts remain rejected and single charts cannot authorize open cuts
+ok 81 - undeclared touching charts remain rejected and single charts cannot authorize open cuts
+  ---
+  duration_ms: 8.0174
+  type: 'test'
+  ...
+# Subtest: unknown charts, nodes, duplicate joins and malformed geographic declarations are rejected
+ok 82 - unknown charts, nodes, duplicate joins and malformed geographic declarations are rejected
+  ---
+  duration_ms: 116.6828
+  type: 'test'
+  ...
+# Subtest: a connection must join the downstream end to the next upstream start
+ok 83 - a connection must join the downstream end to the next upstream start
+  ---
+  duration_ms: 12.4095
+  type: 'test'
+  ...
+# Subtest: mismatched endpoint level, depth, wet width or bank width fails the seam contract
+ok 84 - mismatched endpoint level, depth, wet width or bank width fails the seam contract
+  ---
+  duration_ms: 63.5239
+  type: 'test'
+  ...
+# Subtest: offset and reversing endpoints cannot masquerade as a continuous river
+ok 85 - offset and reversing endpoints cannot masquerade as a continuous river
+  ---
+  duration_ms: 40.0458
+  type: 'test'
+  ...
+# Subtest: snapshot connection changes and removed declarations cannot bypass seam verification
+ok 86 - snapshot connection changes and removed declarations cannot bypass seam verification
+  ---
+  duration_ms: 468.5
+  type: 'test'
+  ...
+# Subtest: one declared opening does not authorize an unrelated clipped channel on the same boundary
+ok 87 - one declared opening does not authorize an unrelated clipped channel on the same boundary
+  ---
+  duration_ms: 12.6229
+  type: 'test'
+  ...
+# Subtest: a validated junction cannot authorize a separate cross-chart channel overlap
+ok 88 - a validated junction cannot authorize a separate cross-chart channel overlap
+  ---
+  duration_ms: 156.1497
+  type: 'test'
+  ...
+# Subtest: standalone snapshots cannot detach an authorized boundary opening from its validated connection
+ok 89 - standalone snapshots cannot detach an authorized boundary opening from its validated connection
+  ---
+  duration_ms: 7.5591
+  type: 'test'
+  ...
+# Subtest: anchored high-frequency detail creates depressions and adaptation drains every refined cell to its original outlet
+ok 90 - anchored high-frequency detail creates depressions and adaptation drains every refined cell to its original outlet
+  ---
+  duration_ms: 401.9173
+  type: 'test'
+  ...
+# Subtest: reverse-slope chains are filled downstream-first while preserving source drainage fields
+ok 91 - reverse-slope chains are filled downstream-first while preserving source drainage fields
+  ---
+  duration_ms: 3.7187
+  type: 'test'
+  ...
+# Subtest: legacy bounded spherical detail also produces strictly descending adapted paths
+ok 92 - legacy bounded spherical detail also produces strictly descending adapted paths
+  ---
+  duration_ms: 957.7607
+  type: 'test'
+  ...
+# Subtest: detail-free already descending source cells need no correction
+ok 93 - detail-free already descending source cells need no correction
+  ---
+  duration_ms: 107.4872
+  type: 'test'
+  ...
+# Subtest: D8 adaptation handles diagonal, longitude-wrapped, and unresolved land-terminal paths
+ok 94 - D8 adaptation handles diagonal, longitude-wrapped, and unresolved land-terminal paths
+  ---
+  duration_ms: 296.597
+  type: 'test'
+  ...
+# Subtest: adapted ground and drainage are invariant across LOD, windows, longitude seam and polar queries
+ok 95 - adapted ground and drainage are invariant across LOD, windows, longitude seam and polar queries
+  ---
+  duration_ms: 150.943
+  type: 'test'
+  ...
+# Subtest: post-detail adaptation restores exact drainage arrays, source identity and projected frames
+ok 96 - post-detail adaptation restores exact drainage arrays, source identity and projected frames
+  ---
+  duration_ms: 133.9763
+  type: 'test'
+  ...
+# Subtest: drainage options are bounded, finite, owned and fixed independently of query windows
+ok 97 - drainage options are bounded, finite, owned and fixed independently of query windows
+  ---
+  duration_ms: 178.4113
+  type: 'test'
+  ...
+# Subtest: public root shims and core entry exports refer to the same implementation
+ok 98 - public root shims and core entry exports refer to the same implementation
+  ---
+  duration_ms: 65.2561
+  type: 'test'
+  ...
+# Subtest: both new global snapshot kinds reconstruct identically in a separate Node process
+ok 99 - both new global snapshot kinds reconstruct identically in a separate Node process
+  ---
+  duration_ms: 1490.2895
+  type: 'test'
+  ...
+# Subtest: global C1 sampling retains every source center and canonical longitude/poles
+ok 100 - global C1 sampling retains every source center and canonical longitude/poles
+  ---
+  duration_ms: 74.9782
+  type: 'test'
+  ...
+# Subtest: periodic field and polar caps have matching one-sided first derivatives
+ok 101 - periodic field and polar caps have matching one-sided first derivatives
+  ---
+  duration_ms: 2.2393
+  type: 'test'
+  ...
+# Subtest: fixed detail bands vary between source centers but obey four-corner/amplitude constraints
+ok 102 - fixed detail bands vary between source centers but obey four-corner/amplitude constraints
+  ---
+  duration_ms: 233.5529
+  type: 'test'
+  ...
+# Subtest: source drainage IDs and feature membership survive detail and explicit datum offsets
+ok 103 - source drainage IDs and feature membership survive detail and explicit datum offsets
+  ---
+  duration_ms: 19.684
+  type: 'test'
+  ...
+# Subtest: global ownership, deterministic band ordering and restoration reject stale identities
+ok 104 - global ownership, deterministic band ordering and restoration reject stale identities
+  ---
+  duration_ms: 8.5145
+  type: 'test'
+  ...
+# Subtest: malformed global coordinates, drainage, detail and source grids fail before use
+ok 105 - malformed global coordinates, drainage, detail and source grids fail before use
+  ---
+  duration_ms: 2.7051
+  type: 'test'
+  ...
+# Subtest: absent source lake/flow proxies remain unknown rather than becoming zero
+ok 106 - absent source lake/flow proxies remain unknown rather than becoming zero
+  ---
+  duration_ms: 12.0373
+  type: 'test'
+  ...
+# Subtest: spherical projection round trips meters across the date line and both poles
+ok 107 - spherical projection round trips meters across the date line and both poles
+  ---
+  duration_ms: 3.0656
+  type: 'test'
+  ...
+# Subtest: projected views retain all common samples across LOD/tiles including boundary derivatives
+ok 108 - projected views retain all common samples across LOD/tiles including boundary derivatives
+  ---
+  duration_ms: 604.9092
+  type: 'test'
+  ...
+# Subtest: regional geographic correspondence keeps one global world and source basin
+ok 109 - regional geographic correspondence keeps one global world and source basin
+  ---
+  duration_ms: 2.4787
+  type: 'test'
+  ...
+# Subtest: projected surface frames and identities survive JSON including poles and flat terrain
+ok 110 - projected surface frames and identities survive JSON including poles and flat terrain
+  ---
+  duration_ms: 7.5295
+  type: 'test'
+  ...
+# Subtest: invalid regional extents, projection saves and sampling budgets are rejected
+ok 111 - invalid regional extents, projection saves and sampling budgets are rejected
+  ---
+  duration_ms: 1.1629
+  type: 'test'
+  ...
+# Subtest: geography bridge checks schema and dimensions without generating a source world
+ok 112 - geography bridge checks schema and dimensions without generating a source world
+  ---
+  duration_ms: 1.5724
+  type: 'test'
+  ...
+# Subtest: spherical Lipschitz bounds cover detailed field differences, rectangles and segments including poles
+ok 113 - spherical Lipschitz bounds cover detailed field differences, rectangles and segments including poles
+  ---
+  duration_ms: 461.5667
+  type: 'test'
+  ...
+# Subtest: ground bounds reject unreasonable steps and probe work before allocating a huge grid
+ok 114 - ground bounds reject unreasonable steps and probe work before allocating a huge grid
+  ---
+  duration_ms: 3.2126
+  type: 'test'
+  ...
+# Subtest: explicit global channels keep one sphere, retain source basin IDs and leave outside coverage unknown
+ok 115 - explicit global channels keep one sphere, retain source basin IDs and leave outside coverage unknown
+  ---
+  duration_ms: 180.0215
+  type: 'test'
+  ...
+# Subtest: channels work across the date line and both polar charts with geometric metadata intact
+ok 116 - channels work across the date line and both polar charts with geometric metadata intact
+  ---
+  duration_ms: 186.5718
+  type: 'test'
+  ...
+# Subtest: same spherical water survives LOD, adjacent windows and alternate projection centers
+ok 117 - same spherical water survives LOD, adjacent windows and alternate projection centers
+  ---
+  duration_ms: 260.8681
+  type: 'test'
+  ...
+# Subtest: global water save/restoration keeps fitted widths, frames, hashes and owns all copies
+ok 118 - global water save/restoration keeps fitted widths, frames, hashes and owns all copies
+  ---
+  duration_ms: 168.7464
+  type: 'test'
+  ...
+# Subtest: incision limits and saved derived bounds are enforced again on restoration
+ok 119 - incision limits and saved derived bounds are enforced again on restoration
+  ---
+  duration_ms: 88.4583
+  type: 'test'
+  ...
+# Subtest: water input datum must match and translated ground uses the declared target datum
+ok 120 - water input datum must match and translated ground uses the declared target datum
+  ---
+  duration_ms: 87.0736
+  type: 'test'
+  ...
+# Subtest: explicit water bodies define partial coverage while wet internal envelopes are rejected
+ok 121 - explicit water bodies define partial coverage while wet internal envelopes are rejected
+  ---
+  duration_ms: 264.2181
+  type: 'test'
+  ...
+# Subtest: global channel cuts cannot introduce a ground discontinuity at a chart edge or stack charts
+ok 122 - global channel cuts cannot introduce a ground discontinuity at a chart edge or stack charts
+  ---
+  duration_ms: 538.2548
+  type: 'test'
+  ...
+# Subtest: an explicit spherical lake meets the unchanged ground at an internal dry shore
+ok 123 - an explicit spherical lake meets the unchanged ground at an internal dry shore
+  ---
+  duration_ms: 919.8844
+  type: 'test'
+  ...
+# Subtest: same-projection mesh events detect a narrow global river with coarse road probes and bind bridge IDs
+ok 124 - same-projection mesh events detect a narrow global river with coarse road probes and bind bridge IDs
+  ---
+  duration_ms: 494.5636
+  type: 'test'
+  ...
+# Subtest: Bernstein roots include repeated roots, endpoint roots and tiny scaled coefficients
+ok 125 - Bernstein roots include repeated roots, endpoint roots and tiny scaled coefficients
+  ---
+  duration_ms: 6.4282
+  type: 'test'
+  ...
+# Subtest: C1 segment polynomials match the evaluator in both directions and outer extensions
+ok 126 - C1 segment polynomials match the evaluator in both directions and outer extensions
+  ---
+  duration_ms: 14.9073
+  type: 'test'
+  ...
+# Subtest: cropped C1 control hulls bound interior heights across patches and perimeter shelves
+ok 127 - cropped C1 control hulls bound interior heights across patches and perimeter shelves
+  ---
+  duration_ms: 254.78
+  type: 'test'
+  ...
+# Subtest: roundoff next to cell-center cuts does not make C1 bounds or traces non-finite
+ok 128 - roundoff next to cell-center cuts does not make C1 bounds or traces non-finite
+  ---
+  duration_ms: 1.5478
+  type: 'test'
+  ...
+# Subtest: C1 boundary validation rejects a wet minimum missed by endpoint/midpoint quadratic checks
+ok 129 - C1 boundary validation rejects a wet minimum missed by endpoint/midpoint quadratic checks
+  ---
+  duration_ms: 1.8348
+  type: 'test'
+  ...
+# Subtest: C1 surface-grid traces find interior water even with coarse probes and restore identically
+ok 130 - C1 surface-grid traces find interior water even with coarse probes and restore identically
+  ---
+  duration_ms: 8.6244
+  type: 'test'
+  ...
+# Subtest: C1 ground connects confluences with continuous shores, unchanged input and LOD/save parity
+ok 131 - C1 ground connects confluences with continuous shores, unchanged input and LOD/save parity
+  ---
+  duration_ms: 781.7651
+  type: 'test'
+  ...
+# Subtest: explicit lake/sea levels connect to C1 ground and saved body boundaries are revalidated
+ok 132 - explicit lake/sea levels connect to C1 ground and saved body boundaries are revalidated
+  ---
+  duration_ms: 317.3531
+  type: 'test'
+  ...
+# Subtest: C1 static surface and groundwater grids compose with river beds using explicit roles
+ok 133 - C1 static surface and groundwater grids compose with river beds using explicit roles
+  ---
+  duration_ms: 93.4905
+  type: 'test'
+  ...
+# Subtest: projected traces preserve global samples, unknown water, bounds, budgets and restoration
+ok 134 - projected traces preserve global samples, unknown water, bounds, budgets and restoration
+  ---
+  duration_ms: 90.144
+  type: 'test'
+  ...
+# Subtest: projected road diagnostics work with explicit/default roads and report unresolved samples
+ok 135 - projected road diagnostics work with explicit/default roads and report unresolved samples
+  ---
+  duration_ms: 5.4795
+  type: 'test'
+  ...
+# Subtest: shared cuts handle offset, reversed/axis-aligned traces and budgets
+ok 136 - shared cuts handle offset, reversed/axis-aligned traces and budgets
+  ---
+  duration_ms: 4.6581
+  type: 'test'
+  ...
+# Subtest: shared quadratic extrema handle minima, maxima, linear and outside vertices
+ok 137 - shared quadratic extrema handle minima, maxima, linear and outside vertices
+  ---
+  duration_ms: 0.4753
+  type: 'test'
+  ...
+# Subtest: C1 keeps source centers and heights within each four-corner range
+ok 138 - C1 keeps source centers and heights within each four-corner range
+  ---
+  duration_ms: 77.3654
+  type: 'test'
+  ...
+# Subtest: C1 derivatives agree across patch lines and constant half-cell extensions
+ok 139 - C1 derivatives agree across patch lines and constant half-cell extensions
+  ---
+  duration_ms: 3.3846
+  type: 'test'
+  ...
+# Subtest: surface frames match plane normals/zero curvature and expose edge limits
+ok 140 - surface frames match plane normals/zero curvature and expose edge limits
+  ---
+  duration_ms: 111.5492
+  type: 'test'
+  ...
+# Subtest: C1 LOD/window samples, identity and frames survive restoration
+ok 141 - C1 LOD/window samples, identity and frames survive restoration
+  ---
+  duration_ms: 5.3617
+  type: 'test'
+  ...
+# Subtest: C1 groundwater keeps unknown surface water until an explicit surface model is connected
+ok 142 - C1 groundwater keeps unknown surface water until an explicit surface model is connected
+  ---
+  duration_ms: 1.6001
+  type: 'test'
+  ...
+# Subtest: Strahler sizes expand downstream while preserving junctions and continuous shores
+ok 143 - Strahler sizes expand downstream while preserving junctions and continuous shores
+  ---
+  duration_ms: 101.4892
+  type: 'test'
+  ...
+# Subtest: regional completion preserves source order and propagates it through missing links
+ok 144 - regional completion preserves source order and propagates it through missing links
+  ---
+  duration_ms: 29.8387
+  type: 'test'
+  ...
+# Subtest: Strahler growth caps and invalid sizes/orders/bifurcations have explicit contracts
+ok 145 - Strahler growth caps and invalid sizes/orders/bifurcations have explicit contracts
+  ---
+  duration_ms: 85.094
+  type: 'test'
+  ...
+# Subtest: shared contracts retain values, reject coercion, and support typed fields and predicates
+ok 146 - shared contracts retain values, reject coercion, and support typed fields and predicates
+  ---
+  duration_ms: 5.1591
+  type: 'test'
+  ...
+# Subtest: bridge deck clearance includes structural thickness and the diagnosed minimum
+ok 147 - bridge deck clearance includes structural thickness and the diagnosed minimum
+  ---
+  duration_ms: 3.0321
+  type: 'test'
+  ...
+# Subtest: smoothstep approach peak grades stay within the limit throughout the ramps
+ok 148 - smoothstep approach peak grades stay within the limit throughout the ramps
+  ---
+  duration_ms: 42.3772
+  type: 'test'
+  ...
+# Subtest: approaches have continuous heights and zero slopes at flat-ground and deck joins
+ok 149 - approaches have continuous heights and zero slopes at flat-ground and deck joins
+  ---
+  duration_ms: 1.5557
+  type: 'test'
+  ...
+# Subtest: Hermite approaches match sloping road heights and derivatives at ground ties
+ok 150 - Hermite approaches match sloping road heights and derivatives at ground ties
+  ---
+  duration_ms: 6.7801
+  type: 'test'
+  ...
+# Subtest: bridge design rejects bad geometry, nonfinite options, missing dry ties and infeasible ramps
+ok 151 - bridge design rejects bad geometry, nonfinite options, missing dry ties and infeasible ramps
+  ---
+  duration_ms: 1.4978
+  type: 'test'
+  ...
+# Subtest: a diagnosed river crossing becomes a clear deck, dry approaches and ordered metric samples
+ok 152 - a diagnosed river crossing becomes a clear deck, dry approaches and ordered metric samples
+  ---
+  duration_ms: 293.0683
+  type: 'test'
+  ...
+# Subtest: a lake crossing resolves estimated ties against actual varying terrain
+ok 153 - a lake crossing resolves estimated ties against actual varying terrain
+  ---
+  duration_ms: 145.0898
+  type: 'test'
+  ...
+# Subtest: the existing steep lake-to-ocean fixture is rejected when its road cannot fit 8 percent approaches
+ok 154 - the existing steep lake-to-ocean fixture is rejected when its road cannot fit 8 percent approaches
+  ---
+  duration_ms: 343.4719
+  type: 'test'
+  ...
+# Subtest: centerline preserves bends and computes cut, fill and grade from explicit road heights
+ok 155 - centerline preserves bends and computes cut, fill and grade from explicit road heights
+  ---
+  duration_ms: 1.8052
+  type: 'test'
+  ...
+# Subtest: sampling rejects stale identities, overlapping approaches, invalid budgets and inconsistent ties
+ok 156 - sampling rejects stale identities, overlapping approaches, invalid budgets and inconsistent ties
+  ---
+  duration_ms: 2.3641
+  type: 'test'
+  ...
+# Subtest: fill and cut carriageways reach their design elevations and smooth batters respect the specified slope
+ok 157 - fill and cut carriageways reach their design elevations and smooth batters respect the specified slope
+  ---
+  duration_ms: 9.527
+  type: 'test'
+  ...
+# Subtest: sampleAt, groundElevationAt, windows, LOD and trace agree exactly and queries do not mutate sources
+ok 158 - sampleAt, groundElevationAt, windows, LOD and trace agree exactly and queries do not mutate sources
+  ---
+  duration_ms: 40.8679
+  type: 'test'
+  ...
+# Subtest: outside corridors and bridge spans retain complete source samples, including unresolved water
+ok 159 - outside corridors and bridge spans retain complete source samples, including unresolved water
+  ---
+  duration_ms: 2.2489
+  type: 'test'
+  ...
+# Subtest: adjusted gradients and normals describe earthwork and known water depth is recomputed
+ok 160 - adjusted gradients and normals describe earthwork and known water depth is recomputed
+  ---
+  duration_ms: 4.3177
+  type: 'test'
+  ...
+# Subtest: overlapping road precedence is deterministic under input reordering and carriageways precede batters
+ok 161 - overlapping road precedence is deterministic under input reordering and carriageways precede batters
+  ---
+  duration_ms: 5.699
+  type: 'test'
+  ...
+# Subtest: road overlay recipes roundtrip deterministically without masquerading as canonical terrain
+ok 162 - road overlay recipes roundtrip deterministically without masquerading as canonical terrain
+  ---
+  duration_ms: 1.8455
+  type: 'test'
+  ...
+# Subtest: earthwork rejects invalid dimensions, stale profiles, nonmonotone stations and out-of-region queries
+ok 163 - earthwork rejects invalid dimensions, stale profiles, nonmonotone stations and out-of-region queries
+  ---
+  duration_ms: 1.1196
+  type: 'test'
+  ...
+# Subtest: bridge designs own immutable crossing data and reject later road geometry changes
+ok 164 - bridge designs own immutable crossing data and reject later road geometry changes
+  ---
+  duration_ms: 20.9574
+  type: 'test'
+  ...
+# Subtest: sampled water changes and altered vertical ties cannot reuse an accepted bridge profile
+ok 165 - sampled water changes and altered vertical ties cannot reuse an accepted bridge profile
+  ---
+  duration_ms: 10.3053
+  type: 'test'
+  ...
+# Subtest: flat sample arrays, round end caps, and separate cut/fill batter settings are supported
+ok 166 - flat sample arrays, round end caps, and separate cut/fill batter settings are supported
+  ---
+  duration_ms: 0.7182
+  type: 'test'
+  ...
+# Subtest: at-grade carriageways flatten cross-slope and outrank batters even where height equals source ground
+ok 167 - at-grade carriageways flatten cross-slope and outrank batters even where height equals source ground
+  ---
+  duration_ms: 0.6325
+  type: 'test'
+  ...
+# Subtest: at-grade crossings unify the exact carriageway level with flat common plateaus
+ok 168 - at-grade crossings unify the exact carriageway level with flat common plateaus
+  ---
+  duration_ms: 8.7926
+  type: 'test'
+  ...
+# Subtest: approach elevations and first derivatives remain continuous and meet strict peak grade limits
+ok 169 - approach elevations and first derivatives remain continuous and meet strict peak grade limits
+  ---
+  duration_ms: 59.4493
+  type: 'test'
+  ...
+# Subtest: sloping baseline ties retain their incoming and outgoing grades
+ok 170 - sloping baseline ties retain their incoming and outgoing grades
+  ---
+  duration_ms: 2.743
+  type: 'test'
+  ...
+# Subtest: common endpoints, T junctions and repeated segment witnesses produce one junction
+ok 171 - common endpoints, T junctions and repeated segment witnesses produce one junction
+  ---
+  duration_ms: 17.1233
+  type: 'test'
+  ...
+# Subtest: nearby junctions connect through one joint vertical alignment where independent ramps cannot fit
+ok 172 - nearby junctions connect through one joint vertical alignment where independent ramps cannot fit
+  ---
+  duration_ms: 2.5138
+  type: 'test'
+  ...
+# Subtest: designs remain deterministic across caller road order and isolate owned input
+ok 173 - designs remain deterministic across caller road order and isolate owned input
+  ---
+  duration_ms: 5.4407
+  type: 'test'
+  ...
+# Subtest: explicit junction elevation and narrower road grade limits are enforced
+ok 174 - explicit junction elevation and narrower road grade limits are enforced
+  ---
+  duration_ms: 6.2874
+  type: 'test'
+  ...
+# Subtest: impossible approaches and incompatible overlapping plateaus reject rather than exceed grades
+ok 175 - impossible approaches and incompatible overlapping plateaus reject rather than exceed grades
+  ---
+  duration_ms: 2.2889
+  type: 'test'
+  ...
+# Subtest: acute crossings reserve enough flat approach for overlapping carriageway widths
+ok 176 - acute crossings reserve enough flat approach for overlapping carriageway widths
+  ---
+  duration_ms: 11.1126
+  type: 'test'
+  ...
+# Subtest: bridge crossings preserve their grades and meet vehicle clearance at the underside
+ok 177 - bridge crossings preserve their grades and meet vehicle clearance at the underside
+  ---
+  duration_ms: 1.0808
+  type: 'test'
+  ...
+# Subtest: positive but inadequate underside clearance is insufficient; touching/intersecting decks collide
+ok 178 - positive but inadequate underside clearance is insufficient; touching/intersecting decks collide
+  ---
+  duration_ms: 0.9203
+  type: 'test'
+  ...
+# Subtest: clearance settings and profile-local deck thickness override defaults
+ok 179 - clearance settings and profile-local deck thickness override defaults
+  ---
+  duration_ms: 0.6818
+  type: 'test'
+  ...
+# Subtest: crossing elevation is evaluated on cubic profiles, including interior crossings
+ok 180 - crossing elevation is evaluated on cubic profiles, including interior crossings
+  ---
+  duration_ms: 0.5732
+  type: 'test'
+  ...
+# Subtest: continuous joint platform and batters have no jump across former winner boundaries
+ok 181 - continuous joint platform and batters have no jump across former winner boundaries
+  ---
+  duration_ms: 4.1186
+  type: 'test'
+  ...
+# Subtest: cut platforms blend continuously into natural terrain
+ok 182 - cut platforms blend continuously into natural terrain
+  ---
+  duration_ms: 4.3217
+  type: 'test'
+  ...
+# Subtest: equal-height ground contact still recomputes the platform gradient and preserves outside frames
+ok 183 - equal-height ground contact still recomputes the platform gradient and preserves outside frames
+  ---
+  duration_ms: 3.6777
+  type: 'test'
+  ...
+# Subtest: grade-separated bridge creates no embankment under its deck
+ok 184 - grade-separated bridge creates no embankment under its deck
+  ---
+  duration_ms: 1.9345
+  type: 'test'
+  ...
+# Subtest: LOD, adjacent windows and traces use the identical joint sampler
+ok 185 - LOD, adjacent windows and traces use the identical joint sampler
+  ---
+  duration_ms: 630.4703
+  type: 'test'
+  ...
+# Subtest: joint recipe restores exactly and rejects corrupted identity, grade and membership
+ok 186 - joint recipe restores exactly and rejects corrupted identity, grade and membership
+  ---
+  duration_ms: 74.7761
+  type: 'test'
+  ...
+# Subtest: saved numerical design and terrain recipe reproduce in a fresh Node process
+ok 187 - saved numerical design and terrain recipe reproduce in a fresh Node process
+  ---
+  duration_ms: 722.9541
+  type: 'test'
+  ...
+# Subtest: road fill dams cross-slope drainage and places gravity culverts with natural invert levels
+ok 188 - road fill dams cross-slope drainage and places gravity culverts with natural invert levels
+  ---
+  duration_ms: 8.838
+  type: 'test'
+  ...
+# Subtest: flow direction follows reversed natural crossfall and culvert interval options
+ok 189 - flow direction follows reversed natural crossfall and culvert interval options
+  ---
+  duration_ms: 2.5682
+  type: 'test'
+  ...
+# Subtest: bridge decks, cuts, flat natural ground and flow parallel to roads need no cross culverts
+ok 190 - bridge decks, cuts, flat natural ground and flow parallel to roads need no cross culverts
+  ---
+  duration_ms: 2.2262
+  type: 'test'
+  ...
+# Subtest: ponding tolerance filters minor barriers and natural ridges cannot be labelled continuous drainage
+ok 191 - ponding tolerance filters minor barriers and natural ridges cannot be labelled continuous drainage
+  ---
+  duration_ms: 1.9415
+  type: 'test'
+  ...
+# Subtest: building pad fills receive pass-throughs across the natural downhill path
+ok 192 - building pad fills receive pass-throughs across the natural downhill path
+  ---
+  duration_ms: 3.0042
+  type: 'test'
+  ...
+# Subtest: out-of-region drainage toes remain explicitly unresolved
+ok 193 - out-of-region drainage toes remain explicitly unresolved
+  ---
+  duration_ms: 1.1692
+  type: 'test'
+  ...
+# Subtest: downstream culvert mouths extend beyond fill batters on appreciable crossfall
+ok 194 - downstream culvert mouths extend beyond fill batters on appreciable crossfall
+  ---
+  duration_ms: 8.6973
+  type: 'test'
+  ...
+# Subtest: full carriageways retain their exact profile elevation beside overlapping batters
+ok 195 - full carriageways retain their exact profile elevation beside overlapping batters
+  ---
+  duration_ms: 5.1835
+  type: 'test'
+  ...
+# Subtest: bridge boundary metadata uses deck thickness at that endpoint and excludes subsequent deck fills
+ok 196 - bridge boundary metadata uses deck thickness at that endpoint and excludes subsequent deck fills
+  ---
+  duration_ms: 2.0614
+  type: 'test'
+  ...
+# Subtest: sampled road profile records are accepted and ambiguous station or structure contracts reject
+ok 197 - sampled road profile records are accepted and ambiguous station or structure contracts reject
+  ---
+  duration_ms: 0.9916
+  type: 'test'
+  ...
+# Subtest: drainage is invariant under terrain display/query history, road order and JSON restoration
+ok 198 - drainage is invariant under terrain display/query history, road order and JSON restoration
+  ---
+  duration_ms: 6.7238
+  type: 'test'
+  ...
+# Subtest: junction and drainage contracts reject nonfinite values, duplicate IDs and invalid geometry
+ok 199 - junction and drainage contracts reject nonfinite values, duplicate IDs and invalid geometry
+  ---
+  duration_ms: 2.9519
+  type: 'test'
+  ...
+# Subtest: empty collections are accepted and all requested entrypoints export the numerical APIs
+ok 200 - empty collections are accepted and all requested entrypoints export the numerical APIs
+  ---
+  duration_ms: 1.9648
+  type: 'test'
+  ...
+# Subtest: directed profiles share one junction level and sampled centerlines never flow uphill
+ok 201 - directed profiles share one junction level and sampled centerlines never flow uphill
+  ---
+  duration_ms: 99.6919
+  type: 'test'
+  ...
+# Subtest: river shores and bank influence boundaries are continuous and reach dry ground
+ok 202 - river shores and bank influence boundaries are continuous and reach dry ground
+  ---
+  duration_ms: 314.109
+  type: 'test'
+  ...
+# Subtest: lake inflow/outflow and ocean mouth meet explicit body levels without painting water onto high land
+ok 203 - lake inflow/outflow and ocean mouth meet explicit body levels without painting water onto high land
+  ---
+  duration_ms: 22.6312
+  type: 'test'
+  ...
+# Subtest: water meshes retain the same samples across LOD, adjacent windows and JSON restoration
+ok 204 - water meshes retain the same samples across LOD, adjacent windows and JSON restoration
+  ---
+  duration_ms: 164.3844
+  type: 'test'
+  ...
+# Subtest: source basin IDs and outlet indices survive surface-water sampling and restoration
+ok 205 - source basin IDs and outlet indices survive surface-water sampling and restoration
+  ---
+  duration_ms: 18.5133
+  type: 'test'
+  ...
+# Subtest: cycles, wet polygon boundaries, conflicting body levels and impossible upstream anchors are rejected
+ok 206 - cycles, wet polygon boundaries, conflicting body levels and impossible upstream anchors are rejected
+  ---
+  duration_ms: 4.7619
+  type: 'test'
+  ...
+# Subtest: stage-1 snapshots remain readable with their original identity and unresolved-water contract
+ok 207 - stage-1 snapshots remain readable with their original identity and unresolved-water contract
+  ---
+  duration_ms: 11.654
+  type: 'test'
+  ...
+# Subtest: source heads and inland terminal caps taper continuously into ground
+ok 208 - source heads and inland terminal caps taper continuously into ground
+  ---
+  duration_ms: 21.048
+  type: 'test'
+  ...
+# Subtest: drainage gaps reach the region border while preserving source IDs and the original basin
+ok 209 - drainage gaps reach the region border while preserving source IDs and the original basin
+  ---
+  duration_ms: 21.9071
+  type: 'test'
+  ...
+# Subtest: crossing river corridors require a graph junction before a model is accepted
+ok 210 - crossing river corridors require a graph junction before a model is accepted
+  ---
+  duration_ms: 21.5496
+  type: 'test'
+  ...
+# Subtest: a dry node inside a body search envelope is not silently anchored to its water level
+ok 211 - a dry node inside a body search envelope is not silently anchored to its water level
+  ---
+  duration_ms: 22.1546
+  type: 'test'
+  ...
+# Subtest: root and package exports use the core implementation and class lists are immutable
+ok 212 - root and package exports use the core implementation and class lists are immutable
+  ---
+  duration_ms: 4.3877
+  type: 'test'
+  ...
+# Subtest: pedestrian slope thresholds are inclusive and steep cliffs block with Infinity
+ok 213 - pedestrian slope thresholds are inclusive and steep cliffs block with Infinity
+  ---
+  duration_ms: 1.4623
+  type: 'test'
+  ...
+# Subtest: vehicle slope thresholds and selected movement mode are independent of pedestrian class
+ok 214 - vehicle slope thresholds and selected movement mode are independent of pedestrian class
+  ---
+  duration_ms: 0.9179
+  type: 'test'
+  ...
+# Subtest: surfaceFrameAt supplies the authoritative slope, with gradient fallback for lightweight adapters
+ok 215 - surfaceFrameAt supplies the authoritative slope, with gradient fallback for lightweight adapters
+  ---
+  duration_ms: 0.4447
+  type: 'test'
+  ...
+# Subtest: wading limits accept the exact limit and reject deeper water for each mode
+ok 216 - wading limits accept the exact limit and reject deeper water for each mode
+  ---
+  duration_ms: 0.5188
+  type: 'test'
+  ...
+# Subtest: configurable thresholds and maxWadingDepthM affect only the selected mode
+ok 217 - configurable thresholds and maxWadingDepthM affect only the selected mode
+  ---
+  duration_ms: 0.2719
+  type: 'test'
+  ...
+# Subtest: cost is standard on flat ground and monotone in slope, roughness and shallow water
+ok 218 - cost is standard on flat ground and monotone in slope, roughness and shallow water
+  ---
+  duration_ms: 0.5213
+  type: 'test'
+  ...
+# Subtest: blocked surfaces block both modes regardless of a flat dry frame
+ok 219 - blocked surfaces block both modes regardless of a flat dry frame
+  ---
+  duration_ms: 0.3926
+  type: 'test'
+  ...
+# Subtest: real road carriageways flatten cross slopes and discard underlying roughness
+ok 220 - real road carriageways flatten cross slopes and discard underlying roughness
+  ---
+  duration_ms: 8.0135
+  type: 'test'
+  ...
+# Subtest: roads retain actual longitudinal grades rather than replacing steep grades with zero
+ok 221 - roads retain actual longitudinal grades rather than replacing steep grades with zero
+  ---
+  duration_ms: 2.7549
+  type: 'test'
+  ...
+# Subtest: supported roads use water clearance and lose highway cost when flooded
+ok 222 - supported roads use water clearance and lose highway cost when flooded
+  ---
+  duration_ms: 7.0299
+  type: 'test'
+  ...
+# Subtest: bridge decks override deep water and riverbed slope, while the ground sample stays unchanged
+ok 223 - bridge decks override deep water and riverbed slope, while the ground sample stays unchanged
+  ---
+  duration_ms: 9.7756
+  type: 'test'
+  ...
+# Subtest: a submerged bridge deck is blocked; being above the riverbed alone is insufficient
+ok 224 - a submerged bridge deck is blocked; being above the riverbed alone is insufficient
+  ---
+  duration_ms: 42.2093
+  type: 'test'
+  ...
+# Subtest: real building pads are level and retaining batters use their measured slope
+ok 225 - real building pads are level and retaining batters use their measured slope
+  ---
+  duration_ms: 27.7134
+  type: 'test'
+  ...
+# Subtest: pad water clearance still blocks flooded platforms and pad overlays supersede roads
+ok 226 - pad water clearance still blocks flooded platforms and pad overlays supersede roads
+  ---
+  duration_ms: 6.8248
+  type: 'test'
+  ...
+# Subtest: base, road, bridge and pad samples are exactly equal across LOD and adjacent windows
+ok 227 - base, road, bridge and pad samples are exactly equal across LOD and adjacent windows
+  ---
+  duration_ms: 2273.2609
+  type: 'test'
+  ...
+# Subtest: sampler owns options and preserves unknown hydrology rather than reporting dry ground
+ok 228 - sampler owns options and preserves unknown hydrology rather than reporting dry ground
+  ---
+  duration_ms: 0.434
+  type: 'test'
+  ...
+# Subtest: invalid numeric contracts, geographic inputs, window dimensions and budgets fail explicitly
+ok 229 - invalid numeric contracts, geographic inputs, window dimensions and budgets fail explicitly
+  ---
+  duration_ms: 3.1913
+  type: 'test'
+  ...
+# Subtest: UI utilities clamp, lerp, and formatting work correctly
+ok 230 - UI utilities clamp, lerp, and formatting work correctly
+  ---
+  duration_ms: 2.0621
+  type: 'test'
+  ...
+# Subtest: UI color palettes and hillshade return valid RGBA and shade factors
+ok 231 - UI color palettes and hillshade return valid RGBA and shade factors
+  ---
+  duration_ms: 0.7785
+  type: 'test'
+  ...
+# Subtest: UI demo scene builds deterministically and samples profiles
+ok 232 - UI demo scene builds deterministically and samples profiles
+  ---
+  duration_ms: 1547.6058
+  type: 'test'
+  ...
+# Subtest: UI presets catalog is available
+ok 233 - UI presets catalog is available
+  ---
+  duration_ms: 0.4272
+  type: 'test'
+  ...
+# Subtest: UI trafficability classifier identifies roads, water and slope categories
+ok 234 - UI trafficability classifier identifies roads, water and slope categories
+  ---
+  duration_ms: 4.2875
+  type: 'test'
+  ...
+# Subtest: UI drainage layer is registered, off by default and toggleable from the quick layers
+ok 235 - UI drainage layer is registered, off by default and toggleable from the quick layers
+  ---
+  duration_ms: 174.1245
+  type: 'test'
+  ...
+# Subtest: UI basin palette is deterministic, valid and well separated
+ok 236 - UI basin palette is deterministic, valid and well separated
+  ---
+  duration_ms: 2.9581
+  type: 'test'
+  ...
+# Subtest: UI flow direction, trapped flow and local minima helpers
+ok 237 - UI flow direction, trapped flow and local minima helpers
+  ---
+  duration_ms: 0.8894
+  type: 'test'
+  ...
+# Subtest: UI terrain tiles store basin hashes and report sinks for the drainage layer
+ok 238 - UI terrain tiles store basin hashes and report sinks for the drainage layer
+  ---
+  duration_ms: 31.9099
+  type: 'test'
+  ...
+# Subtest: UI multi-chart boundaries, labels and seam markers are formatted
+ok 239 - UI multi-chart boundaries, labels and seam markers are formatted
+  ---
+  duration_ms: 5.4114
+  type: 'test'
+  ...
+# Subtest: UI inspector reports drainage fields and the drainage preset is registered
+ok 240 - UI inspector reports drainage fields and the drainage preset is registered
+  ---
+  duration_ms: 961.543
+  type: 'test'
+  ...
+# Subtest: UI road-road crossings are classified by vertical clearance
+ok 241 - UI road-road crossings are classified by vertical clearance
+  ---
+  duration_ms: 2.2672
+  type: 'test'
+  ...
+# Subtest: UI culverts are derived outside bridge spans and summarized
+ok 242 - UI culverts are derived outside bridge spans and summarized
+  ---
+  duration_ms: 1.8532
+  type: 'test'
+  ...
+# Subtest: UI crossing panel summary counts water bridges, overpasses, junctions and culverts
+ok 243 - UI crossing panel summary counts water bridges, overpasses, junctions and culverts
+  ---
+  duration_ms: 2.8577
+  type: 'test'
+  ...
+# Subtest: UI core junction and culvert records take precedence and are normalized
+ok 244 - UI core junction and culvert records take precedence and are normalized
+  ---
+  duration_ms: 1.6903
+  type: 'test'
+  ...
+# Subtest: UI junction markers, labels and inspector rows are formatted
+ok 245 - UI junction markers, labels and inspector rows are formatted
+  ---
+  duration_ms: 4.0146
+  type: 'test'
+  ...
+# Subtest: UI demo scene inspection carries junction context without errors
+ok 246 - UI demo scene inspection carries junction context without errors
+  ---
+  duration_ms: 1978.4524
+  type: 'test'
+  ...
+1..246
+# tests 246
+# suites 0
+# pass 246
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12195.0611

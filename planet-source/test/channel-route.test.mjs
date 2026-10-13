@@ -1,0 +1,4 @@
+import test from'node:test';import assert from'node:assert/strict';import{channelRoute}from'../src/core/channel-route.mjs';
+const p=[{xM:0,yM:0,areaM2:10},{xM:64,yM:0,areaM2:20},{xM:64,yM:64,areaM2:30}];
+test('rounded channels keep junctions, stay within adjacent cells and remove sharp grid corners',()=>{const r=channelRoute(p,'rounded-survey-path@1');assert.deepEqual(r,channelRoute(p,'rounded-survey-path@1'));assert.deepEqual(r[0],p[0]);assert.deepEqual(r.at(-1),p.at(-1));assert.ok(!r.some(q=>q.xM===64&&q.yM===0));for(const q of r){assert.ok(q.xM>=0&&q.xM<=64&&q.yM>=0&&q.yM<=64);assert.ok(q.areaM2>=10&&q.areaM2<=30);}for(let i=1;i<r.length;i++)assert.ok(r[i].areaM2>=r[i-1].areaM2);});
+test('legacy straight paths are preserved and invalid policies rejected',()=>{assert.equal(channelRoute(p),p);assert.throws(()=>channelRoute(p,'noise'),/policy/);const line=[p[0],p[1],{xM:128,yM:0,areaM2:30}];assert.deepEqual(channelRoute(line,'rounded-survey-path@1'),line);});

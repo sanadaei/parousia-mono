@@ -1,0 +1,97 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 3547,
+    "sha256": "99bf4eb7d1be71d3278399beeb3a99ff5221dc47f9dcbfa1af85991a5f2fafec"
+  },
+  {
+    "path": "RESULTS.md",
+    "bytes": 1059,
+    "sha256": "b403bf20663fcf3c8e7c708dd2002c0287adcdbb640eee4cec84c699ae178d9d"
+  },
+  {
+    "path": "acquire.py",
+    "bytes": 1549,
+    "sha256": "77c0bee60d77fc6785bbc5046e0b524fda369ef0192474c521ed779d4c916ccd"
+  },
+  {
+    "path": "actual-target-grid.npz",
+    "bytes": 156448,
+    "sha256": "511524a173445d748e299b1a52a7f8bd30a4c4d3a0f2312af81711e29154b908"
+  },
+  {
+    "path": "compare.py",
+    "bytes": 8911,
+    "sha256": "fc58c9f1cdcdd01ecef7d8e216f5b64926bb8b63e67df9920dc5f7197d8c3ddd"
+  },
+  {
+    "path": "input-provenance.json",
+    "bytes": 353,
+    "sha256": "ca00122204b3bae177582640d925d144153e4e4486f23166bca6d5a4458cfe99"
+  },
+  {
+    "path": "original/summary.json",
+    "bytes": 9020,
+    "sha256": "4fe171cbe5dc1559d76b17c27b17484ea122fb506fe57a7f3871fc6a9b0b5105"
+  },
+  {
+    "path": "provenance.json",
+    "bytes": 10749,
+    "sha256": "708e8df155eb41dd93de4499413397511124d38e89d19f98ec507a9ee0ee2044"
+  },
+  {
+    "path": "raw/catalog.json",
+    "bytes": 53246,
+    "sha256": "9e7b202f521839d8b5b5eff011f84ac72f64c815949e8f69278b8664eef9dc6e"
+  },
+  {
+    "path": "raw/export-response.json",
+    "bytes": 358,
+    "sha256": "4bde44137e56e65f6a5f61100cc9237b53f1e9a20d2dfbe89be6d39fdd7b7245"
+  },
+  {
+    "path": "raw/service.json",
+    "bytes": 12988,
+    "sha256": "74b4d74deceb9fc1728945ec27cec809bdcb7427e1949ed80c48a9bf60c0e777"
+  },
+  {
+    "path": "raw/usgs13-maryland-10m.tif",
+    "bytes": 3671584,
+    "sha256": "e488187e523198878ce20d2686f510d8a45c369356029b0fccc896d66bbde1b1"
+  },
+  {
+    "path": "request.json",
+    "bytes": 1403,
+    "sha256": "5ea78460b36cee7386ad9cb6b7d5c762d4031afda8a621d596ffcd3756822157"
+  },
+  {
+    "path": "selected/actual-height-comparison.png",
+    "bytes": 343659,
+    "sha256": "63624653988518d6d5c03c444ee5fa1291617bfb8f93411a523e3c585ee35d55"
+  },
+  {
+    "path": "selected/comparison.json",
+    "bytes": 2629985,
+    "sha256": "ad9b681971eb0113f0646ce5b94bb3b03b326e2086e60ba40cbf121bbf312607"
+  },
+  {
+    "path": "selected/summary.json",
+    "bytes": 9015,
+    "sha256": "89d151c395b8ad4470a1b67f4a4b4cc81f16d786263d43c5898969fe017fb8e3"
+  },
+  {
+    "path": "selected-input.json",
+    "bytes": 506988,
+    "sha256": "800f0c7b3d20405639883d39c2f558868b424e5326426405c525bec3d4111fdc"
+  },
+  {
+    "path": "validate.py",
+    "bytes": 2018,
+    "sha256": "934edbfda8f92f865f1d2ce10a1aefb2d7d9d946631dcc9cadc0fd9f38171613"
+  },
+  {
+    "path": "validation.json",
+    "bytes": 551,
+    "sha256": "e72ff5676a14175329ec322abe19ddf80e20281a15362a8e335b56571721e1ba"
+  }
+]

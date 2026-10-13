@@ -1,0 +1,7 @@
+{"stage":"representative-materialization","physicalGiB":12.57,"commitHeadroomGiB":14.5}
+{"stage":"full-tests","physicalGiB":12.09,"commitHeadroomGiB":13.76}
+{"stage":"build","physicalGiB":11.58,"commitHeadroomGiB":13.44}
+{"stage":"pc-browser","physicalGiB":11.72,"commitHeadroomGiB":13.72}
+{"stage":"full-tests-after-footprint-fix","physicalGiB":10.65,"commitHeadroomGiB":12.39}
+{"stage":"final-build","physicalGiB":9.46,"commitHeadroomGiB":11.21}
+{"stage":"final-pc-browser","physicalGiB":10.09,"commitHeadroomGiB":11.91}

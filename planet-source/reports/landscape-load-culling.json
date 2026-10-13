@@ -1,0 +1,19 @@
+{
+  "worldId": "sha256:6c5dc7d74ff3b0c0b0fee1b8e718e6a13eced9ceab62410bfee26e8ec520bf77",
+  "tile": "landscape:29285:124209",
+  "scope": "Cold paged-source single tile, no rendering benchmark. Concurrent diagnostic/browser work means times are illustrative, not controlled speedup.",
+  "before": {
+    "status": "diagnostic interrupted after confirmed excessive irrelevant requests, not a completed old result",
+    "elapsedLowerBoundSeconds": 180,
+    "nestedRecipeStarts": 826,
+    "groundQueriesLowerBound": 21200000
+  },
+  "after": {
+    "status": "completed",
+    "elapsedMs": 15242.493216,
+    "nestedRecipeStarts": 10,
+    "trees": 0,
+    "fields": 1
+  },
+  "reason": "Every short road in entire fetched regions, plus every subsegment of accepted long regional legs, bypassed per-segment bounds. Fixed canonical segment IDs and geometry are unchanged; only remote requests are rejected by the same conservative16km survey envelope."
+}

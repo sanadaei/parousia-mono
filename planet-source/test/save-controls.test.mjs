@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {installSaveControls,materializationStatusText} from '../src/globe/save-controls.mjs';
+function harness(storage,download=()=>{}){const el=()=>({disabled:false,value:'chosen',files:[],events:{},addEventListener(k,f){this.events[k]=f;}}),exportButton=el(),importInput=el(),status={};installSaveControls({exportButton,importInput,status,storage,download});return{exportButton,importInput,status};}
+test('save controls disable absent persistence and do not invent a download',async()=>{const h=harness(null,()=>{throw Error('unexpected');});assert.equal(h.exportButton.disabled,true);assert.equal(h.importInput.disabled,true);await h.exportButton.events.click();});
+test('save export prevents duplicate clicks, restores controls and reports errors',async()=>{let resolve,count=0;const h=harness({exportArchive:()=>{count++;return new Promise(r=>resolve=r);}},()=>{throw Error('download failed');});const p=h.exportButton.events.click();await h.exportButton.events.click();assert.equal(count,1);assert.equal(h.importInput.disabled,true);resolve('{}');await p;assert.match(h.status.textContent,/download failed/);assert.equal(h.exportButton.disabled,false);});
+test('import rejects oversized files before reading and can retry the same file',async()=>{let calls=0;const h=harness({importArchive:async()=>{calls++;return{inserted:3,existing:2};}});h.importInput.files=[{size:17000000,text:()=>{throw Error('must not read');}}];await h.importInput.events.change();assert.equal(calls,0);assert.equal(h.importInput.value,'');h.importInput.files=[{size:2,text:async()=>'{}'}];await h.importInput.events.change();assert.equal(calls,1);assert.match(h.status.textContent,/3件/);assert.equal(h.importInput.disabled,false);});
+
+test('persistence guidance describes first-reference retention and the actual transfer limit',()=>{
+ const text=materializationStatusText({available:true});assert.match(text,/初回参照/);assert.match(text,/再訪/);assert.match(text,/確定結果を書き出す/);assert.match(text,/元の惑星/);assert.match(text,/16 MiB/);assert.doesNotMatch(text,/引き継ぎには未対応/);
+ assert.match(materializationStatusText({available:false,deferredPopulation:true}),/保存領域が必要/);
+ assert.match(materializationStatusText({available:false}),/永続保存を利用できません/);
+});

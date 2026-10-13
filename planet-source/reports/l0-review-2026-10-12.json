@@ -1,0 +1,98 @@
+[
+  {
+    "seed": "planet-1",
+    "columns": 128,
+    "rows": 64,
+    "meanDryLandElevationM": 559.7633053314064,
+    "dryLandBelow1000mFraction": 0.7174594904307443,
+    "biomeAreaPercent": {
+      "ice": 3.738469077786356,
+      "ocean": 63.154892003768474,
+      "lake": 1.6743799695248567,
+      "tundra": 3.680749696777948,
+      "grassland": 2.548245307588028,
+      "shrubland": 8.096646423452096,
+      "boreal": 1.1432428549185119,
+      "temperate_forest": 2.149070492722767,
+      "mediterranean": 0.1957866309294017,
+      "desert": 5.204066102044493,
+      "savanna": 5.044911114981568,
+      "tropical_forest": 3.369540325507735
+    },
+    "source": "macro fields plus hydrology and climate; no fine river geometry",
+    "lakeAssumption": "static fill fraction 0.2; not climate-balanced",
+    "marineAssumption": "largest connected sub-sea reservoir; enclosed basins separate"
+  },
+  {
+    "seed": "planet-2",
+    "columns": 128,
+    "rows": 64,
+    "meanDryLandElevationM": 870.9804784208142,
+    "dryLandBelow1000mFraction": 0.746382834918704,
+    "biomeAreaPercent": {
+      "ocean": 67.00840541527467,
+      "ice": 5.035966490536112,
+      "lake": 1.0385084100797133,
+      "tundra": 5.46654136487252,
+      "grassland": 1.9760609088798955,
+      "boreal": 0.8416727148250801,
+      "temperate_forest": 2.271002708763567,
+      "shrubland": 5.450470294032541,
+      "mediterranean": 0.21149846243684395,
+      "desert": 4.2695308490285315,
+      "savanna": 3.538413385699948,
+      "tropical_forest": 2.891928995570992
+    },
+    "source": "macro fields plus hydrology and climate; no fine river geometry",
+    "lakeAssumption": "static fill fraction 0.2; not climate-balanced",
+    "marineAssumption": "largest connected sub-sea reservoir; enclosed basins separate"
+  },
+  {
+    "seed": "planet-3",
+    "columns": 128,
+    "rows": 64,
+    "meanDryLandElevationM": 694.2131219666243,
+    "dryLandBelow1000mFraction": 0.8261900289752865,
+    "biomeAreaPercent": {
+      "ocean": 67.0176173370172,
+      "ice": 4.58843688143285,
+      "lake": 1.2513086623440746,
+      "tundra": 4.303024065236048,
+      "boreal": 2.402755406296836,
+      "temperate_forest": 2.242113283401158,
+      "grassland": 3.2480332479785945,
+      "shrubland": 5.270664230950536,
+      "mediterranean": 0.3764584260497358,
+      "desert": 4.45990701265218,
+      "savanna": 2.633066312119813,
+      "tropical_forest": 2.2066151345212903
+    },
+    "source": "macro fields plus hydrology and climate; no fine river geometry",
+    "lakeAssumption": "static fill fraction 0.2; not climate-balanced",
+    "marineAssumption": "largest connected sub-sea reservoir; enclosed basins separate"
+  },
+  {
+    "seed": "muna-atlas-001",
+    "columns": 128,
+    "rows": 64,
+    "meanDryLandElevationM": 629.8082774926871,
+    "dryLandBelow1000mFraction": 0.8233873365611946,
+    "biomeAreaPercent": {
+      "ocean": 67.005846322052,
+      "ice": 3.6319416526057298,
+      "tundra": 2.912972697454351,
+      "lake": 0.6295110584958518,
+      "boreal": 1.0033949672831466,
+      "grassland": 1.8343779362290606,
+      "temperate_forest": 2.7021858952324767,
+      "shrubland": 6.894841416634322,
+      "mediterranean": 0.44964462230157465,
+      "desert": 4.090399873277541,
+      "savanna": 5.269897497500684,
+      "tropical_forest": 3.5749860609350455
+    },
+    "source": "macro fields plus hydrology and climate; no fine river geometry",
+    "lakeAssumption": "static fill fraction 0.2; not climate-balanced",
+    "marineAssumption": "largest connected sub-sea reservoir; enclosed basins separate"
+  }
+]

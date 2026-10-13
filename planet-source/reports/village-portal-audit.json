@@ -1,0 +1,137 @@
+{
+  "canonicalWorldId": "sha256:e452133815a5f3190bde7431557b73901c80a2b531b55cc8dbcbb170a2632f55",
+  "baseUnchanged": true,
+  "region": 4048,
+  "siteCount": 154,
+  "sitesWithPortals": 152,
+  "movedSiteCenters": 0,
+  "results": [
+    {
+      "site": "pop:4048:65",
+      "latDeg": 1.4837422457337206,
+      "lonDeg": -134.86210896272718,
+      "requested": 60,
+      "placed": 60,
+      "portals": [
+        {
+          "name": "east",
+          "xM": 200,
+          "yM": 60,
+          "status": "connected",
+          "endpointErrorM": 0
+        },
+        {
+          "name": "north",
+          "xM": 0,
+          "yM": 230,
+          "status": "connected",
+          "endpointErrorM": 0
+        }
+      ],
+      "publicAccess": [
+        "connected",
+        "connected"
+      ],
+      "cornerSamples": 264,
+      "wetCorners": 0
+    },
+    {
+      "site": "pop:4048:78",
+      "latDeg": 1.2401925893048824,
+      "lonDeg": -134.84137501835693,
+      "requested": 60,
+      "placed": 60,
+      "portals": [
+        {
+          "name": "east",
+          "xM": 200,
+          "yM": -10,
+          "status": "connected",
+          "endpointErrorM": 0
+        },
+        {
+          "name": "south",
+          "xM": -120,
+          "yM": -230,
+          "status": "connected",
+          "endpointErrorM": 0
+        }
+      ],
+      "publicAccess": [
+        "connected",
+        "connected"
+      ],
+      "cornerSamples": 264,
+      "wetCorners": 0
+    },
+    {
+      "site": "pop:4048:2",
+      "latDeg": 2.728970727760417,
+      "lonDeg": -134.41113297448635,
+      "requested": 60,
+      "placed": 60,
+      "portals": [
+        {
+          "name": "west",
+          "xM": -200,
+          "yM": -10,
+          "status": "connected",
+          "endpointErrorM": 0
+        },
+        {
+          "name": "east",
+          "xM": 200,
+          "yM": -60,
+          "status": "connected",
+          "endpointErrorM": 0
+        }
+      ],
+      "publicAccess": [
+        "connected",
+        "connected"
+      ],
+      "cornerSamples": 264,
+      "wetCorners": 0
+    }
+  ],
+  "scope": "Three actual village layouts, exact saved gate endpoints and finite base-water building corners. Not every regional road or full-world traversability; old31a remains immutable.",
+  "regionalRoadSamples": [
+    {
+      "id": "road:pop:4048:52|pop:4048:65",
+      "status": "surveyed-local-route",
+      "reason": null,
+      "lengthM": 24406.698277065145,
+      "endpoints": [
+        {
+          "site": "pop:4048:65",
+          "errorToSavedPortalM": 2.2103846530896486e-11
+        },
+        {
+          "site": "pop:4048:52",
+          "errorToSavedPortalM": 3.5435161645685503e-10
+        }
+      ]
+    },
+    {
+      "id": "road:pop:4048:78|pop:4048:79",
+      "status": "surveyed-local-route",
+      "reason": null,
+      "lengthM": 13715.690946753872,
+      "endpoints": [
+        {
+          "site": "pop:4048:78",
+          "errorToSavedPortalM": 2.2103846530896482e-11
+        },
+        {
+          "site": "pop:4048:79",
+          "errorToSavedPortalM": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Three villages and two roads only; not all-world acceptance.",
+    "Wet-corner check samples base water, not complete footprints or every local pond.",
+    "Cloud CPU diagnostic showed village 4048:78; WebGL2 unavailable; full visual quality remains unfinished."
+  ]
+}

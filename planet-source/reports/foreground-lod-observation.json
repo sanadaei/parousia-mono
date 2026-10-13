@@ -1,0 +1,10 @@
+{
+  "worldId": "sha256:d4fc87d6b1e430b0baa1f11844370257edb2f618a2ea4ed323b79ab8993abc38",
+  "site": "pop:2899:331",
+  "cameraHeightM": 334.4,
+  "renderer": "cloud Chrome software diagnostic",
+  "before": {"observedAt": "2026-10-10T21:10:47Z", "generatedTiles": 1012, "displayedMaxLevel": 10, "terrainGeometryMiB": 48.2},
+  "after": {"observedAt": "2026-10-10T21:14:34Z", "generatedTiles": 356, "displayedMaxLevel": 15, "terrainGeometryMiB": 28.3, "physicalPondVisible": true},
+  "scope": "Actual UI observations after reload/navigation; not identical timed workloads or FPS acceptance",
+  "productAccepted": false
+}

@@ -1,0 +1,102 @@
+{
+  "schema": "inherited-water-audit@1",
+  "date": "2026-10-12",
+  "sourceCommit": "d98ed09b118255d20af6308869b9b340098f039c",
+  "parentContextId": "sha256:ac65b96f2b85f23b3529acee38a84226bec587bc7af1616e3695c082068a186b",
+  "refinedContextId": "sha256:1a3678d4934511cef3e916c910c569c6e402b598697df4ab49ccac68ab48aa0e",
+  "parentGrid": {
+    "cellSizeM": 1209.5238095238096,
+    "cellSizeYM": 1209.5238095238096,
+    "columns": 106,
+    "rows": 106
+  },
+  "refinedGrid": {
+    "cellSizeM": 604.7619047619048,
+    "cellSizeYM": 604.7619047619048,
+    "columns": 211,
+    "rows": 211
+  },
+  "check": {
+    "persistedReloadIdentical": true,
+    "allPortsMatch": true,
+    "sharedPorts": 31,
+    "budgetsPreserved": true,
+    "maxRelativeBudgetResidual": 3.0510816256029717e-15,
+    "elapsedMs": 1060.019323
+  },
+  "inheritedOutletCount": 420,
+  "generatedDiagnostics": {
+    "depressionCells": 507,
+    "maxRoutingFillM": 6.419073245130107,
+    "relativeBudgetResidual": 8.070961881670452e-14,
+    "totalInputM3PerYear": 1612899999.999881,
+    "totalOutputM3PerYear": 1612900000.0000112
+  },
+  "realTerrain": {
+    "source": "NOAA ETOPO2022; terrain only. Routing is our derivation, not a measured river map.",
+    "parentGrid": {
+      "cellSizeM": 337.4631523587291,
+      "cellSizeYM": 463.31219435190667,
+      "columns": 37,
+      "rows": 24
+    },
+    "refinedGrid": {
+      "cellSizeM": 168.73157617936454,
+      "cellSizeYM": 231.65609717595333,
+      "columns": 73,
+      "rows": 47
+    },
+    "parentDiagnostics": {
+      "activeCells": 888,
+      "totalInputM3PerYear": 27767900.949084535,
+      "totalOutputM3PerYear": 27767900.94908485,
+      "relativeBudgetResidual": 1.1269284835198082e-14,
+      "depressionCells": 30,
+      "maxRoutingFillM": 27.658349999999984
+    },
+    "refinedDiagnostics": {
+      "totalInputM3PerYear": 27767900.949084554,
+      "totalOutputM3PerYear": 27767900.949084803,
+      "relativeBudgetResidual": 8.988596237598464e-15,
+      "depressionCells": 288,
+      "maxRoutingFillM": 67.99678749999998
+    }
+  },
+  "unmaskedControl": {
+    "generated": {
+      "activeCells": 44521,
+      "totalInputM3PerYear": 44521,
+      "totalOutputM3PerYear": 44521,
+      "relativeBudgetResidual": 0,
+      "depressionCells": 70,
+      "maxRoutingFillM": 5.469205165116023
+    },
+    "realDEM": {
+      "activeCells": 3431,
+      "totalInputM3PerYear": 3431,
+      "totalOutputM3PerYear": 3431,
+      "relativeBudgetResidual": 0,
+      "depressionCells": 136,
+      "maxRoutingFillM": 34.223862499999996
+    }
+  },
+  "controlMethod": "Same fine heights and outlet positions/levels; remove inherited catchment masks. Unit supply per fine cell, which does not affect routing-head calculation. This control does not compare physical water budgets.",
+  "verification": {
+    "passed": 1215,
+    "failed": 0,
+    "skipped": 0,
+    "build": "passed",
+    "browser": "not run"
+  },
+  "adoptionDecision": "Do not promote nearest-parent catchment masking as a finished physical watershed model. It preserves outlet budgets but increases routing obstructions on the real DEM. Shared context, fine views and persistence are reusable.",
+  "limitations": [
+    "Parent outlet identity and annual budgets are preserved",
+    "Fine drainage is recomputed inside inherited catchments",
+    "Catchment divides are nearest-parent membership and remain provisional at subcell scale",
+    "Combined parent source budget is redistributed; this does not invent fine rainfall data",
+    "Routing fill is not ground or a physical lake",
+    "The outer context remains unresolved if the parent was unresolved",
+    "No new terrain is added when using interpolation; independently generated adjacent contexts are not certified"
+  ],
+  "nextStep": "Retain downstream destination constraints but refine watershed divides with terrain rather than copying parent cell ownership. Any resulting boundary-budget change must be reconciled before committing neighbours."
+}

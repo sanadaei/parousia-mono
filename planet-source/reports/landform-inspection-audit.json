@@ -1,0 +1,140 @@
+{
+  "schema": "planet-landform-inspection@1",
+  "method": "bounded-dry-surface-samples",
+  "perKind": 3,
+  "candidateBudget": 64,
+  "sampleCount": 231,
+  "targets": [
+    {
+      "id": "hill:7493",
+      "kind": "hill",
+      "name": "丘陵の起伏 1",
+      "sourceCell": 7493,
+      "latDeg": -74.52294097845336,
+      "lonDeg": -164.5441468420015,
+      "surveyCenter": {
+        "latDeg": -74.53125,
+        "lonDeg": 195.46875
+      },
+      "surveyRadiusM": 1000,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 388.755064151646,
+      "maxElevationM": 426.5151775740167,
+      "reliefM": 37.760113422370694,
+      "viewAltitudeM": 800
+    },
+    {
+      "id": "hill:3459",
+      "kind": "hill",
+      "name": "丘陵の起伏 2",
+      "sourceCell": 3459,
+      "latDeg": 12.664558625032292,
+      "lonDeg": 9.847277374576038,
+      "surveyCenter": {
+        "latDeg": 12.65625,
+        "lonDeg": 9.84375
+      },
+      "surveyRadiusM": 1000,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 391.10550100187766,
+      "maxElevationM": 438.79905178017304,
+      "reliefM": 47.69355077829539,
+      "viewAltitudeM": 800
+    },
+    {
+      "id": "hill:6970",
+      "kind": "hill",
+      "name": "丘陵の起伏 3",
+      "sourceCell": 6970,
+      "latDeg": -63.27780724853829,
+      "lonDeg": 164.54972741841698,
+      "surveyCenter": {
+        "latDeg": -63.28125,
+        "lonDeg": 164.53125
+      },
+      "surveyRadiusM": 1000,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 393.6977671243375,
+      "maxElevationM": 441.815443750733,
+      "reliefM": 48.11767662639551,
+      "viewAltitudeM": 800
+    },
+    {
+      "id": "mountain:5302",
+      "kind": "mountain",
+      "name": "山地の起伏 1",
+      "sourceCell": 5302,
+      "latDeg": -26.73952129531164,
+      "lonDeg": 153.29088415088472,
+      "surveyCenter": {
+        "latDeg": -26.71875,
+        "lonDeg": 153.28125
+      },
+      "surveyRadiusM": 2500,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 8894.08075857481,
+      "maxElevationM": 9440.062938838824,
+      "reliefM": 545.9821802640145,
+      "viewAltitudeM": 2000
+    },
+    {
+      "id": "mountain:5139",
+      "kind": "mountain",
+      "name": "山地の起伏 2",
+      "sourceCell": 5139,
+      "latDeg": -23.885478093147803,
+      "lonDeg": 54.83434022848678,
+      "surveyCenter": {
+        "latDeg": -23.90625,
+        "lonDeg": 54.84375
+      },
+      "surveyRadiusM": 2500,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 8233.163917365307,
+      "maxElevationM": 8785.21193572507,
+      "reliefM": 552.0480183597629,
+      "viewAltitudeM": 2000
+    },
+    {
+      "id": "mountain:3021",
+      "kind": "mountain",
+      "name": "山地の起伏 3",
+      "sourceCell": 3021,
+      "latDeg": 23.910551526199797,
+      "lonDeg": -142.04261080195545,
+      "surveyCenter": {
+        "latDeg": 23.90625,
+        "lonDeg": 217.96875
+      },
+      "surveyRadiusM": 2500,
+      "drySamples": 33,
+      "totalSamples": 33,
+      "minElevationM": 7956.16499040175,
+      "maxElevationM": 8553.626980427753,
+      "reliefM": 597.4619900260022,
+      "viewAltitudeM": 2000
+    }
+  ],
+  "limitation": "Sampled ranges are not exhaustive extrema. Hill/mountain labels are inspection categories, not geomorphological proof. Missing targets do not prove missing relief.",
+  "worldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+  "visualReview": {
+    "renderer": "cloud CPU software diagnostic",
+    "verticalExaggeration": 1,
+    "hill": "hill:3459, 800m height, noon, 10m contour: forest-covered gentle relief, not a product acceptance",
+    "mountain": "mountain:5302, 2000m height, noon, 100m contour: rounded snow-covered relief visible as L17 loads; still loading2/2 and no product acceptance",
+    "worldModified": false,
+    "viewManifest": "separate inspection metadata referencing unchanged immutable 31a pages"
+  },
+  "verification": {
+    "testsPass": 851,
+    "testsFail": 0,
+    "durationMs": 125373.710303,
+    "heapLimitMiB": 256,
+    "build": "passed"
+  }
+}

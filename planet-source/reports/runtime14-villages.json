@@ -1,0 +1,319 @@
+{
+  "worldId": "sha256:6c5dc7d74ff3b0c0b0fee1b8e718e6a13eced9ceab62410bfee26e8ec520bf77",
+  "scope": "Actual restored generated world, central communal pond physical sampling; not natural hydrology or visual acceptance",
+  "results": [
+    {
+      "siteId": "pop:2899:577",
+      "pond": null,
+      "homes": 60,
+      "requested": 60,
+      "publicAccess": [
+        {
+          "targetId": "pop:2899:577/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:2899:577/district:0/chapel/public-access",
+          "joinsRoadId": "pop:2899:577/district:0/terrain-street:0:north",
+          "entranceSide": "west",
+          "lengthM": 20.75
+        }
+      ],
+      "layoutStatus": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:2899:577",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 299,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:2899:577/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "facilities": [
+        {
+          "id": "pop:2899:577/district:0/carpenter",
+          "type": "carpenter",
+          "bounds": {
+            "minXM": 25,
+            "maxXM": 32,
+            "minYM": 23,
+            "maxYM": 37
+          }
+        },
+        {
+          "id": "pop:2899:577/district:0/granary",
+          "type": "granary",
+          "bounds": {
+            "minXM": 24,
+            "maxXM": 32,
+            "minYM": -36,
+            "maxYM": -24
+          }
+        },
+        {
+          "id": "pop:2899:577/district:0/hall",
+          "type": "hall",
+          "bounds": {
+            "minXM": -32,
+            "maxXM": -24,
+            "minYM": -7,
+            "maxYM": 7
+          }
+        },
+        {
+          "id": "pop:2899:577/district:0/handmill",
+          "type": "handmill",
+          "bounds": {
+            "minXM": -32,
+            "maxXM": -26,
+            "minYM": -34,
+            "maxYM": -26
+          }
+        }
+      ]
+    },
+    {
+      "siteId": "pop:2948:595",
+      "publicAccess": [
+        {
+          "targetId": "pop:2948:595/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:2948:595/district:0/chapel/public-access",
+          "joinsRoadId": "pop:2948:595/district:0/terrain-street:0:west",
+          "entranceSide": "south",
+          "lengthM": 20.75
+        },
+        {
+          "targetId": "pop:2948:595/district:0/communal-pond",
+          "targetType": "communal_pond_bank",
+          "status": "connected",
+          "roadId": "pop:2948:595/district:0/communal-pond/public-access",
+          "joinsRoadId": "pop:2948:595/district:0/handmill/access",
+          "entranceSide": "north",
+          "lengthM": 80.47512359429531
+        }
+      ],
+      "publicSamples": [
+        {
+          "targetId": "pop:2948:595/district:0/chapel",
+          "sample": {
+            "groundElevationM": 123.59945806770637,
+            "waterLevelElevationM": null,
+            "waterDepthM": 0,
+            "roadSurface": {
+              "roadId": "pop:2948:595/district:0/chapel/public-access",
+              "structureKind": "fill",
+              "surfaceKind": "road",
+              "roadElevationM": 123.59945806770637,
+              "slopeMPerM": 0.0019468528115005458,
+              "roughness": 0
+            },
+            "waterSourceIds": [],
+            "xM": -59.99999999785896,
+            "yM": 10.37499999957194,
+            "buildingId": null,
+            "structureKind": null
+          }
+        },
+        {
+          "targetId": "pop:2948:595/district:0/communal-pond",
+          "sample": {
+            "groundElevationM": 122.45548739704314,
+            "waterLevelElevationM": null,
+            "waterDepthM": 0,
+            "roadSurface": {
+              "roadId": "pop:2948:595/district:0/communal-pond/public-access",
+              "structureKind": "fill",
+              "surfaceKind": "road",
+              "roadElevationM": 122.45548739704314,
+              "slopeMPerM": 0.01080154982586105,
+              "roughness": 0
+            },
+            "waterSourceIds": [],
+            "xM": 66.76833102693753,
+            "yM": -15.430675435128222,
+            "buildingId": null,
+            "structureKind": null
+          }
+        }
+      ],
+      "pond": {
+        "id": "pop:2948:595/district:0/communal-pond",
+        "type": "constructed_communal_pond",
+        "bounds": {
+          "minXM": 68,
+          "maxXM": 122,
+          "minYM": -85,
+          "maxYM": -45
+        },
+        "waterLevelElevationM": 121.34107892873196,
+        "limitations": [
+          "Constructed storage pond under an explicit communal scenario",
+          "No supply, seepage or seasonal water balance simulation"
+        ]
+      },
+      "point": {
+        "latDeg": 22.53966490633357,
+        "lonDeg": 13.53481147673972
+      },
+      "sample": {
+        "groundElevationM": 119.84607892873196,
+        "waterLevelElevationM": 121.34107892873196,
+        "waterDepthM": 1.4950000000000045,
+        "roadSurface": null,
+        "waterSourceIds": [
+          "pop:2948:595/district:0/communal-pond"
+        ],
+        "xM": 94.99999999742938,
+        "yM": -65.00000000041896,
+        "buildingId": null,
+        "structureKind": null
+      },
+      "facilities": [
+        {
+          "id": "pop:2948:595/district:0/carpenter",
+          "type": "carpenter",
+          "bounds": {
+            "minXM": -37,
+            "maxXM": -23,
+            "minYM": 25,
+            "maxYM": 32
+          }
+        },
+        {
+          "id": "pop:2948:595/district:0/granary",
+          "type": "granary",
+          "bounds": {
+            "minXM": -36,
+            "maxXM": -24,
+            "minYM": -32,
+            "maxYM": -24
+          }
+        },
+        {
+          "id": "pop:2948:595/district:0/hall",
+          "type": "hall",
+          "bounds": {
+            "minXM": -3.7573593128807126,
+            "maxXM": 4.242640687119287,
+            "minYM": 31.183766184073562,
+            "maxYM": 45.18376618407356
+          }
+        },
+        {
+          "id": "pop:2948:595/district:0/handmill",
+          "type": "handmill",
+          "bounds": {
+            "minXM": 34.18376618407356,
+            "maxXM": 42.18376618407356,
+            "minYM": -3.7573593128807126,
+            "maxYM": 2.2426406871192874
+          }
+        }
+      ],
+      "workyards": 4,
+      "accessPaths": 4,
+      "homes": 60,
+      "requested": 60
+    },
+    {
+      "siteId": "pop:2990:577",
+      "pond": null,
+      "homes": 60,
+      "requested": 60,
+      "publicAccess": [
+        {
+          "targetId": "pop:2990:577/district:0/chapel",
+          "targetType": "chapel",
+          "status": "connected",
+          "roadId": "pop:2990:577/district:0/chapel/public-access",
+          "joinsRoadId": "pop:2990:577/district:0/terrain-street:0:west",
+          "entranceSide": "west",
+          "lengthM": 20.75
+        }
+      ],
+      "layoutStatus": {
+        "method": "terrain-led-neighborhood@1",
+        "settlementId": "pop:2990:577",
+        "districtIndex": 0,
+        "districtCount": 1,
+        "totalRequestedDwellings": 60,
+        "requestedDwellings": 60,
+        "placedDwellings": 60,
+        "representedPopulation": 299,
+        "districtComplete": true,
+        "complete": true,
+        "unplacedDwellings": 0,
+        "publicSpaces": [
+          {
+            "id": "pop:2990:577/district:0/churchyard",
+            "type": "churchyard"
+          }
+        ],
+        "limitations": [
+          "Macro quarters still use the legacy grid; this is not finished town morphology",
+          "Production quantities and complete historical service geography are not modeled",
+          "Chapels use an explicit medieval-communal cultural scenario",
+          "Road widths and intervening terrain need continuous acceptance checks"
+        ]
+      },
+      "facilities": [
+        {
+          "id": "pop:2990:577/district:0/carpenter",
+          "type": "carpenter",
+          "bounds": {
+            "minXM": 25,
+            "maxXM": 32,
+            "minYM": -37,
+            "maxYM": -23
+          }
+        },
+        {
+          "id": "pop:2990:577/district:0/granary",
+          "type": "granary",
+          "bounds": {
+            "minXM": 46.32590180780451,
+            "maxXM": 58.32590180780451,
+            "minYM": -58.38477631085024,
+            "maxYM": -50.38477631085024
+          }
+        },
+        {
+          "id": "pop:2990:577/district:0/hall",
+          "type": "hall",
+          "bounds": {
+            "minXM": -10.828427124746188,
+            "maxXM": -2.828427124746188,
+            "minYM": -78.11269837220809,
+            "maxYM": -64.11269837220809
+          }
+        },
+        {
+          "id": "pop:2990:577/district:0/handmill",
+          "type": "handmill",
+          "bounds": {
+            "minXM": 69.53910524340094,
+            "maxXM": 77.53910524340094,
+            "minYM": -77.59797974644667,
+            "maxYM": -71.59797974644667
+          }
+        }
+      ]
+    }
+  ]
+}

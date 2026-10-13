@@ -1,0 +1,37 @@
+{
+  "canonicalWorldId": "sha256:d2dccb6f38b50c89441ebe88b44356ab36be13dcf2154b00f37717db23f94c46",
+  "results": [
+    {
+      "id": "pop:4048:78",
+      "coldMs": 6334.68823,
+      "warmMs": 1.0472829999998794,
+      "regeneratedMs": 5962.067709999999,
+      "hash": "00c907670edcb22ecbbed10c9da4ea8c0b9c58ecb75bd9a54b260a1d38949b35",
+      "sameRepeated": true,
+      "sameRegenerated": true,
+      "cacheBytes": 464426
+    },
+    {
+      "id": "pop:4048:65",
+      "coldMs": 6038.6262879999995,
+      "warmMs": 1.2760589999998047,
+      "regeneratedMs": 6331.963158000002,
+      "hash": "33558161c7b7b720a37eaab80303da87c906d87f05817823ce9d8c2c2aa499da",
+      "sameRepeated": true,
+      "sameRegenerated": true,
+      "cacheBytes": 396774
+    }
+  ],
+  "compactLimitBytes": 6291456,
+  "recipeLimitBytes": 2097152,
+  "scope": "Two actual village district recipes, isolated repeated calls; not end-to-end frame rate or total browser memory.",
+  "cancellation": "Already-aborted requests reject before cache lookup",
+  "limits": "The previous8MiB settlement reservation budget is split6MiB compact footprints and2MiB serialized recipes. Serialized-size accounting is a budget estimate, not total JS heap.",
+  "verification": {
+    "testsPass": 857,
+    "testsFail": 0,
+    "build": "passed",
+    "durationMs": 129209.786977,
+    "heapLimitMiB": 256
+  }
+}

@@ -1,0 +1,32 @@
+✔ A partitions into native same-scale neighbors with exact 2× levels and common elevations (28.98779ms)
+✔ crossing ports share exact identity, coordinates and provisional flow without adding supply (82.077339ms)
+✔ every tile elevation is an original node, no invented terrain beyond source (19.605089ms)
+✔ crossing at an existing vertex produces one port; tangency and collinear runs produce no transfers (0.762387ms)
+✔ multiple exit and reentry produces separate river fragments and matching ports (0.295415ms)
+✔ invalid partitions, oversized coordinates and mismatched water are rejected (15.225498ms)
+✔ diagonal corner crossing is one transfer between occupied tiles only (0.840565ms)
+✔ water annotations reject same-length but changed river or height sources (27.824234ms)
+✔ water annotation binds ID ordering and physical footprint, not just array values (22.148616ms)
+✔ diagonal crossing at a source vertex has one corner identity (0.767104ms)
+✔ runtime loads the actual chosen A source and annotations with five unchanged levels (12.902363ms)
+✔ runtime rejects detached/tampered pyramid and water sources (67.668153ms)
+✔ runtime rejects malformed display contracts (69.158957ms)
+✔ bilinear sampler is exact at nodes and clamps to a finite boundary (0.516167ms)
+✔ LOD adapts to zoom but stops at native resolution (0.246581ms)
+✔ pan/zoom coordinates round trip and river selection reports the right segment (1.214598ms)
+✔ actual runtime raster is deterministic, finite, level-sensitive and source-preserving (8.52697ms)
+✔ entry point offers shape mode without replacing saved-world runtime (0.534655ms)
+✔ runtime rejects tampered water arithmetic and cyclic parent labels (54.131146ms)
+✔ shared source controls preserve selected view and safely round-trip seeds (1.348419ms)
+✔ shared loader produces validated deterministic multi-seed native shapes (2760.620437ms)
+✔ seeded shape 271828: adjacent tiles use source shape and connected rivers (207.457861ms)
+✔ seeded shape another-region: adjacent tiles use source shape and connected rivers (303.056625ms)
+✔ seeded shape 42: adjacent tiles use source shape and connected rivers (273.118329ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3142.513333

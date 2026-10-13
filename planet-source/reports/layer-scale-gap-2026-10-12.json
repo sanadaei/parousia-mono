@@ -1,0 +1,220 @@
+{
+  "schema": "layer-scale-gap-review@2",
+  "sourceLayerId": "sha256:9050149f607f44c97dca4e3a1cd1d73b4cfeb22ca3bc5914db7aae5c911444a5",
+  "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+  "settings": {
+    "latDeg": 43.59375,
+    "lonDeg": 158.203125,
+    "seed": "muna-atlas-001",
+    "columns": 128,
+    "rows": 128,
+    "cellSizeM": 1000,
+    "detailAmplitude": 0.5
+  },
+  "limits": [
+    "Existing landform generator is used once and frozen; terrain is NOT regenerated at each resolution",
+    "Terrain source spacing is recorded in settings; finer queries interpolate it and do not invent subcell relief",
+    "Same priority-flood/steepest regional drainage solver at every stage; no river-line smoothing",
+    "This isolates available sampling resolution, not proof that merely adding intermediate executions changes a fixed finest result",
+    "Earlier coarse guessed channel vertices are not locked as exact positions",
+    "All outer exits are explicitly unresolved survey edges, not adopted world river mouths",
+    "Uniform 100 mm/year local yield isolates geometry; no imported parent flow in this diagnostic",
+    "No global watershed continuity or final 60 m local adoption is certified",
+    "Coarse source snapping uncertainty is reported; coarse traces are not exact physical source positions"
+  ],
+  "cases": [
+    {
+      "requestedStepM": 78000,
+      "grid": {
+        "columns": 3,
+        "rows": 3,
+        "cellSizeM": 63500,
+        "cellSizeYM": 63500
+      },
+      "sourceSnapDistanceM": 37380.94684576532,
+      "measurement": {
+        "samples": 9,
+        "elapsedMs": 0.5133829999999762
+      },
+      "pathPoints": 1,
+      "diagnostics": {
+        "activeCells": 9,
+        "totalInputM3PerYear": 1612900000,
+        "totalOutputM3PerYear": 1612900000,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "requestedStepM": 39000,
+      "grid": {
+        "columns": 5,
+        "rows": 5,
+        "cellSizeM": 31750,
+        "cellSizeYM": 31750
+      },
+      "sourceSnapDistanceM": 8106.950494787872,
+      "measurement": {
+        "samples": 25,
+        "elapsedMs": 0.37809999999990396
+      },
+      "pathPoints": 4,
+      "diagnostics": {
+        "activeCells": 25,
+        "totalInputM3PerYear": 1612900000,
+        "totalOutputM3PerYear": 1612900000,
+        "relativeBudgetResidual": 0,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "requestedStepM": 19500,
+      "grid": {
+        "columns": 8,
+        "rows": 8,
+        "cellSizeM": 18142.85714285714,
+        "cellSizeYM": 18142.85714285714
+      },
+      "sourceSnapDistanceM": 6360.656054923006,
+      "measurement": {
+        "samples": 64,
+        "elapsedMs": 0.6672349999998914
+      },
+      "pathPoints": 7,
+      "diagnostics": {
+        "activeCells": 64,
+        "totalInputM3PerYear": 1612900000.0000005,
+        "totalOutputM3PerYear": 1612900000,
+        "relativeBudgetResidual": 2.9563962936519616e-16,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "requestedStepM": 9750,
+      "grid": {
+        "columns": 15,
+        "rows": 15,
+        "cellSizeM": 9071.42857142857,
+        "cellSizeYM": 9071.42857142857
+      },
+      "sourceSnapDistanceM": 3013.3968061317937,
+      "measurement": {
+        "samples": 225,
+        "elapsedMs": 1.1985149999995883
+      },
+      "pathPoints": 13,
+      "diagnostics": {
+        "activeCells": 225,
+        "totalInputM3PerYear": 1612900000.0000017,
+        "totalOutputM3PerYear": 1612900000,
+        "relativeBudgetResidual": 1.0347387027781856e-15,
+        "depressionCells": 0,
+        "maxRoutingFillM": 0
+      }
+    },
+    {
+      "requestedStepM": 4875,
+      "grid": {
+        "columns": 28,
+        "rows": 28,
+        "cellSizeM": 4703.7037037037035,
+        "cellSizeYM": 4703.7037037037035
+      },
+      "sourceSnapDistanceM": 2430.4564509711636,
+      "measurement": {
+        "samples": 784,
+        "elapsedMs": 4.015218000000004
+      },
+      "pathPoints": 24,
+      "diagnostics": {
+        "activeCells": 784,
+        "totalInputM3PerYear": 1612899999.9999928,
+        "totalOutputM3PerYear": 1612900000.0000005,
+        "relativeBudgetResidual": 4.730234069843161e-15,
+        "depressionCells": 1,
+        "maxRoutingFillM": 1.6220755342188795
+      }
+    },
+    {
+      "requestedStepM": 2437.5,
+      "grid": {
+        "columns": 54,
+        "rows": 54,
+        "cellSizeM": 2396.2264150943397,
+        "cellSizeYM": 2396.2264150943397
+      },
+      "sourceSnapDistanceM": 877.3257580885328,
+      "measurement": {
+        "samples": 2916,
+        "elapsedMs": 10.184610999999677
+      },
+      "pathPoints": 45,
+      "diagnostics": {
+        "activeCells": 2916,
+        "totalInputM3PerYear": 1612899999.9999104,
+        "totalOutputM3PerYear": 1612899999.9999993,
+        "relativeBudgetResidual": 5.513679087661216e-14,
+        "depressionCells": 4,
+        "maxRoutingFillM": 4.788385300588857
+      }
+    },
+    {
+      "requestedStepM": 1218.75,
+      "grid": {
+        "columns": 106,
+        "rows": 106,
+        "cellSizeM": 1209.5238095238096,
+        "cellSizeYM": 1209.5238095238096
+      },
+      "sourceSnapDistanceM": 244.4962140544184,
+      "measurement": {
+        "samples": 11236,
+        "elapsedMs": 41.47273099999984
+      },
+      "pathPoints": 90,
+      "diagnostics": {
+        "activeCells": 11236,
+        "totalInputM3PerYear": 1612899999.9997473,
+        "totalOutputM3PerYear": 1612900000.0000005,
+        "relativeBudgetResidual": 1.569846431929438e-13,
+        "depressionCells": 6,
+        "maxRoutingFillM": 1.1559262525482836
+      }
+    },
+    {
+      "requestedStepM": 609.375,
+      "grid": {
+        "columns": 210,
+        "rows": 210,
+        "cellSizeM": 607.6555023923445,
+        "cellSizeYM": 607.6555023923445
+      },
+      "sourceSnapDistanceM": 116.32444583049416,
+      "measurement": {
+        "samples": 44100,
+        "elapsedMs": 152.86597399999982
+      },
+      "pathPoints": 181,
+      "diagnostics": {
+        "activeCells": 44100,
+        "totalInputM3PerYear": 1612899999.9987652,
+        "totalOutputM3PerYear": 1612900000.000002,
+        "relativeBudgetResidual": 7.667413787592234e-13,
+        "depressionCells": 94,
+        "maxRoutingFillM": 2.9548453590265353
+      }
+    }
+  ],
+  "verification": {
+    "testsPassed": 1202,
+    "failed": 0,
+    "skipped": 0,
+    "build": "passed",
+    "browser": "not run; offline plot only",
+    "finestOnlyMatchesStagedFinest": true
+  },
+  "conclusion": "Higher sampling resolution reveals details of one frozen field. Intermediate executions alone do not improve a fixed finest solve. Parent-child and neighbour watershed constraints remain unfinished."
+}

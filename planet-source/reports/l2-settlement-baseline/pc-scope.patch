@@ -1,0 +1,263 @@
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,5 @@
++> 開発・利用環境は **PC** を前提とします。操作・画面・性能の受け入れ条件もPCを対象にします。
++
+ > 2026-10-13: **集落規模を整え、L1からL2へ地域候補を渡す段階**まで進めました。`npm run l2:baseline` で[集落候補と農地の見積もり](reports/l2-settlement-baseline/review.html)を作れます。町・都市の最小規模、固定IDの候補ページ、必要耕地面積、広域地形による選別と確定保存を接続しています。候補の敷地・農地・道路は次の段階です。[仕様と再現手順](docs/L2_SETTLEMENT_HANDOFF.md)。
+ 
+ > 前段: **L0の全球人口・集落分布からL1への予算受け渡し**。`npm run l0:baseline` で人口正本・L0/L1 JSONと[全球の分布確認画面](reports/l0-settlement-baseline/review.html)を作れます。人口と村・町・都市の7項目を保存し、適地のない分は未配分として保持します。通常の気候付き惑星生成・世界保存にも同じL0分布を接続しています。[仕様](docs/L0_REVIEW.md)。
+@@ -51,7 +53,7 @@
+ 
+ 生成済み世界では海・湖・終端湖・全球河川・8集落の家屋と道路/橋を同じ保存から表示します。Windows は `StartPlanet.cmd`、macOS/Linux は `./start-planet.sh`、または `npm start` で起動し、全球画面で集落や湖を選択してください。Node.js 22 以上だけ必要です。起動時のビルド・依存インストール・世界再生成は不要です。ポートが使用中なら次の番号を試します。ブラウザを自動で開かない場合は `npm start -- --no-open`、CPU表示は `npm start -- --software`。Windows のバッチ自体はクラウドLinuxでは実行検証できていません。選択した村の車両通行・雨水排水の画面へも移れます。最新の実装と実入力/出力・制約は [PLANET_WORLD.md](PLANET_WORLD.md)、現行作業は [HANDOFF.md](HANDOFF.md)。水域自動化の旧「保留」は解除されています。
+ 
+-ロードマップ全体は継続中です。物理水文の全領域や、旧形式を含む全河床のC1、GPU実機・全端末の性能が完了したという意味ではありません。新規の明示地域河床は [C1ポリシー](PLANAR_C1_BED.md) で利用でき、旧保存は元の値を保持します。雨水画面の中断・再開は [Worker経路](RUNOFF_WORKER.md) を使用します。以下の版ごとの試験数・性能はその時点の履歴です。
++ロードマップ全体は継続中です。物理水文の全領域や、旧形式を含む全河床のC1、PCのGPU実機・性能が完了したという意味ではありません。新規の明示地域河床は [C1ポリシー](PLANAR_C1_BED.md) で利用でき、旧保存は元の値を保持します。雨水画面の中断・再開は [Worker経路](RUNOFF_WORKER.md) を使用します。以下の版ごとの試験数・性能はその時点の履歴です。
+ 
+ 生成結果は `examples/planet/generated/worlds/` の不変の世代別データとして保存されます。再生成しても開いている旧世界のページを上書きしません。入口の `manifest.json` が最新世代を指します。旧世代は自動削除しないため、繰り返し生成するとディスク使用量が増えます。
+ 
+--- a/ROADMAP.md
++++ b/ROADMAP.md
+@@ -1,3 +1,5 @@
++> 2026-10-13: 対象環境は **PC**。今後の設計・実装・受け入れはPCのマウス・キーボード操作、ブラウザー表示、CPU/GPU・メモリを基準にする。現在の段階と優先順は[作業用ベースライン](docs/WORKING_BASELINE_ROADMAP.md)を参照。
++
+ ## 2026-10-12 — Google Earthと同じ広さで自然さを比較する
+ 
+ 参照画像・国土地理院航空写真と、実生成データの約20 km四方の比較を再開した。画像の撮影継ぎ目や現代の人口密度を、中世世界の正解として模倣しない。再現手順・実数・限界は [EARTH_LANDSCAPE_COMPARISON.md](docs/EARTH_LANDSCAPE_COMPARISON.md)。テスト件数や保存成功だけで景観の完成とは判断しない。
+@@ -564,7 +566,7 @@ C1は基礎地形の契約で、掘削後の河床/岸全体のC1化は残る。
+ 
+ 全270試験、旧40保存の値とID、旧ソース8件・入力40件のハッシュ、実生成2世界・8chartの保存再開を検証した。ブラウザの宇宙〜地表移動、地表の格子間隔、Core値・法線、fpsと管理メモリの記録は [GLOBE_VALIDATION.md](GLOBE_VALIDATION.md)。選定理由・コード入口・資源予算は [GLOBE_ARCHITECTURE.md](GLOBE_ARCHITECTURE.md)。
+ 
+-**現在位置は第5段階の「全球表示プロトタイプを実装し、数値一致と実測を記録する段階」。第5段階全体の受入は未完。** 次は厳密な幾何誤差に基づくLOD、隣接ステッチと逆方向モーフ、長時間・低性能端末・プロセスメモリ・GPU復帰・低速回線の受入を進める。第3段階の全河床C1と排水、第4段階の造成後水理・全幅離隔・耐力も残る。湖・海・終端湖の自動化は保留を維持する。
++**現在位置は第5段階の「全球表示プロトタイプを実装し、数値一致と実測を記録する段階」。第5段階全体の受入は未完。** 次は厳密な幾何誤差に基づくLOD、隣接ステッチと逆方向モーフ、長時間・PCの性能差・プロセスメモリ・GPU復帰・低速回線の受入を進める。第3段階の全河床C1と排水、第4段階の造成後水理・全幅離隔・耐力も残る。湖・海・終端湖の自動化は保留を維持する。
+ 
+ ## 進捗確認と引き継ぎ（2026-10-10）
+ 
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -1,3 +1,5 @@
++> 2026-10-13: 対象環境は **PC**。以降の操作・画面・性能の受け入れもPC前提で進める。最新の段階・残件は[作業用ベースライン](docs/WORKING_BASELINE_ROADMAP.md)を参照。
++
+ > 2026-10-11 03:14 UTC: 860 tests PASS / 0 fail、build成功（128.3秒、256 MiB）。「集落の配置理由」がオンデマンド集落・町の任意区画にも接続。広場・礼拝所・池・菜園・施設の理由を同じ配置データから確認できます。全景観は未完成です。
+ 
+ > 2026-10-11 03:03 UTC: 857 tests PASS / 0 fail、build成功（129.2秒、256 MiB）。村の同じ配置の重複生成を抑制。既存8MiB枠内で再利用し、実村2件の再取得は約1ms、内容一致。初回生成・全景観・GPU実機の受入は未完です。
+@@ -304,7 +306,7 @@ README、ROADMAP、各監査対応、全球表示の指示書・設計・検証
+ 
+ 1. **地物・表示中の誤差。** 基礎地形の誤差判定は実装済み。地物は振幅上限のみ。水際・造成・局所細分と生成待ち/モーフ中の実画面誤差、予算内の追従速度を進める。
+ 2. **隣接LODの表示品質。** 階層順の双方向モーフと遷移中の兄弟保護は実装・回帰検証済み。Cube辺・隣接タイルのLOD差制約と辺ステッチ、局所細分の接続と全角度の視覚受入が残る。
+-3. **実画面・運用の受入。** 宇宙↔地表、日付変更線・極・Cube辺、水際・橋・敷地を反復操作し、長時間のブラウザ全体/Worker/ドライバのメモリ、低性能端末、GPU喪失からの復帰、低速回線を測定する。数値試験と別の証拠として残す。
++3. **実画面・運用の受入。** 宇宙↔地表、日付変更線・極・Cube辺、水際・橋・敷地を反復操作し、長時間のブラウザ全体/Worker/ドライバのメモリ、PCの性能差、GPU喪失からの復帰、低速回線を測定する。数値試験と別の証拠として残す。
+ 
+ 第3・4段階の残課題は継続管理する。`inspectEarthworkDrainage` は造成前地形から暗渠候補を診断する機能で、暗渠を水路として接続し、造成後の水位・滞水・流域を再計算するパイプラインは未実装。
+ 
+@@ -314,7 +316,7 @@ README、ROADMAP、各監査対応、全球表示の指示書・設計・検証
+ 
+ [GLOBE_VALIDATION.md](GLOBE_VALIDATION.md) に前回の実ブラウザ測定がある。2026-10-09 JST、Chromium 155 / RTX 3070 / 1280×720 / DPR 1の120秒経路で、平均143.9fps、33.3ms超のフレーム0、ストリーミングエラー0を記録した。静止後の中心付近はL20・約0.360357m間隔で、ブラウザ頂点131標本のCore照合を記録している。
+ 
+-これは前回の限定した測定。今回の再計測値でも、移動中に常にサブメートル表示できる証明でもない。ブラウザ全体のメモリは未測定で、長時間・全端末・全角度の視覚品質も未受入。画像は局地/メートル視点とDOM記録が存在するが、文書に挙がっていた `globe-space.jpg` と対応DOMは存在しないため、証拠一覧を訂正した。
++これは前回の限定した測定。今回の再計測値でも、移動中に常にサブメートル表示できる証明でもない。ブラウザ全体のメモリは未測定で、長時間・PCの性能差・全角度の視覚品質も未受入。画像は局地/メートル視点とDOM記録が存在するが、文書に挙がっていた `globe-space.jpg` と対応DOMは存在しないため、証拠一覧を訂正した。
+ 
+ ## 起動と主要入口
+ 
+--- a/docs/WORKING_BASELINE_ROADMAP.md
++++ b/docs/WORKING_BASELINE_ROADMAP.md
+@@ -2,6 +2,8 @@
+ 
+ 更新: 2026-10-13。目標は、これまでの有効な部品を組み合わせ、地形と川が読める景観を実際に動かせる形で渡すこと。形を先に比較して選び、階層・流量・生成理由はその後で整える。全球の物理・生態・都市を一度に完成させる計画ではない。
+ 
++**対象環境**: PC。マウス・キーボード操作、PCブラウザーでの表示、PCのCPU/GPU・メモリを基準に設計・検証する。
++
+ ## 1. 現在の基準版: 動かして確かめられるところまで接続済み
+ 
+ - **形**: 同梱 A（river-first）と、seed から川の枝・谷・丘陵を一緒に作る生成器。実地形と A/B/C を同じ約 8.85 × 9.77 km、共通の表示条件で比較できる。
+@@ -25,7 +27,7 @@
+ 
+ ## 2. 今回仕上げた範囲: 景観として読める基準版
+ 
+-**仕上げ後の検証**: 2026-10-13、最終コードで **1,356 tests PASS / 0 fail、build 成功**（core 154、互換export 30、globe構文74）。同梱Aとseed生成の全景、実水面の近景、操作パネルの開閉をクラウドのCPU診断表示で確認した。水深・配置・河道版・受け川の同一性も維持している。GPU描画、実モバイル端末、全球ロードマップの完了を意味しない。
++**仕上げ後の検証**: 2026-10-13、最終コードで **1,356 tests PASS / 0 fail、build 成功**（core 154、互換export 30、globe構文74）。同梱Aとseed生成の全景、実水面の近景、操作パネルの開閉をクラウドのCPU診断表示で確認した。水深・配置・河道版・受け川の同一性も維持している。PCのGPU描画、全球ロードマップの完了を意味しない。
+ 
+ **今回採用した表示**: 地域内の相対標高と計測済みの斜面に応じた落ち着いた地表色、水面と任意の川筋ガイドを区別する配色、実寸1倍・傾き45度・正午を基準とした全景。朝の光・55度の視点も実画面で試したが、粗いメッシュの三角形が目立ったため初期表示には採用しなかった。長い技術説明は折りたたみ、操作パネルを閉じて景観を見渡せる。色や表示だけの変更で、元の標高・水深・保存形状は変えていない。[比較と採否](../reports/visual-finish/design-notes.md)。
+ 
+@@ -68,7 +70,7 @@
+ 1. **谷と川の変化**: C の広い谷・非対称斜面、B の侵食的な尾根や細い谷を候補として試す。支流の密度、合流角、長い直線、似た断面の繰り返しを見比べる。大量のノイズ追加や、一案だけの磨き込みを避ける。
+ 2. **近景で必要な情報**: 岸、段丘、支谷など、現在の元格子では表現できない形を特定してから詳細ソースを追加する。表示だけを細かくして新しい地形ができたとは扱わない。
+ 3. **複数地域へ拡張**: 必要な広さを持つ共通形状を先に作り、隣接領域へ切る。既存の一枚を二分しても世界の面積は増えない。混在する表示段階の辺・水路・保存境界も確認する。
+-4. **表示負荷**: 近景の過剰な細分化、読み込み待ち、岸の小さな描画乱れを実測して直す。GPU 実機と低性能端末の性能は別途確認する。
++4. **表示負荷**: 近景の過剰な細分化、読み込み待ち、岸の小さな描画乱れを実測して直す。PCのGPU実機と構成による性能差は別途確認する。
+ 
+ ### 粒度を混同しない
+ 
+@@ -86,6 +88,6 @@
+ - **水文**: 仮流量から、上流供給・地域流出・受け川への増分を一度ずつ計上する水収支へ。湖・貯留・季節変動・水位応答などは個別に検証する。現在の水面の幾何的連続性を、全球水収支や洪水計算の完成と言い換えない。
+ - **環境**: 地形・気候・水辺に沿った森林、開けた土地、湿地を接続し、広域色と近景の樹木・地面の整合を取る。装飾色と成立が確認された生態条件を区別する。
+ - **人の景観**: 新しい地形に適合する農地、村・都市、道・渡河を接続する。旧配置をそのまま重ねず、土地利用の連続性と実際のアクセスを確認する。
+-- **全球運用**: 保存互換、広域の接続、読み込み時間、長時間メモリ、複数端末の描画を確認し、地域の成功を全球へ広げる。
++- **全球運用**: 保存互換、広域の接続、読み込み時間、長時間メモリ、異なるPC構成での描画を確認し、地域の成功を全球へ広げる。
+ 
+ 既存の長期目標・残件は [ROADMAP](../ROADMAP.md)、[近景計画](../LOCAL_LANDSCAPE_PLAN.md)、[環境統合](ENVIRONMENT_INTEGRATION.md) を参照。この文書はその全完了宣言ではなく、まず渡す一版と、その後の優先順位を定める。
+--- a/docs/L2_SETTLEMENT_HANDOFF.md
++++ b/docs/L2_SETTLEMENT_HANDOFF.md
+@@ -1,6 +1,7 @@
+ # 集落規模とL1からL2への候補受け渡し
+ 
+ 2026-10-13。全球の人口統計を、参照した地域だけの集落候補へつなぐ段階。
++対象環境は **PC**。マウス・キーボード操作とPCブラウザーでの表示を対象にする。
+ 人口正本は `planAgriculturePopulation`。L0/L1分布とは別の人口計算を作らない。
+ 
+ ## 規模の仮定
+@@ -58,20 +59,20 @@ coreのページAPIは、任意の妥当なL1セルから候補を取り出せ
+ 
+ 現在のロードマップは **L0統計・L1配分から、規模付きの地域候補とL2への受け渡しまで**。
+ 次は候補に対するL2詳細地形の立地調査、実際の敷地・農地・接続道路の統合。
+-全球の家屋生成、水文・食料経済、長時間運用、GPU・実モバイル端末の受入は別の残件。
++全球の家屋生成、水文・食料経済、長時間運用、PCのGPU実機での受入は別の残件。
+ 
+ ## 今回の検証
+ 
+ 数値・保存・関連回帰は63件PASS、全試験は1,412件PASS / 0 fail / 0 skip。
+ buildはcore 158 import・30完全一致alias・74 globe構文が成功。
+-その後の表示文言・モバイル見出しだけの補正について、構文検査、代表保存再読込1件、実ブラウザーを再確認した。
++その後の表示文言の補正について、構文検査、代表保存再読込1件、実ブラウザーを再確認した。
+ 512×256の最大L1確定保存は19,666,546 bytesで従来24MiB枠内。
+ 
+-ローカルのCanvas2Dで3地域・保存ページの切替、地図と一覧の選択連動、キーボード、360px幅を確認。
++PC向けのローカルCanvas2Dで3地域・保存ページの切替、地図と一覧の選択連動、マウス・キーボード操作を確認。
+ 今回の3代表地域で表示した候補は広域条件をすべて通過した。水域・急勾配・非有限値の保留は別のコア試験で確認したもので、実地域の保留例を確認したとはしない。
+ Geminiは画像閲覧ツールで実画面3枚を参照し、人口配分段階とページ対象外の表記を参考レビューした。
+ 敷地の完成・他ページ収録済みと誤読する提案は採用していない。
+ 
+-実GPU globe・実モバイル端末のtouch・読み上げ・長時間運用・公開は未実行。
++PCの実GPU globe・読み上げ・長時間運用・公開は未実行。
+ 検証前の重い処理には空き物理メモリ15.13〜16.45GiB、コミット余裕15.67〜17.10GiBを確認し、重い検証を順に実行した。
+ 詳細は `reports/l2-settlement-baseline/verification.json` と `qa`。元ZIPのSOURCE-MANIFESTは更新していない。
+--- a/docs/DEFERRED_WORLD_MATERIALIZATION.md
++++ b/docs/DEFERRED_WORLD_MATERIALIZATION.md
+@@ -354,7 +354,7 @@ or automatic import occurs. UI duplicate requests are suppressed; errors unlock
+ the controls and clear the file input so the same file can be retried.
+ 
+ Verification uses a transaction-lifecycle test double and lightweight UI elements;
+-actual browser IndexedDB, download prompts, mobile file pickers and restart
++actual PC-browser IndexedDB, download prompts, PC file dialogs and restart
+ acceptance remain unverified. The preceding file-only checkpoint described the
+ implementation before these browser controls were added.
+ 
+--- a/reports/l2-settlement-baseline/verification.json
++++ b/reports/l2-settlement-baseline/verification.json
+@@ -3,7 +3,7 @@
+   "createdAt": "2026-10-13T11:35:59.277103+00:00",
+   "status": "L1 statistical candidate handoff foundation complete; detailed L2 sites remain unresolved",
+   "changes": {
+-    "modified": 11,
++    "modified": 14,
+     "added": 10,
+     "sourceManifest": "Original SOURCE-MANIFEST/VERIFICATION remain the frozen distributed ZIP baseline, not proof for this changed checkout"
+   },
+@@ -329,7 +329,7 @@
+       "workers": 1,
+       "childHeapMiB": 256,
+       "execution": "native Windows; TEMP/TMP in G task area",
+-      "phase": "After all numerical/core changes; before presentation-only wording and mobile title corrections"
++      "phase": "After all numerical/core changes; before presentation-only wording and title corrections"
+     },
+     "afterPresentationOnlyEdits": {
+       "persistentReopenTestPassed": 1,
+@@ -361,16 +361,9 @@
+     "savedPages": "first / next / last exercised in 293-candidate village region",
+     "selection": "map click -> list, list click -> map, map Arrow/Home keys, world-map Arrow region selection",
+     "consoleErrors": [],
+-    "mobileViewport": {
+-      "width": 360,
+-      "height": 740,
+-      "clientWidth": 345,
+-      "documentScrollWidth": 345,
+-      "titleHeightPx": 32.390625,
+-      "numbers": "100,000,000 remained on one line"
+-    },
+     "viewportOverrideReset": true,
+-    "actualExampleResult": "All candidates in the three selected example regions passed coarse screening; wet/steep/invalid rejection exercised with controlled core tests, not claimed as a real example rejection"
++    "actualExampleResult": "All candidates in the three selected example regions passed coarse screening; wet/steep/invalid rejection exercised with controlled core tests, not claimed as a real example rejection",
++    "platform": "PC"
+   },
+   "models": {
+     "backend": {
+@@ -450,8 +443,53 @@
+   "limitations": [
+     "Coarse L1 screening does not certify detailed L2 plots, water access, flood safety, agricultural land availability or roads",
+     "Normal on-reference siting uses the new size policy, but adopting L1 candidate handoffs into the global L2 renderer remains next work",
+-    "GPU globe rendering, physical mobile/touch, spoken screen reader, endurance and remote release not run",
++    "PC GPU globe rendering, spoken screen reader, endurance and remote release not run",
+     "Old population examples must be regenerated for the new @2 handoff; no save migration implemented"
+   ],
+-  "roadmap": "L0 statistical distribution/save -> L1 conservative budgets -> size-aware regional candidates/agricultural demand/persistent L2 handoff complete; next detailed L2 siting, plots, agricultural land and neighbouring road connections"
+-}
+\ No newline at end of file
++  "roadmap": "L0 statistical distribution/save -> L1 conservative budgets -> size-aware regional candidates/agricultural demand/persistent L2 handoff complete; next detailed L2 siting, plots, agricultural land and neighbouring road connections",
++  "platformScope": {
++    "target": "PC",
++    "input": "Mouse and keyboard",
++    "acceptance": "PC browser rendering and PC CPU/GPU/memory performance",
++    "authority": "Explicit user instruction on 2026-10-13"
++  },
++  "historicalBrowserObservations": {
++    "status": "Past optional observations, outside current product scope and acceptance requirements",
++    "narrowViewport": {
++      "width": 360,
++      "height": 740,
++      "clientWidth": 345,
++      "documentScrollWidth": 345,
++      "titleHeightPx": 32.390625,
++      "numbers": "100,000,000 remained on one line"
++    }
++  },
++  "platformScopeCorrection": {
++    "date": "2026-10-13",
++    "reason": "User confirmed PC as the intended platform",
++    "changedDocumentation": [
++      "README.md",
++      "ROADMAP.md",
++      "HANDOFF.md",
++      "docs/WORKING_BASELINE_ROADMAP.md",
++      "docs/L2_SETTLEMENT_HANDOFF.md",
++      "docs/DEFERRED_WORLD_MATERIALIZATION.md"
++    ],
++    "changes": "PC scope is authoritative; former non-PC checks are historical observations and impose no pending acceptance gate",
++    "verification": "Documentation scope and saved verification JSON checked; no runtime code change or new full test/build/browser run",
++    "changePatch": "pc-scope.patch",
++    "checks": {
++      "correctedDocsContainNoNonPcScope": true,
++      "numericalAndRuntimeSourceHashesUnchanged": true,
++      "currentSourceManifestHashesVerified": true
++    },
++    "sourceHashes": {
++      "README.md": "248f22e9b2f944a5e6fbe872902e6dc035204cd574eb0e27f961aaa715637d93",
++      "ROADMAP.md": "2c5dc425b70901c9f7867e1dcd56e01772bee8307005dc20418d36714853d954",
++      "HANDOFF.md": "a58ec3569df72de94bb6346ceb5c7ed5b9b5d736f9284a0dab0588da37becd2b",
++      "docs/WORKING_BASELINE_ROADMAP.md": "6fb428e6f79ff5466aedc9acfbdaa3ed5d0bc057fdfdf356063c0e4778af2674",
++      "docs/L2_SETTLEMENT_HANDOFF.md": "2f53fb2bd83c82f019e34a3fde63f0903c5e3ad436a133dd4a35f3636192cf9c",
++      "docs/DEFERRED_WORLD_MATERIALIZATION.md": "ecde65bb6f0d4ba5607ed3199ff409a17c28b58a7369e46e1b35a935135f0260"
++    }
++  }
++}
+--- a/reports/l2-settlement-baseline/qa/gemini-review.json
++++ b/reports/l2-settlement-baseline/qa/gemini-review.json
+@@ -27,12 +27,16 @@
+     "accepted": [
+       "Visible separation of L0 supported budget and L1 assigned/unallocated population",
+       "Page-excluded budget label; does not imply cumulative survey progress",
+-      "Mobile title fit and clearer coarse-L1 screening description"
++      "Clearer coarse-L1 screening description"
+     ],
+     "rejected": [
+       "Replacing food-capacity shortage with the L1 unallocated count would hide a different budget",
+       "Other-page-already-saved label would falsely include slots not saved by this bounded CLI",
+       "Region complete / ready-to-build-L2 message would overstate coarse screening and imply an unavailable workflow"
++    ],
++    "supersededByPcScope": [
++      "Non-PC title-fit observations are historical; they impose no product requirement or pending acceptance gate"
+     ]
+-  }
+-}
+\ No newline at end of file
++  },
++  "applicablePlatform": "PC"
++}

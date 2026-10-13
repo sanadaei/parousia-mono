@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-12",
+  "sourceWorldId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+  "seriesId": "sha256:b7521c33ed0ec75082e6e6ce4f79ebd647674f29a24e5099e7ece26edfe929e9",
+  "levels": [
+    {
+      "columns": 128,
+      "rows": 64,
+      "id": "sha256:e732703fe30040ca043aedbaf44e245fba1d7a9a4977ec66cab339c6c56a8273",
+      "parentId": "sha256:52699a98afdbe300dd8e5ff0165ab91525d656e5a492a75c360c8a68f0772dee",
+      "measurement": {
+        "elapsedMs": 56.048187,
+        "heapUsedMiB": 17.82445526123047,
+        "rssMiB": 65.69921875
+      }
+    },
+    {
+      "columns": 256,
+      "rows": 128,
+      "id": "sha256:e1016998925b993d1bf31d313ffbf51c805322e560522fb859dde242f3a672ca",
+      "parentId": "sha256:e732703fe30040ca043aedbaf44e245fba1d7a9a4977ec66cab339c6c56a8273",
+      "measurement": {
+        "elapsedMs": 181.16709400000002,
+        "heapUsedMiB": 22.493331909179688,
+        "rssMiB": 87.44140625
+      }
+    },
+    {
+      "columns": 512,
+      "rows": 256,
+      "id": "sha256:e82985a134b01835d9f3cf90c1455906bf28456ea6b66710d2b6ce0d936df363",
+      "parentId": "sha256:e1016998925b993d1bf31d313ffbf51c805322e560522fb859dde242f3a672ca",
+      "measurement": {
+        "elapsedMs": 579.3719269999999,
+        "heapUsedMiB": 34.00593566894531,
+        "rssMiB": 166.6171875
+      }
+    }
+  ],
+  "limits": [
+    "Parent recipe and sea threshold remain fixed",
+    "Parent drainage topology is not yet inherited",
+    "Not driven by camera zoom",
+    "No settlements or local terrain generated",
+    "Climate-dependent discharge not calculated; area is not flow"
+  ],
+  "display": {
+    "altitudeRangeM": [
+      0,
+      3500
+    ],
+    "outsideRange": "clamped to endpoint colours",
+    "green": "low elevation, not forest",
+    "brown": "middle-high elevation, not desert",
+    "white": "high elevation, not snow",
+    "defaultRiverAreaThresholdKm2": 300000,
+    "lake": "positive static prescribed lake fill depth, not climate-equilibrium water"
+  },
+  "verification": {
+    "focusedTests": 4,
+    "fullSuite": {
+      "tests": 1183,
+      "pass": 1183,
+      "fail": 0,
+      "skipped": 0
+    },
+    "standalone": "Embedded script syntax checked; control handlers exercised in Node DOM/canvas stub; browser rendering NOT tested",
+    "build": "passed"
+  },
+  "reproduction": [
+    "node scripts/experiments/plan-macro-water.mjs L0.json SERIES.json 3",
+    "node scripts/build-l0-resolution-review.mjs SERIES.json REVIEW.html"
+  ]
+}
