@@ -106,6 +106,7 @@ export function colorize(R, latDeg, { riverCells = 300, rivers = 'map' } = {}) {
     else {
       const slope = R.colorSlope ? R.colorSlope[c] : Math.hypot(at(i + 1, j) - at(i - 1, j), at(i, j - 1) - at(i, j + 1)) / (2 * dx);
       col = landColor(latDeg, h[c], pr[c], slope);
+      if (R.rock && R.rock[c] > 0) col = col.map((v, m) => v + ([112, 104, 96][m] - v) * Math.min(1, R.rock[c] * 1.3)); // bare rock
       if (lakeDepth[c] > 0.5) col = [44, 92, 128];
       if (R.water && !Number.isNaN(R.water[c])) col = [52, 88, 104];
       else if (R.waterCover && R.waterCover[c] > 0) col = col.map((v, m) => v + ([52, 88, 104][m] - v) * R.waterCover[c]);
@@ -141,14 +142,14 @@ function nextCenter(R) {
 /** Grid-sample a near field around a local offset in the simulated region's frame. */
 function sampleNear(sample, [ox, oy], sizeM, res) {
   const n = res * res, dx = sizeM / res, height = new Float32Array(n), water = new Float32Array(n).fill(NaN);
-  const pr = new Float32Array(n), riverDist = new Float32Array(n), colorSlope = new Float32Array(n), waterCover = new Float32Array(n);
+  const pr = new Float32Array(n), riverDist = new Float32Array(n), colorSlope = new Float32Array(n), waterCover = new Float32Array(n), rock = new Float32Array(n);
   for (let j = 0; j < res; j++) for (let i = 0; i < res; i++) {
     const c = j * res + i, r = sample(ox + (i + 0.5) * dx - sizeM / 2, oy + sizeM / 2 - (j + 0.5) * dx, dx);
-    height[c] = r.h; pr[c] = r.precip; colorSlope[c] = r.baseSlope; riverDist[c] = r.riverDist; waterCover[c] = r.waterCover;
+    height[c] = r.h; pr[c] = r.precip; colorSlope[c] = r.baseSlope; riverDist[c] = r.riverDist; waterCover[c] = r.waterCover; rock[c] = r.rock;
     if (r.water != null && r.waterCover >= 0.5) water[c] = r.water;
   }
   const fixed = new Uint8Array(n); for (let c = 0; c < n; c++) if (height[c] <= 0) fixed[c] = 1;
-  return { W: res, H: res, dx, sizeM, height, fixed, precip: pr, water, waterCover, riverDist, colorSlope, discharge: new Float32Array(n), lakeDepth: new Float32Array(n) };
+  return { W: res, H: res, dx, sizeM, height, fixed, precip: pr, water, waterCover, rock, riverDist, colorSlope, discharge: new Float32Array(n), lakeDepth: new Float32Array(n) };
 }
 
 /** Near-field next centre: a hillside close to a channel (where people would build). */

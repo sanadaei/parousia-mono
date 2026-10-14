@@ -96,7 +96,7 @@ export function channelSize(area) {
   return { width: Math.max(1.2, 3.2 * Math.sqrt(Q)), depth: Math.max(0.3, 0.35 * Q ** 0.36) };
 }
 
-export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octaves = 7, gullyDepth = 0.16 } = {}) {
+export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octaves = 8, gullyDepth = 0.11, gullyScale = 1, gullyLen = 1.6, gullyWin = 3, gullySteer = 2.5, rockSlope = 0.4, rockRelief = 0.5 } = {}) {
   const { W, H, dx, sizeM, height, precip } = R, s0 = hashSeed(seed);
   const rivers = traceRivers(R, minChannelArea, seed);
   const toF = (x, y) => [(x + sizeM / 2) / dx - 0.5, (sizeM / 2 - y) / dx - 0.5];
@@ -120,17 +120,18 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
     return { d: best, area: q, x: bx, y: by };
   }
 
-  const nCluster = createSimplex3(seed + '/gully-cluster');
+  const nCluster = createSimplex3(seed + '/gully-cluster'), nRock = createSimplex3(seed + '/rock');
+  const cragMean = (() => { let m = 0; for (let t = 0; t < 4000; t++) { const r = 1 - Math.abs(nRock(hash2(t, 5, 1, s0) * 50, hash2(t, 6, 2, s0) * 50, 9.5)); m += r * r; } return m / 4000; })();
   const cluster = (u, w, k) => nCluster(u, w, k * 1.7);
   /** One gully octave in cell units (cell size 1): trough sum v and dv/d(across). */
   function gullyOctave(u, w, px, py, k) {
     const ix = Math.floor(u), iy = Math.floor(w);
     let v = 0, d = 0;
-    // 5x5 cells cover radius 2 around the query; the window taper reaches zero
-    // there, so features entering or leaving the window leave no seam.
-    for (let j = -2; j <= 2; j++) for (let i = -2; i <= 2; i++) {
+    // (2r+1)^2 cells cover radius r around the query; the window taper reaches
+    // zero there, so features entering or leaving the window leave no seam.
+    for (let j = -gullyWin; j <= gullyWin; j++) for (let i = -gullyWin; i <= gullyWin; i++) {
       const cx = ix + i + hash2(ix + i, iy + j, k, s0), cy = iy + j + hash2(ix + i, iy + j, k + 31, s0);
-      const du = u - cx, dw = w - cy, taper = 1 - (du * du + dw * dw) / 4;
+      const du = u - cx, dw = w - cy, taper = 1 - (du * du + dw * dw) / (gullyWin * gullyWin);
       if (taper <= 0) continue;
       const al = du * py - dw * px, ac = du * px + dw * py;
       const hw = 0.3 + 0.45 * hash2(ix + i, iy + j, k + 57, s0); // trough half-width
@@ -138,7 +139,7 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
       // Clustered presence and random length: gullies bunch and gap like real ones.
       const gx0 = ix + i, gy0 = iy + j;
       if (hash2(gx0, gy0, k + 71, s0) > 0.45 + 0.5 * cluster(gx0 / 6, gy0 / 6, k)) continue;
-      const len2 = 1 + 3 * hash2(gx0, gy0, k + 13, s0);
+      const len2 = (1 + 3 * hash2(gx0, gy0, k + 13, s0)) * gullyLen * gullyLen;
       const a = (0.4 + 1.2 * hash2(gx0, gy0, k + 91, s0)) * taper * taper * Math.exp(-al * al / len2);
       const q = ac / hw, t = 1 - q * q;
       v -= a * t * t; d += a * 4 * q * t / hw;
@@ -170,7 +171,7 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
     // Gully noise: suppressed on floodplains and flats. Each feature point is one
     // V-shaped trough along the slope (random width and depth), so spacing is
     // irregular and sharp spurs form where neighbouring troughs meet.
-    let s = dx * 0.5; // the parent already resolves its own cell size
+    let s = dx * gullyScale; // the parent already resolves its own cell size
     for (let k = 0; k < octaves; k++, s *= 0.5) {
       const slope = Math.hypot(gx, gy);
       if (slope < 1e-4 || s < 2 * footprint) break;
@@ -179,9 +180,21 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
       const lod = footprint > 0 ? Math.min(1, Math.max(0, (s / footprint - 2) / 2)) : 1; // fade in, no popping
       // Depth follows the parent's slope (not the gullied one, which would feed back),
       // steeper than linearly: gentle soil-mantled hills stay smooth.
-      const amp = lod * s * gullyDepth * 0.85 ** k * Math.min(1.5, (baseSlope / 0.3) ** 1.5) * Math.min(1, baseSlope * 40) * (1 - floodW);
+      const amp = lod * s * gullyDepth * 0.78 ** k * Math.min(1.5, (baseSlope / 0.3) ** 1.5) * Math.min(1, baseSlope * 40) * (1 - floodW);
       h += amp * (v - gullyMean);
-      gx += amp * d / s * px; gy += amp * d / s * py; // later octaves follow the new slope: branching
+      gx += gullySteer * amp * d / s * px; gy += gullySteer * amp * d / s * py; // later octaves follow the new slope: branching
+    }
+
+    // Rock: on steep parent slopes, patches of bare rock with craggy relief
+    // (squared ridged noise, zero-mean per octave, footprint-limited like the gullies).
+    const steep = Math.min(1, Math.max(0, (baseSlope - rockSlope) / 0.3));
+    let rock = 0;
+    if (steep > 0) {
+      rock = steep * Math.min(1, Math.max(0, 0.45 + 1.4 * nRock(x / 70, y / 70, 0.3))) * (1 - floodW);
+      if (rock > 0) for (let L = 16, k = 0; L >= 2 * footprint && k < 6; L *= 0.5, k++) {
+        const r = 1 - Math.abs(nRock(x / L + k * 17.1, y / L - k * 9.3, 2.7 + k));
+        h += rock * rockRelief * L * (r * r - cragMean) * Math.min(1, (L / footprint - 2) / 2 || 1);
+      }
     }
 
     let water = 0, waterCover = 0;
@@ -200,7 +213,7 @@ export function createNearField(R, { seed = 'near', minChannelArea = 2e5, octave
       }
     }
     // waterCover: fraction of the (widened) channel that is really water, for colouring.
-    return { h, water: water > h ? water : null, waterCover: water > h ? waterCover : 0, slope: Math.hypot(gx, gy), baseSlope, riverDist: riv.d, precip: precipAt(x, y) };
+    return { h, rock, water: water > h ? water : null, waterCover: water > h ? waterCover : 0, slope: Math.hypot(gx, gy), baseSlope, riverDist: riv.d, precip: precipAt(x, y) };
   };
 
   function precipAt(x, y) { const [fx, fy] = toF(x, y); return precip[Math.min(H - 1, Math.max(0, Math.round(fy))) * W + Math.min(W - 1, Math.max(0, Math.round(fx)))]; }

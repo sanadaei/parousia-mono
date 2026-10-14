@@ -4,9 +4,9 @@
 // discards the fragments its child covers; the child morphs its outer band to
 // the parent's height and hangs a skirt, so the joins stay closed. Curvature,
 // sun + sky ambient, water Fresnel, and height-dependent haze (aerial
-// perspective) are applied; there are no cast shadows yet.
+// perspective) are applied; there are sun shadows come from one 2048² ortho shadow map around the orbit target.
 //
-// URL: ?scene=planet-1-N512-mountain&preset=3&exag=1&sunAz=250&sunEl=30&haze=1&ui=0
+// URL: ?scene=planet-1-N512-mountain&preset=3&exag=1&sunAz=250&sunEl=30&haze=1&shadows=1&ui=0
 
 const qs = new URLSearchParams(location.search);
 const sceneName = qs.get('scene') ?? 'planet-1-N512-mountain';
@@ -15,7 +15,7 @@ const canvas = $('gl');
 const gl = canvas.getContext('webgl2', { antialias: true, preserveDrawingBuffer: true });
 
 const COMMON = `#version 300 es
-precision highp float; precision highp int; precision highp sampler2D;
+precision highp float; precision highp int; precision highp sampler2D; precision highp sampler2DShadow;
 uniform vec3 uSun; uniform float uHaze;
 vec3 skyColor(vec3 d) {
   float h = d.z, s = max(dot(d, uSun), 0.0);
@@ -32,14 +32,14 @@ vec3 hazeColor(vec3 d) {
 vec3 present(vec3 c) { c = 1.0 - exp(-c * 1.35); return pow(c, vec3(1.0 / 2.2)); }
 `;
 
-const TERRAIN_VS = `#version 300 es
-precision highp float; precision highp int; precision highp sampler2D;
+// Vertex code shared by the main and shadow programs so they cannot drift.
+const TERRAIN_COMMON = `#version 300 es
+precision highp float; precision highp int; precision highp sampler2D; precision highp sampler2DShadow;
 uniform sampler2D uH, uC, uPH;
 uniform int uRes, uPRes, uHasParent;
 uniform float uDx, uSize, uPDx, uPSize, uExag, uRadius, uSkirt;
 uniform vec2 uOrigin, uPOrigin;
-uniform vec3 uEye; uniform mat4 uVP;
-out vec3 vRel; out vec3 vN; out vec4 vCol; out vec2 vXY; out float vH; out float vLogZ;
+uniform mat4 uLight; uniform vec3 uLC; // light ortho matrix, light centre (world)
 float hAt(ivec2 p) { return texelFetch(uH, clamp(p, ivec2(0), ivec2(uRes - 1)), 0).r; }
 float pAt(ivec2 p) { return texelFetch(uPH, clamp(p, ivec2(0), ivec2(uPRes - 1)), 0).r; }
 float parentH(vec2 xy) {
@@ -47,7 +47,8 @@ float parentH(vec2 xy) {
   vec2 fi = floor(f), t = f - fi; ivec2 b = ivec2(fi);
   return mix(mix(pAt(b), pAt(b + ivec2(1, 0)), t.x), mix(pAt(b + ivec2(0, 1)), pAt(b + ivec2(1, 1)), t.x), t.y);
 }
-void main() {
+// Shared terrain vertex: world position (curved, skirted), normal, xy, height, cell.
+void terrain(out vec3 pos, out vec3 N, out vec2 xy, out float h, out ivec2 ij) {
   int G = uRes + 2, vi = gl_VertexID % G, vj = gl_VertexID / G;
   bool skirt = vi == 0 || vj == 0 || vi == G - 1 || vj == G - 1;
   int i = clamp(vi - 1, 0, uRes - 1), j = clamp(vj - 1, 0, uRes - 1);
@@ -55,8 +56,8 @@ void main() {
   vec2 local = vec2((float(i) + 0.5) * uDx - hs, hs - (float(j) + 0.5) * uDx);
   if (i == 0) local.x = -hs; if (i == uRes - 1) local.x = hs;
   if (j == 0) local.y = hs; if (j == uRes - 1) local.y = -hs;
-  vec2 xy = uOrigin + local;
-  float h = hAt(ivec2(i, j));
+  xy = uOrigin + local;
+  h = hAt(ivec2(i, j)); ij = ivec2(i, j);
   float gx = (hAt(ivec2(i + 1, j)) - hAt(ivec2(i - 1, j))) / (2.0 * uDx);
   float gy = (hAt(ivec2(i, j - 1)) - hAt(ivec2(i, j + 1))) / (2.0 * uDx);
   if (uHasParent == 1) { // geomorph the outer band onto the parent surface (height and slope)
@@ -70,17 +71,43 @@ void main() {
   }
   float z = h * uExag - dot(xy, xy) / (2.0 * uRadius);
   if (skirt) z -= uSkirt * uExag;
-  vN = normalize(vec3(-gx * uExag + xy.x / uRadius, -gy * uExag + xy.y / uRadius, 1.0));
-  vRel = vec3(xy, z) - uEye;
+  N = normalize(vec3(-gx * uExag + xy.x / uRadius, -gy * uExag + xy.y / uRadius, 1.0));
+  pos = vec3(xy, z);
+}`;
+
+const TERRAIN_VS = TERRAIN_COMMON + `
+uniform vec3 uEye; uniform mat4 uVP;
+out vec3 vRel; out vec3 vN; out vec4 vCol; out vec2 vXY; out float vH; out float vLogZ; out vec3 vLS;
+void main() {
+  vec3 pos; ivec2 ij; terrain(pos, vN, vXY, vH, ij);
+  vRel = pos - uEye;
   gl_Position = uVP * vec4(vRel, 1.0);
   vLogZ = 1.0 + gl_Position.w;
-  vCol = texelFetch(uC, ivec2(i, j), 0);
-  vXY = xy; vH = h;
+  vCol = texelFetch(uC, ij, 0);
+  vLS = (uLight * vec4(pos - uLC, 1.0)).xyz * 0.5 + 0.5; // light-space uv + depth
 }`;
+
+const SHADOW_VS = TERRAIN_COMMON + `
+out vec2 vXY;
+void main() { vec3 pos, n; float h; ivec2 ij; terrain(pos, n, vXY, h, ij); gl_Position = uLight * vec4(pos - uLC, 1.0); }`;
+const SHADOW_FS = `#version 300 es
+precision highp float;
+uniform vec4 uHole; uniform int uHasHole; in vec2 vXY;
+void main() { if (uHasHole == 1 && vXY.x > uHole.x && vXY.x < uHole.z && vXY.y > uHole.y && vXY.y < uHole.w) discard; }`;
 
 const TERRAIN_FS = COMMON + `
 uniform vec4 uHole; uniform int uHasHole; uniform float uFC, uEyeH;
-in vec3 vRel; in vec3 vN; in vec4 vCol; in vec2 vXY; in float vH; in float vLogZ;
+uniform sampler2DShadow uShadow; uniform vec3 uShP; // shadow: on, texel size (m), 1 / (2 * depth half-range m)
+in vec3 vRel; in vec3 vN; in vec4 vCol; in vec2 vXY; in float vH; in float vLogZ; in vec3 vLS;
+// Sun visibility: 3x3 PCF (hardware-bilinear taps) with a slope-scaled bias; outside the map is lit.
+float sunVis(vec3 n) {
+  if (uShP.x < 0.5 || any(lessThan(vLS.xy, vec2(0.0))) || any(greaterThan(vLS.xy, vec2(1.0))) || vLS.z > 1.0) return 1.0;
+  float c = clamp(dot(n, uSun), 0.0, 1.0), tn = min(sqrt(1.0 - c * c) / max(c, 0.05), 12.0);
+  float z = vLS.z - uShP.y * uShP.z * (1.5 + 2.0 * tn);
+  vec2 t = vec2(1.0 / 2048.0); float s = 0.0;
+  for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) s += texture(uShadow, vec3(vLS.xy + vec2(x, y) * t, z));
+  return s / 9.0;
+}
 out vec4 frag;
 void main() {
   if (uHasHole == 1 && vXY.x > uHole.x && vXY.x < uHole.z && vXY.y > uHole.y && vXY.y < uHole.w) discard;
@@ -91,11 +118,12 @@ void main() {
   float dif = max(dot(n, uSun), 0.0);
   vec3 sunL = vec3(1.0, 0.95, 0.86) * 2.6 * smoothstep(-0.02, 0.08, uSun.z);
   vec3 amb = mix(vec3(0.07, 0.07, 0.06), vec3(0.20, 0.28, 0.42), n.z * 0.5 + 0.5);
-  vec3 c = alb * (sunL * dif + amb);
+  float vis = sunVis(n);
+  vec3 c = alb * (sunL * dif * vis + amb);
   if (vCol.a > 0.5) { // water: Fresnel sky reflection and sun glint on a near-flat surface
     vec3 wn = normalize(mix(n, vec3(0, 0, 1), 0.85)), r = reflect(v, wn);
     float F = 0.02 + 0.98 * pow(1.0 - max(dot(wn, -v), 0.0), 5.0);
-    c = mix(alb * (sunL * dif * 0.35 + amb * 0.8), skyColor(vec3(r.xy, abs(r.z))), F) + sunL * pow(max(dot(r, uSun), 0.0), 400.0) * 3.0;
+    c = mix(alb * (sunL * dif * vis * 0.35 + amb * 0.8), skyColor(vec3(r.xy, abs(r.z))), F) + sunL * vis * pow(max(dot(r, uSun), 0.0), 400.0) * 3.0;
   }
   // Aerial perspective: exponential atmosphere (scale height 8 km), ~60 km visibility at sea level.
   const float SH = 8000.0;
@@ -131,7 +159,8 @@ function fail(e) { $('err').style.display = 'grid'; $('err').textContent = Strin
 
 // --- Scene state
 let scene, levels, terrainProg, skyProg, vao;
-const view = { tx: 0, ty: 0, yaw: 0, pitch: 25, dist: 1000, exag: +(qs.get('exag') ?? 1), sunAz: +(qs.get('sunAz') ?? 250), sunEl: +(qs.get('sunEl') ?? 30), haze: +(qs.get('haze') ?? 1) };
+const view = { tx: 0, ty: 0, yaw: 0, pitch: 25, dist: 1000, exag: +(qs.get('exag') ?? 1), sunAz: +(qs.get('sunAz') ?? 250), sunEl: +(qs.get('sunEl') ?? 30), haze: +(qs.get('haze') ?? 1), shadows: qs.get('shadows') !== '0' };
+const SM = 2048; let shadowTex, shadowFbo, shadowProg;
 
 async function load() {
   if (!gl) throw new Error('WebGL2 is not available in this browser.');
@@ -139,6 +168,15 @@ async function load() {
   const bin = await (await fetch(`../out/scene-${sceneName}.bin`)).arrayBuffer();
   terrainProg = program(TERRAIN_VS, TERRAIN_FS);
   skyProg = program(SKY_VS, SKY_FS);
+  shadowProg = program(SHADOW_VS, SHADOW_FS);
+  shadowTex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, shadowTex);
+  gl.texStorage2D(gl.TEXTURE_2D, 1, gl.DEPTH_COMPONENT32F, SM, SM);
+  for (const p of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER]) gl.texParameteri(gl.TEXTURE_2D, p, gl.LINEAR);
+  for (const p of [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T]) gl.texParameteri(gl.TEXTURE_2D, p, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_COMPARE_MODE, gl.COMPARE_REF_TO_TEXTURE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_COMPARE_FUNC, gl.LEQUAL);
+  shadowFbo = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, shadowFbo);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.TEXTURE_2D, shadowTex, 0);
+  gl.drawBuffers([gl.NONE]); gl.readBuffer(gl.NONE); gl.bindFramebuffer(gl.FRAMEBUFFER, null);
   vao = gl.createVertexArray();
   const indexCache = new Map();
   levels = scene.levels.map((L, k) => {
@@ -219,42 +257,8 @@ function draw() {
   requestAnimationFrame(render);
 }
 
-function render() {
-  const w = Math.round(canvas.clientWidth * devicePixelRatio), h = Math.round(canvas.clientHeight * devicePixelRatio);
-  if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
-  gl.viewport(0, 0, w, h);
-  const cam = camera(), fovY = 50 * Math.PI / 180, tanY = Math.tan(fovY / 2), tanX = tanY * w / h;
-  const near = 0.25, far = 4e6;
-  // View (rotation only; geometry is eye-relative) times perspective, column-major.
-  const { right: r, up: u, fwd: f } = cam;
-  const V = [r[0], u[0], -f[0], 0, r[1], u[1], -f[1], 0, r[2], u[2], -f[2], 0, 0, 0, 0, 1];
-  const P = [1 / tanX, 0, 0, 0, 0, 1 / tanY, 0, 0, 0, 0, -(far + near) / (far - near), -1, 0, 0, -2 * far * near / (far - near), 0];
-  const VP = new Float32Array(16);
-  for (let c = 0; c < 4; c++) for (let rr = 0; rr < 4; rr++) { let s = 0; for (let k = 0; k < 4; k++) s += P[k * 4 + rr] * V[c * 4 + k]; VP[c * 4 + rr] = s; }
-  const az = view.sunAz * Math.PI / 180, el = view.sunEl * Math.PI / 180;
-  const sun = [Math.sin(az) * Math.cos(el), Math.cos(az) * Math.cos(el), Math.sin(el)];
-  const eyeH = (cam.eye[2] + (cam.eye[0] ** 2 + cam.eye[1] ** 2) / (2 * scene.radiusM)) / view.exag;
-
-  gl.bindVertexArray(vao);
-  gl.disable(gl.DEPTH_TEST); gl.depthMask(false);
-  gl.useProgram(skyProg.p);
-  gl.uniform3fv(skyProg.u.uSun, sun); gl.uniform1f(skyProg.u.uHaze, view.haze);
-  gl.uniform3fv(skyProg.u.uFwd, f); gl.uniform3fv(skyProg.u.uRight, r); gl.uniform3fv(skyProg.u.uUp, u); gl.uniform2f(skyProg.u.uTan, tanX, tanY);
-  gl.drawArrays(gl.TRIANGLES, 0, 3);
-
-  gl.enable(gl.DEPTH_TEST); gl.depthMask(true); gl.depthFunc(gl.LEQUAL);
-  gl.clear(gl.DEPTH_BUFFER_BIT);
-  const T = terrainProg, U = T.u; gl.useProgram(T.p);
-  gl.uniformMatrix4fv(U.uVP, false, VP); gl.uniform3fv(U.uEye, cam.eye); gl.uniform3fv(U.uSun, sun);
-  gl.uniform1f(U.uHaze, view.haze); gl.uniform1f(U.uExag, view.exag); gl.uniform1f(U.uRadius, scene.radiusM);
-  gl.uniform1f(U.uFC, 2 / Math.log2(far + 1)); gl.uniform1f(U.uEyeH, eyeH);
-  gl.uniform1i(U.uH, 0); gl.uniform1i(U.uC, 1); gl.uniform1i(U.uPH, 2);
-  // LOD: a level is drawn only while the eye is within a few of its widths;
-  // further away its sub-pixel relief would only alias.
-  for (const L of levels) {
-    const ex = Math.max(0, Math.abs(cam.eye[0] - L.origin[0]) - L.sizeM / 2), ey = Math.max(0, Math.abs(cam.eye[1] - L.origin[1]) - L.sizeM / 2);
-    L.drawn = L.visible && (L.k === 0 || Math.hypot(ex, ey, eyeH - heightAt(L.origin[0], L.origin[1])) < 2 * L.sizeM);
-  }
+/** Draw every visible level coarse to fine, setting per-level uniforms on program uniforms U. */
+function drawLevels(U) {
   for (const L of levels) {
     if (!L.drawn) continue;
     const parent = levels[L.k - 1], child = levels[L.k + 1];
@@ -271,6 +275,66 @@ function render() {
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, L.index.buf);
     gl.drawElements(gl.TRIANGLES, L.index.count, gl.UNSIGNED_INT, 0);
   }
+}
+
+function render() {
+  const w = Math.round(canvas.clientWidth * devicePixelRatio), h = Math.round(canvas.clientHeight * devicePixelRatio);
+  if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+  gl.viewport(0, 0, w, h);
+  const cam = camera(), fovY = 50 * Math.PI / 180, tanY = Math.tan(fovY / 2), tanX = tanY * w / h;
+  const near = 0.25, far = 4e6;
+  // View (rotation only; geometry is eye-relative) times perspective, column-major.
+  const { right: r, up: u, fwd: f } = cam;
+  const V = [r[0], u[0], -f[0], 0, r[1], u[1], -f[1], 0, r[2], u[2], -f[2], 0, 0, 0, 0, 1];
+  const P = [1 / tanX, 0, 0, 0, 0, 1 / tanY, 0, 0, 0, 0, -(far + near) / (far - near), -1, 0, 0, -2 * far * near / (far - near), 0];
+  const VP = new Float32Array(16);
+  for (let c = 0; c < 4; c++) for (let rr = 0; rr < 4; rr++) { let s = 0; for (let k = 0; k < 4; k++) s += P[k * 4 + rr] * V[c * 4 + k]; VP[c * 4 + rr] = s; }
+  const az = view.sunAz * Math.PI / 180, el = view.sunEl * Math.PI / 180;
+  const sun = [Math.sin(az) * Math.cos(el), Math.cos(az) * Math.cos(el), Math.sin(el)];
+  const eyeH = (cam.eye[2] + (cam.eye[0] ** 2 + cam.eye[1] ** 2) / (2 * scene.radiusM)) / view.exag;
+
+  // LOD: a level is drawn only while the eye is within a few of its widths;
+  // further away its sub-pixel relief would only alias.
+  for (const L of levels) {
+    const ex = Math.max(0, Math.abs(cam.eye[0] - L.origin[0]) - L.sizeM / 2), ey = Math.max(0, Math.abs(cam.eye[1] - L.origin[1]) - L.sizeM / 2);
+    L.drawn = L.visible && (L.k === 0 || Math.hypot(ex, ey, eyeH - heightAt(L.origin[0], L.origin[1])) < 2 * L.sizeM);
+  }
+  // Shadow map: ortho light camera along -sun, centred on the orbit target (target-relative for precision).
+  let shP = [0, 0, 0];
+  const tgt = [view.tx, view.ty, surfaceZ(view.tx, view.ty)], R = Math.min(3e5, Math.max(200, view.dist * 1.5)), D = Math.max(R, 2e4);
+  const lx0 = Math.hypot(sun[0], sun[1]) > 1e-4 ? [sun[1], -sun[0], 0] : [1, 0, 0], ll = Math.hypot(...lx0), lx = lx0.map((v) => v / ll);
+  const ly = [sun[1] * lx[2] - sun[2] * lx[1], sun[2] * lx[0] - sun[0] * lx[2], sun[0] * lx[1] - sun[1] * lx[0]];
+  const LM = new Float32Array(16);
+  for (let m = 0; m < 3; m++) { LM[m * 4] = lx[m] / R; LM[m * 4 + 1] = ly[m] / R; LM[m * 4 + 2] = -sun[m] / D; } LM[15] = 1;
+  const setLight = (p) => { gl.uniformMatrix4fv(p.u.uLight, false, LM); gl.uniform3fv(p.u.uLC, tgt); };
+  if (view.shadows) {
+    shP = [1, 2 * R / SM, 1 / (2 * D)];
+    gl.bindVertexArray(vao);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, shadowFbo); gl.viewport(0, 0, SM, SM);
+    gl.enable(gl.DEPTH_TEST); gl.depthMask(true); gl.depthFunc(gl.LEQUAL); gl.clear(gl.DEPTH_BUFFER_BIT);
+    gl.useProgram(shadowProg.p); setLight(shadowProg);
+    gl.uniform1f(shadowProg.u.uExag, view.exag); gl.uniform1f(shadowProg.u.uRadius, scene.radiusM);
+    gl.uniform1i(shadowProg.u.uH, 0); gl.uniform1i(shadowProg.u.uPH, 2);
+    drawLevels(shadowProg.u);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, w, h);
+  }
+
+  gl.bindVertexArray(vao);
+  gl.disable(gl.DEPTH_TEST); gl.depthMask(false);
+  gl.useProgram(skyProg.p);
+  gl.uniform3fv(skyProg.u.uSun, sun); gl.uniform1f(skyProg.u.uHaze, view.haze);
+  gl.uniform3fv(skyProg.u.uFwd, f); gl.uniform3fv(skyProg.u.uRight, r); gl.uniform3fv(skyProg.u.uUp, u); gl.uniform2f(skyProg.u.uTan, tanX, tanY);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+  gl.enable(gl.DEPTH_TEST); gl.depthMask(true); gl.depthFunc(gl.LEQUAL);
+  gl.clear(gl.DEPTH_BUFFER_BIT);
+  const T = terrainProg, U = T.u; gl.useProgram(T.p);
+  gl.uniformMatrix4fv(U.uVP, false, VP); gl.uniform3fv(U.uEye, cam.eye); gl.uniform3fv(U.uSun, sun);
+  gl.uniform1f(U.uHaze, view.haze); gl.uniform1f(U.uExag, view.exag); gl.uniform1f(U.uRadius, scene.radiusM);
+  gl.uniform1f(U.uFC, 2 / Math.log2(far + 1)); gl.uniform1f(U.uEyeH, eyeH);
+  gl.uniform1i(U.uH, 0); gl.uniform1i(U.uC, 1); gl.uniform1i(U.uPH, 2); gl.uniform1i(U.uShadow, 3); gl.uniform3fv(U.uShP, shP); setLight(T);
+  gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, shadowTex);
+  drawLevels(U);
   updateInfo(cam, eyeH);
   window.__frames = (window.__frames ?? 0) + 1;
 }
@@ -299,6 +363,7 @@ function buildUi() {
     l.append(c, L.name); $('levels').append(l);
   });
   const bind = (id, key, fmt) => { const el = $(id); el.value = view[key]; el.oninput = () => { view[key] = +el.value; if (fmt) $(fmt).textContent = view[key].toFixed(1); draw(); }; if (fmt) $(fmt).textContent = view[key].toFixed(1); };
+  $('shadows').checked = view.shadows; $('shadows').onchange = () => { view.shadows = $('shadows').checked; draw(); };
   bind('exag', 'exag', 'exagV'); bind('sunAz', 'sunAz'); bind('sunEl', 'sunEl'); bind('haze', 'haze');
   $('toggle').onclick = () => $('panel').classList.toggle('hidden');
   addEventListener('keydown', (e) => {
