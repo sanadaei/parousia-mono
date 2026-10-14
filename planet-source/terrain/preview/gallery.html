@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asset Gallery</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #9fb6cc; overflow: hidden; font: 12px/1.4 system-ui, sans-serif; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  #panel { position: fixed; top: 8px; left: 8px; background: rgba(16, 20, 26, 0.78); color: #e6e9ee; padding: 8px 10px; border-radius: 6px; width: 230px; }
+  #panel label { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin: 3px 0; }
+  #panel input[type=range] { width: 120px; }
+  #panel select { width: 120px; }
+  #labels { position: fixed; inset: 0; pointer-events: none; }
+  #labels div { position: absolute; transform: translate(-50%, 0); color: #fff; font: 11px system-ui; text-shadow: 0 1px 2px #000; white-space: nowrap; }
+  #err { position: fixed; inset: 0; display: none; place-items: center; color: #fff; background: #222; padding: 24px; white-space: pre-wrap; font: 13px ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="labels"></div>
+<div id="panel">
+  <b>Asset gallery</b>
+  <label>Category<select id="cat"></select></label>
+  <label>LOD<select id="lod"><option value="0">LOD0</option><option value="1">LOD1</option></select></label>
+  <label>Sun azimuth<input id="sunAz" type="range" min="0" max="360" step="1"></label>
+  <label>Sun elevation<input id="sunEl" type="range" min="2" max="80" step="1"></label>
+  <label>Labels<input id="showLabels" type="checkbox" checked></label>
+  <div style="margin-top:4px;color:#8c96a3">drag: orbit · right-drag: pan · wheel: zoom</div>
+</div>
+<div id="err"></div>
+<script type="module" src="./gallery.mjs"></script>
+</body>
+</html>

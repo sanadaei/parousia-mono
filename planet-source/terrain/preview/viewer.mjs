@@ -8,6 +8,8 @@
 //
 // URL: ?scene=planet-1-N512-mountain&preset=3&exag=1&sunAz=250&sunEl=30&haze=1&shadows=1&ui=0
 
+import { LOOK } from '../render/look.mjs';
+
 const qs = new URLSearchParams(location.search);
 const sceneName = qs.get('scene') ?? 'planet-1-N512-mountain';
 const $ = (id) => document.getElementById(id);
@@ -16,21 +18,7 @@ const gl = canvas.getContext('webgl2', { antialias: true, preserveDrawingBuffer:
 
 const COMMON = `#version 300 es
 precision highp float; precision highp int; precision highp sampler2D; precision highp sampler2DShadow;
-uniform vec3 uSun; uniform float uHaze;
-vec3 skyColor(vec3 d) {
-  float h = d.z, s = max(dot(d, uSun), 0.0);
-  float day = smoothstep(-0.05, 0.25, uSun.z);
-  vec3 zen = vec3(0.045, 0.14, 0.50), hor = vec3(0.50, 0.62, 0.78);
-  vec3 c = h > 0.0 ? mix(hor, zen, pow(h, 0.5)) : mix(hor, hor * vec3(0.55, 0.6, 0.65), smoothstep(0.0, -0.3, h));
-  c += vec3(1.0, 0.75, 0.45) * (pow(s, 6.0) * 0.35 * (1.0 - abs(h)) + pow(s, 1200.0) * 40.0);
-  return c * mix(0.25, 1.0, day);
-}
-vec3 hazeColor(vec3 d) {
-  float s = max(dot(d, uSun), 0.0), day = smoothstep(-0.05, 0.25, uSun.z);
-  return mix(vec3(0.52, 0.62, 0.76), vec3(1.0, 0.82, 0.62), pow(s, 5.0) * 0.55) * mix(0.25, 1.0, day);
-}
-vec3 present(vec3 c) { c = 1.0 - exp(-c * 1.35); return pow(c, vec3(1.0 / 2.2)); }
-`;
+` + LOOK;
 
 // Vertex code shared by the main and shadow programs so they cannot drift.
 const TERRAIN_COMMON = `#version 300 es
@@ -115,21 +103,21 @@ void main() {
   float dist = length(vRel); vec3 v = vRel / dist;
   vec3 n = normalize(vN);
   vec3 alb = pow(vCol.rgb, vec3(2.2));
+  if (vCol.a < 0.5) { // ground mottling (world space, faded with distance): breaks the flat per-texel colour
+    float m = (vnoise(vXY / 9.0) - 0.5) * 0.6 + (vnoise(vXY / 45.0) - 0.5) * 0.8 + (vnoise(vXY / 230.0) - 0.5) * 0.6;
+    float fade = 1.0 - smoothstep(1500.0, 9000.0, dist);
+    alb *= mix(vec3(1.0), vec3(1.0 + 0.35 * m, 1.0 + 0.28 * m, 1.0 + 0.18 * m), fade);
+  }
   float dif = max(dot(n, uSun), 0.0);
-  vec3 sunL = vec3(1.0, 0.95, 0.86) * 2.6 * smoothstep(-0.02, 0.08, uSun.z);
-  vec3 amb = mix(vec3(0.07, 0.07, 0.06), vec3(0.20, 0.28, 0.42), n.z * 0.5 + 0.5);
+  vec3 sunL = sunColor(max(vH, 0.0)), amb = ambient(n, max(vH, 0.0));
   float vis = sunVis(n);
   vec3 c = alb * (sunL * dif * vis + amb);
   if (vCol.a > 0.5) { // water: Fresnel sky reflection and sun glint on a near-flat surface
     vec3 wn = normalize(mix(n, vec3(0, 0, 1), 0.85)), r = reflect(v, wn);
     float F = 0.02 + 0.98 * pow(1.0 - max(dot(wn, -v), 0.0), 5.0);
-    c = mix(alb * (sunL * dif * vis * 0.35 + amb * 0.8), skyColor(vec3(r.xy, abs(r.z))), F) + sunL * vis * pow(max(dot(r, uSun), 0.0), 400.0) * 3.0;
+    c = mix(alb * (sunL * dif * vis * 0.35 + amb * 0.8), skyColor(vec3(r.xy, abs(r.z)), max(vH, 0.0), false), F) + sunL * vis * pow(max(dot(r, uSun), 0.0), 400.0) * 3.0;
   }
-  // Aerial perspective: exponential atmosphere (scale height 8 km), ~60 km visibility at sea level.
-  const float SH = 8000.0;
-  float he = uEyeH, hp = vH, avg = abs(hp - he) > 1.0 ? SH * (exp(-he / SH) - exp(-hp / SH)) / (hp - he) : exp(-he / SH);
-  float T = exp(-uHaze * 5e-5 * dist * max(avg, 0.0));
-  c = c * T + hazeColor(v) * (1.0 - T);
+  aerial(c, v, dist, max(uEyeH, 0.0), max(vH, 0.0)); // Rayleigh + Mie haze: distant ridges turn blue
   frag = vec4(present(c), 1.0);
 }`;
 
@@ -137,9 +125,9 @@ const SKY_VS = `#version 300 es
 out vec2 vNdc;
 void main() { vec2 p = vec2(gl_VertexID == 1 ? 3.0 : -1.0, gl_VertexID == 2 ? 3.0 : -1.0); vNdc = p; gl_Position = vec4(p, 0.0, 1.0); }`;
 const SKY_FS = COMMON + `
-uniform vec3 uFwd, uRight, uUp; uniform vec2 uTan;
+uniform vec3 uFwd, uRight, uUp; uniform vec2 uTan; uniform float uEyeH;
 in vec2 vNdc; out vec4 frag;
-void main() { vec3 d = normalize(uFwd + uRight * vNdc.x * uTan.x + uUp * vNdc.y * uTan.y); frag = vec4(present(skyColor(d)), 1.0); }`;
+void main() { vec3 d = normalize(uFwd + uRight * vNdc.x * uTan.x + uUp * vNdc.y * uTan.y); frag = vec4(present(skyColor(d, max(uEyeH, 0.0))), 1.0); }`;
 
 function program(vs, fs) {
   const p = gl.createProgram();
@@ -159,7 +147,7 @@ function fail(e) { $('err').style.display = 'grid'; $('err').textContent = Strin
 
 // --- Scene state
 let scene, levels, terrainProg, skyProg, vao;
-const view = { tx: 0, ty: 0, yaw: 0, pitch: 25, dist: 1000, exag: +(qs.get('exag') ?? 1), sunAz: +(qs.get('sunAz') ?? 250), sunEl: +(qs.get('sunEl') ?? 30), haze: +(qs.get('haze') ?? 1), shadows: qs.get('shadows') !== '0' };
+const view = { tx: 0, ty: 0, yaw: 0, pitch: 25, dist: 1000, exag: +(qs.get('exag') ?? 1), sunAz: +(qs.get('sunAz') ?? 250), sunEl: +(qs.get('sunEl') ?? 30), haze: +(qs.get('haze') ?? 1), clouds: +(qs.get('clouds') ?? 0.45), shadows: qs.get('shadows') !== '0' };
 const SM = 2048; let shadowTex, shadowFbo, shadowProg;
 
 async function load() {
@@ -322,15 +310,15 @@ function render() {
   gl.bindVertexArray(vao);
   gl.disable(gl.DEPTH_TEST); gl.depthMask(false);
   gl.useProgram(skyProg.p);
-  gl.uniform3fv(skyProg.u.uSun, sun); gl.uniform1f(skyProg.u.uHaze, view.haze);
-  gl.uniform3fv(skyProg.u.uFwd, f); gl.uniform3fv(skyProg.u.uRight, r); gl.uniform3fv(skyProg.u.uUp, u); gl.uniform2f(skyProg.u.uTan, tanX, tanY);
+  gl.uniform3fv(skyProg.u.uSun, sun); gl.uniform1f(skyProg.u.uHaze, view.haze); gl.uniform1f(skyProg.u.uClouds, view.clouds);
+  gl.uniform3fv(skyProg.u.uFwd, f); gl.uniform3fv(skyProg.u.uRight, r); gl.uniform3fv(skyProg.u.uUp, u); gl.uniform2f(skyProg.u.uTan, tanX, tanY); gl.uniform1f(skyProg.u.uEyeH, eyeH);
   gl.drawArrays(gl.TRIANGLES, 0, 3);
 
   gl.enable(gl.DEPTH_TEST); gl.depthMask(true); gl.depthFunc(gl.LEQUAL);
   gl.clear(gl.DEPTH_BUFFER_BIT);
   const T = terrainProg, U = T.u; gl.useProgram(T.p);
   gl.uniformMatrix4fv(U.uVP, false, VP); gl.uniform3fv(U.uEye, cam.eye); gl.uniform3fv(U.uSun, sun);
-  gl.uniform1f(U.uHaze, view.haze); gl.uniform1f(U.uExag, view.exag); gl.uniform1f(U.uRadius, scene.radiusM);
+  gl.uniform1f(U.uHaze, view.haze); gl.uniform1f(U.uClouds, view.clouds); gl.uniform1f(U.uExag, view.exag); gl.uniform1f(U.uRadius, scene.radiusM);
   gl.uniform1f(U.uFC, 2 / Math.log2(far + 1)); gl.uniform1f(U.uEyeH, eyeH);
   gl.uniform1i(U.uH, 0); gl.uniform1i(U.uC, 1); gl.uniform1i(U.uPH, 2); gl.uniform1i(U.uShadow, 3); gl.uniform3fv(U.uShP, shP); setLight(T);
   gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, shadowTex);
