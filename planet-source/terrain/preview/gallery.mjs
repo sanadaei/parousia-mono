@@ -26,7 +26,7 @@ const FS = HEAD + LOOK + `
 uniform vec3 uEye; uniform sampler2DShadow uShadow; uniform float uGround, uTexel;
 in vec3 vW, vN, vC, vLS; out vec4 frag;
 float sunVis(vec3 n) {
-  if (any(lessThan(vLS.xy, vec2(0.0))) || any(greaterThan(vLS.xy, vec2(1.0)))) return 1.0;
+  if (any(lessThan(vLS.xy, vec2(0.0))) || any(greaterThan(vLS.xy, vec2(1.0))) || vLS.z > 1.0) return 1.0; // outside the light box: lit
   float c = clamp(dot(n, uSun), 0.0, 1.0), tn = min(sqrt(1.0 - c * c) / max(c, 0.05), 8.0);
   float z = vLS.z - uTexel * (2.5 + 2.0 * tn), s = 0.0;
   for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) s += texture(uShadow, vec3(vLS.xy + vec2(x, y) / 4096.0, z));
@@ -39,10 +39,20 @@ void main() {
     float m = vnoise(vW.xy * 0.35) * 0.6 + vnoise(vW.xy * 2.1) * 0.4;
     alb = pow(mix(vec3(0.21, 0.27, 0.13), vec3(0.31, 0.35, 0.19), m), vec3(2.2));
   }
+  if (uGround > 2.5) alb = pow(vec3(0.42, 0.38, 0.30), vec3(2.2)); // sea bed (sand) under the water
+  vec3 d = vW - uEye; float dist = length(d); vec3 v = d / dist;
+  if (uGround > 1.5 && uGround < 2.5) { // water surface: small waves, Fresnel sky reflection over dark green-blue depth
+    vec2 q = vW.xy * 0.8;
+    vec3 wn = normalize(vec3((vnoise(q) - 0.5) * 0.12, (vnoise(q + 17.0) - 0.5) * 0.12, 1.0)), r = reflect(v, wn);
+    float F = 0.02 + 0.98 * pow(1.0 - max(dot(wn, -v), 0.0), 5.0);
+    vec3 c = mix(vec3(0.010, 0.030, 0.035) * (sunColor(0.0) * 0.5 + ambient(wn, 0.0)), skyColor(vec3(r.xy, abs(r.z)), 0.0, false), F);
+    c += sunColor(0.0) * pow(max(dot(r, uSun), 0.0), 300.0) * 2.0 * sunVis(wn);
+    aerial(c, v, dist, uEye.z, vW.z);
+    frag = vec4(present(c), mix(0.75, 1.0, F)); return;
+  }
   float dif = max(dot(n, uSun), 0.0);
   vec3 c = alb * (sunColor(0.0) * dif * sunVis(n) + ambient(n, 0.0));
-  vec3 d = vW - uEye; float dist = length(d);
-  aerial(c, d / dist, dist, uEye.z, vW.z);
+  aerial(c, v, dist, uEye.z, vW.z);
   frag = vec4(present(c), 1.0);
 }`;
 const SVS = HEAD + `in vec3 aPos; uniform mat4 uLight; uniform vec3 uOff;
@@ -109,7 +119,13 @@ async function load() {
     const meshes = parseGlb(await (await fetch(`../out/assets/${e.file}`)).arrayBuffer());
     items.push({ ...e, lods: meshes.map(upload), lodBounds: meshes.map((m) => [m.min, m.max]) });
   }
-  const G = 2000; ground = upload({ pos: new Float32Array([-G, 0, -G, G, 0, -G, G, 0, G, -G, 0, G]), nrm: new Float32Array([0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]), col: new Float32Array(12).fill(0.5), idx: new Uint16Array([0, 2, 1, 0, 3, 2]) });
+  { // ground: 64x64 grid (two huge triangles interpolate badly at grazing angles)
+    const G = 2000, N = 64, pos = [], idx = [];
+    for (let j = 0; j <= N; j++) for (let i = 0; i <= N; i++) pos.push(-G + 2 * G * i / N, 0, -G + 2 * G * j / N);
+    for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) { const a = j * (N + 1) + i; idx.push(a, a + N + 1, a + 1, a + 1, a + N + 1, a + N + 2); }
+    const nv = pos.length / 3;
+    ground = upload({ pos: new Float32Array(pos), nrm: new Float32Array(nv * 3).map((_, k) => (k % 3 === 1 ? 1 : 0)), col: new Float32Array(nv * 3).fill(0.5), idx: new Uint16Array(idx) });
+  }
   const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
   gl.texStorage2D(gl.TEXTURE_2D, 1, gl.DEPTH_COMPONENT32F, 4096, 4096);
   for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_COMPARE_MODE, gl.COMPARE_REF_TO_TEXTURE], [gl.TEXTURE_COMPARE_FUNC, gl.LEQUAL], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
@@ -153,7 +169,14 @@ function render() {
   const shown = items.filter((e) => e.visible);
   const drawAll = (U, withGround) => {
     for (const e of shown) { const m = e.lods[Math.min(view.lod, e.lods.length - 1)]; gl.uniform3fv(U.uOff, e.off); if (U.uGround) gl.uniform1f(U.uGround, 0); gl.bindVertexArray(m.vao); gl.drawElements(gl.TRIANGLES, m.count, m.type, 0); }
-    if (withGround) { gl.uniform3fv(U.uOff, [0, 0, 0]); gl.uniform1f(U.uGround, 1); gl.bindVertexArray(ground.vao); gl.drawElements(gl.TRIANGLES, ground.count, ground.type, 0); }
+    if (!withGround) return;
+    const sea = view.cat === 'waterfront'; // water level y=0, sandy bed below
+    gl.uniform3fv(U.uOff, [0, 0, sea ? -2.6 : 0]); gl.uniform1f(U.uGround, sea ? 3 : 1); gl.bindVertexArray(ground.vao); gl.drawElements(gl.TRIANGLES, ground.count, ground.type, 0);
+    if (sea) {
+      gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.uniform3fv(U.uOff, [0, 0, 0]); gl.uniform1f(U.uGround, 2); gl.drawElements(gl.TRIANGLES, ground.count, ground.type, 0);
+      gl.disable(gl.BLEND);
+    }
   };
   gl.enable(gl.DEPTH_TEST); gl.disable(gl.CULL_FACE);
   gl.bindFramebuffer(gl.FRAMEBUFFER, shadow.fb); gl.viewport(0, 0, 4096, 4096); gl.clear(gl.DEPTH_BUFFER_BIT);

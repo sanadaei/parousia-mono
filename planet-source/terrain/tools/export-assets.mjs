@@ -10,7 +10,7 @@ import { writeGlb } from '../assets/glb.mjs';
 const dir = join(outDir, 'assets');
 mkdirSync(dir, { recursive: true });
 const STYLES = ['timber', 'stone', 'mediterranean', 'nordic'];
-const sources = [['vegetation', 'VEGETATION'], ['buildings', 'BUILDINGS'], ['props', 'PROPS']];
+const sources = [['vegetation', 'VEGETATION'], ['buildings', 'BUILDINGS'], ['props', 'PROPS'], ['landmarks', 'LANDMARKS'], ['waterfront', 'WATERFRONT'], ['crops', 'CROPS'], ['roads', 'ROADS']];
 
 const catalog = [];
 for (const [category, key] of sources) {

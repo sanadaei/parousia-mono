@@ -37,7 +37,11 @@
 | 建物 `buildings.mjs` | 小さな家、農家、納屋、町家（連棟用）、教会、倉庫、井戸 ×4様式（木骨、石、地中海、北欧） | T4 村・町 | 初版 |
 | 橋 `buildings.mjs` | 石のアーチ橋、木の桁橋 | T4 道路の渡河 | 初版 |
 | 小物 `props.mjs` | 岩、崖錐の石、木の柵、石垣、道標 | T1 岩場、T4 農地の区画・道 | 初版 |
-| 未着手 | 雲、畑の作物、道路の路面（地形への貼り付け）、港・舟、城壁・塔、風車・水車 | T3/T4 | — |
+| 目印 `landmarks.mjs` | 城壁、壁の塔（円・角）、門楼、風車（塔型・柱型）、水車小屋 | T4 町・村 | 初版 |
+| 水辺 `waterfront.mjs` | 桟橋、石の岸壁、手漕ぎ舟、漁船、コグ船（水面 y=0） | T4 港 | 初版 |
+| 作物 `crops.mjs` | 麦畑、野菜畑、ぶどう畑（区画タイル、+X方向の畝）、干し草の山、ロール | T3/T4 農地 | 初版 |
+| 道路 `roads.mjs` | `roadRibbon(path, { kind, ground })`: 轍の農道・砂利道・石畳の街道。中心線は地面を道に沿ってならし、外縁で地面へなじませる | T4 道路網 | 初版。側溝は地形の下に隠れる（地形の切り盛りはT4の編集層） |
+| 雲 `render/look.mjs` | 積雲の層（高度約2km、`clouds=0..1`） | 表示 | 初版 |
 
 - 確認方法: `node terrain/tools/export-assets.mjs` → `node terrain/tools/serve.mjs` → `http://127.0.0.1:8787/preview/gallery.html`（`?cat=vegetation` など）。スクリーンショットは `node terrain/tools/shoot-page.mjs out.png 'preview/gallery.html?cat=props'`。
 - 表示の共通部分は `render/look.mjs`（空・太陽光・空気遠近・トーンマップ）。地形プレビューとギャラリーで同じものを使う。
